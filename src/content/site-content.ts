@@ -46,11 +46,11 @@ export const heroSlides = [
         headline: "Deliver More With the Same Cost",
         highlightedWords: ["More", "Same Cost"],
         subheadline:
-            "AI is compressing timelines, improving quality, and creating real-time visibility with proactive operations. At Hyniva, we engineer delivery models that leverage AI to deliver more with high quality and measurable impact.",
+            "At Hyniva, we engineer AI-powered delivery models that accelerate timelines while delivering higher quality and measurable impact.",
         stats: [
             { value: "50%", label: "Less Planning Time" },
+            { value: "40%", label: "Quicker Delivery" },
             { value: "30%", label: "Faster POC" },
-            { value: "150+", label: "Apps Delivered" },
         ],
     },
     {
@@ -58,11 +58,11 @@ export const heroSlides = [
         headline: "Build in Weeks, Not Months",
         highlightedWords: ["Weeks", "Months"],
         subheadline:
-            "From legacy modernization to AI-powered products — Hyniva helps financial institutions, insurers, and enterprises build faster, operate smarter, and grow with confidence.",
+            "From legacy modernization to AI-powered products, Hyniva helps organizations build faster, operate smarter, and scale with confidence.",
         stats: [
-            { value: "3,200+", label: "Man-Years Expertise" },
-            { value: "25+", label: "Happy Clients" },
-            { value: "15", label: "Years Partnerships" },
+            { value: "70%", label: "Faster Product Launch" },
+            { value: "50%", label: "Lower Cost of Ownership" },
+            { value: "30+", label: "Happy Clients" },
         ],
     },
     {
@@ -70,10 +70,10 @@ export const heroSlides = [
         headline: "Your AI-Powered Delivery Partner",
         highlightedWords: ["AI-Powered"],
         subheadline:
-            "Our team is already delivering higher productivity, improved quality — eliminating manual QA and business analyst roles through AI-first engineering. We are moving from effort-based billing to outcome-driven shared models.",
+            "Our AI-first engineering drives higher productivity and quality while shifting delivery from effort-based to outcome-driven models.",
         stats: [
-            { value: "20-30%", label: "Productivity Boost" },
-            { value: "ISO", label: "27001 Certified" },
+            { value: "20–30%", label: "Productivity Increase" },
+            { value: "45%", label: "Reduction in Manual Effort" },
             { value: "50+", label: "Cloud & AI Experts" },
         ],
     },
@@ -102,45 +102,39 @@ export const trustContent = {
 
 // ── Challenges ───────────────────────────────────────────────────────────────
 export const challengesContent = {
-    label: "Common Challenges",
-    headline: "Are You Facing These Challenges?",
-    sub: "Enterprises come to us when they've outgrown their current tech, are stuck in legacy systems, or need to move faster than their in-house team can manage.",
+    label: "",
+    headline: "",
+    sub: "",
     challenges: [
         {
             icon: "Construction",
-            title: "Long Setup & Ramp-Up",
+            title: "Slow Kickoffs",
             description:
-                "Weeks of onboarding, environment setup, and team alignment before any code ships. Overcome long setup times with our pre-configured environments, ready in days.",
+                "Start development faster with pre-configured environments eliminating lengthy setup and getting teams building in days.",
         },
         {
             icon: "Clock",
-            title: "Tight Deadlines, Missed Milestones",
+            title: "Missed Milestones",
             description:
-                "Release cycles that stretch and stakeholders that lose confidence. Beat the clock by shortening development stages with our pre-built components and AI-accelerated workflows.",
+                "Stay on schedule with AI-accelerated workflows shortening development cycles and keeping releases on track.",
         },
         {
             icon: "DollarSign",
-            title: "High In-House Costs",
+            title: "Rising Engineering Costs",
             description:
-                "Full-time hires, benefits, tooling, and management overhead eating into ROI. Lower your expenses with our expert team, delivering 2-3x the efficiency of in-house staff.",
+                "Reduce operational costs with expert teams and efficient delivery models outperforming in-house builds.",
         },
         {
             icon: "Scale",
-            title: "Inconsistent Quality & Practices",
+            title: "Growing Technical Debt",
             description:
-                "Different teams, different standards — fragmented codebases and tech debt. Standardize your team's output with our established documentation library and proven workflows.",
+                "Standardize development with proven frameworks reducing fragmented codebases and inconsistent practices.",
         },
         {
             icon: "Brain",
             title: "Untapped AI Potential",
             description:
-                "Your data exists but isn't working for you. We build AI agents, analytics platforms, and data lakes that turn raw data into revenue and eliminate manual processes.",
-        },
-        {
-            icon: "ShieldAlert",
-            title: "Compliance & Security Risk",
-            description:
-                "In regulated industries, the stakes are high. We embed security, RBAC, and audit trails into every platform — ISO 27001:2013 certified.",
+                "Unlock the value of your data with AI platforms turning insights into automated business outcomes.",
         },
     ],
 };
@@ -168,8 +162,8 @@ export const servicesContent = {
             num: "01",
             title: "Digital Transformation",
             description:
-                "Transform how your organization operates — redesigning processes, data flows, and digital channels for a modern, scalable enterprise.",
-            tags: ["UI/UX Redesign", "Multi-Channel", "Data Management", "Process Reengineering"],
+                "We rebuild how enterprises operate — modernising legacy systems, reimagining customer experiences, and delivering change at a speed most firms only promise.",
+            tags: ["Legacy System Modernisation", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
             image: "/images/digital-transformation.png",
             href: "/digital-transformation",
         },
@@ -177,8 +171,8 @@ export const servicesContent = {
             num: "02",
             title: "Enterprise Platforms",
             description:
-                "Get more value from Salesforce, Microsoft Dynamics, Azure, and AWS. We implement, customize, and integrate the platforms your business runs on.",
-            tags: ["Salesforce FSC", "MS Dynamics 365", "Azure / AWS / GCP", "Power Platform"],
+                "Deep expertise across the platforms enterprises run on — implemented faster and with less friction through our proprietary 8×8×8 delivery model.",
+            tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
             image: "/images/enterprise-platforms.png",
             href: "/salesforce",
         },
@@ -186,8 +180,8 @@ export const servicesContent = {
             num: "03",
             title: "Product Engineering",
             description:
-                "From concept to production — we design, build, test, and support technology products that deliver measurable business outcomes at scale.",
-            tags: ["Full-Stack Dev", "Mobile (iOS/Android)", "QA & Testing", "DevOps"],
+                "From mobile apps to AI agents — we design, build, test, and support technology products across the full stack, with end-to-end ownership from brief to deployment.",
+            tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernisation", "QA & Test Automation", "DevOps"],
             image: "/images/product-engineering.png",
             href: "/product-dev",
         },
@@ -195,8 +189,8 @@ export const servicesContent = {
             num: "04",
             title: "Strategy Consulting",
             description:
-                "Align technology investment with business goals. We run discovery workshops, technology assessments, and design delivery programs that actually ship.",
-            tags: ["Tech Roadmap", "Program Design", "TCO Analysis", "Risk & Compliance"],
+                "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
+            tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
             image: "/images/strategy-consulting.png",
             href: "/it-strategy",
         },
