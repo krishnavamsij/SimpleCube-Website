@@ -14,11 +14,14 @@ export function Footer() {
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
                     {/* Brand */}
                     <div>
-                        <Link href="/" className="inline-flex items-center gap-2.5">
-                            <Image src="/logo.png" alt="Hyniva" width={32} height={32} className="rounded-lg" />
-                            <span className="text-lg font-bold tracking-tight text-white" style={{ fontFamily: "var(--font-bricolage)" }}>
-                                Hyniva
-                            </span>
+                        <Link href="/" className="inline-flex items-center">
+                            <Image
+                                src="/logos/Hyniva logo for light background.svg"
+                                alt="Hyniva"
+                                width={140}
+                                height={40}
+                                className="h-8 w-auto brightness-0 invert"
+                            />
                         </Link>
                         <p className="mt-4 max-w-xs text-sm leading-relaxed">
                             {description}

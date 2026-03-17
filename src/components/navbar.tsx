@@ -39,15 +39,19 @@ export function Navbar() {
             )}
         >
             <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
-                {/* Logo — always white on transparent, adapts on scroll */}
-                <Link href="/" className="flex items-center gap-2.5">
-                    <Image src="/logo.png" alt="Hyniva" width={32} height={32} className="rounded-lg" />
-                    <span className={cn(
-                        "text-lg font-bold tracking-tight transition-colors",
-                        scrolled ? "text-foreground" : "text-white"
-                    )} style={{ fontFamily: "var(--font-bricolage)" }}>
-                        Hyniva
-                    </span>
+                {/* Logo — white (inverted) on dark hero, full brand color when scrolled */}
+                <Link href="/" className="flex items-center">
+                    <Image
+                        src="/logos/Hyniva logo for light background.svg"
+                        alt="Hyniva"
+                        width={140}
+                        height={40}
+                        className={cn(
+                            "h-8 w-auto transition-all duration-300",
+                            scrolled ? "" : "brightness-0 invert"
+                        )}
+                        priority
+                    />
                 </Link>
 
                 {/* Desktop nav */}

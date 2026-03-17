@@ -97,6 +97,17 @@ export const trustContent = {
         { name: "Exeter Finance", src: "/logos/exeter-finance.jpeg" },
         { name: "Bank of Guam", src: "/logos/bank-of-guam.svg" },
         { name: "Claim Assist", src: "/logos/claim-assist.webp" },
+        { name: "Axos Bank", src: "/logos/Axos Bank.svg" },
+        { name: "Dover Federal", src: "/logos/Dover Federal .svg" },
+        { name: "GESA Credit Union", src: "/logos/GESA Credit Union.svg" },
+        { name: "Gulf Winds", src: "/logos/Gulf Winds.svg" },
+        { name: "Service Credit Union", src: "/logos/Service Credit Union.svg" },
+        { name: "Sunset Science Park", src: "/logos/Sunset Science park.svg" },
+        { name: "TCM Bank", src: "/logos/TCM Bank.svg" },
+        { name: "Thomaston Savings Bank", src: "/logos/Thomaston Savings Bank.svg" },
+        { name: "Tresl", src: "/logos/Tresl.svg" },
+        { name: "Veteran", src: "/logos/Veteran.svg" },
+        { name: "WECU", src: "/logos/WECU.svg" },
     ],
 };
 

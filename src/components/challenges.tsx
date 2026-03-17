@@ -29,15 +29,15 @@ export function Challenges() {
         <section className="bg-white py-14 sm:py-18">
             <div className="mx-auto max-w-[1200px] px-6">
                 {/* Section header — Accenture-style label above cards */}
-                <motion.p
+                <motion.h2
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="text-sm font-semibold text-slate-500"
+                    className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
                 >
-                    Learn more about the challenges we solve:
-                </motion.p>
+                    Learn more about the challenges we solve
+                </motion.h2>
 
                 {/* 5-column horizontal card grid */}
                 <motion.div
