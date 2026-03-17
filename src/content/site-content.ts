@@ -153,7 +153,7 @@ export const challengesContent = {
 // ── Approach / Metrics ───────────────────────────────────────────────────────
 export const approachContent = {
     label: "The Hyniva Approach",
-    headline: "Our AI-Accelerated Delivery Model",
+    headline: "The Digital Factory Model",
     sub: "We've distilled 20+ years of enterprise delivery expertise into AI-accelerated workflows, making project setup simpler and delivery 30-50% faster.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
