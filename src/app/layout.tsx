@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
     images: [
       {
-        url: "https://www.hyniva.com/logos/Hyniva logo for light background.svg",
+        url: "https://www.hyniva.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Hyniva — Simplify Enterprise",
+        alt: "Hyniva — Your Strategic Tech Partner",
       },
     ],
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hyniva — Your Strategic Tech Partner",
     description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
-    images: ["https://www.hyniva.com/logos/Hyniva logo for light background.svg"],
+    images: ["https://www.hyniva.com/og-image.png"],
   },
 };
 
