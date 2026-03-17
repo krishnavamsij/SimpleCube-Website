@@ -1,84 +1,59 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowUpRightIcon, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 
-// Image clusters per slide — live GIFs from Giphy, 3 per slide
-const heroImageClusters = [
-    // Slide 1: AI Delivery & Automation
+// 3 fixed GIFs — always on RHS, never change per slide
+const heroGifs = [
+    { src: "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", alt: "Data Visualization Dashboard" },
+    { src: "https://media.giphy.com/media/h8RDGogSns9wpOJFzR/giphy.gif", alt: "Enterprise Interface" },
+    { src: "https://media.giphy.com/media/lc2mcHJweOMR1OG2s1/giphy.gif", alt: "Abstract Tech Interface" },
+];
+
+// Layout positions: highlighted = front/large, others = smaller/offset behind
+const layouts = [
+    // Slide 0: GIF[0] front
     [
-        { src: "https://media.giphy.com/media/ui1VQlTo0FvHrdwJD7/giphy.gif", alt: "AI Neural Mesh" },
-        { src: "https://media.giphy.com/media/26BRGoqbUQvk8nwTC/giphy.gif", alt: "Data Streams" },
-        { src: "https://media.giphy.com/media/fXyfpPeT5y9iTbagj5/giphy.gif", alt: "Futuristic Tech" },
+        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
+        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 60,   x: -40, width: "62%", position: "absolute bottom-4 left-0" },
+        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: 30,  width: "55%", position: "absolute top-4 left-12" },
     ],
-    // Slide 2: Enterprise Software & Dashboards
+    // Slide 1: GIF[1] front
     [
-        { src: "https://media.giphy.com/media/h8RDGogSns9wpOJFzR/giphy.gif", alt: "Enterprise Interface" },
-        { src: "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", alt: "Data Visualization" },
-        { src: "https://media.giphy.com/media/lc2mcHJweOMR1OG2s1/giphy.gif", alt: "Abstract Interface" },
+        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: -20, width: "55%", position: "absolute top-4 right-4" },
+        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
+        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 60,   x: -30, width: "62%", position: "absolute bottom-4 left-0" },
     ],
-    // Slide 3: Digital Transformation & Cloud
+    // Slide 2: GIF[2] front
     [
-        { src: "https://media.giphy.com/media/cQhmYBg9qPaLYdqajA/giphy.gif", alt: "Global Network" },
-        { src: "https://media.giphy.com/media/oOKOGJ0GEjra1yEVKt/giphy.gif", alt: "Connected Data" },
-        { src: "https://media.giphy.com/media/26FPOFusQUOKpnXTG/giphy.gif", alt: "Tech Circuit" },
+        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 50,   x: 20,  width: "62%", position: "absolute bottom-4 right-0" },
+        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: -20, width: "55%", position: "absolute top-4 left-0" },
+        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
     ],
 ];
 
-function RHSImageCluster({ images }: { images: { src: string; alt: string }[] }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-
-    // Each image zooms at a different rate — layered floating depth effect
-    const scale0 = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 1.12]);
-    const scale1 = useTransform(scrollYProgress, [0, 0.5, 1], [1.10, 1, 0.88]);
-    const scale2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 1.06]);
-    const y0 = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-    const y1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [-20, 50]);
-    const scales = [scale0, scale1, scale2];
-    const ys = [y0, y1, y2];
-
-    // Offset classes: top card upper-right, middle card center-left, bottom card lower-right
-    const offsetClasses = [
-        "mr-0 ml-auto w-[88%]",         // top: slightly right
-        "ml-6 w-[82%] -mt-6",           // middle: offset left, overlaps top
-        "ml-auto mr-4 w-[76%] -mt-4",    // bottom: offset right, overlaps middle
-    ];
-
+function GifFrame({ src, alt, isHighlighted }: { src: string; alt: string; isHighlighted: boolean }) {
     return (
-        <div ref={ref} className="relative flex h-full items-center justify-center">
-            {/* Decorative glow blobs */}
-            <div className="pointer-events-none absolute -top-24 right-8 h-80 w-80 rounded-full bg-blue-600/25 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 right-10 h-60 w-60 rounded-full bg-indigo-600/20 blur-3xl" />
-            <div className="pointer-events-none absolute top-1/2 left-4 h-40 w-40 rounded-full bg-cyan-500/10 blur-2xl" />
-
-            <div className="relative w-full px-4">
-                {images.map((img, i) => (
-                    <motion.div
-                        key={img.src + i}
-                        style={{ scale: scales[i], y: ys[i] }}
-                        className={`relative overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ${offsetClasses[i]}`}
-                    >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                            src={img.src}
-                            alt={img.alt}
-                            className="aspect-[3/2] w-full object-cover"
-                        />
-                        {/* Gradient overlay for depth */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
-                        {/* Subtle border glow */}
-                        <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
-                    </motion.div>
-                ))}
-            </div>
+        <div
+            className={`overflow-hidden rounded-2xl transition-all duration-500 ${
+                isHighlighted
+                    ? "shadow-[0_0_40px_rgba(0,212,170,0.25),0_20px_60px_rgba(0,0,0,0.6)] ring-2 ring-[#00D4AA]/60"
+                    : "shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-white/10"
+            }`}
+        >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+                src={src}
+                alt={alt}
+                className="aspect-[4/3] w-full object-cover"
+            />
+            {/* Bottom depth gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
         </div>
     );
 }
@@ -101,25 +76,22 @@ export function HeroCarousel() {
     }, [nextSlide]);
 
     const slide = slides[currentSlide];
-    const images = heroImageClusters[currentSlide % heroImageClusters.length];
+    const activeLayout = layouts[currentSlide % layouts.length];
 
     return (
         <section className="relative min-h-screen overflow-hidden bg-[#030b1e]">
-            {/* ── Deep dark gradient background (richer navy-black) ─── */}
+            {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            {/* Radial glow on RHS for the image cluster area */}
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
-            {/* Subtle animated noise texture overlay */}
             <div className="absolute inset-0 opacity-[0.025]" style={{
                 backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
             }} />
-            {/* Left-side gradient so LHS text is always legible */}
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
-            {/* ── Two-column layout ────────────────────────────────────── */}
+            {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1280px] flex-col items-center px-6 lg:flex-row lg:gap-0">
 
-                {/* ── LHS: Content (50% width) ─────────────────────────── */}
+                {/* LHS: Text slides with AnimatePresence */}
                 <div className="flex w-full flex-col justify-center pb-28 pt-32 lg:w-1/2 lg:pb-24 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -146,13 +118,10 @@ export function HeroCarousel() {
                                     return (
                                         <span key={i}>
                                             {isHighlighted ? (
-                                                <span className="text-yellow-300 drop-shadow-sm">
-                                                    {word}
-                                                </span>
+                                                <span className="text-yellow-300 drop-shadow-sm">{word}</span>
                                             ) : (
                                                 word
-                                            )}
-                                            {" "}
+                                            )}{" "}
                                         </span>
                                     );
                                 })}
@@ -181,18 +150,11 @@ export function HeroCarousel() {
                             </motion.div>
 
                             {/* Stats row — commented out
-                            <motion.div
-                                variants={fadeInUp}
-                                className="mt-14 flex flex-wrap gap-8 border-t border-white/15 pt-8 sm:gap-10"
-                            >
+                            <motion.div variants={fadeInUp} className="mt-14 flex flex-wrap gap-8 border-t border-white/15 pt-8 sm:gap-10">
                                 {slide.stats.map((stat) => (
                                     <div key={stat.label}>
-                                        <span className="block text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                                            {stat.value}
-                                        </span>
-                                        <span className="mt-1 block text-xs font-medium text-slate-400 sm:text-sm">
-                                            {stat.label}
-                                        </span>
+                                        <span className="block text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{stat.value}</span>
+                                        <span className="mt-1 block text-xs font-medium text-slate-400 sm:text-sm">{stat.label}</span>
                                     </div>
                                 ))}
                             </motion.div>
@@ -201,20 +163,40 @@ export function HeroCarousel() {
                     </AnimatePresence>
                 </div>
 
-                {/* ── RHS: Image Cluster (50% width) ──────────────────── */}
+                {/* RHS: Fixed 3 GIFs, only highlight shifts per slide */}
                 <div className="hidden w-full lg:flex lg:w-1/2 lg:min-h-screen lg:items-center">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={`images-${currentSlide}`}
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="w-full"
-                        >
-                            <RHSImageCluster images={images} />
-                        </motion.div>
-                    </AnimatePresence>
+                    <div className="relative w-full" style={{ height: "520px" }}>
+                        {/* Decorative glow blobs */}
+                        <div className="pointer-events-none absolute -top-16 right-8 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl" />
+                        <div className="pointer-events-none absolute bottom-0 right-10 h-56 w-56 rounded-full bg-[#00D4AA]/10 blur-3xl" />
+
+                        {heroGifs.map((gif, i) => {
+                            const layout = activeLayout[i];
+                            const isHighlighted = layout.zIndex === 30;
+                            return (
+                                <motion.div
+                                    key={gif.src}
+                                    animate={{
+                                        scale: layout.scale,
+                                        opacity: layout.opacity,
+                                        zIndex: layout.zIndex,
+                                    }}
+                                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                                    className="absolute"
+                                    style={{
+                                        width: layout.width,
+                                        // Position each card
+                                        ...(i === 0 && { right: 0, top: "50%", transform: "translateY(-50%)" }),
+                                        ...(i === 1 && { bottom: "20px", left: "10px" }),
+                                        ...(i === 2 && { top: "20px", left: "30px" }),
+                                        zIndex: layout.zIndex,
+                                    }}
+                                >
+                                    <GifFrame src={gif.src} alt={gif.alt} isHighlighted={isHighlighted} />
+                                </motion.div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
 
@@ -242,8 +224,9 @@ export function HeroCarousel() {
                     <button
                         key={i}
                         onClick={() => setCurrentSlide(i)}
-                        className={`h-2 rounded-full transition-all duration-500 ${i === currentSlide ? "w-8 bg-white" : "w-2 bg-white/35"
-                            }`}
+                        className={`h-2 rounded-full transition-all duration-500 ${
+                            i === currentSlide ? "w-8 bg-white" : "w-2 bg-white/35"
+                        }`}
                         aria-label={`Go to slide ${i + 1}`}
                     />
                 ))}
