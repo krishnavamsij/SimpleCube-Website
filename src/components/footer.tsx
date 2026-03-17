@@ -20,7 +20,7 @@ export function Footer() {
                                 alt="Hyniva"
                                 width={140}
                                 height={40}
-                                className="h-8 w-auto brightness-0 invert"
+                                className="h-12 w-auto brightness-0 invert"
                             />
                         </Link>
                         <p className="mt-4 max-w-xs text-sm leading-relaxed">

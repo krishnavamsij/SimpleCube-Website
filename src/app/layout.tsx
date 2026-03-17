@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     default: "Hyniva — Your Strategic Tech Partner | AI, Cloud, Digital Transformation",
   },
   description: "Experience the Hyniva Difference: direct access to expertise, personalized attention, and transparent value for your technology needs.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -31,6 +38,20 @@ export const metadata: Metadata = {
     siteName: "Hyniva",
     title: "Hyniva — Your Strategic Tech Partner",
     description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
+    images: [
+      {
+        url: "https://www.hyniva.com/logos/Hyniva logo for light background.svg",
+        width: 1200,
+        height: 630,
+        alt: "Hyniva — Simplify Enterprise",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hyniva — Your Strategic Tech Partner",
+    description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
+    images: ["https://www.hyniva.com/logos/Hyniva logo for light background.svg"],
   },
 };
 

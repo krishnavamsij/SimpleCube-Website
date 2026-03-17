@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="teal">
+      <stop offset="0%" stop-color="#162260"/>
+      <stop offset="50%" stop-color="#008080"/>
+      <stop offset="100%" stop-color="#00C0C1"/>
+    </linearGradient>
+  </defs>
+  <!-- Arc lines (sound waves / motion lines) -->
+  <path d="M6 10 C6 10 22 27 6 48" stroke="#A1A7D0" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M11 10 C11 10 27 27 11 48" stroke="#535DAD" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M16 10 C16 10 32 27 16 48" stroke="#3F4C8E" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M21 10 C21 10 37 27 21 48" stroke="#242F6D" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M26 10 C26 10 42 27 26 48" stroke="#162260" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <!-- Outer chevron (teal gradient) -->
+  <path d="M52 10 C44 18 41 24 41 32 C41 40 44 46 52 54 L34 54 C28 48 24 41 24 32 C24 23 28 16 34 10 Z" fill="url(#teal)"/>
+  <!-- Inner chevron (navy) -->
+  <path d="M40 10 C33 18 30 24 30 32 C30 40 33 46 40 54 L22 54 C16 48 12 41 12 32 C12 23 16 16 22 10 Z" fill="#162260"/>
+</svg>
