@@ -64,9 +64,7 @@ export function Challenges() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-base font-bold text-slate-800">
-                                    {challenge.title}
-                                </h3>
+                                <h3 className="text-sm font-bold text-slate-800 leading-snug">{challenge.title}</h3>
 
                                 {/* Description */}
                                 <p className="mt-3 text-sm leading-relaxed text-slate-500">
