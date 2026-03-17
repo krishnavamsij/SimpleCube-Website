@@ -79,7 +79,7 @@ export function ProductsShowcase() {
             <div className="pointer-events-none absolute -top-40 right-1/3 h-[500px] w-[500px] rounded-full bg-[#1F35A4]/20 blur-[120px]" />
             <div className="pointer-events-none absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-[#00D4AA]/10 blur-[100px]" />
 
-            <div className="relative z-10 mx-auto max-w-[1200px] px-6">
+            <div className="relative z-10 mx-auto max-w-[1400px] px-6">
                 {/* Header row */}
                 <motion.div
                     variants={scrollReveal}

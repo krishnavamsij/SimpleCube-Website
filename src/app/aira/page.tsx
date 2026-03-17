@@ -151,7 +151,7 @@ function AiraHero() {
             <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/50 via-transparent to-transparent" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1200px] flex-col justify-center px-6 pt-24 pb-20">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-6 pt-24 pb-20">
                 <motion.div variants={staggerContainer} initial="hidden" animate="visible">
                     <motion.span
                         variants={fadeInUp}
@@ -216,7 +216,7 @@ function AiraIntro() {
 function AiraDifferentiators() {
     return (
         <section className="bg-secondary py-20 sm:py-28">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">Why AIRA</p>
                     <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
@@ -256,7 +256,7 @@ function AiraDifferentiators() {
 function AiraCapabilities() {
     return (
         <section id="capabilities" className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 py-20 sm:py-28">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-cyan-400">Platform</p>
                     <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -334,7 +334,7 @@ function CeoVision() {
 function EnterpriseImpact() {
     return (
         <section className="bg-secondary py-20 sm:py-28">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">Results</p>
                     <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">

@@ -10,7 +10,7 @@ export function Footer() {
 
     return (
         <footer className="border-t border-slate-800 bg-slate-950 text-slate-400">
-            <div className="mx-auto max-w-[1200px] px-6 py-16">
+            <div className="mx-auto max-w-[1400px] px-6 py-16">
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
                     {/* Brand */}
                     <div>

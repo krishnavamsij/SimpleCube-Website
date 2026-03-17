@@ -86,7 +86,7 @@ export function Approach() {
             {/* Radial glow bottom-left */}
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
 
-            <div className="relative z-10 mx-auto max-w-[1200px] px-6">
+            <div className="relative z-10 mx-auto max-w-[1400px] px-6">
                 {/* ── Two-column layout ── */}
                 <div className="flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
 

@@ -9,7 +9,7 @@ export function ProcessTimeline() {
 
     return (
         <section className="bg-background py-20 sm:py-28">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 {/* Header */}
                 <motion.div
                     variants={scrollReveal}

@@ -18,7 +18,7 @@ export function TrustBar() {
             viewport={viewportOnce}
             className="border-y border-slate-200 bg-white py-10 sm:py-12"
         >
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                     {label}
                 </p>

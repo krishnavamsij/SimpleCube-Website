@@ -15,7 +15,7 @@ export function Services() {
 
     return (
         <section className="bg-white py-20 sm:py-28">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div
                     variants={scrollReveal}

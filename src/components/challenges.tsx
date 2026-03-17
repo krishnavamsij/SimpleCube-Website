@@ -27,7 +27,7 @@ export function Challenges() {
 
     return (
         <section className="bg-white py-14 sm:py-18">
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1400px] px-6">
                 {/* Section header — Accenture-style label above cards */}
                 <motion.h2
                     variants={scrollReveal}
@@ -45,7 +45,7 @@ export function Challenges() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+                    className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5"
                 >
                     {challenges.map((challenge) => {
                         const Icon = iconMap[challenge.icon];
@@ -53,23 +53,23 @@ export function Challenges() {
                             <motion.div
                                 key={challenge.title}
                                 variants={scrollReveal}
-                                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200"
+                                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200"
                             >
                                 {/* Top accent bar on hover */}
                                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                                 {/* Icon */}
-                                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50">
-                                    {Icon && <Icon className="h-5 w-5 text-blue-600" />}
+                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50">
+                                    {Icon && <Icon className="h-7 w-7 text-blue-600" />}
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-sm font-bold text-slate-800">
+                                <h3 className="text-base font-bold text-slate-800">
                                     {challenge.title}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                                <p className="mt-3 text-sm leading-relaxed text-slate-500">
                                     {challenge.description}
                                 </p>
                             </motion.div>

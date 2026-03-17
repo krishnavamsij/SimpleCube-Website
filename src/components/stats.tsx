@@ -14,7 +14,7 @@ export function Stats() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
-                className="mx-auto grid max-w-[1200px] gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4"
+                className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4"
             >
                 {stats.map((stat) => (
                     <motion.div
