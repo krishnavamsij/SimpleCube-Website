@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 const heroGifs = [
     { src: "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", alt: "Data Visualization Dashboard" },
     { src: "https://media.giphy.com/media/h8RDGogSns9wpOJFzR/giphy.gif", alt: "Enterprise Interface" },
-    { src: "https://media.giphy.com/media/lc2mcHJweOMR1OG2s1/giphy.gif", alt: "Abstract Tech Interface" },
+    { src: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB2Zm5kcWgwNml2cXM3ajdocGFlN211czgxdmMyc2JxNGg5NW94dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nNOAPjUdo4mpZFkDf8/giphy.gif", alt: "Tech Dashboard" },
 ];
 
 // Layout positions: highlighted = front/large, others = smaller/offset behind
