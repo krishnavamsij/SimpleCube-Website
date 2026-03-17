@@ -9,22 +9,25 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 
-// Image clusters per slide — each slide gets 3 stacked/offset images on the RHS
+// Image clusters per slide — live GIFs from Giphy, 3 per slide
 const heroImageClusters = [
+    // Slide 1: AI Delivery & Automation
     [
-        { src: "/images/hero-bg-1.png", alt: "AI-Powered Delivery" },
-        { src: "/images/enterprise-platforms.png", alt: "Enterprise Engineering" },
-        { src: "/images/product-engineering.png", alt: "Product Engineering" },
+        { src: "https://media.giphy.com/media/ui1VQlTo0FvHrdwJD7/giphy.gif", alt: "AI Neural Mesh" },
+        { src: "https://media.giphy.com/media/26BRGoqbUQvk8nwTC/giphy.gif", alt: "Data Streams" },
+        { src: "https://media.giphy.com/media/fXyfpPeT5y9iTbagj5/giphy.gif", alt: "Futuristic Tech" },
     ],
+    // Slide 2: Enterprise Software & Dashboards
     [
-        { src: "/images/digital-transformation.png", alt: "Digital Transformation" },
-        { src: "/images/product-engineering.png", alt: "Product Engineering" },
-        { src: "/images/strategy-consulting.png", alt: "Strategy & Consulting" },
+        { src: "https://media.giphy.com/media/h8RDGogSns9wpOJFzR/giphy.gif", alt: "Enterprise Interface" },
+        { src: "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", alt: "Data Visualization" },
+        { src: "https://media.giphy.com/media/lc2mcHJweOMR1OG2s1/giphy.gif", alt: "Abstract Interface" },
     ],
+    // Slide 3: Digital Transformation & Cloud
     [
-        { src: "/images/strategy-consulting.png", alt: "Strategy & Consulting" },
-        { src: "/images/hero-bg-1.png", alt: "AI Delivery" },
-        { src: "/images/enterprise-platforms.png", alt: "Enterprise Platforms" },
+        { src: "https://media.giphy.com/media/cQhmYBg9qPaLYdqajA/giphy.gif", alt: "Global Network" },
+        { src: "https://media.giphy.com/media/oOKOGJ0GEjra1yEVKt/giphy.gif", alt: "Connected Data" },
+        { src: "https://media.giphy.com/media/26FPOFusQUOKpnXTG/giphy.gif", alt: "Tech Circuit" },
     ],
 ];
 
@@ -63,13 +66,11 @@ function RHSImageCluster({ images }: { images: { src: string; alt: string }[] })
                         style={{ scale: scales[i], y: ys[i] }}
                         className={`relative overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ${offsetClasses[i]}`}
                     >
-                        <Image
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
                             src={img.src}
                             alt={img.alt}
-                            width={520}
-                            height={340}
                             className="aspect-[3/2] w-full object-cover"
-                            priority={i === 0}
                         />
                         {/* Gradient overlay for depth */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
@@ -179,7 +180,7 @@ export function HeroCarousel() {
                                 </Button>
                             </motion.div>
 
-                            {/* Stats row */}
+                            {/* Stats row — commented out
                             <motion.div
                                 variants={fadeInUp}
                                 className="mt-14 flex flex-wrap gap-8 border-t border-white/15 pt-8 sm:gap-10"
@@ -195,6 +196,7 @@ export function HeroCarousel() {
                                     </div>
                                 ))}
                             </motion.div>
+                            */}
                         </motion.div>
                     </AnimatePresence>
                 </div>

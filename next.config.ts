@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         hostname: "www.hyniva.com",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "media.giphy.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media4.giphy.com",
+        pathname: "/**",
+      },
     ],
   },
 };
