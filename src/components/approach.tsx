@@ -4,28 +4,18 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { approachContent } from "@/content/site-content";
-import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
 
-const roles = ["Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
+const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
 export function Approach() {
-    const { label, headline, sub, cta } = approachContent;
+    const { label, headline } = approachContent;
     const ref = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
     const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
     return (
-        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] py-14 sm:py-20">
-            {/* Grid overlay */}
-            <div
-                className="pointer-events-none absolute inset-0 opacity-[0.04]"
-                style={{
-                    backgroundImage:
-                        "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-                    backgroundSize: "60px 60px",
-                }}
-            />
+        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] pt-10 sm:pt-14 pb-10">
+
             <motion.div style={{ y: bgY }} className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
 
@@ -34,43 +24,60 @@ export function Approach() {
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="flex items-start justify-between gap-8 mb-3"
+                    className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-5"
                 >
-                    {/* Left */}
-                    <div className="flex-1">
-                        <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#00D4AA] mb-2.5">{label}</p>
-                        <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl">
+                    {/* Left: Headline & Callout */}
+                    <div className="flex-1 lg:max-w-2xl">
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#00D4AA] bg-[#00D4AA]/[0.08] border border-[#00D4AA]/25 rounded-full px-5 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#00D4AA] shadow-[0_0_8px_#00D4AA] animate-pulse" />
+                            {label}
+                        </div>
+                        <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl mb-6">
                             {headline}
                         </h2>
-                        <p className="mt-2 text-sm font-semibold text-white/70">
-                            Lean Engineering Approach.{" "}
-                            <span className="text-[#00D4AA]">Zero Handoff Friction.</span>
+                        {/* Left-aligned Callout Content (2 lines) */}
+                        <p className="text-[14px] font-medium leading-[1.7] text-white/70 whitespace-nowrap">
+                            The developer owns the full lifecycle — enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br />
+                            reducing overhead and increasing accountability at every stage.
                         </p>
                     </div>
-                    {/* Right — punch stat */}
-                    <div className="text-right pt-1 flex-shrink-0">
-                        <div className="text-[62px] font-black leading-none tracking-[-3px] text-white">
-                            40<span className="text-[#00D4AA] text-[46px]">%</span>
+
+                    {/* Right: Punch Stat (Top Aligned to Label) */}
+                    <div className="flex flex-col items-end text-right flex-shrink-0 mt-2 lg:mt-2">
+                        <div className="text-[72px] font-black leading-[0.85] tracking-[-3px] text-white">
+                            40<span className="text-[#00D4AA] text-[52px]">%</span>
                         </div>
-                        <div className="text-[13px] font-semibold text-white/40 mt-1 leading-snug">
+                        <div className="text-[14px] font-bold mt-3 leading-[1.3] text-white/70">
                             faster delivery<br />vs. traditional model
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Sub sentence */}
-                <motion.p
+                {/* ── Roles Eliminated Row (Moved directly above spheres) ── */}
+                <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="text-sm text-white/38 leading-[1.75] mb-16 max-w-2xl"
-                    style={{ color: "rgba(255,255,255,0.38)" }}
+                    className="mt-10 lg:mt-12 mb-8 flex flex-col items-center justify-center gap-4 pt-1"
                 >
-                    {sub}
-                </motion.p>
+                    <span className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-white/70 text-center">
+                        Roles you no longer need to staff
+                    </span>
+                    <div className="flex flex-wrap justify-center gap-2.5">
+                        {roles.map((role) => (
+                            <span
+                                key={role}
+                                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[12.5px] font-semibold text-white/90 shadow-sm"
+                            >
+                                <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-red-500/50 bg-red-500/20 text-[10px] font-black text-red-400 leading-none flex-shrink-0">✕</span>
+                                {role}
+                            </span>
+                        ))}
+                    </div>
+                </motion.div>
 
                 {/* ── Planet Wave SVG ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="w-full"
+                    className="w-full flex justify-center mt-20 lg:mt-32"
                 >
                     <style>{`
                         @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -160,8 +167,8 @@ export function Approach() {
                             <text x="88" y="36" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Discovery &amp; Planning</text>
                             <circle cx="88" cy="82" r="30" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="88" cy="90" rx="28" ry="5.5" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc1)"/>
-                            <text x="88" y="132" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">Developer captures</text>
-                            <text x="88" y="145" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">scope directly.</text>
+                            <text x="88" y="132" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer captures</text>
+                            <text x="88" y="145" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">scope directly.</text>
                         </g>
 
                         {/* ── Planet 2: Dev Project Planning (navy, medium, low) ── */}
@@ -169,8 +176,8 @@ export function Approach() {
                             <text x="272" y="129" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Dev Project Planning</text>
                             <circle cx="272" cy="195" r="50" fill="url(#hs2)" className="hs"/>
                             <ellipse cx="272" cy="206" rx="47" ry="9" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc2)"/>
-                            <text x="272" y="265" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">Developer writes</text>
-                            <text x="272" y="278" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">the user stories.</text>
+                            <text x="272" y="265" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer writes</text>
+                            <text x="272" y="278" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">the user stories.</text>
                         </g>
 
                         {/* ── Planet 3: Engineering Dev & Quality Automation (cyan, large, peak center) ── */}
@@ -178,8 +185,8 @@ export function Approach() {
                             <text x="500" y="-20" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
                             <circle cx="500" cy="68" r="78" fill="url(#hs3)" className="hs"/>
                             <ellipse cx="500" cy="82" rx="74" ry="14" fill="none" stroke="rgba(100,160,255,0.25)" strokeWidth="1.5" clipPath="url(#hc3)"/>
-                            <text x="500" y="166" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">One engineer owns scope,</text>
-                            <text x="500" y="179" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">code &amp; quality.</text>
+                            <text x="500" y="166" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">One engineer owns scope,</text>
+                            <text x="500" y="179" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">code &amp; quality.</text>
                         </g>
 
                         {/* ── Planet 4: Launch & Iterations (teal, medium, low) ── */}
@@ -187,8 +194,8 @@ export function Approach() {
                             <text x="728" y="162" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Launch &amp; Iterations</text>
                             <circle cx="728" cy="218" r="42" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="728" cy="228" rx="39" ry="7.5" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc4)"/>
-                            <text x="728" y="280" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">Same developer</text>
-                            <text x="728" y="293" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">drives every release.</text>
+                            <text x="728" y="280" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Same developer</text>
+                            <text x="728" y="293" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">drives every release.</text>
                         </g>
 
                         {/* ── Planet 5: Support & Product Evolution (navy, small, high) ── */}
@@ -196,40 +203,13 @@ export function Approach() {
                             <text x="922" y="86" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
                             <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs"/>
                             <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)"/>
-                            <text x="922" y="186" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">Product knowledge</text>
-                            <text x="922" y="199" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.35)">stays with the team.</text>
+                            <text x="922" y="186" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
+                            <text x="922" y="199" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
                         </g>
                     </svg>
                 </motion.div>
 
-                {/* ── Roles Eliminated Row ── */}
-                <motion.div
-                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/[0.07] pt-8"
-                >
-                    <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/28 whitespace-nowrap flex-shrink-0"
-                        style={{ color: "rgba(255,255,255,0.28)" }}>
-                        Roles you no longer need to staff
-                    </span>
-                    <div className="flex flex-wrap gap-2.5">
-                        {roles.map((role) => (
-                            <span
-                                key={role}
-                                className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[12.5px] font-semibold text-white/55"
-                                style={{ color: "rgba(255,255,255,0.55)" }}
-                            >
-                                <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-red-500/35 bg-red-500/15 text-[10px] font-black text-red-400 leading-none flex-shrink-0">✕</span>
-                                {role}
-                            </span>
-                        ))}
-                    </div>
-                    <Link
-                        href={cta.href}
-                        className="ml-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#00D4AA] to-[#00A8FF] px-6 py-2.5 text-sm font-bold text-[#030B3B] shadow-lg shadow-[#00D4AA]/20 transition-all hover:shadow-[#00D4AA]/40 hover:scale-[1.02] flex-shrink-0"
-                    >
-                        {cta.label} <ArrowUpRightIcon className="h-4 w-4" />
-                    </Link>
-                </motion.div>
+
             </div>
         </section>
     );

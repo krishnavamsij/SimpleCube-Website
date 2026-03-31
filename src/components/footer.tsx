@@ -3,82 +3,236 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Mail, MapPin } from "lucide-react";
-import { footerContent } from "@/content/site-content";
+import { footerContent, ctaContent } from "@/content/site-content";
+import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { scrollReveal, viewportOnce } from "@/lib/animations";
 
 export function Footer() {
-    const { description, sections, offices, linkedin, email } = footerContent;
+    const { label, headline, sub, cta } = ctaContent;
+    const { sections, offices, linkedin, email } = footerContent;
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    // Particle animation logic from previously existing CtaBanner
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        const section = canvas.parentElement;
+        if (!section) return;
+
+        let animationFrameId: number;
+
+        function resize() {
+            canvas!.width = section!.offsetWidth;
+            canvas!.height = section!.offsetHeight;
+        }
+        resize();
+
+        const TEAL = 'rgba(0,212,170,';
+        const CYAN = 'rgba(0,168,255,';
+        const TEAL2 = 'rgba(0,212,212,';
+
+        const COLS = 48;
+        const particles: any[] = [];
+
+        function initParticles() {
+            particles.length = 0;
+            const colW = canvas!.width / COLS;
+            for (let c = 0; c < COLS; c++) {
+                const count = Math.floor(Math.random() * 6) + 2;
+                for (let i = 0; i < count; i++) {
+                    const color = Math.random() > 0.5 ? TEAL : (Math.random() > 0.5 ? CYAN : TEAL2);
+                    particles.push({
+                        x: colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.6,
+                        y: canvas!.height + Math.random() * canvas!.height,
+                        vy: -(0.3 + Math.random() * 0.7),
+                        r: Math.random() * 1.8 + 0.5,
+                        opacity: Math.random() * 0.5 + 0.1,
+                        color,
+                        fadeY: canvas!.height * (0.15 + Math.random() * 0.45),
+                    });
+                }
+            }
+        }
+        initParticles();
+
+        const handleResize = () => {
+            resize();
+            initParticles();
+        };
+        window.addEventListener("resize", handleResize);
+
+        let last = 0;
+        function loop(ts: number) {
+            const dt = ts - last;
+            last = ts;
+
+            ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+            const w = canvas!.width;
+            const h = canvas!.height;
+
+            for (const p of particles) {
+                p.y += p.vy;
+                if (p.y < -10) {
+                    p.y = h + Math.random() * 60;
+                }
+                const heightFade = Math.max(0, Math.min(1, (p.y - p.fadeY) / (h * 0.25)));
+                const alpha = p.opacity * heightFade;
+                if (alpha < 0.005) continue;
+                ctx!.beginPath();
+                ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx!.fillStyle = p.color + alpha + ')';
+                ctx!.fill();
+            }
+
+            animationFrameId = requestAnimationFrame(loop);
+        }
+        animationFrameId = requestAnimationFrame(loop);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
 
     return (
-        <footer className="border-t border-slate-800 bg-slate-950 text-slate-400">
-            <div className="mx-auto max-w-[1400px] px-6 py-16">
-                <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+        <footer className="relative overflow-hidden w-full bg-[#030B3B] text-white">
+            {/* Background glowing ellipses */}
+            <div className="absolute w-[800px] h-[800px] pointer-events-none z-[1] bottom-[0px] left-[-200px]" style={{ background: "radial-gradient(ellipse, rgba(0,212,170,0.1) 0%, transparent 65%)" }} />
+            <div className="absolute w-[600px] h-[600px] pointer-events-none z-[1] top-[20%] right-[-100px]" style={{ background: "radial-gradient(ellipse, rgba(0,168,255,0.08) 0%, transparent 65%)" }} />
+            
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[2] pointer-events-none" />
+
+            <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 pt-16 pb-8 sm:pt-20 sm:pb-12 flex flex-col min-h-screen justify-center">
+                
+                {/* ── LET'S TALK CTA SECTION ── */}
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto">
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#00D4AA] bg-[#00D4AA]/[0.08] border border-[#00D4AA]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D4AA] animate-[pulse_2s_infinite]" />
+                        {label}
+                    </div>
+
+                    <h2 className="font-extrabold text-[#ffffff] text-[32px] sm:text-4xl lg:text-[44px] leading-[1.08] tracking-tight mb-5 w-full max-w-none lg:whitespace-nowrap">
+                        {headline.split("simplify").map((part, i, arr) => (
+                            <React.Fragment key={i}>
+                                {part}
+                                {i < arr.length - 1 && <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#00A8FF]">simplify</em>}
+                            </React.Fragment>
+                        ))}
+                    </h2>
+
+                    <p className="text-[18px] sm:text-[20px] font-medium text-white/60 leading-[1.6] max-w-[640px] mb-8">
+                        {sub.split('\n').map((line, i) => (
+                            <span key={i} className="block">{line}</span>
+                        ))}
+                    </p>
+
+                    <Link
+                        href={cta.href}
+                        className="group inline-flex items-center gap-2.5 font-bold text-[14px] text-[#030B3B] bg-gradient-to-r from-[#00D4AA] to-[#00A8FF] rounded-full px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 shadow-[0_8px_32px_rgba(0,212,170,0.28)] hover:shadow-[0_20px_52px_rgba(0,212,170,0.4)] tracking-[-0.2px]"
+                    >
+                        {cta.label}
+                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </Link>
+                </motion.div>
+
+                {/* ── SEPARATOR LINE FROM LOGO TO COMPANY ── */}
+                <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
+
+                {/* ── FOOTER LINKS & BRAND ── */}
+                <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8 pb-4 mt-auto">
                     {/* Brand */}
-                    <div>
+                    <div className="w-full lg:max-w-sm">
                         <Link href="/" className="inline-flex items-center">
                             <Image
-                                src="/logos/Hyniva logo for light background.svg"
+                                src="/images/Hyniva partial colour (1).svg"
                                 alt="Hyniva"
                                 width={140}
                                 height={40}
-                                className="h-12 w-auto brightness-0 invert"
+                                className="h-10 sm:h-12 w-auto"
                             />
                         </Link>
-                        <p className="mt-4 max-w-xs text-sm leading-relaxed">
-                            {description}
-                        </p>
 
                         {/* Offices */}
-                        <div className="mt-6 space-y-3">
+                        <div className="mt-8 space-y-4">
                             {offices.map((office) => (
-                                <div key={office.country} className="flex items-start gap-2 text-xs">
-                                    <MapPin className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-500" />
-                                    <span>
-                                        <strong className="text-slate-200">{office.country}</strong>
+                                <div key={office.country} className="flex items-start gap-3">
+                                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00D4AA]" />
+                                    <span className="text-sm">
+                                        <strong className="text-white">{office.country}</strong>
                                         <br />
-                                        {office.address}
+                                        <span className="whitespace-pre-line leading-relaxed text-white/70">
+                                            {office.address}
+                                        </span>
                                     </span>
                                 </div>
                             ))}
                         </div>
 
                         {/* Social */}
-                        <div className="mt-5 flex gap-3">
-                            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-700 text-slate-400 transition-colors hover:border-slate-500 hover:text-white">
+                        <div className="mt-8 flex gap-3">
+                            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white">
                                 <Linkedin className="h-4 w-4" />
                             </a>
-                            <a href={`mailto:${email}`} className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-700 text-slate-400 transition-colors hover:border-slate-500 hover:text-white">
+                            <a href={`mailto:${email}`} className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white">
                                 <Mail className="h-4 w-4" />
                             </a>
                         </div>
                     </div>
 
-                    {/* Link columns */}
-                    {sections.map((section) => (
-                        <div key={section.title}>
-                            <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
-                                {section.title}
-                            </h5>
-                            <ul className="space-y-2.5">
-                                {section.links.map((link) => (
-                                    <li key={link.title}>
-                                        <Link
-                                            href={link.href}
-                                            className="text-sm transition-colors hover:text-white"
-                                        >
-                                            {link.title}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                    {/* Link columns area */}
+                    <div className="flex flex-col gap-8 lg:w-auto lg:ml-auto">
+                        <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
+                            {sections.map((section) => (
+                                <div key={section.title} className="min-w-[120px]">
+                                    <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+                                        {section.title}
+                                    </h5>
+                                    <ul className="space-y-3">
+                                        {section.links.map((link) => (
+                                            <li key={link.title}>
+                                                <Link
+                                                    href={link.href}
+                                                    className="text-sm text-white/60 transition-colors hover:text-white hover:font-medium"
+                                                >
+                                                    {link.title}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+
+                        {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
+                        <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full">
+                            <div>
+                                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+                                    Proud Member
+                                </h4>
+                                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                                    <Image src="/images/Footer/Greater San Antonio Member logo.png" alt="Greater San Antonio Chamber" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
+                                    <Image src="/images/Footer/North-SA-Chamber.png" alt="North San Antonio Chamber Member" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
+                                </div>
+                            </div>
+                            <div className="ml-0 sm:ml-4">
+                                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+                                    Certified By
+                                </h4>
+                                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                                    <Image src="/images/Footer/SOC.png" alt="SOC" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
+                                    <Image src="/images/Footer/Certification Badge_without Background.png" alt="AICPA SOC Certification Badge" width={100} height={100} className="h-20 sm:h-24 w-auto object-contain" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Bottom bar */}
-                <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-6 text-xs sm:flex-row">
-                    <span>© {new Date().getFullYear()} Hyniva. All rights reserved.</span>
-                    <span>{email}</span>
-                </div>
             </div>
         </footer>
     );

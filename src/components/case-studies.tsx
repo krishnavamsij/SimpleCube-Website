@@ -1,119 +1,191 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { scrollReveal, scrollStaggerContainer, viewportOnce } from "@/lib/animations";
+import React, { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { caseStudiesContent } from "@/content/site-content";
-import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
-
-function CaseStudyCard({ study, index }: { study: typeof caseStudiesContent.studies[0]; index: number }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-    const imageY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-    const isReversed = index % 2 === 1;
-
-    return (
-        <motion.div
-            ref={ref}
-            variants={scrollReveal}
-            className={`flex flex-col items-center gap-10 lg:flex-row lg:gap-16 ${isReversed ? "lg:flex-row-reverse" : ""}`}
-        >
-            {/* Image side */}
-            <motion.div
-                style={{ y: imageY }}
-                className="relative w-full lg:w-1/2"
-            >
-                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-xl">
-                    <Image
-                        src={study.image}
-                        alt={study.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                </div>
-            </motion.div>
-
-            {/* Content side */}
-            <div className="w-full lg:w-1/2">
-                <span className="inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-950 dark:text-blue-400">
-                    {study.industry}
-                </span>
-                <h3 className="mt-4 text-xl font-extrabold leading-snug tracking-tight text-foreground sm:text-2xl">
-                    {study.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {study.description}
-                </p>
-
-                {/* Results */}
-                <div className="mt-8 grid grid-cols-3 gap-4">
-                    {study.results.map((r) => (
-                        <div key={r.label} className="rounded-xl border border-border bg-card p-4 text-center shadow-sm">
-                            <span className="block text-2xl font-extrabold text-blue-600 dark:text-emerald-400 sm:text-3xl">
-                                {r.value}
-                            </span>
-                            <span className="mt-1 block text-[11px] font-medium leading-tight text-muted-foreground">
-                                {r.label}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-
-                <Link
-                    href={study.href}
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-colors hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                    Read Case Study <ArrowUpRightIcon className="h-3.5 w-3.5" />
-                </Link>
-            </div>
-        </motion.div>
-    );
-}
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 export function CaseStudies() {
-    const { label, headline, sub, studies } = caseStudiesContent;
+    const { label, headline, highlightedWord, sub, studies } = caseStudiesContent;
+    
+    // We only need the embla refs and APIs, along with selectedIndex.
+    // Ensure that it's safe if it has < 3 items, but the user explicitly has 8.
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: "center",
+        skipSnaps: false,
+    });
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const scrollPrev = useCallback(() => { if (emblaApi) emblaApi.scrollPrev(); }, [emblaApi]);
+    const scrollNext = useCallback(() => { if (emblaApi) emblaApi.scrollNext(); }, [emblaApi]);
+    const scrollTo = useCallback((index: number) => { if (emblaApi) emblaApi.scrollTo(index); }, [emblaApi]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi, setSelectedIndex]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        onSelect();
+        emblaApi.on("select", onSelect);
+        emblaApi.on("reInit", onSelect);
+    }, [emblaApi, onSelect]);
 
     return (
-        <section className="bg-secondary py-20 sm:py-28">
-            <div className="mx-auto max-w-[1400px] px-6">
-                {/* Header */}
-                <motion.div
-                    variants={scrollReveal}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="text-center"
-                >
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
+        <section className="bg-white py-10 sm:py-14 tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
+            <div className="mx-auto w-full">
+                
+                {/* ── Section header ── */}
+                <div className="text-center px-6 mb-6 max-w-4xl mx-auto">
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
-                    </p>
-                    <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                        {headline}
+                    </div>
+                    
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0f172a] leading-[1.12] mb-3 tracking-tight">
+                        {headline.split(highlightedWord || "").map((part, i, arr) => (
+                            <React.Fragment key={i}>
+                                {part}
+                                {i < arr.length - 1 && <em className="italic text-[#1e90ff] pr-1">{highlightedWord}</em>}
+                            </React.Fragment>
+                        ))}
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    
+                    <p className="mx-auto w-full max-w-3xl text-[16px] sm:text-[18px] font-medium text-slate-500 leading-[1.7] lg:whitespace-nowrap">
                         {sub}
                     </p>
-                </motion.div>
+                </div>
 
-                {/* Case study rows */}
-                <motion.div
-                    variants={scrollStaggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="mt-20 space-y-24"
-                >
-                    {studies.map((study, i) => (
-                        <CaseStudyCard key={study.title} study={study} index={i} />
-                    ))}
-                </motion.div>
+                {/* ── Carousel wrapper ── */}
+                <div className="relative w-full">
+                    {/* Embla Viewport */}
+                    <div className="overflow-hidden py-4" ref={emblaRef}>
+                        <div className="flex select-none touch-pan-y" style={{ WebkitTapHighlightColor: "transparent" }}>
+                            {studies.map((study, index) => {
+                                const isActive = index === selectedIndex;
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className="relative flex-[0_0_100%] sm:flex-[0_0_max(940px,70vw)] lg:flex-[0_0_940px] px-3 sm:px-4 cursor-pointer"
+                                        onClick={() => scrollTo(index)}
+                                    >
+                                        <div 
+                                            className={`relative w-full h-[380px] sm:h-[440px] lg:h-[500px] rounded-[20px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
+                                            ${isActive 
+                                                ? "scale-100 opacity-100 brightness-100 shadow-[0_28px_72px_rgba(0,0,0,0.2),0_0_0_1px_rgba(30,144,255,0.12)]" 
+                                                : "scale-[0.88] opacity-55 brightness-75 shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
+                                            }`}
+                                        >
+                                            {/* Background Image */}
+                                            <div 
+                                                className={`absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-transform duration-700 ease-out
+                                                ${isActive ? "scale-100" : "scale-[1.04]"}`}
+                                                style={{ backgroundImage: `url('${study.image}')` }}
+                                            />
+                                            
+                                            {/* Gradient Overlay precisely mapped from provided HTML */}
+                                            <div 
+                                                className="absolute inset-0"
+                                                style={{
+                                                    background: "linear-gradient(to top, rgba(3,10,24,0.97) 0%, rgba(3,10,24,0.90) 20%, rgba(3,10,24,0.65) 38%, rgba(3,10,24,0.15) 56%, transparent 70%)"
+                                                }}
+                                            />
+
+                                            {/* Left accent strip */}
+                                            <div 
+                                                className={`absolute left-0 top-[16%] bottom-[16%] w-[3px] rounded-r-[3px] transition-opacity duration-400
+                                                ${isActive ? "opacity-100" : "opacity-0"}`}
+                                                style={{ background: "linear-gradient(to bottom, transparent, #1e90ff 30%, #63c2ff 65%, transparent)" }}
+                                            />
+
+                                            {/* Corner brackets */}
+                                            <div className={`absolute top-4 left-4 w-[18px] h-[18px] border-t border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute top-4 right-4 w-[18px] h-[18px] border-t border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 left-4 w-[18px] h-[18px] border-b border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 right-4 w-[18px] h-[18px] border-b border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+
+                                            {/* Top Right CTA */}
+                                            <div className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-400 delay-[300ms]
+                                                ${isActive ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
+                                                <a href={study.href} className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 bg-[#030b3b]/60 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold uppercase tracking-wider text-white hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:gap-3.5 transition-all shadow-lg">
+                                                    Read Case Study <ArrowRightIcon className="w-3.5 h-3.5" />
+                                                </a>
+                                            </div>
+
+                                            {/* Content */}
+                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6 sm:px-10 sm:pb-8 sm:pt-0 z-10 translate-y-2">
+                                                <h3 className={`text-[22px] sm:text-[28px] lg:text-[30px] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100
+                                                    ${isActive ? "translate-y-0" : "translate-y-3"}`}>
+                                                    {study.title.split("*").map((part, i) => (
+                                                        <React.Fragment key={i}>
+                                                            {i % 2 !== 0 ? (
+                                                                <em className="italic text-[#63c2ff] drop-shadow-[0_0_30px_rgba(99,194,255,0.28)]">{part}</em>
+                                                            ) : (
+                                                                part.split("\n").map((line, j, arr) => (
+                                                                    <React.Fragment key={j}>
+                                                                        {line}
+                                                                        {j < arr.length - 1 && <br />}
+                                                                    </React.Fragment>
+                                                                ))
+                                                            )}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </h3>
+                                                
+                                                <p className={`text-[14px] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[560px] transition-all duration-400 delay-200
+                                                    ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+                                                    {study.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                {/* ── Controls ── */}
+                <div className="flex flex-col items-center justify-center mt-2 pb-6">
+                    {/* Dots */}
+                    <div className="flex items-center gap-2 mb-6">
+                        {studies.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? "w-6 bg-[#1e90ff]" : "w-1.5 bg-slate-200 hover:bg-slate-300"}`}
+                                onClick={() => scrollTo(index)}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Nav arrows */}
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={scrollPrev}
+                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:scale-105 transition-all opacity-100"
+                        >
+                            <ArrowLeftIcon className="w-4 h-4" />
+                        </button>
+                        <button
+                            onClick={scrollNext}
+                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:scale-105 transition-all opacity-100"
+                        >
+                            <ArrowRightIcon className="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    {/* Count */}
+                    <div className="mt-4 text-[11px] font-light text-[#9ca3af] tracking-[2px]">
+                        <strong className="text-[#1e90ff] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
+                    </div>
+                </div>
+
             </div>
         </section>
     );
 }
+

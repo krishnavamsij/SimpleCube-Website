@@ -86,10 +86,8 @@ export const heroCtas = {
 
 // ── Trusted By ───────────────────────────────────────────────────────────────
 export const trustContent = {
-    label: "Trusted by financial institutions, fintechs & enterprises",
+    label: "Clients that chose depth over headcount",
     logos: [
-        { name: "CreditSnap", src: "/logos/creditsnap.png" },
-        { name: "iLendX", src: "/logos/ilendx.png" },
         { name: "NASA Federal CU", src: "/logos/nasa-fcu.png" },
         { name: "Apple Federal CU", src: "/logos/apple-fcu.png" },
         { name: "PenFed", src: "/logos/penfed.jpg" },
@@ -97,14 +95,14 @@ export const trustContent = {
         { name: "Exeter Finance", src: "/logos/exeter-finance.jpeg" },
         { name: "Bank of Guam", src: "/logos/bank-of-guam.svg" },
         { name: "Claim Assist", src: "/logos/claim-assist.webp" },
-        { name: "Axos Bank", src: "/logos/Axos Bank.svg" },
-        { name: "Dover Federal", src: "/logos/Dover Federal .svg" },
+        { name: "Axos Bank", src: "/logos/AXOS.svg" },
+        { name: "Dover Federal", src: "/logos/Dover FCU.svg" },
         { name: "GESA Credit Union", src: "/logos/GESA Credit Union.svg" },
         { name: "Gulf Winds", src: "/logos/Gulf Winds.svg" },
         { name: "Service Credit Union", src: "/logos/Service Credit Union.svg" },
-        { name: "Sunset Science Park", src: "/logos/Sunset Science park.svg" },
+        { name: "Sunset Science Park", src: "/logos/Sunset Science Park.svg" },
         { name: "TCM Bank", src: "/logos/TCM Bank.svg" },
-        { name: "Thomaston Savings Bank", src: "/logos/Thomaston Savings Bank.svg" },
+        { name: "Thomaston Savings Bank", src: "/logos/Thomaston.svg" },
         { name: "Tresl", src: "/logos/Tresl.svg" },
         { name: "Veteran", src: "/logos/Veteran.svg" },
         { name: "WECU", src: "/logos/WECU.svg" },
@@ -154,7 +152,7 @@ export const challengesContent = {
 export const approachContent = {
     label: "The Hyniva Approach",
     headline: "The Digital Factory Model",
-    sub: "We've distilled 20+ years of enterprise delivery expertise into AI-accelerated workflows, making project setup simpler and delivery 30-50% faster.",
+    sub: "The developer owns the full lifecycle — from story definition to production support, reducing overhead and increasing accountability at every stage.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
         { value: 30, suffix: "%", label: "Faster POC & Prototype Stages" },
@@ -166,34 +164,39 @@ export const approachContent = {
 // ── Services ─────────────────────────────────────────────────────────────────
 export const servicesContent = {
     label: "Our Services",
-    headline: "End-to-end technology partnerships",
-    sub: "We cover the full spectrum — from strategy through delivery — so you have one trusted partner, not a patchwork of vendors.",
+    headline: "End-to-end technology partnership.",
+    callOutContent: "From the first conversation to live production — one team, full ownership, no handoffs.",
+    metrics: [
+        { value: "15+", label: "Years of platform \npartnerships" },
+        { value: "220+", label: "Enterprise applications \ndelivered" },
+        { value: "30+", label: "Clients across \n5 industries" }
+    ],
     services: [
         {
             num: "01",
             title: "Digital Transformation",
             description:
-                "We rebuild how enterprises operate — modernising legacy systems, reimagining customer experiences, and delivering change at a speed most firms only promise.",
+                "We rebuild how enterprises operate — modernising legacy systems, reimagining customer experiences, and turning complex change into working software.",
             tags: ["Legacy System Modernisation", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
-            image: "/images/digital-transformation.png",
+            image: "/images/Our Services/Digital Transformation_no BG.svg",
             href: "/digital-transformation",
         },
         {
             num: "02",
             title: "Enterprise Platforms",
             description:
-                "Deep expertise across the platforms enterprises run on — implemented faster and with less friction through our proprietary 8×8×8 delivery model.",
+                "We implement and optimize the platforms your business runs on — and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
-            image: "/images/enterprise-platforms.png",
+            image: "/images/Our Services/2. Enterprise Platforms.png",
             href: "/salesforce",
         },
         {
             num: "03",
             title: "Product Engineering",
             description:
-                "From mobile apps to AI agents — we design, build, test, and support technology products across the full stack, with end-to-end ownership from brief to deployment.",
+                "From mobile apps to AI agents — we design, build, test, and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernisation", "QA & Test Automation", "DevOps"],
-            image: "/images/product-engineering.png",
+            image: "/images/Our Services/Product Engineering_no BG.svg",
             href: "/product-dev",
         },
         {
@@ -202,7 +205,7 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/strategy-consulting.png",
+            image: "/images/Our Services/Strategy Consulting_no BG.svg",
             href: "/it-strategy",
         },
     ],
@@ -211,95 +214,161 @@ export const servicesContent = {
 // ── Products ─────────────────────────────────────────────────────────────────
 export const productsContent = {
     label: "Our Products",
-    headline: "Built from experience. Ready to deploy.",
-    sub: "We don't just consult — we build. Our products come pre-configured with industry best practices, cutting implementation time dramatically.",
+    headline: "Product innovation is in our DNA.",
+    subheadline: "Seven products born from decades of enterprise delivery — proving our domain knowledge extends beyond implementation.",
+    rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney — a testament to what enterprise depth produces when it becomes a product.",
+    logos: [
+        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /ILendX.svg", acquiredBy: "Fiserv" },
+        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Credit Snap white.png", acquiredBy: "SavvyMoney" },
+        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /EazySchool White.png" },
+        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /Hyper white PNG.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /FinXServe White.png" },
+        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /Claim Pioneer White.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /AIRA white.png" },
+    ],
     products: [
         {
-            badge: "Financial Services",
-            name: "FinXServe",
-            description:
-                "A Salesforce-native digital banking platform for credit unions and FIs. Modernize lending, deposits, and member journeys without starting from scratch.",
-            metrics: [
-                { value: "80%", label: "Faster Time-to-Market" },
-                { value: "50%", label: "Lower Cost of Ownership" },
-            ],
-            image: "/images/finxserve.png",
+            num: "01",
+            title: "FinXServe",
+            tags: ["Financial Institutions"],
+            description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards, and deposits.",
+            image: "/images/Product Images/1. Finxserve.svg",
             href: "/finxserve",
         },
         {
-            badge: "AI / Automation",
-            name: "Autonomous AI Agent",
-            description:
-                "An intelligent reasoning agent for 24/7 omnichannel customer support — not just chatbots, but agents that understand, reason, and resolve.",
-            metrics: [
-                { value: "24/7", label: "Always-On Support" },
-                { value: "↓ Ops", label: "High-Volume Automation" },
-            ],
-            image: "/images/ai-agent.png",
+            num: "02",
+            title: "AIRA",
+            tags: ["Financial Institutions", "Insurance"],
+            description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design, and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
+            image: "/images/Product Images/AIRA.svg",
             href: "/aira",
         },
         {
-            badge: "Insurance",
-            name: "Claims Platform",
-            description:
-                "A next-generation claims management system with AI-driven orchestration — from intake to payout, fully automated and audit-ready.",
-            metrics: [
-                { value: "40%", label: "Faster Claim Settlement" },
-                { value: "20%", label: "Lower Op. Cost" },
-            ],
-            image: "/images/claims-platform.png",
+            num: "03",
+            title: "Claim Pioneer",
+            tags: ["Insurance"],
+            description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution, and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
+            image: "/images/Product Images/Claim pioneer.svg",
             href: "/claim-pioneer",
+        },
+        {
+            num: "04",
+            title: "Hyper",
+            tags: ["Wealth Management"],
+            description: "A digital investment journey platform that takes investors from goal discovery to personalised portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
+            image: "/images/Product Images/hyper.svg",
+            href: "/hyper",
         },
     ],
 };
 
 // ── Case Studies ─────────────────────────────────────────────────────────────
 export const caseStudiesContent = {
-    label: "Client Results",
-    headline: "Real problems. Measurable results.",
-    sub: "We've helped build two products that were acquired by industry leaders. Here's what else we've delivered.",
+    label: "Customer Stories",
+    headline: "From challenge to transformation.",
+    highlightedWord: "transformation.",
+    sub: "Every engagement started with trust. Every outcome is how we honoured it.",
     studies: [
         {
-            industry: "Financial Services · Salesforce",
-            title: "Modernized lending & member experience for a regional credit union",
-            description:
-                "Implemented Salesforce Financial Service Cloud with a custom Experience Cloud portal — unifying voice, email, chat, and mobile for 360° member visibility.",
-            results: [
-                { value: "55%", label: "Faster Case Closures" },
-                { value: "40%", label: "Better First Call Resolution" },
-                { value: "30%", label: "Drop in Handle Time" },
-            ],
-            image: "/images/case-study-finance.png",
+            title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
+            description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+            image: "/images/Case Study/1. Autonomous Lending Experience with FinXServe and Agentforce.png",
             href: "#",
         },
         {
-            industry: "Insurance · AI Automation",
-            title: "Transformed catastrophic claims processing from manual to zero-touch",
-            description:
-                "Built a next-gen claims platform replacing spreadsheets and siloed tools — intelligent assignment engine, real-time dashboards, mobile-first field execution.",
-            results: [
-                { value: "40%", label: "Faster Claim Settlement" },
-                { value: "25%", label: "Higher Adjuster Productivity" },
-                { value: "20%", label: "Lower Op. Cost" },
-            ],
-            image: "/images/case-study-insurance.png",
+            title: "Modernizing Contact Centers with\n*Intelligent IVR Self-Service*",
+            description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+            image: "/images/Case Study/2. Modernizing Contact Centers with Intelligent IVR Self-Service.png",
+            href: "#",
+        },
+        {
+            title: "Autonomous Freight Operations\nwith *GenAI*",
+            description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
+            image: "/images/Case Study/3. Autonomous Freight Operations with GenAI.png",
+            href: "#",
+        },
+        {
+            title: "Instant Loan with\n*Agentforce-Powered* Document Intelligence",
+            description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
+            image: "/images/Case Study/4. Accelerate Loan Processing with Agentforce-Powered Document Intelligence.png",
+            href: "#",
+        },
+        {
+            title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
+            description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
+            image: "/images/Case Study/5. Enterprise CRM Modernization on Microsoft Cloud.png",
+            href: "#",
+        },
+        {
+            title: "Rapid Reverse-Engineered\n*Website Migration*",
+            description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
+            image: "/images/Case Study/6. Rapid Reverse-Engineered Website Migration.png",
+            href: "#",
+        },
+        {
+            title: "AWS-Powered Document\n*Platform Transformation*",
+            description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
+            image: "/images/Case Study/7. AWS-Powered Document Platform Transformation.png",
+            href: "#",
+        },
+        {
+            title: "Core Banking Transformation\non *Microsoft*",
+            description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
+            image: "/images/Case Study/8. Core Banking Transformation on Microsoft.png",
             href: "#",
         },
     ],
 };
 
+// ── Why Hyniva ─────────────────────────────────────────────────────────────
+export const whyHynivaContent = {
+    topBox: {
+        headline: "Why Hyniva?",
+        highlightedWord: "Hyniva?",
+        stats: [
+            { value: "220+", label: "Applications\nDelivered" },
+            { value: "30+", label: "Enterprise\nClients" },
+            { value: "100+", label: "Certified\nExperts" }
+        ],
+        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle, and measures success by what goes live — not what gets proposed.",
+        boldWords: ["already knows your industry", "measures success by what goes live"],
+        cta: { label: "Know More →", href: "/about" }
+    },
+    bottomBox: [
+        {
+            icon: "UsersRound",
+            title: "Zero Handoff",
+            description: "One team owns your engagement from strategy to production — no handoffs, no context loss."
+        },
+        {
+            icon: "Globe2",
+            title: "Industry Depth",
+            description: "15+ years inside regulated industries — we spend less time learning and more time building."
+        },
+        {
+            icon: "Zap",
+            title: "Delivery at Speed",
+            description: "Our 8×8×8 formula and Digital Factory Model deliver 40% faster than traditional models. Consistently."
+        },
+        {
+            icon: "Activity",
+            title: "Built for Outcomes",
+            description: "A product builder's mindset and an implementer's discipline — in every engagement."
+        }
+    ]
+};
+
 // ── Industries ───────────────────────────────────────────────────────────────
 export const industriesContent = {
     label: "Industries We Serve",
-    headline: "Deep domain expertise across regulated industries",
-    sub: "We understand your compliance requirements, your data sensitivities, and your competitive landscape — before we write a single line of code.",
+    headline: "Deep domain expertise,\nbuilt over decades.",
+    highlightedWord: "decades.",
+    sub: "We know your compliance requirements, your legacy constraints, and your competitive pressures — not from research, but from years inside these industries.",
     industries: [
         { icon: "Landmark", title: "Banking & Credit Unions" },
-        { icon: "TrendingUp", title: "Lending & Fintech" },
-        { icon: "BarChart3", title: "Asset & Wealth Management" },
+        { icon: "TrendingUp", title: "Wealth & Asset Management" },
         { icon: "Shield", title: "Insurance" },
-        { icon: "Truck", title: "Manufacturing & Logistics" },
-        { icon: "Cpu", title: "Technology & Media" },
+        { icon: "Truck", title: "Transportation & Logistics" },
         { icon: "GraduationCap", title: "Education" },
     ],
 };
@@ -349,6 +418,52 @@ export const techContent = {
     ],
 };
 
+// ── Technology & Partners ────────────────────────────────────────────────────
+export const techPartnersContent = {
+    label: "Our Technology & Partners",
+    headline: "Built on the platforms you already trust",
+    sub: "Our teams are certified and experienced across the platforms that power modern enterprises — so there's no ramp-up time and no translation layer between your goals and our delivery.",
+    partners: [
+        { name: "Salesforce", src: "/images/Partners Logo/Salesforce.com_logo.svg.png" },
+        { name: "AWS", src: "/images/Partners Logo/Amazon_Web_Services_Logo.svg.png" },
+        { name: "Microsoft", src: "/images/Partners Logo/Microsoft_logo_(2012).svg.png" },
+        { name: "Genesys", src: "/images/Partners Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp" },
+        { name: "Adobe", src: "/images/Partners Logo/Adobe_Corporate_Logo.png" }
+    ],
+    hexagons: [
+        { 
+            title: "CRM & PLATFORMS", 
+            items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"], 
+            color: "bg-[#1F35A4]" 
+        },
+        { 
+            title: "CLOUD", 
+            items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"], 
+            color: "bg-[#00A8FF]" 
+        },
+        { 
+            title: "AI & DATA", 
+            items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"], 
+            color: "bg-[#008f72]" 
+        },
+        { 
+            title: "FRONTEND", 
+            items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"], 
+            color: "bg-[#0D9488]" 
+        },
+        { 
+            title: "BACKEND", 
+            items: ["ASP.Net / TypeScript", "Java / Node.js / Python / PHP", "Microservices", "REST / GraphQL APIs"], 
+            color: "bg-[#1e1b4b]" 
+        },
+        { 
+            title: "QA & DEVOPS", 
+            items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Azure DevOps"], 
+            color: "bg-[#0f172a]" 
+        }
+    ],
+};
+
 // ── Testimonials ─────────────────────────────────────────────────────────────
 export const testimonialsContent = {
     testimonials: [
@@ -377,14 +492,15 @@ export const statsContent = {
 
 // ── CTA ──────────────────────────────────────────────────────────────────────
 export const ctaContent = {
+    label: "Let's Talk",
     headline: "Ready to simplify your enterprise?",
-    sub: "Let's start with a 30-minute discovery call — no commitment, no sales pitch. Just a real conversation about your challenges.",
-    cta: { label: "Schedule a Discovery Call", href: "mailto:connect@hyniva.com" },
+    sub: "Let's start with a 30-minute discovery call — no commitment,\nno sales pitch. Just a real conversation about your challenges.",
+    cta: { label: "Schedule a free consultation", href: "mailto:connect@hyniva.com" },
 };
 
 // ── Footer ───────────────────────────────────────────────────────────────────
 export const footerContent = {
-    description: "Simplifying enterprises through innovative products and trusted technology services. Based in San Antonio, TX — serving clients nationwide and in India.",
+    description: "We partner with enterprises to simplify complexity, accelerate outcomes, and deliver scalable technology solutions built for real-world impact.",
     sections: [
         {
             title: "Services",
@@ -399,8 +515,8 @@ export const footerContent = {
             title: "Products",
             links: [
                 { title: "FinXServe", href: "/finxserve" },
-                { title: "AI Agent", href: "/aira" },
-                { title: "Claims Platform", href: "/claim-pioneer" },
+                { title: "AIRA", href: "/aira" },
+                { title: "Claim Pioneer", href: "/claim-pioneer" },
                 { title: "Hyper", href: "/hyper" },
             ],
         },
@@ -410,13 +526,13 @@ export const footerContent = {
                 { title: "About Hyniva", href: "/about" },
                 { title: "Case Studies", href: "/case-studies" },
                 { title: "Careers", href: "/careers" },
-                { title: "Contact", href: "/contact" },
+                { title: "Privacy Policy", href: "/privacy" },
             ],
         },
     ],
     offices: [
         { country: "United States", address: "13333 Blanco Road, Suite 206, San Antonio, Texas - 78216" },
-        { country: "India", address: "The Cube Karle Town Center, Building No.5, 5th Floor, Nagavara Village, Bengaluru, KA - 560045" },
+        { country: "India", address: "The Cube Karle Town Center, Building No.5, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
     ],
     linkedin: "https://www.linkedin.com/company/hyniva/",
     email: "connect@hyniva.com",

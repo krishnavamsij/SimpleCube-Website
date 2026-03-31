@@ -1,20 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { servicesContent } from "@/content/site-content";
 import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 
 export function Services() {
-    const { label, headline, sub, services } = servicesContent;
-    const [activeIndex, setActiveIndex] = useState(0);
-    const active = services[activeIndex];
+    // Because we adjusted the site-content shape, we provide fallbacks just in case
+    const label = servicesContent.label;
+    const callOutContent = (servicesContent as any).callOutContent || "";
+    const metrics = (servicesContent as any).metrics || [];
+    const services = servicesContent.services;
 
     return (
-        <section className="bg-white py-20 sm:py-28">
+        <section className="bg-[#f8fafc] py-20 sm:py-28 text-slate-900">
             <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div
@@ -22,129 +23,140 @@ export function Services() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-14"
+                    className="mb-16 grid gap-12 lg:grid-cols-[1fr_1.2fr]"
                 >
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#1F35A4]">
-                        {label}
-                    </p>
-                    <h2 className="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-                        {headline}
-                    </h2>
-                    <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-500 sm:text-lg">
-                        {sub}
-                    </p>
+                    {/* Left Side: Eyebrow and Heading */}
+                    <div>
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3b82f6] bg-[#3b82f6]/[0.08] border border-[#3b82f6]/25 rounded-full px-5 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
+                            {label}
+                        </div>
+                        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[56px] leading-[1.1] text-slate-900">
+                            End-to-end<br />
+                            technology<br />
+                            <span className="text-[#3b82f6]">partnership.</span>
+                        </h2>
+                    </div>
+
+                    {/* Right Side: Callout and metrics */}
+                    <div className="flex flex-col justify-center border-l-[3px] border-[#3b82f6] pl-8 lg:pl-12 py-2">
+                        <p className="text-xl sm:text-2xl text-slate-700 font-medium leading-[1.6] mb-12 max-w-2xl">
+                            {callOutContent.split('—').map((part: string, i: number, arr: string[]) => (
+                                <span key={i}>
+                                    {part.trim()}
+                                    {i < arr.length - 1 && (
+                                        <>
+                                            &nbsp;—<br className="hidden sm:block mt-1" />
+                                        </>
+                                    )}
+                                </span>
+                            ))}
+                        </p>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                            {metrics.map((metric: any, idx: number) => {
+                                const valStr = String(metric.value);
+                                const hasPlus = valStr.includes("+");
+                                const valNum = hasPlus ? valStr.replace('+', '') : valStr;
+
+                                return (
+                                    <div key={idx}>
+                                        <div className="flex items-baseline gap-0.5">
+                                            <span className="text-3xl sm:text-4xl font-extrabold text-slate-900">{valNum}</span>
+                                            {hasPlus && (
+                                                <span className="text-[#3b82f6] text-3xl sm:text-4xl font-extrabold">+</span>
+                                            )}
+                                        </div>
+                                        <p className="mt-2 text-sm text-slate-500 font-medium leading-snug pr-4 whitespace-pre-line">
+                                            {metric.label}
+                                        </p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </motion.div>
 
-                {/* ── Two-column: Tabs + Content ── */}
-                <div className="flex flex-col gap-0 lg:flex-row lg:gap-0 lg:rounded-2xl lg:border lg:border-slate-200 lg:overflow-hidden lg:shadow-sm">
-
-                    {/* ── Left: vertical tab list ── */}
-                    <div className="flex flex-col lg:w-[300px] lg:flex-shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 bg-slate-50">
-                        {services.map((svc, i) => {
-                            const isActive = i === activeIndex;
-                            return (
-                                <button
-                                    key={svc.num}
-                                    onClick={() => setActiveIndex(i)}
-                                    className={`group relative flex items-center gap-4 px-6 py-5 text-left transition-all duration-200 ${
-                                        isActive
-                                            ? "bg-white"
-                                            : "hover:bg-white/70"
-                                    }`}
-                                >
-                                    {/* Active left accent bar */}
-                                    <div
-                                        className={`absolute inset-y-0 left-0 w-[3px] rounded-r-sm bg-gradient-to-b from-[#00D4AA] to-[#1F35A4] transition-opacity duration-200 ${
-                                            isActive ? "opacity-100" : "opacity-0"
-                                        }`}
-                                    />
-
-                                    {/* Number */}
-                                    <span
-                                        className={`text-sm font-bold tabular-nums transition-colors ${
-                                            isActive ? "text-[#1F35A4]" : "text-slate-400 group-hover:text-slate-600"
-                                        }`}
-                                    >
-                                        {svc.num}
-                                    </span>
-
-                                    {/* Title */}
-                                    <span
-                                        className={`text-sm font-semibold leading-tight transition-colors ${
-                                            isActive ? "text-slate-900" : "text-slate-500 group-hover:text-slate-700"
-                                        }`}
-                                    >
-                                        {svc.title}
-                                    </span>
-
-                                    {isActive && (
-                                        <ArrowUpRightIcon className="ml-auto h-4 w-4 flex-shrink-0 text-[#1F35A4]" />
-                                    )}
-                                </button>
-                            );
-                        })}
-                    </div>
-
-                    {/* ── Right: active service content ── */}
-                    <div className="relative flex-1 overflow-hidden bg-white">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeIndex}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.35, ease: "easeOut" }}
-                                className="flex flex-col"
+                {/* ── Stacking Cards ── */}
+                <div className="relative mt-20 flex flex-col gap-6 lg:gap-8 pb-[10vh]">
+                    {services.map((svc, i) => {
+                        return (
+                            <div
+                                key={svc.num}
+                                className="sticky pt-4 lg:pt-8 w-full transition-all duration-300"
+                                style={{
+                                    // Slight offset to create a stacking effect
+                                    top: `calc(10vh + ${i * 40}px)`,
+                                    zIndex: i,
+                                }}
                             >
-                                {/* Image */}
-                                <div className="relative aspect-[16/7] w-full overflow-hidden bg-slate-100">
-                                    <Image
-                                        src={active.image}
-                                        alt={active.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-                                    {/* Number badge */}
-                                    <span className="absolute left-6 bottom-5 rounded-lg bg-[#1F35A4] px-3 py-1.5 text-sm font-bold text-white shadow">
-                                        {active.num}
-                                    </span>
-                                </div>
+                                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[500px]">
+                                    {/* Left: Content */}
+                                    <div className="flex-1 p-10 lg:p-16 flex flex-col justify-center relative z-10">
+                                        
+                                        {/* Stylized background number */}
+                                        <div className="absolute -top-10 -left-6 lg:-top-16 lg:-left-12 text-[180px] lg:text-[250px] font-black leading-none text-[#3b82f6]/5 sm:text-slate-100/80 select-none pointer-events-none z-[-1]">
+                                            {svc.num}
+                                        </div>
 
-                                {/* Text content */}
-                                <div className="p-8">
-                                    <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                                        {active.title}
-                                    </h3>
-                                    <p className="mt-4 text-base leading-relaxed text-slate-500 sm:text-[17px]">
-                                        {active.description}
-                                    </p>
+                                        <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-6 relative z-10 lg:mt-8">
+                                            {svc.title}
+                                        </h3>
+                                        <p className="text-lg text-slate-600 leading-relaxed max-w-xl mb-10">
+                                            {svc.description}
+                                        </p>
+                                        
+                                        <div className="flex flex-wrap gap-2.5 mb-10">
+                                            {svc.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="rounded-full bg-slate-50 border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 tracking-wide"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
 
-                                    {/* Tags */}
-                                    <div className="mt-6 flex flex-wrap gap-2">
-                                        {active.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600"
+                                        <div className="mt-auto pt-4">
+                                            <Link
+                                                href={svc.href}
+                                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-sm font-bold text-[#3b82f6] hover:bg-slate-50 hover:border-slate-300 transition-all"
                                             >
-                                                {tag}
-                                            </span>
-                                        ))}
+                                                Explore service <ArrowRightIcon className="h-4 w-4" />
+                                            </Link>
+                                        </div>
                                     </div>
 
-                                    {/* CTA */}
-                                    <Link
-                                        href={active.href}
-                                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#1F35A4] transition-colors hover:text-[#00A8FF]"
-                                    >
-                                        Learn more <ArrowUpRightIcon className="h-3.5 w-3.5" />
-                                    </Link>
+                                    {/* Right: Graphic */}
+                                    <div className="flex-1 bg-white relative min-h-[300px] lg:min-h-full border-t lg:border-t-0 flex overflow-hidden z-0 rounded-b-[2rem] lg:rounded-b-none lg:rounded-r-[2rem]">
+                                        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]"></div>
+                                        
+                                        {/* Gradient fade on the left edge to merge image with white background */}
+                                        <div className="absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden lg:block"></div>
+
+                                        {/* Image container aligned with LHS padding (lg:py-16) */}
+                                        <div className="relative w-full h-full min-h-[300px] flex p-8 lg:py-16 lg:pr-16 lg:pl-4">
+                                            <div className="relative w-full h-full min-h-[250px] lg:min-h-full">
+                                                <Image
+                                                    src={svc.image}
+                                                    alt={svc.title}
+                                                    fill
+                                                    className={`object-contain object-right lg:object-center transition-transform ${
+                                                        i === 1 ? "scale-95 lg:scale-[1.05]" :
+                                                        i === 3 ? "scale-125 lg:scale-125" :
+                                                        "scale-150 lg:scale-150"
+                                                    }`}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
     );
 }
+

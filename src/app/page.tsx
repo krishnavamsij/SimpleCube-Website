@@ -6,12 +6,13 @@ import { Approach } from "@/components/approach";
 import { Services } from "@/components/services";
 import { ProductsShowcase } from "@/components/products-showcase";
 import { CaseStudies } from "@/components/case-studies";
+import { WhyHyniva } from "@/components/why-hyniva";
 import { Industries } from "@/components/industries";
 import { ProcessTimeline } from "@/components/process-timeline";
-import { TechStack } from "@/components/tech-stack";
+import { TechPartners } from "@/components/tech-partners";
 import { Testimonials } from "@/components/testimonials";
 import { Stats } from "@/components/stats";
-import { CtaBanner } from "@/components/cta-banner";
+
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -25,13 +26,14 @@ export default function Home() {
         <Approach />
         <Services />
         <ProductsShowcase />
-        <CaseStudies />
         <Industries />
+        <CaseStudies />
+        <WhyHyniva />
+        <TechPartners />
         <ProcessTimeline />
-        <TechStack />
         <Testimonials />
         <Stats />
-        <CtaBanner />
+
       </main>
       <Footer />
     </>

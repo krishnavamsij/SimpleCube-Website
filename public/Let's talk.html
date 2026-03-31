@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyniva — CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #080f1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 32px;
+  }
+
+  .cta-section {
+    position: relative;
+    max-width: 1160px;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+      #030B3B 0%,
+      #0E1D4E 35%,
+      #0a2060 60%,
+      #030B3B 100%
+    );
+  }
+
+  /* teal glow — bottom left */
+  .glow-left {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse, rgba(0,212,170,0.2) 0%, transparent 65%);
+    bottom: -160px; left: -80px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* cyan glow — top right */
+  .glow-right {
+    position: absolute;
+    width: 420px; height: 360px;
+    background: radial-gradient(ellipse, rgba(0,168,255,0.13) 0%, transparent 65%);
+    top: -100px; right: -60px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* canvas fills entire section */
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  /* content on top */
+  .cta-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 96px 72px 88px;
+  }
+
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00D4AA;
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.25);
+    border-radius: 100px;
+    padding: 7px 20px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .pulse-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #00D4AA;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.65); }
+  }
+
+  .cta-heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+
+  .cta-heading em {
+    font-style: normal;
+    background: linear-gradient(135deg, #00D4AA 0%, #00A8FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-callout {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s ease 0.6s both;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #030B3B;
+    background: linear-gradient(135deg, #00D4AA 0%, #00A8FF 100%);
+    border: none;
+    border-radius: 100px;
+    padding: 18px 44px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 32px rgba(0,212,170,0.28);
+    animation: fadeUp 0.8s ease 0.8s both;
+    letter-spacing: -0.2px;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 52px rgba(0,212,170,0.4);
+  }
+
+  .cta-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .arrow {
+    transition: transform 0.25s ease;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="cta-section">
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+
+  <!-- Animated canvas — looping particle columns + flowing arcs -->
+  <canvas id="ctaCanvas"></canvas>
+
+  <div class="cta-content">
+    <div class="cta-pill">
+      <span class="pulse-dot"></span>
+      Let's talk
+    </div>
+
+    <h2 class="cta-heading">Ready to <em>simplify</em> your enterprise?</h2>
+
+    <p class="cta-callout">
+      Let's start with a 30-minute discovery call — no commitment, no sales pitch.<br>
+      Just a real conversation about your challenges.
+    </p>
+
+    <a href="#" class="cta-btn">
+      Schedule a free consultation
+      <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('ctaCanvas');
+const ctx = canvas.getContext('2d');
+const section = canvas.parentElement;
+
+function resize() {
+  canvas.width  = section.offsetWidth;
+  canvas.height = section.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ── BRAND COLORS ──
+const TEAL = 'rgba(0,212,170,';
+const CYAN = 'rgba(0,168,255,';
+const TEAL2 = 'rgba(0,212,212,';
+
+// ── PARTICLE COLUMNS (Tildei dot-rise effect) ──
+const COLS = 48;
+const particles = [];
+
+function initParticles() {
+  particles.length = 0;
+  const colW = canvas.width / COLS;
+  for (let c = 0; c < COLS; c++) {
+    const count = Math.floor(Math.random() * 6) + 2;
+    for (let i = 0; i < count; i++) {
+      const color = Math.random() > 0.5 ? TEAL : (Math.random() > 0.5 ? CYAN : TEAL2);
+      particles.push({
+        x: colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.6,
+        y: canvas.height + Math.random() * canvas.height,
+        vy: -(0.3 + Math.random() * 0.7),
+        r: Math.random() * 1.8 + 0.5,
+        opacity: Math.random() * 0.5 + 0.1,
+        color,
+        fadeY: canvas.height * (0.15 + Math.random() * 0.45), // fade out above this Y
+      });
+    }
+  }
+}
+initParticles();
+window.addEventListener('resize', () => { resize(); initParticles(); });
+
+// ── BRAND ARC GROUPS ──
+// Grid of concentric upward arcs, like the brand pattern & logo motif
+// Each group: 3-4 concentric arcs, positioned in a grid across the canvas
+// They pulse in and out continuously
+
+const arcGroups = [];
+
+function initArcGroups() {
+  arcGroups.length = 0;
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Grid positions — cols x rows spread across canvas
+  const cols = 4;
+  const rows = 3;
+  const colW = w / cols;
+  const rowH = h / rows;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      // Centre of each group
+      const cx = colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.3;
+      const cy = rowH * r + rowH * 0.5 + (Math.random() - 0.5) * rowH * 0.3;
+
+      // Each group has 3 concentric arcs
+      const arcCount = 3 + (Math.random() > 0.5 ? 1 : 0);
+      const baseRadius = 28 + Math.random() * 32;
+      const color = Math.random() > 0.55
+        ? TEAL : (Math.random() > 0.5 ? CYAN : TEAL2);
+      const baseOpacity = 0.07 + Math.random() * 0.1;
+      const speed = 0.0004 + Math.random() * 0.0006;
+      const phaseOffset = Math.random(); // stagger each group
+
+      arcGroups.push({
+        cx, cy, arcCount, baseRadius,
+        color, baseOpacity, speed,
+        phase: phaseOffset,
+      });
+    }
+  }
+}
+initArcGroups();
+window.addEventListener('resize', () => { resize(); initParticles(); initArcGroups(); });
+
+function drawArcGroup(g) {
+  // phase 0→1 loops; fade in 0→0.2, hold, fade out 0.75→1
+  const p = g.phase % 1;
+  let alpha = 1;
+  if (p < 0.2)  alpha = p / 0.2;
+  if (p > 0.75) alpha = 1 - (p - 0.75) / 0.25;
+  if (alpha < 0.01) return;
+
+  for (let i = 0; i < g.arcCount; i++) {
+    // Each concentric arc slightly larger, slightly more transparent
+    const radius  = g.baseRadius + i * (g.baseRadius * 0.55);
+    const opacity = g.baseOpacity * alpha * (1 - i * 0.22);
+    if (opacity < 0.005) continue;
+
+    ctx.save();
+    ctx.strokeStyle = g.color + opacity + ')';
+    ctx.lineWidth   = 1.2 - i * 0.2;
+    ctx.lineCap     = 'round';
+    ctx.beginPath();
+    // Upward arc — centre at cx,cy, sweeping from left to right above centre
+    ctx.arc(g.cx, g.cy, radius, Math.PI, 0, false);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+// ── MAIN LOOP ──
+let last = 0;
+function loop(ts) {
+  const dt = ts - last;
+  last = ts;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Draw particles
+  for (const p of particles) {
+    p.y += p.vy;
+    if (p.y < -10) {
+      p.y = h + Math.random() * 60;
+    }
+    const heightFade = Math.max(0, Math.min(1, (p.y - p.fadeY) / (h * 0.25)));
+    const alpha = p.opacity * heightFade;
+    if (alpha < 0.005) continue;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color + alpha + ')';
+    ctx.fill();
+  }
+
+  // Draw arc groups
+  for (const g of arcGroups) {
+    g.phase += g.speed * (dt || 16);
+    drawArcGroup(g);
+  }
+
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

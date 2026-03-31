@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -104,9 +103,8 @@ export function Navbar() {
                     ))}
                 </div>
 
-                {/* Desktop CTA + theme toggle */}
+                {/* Desktop CTA */}
                 <div className="hidden items-center gap-3 lg:flex">
-                    <ModeToggle />
                     <Button asChild className="bg-blue-600 text-white hover:bg-blue-500">
                         <Link href="/contact">Contact Us</Link>
                     </Button>
@@ -114,7 +112,6 @@ export function Navbar() {
 
                 {/* Mobile toggle */}
                 <div className="flex items-center gap-2 lg:hidden">
-                    <ModeToggle />
                     <button className={cn(
                         "p-2",
                         scrolled ? "text-foreground" : "text-white"

@@ -8,55 +8,19 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 
-// 3 fixed GIFs — always on RHS, never change per slide
-const heroGifs = [
-    { src: "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", alt: "Data Visualization Dashboard" },
-    { src: "https://media.giphy.com/media/h8RDGogSns9wpOJFzR/giphy.gif", alt: "Enterprise Interface" },
-    { src: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB2Zm5kcWgwNml2cXM3ajdocGFlN211czgxdmMyc2JxNGg5NW94dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nNOAPjUdo4mpZFkDf8/giphy.gif", alt: "Tech Dashboard" },
+// GIF per slide — index matches slide index
+const slideGifs = [
+    "/images/1.gif",
+    "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", // slide 2 placeholder
+    "/images/3.gif",
 ];
 
-// Layout positions: highlighted = front/large, others = smaller/offset behind
-const layouts = [
-    // Slide 0: GIF[0] front
-    [
-        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
-        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 60,   x: -40, width: "62%", position: "absolute bottom-4 left-0" },
-        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: 30,  width: "55%", position: "absolute top-4 left-12" },
-    ],
-    // Slide 1: GIF[1] front
-    [
-        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: -20, width: "55%", position: "absolute top-4 right-4" },
-        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
-        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 60,   x: -30, width: "62%", position: "absolute bottom-4 left-0" },
-    ],
-    // Slide 2: GIF[2] front
-    [
-        { zIndex: 20, scale: 0.82, opacity: 0.6, y: 50,   x: 20,  width: "62%", position: "absolute bottom-4 right-0" },
-        { zIndex: 10, scale: 0.75, opacity: 0.4, y: -30,  x: -20, width: "55%", position: "absolute top-4 left-0" },
-        { zIndex: 30, scale: 1,    opacity: 1,   y: 0,    x: 0,   width: "80%", position: "ml-auto mr-0" },
-    ],
+// Triangle layout: card 0 = top full-width, card 1 = bottom-left, card 2 = bottom-right
+const cardPositions = [
+    { top: 0, left: 0, right: 0, height: "54%", bottom: "auto", width: "auto" },
+    { bottom: 0, left: 0, top: "auto", height: "43%", width: "48.5%", right: "auto" },
+    { bottom: 0, right: 0, top: "auto", height: "43%", width: "48.5%", left: "auto" },
 ];
-
-function GifFrame({ src, alt, isHighlighted }: { src: string; alt: string; isHighlighted: boolean }) {
-    return (
-        <div
-            className={`overflow-hidden rounded-2xl transition-all duration-500 ${
-                isHighlighted
-                    ? "shadow-[0_0_40px_rgba(0,212,170,0.25),0_20px_60px_rgba(0,0,0,0.6)] ring-2 ring-[#00D4AA]/60"
-                    : "shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-white/10"
-            }`}
-        >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-                src={src}
-                alt={alt}
-                className="aspect-[4/3] w-full object-cover"
-            />
-            {/* Bottom depth gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
-        </div>
-    );
-}
 
 export function HeroCarousel() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -71,27 +35,30 @@ export function HeroCarousel() {
     }, [slides.length]);
 
     useEffect(() => {
-        const timer = setInterval(nextSlide, 6000);
+        const timer = setInterval(nextSlide, 10000);
         return () => clearInterval(timer);
     }, [nextSlide]);
 
     const slide = slides[currentSlide];
-    const activeLayout = layouts[currentSlide % layouts.length];
 
     return (
         <section className="relative min-h-screen overflow-hidden bg-[#030b1e]">
-            {/* Background */}
+            {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
-            <div className="absolute inset-0 opacity-[0.025]" style={{
-                backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
-            }} />
+            <div
+                className="absolute inset-0 opacity-[0.025]"
+                style={{
+                    backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                }}
+            />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
             {/* Two-column layout */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1280px] flex-col items-center px-6 lg:flex-row lg:gap-0">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
 
-                {/* LHS: Text slides with AnimatePresence */}
+                {/* ── LHS: Text ── */}
                 <div className="flex w-full flex-col justify-center pb-28 pt-32 lg:w-1/2 lg:pb-24 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -111,14 +78,14 @@ export function HeroCarousel() {
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-8 text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl"
+                                className="mt-8 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl"
                             >
                                 {slide.headline.split(" ").map((word, i) => {
                                     const isHighlighted = slide.highlightedWords?.some((hw) => word.includes(hw));
                                     return (
                                         <span key={i}>
                                             {isHighlighted ? (
-                                                <span className="text-yellow-300 drop-shadow-sm">{word}</span>
+                                                <span className="text-[#00D4AA] drop-shadow-sm">{word}</span>
                                             ) : (
                                                 word
                                             )}{" "}
@@ -130,7 +97,7 @@ export function HeroCarousel() {
                             {/* Subheadline */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-6 w-full text-base leading-relaxed text-slate-300 sm:text-lg sm:leading-relaxed"
+                                className="mt-6 w-full text-base leading-relaxed text-slate-300 sm:text-lg"
                             >
                                 {slide.subheadline}
                             </motion.p>
@@ -148,51 +115,50 @@ export function HeroCarousel() {
                                     </Link>
                                 </Button>
                             </motion.div>
-
-                            {/* Stats row — commented out
-                            <motion.div variants={fadeInUp} className="mt-14 flex flex-wrap gap-8 border-t border-white/15 pt-8 sm:gap-10">
-                                {slide.stats.map((stat) => (
-                                    <div key={stat.label}>
-                                        <span className="block text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{stat.value}</span>
-                                        <span className="mt-1 block text-xs font-medium text-slate-400 sm:text-sm">{stat.label}</span>
-                                    </div>
-                                ))}
-                            </motion.div>
-                            */}
                         </motion.div>
                     </AnimatePresence>
                 </div>
 
-                {/* RHS: Fixed 3 GIFs, only highlight shifts per slide */}
+                {/* ── RHS: Triangle GIF cluster ── */}
                 <div className="hidden w-full lg:flex lg:w-1/2 lg:min-h-screen lg:items-center">
                     <div className="relative w-full" style={{ height: "520px" }}>
-                        {/* Decorative glow blobs */}
+                        {/* Glow blobs */}
                         <div className="pointer-events-none absolute -top-16 right-8 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl" />
                         <div className="pointer-events-none absolute bottom-0 right-10 h-56 w-56 rounded-full bg-[#00D4AA]/10 blur-3xl" />
 
-                        {heroGifs.map((gif, i) => {
-                            const layout = activeLayout[i];
-                            const isHighlighted = layout.zIndex === 30;
+                        {slideGifs.map((gif, i) => {
+                            const isActive = currentSlide === i;
+                            const pos = cardPositions[i];
+
                             return (
                                 <motion.div
-                                    key={gif.src}
+                                    key={i}
+                                    className="absolute overflow-hidden rounded-2xl"
+                                    style={{ ...pos }}
                                     animate={{
-                                        scale: layout.scale,
-                                        opacity: layout.opacity,
-                                        zIndex: layout.zIndex,
+                                        scale: isActive ? 1.15 : 0.85,
+                                        opacity: isActive ? 1 : 0.45,
+                                        zIndex: isActive ? 20 : 10,
                                     }}
-                                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className="absolute"
-                                    style={{
-                                        width: layout.width,
-                                        // Position each card
-                                        ...(i === 0 && { right: 0, top: "50%", transform: "translateY(-50%)" }),
-                                        ...(i === 1 && { bottom: "20px", left: "10px" }),
-                                        ...(i === 2 && { top: "20px", left: "30px" }),
-                                        zIndex: layout.zIndex,
-                                    }}
+                                    transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                    // eslint-disable-next-line @next/next/no-img-element
                                 >
-                                    <GifFrame src={gif.src} alt={gif.alt} isHighlighted={isHighlighted} />
+                                    {/* Active ring highlight */}
+                                    <motion.div
+                                        className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
+                                        animate={{
+                                            boxShadow: isActive
+                                                ? "0 0 0 2px rgba(0,212,170,0.7), 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,212,170,0.15)"
+                                                : "0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.4)",
+                                        }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={gif}
+                                        alt={`Slide ${i + 1} preview`}
+                                        className="h-full w-full object-contain bg-black/5"
+                                    />
                                 </motion.div>
                             );
                         })}
@@ -224,9 +190,8 @@ export function HeroCarousel() {
                     <button
                         key={i}
                         onClick={() => setCurrentSlide(i)}
-                        className={`h-2 rounded-full transition-all duration-500 ${
-                            i === currentSlide ? "w-8 bg-white" : "w-2 bg-white/35"
-                        }`}
+                        className={`h-2 rounded-full transition-all duration-500 ${i === currentSlide ? "w-8 bg-white" : "w-2 bg-white/35"
+                            }`}
                         aria-label={`Go to slide ${i + 1}`}
                     />
                 ))}
