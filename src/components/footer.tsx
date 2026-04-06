@@ -109,8 +109,8 @@ export function Footer() {
                 
                 {/* ── LET'S TALK CTA SECTION ── */}
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto">
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#00D4AA] bg-[#00D4AA]/[0.08] border border-[#00D4AA]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D4AA] animate-[pulse_2s_infinite]" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
                     </div>
 
@@ -131,7 +131,7 @@ export function Footer() {
 
                     <Link
                         href={cta.href}
-                        className="group inline-flex items-center gap-2.5 font-bold text-[14px] text-[#030B3B] bg-gradient-to-r from-[#00D4AA] to-[#00A8FF] rounded-full px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 shadow-[0_8px_32px_rgba(0,212,170,0.28)] hover:shadow-[0_20px_52px_rgba(0,212,170,0.4)] tracking-[-0.2px]"
+                        className="group inline-flex items-center justify-center gap-2.5 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
                     >
                         {cta.label}
                         <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -196,7 +196,7 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test, and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernisation", "QA & Test Automation", "DevOps"],
-            image: "/images/Our Services/Product Engineering_no BG.svg",
+            image: "/images/Our Services/Product Engineering_no BG.png",
             href: "/product-dev",
         },
         {
@@ -218,13 +218,13 @@ export const productsContent = {
     subheadline: "Seven products born from decades of enterprise delivery — proving our domain knowledge extends beyond implementation.",
     rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney — a testament to what enterprise depth produces when it becomes a product.",
     logos: [
-        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /ILendX.svg", acquiredBy: "Fiserv" },
-        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Credit Snap white.png", acquiredBy: "SavvyMoney" },
-        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /EazySchool White.png" },
-        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /Hyper white PNG.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /FinXServe White.png" },
-        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /Claim Pioneer White.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /AIRA white.png" },
+        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /PNG/Ilendx white@2x.png", acquiredBy: "Fiserv" },
+        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Creditsnap white_.png", acquiredBy: "SavvyMoney" },
+        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /PNG/Eazyschool White@2x.png" },
+        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /PNG/Hyper white@2x.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /PNG/FINX white@2x.png" },
+        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /PNG/Claim pioneer white@2x.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /PNG/AIRA white@2x.png" },
     ],
     products: [
         {
@@ -232,7 +232,7 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards, and deposits.",
-            image: "/images/Product Images/1. Finxserve.svg",
+            image: "/images/Product Images/FINXSERVE.gif",
             href: "/finxserve",
         },
         {
@@ -240,7 +240,7 @@ export const productsContent = {
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design, and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
-            image: "/images/Product Images/AIRA.svg",
+            image: "/images/Product Images/AIRA.gif",
             href: "/aira",
         },
         {

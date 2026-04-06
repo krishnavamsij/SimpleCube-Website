@@ -69,8 +69,8 @@ export function HeroCarousel() {
                         >
                             {/* Badge */}
                             <motion.div variants={fadeInUp}>
-                                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 backdrop-blur-md">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                                     {slide.badge}
                                 </span>
                             </motion.div>
@@ -104,7 +104,7 @@ export function HeroCarousel() {
 
                             {/* CTAs */}
                             <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4">
-                                <Button size="lg" asChild className="bg-white text-blue-700 font-bold shadow-xl shadow-blue-900/20 hover:bg-blue-50">
+                                <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold">
                                     <Link href={heroCtas.primary.href}>
                                         {heroCtas.primary.label} <ArrowUpRightIcon className="ml-1 h-4 w-4" />
                                     </Link>

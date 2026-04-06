@@ -48,7 +48,7 @@ export function CaseStudies() {
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
-                                {i < arr.length - 1 && <em className="italic text-[#1e90ff] pr-1">{highlightedWord}</em>}
+                                {i < arr.length - 1 && <span className="text-[#00D4AA] pr-1">{highlightedWord}</span>}
                             </React.Fragment>
                         ))}
                     </h2>
@@ -122,7 +122,7 @@ export function CaseStudies() {
                                                     {study.title.split("*").map((part, i) => (
                                                         <React.Fragment key={i}>
                                                             {i % 2 !== 0 ? (
-                                                                <em className="italic text-[#63c2ff] drop-shadow-[0_0_30px_rgba(99,194,255,0.28)]">{part}</em>
+                                                                <span className="text-[#63c2ff] drop-shadow-[0_0_30px_rgba(99,194,255,0.28)]">{part}</span>
                                                             ) : (
                                                                 part.split("\n").map((line, j, arr) => (
                                                                     <React.Fragment key={j}>
@@ -180,7 +180,7 @@ export function CaseStudies() {
 
                     {/* Count */}
                     <div className="mt-4 text-[11px] font-light text-[#9ca3af] tracking-[2px]">
-                        <strong className="text-[#1e90ff] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
+                        <strong className="text-[#00D4AA] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
                     </div>
                 </div>
 

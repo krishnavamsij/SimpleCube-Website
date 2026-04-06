@@ -35,8 +35,8 @@ export function Challenges() {
                     whileInView="visible"
                     viewport={viewportOnce}
                 >
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3b82f6] bg-[#3b82f6]/[0.08] border border-[#3b82f6]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         THE ENTERPRISE REALITY
                     </div>
                     <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
@@ -65,7 +65,7 @@ export function Challenges() {
 
                                 {/* Icon */}
                                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50">
-                                    {Icon && <Icon className="h-7 w-7 text-blue-600" />}
+                                    {Icon && <Icon className="h-7 w-7 text-[#1e90ff]" />}
                                 </div>
 
                                 {/* Title */}

@@ -27,19 +27,19 @@ export function Services() {
                 >
                     {/* Left Side: Eyebrow and Heading */}
                     <div>
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3b82f6] bg-[#3b82f6]/[0.08] border border-[#3b82f6]/25 rounded-full px-5 py-1.5 mb-6">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {label}
                         </div>
                         <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[56px] leading-[1.1] text-slate-900">
                             End-to-end<br />
                             technology<br />
-                            <span className="text-[#3b82f6]">partnership.</span>
+                            <span className="text-[#00D4AA]">partnership.</span>
                         </h2>
                     </div>
 
                     {/* Right Side: Callout and metrics */}
-                    <div className="flex flex-col justify-center border-l-[3px] border-[#3b82f6] pl-8 lg:pl-12 py-2">
+                    <div className="flex flex-col justify-center border-l-[3px] border-[#00D4AA] pl-8 lg:pl-12 py-2">
                         <p className="text-xl sm:text-2xl text-slate-700 font-medium leading-[1.6] mb-12 max-w-2xl">
                             {callOutContent.split('—').map((part: string, i: number, arr: string[]) => (
                                 <span key={i}>
@@ -64,7 +64,7 @@ export function Services() {
                                         <div className="flex items-baseline gap-0.5">
                                             <span className="text-3xl sm:text-4xl font-extrabold text-slate-900">{valNum}</span>
                                             {hasPlus && (
-                                                <span className="text-[#3b82f6] text-3xl sm:text-4xl font-extrabold">+</span>
+                                                <span className="text-[#00D4AA] text-3xl sm:text-4xl font-extrabold">+</span>
                                             )}
                                         </div>
                                         <p className="mt-2 text-sm text-slate-500 font-medium leading-snug pr-4 whitespace-pre-line">
@@ -95,7 +95,7 @@ export function Services() {
                                     <div className="flex-1 p-10 lg:p-16 flex flex-col justify-center relative z-10">
                                         
                                         {/* Stylized background number */}
-                                        <div className="absolute -top-10 -left-6 lg:-top-16 lg:-left-12 text-[180px] lg:text-[250px] font-black leading-none text-[#3b82f6]/5 sm:text-slate-100/80 select-none pointer-events-none z-[-1]">
+                                        <div className="absolute -top-10 -left-6 lg:-top-16 lg:-left-12 text-[180px] lg:text-[250px] font-black leading-none text-[#00D4AA]/5 sm:text-slate-100/80 select-none pointer-events-none z-[-1]">
                                             {svc.num}
                                         </div>
 
@@ -120,7 +120,7 @@ export function Services() {
                                         <div className="mt-auto pt-4">
                                             <Link
                                                 href={svc.href}
-                                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-sm font-bold text-[#3b82f6] hover:bg-slate-50 hover:border-slate-300 transition-all"
+                                                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all"
                                             >
                                                 Explore service <ArrowRightIcon className="h-4 w-4" />
                                             </Link>
@@ -143,6 +143,7 @@ export function Services() {
                                                     fill
                                                     className={`object-contain object-right lg:object-center transition-transform ${
                                                         i === 1 ? "scale-95 lg:scale-[1.05]" :
+                                                        i === 2 ? "scale-[1.20] lg:scale-[1.20]" :
                                                         i === 3 ? "scale-125 lg:scale-125" :
                                                         "scale-150 lg:scale-150"
                                                     }`}

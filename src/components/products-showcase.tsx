@@ -1,19 +1,50 @@
 "use client";
 
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { productsContent } from "@/content/site-content";
 import Link from "next/link";
 import { ArrowRightIcon, ArrowUpRightIcon, Landmark, Shield, TrendingUp, GraduationCap, Truck } from "lucide-react";
 
 const getTagIcon = (tag: string) => {
-    if (tag.includes("Financial")) return <Landmark className="w-3.5 h-3.5 text-[#3b82f6]" />;
-    if (tag.includes("Insurance")) return <Shield className="w-3.5 h-3.5 text-[#3b82f6]" />;
-    if (tag.includes("Wealth")) return <TrendingUp className="w-3.5 h-3.5 text-[#3b82f6]" />;
-    if (tag.includes("Education")) return <GraduationCap className="w-3.5 h-3.5 text-[#3b82f6]" />;
-    if (tag.includes("Logistics") || tag.includes("Transportation")) return <Truck className="w-3.5 h-3.5 text-[#3b82f6]" />;
-    return <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></div>;
+    if (tag.includes("Financial")) return <Landmark className="w-3.5 h-3.5 text-[#1e90ff]" />;
+    if (tag.includes("Insurance")) return <Shield className="w-3.5 h-3.5 text-[#1e90ff]" />;
+    if (tag.includes("Wealth")) return <TrendingUp className="w-3.5 h-3.5 text-[#1e90ff]" />;
+    if (tag.includes("Education")) return <GraduationCap className="w-3.5 h-3.5 text-[#1e90ff]" />;
+    if (tag.includes("Logistics") || tag.includes("Transportation")) return <Truck className="w-3.5 h-3.5 text-[#1e90ff]" />;
+    return <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff]"></div>;
+};
+
+const ProductImageContainer = ({ p }: { p: any }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const [gifSrc, setGifSrc] = useState("");
+
+    useEffect(() => {
+        if (isInView && p.image.includes('.gif') && !gifSrc) {
+            setGifSrc(`${p.image}?t=${Date.now()}`);
+        }
+    }, [isInView, p.image, gifSrc]);
+
+    return (
+        <div ref={ref} className="w-full lg:w-1/2 relative flex items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
+            {/* Targeted Soft Edge Fog: Extra height on bottom to hide sharp GIF floor */}
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#081236] via-[#081236]/90 to-transparent z-20 pointer-events-none"></div>
+
+            <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-6 lg:p-12 hover:scale-[1.02] transition-transform duration-700 ease-out">
+                {p.image.includes('.gif') ? (
+                    gifSrc && <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
+                ) : (
+                    <Image src={p.image} alt={p.title} fill className="object-contain drop-shadow-2xl" />
+                )}
+            </div>
+        </div>
+    );
 };
 
 export function ProductsShowcase() {
@@ -30,8 +61,8 @@ export function ProductsShowcase() {
                     viewport={viewportOnce}
                     className="mb-16 lg:mb-24"
                 >
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3b82f6] bg-[#3b82f6]/[0.08] border border-[#3b82f6]/25 rounded-full px-5 py-1.5 mb-8">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
                     </div>
                     
@@ -40,7 +71,7 @@ export function ProductsShowcase() {
                         <div className="lg:pr-12">
                             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[56px] leading-[1.1] text-white mb-8">
                                 Product innovation<br />
-                                is in our <span className="text-[#3b82f6]">DNA.</span>
+                                is in our <span className="text-[#00D4AA]">DNA.</span>
                             </h2>
                             <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-xl">
                                 {subheadline}
@@ -49,8 +80,8 @@ export function ProductsShowcase() {
 
                         {/* Right Side: Callout text */}
                         <div className="flex flex-col justify-center lg:items-end w-full">
-                            <div className="border-l-[2px] border-[#3b82f6] pl-6 py-2 lg:max-w-[480px] w-full mr-auto lg:mr-0">
-                                <p className="text-lg text-slate-400 font-medium leading-[1.7] max-w-[480px]">
+                            <div className="border-l-[2px] border-[#00D4AA] pl-6 py-2 lg:max-w-[480px] w-full mr-auto lg:mr-0">
+                                <p className="text-xl sm:text-2xl text-slate-400 font-medium leading-[1.6] max-w-[480px]">
                                     Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span> <br className="hidden lg:block"/>— a testament to what enterprise depth produces when it becomes a product.
                                 </p>
                             </div>
@@ -60,14 +91,15 @@ export function ProductsShowcase() {
 
                 {/* ── Logo Ribbon Footprint ── */}
                 <div className="mt-16 lg:mt-20 pt-10 border-t border-white/10 w-full mb-16 lg:mb-32 relative">
-                    <div className="flex flex-row items-center justify-start lg:justify-between gap-12 lg:gap-8 overflow-x-auto scrollbar-none pb-4">
+                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap scrollbar-none gap-8 lg:gap-10 xl:gap-8 pb-10 w-full">
                         {logos.map((logo, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center gap-3 min-w-[140px] lg:min-w-[120px]">
-                                <div className="h-10 lg:h-12 relative w-[140px] lg:w-[150px] opacity-90 transition-opacity flex-shrink-0">
+                            <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
+                                {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
+                                <div className="h-10 lg:h-12 relative w-[140px] lg:w-[160px] xl:w-[170px] opacity-90 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
                                 {logo.acquiredBy && (
-                                    <div className="inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                    <div className="absolute top-full mt-2 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
                                         <ArrowUpRightIcon className="w-3 h-3" /> {logo.acquiredBy}
                                     </div>
                                 )}
@@ -131,18 +163,14 @@ export function ProductsShowcase() {
                                     
                                     <Link
                                         href={p.href}
-                                        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#3b82f6] text-white text-sm font-bold shadow-md hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20 transition-all w-max"
+                                        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
                                     >
                                         Explore Product <ArrowRightIcon className="h-4 w-4" />
                                     </Link>
                                 </div>
 
-                                {/* Right: Seamless Image Container */}
-                                <div className="w-full lg:w-1/2 relative flex items-center lg:items-end justify-center lg:justify-end overflow-visible">
-                                    <div className="relative w-full h-[300px] lg:w-[130%] lg:h-[130%] lg:mr-[-10%] lg:mb-[-10%] hover:scale-105 transition-transform duration-700 ease-out origin-bottom-right">
-                                        <Image src={p.image} alt={p.title} fill className="object-contain p-8 lg:p-0 drop-shadow-2xl" />
-                                    </div>
-                                </div>
+                                {/* Right: Seamless Image Container with Lazy Load GIF player */}
+                                <ProductImageContainer p={p} />
                                 
                             </div>
                         </div>

@@ -39,15 +39,15 @@ export function Industries() {
                     viewport={viewportOnce}
                     className="max-w-3xl"
                 >
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3b82f6] bg-[#3b82f6]/[0.08] border border-[#3b82f6]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
                     </div>
                     <h2 className="mt-6 text-4xl font-extrabold tracking-tight text-[#030B3B] sm:text-5xl lg:text-[56px] leading-[1.1] whitespace-pre-line">
                         {headline.split(highlightedWord).map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
-                                {i < arr.length - 1 && <span className="text-[#3b82f6]">{highlightedWord}</span>}
+                                {i < arr.length - 1 && <span className="text-[#00D4AA]">{highlightedWord}</span>}
                             </React.Fragment>
                         ))}
                     </h2>

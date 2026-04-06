@@ -105,7 +105,7 @@ export function Navbar() {
 
                 {/* Desktop CTA */}
                 <div className="hidden items-center gap-3 lg:flex">
-                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-500">
+                    <Button asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full">
                         <Link href="/contact">Contact Us</Link>
                     </Button>
                 </div>
@@ -149,7 +149,7 @@ export function Navbar() {
                                 </div>
                             ))}
                             <div className="pt-3">
-                                <Button asChild className="w-full bg-blue-600 text-white hover:bg-blue-500">
+                                <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full">
                                     <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
                                 </Button>
                             </div>

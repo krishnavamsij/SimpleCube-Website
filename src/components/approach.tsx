@@ -14,7 +14,7 @@ export function Approach() {
     const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
     return (
-        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] pt-10 sm:pt-14 pb-10">
+        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] pt-12 sm:pt-16 pb-12 sm:pb-20">
 
             <motion.div style={{ y: bgY }} className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
@@ -24,12 +24,12 @@ export function Approach() {
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-5"
+                    className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-2"
                 >
                     {/* Left: Headline & Callout */}
                     <div className="flex-1 lg:max-w-2xl">
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#00D4AA] bg-[#00D4AA]/[0.08] border border-[#00D4AA]/25 rounded-full px-5 py-1.5 mb-6">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#00D4AA] shadow-[0_0_8px_#00D4AA] animate-pulse" />
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {label}
                         </div>
                         <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl mb-6">
@@ -56,7 +56,7 @@ export function Approach() {
                 {/* ── Roles Eliminated Row (Moved directly above spheres) ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="mt-10 lg:mt-12 mb-8 flex flex-col items-center justify-center gap-4 pt-1"
+                    className="mt-6 lg:mt-8 mb-6 lg:mb-8 flex flex-col items-center justify-center gap-6 pt-1"
                 >
                     <span className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-white/70 text-center">
                         Roles you no longer need to staff
@@ -77,7 +77,7 @@ export function Approach() {
                 {/* ── Planet Wave SVG ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                    className="w-full flex justify-center mt-20 lg:mt-32"
+                    className="w-full flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
                 >
                     <style>{`
                         @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -140,14 +140,32 @@ export function Approach() {
                         </defs>
 
                         {/* Wave shadow */}
-                        <path d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
-                            fill="none" stroke="rgba(0,168,255,0.10)" strokeWidth="5"/>
+                        <motion.path 
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            whileInView={{ pathLength: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
+                            fill="none" stroke="rgba(0,168,255,0.10)" strokeWidth="5"
+                        />
                         {/* Wave main */}
-                        <path d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
-                            fill="none" stroke="rgba(120,170,255,0.30)" strokeWidth="1.8"/>
+                        <motion.path 
+                            initial={{ pathLength: 0 }}
+                            whileInView={{ pathLength: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
+                            fill="none" stroke="rgba(120,170,255,0.30)" strokeWidth="1.8"
+                        />
                         {/* Wave sheen */}
-                        <path d="M 88 79 C 140 87, 200 199, 272 191 C 344 183, 390 74, 500 64 C 598 56, 660 221, 728 214 C 798 206, 868 136, 922 130"
-                            fill="none" stroke="rgba(210,230,255,0.10)" strokeWidth="1"/>
+                        <motion.path 
+                            initial={{ pathLength: 0 }}
+                            whileInView={{ pathLength: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            d="M 88 79 C 140 87, 200 199, 272 191 C 344 183, 390 74, 500 64 C 598 56, 660 221, 728 214 C 798 206, 868 136, 922 130"
+                            fill="none" stroke="rgba(210,230,255,0.10)" strokeWidth="1"
+                        />
 
                         {/* Sparkles */}
                         <circle cx="178" cy="158" r="2.2" fill="rgba(0,212,170,0.45)"/>
