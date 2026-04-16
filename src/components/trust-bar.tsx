@@ -38,6 +38,7 @@ export function TrustBar() {
                                 width={150}
                                 height={52}
                                 className="h-9 w-auto max-w-[150px] object-contain opacity-100 transition-all duration-300 sm:h-11"
+                                style={logo.scale ? { transform: `scale(${logo.scale})` } : {}}
                             />
                         </div>
                     ))}

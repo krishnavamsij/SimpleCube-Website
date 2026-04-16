@@ -56,13 +56,14 @@ export function TechPartners() {
                     <div className="w-full lg:w-[48%] relative z-20 shrink-0">
                         <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                             {/* Glowing Eyebrow */}
-                            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                            <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-6">
+                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                                 {techPartnersContent.label}
                             </div>
                             
-                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[46px] leading-[1.12] text-slate-900 mb-5">
-                                {techPartnersContent.headline}
+                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[46px] leading-[1.12] text-slate-900 mb-5 max-w-sm">
+                                Built on the platforms you<br /> 
+                                already <span className="text-[#00D4AA]">trust</span>
                             </h2>
                             
                             <p className="text-[17px] sm:text-lg text-slate-600 font-medium leading-[1.6] mb-10 max-w-xl">

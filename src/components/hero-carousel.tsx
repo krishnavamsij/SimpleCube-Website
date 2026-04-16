@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
+import { HeroPuzzle } from "@/components/hero-puzzle";
 
 // GIF per slide — index matches slide index
 const slideGifs = [
@@ -23,22 +24,9 @@ const cardPositions = [
 ];
 
 export function HeroCarousel() {
-    const [currentSlide, setCurrentSlide] = useState(0);
     const slides = heroSlides;
-
-    const nextSlide = useCallback(() => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, [slides.length]);
-
-    const prevSlide = useCallback(() => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    }, [slides.length]);
-
-    useEffect(() => {
-        const timer = setInterval(nextSlide, 10000);
-        return () => clearInterval(timer);
-    }, [nextSlide]);
-
+    // Set to the 'Build in Weeks, Not Months' slide index
+    const currentSlide = 1;
     const slide = slides[currentSlide];
 
     return (
@@ -57,59 +45,69 @@ export function HeroCarousel() {
 
             {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
-
                 {/* ── LHS: Text ── */}
-                <div className="flex w-full flex-col justify-center pb-28 pt-32 lg:w-1/2 lg:pb-24 lg:pr-10 lg:pt-28">
+                <div className="flex w-full flex-col justify-center pb-12 pt-32 lg:w-1/2 lg:pb-12 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={`content-${currentSlide}`}
+                            key="hero-content"
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
                         >
-                            {/* Badge */}
+                            {/* Badge / Eyebrow */}
                             <motion.div variants={fadeInUp}>
-                                <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 backdrop-blur-md">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
-                                    {slide.badge}
+                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
+                                    <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                                    AI-powered Software Delivery
                                 </span>
                             </motion.div>
-
+ 
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-8 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl"
+                                className="mt-14 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[68px] font-display"
                             >
-                                {slide.headline.split(" ").map((word, i) => {
-                                    const isHighlighted = slide.highlightedWords?.some((hw) => word.includes(hw));
-                                    return (
-                                        <span key={i}>
-                                            {isHighlighted ? (
-                                                <span className="text-[#00D4AA] drop-shadow-sm">{word}</span>
-                                            ) : (
-                                                word
-                                            )}{" "}
-                                        </span>
-                                    );
-                                })}
+                                Build in <span className="text-[#00D4AA]">weeks,</span><br />
+                                not <span className="text-[#00D4AA]">months.</span>
                             </motion.h1>
-
+ 
                             {/* Subheadline */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-6 w-full text-base leading-relaxed text-slate-300 sm:text-lg"
+                                className="mt-12 w-full text-lg leading-relaxed text-slate-300 sm:text-xl font-medium max-w-xl"
                             >
-                                {slide.subheadline}
+                                We combine deep industry knowledge, proven engineering models and the platforms your business already runs on — so you get outcomes, not overhead.
                             </motion.p>
 
+                            {/* Hero Metrics Row */}
+                            <motion.div variants={fadeInUp} className="mt-16 flex flex-wrap gap-14 lg:gap-24">
+                                {[
+                                    { value: "50%", label: "Less Planning\nTime" },
+                                    { value: "40%", label: "Quicker\nDelivery" },
+                                    { value: "30%", label: "Faster\nPOC" }
+                                ].map((stat, idx) => (
+                                    <div key={idx} className="flex flex-col">
+                                        <div className="flex items-baseline gap-1 mb-2">
+                                            <span className="text-3xl sm:text-4xl font-[900] text-white leading-none font-display">
+                                                {stat.value.replace('%', '')}
+                                            </span>
+                                            <span className="text-2xl sm:text-3xl font-black text-[#00D4AA] leading-none">%</span>
+                                        </div>
+                                        <span className="text-[14px] sm:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">
+                                            {stat.label}
+                                        </span>
+                                    </div>
+                                ))}
+                            </motion.div>
+ 
                             {/* CTAs */}
-                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4">
-                                <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold">
+                            <motion.div variants={fadeInUp} className="mt-16 flex flex-wrap gap-4">
+                                <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-8 h-14">
                                     <Link href={heroCtas.primary.href}>
                                         {heroCtas.primary.label} <ArrowUpRightIcon className="ml-1 h-4 w-4" />
                                     </Link>
                                 </Button>
-                                <Button size="lg" variant="outline" asChild className="border-2 border-white/40 bg-white/8 text-white font-semibold backdrop-blur-sm hover:border-white/60 hover:bg-white/15">
+                                <Button size="lg" variant="outline" asChild className="border-2 border-white/40 bg-white/10 text-white font-semibold backdrop-blur-sm hover:bg-transparent hover:border-white/40 hover:text-[#3B82F6] transition-all duration-300 rounded-full px-8 h-14">
                                     <Link href={heroCtas.secondary.href}>
                                         {heroCtas.secondary.label}
                                     </Link>
@@ -119,83 +117,26 @@ export function HeroCarousel() {
                     </AnimatePresence>
                 </div>
 
-                {/* ── RHS: Triangle GIF cluster ── */}
-                <div className="hidden w-full lg:flex lg:w-1/2 lg:min-h-screen lg:items-center">
-                    <div className="relative w-full" style={{ height: "520px" }}>
-                        {/* Glow blobs */}
-                        <div className="pointer-events-none absolute -top-16 right-8 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl" />
-                        <div className="pointer-events-none absolute bottom-0 right-10 h-56 w-56 rounded-full bg-[#00D4AA]/10 blur-3xl" />
-
-                        {slideGifs.map((gif, i) => {
-                            const isActive = currentSlide === i;
-                            const pos = cardPositions[i];
-
-                            return (
-                                <motion.div
-                                    key={i}
-                                    className="absolute overflow-hidden rounded-2xl"
-                                    style={{ ...pos }}
-                                    animate={{
-                                        scale: isActive ? 1.15 : 0.85,
-                                        opacity: isActive ? 1 : 0.45,
-                                        zIndex: isActive ? 20 : 10,
-                                    }}
-                                    transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                    // eslint-disable-next-line @next/next/no-img-element
-                                >
-                                    {/* Active ring highlight */}
-                                    <motion.div
-                                        className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
-                                        animate={{
-                                            boxShadow: isActive
-                                                ? "0 0 0 2px rgba(0,212,170,0.7), 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,212,170,0.15)"
-                                                : "0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.4)",
-                                        }}
-                                        transition={{ duration: 0.5 }}
-                                    />
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={gif}
-                                        alt={`Slide ${i + 1} preview`}
-                                        className="h-full w-full object-contain bg-black/5"
-                                    />
-                                </motion.div>
-                            );
-                        })}
+                {/* ── RHS: Single High-Fidelity Animation ── */}
+                <div className="hidden w-full lg:flex lg:w-1/2 lg:min-h-screen lg:items-center justify-center">
+                    <div className="relative w-full max-w-[800px] h-[700px] flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.1 }}
+                                transition={{ duration: 0.8, ease: "easeInOut" }}
+                                className="relative w-full h-full flex items-center justify-center"
+                            >
+                                <HeroPuzzle />
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>
 
-            {/* Navigation arrows */}
-            <div className="absolute bottom-10 right-6 flex items-center gap-3 sm:right-8">
-                <button
-                    onClick={prevSlide}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/80 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-white/15 hover:text-white"
-                    aria-label="Previous slide"
-                >
-                    <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                    onClick={nextSlide}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/80 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-white/15 hover:text-white"
-                    aria-label="Next slide"
-                >
-                    <ChevronRight className="h-5 w-5" />
-                </button>
-            </div>
-
-            {/* Dot indicators */}
-            <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-2">
-                {slides.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrentSlide(i)}
-                        className={`h-2 rounded-full transition-all duration-500 ${i === currentSlide ? "w-8 bg-white" : "w-2 bg-white/35"
-                            }`}
-                        aria-label={`Go to slide ${i + 1}`}
-                    />
-                ))}
-            </div>
+            {/* Navigation arrows and indicators removed for static hero */}
         </section>
     );
 }

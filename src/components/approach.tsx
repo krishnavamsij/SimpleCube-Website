@@ -28,11 +28,11 @@ export function Approach() {
                 >
                     {/* Left: Headline & Callout */}
                     <div className="flex-1 lg:max-w-2xl">
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-6">
+                            <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             {label}
                         </div>
-                        <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl mb-6">
+                        <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl mb-6 font-display">
                             {headline}
                         </h2>
                         {/* Left-aligned Callout Content (2 lines) */}
@@ -44,10 +44,10 @@ export function Approach() {
 
                     {/* Right: Punch Stat (Top Aligned to Label) */}
                     <div className="flex flex-col items-end text-right flex-shrink-0 mt-2 lg:mt-2">
-                        <div className="text-[72px] font-black leading-[0.85] tracking-[-3px] text-white">
+                        <div className="text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
                             40<span className="text-[#00D4AA] text-[52px]">%</span>
                         </div>
-                        <div className="text-[14px] font-bold mt-3 leading-[1.3] text-white/70">
+                        <div className="text-[14px] font-bold mt-3 leading-[1.3] text-white/70 eyebrow">
                             faster delivery<br />vs. traditional model
                         </div>
                     </div>
@@ -58,14 +58,14 @@ export function Approach() {
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
                     className="mt-6 lg:mt-8 mb-6 lg:mb-8 flex flex-col items-center justify-center gap-6 pt-1"
                 >
-                    <span className="text-[11.5px] font-bold uppercase tracking-[0.18em] text-white/70 text-center">
+                    <span className="text-[11.5px] eyebrow text-white/70 text-center">
                         Roles you no longer need to staff
                     </span>
                     <div className="flex flex-wrap justify-center gap-2.5">
                         {roles.map((role) => (
                             <span
                                 key={role}
-                                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[12.5px] font-semibold text-white/90 shadow-sm"
+                                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[12.5px] font-semibold text-white/90 shadow-sm font-display uppercase tracking-wider"
                             >
                                 <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-red-500/50 bg-red-500/20 text-[10px] font-black text-red-400 leading-none flex-shrink-0">✕</span>
                                 {role}
@@ -182,47 +182,47 @@ export function Approach() {
 
                         {/* ── Planet 1: Discovery & Planning (teal, small, high) ── */}
                         <g className="hpg hfloat-0" style={{ transformOrigin: "88px 82px" }}>
-                            <text x="88" y="36" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Discovery &amp; Planning</text>
+                            <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Discovery &amp; Planning</text>
                             <circle cx="88" cy="82" r="30" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="88" cy="90" rx="28" ry="5.5" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc1)"/>
-                            <text x="88" y="132" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer captures</text>
-                            <text x="88" y="145" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">scope directly.</text>
+                            <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer captures</text>
+                            <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">scope directly.</text>
                         </g>
 
                         {/* ── Planet 2: Dev Project Planning (navy, medium, low) ── */}
                         <g className="hpg hfloat-1" style={{ transformOrigin: "272px 195px" }}>
-                            <text x="272" y="129" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Dev Project Planning</text>
+                            <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Dev Project Planning</text>
                             <circle cx="272" cy="195" r="50" fill="url(#hs2)" className="hs"/>
                             <ellipse cx="272" cy="206" rx="47" ry="9" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc2)"/>
-                            <text x="272" y="265" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer writes</text>
-                            <text x="272" y="278" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">the user stories.</text>
+                            <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer writes</text>
+                            <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">the user stories.</text>
                         </g>
 
                         {/* ── Planet 3: Engineering Dev & Quality Automation (cyan, large, peak center) ── */}
                         <g className="hpg hfloat-2" style={{ transformOrigin: "500px 68px" }}>
-                            <text x="500" y="-20" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
+                            <text x="500" y="-20" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
                             <circle cx="500" cy="68" r="78" fill="url(#hs3)" className="hs"/>
                             <ellipse cx="500" cy="82" rx="74" ry="14" fill="none" stroke="rgba(100,160,255,0.25)" strokeWidth="1.5" clipPath="url(#hc3)"/>
-                            <text x="500" y="166" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">One engineer owns scope,</text>
-                            <text x="500" y="179" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">code &amp; quality.</text>
+                            <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">One engineer owns scope,</text>
+                            <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">code &amp; quality.</text>
                         </g>
 
                         {/* ── Planet 4: Launch & Iterations (teal, medium, low) ── */}
                         <g className="hpg hfloat-3" style={{ transformOrigin: "728px 218px" }}>
-                            <text x="728" y="162" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Launch &amp; Iterations</text>
+                            <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Launch &amp; Iterations</text>
                             <circle cx="728" cy="218" r="42" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="728" cy="228" rx="39" ry="7.5" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc4)"/>
-                            <text x="728" y="280" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Same developer</text>
-                            <text x="728" y="293" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">drives every release.</text>
+                            <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Same developer</text>
+                            <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">drives every release.</text>
                         </g>
 
                         {/* ── Planet 5: Support & Product Evolution (navy, small, high) ── */}
                         <g className="hpg hfloat-4" style={{ transformOrigin: "922px 134px" }}>
-                            <text x="922" y="86" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
+                            <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
                             <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs"/>
-                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)"/>
-                            <text x="922" y="186" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
-                            <text x="922" y="199" textAnchor="middle" fontFamily="Roboto,sans-serif" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
+                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="hc5)"/>
+                            <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
+                            <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
                         </g>
                     </svg>
                 </motion.div>

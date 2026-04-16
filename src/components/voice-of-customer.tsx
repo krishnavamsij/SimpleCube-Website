@@ -1,0 +1,196 @@
+"use client";
+
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MoveRight, Landmark, Shield, TrendingUp, GraduationCap, Truck } from "lucide-react";
+import { scrollReveal, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
+import { vocContent } from "@/content/site-content";
+import Image from "next/image";
+
+const getTagIcon = (tag: string) => {
+    if (tag.includes("Lending") || tag.includes("Fintech") || tag.includes("Financial")) return <Landmark className="w-4 h-4 text-[#1e90ff]" />;
+    if (tag.includes("Insurance")) return <Shield className="w-4 h-4 text-[#1e90ff]" />;
+    if (tag.includes("Wealth")) return <TrendingUp className="w-4 h-4 text-[#1e90ff]" />;
+    if (tag.includes("Education")) return <GraduationCap className="w-4 h-4 text-[#1e90ff]" />;
+    if (tag.includes("Logistics") || tag.includes("Transportation")) return <Truck className="w-4 h-4 text-[#1e90ff]" />;
+    return <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff]"></div>;
+};
+
+export function VoiceOfCustomer() {
+    const { label, headline, highlightedWords, testimonials } = vocContent;
+    const [current, setCurrent] = useState(0);
+
+    const next = useCallback(() => setCurrent((prev) => (prev + 1) % testimonials.length), [testimonials.length]);
+    
+    // Auto-rotate every 10 seconds
+    useEffect(() => {
+        const timer = setInterval(next, 10000);
+        return () => clearInterval(timer);
+    }, [next]);
+
+    const active = testimonials[current];
+
+    return (
+        <section className="bg-[#ECF6FF] py-12 sm:py-16 relative overflow-hidden min-h-[750px] flex flex-col justify-center">
+            
+            {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                <div className="absolute top-[55%] left-[70%] -translate-y-1/2 w-full h-full flex items-center justify-center">
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ scale: 0.7, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 0.25 }}
+                            transition={{ 
+                                delay: i * 0.15, 
+                                duration: 2.5, 
+                                repeat: Infinity, 
+                                repeatType: "reverse",
+                                ease: "easeInOut"
+                            }}
+                            className="absolute rounded-full border-[2px] border-[#1e90ff]/40"
+                            style={{ 
+                                width: `${i * 240}px`, 
+                                height: `${i * 240}px` 
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className="mx-auto max-w-[1400px] px-6 w-full relative z-10 pb-8">
+                
+                {/* Header */}
+                <motion.div
+                    variants={scrollReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    className="flex flex-col items-center text-center mb-12 lg:mb-16"
+                >
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        Customer Stories
+                    </div>
+                    <h2 className="text-4xl font-extrabold tracking-tight text-[#030B3B] sm:text-5xl lg:text-[56px] leading-[1.1] max-w-2xl relative z-10">
+                        {headline.split(" ").map((word, i) => {
+                             const pureWord = word.replace(/[.,]/g, "").toLowerCase();
+                             const isHighlighted = highlightedWords.some(hw => hw.toLowerCase().includes(pureWord));
+                             return (
+                                 <span key={i} className={isHighlighted ? "text-[#00D4AA]" : ""}>
+                                     {word}{" "}
+                                 </span>
+                             );
+                        })}
+                    </h2>
+                </motion.div>
+
+                {/* Carousel Content */}
+                <div className="relative">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={current}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.5, ease: EASE_OUT_QUART }}
+                            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start"
+                        >
+                            {/* Left Side: Industry & Quote (Strictly Left Aligned to Logo Margin) */}
+                            <div className="flex flex-col items-start space-y-10 pt-4">
+                                <div className="inline-flex items-center gap-2.5 rounded-full bg-[#1e90ff]/5 border border-[#1e90ff]/20 px-6 py-3 text-xs font-semibold text-[#1e90ff] tracking-wide">
+                                    {getTagIcon(active.industry)}
+                                    {active.industry}
+                                </div>
+                                
+                                <div className="relative">
+                                    <p className="text-xl sm:text-2xl font-normal leading-relaxed text-[#030B3B] relative z-10 text-left">
+                                        &ldquo;{active.quote}&rdquo;
+                                    </p>
+                                </div>
+
+                                <div className="pt-2">
+                                    <a 
+                                        href={active.caseStudyHref}
+                                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] group uppercase tracking-wide"
+                                    >
+                                        View Case Study
+                                        <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Right Side: Profile & Branding (Strictly Right Aligned to Contact Us Margin) */}
+                            <div className="relative flex flex-col items-center lg:items-end w-full pt-4">
+                                <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto lg:ml-auto lg:-mr-12">
+                                        
+                                        {/* ── Radiating Image Glow (Synced with Background) ── */}
+                                        {[0, 1].map((i) => (
+                                            <motion.div
+                                                key={i}
+                                                initial={{ scale: 1, opacity: 0.5 }}
+                                                animate={{ scale: 1.4, opacity: 0 }}
+                                                transition={{ 
+                                                    duration: 2.5, 
+                                                    repeat: Infinity, 
+                                                    delay: i * 1.25,
+                                                    ease: "easeOut"
+                                                }}
+                                                className="absolute inset-0 rounded-full bg-[#1e90ff]/20 blur-2xl z-0"
+                                            />
+                                        ))}
+
+                                        <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-slate-900/5 z-10">
+                                            <Image 
+                                                src={active.image} 
+                                                alt={active.author} 
+                                                fill 
+                                                className="object-contain object-top scale-100" 
+                                                priority
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    {/* RHS Info — Strictly Right Aligned to margin */}
+                                    <div className="mt-8 text-center lg:text-right flex flex-col items-center lg:items-end w-full">
+                                        <div className="space-y-1">
+                                            <h4 className="text-2xl sm:text-3xl font-bold text-[#030B3B] leading-tight-tight tracking-tight">{active.author}</h4>
+                                            <p className="text-slate-500 font-semibold text-base sm:text-lg">
+                                                {active.designation}
+                                            </p>
+                                        </div>
+                                        
+                                        {/* Company logo — Minimized gap */}
+                                        {active.logo && (
+                                            <div className="relative h-14 sm:h-16 w-48 sm:w-52 mt-0 transition-all duration-300 opacity-90 group-hover:opacity-100">
+                                                <Image 
+                                                    src={active.logo} 
+                                                    alt={active.company} 
+                                                    fill 
+                                                    className="object-contain object-center lg:object-right"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                {/* Pagination Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+                    {testimonials.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrent(i)}
+                            className={`h-1.5 rounded-full transition-all duration-500 ${
+                                i === current ? "w-10 bg-[#1e90ff]" : "w-1.5 bg-[#1e90ff]/20"
+                            }`}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}

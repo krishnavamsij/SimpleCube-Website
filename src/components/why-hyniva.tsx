@@ -32,13 +32,17 @@ export function WhyHyniva() {
                     viewport={viewportOnce}
                     className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-10 sm:p-16 lg:p-20"
                 >
-                    {/* Top Glow per Image 2 */}
+                    <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        WHY HYNIVA
+                    </div>
+                    {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
                     <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24 items-center">
                         {/* Left Side: Headline & Stats */}
                         <div>
-                            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#ffffff] tracking-tight mb-12">
+                            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-[900] text-[#ffffff] tracking-tight leading-[1.05] mb-12 font-display">
                                 {topBox.headline.split(topBox.highlightedWord).map((part, i, arr) => (
                                     <React.Fragment key={i}>
                                         {part}
@@ -50,8 +54,15 @@ export function WhyHyniva() {
                             <div className="flex gap-12 sm:gap-16">
                                 {topBox.stats.map((stat, idx) => (
                                     <div key={idx} className="flex flex-col">
-                                        <span className="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</span>
-                                        <span className="text-[13px] sm:text-[14px] text-slate-400 font-medium whitespace-pre-line leading-tight">
+                                        <div className="flex items-baseline gap-1 mb-2">
+                                            <span className="text-3xl sm:text-4xl font-[900] text-white leading-none font-display">
+                                                {stat.value.replace('+', '')}
+                                            </span>
+                                            {stat.value.includes('+') && (
+                                                <span className="text-2xl sm:text-3xl font-black text-[#00D4AA] leading-none">+</span>
+                                            )}
+                                        </div>
+                                        <span className="text-[14px] sm:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">
                                             {stat.label}
                                         </span>
                                     </div>
@@ -61,12 +72,12 @@ export function WhyHyniva() {
 
                         {/* Right Side: Description & CTA */}
                         <div className="flex flex-col items-start pt-4 lg:pt-0">
-                            <p className="text-lg text-slate-300 leading-relaxed mb-10">
+                            <p className="text-lg sm:text-xl text-slate-300 font-semibold leading-relaxed mb-10">
                                 {topBox.description}
                             </p>
                             <Link 
                                 href={topBox.cta.href}
-                                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 text-sm"
+                                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-8 py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30"
                             >
                                 {topBox.cta.label}
                             </Link>
@@ -88,10 +99,10 @@ export function WhyHyniva() {
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[17px] font-bold text-[#030B3B] mb-3">
+                                <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/70 leading-relaxed">
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>

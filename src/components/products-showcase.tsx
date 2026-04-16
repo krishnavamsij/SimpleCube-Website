@@ -21,6 +21,8 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
     const [gifSrc, setGifSrc] = useState("");
+    
+    const isCinematic = p.image.includes('Cinematic.gif');
 
     useEffect(() => {
         if (isInView && p.image.includes('.gif') && !gifSrc) {
@@ -30,14 +32,23 @@ const ProductImageContainer = ({ p }: { p: any }) => {
 
     return (
         <div ref={ref} className="w-full lg:w-1/2 relative flex items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
-            {/* Targeted Soft Edge Fog: Extra height on bottom to hide sharp GIF floor */}
+            {/* Targeted Soft Edge Fog */}
             <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#081236] via-[#081236]/90 to-transparent z-20 pointer-events-none"></div>
 
             <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-6 lg:p-12 hover:scale-[1.02] transition-transform duration-700 ease-out">
-                {p.image.includes('.gif') ? (
+                {p.image.includes('.mp4') ? (
+                    <video 
+                        src={p.image} 
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                    />
+                ) : p.image.includes('.gif') ? (
                     gifSrc && <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
                 ) : (
                     <Image src={p.image} alt={p.title} fill className="object-contain drop-shadow-2xl" />
@@ -82,7 +93,7 @@ export function ProductsShowcase() {
                         <div className="flex flex-col justify-center lg:items-end w-full">
                             <div className="border-l-[2px] border-[#00D4AA] pl-6 py-2 lg:max-w-[480px] w-full mr-auto lg:mr-0">
                                 <p className="text-xl sm:text-2xl text-slate-400 font-medium leading-[1.6] max-w-[480px]">
-                                    Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span> <br className="hidden lg:block"/>— a testament to what enterprise depth produces when it becomes a product.
+                                    Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span> — a testament to what enterprise depth produces when it becomes a product.
                                 </p>
                             </div>
                         </div>

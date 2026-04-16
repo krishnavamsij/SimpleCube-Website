@@ -29,15 +29,30 @@ export function Navbar() {
     ];
 
     return (
-        <header
+        <motion.header
+            initial={false}
+            animate={{
+                width: scrolled ? "95%" : "100%",
+                maxWidth: scrolled ? "1200px" : "100%",
+                top: scrolled ? 20 : 0,
+                borderRadius: scrolled ? "9999px" : "0px",
+                x: scrolled ? "-50%" : "0%",
+                left: scrolled ? "50%" : "0%",
+                right: scrolled ? "auto" : "0",
+            }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 25,
+            }}
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed z-50 transition-colors duration-300",
                 scrolled
-                    ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
+                    ? "bg-white/80 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
                     : "bg-transparent"
             )}
         >
-            <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
+            <nav className="mx-auto flex h-16 max-w-[1400px] w-full items-center justify-between px-6">
                 {/* Logo — white (inverted) on dark hero, full brand color when scrolled */}
                 <Link href="/" className="flex items-center">
                     <Image
@@ -46,7 +61,7 @@ export function Navbar() {
                         width={140}
                         height={40}
                         className={cn(
-                            "h-12 w-auto transition-all duration-300",
+                            "h-10 w-auto transition-all duration-300",
                             scrolled ? "" : "brightness-0 invert"
                         )}
                         priority
@@ -54,7 +69,7 @@ export function Navbar() {
                 </Link>
 
                 {/* Desktop nav */}
-                <div className="hidden items-center gap-1 lg:flex">
+                <div className="hidden items-center gap-1 lg:flex ml-8">
                     {dropdownItems.map((group) => (
                         <div
                             key={group.label}
@@ -63,23 +78,23 @@ export function Navbar() {
                             onMouseLeave={() => setOpenDropdown(null)}
                         >
                             <button className={cn(
-                                "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                                "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition-colors uppercase tracking-tight",
                                 scrolled
-                                    ? "text-muted-foreground hover:text-foreground"
-                                    : "text-white/80 hover:text-white"
+                                    ? "text-slate-600 hover:text-[#2563EB]"
+                                    : "text-white/90 hover:text-white"
                             )}>
                                 {group.label}
-                                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", openDropdown === group.label && "rotate-180")} />
+                                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
                             </button>
                             <AnimatePresence>
                                 {openDropdown === group.label && (
                                     <motion.div
-                                        initial={{ opacity: 0, y: 8 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 8 }}
-                                        transition={{ duration: 0.15 }}
+                                        initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 12, scale: 0.95 }}
+                                        transition={{ duration: 0.2, ease: "easeOut" }}
                                         className={cn(
-                                            "absolute top-full left-0 mt-1 rounded-xl border border-border bg-card p-2 shadow-xl",
+                                            "absolute top-[calc(100%+8px)] left-0 rounded-2xl border border-slate-100 bg-white p-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
                                             group.label === "Services" ? "w-[280px]" : "w-[260px]",
                                             group.label === "Products" && "w-[340px]"
                                         )}
@@ -88,11 +103,11 @@ export function Navbar() {
                                             <Link
                                                 key={item.title}
                                                 href={item.href}
-                                                className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-accent"
+                                                className="group block rounded-xl px-4 py-3 transition-all hover:bg-slate-50"
                                             >
-                                                <span className="text-sm font-medium text-card-foreground">{item.title}</span>
+                                                <span className="text-sm font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">{item.title}</span>
                                                 {item.desc && (
-                                                    <p className="mt-0.5 text-xs leading-snug text-muted-foreground line-clamp-2">{item.desc}</p>
+                                                    <p className="mt-1 text-xs leading-relaxed text-slate-500 line-clamp-2">{item.desc}</p>
                                                 )}
                                             </Link>
                                         ))}
@@ -104,9 +119,9 @@ export function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden items-center gap-3 lg:flex">
-                    <Button asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full">
-                        <Link href="/contact">Contact Us</Link>
+                <div className="hidden items-center lg:flex">
+                    <Button asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-0 rounded-full px-7 h-10 font-bold transition-all hover:scale-105 active:scale-95">
+                        <Link href="https://www.hyniva.com/contact">Contact Us</Link>
                     </Button>
                 </div>
 
@@ -150,13 +165,13 @@ export function Navbar() {
                             ))}
                             <div className="pt-3">
                                 <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full">
-                                    <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+                                    <Link href="https://www.hyniva.com/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
                                 </Button>
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </motion.header>
     );
 }

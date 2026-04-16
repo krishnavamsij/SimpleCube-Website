@@ -27,6 +27,37 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-inter);
   --font-display: var(--font-bricolage);
+  --font-body: var(--font-inter);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased font-medium;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+  
+  /* Standardizing all eyebrows to Display font */
+  .eyebrow {
+    font-family: var(--font-display), system-ui, sans-serif;
+    @apply text-[10px] font-bold tracking-[0.15em] uppercase px-4 py-1.5 rounded-full inline-flex items-center gap-2;
+  }
+
+  .dot {
+    @apply h-1.5 w-1.5 rounded-full shadow-sm animate-pulse;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 
 /* ============================================================
