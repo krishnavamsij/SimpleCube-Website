@@ -184,7 +184,7 @@ export function HeroPuzzle() {
             });
 
             const eased = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            const lerpRot = (start: THREE.Euler, end: THREE.Euler, t: number) => {
+            const lerpRot = (start: any, end: any, t: number) => {
                 return new THREE.Euler(
                     start.x + (end.x - start.x) * t,
                     start.y + (end.y - start.y) * t,
@@ -195,7 +195,7 @@ export function HeroPuzzle() {
             const animate = () => {
                 animationFrameId = requestAnimationFrame(animate);
                 const elapsed = (Date.now() - globalStartTime) % CONFIG.CYCLE_DURATION;
-                const { DRIFT, CONVERGE, LOCK, DISPERSE } = CONFIG.PHASES;
+                const { DRIFT, CONVERGE, LOCK, DISPERSE, RESET } = CONFIG.PHASES;
 
                 if (elapsed < DRIFT) {
                     const t = elapsed / DRIFT;
