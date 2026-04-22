@@ -244,7 +244,7 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards, and deposits.",
-            image: "/images/Product Images/Finxserve.gif",
+            image: "/images/Product Images/FINXSERVE.gif",
             href: "https://www.hyniva.com/finxserve",
         },
         {
@@ -509,7 +509,7 @@ export const vocContent = {
             designation: "Managing Director",
             company: "Summit Wealth",
             image: "/images/voc/gustavo_new.jpg",
-            logo: "/logos/Additional/PeopleFund.jpg",
+            logo: "/logos/Additional/People fund.png",
             caseStudyHref: "/case-studies",
         }
     ]
