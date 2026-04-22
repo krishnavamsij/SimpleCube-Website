@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Hyniva",
     default: "Hyniva — Your Strategic Tech Partner | AI, Cloud, Digital Transformation",
   },
-  description: "Experience the Hyniva Difference: direct access to expertise, personalized attention, and transparent value for your technology needs.",
+  description: "Experience the Hyniva Difference: direct access to expertise, personalized attention and transparent value for your technology needs.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: "https://www.hyniva.com",
     siteName: "Hyniva",
     title: "Hyniva — Your Strategic Tech Partner",
-    description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
+    description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
     images: [
       {
         url: "https://www.hyniva.com/og-image.png",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Hyniva — Your Strategic Tech Partner",
-    description: "Direct access to expertise, personalized attention, and transparent value for your technology needs.",
+    description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
     images: ["https://www.hyniva.com/og-image.png"],
   },
 };

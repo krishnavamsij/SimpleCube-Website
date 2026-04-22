@@ -152,9 +152,9 @@ export function Footer() {
                             <Image
                                 src="/images/Hyniva partial colour (1).svg"
                                 alt="Hyniva"
-                                width={140}
-                                height={40}
-                                className="h-10 sm:h-12 w-auto"
+                                width={240}
+                                height={68}
+                                className="h-16 sm:h-20 w-auto"
                             />
                         </Link>
 

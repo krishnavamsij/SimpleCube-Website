@@ -8,13 +8,13 @@ import Image from "next/image";
 const INDUSTRIES_DATA = [
     {
         title: "Banking & Credit Unions",
-        description: "Modernising how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
+        description: "Modernizing how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
         image: "/images/Industries Section/Banks & Credit Unions.png",
-        bgColor: "#E2F4FB"
+        bgColor: "#ECF4FD"
     },
     {
         title: "Wealth & Asset Management",
-        description: "Helping wealth managers and advisors deliver personalised, compliant investment experiences that grow AUM and deepen client relationships.",
+        description: "Helping wealth managers and advisors deliver personalized, compliant investment experiences that grow AUM and deepen client relationships.",
         image: "/images/Industries Section/Wealth & Asset Management.png",
         bgColor: "#E0F2FD"
     },
@@ -146,7 +146,7 @@ export function Industries() {
                     >
                         <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-8">
                             <p className="text-lg sm:text-xl font-medium leading-relaxed text-slate-600/90">
-                                We know your compliance requirements, your legacy constraints, and your competitive pressures — not from research, but from years inside these industries.
+                                We know your compliance requirements, your legacy constraints and your competitive pressures — not from research, but from years inside these industries.
                             </p>
                         </div>
                     </motion.div>

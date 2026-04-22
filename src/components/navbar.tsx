@@ -32,44 +32,47 @@ export function Navbar() {
         <motion.header
             initial={false}
             animate={{
-                width: scrolled ? "95%" : "100%",
-                maxWidth: scrolled ? "1200px" : "100%",
-                top: scrolled ? 20 : 0,
+                width: scrolled ? "82%" : "100%",
+                maxWidth: scrolled ? "820px" : "1400px",
+                height: scrolled ? 52 : 64,
+                top: scrolled ? 16 : 0,
                 borderRadius: scrolled ? "9999px" : "0px",
-                x: scrolled ? "-50%" : "0%",
-                left: scrolled ? "50%" : "0%",
-                right: scrolled ? "auto" : "0",
+                backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)",
+                borderWidth: scrolled ? "1px" : "0px",
+                borderColor: "rgba(255, 255, 255, 0.12)",
+                boxShadow: scrolled ? "0 15px 30px rgba(0,0,0,0.1)" : "none",
             }}
             transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 25,
+                duration: 0.5,
+                ease: [0.32, 0.72, 0, 1],
             }}
-            className={cn(
-                "fixed z-50 transition-colors duration-300",
-                scrolled
-                    ? "bg-white/80 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-                    : "bg-transparent"
-            )}
+            className="fixed z-50 left-1/2 -translate-x-1/2 backdrop-blur-xl"
         >
-            <nav className="mx-auto flex h-16 max-w-[1400px] w-full items-center justify-between px-6">
-                {/* Logo — white (inverted) on dark hero, full brand color when scrolled */}
-                <Link href="/" className="flex items-center">
+            <nav className="mx-auto flex h-full w-full items-center px-6">
+                {/* Logo */}
+                <Link href="/" className="flex items-center shrink-0">
                     <Image
                         src="/logos/Hyniva logo for light background.svg"
                         alt="Hyniva"
-                        width={140}
-                        height={40}
+                        width={120}
+                        height={32}
                         className={cn(
-                            "h-10 w-auto transition-all duration-300",
-                            scrolled ? "" : "brightness-0 invert"
+                            "transition-all duration-500",
+                            scrolled ? "h-6.5 w-auto" : "h-9 w-auto brightness-0 invert"
                         )}
                         priority
                     />
                 </Link>
 
+                {/* Animated Spacer 1 */}
+                <motion.div 
+                    className="flex-1" 
+                    animate={{ width: scrolled ? 16 : "auto" }} 
+                    transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                />
+
                 {/* Desktop nav */}
-                <div className="hidden items-center gap-1 lg:flex ml-8">
+                <div className="hidden items-center lg:flex gap-0">
                     {dropdownItems.map((group) => (
                         <div
                             key={group.label}
@@ -78,13 +81,13 @@ export function Navbar() {
                             onMouseLeave={() => setOpenDropdown(null)}
                         >
                             <button className={cn(
-                                "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition-colors uppercase tracking-tight",
+                                "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
                                 scrolled
-                                    ? "text-slate-600 hover:text-[#2563EB]"
-                                    : "text-white/90 hover:text-white"
+                                    ? "text-[12px] font-bold text-slate-600 hover:text-[#2563EB]"
+                                    : "text-sm font-bold text-white/90 hover:text-white"
                             )}>
                                 {group.label}
-                                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
+                                <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
                             </button>
                             <AnimatePresence>
                                 {openDropdown === group.label && (
@@ -94,7 +97,7 @@ export function Navbar() {
                                         exit={{ opacity: 0, y: 12, scale: 0.95 }}
                                         transition={{ duration: 0.2, ease: "easeOut" }}
                                         className={cn(
-                                            "absolute top-[calc(100%+8px)] left-0 rounded-2xl border border-slate-100 bg-white p-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
+                                            "absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white p-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
                                             group.label === "Services" ? "w-[280px]" : "w-[260px]",
                                             group.label === "Products" && "w-[340px]"
                                         )}
@@ -118,9 +121,19 @@ export function Navbar() {
                     ))}
                 </div>
 
+                {/* Animated Spacer 2 */}
+                <motion.div 
+                    className="flex-1" 
+                    animate={{ width: scrolled ? 16 : "auto" }} 
+                    transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                />
+
                 {/* Desktop CTA */}
-                <div className="hidden items-center lg:flex">
-                    <Button asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-0 rounded-full px-7 h-10 font-bold transition-all hover:scale-105 active:scale-95">
+                <div className="hidden items-center lg:flex shrink-0">
+                    <Button asChild className={cn(
+                        "bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-0 rounded-full font-black uppercase transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+                        scrolled ? "px-4 h-8 text-[11px]" : "px-6 h-10 text-[13px]"
+                    )}>
                         <Link href="https://www.hyniva.com/contact">Contact Us</Link>
                     </Button>
                 </div>
@@ -129,7 +142,7 @@ export function Navbar() {
                 <div className="flex items-center gap-2 lg:hidden">
                     <button className={cn(
                         "p-2",
-                        scrolled ? "text-foreground" : "text-white"
+                        scrolled ? "text-slate-900" : "text-white"
                     )} onClick={() => setMobileOpen(!mobileOpen)}>
                         {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </button>
@@ -143,18 +156,18 @@ export function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="border-t border-border bg-background lg:hidden overflow-hidden"
+                        className="border-t border-slate-100 bg-white lg:hidden overflow-hidden rounded-b-[2rem]"
                     >
-                        <div className="divide-y divide-border px-6 py-3">
+                        <div className="divide-y divide-slate-100 px-6 py-3">
                             {dropdownItems.map((group) => (
                                 <div key={group.label} className="py-3">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">{group.label}</p>
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
                                     <div className="space-y-1">
                                         {group.items.map((item) => (
                                             <Link
                                                 key={item.title}
                                                 href={item.href}
-                                                className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-accent"
+                                                className="block rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                                                 onClick={() => setMobileOpen(false)}
                                             >
                                                 {item.title}
@@ -163,8 +176,8 @@ export function Navbar() {
                                     </div>
                                 </div>
                             ))}
-                            <div className="pt-3">
-                                <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full">
+                            <div className="pt-3 pb-6">
+                                <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] border-0 rounded-full h-12 font-black uppercase">
                                     <Link href="https://www.hyniva.com/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
                                 </Button>
                             </div>

@@ -5,9 +5,9 @@
 export const navContent = {
     brand: { name: "Hyniva" },
     products: [
-        { title: "AIRA", href: "https://www.hyniva.com/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design, and scalable architecture." },
-        { title: "FinXserve", href: "https://www.hyniva.com/finxserve", description: "Empowers lenders to launch faster, operate smarter, and deliver frictionless experiences." },
-        { title: "Claim Pioneer", href: "https://www.hyniva.com/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency, and precision." },
+        { title: "AIRA", href: "https://www.hyniva.com/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
+        { title: "FinXserve", href: "https://www.hyniva.com/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
+        { title: "Claim Pioneer", href: "https://www.hyniva.com/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
         { title: "Hyper", href: "https://www.hyniva.com/hyper", description: "Portfolio planner for well-informed investment decisions." },
     ],
     industries: [
@@ -58,7 +58,7 @@ export const heroSlides = [
         headline: "Build in Weeks, Not Months",
         highlightedWords: ["Weeks", "Months"],
         subheadline:
-            "From legacy modernization to AI-powered products, Hyniva helps organizations build faster, operate smarter, and scale with confidence.",
+            "From legacy modernization to AI-powered products, Hyniva helps organizations build faster, operate smarter and scale with confidence.",
         stats: [
             { value: "70%", label: "Faster Product Launch" },
             { value: "50%", label: "Lower Cost of Ownership" },
@@ -188,8 +188,8 @@ export const servicesContent = {
             num: "01",
             title: "Digital Transformation",
             description:
-                "We rebuild how enterprises operate — modernising legacy systems, reimagining customer experiences, and turning complex change into working software.",
-            tags: ["Legacy System Modernisation", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
+                "We rebuild how enterprises operate — modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
+            tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
             image: "/images/Our Services/Digital Transformation_no BG.svg",
             href: "https://www.hyniva.com/digital-transformation",
         },
@@ -206,8 +206,8 @@ export const servicesContent = {
             num: "03",
             title: "Product Engineering",
             description:
-                "From mobile apps to AI agents — we design, build, test, and ship technology products that work in production, not just in demos.",
-            tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernisation", "QA & Test Automation", "DevOps"],
+                "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
+            tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
             image: "/images/Our Services/Product Engineering_no BG.png",
             href: "https://www.hyniva.com/product-dev",
         },
@@ -243,7 +243,7 @@ export const productsContent = {
             num: "01",
             title: "FinXServe",
             tags: ["Financial Institutions"],
-            description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards, and deposits.",
+            description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
             image: "/images/Product Images/FINXSERVE.gif",
             href: "https://www.hyniva.com/finxserve",
         },
@@ -251,7 +251,7 @@ export const productsContent = {
             num: "02",
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
-            description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design, and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
+            description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
             image: "/images/Product Images/AIRA.gif",
             href: "https://www.hyniva.com/aira",
         },
@@ -259,7 +259,7 @@ export const productsContent = {
             num: "03",
             title: "Claim Pioneer",
             tags: ["Insurance"],
-            description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution, and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
+            description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
             image: "/images/Product Images/Claim pioneer.gif",
             href: "https://www.hyniva.com/claim-pioneer",
         },
@@ -267,7 +267,7 @@ export const productsContent = {
             num: "04",
             title: "Hyper",
             tags: ["Wealth Management"],
-            description: "A digital investment journey platform that takes investors from goal discovery to personalised portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
+            description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
             image: "/images/Product Images/Hyper.gif",
             href: "https://www.hyniva.com/hyper",
         },
@@ -279,7 +279,7 @@ export const caseStudiesContent = {
     label: "Case Studies",
     headline: "From challenge to transformation.",
     highlightedWord: "transformation.",
-    sub: "Every engagement started with trust. Every outcome is how we honoured it.",
+    sub: "Every engagement started with trust. Every outcome is how we honored it.",
     studies: [
         {
             title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
@@ -342,7 +342,7 @@ export const whyHynivaContent = {
             { value: "30+", label: "Enterprise\nClients" },
             { value: "100+", label: "Certified\nExperts" }
         ],
-        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle, and measures success by what goes live — not what gets proposed.",
+        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live — not what gets proposed.",
         boldWords: ["already knows your industry", "measures success by what goes live"],
         cta: { label: "Know More →", href: "https://www.hyniva.com/about" }
     },
@@ -350,7 +350,7 @@ export const whyHynivaContent = {
         {
             icon: "UsersRound",
             title: "Zero Handoff",
-            description: "One team owns your engagement from strategy to production — no handoffs, no context loss."
+            description: "One team owns your\nengagement from strategy\nto production — no handoffs,\nno context loss."
         },
         {
             icon: "Globe2",
@@ -360,7 +360,7 @@ export const whyHynivaContent = {
         {
             icon: "Zap",
             title: "Delivery at Speed",
-            description: "Our 8×8×8 formula and Digital Factory Model deliver 40% faster than traditional models. Consistently."
+            description: "Our 8×8×8 formula and Digital Factory model consistently deliver outcomes 40% faster than traditional approaches."
         },
         {
             icon: "Activity",
@@ -375,7 +375,7 @@ export const industriesContent = {
     label: "Industries We Serve",
     headline: "Deep domain expertise,\nbuilt over decades.",
     highlightedWord: "decades.",
-    sub: "We know your compliance requirements, your legacy constraints, and your competitive pressures — not from research, but from years inside these industries.",
+    sub: "We know your compliance requirements, your legacy constraints and your competitive pressures — not from research, but from years inside these industries.",
     industries: [
         { icon: "Landmark", title: "Banking & Credit Unions" },
         { icon: "TrendingUp", title: "Wealth & Asset Management" },
@@ -394,12 +394,12 @@ export const processContent = {
         {
             num: 1,
             title: "Discovery",
-            description: "We understand your business goals, existing systems, and constraints before proposing anything.",
+            description: "We understand your business goals, existing systems and constraints before proposing anything.",
         },
         {
             num: 2,
             title: "Strategy & Scope",
-            description: "A clear roadmap with transparent cost, timeline, and risk — no padded estimates, no surprises.",
+            description: "A clear roadmap with transparent cost, timeline and risk — no padded estimates, no surprises.",
         },
         {
             num: 3,
@@ -409,7 +409,7 @@ export const processContent = {
         {
             num: 4,
             title: "Launch & Scale",
-            description: "We don't hand off and disappear — we support, optimize, and grow with you.",
+            description: "We don't hand off and disappear — we support, optimize and grow with you.",
         },
     ],
 };
@@ -502,16 +502,6 @@ export const vocContent = {
             logo: "/logos/Additional/Always Track.png",
             caseStudyHref: "/case-studies",
         },
-        {
-            industry: "Wealth Management",
-            quote: "The platform's highly intuitive design has revolutionized how our advisors interact with complex financial data. Hyniva provided more than just a tool; they provided a roadmap for our digital future in wealth management.",
-            author: "Robert Chen",
-            designation: "Managing Director",
-            company: "Summit Wealth",
-            image: "/images/voc/gustavo_new.jpg",
-            logo: "/logos/Additional/People fund.png",
-            caseStudyHref: "/case-studies",
-        }
     ]
 };
 
@@ -552,7 +542,7 @@ export const ctaContent = {
 
 // ── Footer ───────────────────────────────────────────────────────────────────
 export const footerContent = {
-    description: "We partner with enterprises to simplify complexity, accelerate outcomes, and deliver scalable technology solutions built for real-world impact.",
+    description: "We partner with enterprises to simplify complexity, accelerate outcomes and deliver scalable technology solutions built for real-world impact.",
     sections: [
         {
             title: "Services",

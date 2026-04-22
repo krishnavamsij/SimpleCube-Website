@@ -8,25 +8,23 @@ import { useEffect, useRef, useState } from "react";
 const CONFIG = {
     CYCLE_DURATION: 12000,
     PHASES: {
-        DRIFT: 2000,        // 0-2s: Initial subtle float
-        CONVERGE: 3000,     // 2-5s: Magnetic pull IN
-        LOCK: 2000,         // 5-7s: Hold peak state + Shine
-        DISPERSE: 3000,     // 7-10s: Return path OUT (Exact mirror of CONVERGE)
-        RESET: 2000,        // 10-12s: Settle back to 0s state
+        CONVERGE: 4000,     // 0-4s: Immediate magnetic pull IN
+        CLIMAX: 4000,       // 4-8s: Rotate + Enlarge + Shine
+        REVERSE: 4000,      // 8-12s: Shrink + Rotate + Descatter
     },
 
-    CUBE_SIZE: 1.0,         
-    JIGSAW_TAB: 0.22,       
+    CUBE_SIZE: 1.1,         
+    JIGSAW_TAB: 0.24,       
     
     COLORS: {
         BLUE_NEON: 0x3b82f6,    
         CYAN_NEON: 0x00d4aa,    
-        OBSIDIAN: 0x011627,     
+        BACKGROUND: 0x030b1e,   // Aligned with Hero BG
         STUDIO_GRID: 0x1e3a5f,  
     },
 
-    CAMERA_DIST: 9.5,
-    CAMERA_TILT: 0.42,
+    CAMERA_DIST: 20.0,
+    CAMERA_TILT: 0.35,
 };
 
 const SEGMENTS = [
@@ -44,7 +42,7 @@ const SEGMENTS = [
     { blocks: [[1,1,2], [0,1,2]], color: 0 },
     { blocks: [[0,2,2], [1,2,2]], color: 1 },
     { blocks: [[2,2,2]], color: 0 },
-    { blocks: [[1,2,1], [1,2,0]], color: 0 }, // Adjusting for overlap
+    { blocks: [[1,2,1], [1,2,0]], color: 0 },
     { blocks: [[0,1,1], [0,1,0]], color: 1 },
 ];
 
@@ -68,38 +66,36 @@ export function HeroPuzzle() {
             let animationFrameId: number;
 
             scene = new THREE.Scene();
-            scene.fog = new THREE.Fog(CONFIG.COLORS.OBSIDIAN, 10, 35);
+            // Fog color matches hero background for seamless blend
+            scene.fog = new THREE.Fog(CONFIG.COLORS.BACKGROUND, 5, 40);
 
             const width = containerRef.current.clientWidth;
             const height = containerRef.current.clientHeight;
 
-            camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 1000);
-            camera.position.set(-5.0, 1.5, 20); // Moved slightly left from -7.5 to re-center
+            camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 1000);
+            // Re-centered camera for larger container
+            camera.position.set(-5.0, 1.0, CONFIG.CAMERA_DIST); 
             camera.lookAt(0, 0, 0);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, precision: 'highp' });
             renderer.setSize(width, height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.35;
+            renderer.toneMappingExposure = 1.5; // More vibrant
             containerRef.current.appendChild(renderer.domElement);
 
-            const grid = new THREE.GridHelper(50, 40, CONFIG.COLORS.STUDIO_GRID, CONFIG.COLORS.STUDIO_GRID);
-            grid.position.y = -6;
-            grid.material.opacity = 0.2;
-            grid.material.transparent = true;
-            scene.add(grid);
+            // Removed GridHelper to eliminate the "frame" look as requested
 
-            scene.add(new THREE.AmbientLight(0xffffff, 0.1));
+            scene.add(new THREE.AmbientLight(0xffffff, 0.15));
             const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
             keyLight.position.set(-15, 20, 15);
             scene.add(keyLight);
 
-            const rim1 = new THREE.PointLight(CONFIG.COLORS.CYAN_NEON, 8, 30);
+            const rim1 = new THREE.PointLight(CONFIG.COLORS.CYAN_NEON, 10, 35);
             rim1.position.set(-10, 8, 10);
             scene.add(rim1);
 
-            const rim2 = new THREE.PointLight(CONFIG.COLORS.BLUE_NEON, 8, 30);
+            const rim2 = new THREE.PointLight(CONFIG.COLORS.BLUE_NEON, 10, 35);
             rim2.position.set(12, -4, -10);
             scene.add(rim2);
 
@@ -128,27 +124,25 @@ export function HeroPuzzle() {
 
                 const neonColor = segmentColor === 0 ? CONFIG.COLORS.CYAN_NEON : CONFIG.COLORS.BLUE_NEON;
                 
-                // RESTORED PREMIUM GLASS MATERIAL
                 const material = new THREE.MeshPhysicalMaterial({
                     color: 0x0a192f,
-                    transmission: 1.0,  // Full glassy transmission
-                    thickness: 2.5,
-                    roughness: 0.15,
+                    transmission: 1.0,
+                    thickness: 3.0,
+                    roughness: 0.1,
                     metalness: 0.1,
                     ior: 1.5,
                     reflectivity: 0.6,
                     clearcoat: 1.0,
                     emissive: neonColor,
-                    emissiveIntensity: 0.45, // Glow concentrated on neon rim
+                    emissiveIntensity: 0.5,
                     transparent: true,
                 });
 
                 const mesh = new THREE.Mesh(geometry, material);
                 mesh.position.set(b[0] - 1, b[1] - 1, b[2] - 1);
                 
-                // NEON RIM HIGHLIGHT
                 const wireframe = new THREE.EdgesGeometry(geometry);
-                const lineMat = new THREE.LineBasicMaterial({ color: neonColor, linewidth: 2, transparent: true, opacity: 0.9 });
+                const lineMat = new THREE.LineBasicMaterial({ color: neonColor, linewidth: 2, transparent: true, opacity: 0.95 });
                 const line = new THREE.LineSegments(wireframe, lineMat);
                 mesh.add(line);
 
@@ -161,18 +155,18 @@ export function HeroPuzzle() {
                     group.add(createJigsawBlock(b, data.color));
                 });
 
-                // Uniform distribution within a safe container zone
-                const rangeX = 10;
-                const rangeY = 8;
+                // Cluster pieces more tightly within a smaller frame
+                const rangeX = 7;
+                const rangeY = 6;
                 group.userData = {
                     initialPos: new THREE.Vector3(
                         (Math.random() - 0.5) * rangeX, 
                         (Math.random() - 0.5) * rangeY, 
-                        (Math.random() - 0.5) * 4 - 2
+                        (Math.random() - 0.5) * 5 - 2.5
                     ),
                     initialRot: new THREE.Euler(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2),
-                    controlPoint: new THREE.Vector3((Math.random() - 0.5) * rangeX * 1.2, (Math.random() - 0.5) * rangeY * 1.2, (Math.random() - 0.5) * 3),
-                    idleSpeed: { x: Math.random() * 0.0012, y: Math.random() * 0.0012 }
+                    controlPoint: new THREE.Vector3((Math.random() - 0.5) * rangeX * 1.2, (Math.random() - 0.5) * rangeY * 1.2, (Math.random() - 0.5) * 4),
+                    idleSpeed: { x: Math.random() * 0.0015, y: Math.random() * 0.0015 }
                 };
                 return group;
             };
@@ -184,95 +178,65 @@ export function HeroPuzzle() {
             });
 
             const eased = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            const lerpRot = (start: any, end: any, t: number) => {
-                return new THREE.Euler(
-                    start.x + (end.x - start.x) * t,
-                    start.y + (end.y - start.y) * t,
-                    start.z + (end.z - start.z) * t
-                );
-            };
 
             const animate = () => {
                 animationFrameId = requestAnimationFrame(animate);
                 const elapsed = (Date.now() - globalStartTime) % CONFIG.CYCLE_DURATION;
-                const { DRIFT, CONVERGE, LOCK, DISPERSE, RESET } = CONFIG.PHASES;
+                const { CONVERGE, CLIMAX, REVERSE } = CONFIG.PHASES;
 
-                if (elapsed < DRIFT) {
-                    const t = elapsed / DRIFT;
-                    pieceGroups.forEach(p => {
-                        p.position.copy(p.userData.initialPos);
-                        p.rotation.copy(p.userData.initialRot);
-                        // Harmonic drift baseline
-                        const driftAmt = Math.sin(elapsed * 0.002);
-                        p.position.x += Math.sin(p.userData.idleSpeed.x * 1000) * driftAmt * 0.4;
-                        p.position.y += Math.cos(p.userData.idleSpeed.y * 1000) * driftAmt * 0.4;
-                    });
-                    scene.scale.set(1, 1, 1);
-                    scene.rotation.y = 0;
-                } 
-                else if (elapsed < DRIFT + CONVERGE) {
-                    const t = eased((elapsed - DRIFT) / CONVERGE);
+                if (elapsed < CONVERGE) {
+                    const t = eased(elapsed / CONVERGE);
                     pieceGroups.forEach(p => {
                         const mt = 1 - t;
-                        // Formation path IN
+                        // Magnetic pull path
                         p.position.set(
                             mt * mt * p.userData.initialPos.x + 2 * mt * t * p.userData.controlPoint.x + t * t * 0,
                             mt * mt * p.userData.initialPos.y + 2 * mt * t * p.userData.controlPoint.y + t * t * 0,
                             mt * mt * p.userData.initialPos.z + 2 * mt * t * p.userData.controlPoint.z + t * t * 0
                         );
-                        // Rotation settles to 0
                         p.rotation.set(p.userData.initialRot.x * mt, p.userData.initialRot.y * mt, p.userData.initialRot.z * mt);
                     });
-                    // Subtle rotation as it forms
+                    // Subtle rotation
                     scene.rotation.y = t * Math.PI * 0.25;
+                    scene.scale.set(1, 1, 1);
                 }
-                else if (elapsed < DRIFT + CONVERGE + LOCK) {
-                    const tRaw = (elapsed - DRIFT - CONVERGE) / LOCK;
+                else if (elapsed < CONVERGE + CLIMAX) {
+                    const tRaw = (elapsed - CONVERGE) / CLIMAX;
                     const t = eased(tRaw);
-                    const zoom = 1 + (0.12 * Math.sin(tRaw * Math.PI)); // Hero bloom
+                    
+                    // ENLARGE: Scale up to 1.75x
+                    const zoom = 1 + (0.45 * Math.sin(tRaw * Math.PI)); 
                     scene.scale.set(zoom, zoom, zoom);
-                    scene.rotation.y = Math.PI * 0.25 + (tRaw * Math.PI * 0.25); // Continue rotation
+                    
+                    // ROTATE: Full rotation cycle
+                    scene.rotation.y = Math.PI * 0.25 + (tRaw * Math.PI * 1.5); 
                     
                     pieceGroups.forEach(p => {
                         p.position.set(0, 0, 0);
                         p.rotation.set(0, 0, 0);
                         p.children.forEach((c: any) => {
-                            c.material.emissiveIntensity = 0.45 + Math.sin(tRaw * Math.PI) * 0.8;
+                            // PULSING GLOW
+                            c.material.emissiveIntensity = 0.5 + Math.sin(tRaw * Math.PI) * 1.2;
                         });
                     });
                 }
-                else if (elapsed < DRIFT + CONVERGE + LOCK + DISPERSE) {
-                    const tRaw = (elapsed - DRIFT - CONVERGE - LOCK) / DISPERSE;
+                else {
+                    const tRaw = (elapsed - CONVERGE - CLIMAX) / REVERSE;
                     const t = eased(tRaw);
                     const mt = 1 - t;
                     
-                    // MIRROR REVERSE: Rotation continues to a full 180 (PI)
-                    scene.rotation.y = Math.PI * 0.5 + (t * Math.PI * 0.5);
+                    // REVERSE: Rotation completes back to original scatter orientation
+                    scene.rotation.y = (Math.PI * 0.25 + Math.PI * 1.5) * mt;
                     scene.scale.set(1, 1, 1);
 
                     pieceGroups.forEach(p => {
-                        // MIRROR PATH OUT: Exact reverse of CONVERGE
-                        // From 0,0,0 -> controlPoint -> initialPos
+                        // PERFECT INVERSE PATH: From 0,0,0 -> controlPoint -> initialPos
                         p.position.set(
                             t * t * p.userData.initialPos.x + 2 * t * mt * p.userData.controlPoint.x + mt * mt * 0,
                             t * t * p.userData.initialPos.y + 2 * t * mt * p.userData.controlPoint.y + mt * mt * 0,
                             t * t * p.userData.initialPos.z + 2 * t * mt * p.userData.controlPoint.z + mt * mt * 0
                         );
-                        // Rotation returns to initialRot
                         p.rotation.set(p.userData.initialRot.x * t, p.userData.initialRot.y * t, p.userData.initialRot.z * t);
-                    });
-                }
-                else {
-                    const tRaw = (elapsed - DRIFT - CONVERGE - LOCK - DISPERSE) / RESET;
-                    const t = eased(tRaw);
-                    const mt = 1 - t;
-                    
-                    // Reset scene rotation to 0 (PI * 2)
-                    scene.rotation.y = Math.PI + (t * Math.PI);
-                    
-                    pieceGroups.forEach(p => {
-                        p.position.copy(p.userData.initialPos);
-                        p.rotation.copy(p.userData.initialRot);
                     });
                 }
                 
@@ -316,7 +280,7 @@ export function HeroPuzzle() {
     return (
         <div 
             ref={containerRef} 
-            className="absolute top-0 right-0 h-screen w-[42vw] pointer-events-none"
+            className="absolute top-0 right-[-4vw] h-screen w-[50vw] pointer-events-none"
             style={{ zIndex: 1, overflow: 'visible' }}
         >
             {!isLoaded && (
@@ -327,3 +291,4 @@ export function HeroPuzzle() {
         </div>
     );
 }
+

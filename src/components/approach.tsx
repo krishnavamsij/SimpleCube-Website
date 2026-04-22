@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { scrollReveal, viewportOnce } from "@/lib/animations";
+import { scrollReveal, viewportRepeat } from "@/lib/animations";
 import { approachContent } from "@/content/site-content";
 
 const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
@@ -23,7 +23,7 @@ export function Approach() {
 
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
-                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
+                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
                     className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-2"
                 >
                     {/* Left: Headline & Callout */}
@@ -55,7 +55,7 @@ export function Approach() {
 
                 {/* ── Roles Eliminated Row (Moved directly above spheres) ── */}
                 <motion.div
-                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
+                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
                     className="mt-6 lg:mt-8 mb-6 lg:mb-8 flex flex-col items-center justify-center gap-6 pt-1"
                 >
                     <span className="text-[11.5px] eyebrow text-white/70 text-center">
@@ -76,7 +76,7 @@ export function Approach() {
 
                 {/* ── Planet Wave SVG ── */}
                 <motion.div
-                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}
+                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
                     className="w-full flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
                 >
                     <style>{`
@@ -143,7 +143,7 @@ export function Approach() {
                         <motion.path 
                             initial={{ pathLength: 0, opacity: 0 }}
                             whileInView={{ pathLength: 1, opacity: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
                             fill="none" stroke="rgba(0,168,255,0.10)" strokeWidth="5"
@@ -152,7 +152,7 @@ export function Approach() {
                         <motion.path 
                             initial={{ pathLength: 0 }}
                             whileInView={{ pathLength: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
                             fill="none" stroke="rgba(120,170,255,0.30)" strokeWidth="1.8"
@@ -161,7 +161,7 @@ export function Approach() {
                         <motion.path 
                             initial={{ pathLength: 0 }}
                             whileInView={{ pathLength: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             d="M 88 79 C 140 87, 200 199, 272 191 C 344 183, 390 74, 500 64 C 598 56, 660 221, 728 214 C 798 206, 868 136, 922 130"
                             fill="none" stroke="rgba(210,230,255,0.10)" strokeWidth="1"

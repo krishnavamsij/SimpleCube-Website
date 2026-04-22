@@ -39,7 +39,7 @@ const differentiators = [
         icon: Brain,
         title: "Autonomous Reasoning at Scale",
         description:
-            "Executes multi-step reasoning, orchestrates specialized agents, and delivers end-to-end workflows — going beyond answers to drive efficiency, accuracy, and intelligent automation.",
+            "Executes multi-step reasoning, orchestrates specialized agents and delivers end-to-end workflows — going beyond answers to drive efficiency, accuracy and intelligent automation.",
     },
     {
         icon: Plug,
@@ -51,19 +51,19 @@ const differentiators = [
         icon: Boxes,
         title: "Modular & Future-Proof",
         description:
-            "Pre-built agents for chat, transactions, documents, and omnichannel service — extensible as technology and regulations evolve.",
+            "Pre-built agents for chat, transactions, documents and omnichannel service — extensible as technology and regulations evolve.",
     },
     {
         icon: Scale,
         title: "Bias-Aware, Configurable AI",
         description:
-            "Responses are customizable to align with compliance rules, regulatory policies, and institutional brand standards.",
+            "Responses are customizable to align with compliance rules, regulatory policies and institutional brand standards.",
     },
     {
         icon: Shield,
         title: "Enterprise-Grade Security & Compliance",
         description:
-            "Every output is validated through guardrails, compliance engines, and audit trails designed for financial regulation.",
+            "Every output is validated through guardrails, compliance engines and audit trails designed for financial regulation.",
     },
 ];
 
@@ -71,12 +71,12 @@ const capabilities = [
     {
         icon: MessagesSquare,
         title: "Omnichannel Experience",
-        description: "Support for customer interactions across web, mobile, IVR, email, and messaging platforms.",
+        description: "Support for customer interactions across web, mobile, IVR, email and messaging platforms.",
     },
     {
         icon: FileSearch,
         title: "Intelligent Document Processing",
-        description: "Automates KYC, compliance, and transaction documentation with real-time validation.",
+        description: "Automates KYC, compliance and transaction documentation with real-time validation.",
     },
     {
         icon: Eye,
@@ -91,12 +91,12 @@ const capabilities = [
     {
         icon: BarChart3,
         title: "Observability & Analytics",
-        description: "Real-time logging, tracing, and metrics to meet regulatory audit and SLA requirements.",
+        description: "Real-time logging, tracing and metrics to meet regulatory audit and SLA requirements.",
     },
     {
         icon: Settings2,
         title: "No-Code Administration",
-        description: "Empower business teams to configure workflows, prompts, and compliance guardrails without developer dependency.",
+        description: "Empower business teams to configure workflows, prompts and compliance guardrails without developer dependency.",
     },
 ];
 
@@ -172,7 +172,7 @@ function AiraHero() {
                         Autonomous Intelligent Reasoning Agent
                     </motion.p>
                     <motion.p variants={fadeInUp} className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-                        The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale.
+                        The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution and compliance at scale.
                     </motion.p>
 
                     <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4">
@@ -203,7 +203,7 @@ function AiraIntro() {
                         The first enterprise-ready AI platform for financial services
                     </h2>
                     <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                        AIRA (Autonomous Intelligent Reasoning Agent) unifies autonomous reasoning, compliance-first design, and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable, and scalable intelligence — empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
+                        AIRA (Autonomous Intelligent Reasoning Agent) unifies autonomous reasoning, compliance-first design and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable and scalable intelligence — empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
                     </p>
                 </motion.div>
             </div>
@@ -318,7 +318,7 @@ function CeoVision() {
                     <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">CEO&apos;s Vision</p>
                         <blockquote className="mt-3 text-base leading-relaxed text-muted-foreground italic sm:text-lg">
-                            &ldquo;When we built AIRA, our vision was clear: AI that financial institutions can finally trust with mission-critical decisions. AIRA combines reasoning, compliance, and OneAPI-powered integration into a single, scalable platform. It&apos;s not just about solving today&apos;s challenges — it&apos;s about empowering the industry to reimagine what&apos;s possible with GenAI.&rdquo;
+                            &ldquo;When we built AIRA, our vision was clear: AI that financial institutions can finally trust with mission-critical decisions. AIRA combines reasoning, compliance and OneAPI-powered integration into a single, scalable platform. It&apos;s not just about solving today&apos;s challenges — it&apos;s about empowering the industry to reimagine what&apos;s possible with GenAI.&rdquo;
                         </blockquote>
                         <p className="mt-4 text-sm font-bold text-foreground">Sreeram Jadapolu</p>
                         <p className="text-sm text-muted-foreground">Founder &amp; CEO, Hyniva</p>

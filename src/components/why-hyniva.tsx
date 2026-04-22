@@ -93,7 +93,7 @@ export function WhyHyniva() {
                     viewport={viewportOnce}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-10 sm:p-14 lg:p-16 border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/60">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className={`flex flex-col ${idx > 0 ? "pt-8 sm:pt-0 sm:pl-8 lg:pl-8" : ""}`}>
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
@@ -102,7 +102,7 @@ export function WhyHyniva() {
                                 <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed">
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
                                     {card.description}
                                 </p>
                             </div>

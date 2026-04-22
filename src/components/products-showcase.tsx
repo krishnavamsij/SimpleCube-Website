@@ -19,16 +19,28 @@ const getTagIcon = (tag: string) => {
 
 const ProductImageContainer = ({ p }: { p: any }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const isInView = useInView(ref, { once: false, amount: 0.4 });
     const [gifSrc, setGifSrc] = useState("");
-    
-    const isCinematic = p.image.includes('Cinematic.gif');
 
     useEffect(() => {
-        if (isInView && p.image.includes('.gif') && !gifSrc) {
-            setGifSrc(`${p.image}?t=${Date.now()}`);
+        if (isInView) {
+            if (p.image.includes('.gif')) {
+                // Force GIF to restart by appending timestamp
+                setGifSrc(`${p.image}?t=${Date.now()}`);
+            } else if (p.image.includes('.mp4') && videoRef.current) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch(() => {});
+            }
+        } else {
+            // Reset when moving out of frame
+            setGifSrc("");
+            if (videoRef.current) {
+                videoRef.current.pause();
+                videoRef.current.currentTime = 0;
+            }
         }
-    }, [isInView, p.image, gifSrc]);
+    }, [isInView, p.image]);
 
     return (
         <div ref={ref} className="w-full lg:w-1/2 relative flex items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
@@ -41,15 +53,19 @@ const ProductImageContainer = ({ p }: { p: any }) => {
             <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-6 lg:p-12 hover:scale-[1.02] transition-transform duration-700 ease-out">
                 {p.image.includes('.mp4') ? (
                     <video 
+                        ref={videoRef}
                         src={p.image} 
-                        autoPlay 
                         muted 
                         loop 
                         playsInline 
                         className="max-w-full max-h-full object-contain drop-shadow-2xl"
                     />
                 ) : p.image.includes('.gif') ? (
-                    gifSrc && <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
+                    gifSrc ? (
+                        <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
+                    ) : (
+                        <div className="w-full h-full" /> // Placeholder while reset
+                    )
                 ) : (
                     <Image src={p.image} alt={p.title} fill className="object-contain drop-shadow-2xl" />
                 )}
@@ -78,7 +94,7 @@ export function ProductsShowcase() {
                     </div>
                     
                     <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 relative">
-                        {/* Left Side: Headline, and Subheadline */}
+                        {/* Left Side: Headline and Subheadline */}
                         <div className="lg:pr-12">
                             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[56px] leading-[1.1] text-white mb-8">
                                 Product innovation<br />

@@ -61,9 +61,9 @@ export function TechPartners() {
                                 {techPartnersContent.label}
                             </div>
                             
-                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[46px] leading-[1.12] text-slate-900 mb-5 max-w-sm">
-                                Built on the platforms you<br /> 
-                                already <span className="text-[#00D4AA]">trust</span>
+                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[46px] leading-[1.12] text-slate-900 mb-5 max-w-xl">
+                                Built on the platforms<br /> 
+                                you already <span className="text-[#00D4AA]">trust</span>
                             </h2>
                             
                             <p className="text-[17px] sm:text-lg text-slate-600 font-medium leading-[1.6] mb-10 max-w-xl">
