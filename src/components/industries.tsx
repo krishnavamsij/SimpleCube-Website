@@ -12,35 +12,35 @@ const INDUSTRIES_DATA = [
         description: "Modernizing how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
         image: "/images/Industries Section/Banks & Credit Unions.png",
         bgColor: "#ECF4FD",
-        href: "https://www.hyniva.com/retail-commercial-banking/"
+        href: "https://content.hyniva.com/retail-commercial-banking/"
     },
     {
         title: "Wealth & Asset Management",
         description: "Helping wealth managers and advisors deliver personalized, compliant investment experiences that grow AUM and deepen client relationships.",
         image: "/images/Industries Section/Wealth & Asset Management.png",
         bgColor: "#E0F2FD",
-        href: "https://www.hyniva.com/wealth-asset-management/"
+        href: "https://content.hyniva.com/wealth-asset-management/"
     },
     {
         title: "Insurance",
         description: "Transforming claims operations and policy administration with automation, AI assignment and real-time visibility across the full claims lifecycle.",
         image: "/images/Industries Section/Insurance.png",
         bgColor: "#EAF6FE",
-        href: "https://www.hyniva.com/insurance/"
+        href: "https://content.hyniva.com/insurance/"
     },
     {
         title: "Transportation & Logistics",
         description: "Building the platforms that keep fleets moving, shipments tracked and operations connected — from warehouse to last-mile delivery.",
         image: "/images/Industries Section/Transportation & Logistics.png",
         bgColor: "#E3F4FE",
-        href: "https://www.hyniva.com/transportation-logistics/"
+        href: "https://content.hyniva.com/transportation-logistics/"
     },
     {
         title: "Education",
         description: "Enabling institutions to streamline administration, improve student outcomes and scale operations through purpose-built technology.",
         image: "/images/Industries Section/Education.png",
         bgColor: "#EAF8FF",
-        href: "https://www.hyniva.com/education/"
+        href: "https://content.hyniva.com/education/"
     }
 ];
 

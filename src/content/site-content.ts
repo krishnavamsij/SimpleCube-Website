@@ -11,22 +11,22 @@ export const navContent = {
         { title: "Hyper", href: "https://www.hyniva.com/hyper", description: "Portfolio planner for well-informed investment decisions." },
     ],
     industries: [
-        { title: "Banking", href: "https://www.hyniva.com/retail-commercial-banking/" },
-        { title: "Wealth & Asset Management", href: "https://www.hyniva.com/wealth-asset-management/" },
-        { title: "Insurance", href: "https://www.hyniva.com/insurance/" },
-        { title: "Transportation & Logistics", href: "https://www.hyniva.com/transportation-logistics/" },
-        { title: "Education", href: "https://www.hyniva.com/education/" },
+        { title: "Banking", href: "https://content.hyniva.com/retail-commercial-banking/" },
+        { title: "Wealth & Asset Management", href: "https://content.hyniva.com/wealth-asset-management/" },
+        { title: "Insurance", href: "https://content.hyniva.com/insurance/" },
+        { title: "Transportation & Logistics", href: "https://content.hyniva.com/transportation-logistics/" },
+        { title: "Education", href: "https://content.hyniva.com/education/" },
     ],
     services: [
         { title: "Digital Transformation", href: "https://www.hyniva.com/digital-transformation" },
         { title: "Salesforce", href: "https://www.hyniva.com/salesforce" },
         { title: "Microsoft Services", href: "https://www.hyniva.com/microsoft" },
         { title: "AWS Cloud", href: "https://www.hyniva.com/aws" },
-        { title: "Applied AI", href: "https://www.hyniva.com/applied-ai/" },
+        { title: "Applied AI", href: "https://content.hyniva.com/applied-ai/" },
         { title: "Data Intelligence", href: "https://www.hyniva.com/data" },
         { title: "Product Development", href: "https://www.hyniva.com/product-dev" },
-        { title: "IT Strategy", href: "https://www.hyniva.com/business-it-strategy/" },
-        { title: "Cloud Migration", href: "https://www.hyniva.com/cloud-migration/" },
+        { title: "IT Strategy", href: "https://content.hyniva.com/business-it-strategy/" },
+        { title: "Cloud Migration", href: "https://content.hyniva.com/cloud-migration/" },
     ],
     insights: [
         { title: "Case Studies", href: "https://www.hyniva.com/case-studies" },
@@ -218,7 +218,7 @@ export const servicesContent = {
                 "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
             image: "/images/Our Services/Strategy Consulting_no BG.svg",
-            href: "https://www.hyniva.com/business-it-strategy/",
+            href: "https://content.hyniva.com/business-it-strategy/",
         },
     ],
 };
@@ -285,49 +285,49 @@ export const caseStudiesContent = {
             title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
             description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
             image: "/images/Case Study/1. Autonomous Lending Experience with FinXServe and Agentforce.png",
-            href: "https://www.hyniva.com/autonomous-lending-experiences-with-finxserve-and-agentforce/",
+            href: "https://content.hyniva.com/autonomous-lending-experiences-with-finxserve-and-agentforce/",
         },
         {
             title: "Modernizing Contact Centers with\n*Intelligent IVR Self-Service*",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
             image: "/images/Case Study/2. Modernizing Contact Centers with Intelligent IVR Self-Service.png",
-            href: "https://www.hyniva.com/modernizing-contact-center-with-ivr-self-service/",
+            href: "https://content.hyniva.com/modernizing-contact-center-with-ivr-self-service/",
         },
         {
             title: "Autonomous Freight Operations\nwith *GenAI*",
             description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
             image: "/images/Case Study/3. Autonomous Freight Operations with GenAI.png",
-            href: "https://www.hyniva.com/engineering-autonomous-load-creation/",
+            href: "https://content.hyniva.com/engineering-autonomous-load-creation/",
         },
         {
             title: "Instant Loan with\n*Agentforce-Powered* Document Intelligence",
             description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
             image: "/images/Case Study/4. Accelerate Loan Processing with Agentforce-Powered Document Intelligence.png",
-            href: "https://www.hyniva.com/agentforce-powered-document-intelligence-for-instant-loan-processing/",
+            href: "https://content.hyniva.com/agentforce-powered-document-intelligence-for-instant-loan-processing/",
         },
         {
             title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
             description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
             image: "/images/Case Study/5. Enterprise CRM Modernization on Microsoft Cloud.png",
-            href: "https://www.hyniva.com/empowering-enterprises-through-microsoft-powered-modernization/",
+            href: "https://content.hyniva.com/empowering-enterprises-through-microsoft-powered-modernization/",
         },
         {
             title: "Rapid Reverse-Engineered\n*Website Migration*",
             description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
             image: "/images/Case Study/6. Rapid Reverse-Engineered Website Migration.png",
-            href: "https://www.hyniva.com/a-race-against-time-that-others-refused-to-run/",
+            href: "https://content.hyniva.com/a-race-against-time-that-others-refused-to-run/",
         },
         {
             title: "AWS-Powered Document\n*Platform Transformation*",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
             image: "/images/Case Study/7. AWS-Powered Document Platform Transformation.png",
-            href: "https://www.hyniva.com/hyniva-leverages-aws-half-a-million-dollars-savings-annually/",
+            href: "https://content.hyniva.com/hyniva-leverages-aws-half-a-million-dollars-savings-annually/",
         },
         {
             title: "Core Banking Transformation\non *Microsoft*",
             description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
             image: "/images/Case Study/8. Core Banking Transformation on Microsoft.png",
-            href: "https://www.hyniva.com/transforming-core-banking-operations-with-microsoft-innovation/",
+            href: "https://content.hyniva.com/transforming-core-banking-operations-with-microsoft-innovation/",
         },
     ],
 };
@@ -490,7 +490,7 @@ export const vocContent = {
             company: "PeopleFund",
             image: "/images/voc/gustavo_transparent.png",
             logo: "/logos/Additional/People fund.png",
-            caseStudyHref: "https://www.hyniva.com/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation/",
+            caseStudyHref: "https://content.hyniva.com/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation/",
         },
         {
             industry: "Transportation & Logistics",
@@ -500,7 +500,7 @@ export const vocContent = {
             company: "Always Track",
             image: "/images/voc/jose_zamora.png",
             logo: "/logos/Additional/Always Track.png",
-            caseStudyHref: "https://www.hyniva.com/engineering-autonomous-load-creation/",
+            caseStudyHref: "https://content.hyniva.com/engineering-autonomous-load-creation/",
         },
     ]
 };
@@ -537,7 +537,7 @@ export const ctaContent = {
     label: "Let's Talk",
     headline: "Ready to simplify your enterprise?",
     sub: "Let's start with a 30-minute discovery call — no commitment,\nno sales pitch. Just a real conversation about your challenges.",
-    cta: { label: "Schedule a free consultation", href: "https://www.hyniva.com/contact-us/" },
+    cta: { label: "Schedule a free consultation", href: "https://content.hyniva.com/contact-us/" },
 };
 
 // ── Footer ───────────────────────────────────────────────────────────────────
@@ -550,7 +550,7 @@ export const footerContent = {
                 { title: "Digital Transformation", href: "https://www.hyniva.com/digital-transformation" },
                 { title: "Enterprise Platforms", href: "https://www.hyniva.com/salesforce" },
                 { title: "Product Engineering", href: "https://www.hyniva.com/product-dev" },
-                { title: "Strategy Consulting", href: "https://www.hyniva.com/business-it-strategy/" },
+                { title: "Strategy Consulting", href: "https://content.hyniva.com/business-it-strategy/" },
             ],
         },
         {
