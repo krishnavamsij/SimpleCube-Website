@@ -4,37 +4,43 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import Image from "next/image";
+import Link from "next/link";
 
 const INDUSTRIES_DATA = [
     {
         title: "Banking & Credit Unions",
         description: "Modernizing how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
         image: "/images/Industries Section/Banks & Credit Unions.png",
-        bgColor: "#ECF4FD"
+        bgColor: "#ECF4FD",
+        href: "https://www.hyniva.com/retail-commercial-banking/"
     },
     {
         title: "Wealth & Asset Management",
         description: "Helping wealth managers and advisors deliver personalized, compliant investment experiences that grow AUM and deepen client relationships.",
         image: "/images/Industries Section/Wealth & Asset Management.png",
-        bgColor: "#E0F2FD"
+        bgColor: "#E0F2FD",
+        href: "https://www.hyniva.com/wealth-asset-management/"
     },
     {
         title: "Insurance",
         description: "Transforming claims operations and policy administration with automation, AI assignment and real-time visibility across the full claims lifecycle.",
         image: "/images/Industries Section/Insurance.png",
-        bgColor: "#EAF6FE"
+        bgColor: "#EAF6FE",
+        href: "https://www.hyniva.com/insurance/"
     },
     {
         title: "Transportation & Logistics",
         description: "Building the platforms that keep fleets moving, shipments tracked and operations connected — from warehouse to last-mile delivery.",
         image: "/images/Industries Section/Transportation & Logistics.png",
-        bgColor: "#E3F4FE"
+        bgColor: "#E3F4FE",
+        href: "https://www.hyniva.com/transportation-logistics/"
     },
     {
         title: "Education",
         description: "Enabling institutions to streamline administration, improve student outcomes and scale operations through purpose-built technology.",
         image: "/images/Industries Section/Education.png",
-        bgColor: "#EAF8FF"
+        bgColor: "#EAF8FF",
+        href: "https://www.hyniva.com/education/"
     }
 ];
 
@@ -44,8 +50,9 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
     const isOffset = index % 2 === 1;
 
     return (
-        <div 
-            className={`group relative h-[340px] w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col ${isOffset ? "mt-12" : ""}`}
+        <Link 
+            href={industry.href}
+            className={`group relative h-[340px] w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col block ${isOffset ? "mt-12" : ""}`}
             style={{ backgroundColor: industry.bgColor }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -99,16 +106,16 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                             </p>
                             
                             <div className="mt-auto flex justify-end">
-                                <button className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] hover:text-[#00D4AA] transition-colors">
+                                <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] hover:text-[#00D4AA] transition-colors">
                                     Expand
                                     <span className="text-lg leading-none mb-0.5">›</span>
-                                </button>
+                                </span>
                             </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
             </div>
-        </div>
+        </Link>
     );
 }
 
