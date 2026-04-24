@@ -118,15 +118,15 @@ export function ProductsShowcase() {
 
                 {/* ── Logo Ribbon Footprint ── */}
                 <div className="mt-16 lg:mt-20 pt-10 border-t border-white/10 w-full mb-16 lg:mb-32 relative">
-                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap scrollbar-none gap-8 lg:gap-14 xl:gap-16 pb-10 w-full">
+                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap scrollbar-none gap-4 lg:gap-6 xl:gap-4 pb-10 w-full">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
-                                {/* Increased size for better visibility as requested, while maintaining horizontal flow */}
-                                <div className="h-12 lg:h-16 relative w-[160px] lg:w-[200px] xl:w-[220px] opacity-90 hover:opacity-100 transition-opacity">
+                                {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
+                                <div className="h-12 lg:h-16 relative w-[160px] lg:w-[180px] xl:w-[185px] opacity-95 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
                                 {logo.acquiredBy && (
-                                    <div className="absolute top-full mt-4 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[10px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                    <div className="absolute top-full mt-2 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
                                         <ArrowUpRightIcon className="w-3 h-3" /> {logo.acquiredBy}
                                     </div>
                                 )}
