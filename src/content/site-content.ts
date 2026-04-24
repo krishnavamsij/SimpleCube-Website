@@ -230,13 +230,13 @@ export const productsContent = {
     subheadline: "Seven products born from decades of enterprise delivery — proving our domain knowledge extends beyond implementation.",
     rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney — a testament to what enterprise depth produces when it becomes a product.",
     logos: [
-        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /PNG/Ilendx white@2x.png", acquiredBy: "Fiserv" },
-        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Creditsnap white_.png", acquiredBy: "SavvyMoney" },
-        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /PNG/Eazyschool White@2x.png" },
-        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /PNG/Hyper white@2x.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /PNG/FINX white@2x.png" },
-        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /PNG/Claim pioneer white@2x.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /PNG/AIRA white@2x.png" },
+        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /Compressed/iLendX.png", acquiredBy: "Fiserv" },
+        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Compressed/Credit Snap.png", acquiredBy: "SavvyMoney" },
+        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /Compressed/EazySchool.png" },
+        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /Compressed/Hyper.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /Compressed/FinXServe.png" },
+        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /Compressed/Claim Pioneer.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /Compressed/AIRA.png" },
     ],
     products: [
         {
