@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.hyniva.com",
+    url: "https://content.hyniva.com",
     siteName: "Hyniva",
     title: "Hyniva — Your Strategic Tech Partner",
     description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
     images: [
       {
-        url: "https://www.hyniva.com/og-image.png",
+        url: "https://content.hyniva.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Hyniva — Your Strategic Tech Partner",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hyniva — Your Strategic Tech Partner",
     description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
-    images: ["https://www.hyniva.com/og-image.png"],
+    images: ["https://content.hyniva.com/og-image.png"],
   },
 };
 

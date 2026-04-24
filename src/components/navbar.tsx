@@ -134,7 +134,7 @@ export function Navbar() {
                         "bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-0 rounded-full font-black uppercase transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(59,130,246,0.4)]",
                         scrolled ? "px-4 h-8 text-[11px]" : "px-6 h-10 text-[13px]"
                     )}>
-                        <Link href="https://www.hyniva.com/contact">Contact Us</Link>
+                        <Link href="https://content.hyniva.com/contact">Contact Us</Link>
                     </Button>
                 </div>
 
@@ -178,7 +178,7 @@ export function Navbar() {
                             ))}
                             <div className="pt-3 pb-6">
                                 <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] border-0 rounded-full h-12 font-black uppercase">
-                                    <Link href="https://www.hyniva.com/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+                                    <Link href="https://content.hyniva.com/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
                                 </Button>
                             </div>
                         </div>
