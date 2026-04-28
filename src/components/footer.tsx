@@ -150,7 +150,7 @@ export function Footer() {
                     <div className="w-full lg:max-w-sm">
                         <Link href="/" className="inline-flex items-center">
                             <Image
-                                src="/images/Hyniva partial colour (1).svg"
+                                src="/images/Hyniva_partial_colour_1.svg"
                                 alt="Hyniva"
                                 width={240}
                                 height={68}
@@ -216,7 +216,7 @@ export function Footer() {
                                     Proud Member
                                 </h4>
                                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                                    <Image src="/images/Footer/Greater San Antonio Member logo.png" alt="Greater San Antonio Chamber" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
+                                    <Image src="/images/Footer/Greater_San_Antonio_Member_logo.png" alt="Greater San Antonio Chamber" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
                                     <Image src="/images/Footer/North-SA-Chamber.png" alt="North San Antonio Chamber Member" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
                                 </div>
                             </div>
@@ -226,7 +226,7 @@ export function Footer() {
                                 </h4>
                                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                                     <Image src="/images/Footer/SOC.png" alt="SOC" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
-                                    <Image src="/images/Footer/Certification Badge_without Background.png" alt="AICPA SOC Certification Badge" width={100} height={100} className="h-20 sm:h-24 w-auto object-contain" />
+                                    <Image src="/images/Footer/Certification_Badge_without_Background.png" alt="AICPA SOC Certification Badge" width={100} height={100} className="h-20 sm:h-24 w-auto object-contain" />
                                 </div>
                             </div>
                         </div>

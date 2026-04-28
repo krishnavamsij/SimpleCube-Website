@@ -52,7 +52,7 @@ export function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
                     <Image
-                        src="/logos/Hyniva logo for light background.svg"
+                        src="/logos/Hyniva_logo_for_light_background.svg"
                         alt="Hyniva"
                         width={120}
                         height={32}

@@ -10,14 +10,14 @@ const INDUSTRIES_DATA = [
     {
         title: "Banking & Credit Unions",
         description: "Modernizing how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
-        image: "/images/Industries_Section/Banks_&_Credit_Unions.png",
+        image: "/images/Industries_Section/Banks_and_Credit_Unions.png",
         bgColor: "#ECF4FD",
         href: "https://products.hyniva.com/retail-commercial-banking/"
     },
     {
         title: "Wealth & Asset Management",
         description: "Helping wealth managers and advisors deliver personalized, compliant investment experiences that grow AUM and deepen client relationships.",
-        image: "/images/Industries_Section/Wealth_&_Asset_Management.png",
+        image: "/images/Industries_Section/Wealth_and_Asset_Management.png",
         bgColor: "#E0F2FD",
         href: "https://products.hyniva.com/wealth-asset-management/"
     },
@@ -31,7 +31,7 @@ const INDUSTRIES_DATA = [
     {
         title: "Transportation & Logistics",
         description: "Building the platforms that keep fleets moving, shipments tracked and operations connected — from warehouse to last-mile delivery.",
-        image: "/images/Industries_Section/Transportation_&_Logistics.png",
+        image: "/images/Industries_Section/Transportation_and_Logistics.png",
         bgColor: "#E3F4FE",
         href: "https://products.hyniva.com/transportation-logistics/"
     },
