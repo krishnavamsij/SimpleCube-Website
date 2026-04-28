@@ -208,7 +208,7 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
-            image: "/images/Our_Services/3_Product_Engineering.svg",
+            image: "/images/Our_Services/Product_Engineering_no_BG.png",
             href: "https://products.hyniva.com/product-dev",
         },
         {
@@ -217,7 +217,7 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/Our_Services/4_Strategy_Consulting.svg",
+            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
             href: "https://products.hyniva.com/business-it-strategy/",
         },
     ],
