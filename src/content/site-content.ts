@@ -190,7 +190,7 @@ export const servicesContent = {
             description:
                 "We rebuild how enterprises operate — modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
             tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
-            image: "/images/Our Services/Digital Transformation_no BG.svg",
+            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
             href: "https://products.hyniva.com/digital-transformation",
         },
         {
@@ -199,7 +199,7 @@ export const servicesContent = {
             description:
                 "We implement and optimize the platforms your business runs on — and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
-            image: "/images/Our Services/2. Enterprise Platforms.png",
+            image: "/images/Our_Services/2_Enterprise_Platforms.png",
             href: "https://products.hyniva.com/salesforce",
         },
         {
@@ -208,7 +208,7 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
-            image: "/images/Our Services/Product Engineering_no BG.png",
+            image: "/images/Our_Services/3_Product_Engineering.svg",
             href: "https://products.hyniva.com/product-dev",
         },
         {
@@ -217,7 +217,7 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/Our Services/Strategy Consulting_no BG.svg",
+            image: "/images/Our_Services/4_Strategy_Consulting.svg",
             href: "https://products.hyniva.com/business-it-strategy/",
         },
     ],
@@ -230,13 +230,13 @@ export const productsContent = {
     subheadline: "Seven products born from decades of enterprise delivery — proving our domain knowledge extends beyond implementation.",
     rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney — a testament to what enterprise depth produces when it becomes a product.",
     logos: [
-        { industry: "LENDING", name: "iLENDX", src: "/images/Product Logos /Compressed/iLendX.png", acquiredBy: "Fiserv" },
-        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product Logos /Compressed/Credit Snap.png", acquiredBy: "SavvyMoney" },
-        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product Logos /Compressed/EazySchool.png" },
-        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product Logos /Compressed/Hyper.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product Logos /Compressed/FinXServe.png" },
-        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product Logos /Compressed/Claim Pioneer.png" },
-        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product Logos /Compressed/AIRA.png" },
+        { industry: "LENDING", name: "iLENDX", src: "/images/Product_Logos/Compressed/iLendX.png", acquiredBy: "Fiserv" },
+        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product_Logos/Compressed/Credit_Snap.png", acquiredBy: "SavvyMoney" },
+        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product_Logos/Compressed/EazySchool.png" },
+        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product_Logos/Compressed/Hyper.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product_Logos/Compressed/FinXServe.png" },
+        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product_Logos/Compressed/Claim_Pioneer.png" },
+        { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product_Logos/Compressed/AIRA.png" },
     ],
     products: [
         {
@@ -244,7 +244,7 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
-            image: "/images/Product Images/FINXSERVE.gif",
+            image: "/images/Product_Images/FINXSERVE.gif",
             href: "https://products.hyniva.com/finxserve",
         },
         {
@@ -252,7 +252,7 @@ export const productsContent = {
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
-            image: "/images/Product Images/AIRA.gif",
+            image: "/images/Product_Images/AIRA.gif",
             href: "https://products.hyniva.com/aira",
         },
         {
@@ -260,7 +260,7 @@ export const productsContent = {
             title: "Claim Pioneer",
             tags: ["Insurance"],
             description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
-            image: "/images/Product Images/Claim pioneer.gif",
+            image: "/images/Product_Images/Claim_pioneer.gif",
             href: "https://products.hyniva.com/claim-pioneer",
         },
         {
@@ -268,7 +268,7 @@ export const productsContent = {
             title: "Hyper",
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
-            image: "/images/Product Images/Hyper.gif",
+            image: "/images/Product_Images/Hyper.gif",
             href: "https://products.hyniva.com/hyper",
         },
     ],
@@ -284,49 +284,49 @@ export const caseStudiesContent = {
         {
             title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
             description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
-            image: "/images/Case Study/1. Autonomous Lending Experience with FinXServe and Agentforce.png",
+            image: "/images/Case_Study/1.png",
             href: "https://products.hyniva.com/autonomous-lending-experiences-with-finxserve-and-agentforce/",
         },
         {
             title: "Modernizing Contact Centers with\n*Intelligent IVR Self-Service*",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
-            image: "/images/Case Study/2. Modernizing Contact Centers with Intelligent IVR Self-Service.png",
+            image: "/images/Case_Study/2.png",
             href: "https://products.hyniva.com/modernizing-contact-center-with-ivr-self-service/",
         },
         {
             title: "Autonomous Freight Operations\nwith *GenAI*",
             description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
-            image: "/images/Case Study/3. Autonomous Freight Operations with GenAI.png",
+            image: "/images/Case_Study/3.png",
             href: "https://products.hyniva.com/engineering-autonomous-load-creation/",
         },
         {
             title: "Instant Loan with\n*Agentforce-Powered* Document Intelligence",
             description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
-            image: "/images/Case Study/4. Accelerate Loan Processing with Agentforce-Powered Document Intelligence.png",
+            image: "/images/Case_Study/4.png",
             href: "https://products.hyniva.com/agentforce-powered-document-intelligence-for-instant-loan-processing/",
         },
         {
             title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
             description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
-            image: "/images/Case Study/5. Enterprise CRM Modernization on Microsoft Cloud.png",
+            image: "/images/Case_Study/5.png",
             href: "https://products.hyniva.com/empowering-enterprises-through-microsoft-powered-modernization/",
         },
         {
             title: "Rapid Reverse-Engineered\n*Website Migration*",
             description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
-            image: "/images/Case Study/6. Rapid Reverse-Engineered Website Migration.png",
+            image: "/images/Case_Study/6.png",
             href: "https://products.hyniva.com/a-race-against-time-that-others-refused-to-run/",
         },
         {
             title: "AWS-Powered Document\n*Platform Transformation*",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
-            image: "/images/Case Study/7. AWS-Powered Document Platform Transformation.png",
+            image: "/images/Case_Study/7.png",
             href: "https://products.hyniva.com/hyniva-leverages-aws-half-a-million-dollars-savings-annually/",
         },
         {
             title: "Core Banking Transformation\non *Microsoft*",
             description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
-            image: "/images/Case Study/8. Core Banking Transformation on Microsoft.png",
+            image: "/images/Case_Study/8.png",
             href: "https://products.hyniva.com/transforming-core-banking-operations-with-microsoft-innovation/",
         },
     ],
@@ -436,11 +436,11 @@ export const techPartnersContent = {
     headline: "Built on the platforms you already trust",
     sub: "Our teams are certified and experienced across the platforms that power modern enterprises — so there's no ramp-up time and no translation layer between your goals and our delivery.",
     partners: [
-        { name: "Salesforce", src: "/images/Partners Logo/Salesforce.com_logo.svg.png" },
-        { name: "AWS", src: "/images/Partners Logo/Amazon_Web_Services_Logo.svg.png" },
-        { name: "Microsoft", src: "/images/Partners Logo/Microsoft_logo_(2012).svg.png" },
-        { name: "Genesys", src: "/images/Partners Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp" },
-        { name: "Adobe", src: "/images/Partners Logo/Adobe_Corporate_Logo.png" }
+        { name: "Salesforce", src: "/images/Partners_Logo/Salesforce.com_logo.svg.png" },
+        { name: "AWS", src: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png" },
+        { name: "Microsoft", src: "/images/Partners_Logo/Microsoft_logo_(2012).svg.png" },
+        { name: "Genesys", src: "/images/Partners_Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp" },
+        { name: "Adobe", src: "/images/Partners_Logo/Adobe_Corporate_Logo.png" }
     ],
     hexagons: [
         { 
