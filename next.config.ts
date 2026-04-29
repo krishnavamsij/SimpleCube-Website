@@ -20,6 +20,36 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // Product pages - clean URLs
+      {
+        source: '/aira',
+        destination: '/products/aira',
+      },
+      {
+        source: '/finxserve',
+        destination: '/products/finxserve',
+      },
+      {
+        source: '/claim-pioneer',
+        destination: '/products/claim-pioneer',
+      },
+      {
+        source: '/hyper',
+        destination: '/products/hyper',
+      },
+      // Insights pages - clean URLs
+      {
+        source: '/case-studies',
+        destination: '/insights/case-studies',
+      },
+      {
+        source: '/blog',
+        destination: '/insights/blog',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -5,17 +5,17 @@
 export const navContent = {
     brand: { name: "Hyniva" },
     products: [
-        { title: "AIRA", href: "https://products.hyniva.com/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
-        { title: "FinXserve", href: "https://products.hyniva.com/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
-        { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
-        { title: "Hyper", href: "https://products.hyniva.com/hyper", description: "Portfolio planner for well-informed investment decisions." },
+        { title: "AIRA", href: "/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
+        { title: "FinXserve", href: "/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
+        { title: "Claim Pioneer", href: "/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
+        { title: "Hyper", href: "/hyper", description: "Portfolio planner for well-informed investment decisions." },
     ],
     industries: [
-        { title: "Banking", href: "https://products.hyniva.com/retail-commercial-banking/" },
-        { title: "Wealth & Asset Management", href: "https://products.hyniva.com/wealth-asset-management/" },
-        { title: "Insurance", href: "https://products.hyniva.com/insurance/" },
-        { title: "Transportation & Logistics", href: "https://products.hyniva.com/transportation-logistics/" },
-        { title: "Education", href: "https://products.hyniva.com/education/" },
+        { title: "Banking", href: "/industries/banking" },
+        { title: "Wealth & Asset Management", href: "/industries/wealth-asset-management" },
+        { title: "Insurance", href: "/industries/insurance" },
+        { title: "Transportation & Logistics", href: "/industries/transportation-logistics" },
+        { title: "Education", href: "/industries/education" },
     ],
     services: [
         { title: "Digital Transformation", href: "https://products.hyniva.com/digital-transformation" },
@@ -29,8 +29,8 @@ export const navContent = {
         { title: "Cloud Migration", href: "https://products.hyniva.com/cloud-migration/" },
     ],
     insights: [
-        { title: "Case Studies", href: "https://products.hyniva.com/case-studies" },
-        { title: "Blog", href: "https://products.hyniva.com/blog" },
+        { title: "Case Studies", href: "/case-studies" },
+        { title: "Blog", href: "/blog" },
     ],
     about: [
         { title: "About Us", href: "https://products.hyniva.com/about" },
@@ -81,7 +81,7 @@ export const heroSlides = [
 
 export const heroCtas = {
     primary: { label: "Discuss Your Project", href: "https://products.hyniva.com/contact" },
-    secondary: { label: "See Case Studies", href: "https://products.hyniva.com/case-studies" },
+    secondary: { label: "See Case Studies", href: "/case-studies" },
 };
 
 // ── Trusted By ───────────────────────────────────────────────────────────────
@@ -245,7 +245,7 @@ export const productsContent = {
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
             image: "/images/Product_Images/FINXSERVE.gif",
-            href: "https://products.hyniva.com/finxserve",
+            href: "/finxserve",
         },
         {
             num: "02",
@@ -253,7 +253,7 @@ export const productsContent = {
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
             image: "/images/Product_Images/AIRA.gif",
-            href: "https://products.hyniva.com/aira",
+            href: "/aira",
         },
         {
             num: "03",
@@ -261,7 +261,7 @@ export const productsContent = {
             tags: ["Insurance"],
             description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
             image: "/images/Product_Images/Claim_pioneer.gif",
-            href: "https://products.hyniva.com/claim-pioneer",
+            href: "/claim-pioneer",
         },
         {
             num: "04",
@@ -269,7 +269,7 @@ export const productsContent = {
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
             image: "/images/Product_Images/Hyper.gif",
-            href: "https://products.hyniva.com/hyper",
+            href: "/hyper",
         },
     ],
 };
@@ -556,17 +556,17 @@ export const footerContent = {
         {
             title: "Products",
             links: [
-                { title: "FinXServe", href: "https://products.hyniva.com/finxserve" },
-                { title: "AIRA", href: "https://products.hyniva.com/aira" },
-                { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer" },
-                { title: "Hyper", href: "https://products.hyniva.com/hyper" },
+                { title: "FinXServe", href: "/finxserve" },
+                { title: "AIRA", href: "/aira" },
+                { title: "Claim Pioneer", href: "/claim-pioneer" },
+                { title: "Hyper", href: "/hyper" },
             ],
         },
         {
             title: "Company",
             links: [
                 { title: "About Hyniva", href: "https://products.hyniva.com/about" },
-                { title: "Case Studies", href: "https://products.hyniva.com/case-studies" },
+                { title: "Case Studies", href: "/case-studies" },
                 { title: "Careers", href: "https://products.hyniva.com/careers" },
                 { title: "Privacy Policy", href: "https://products.hyniva.com/privacy" },
             ],
