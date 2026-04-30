@@ -1,40 +1,40 @@
 /**
  * SERVICES LISTING CONTENT CONFIGURATION
- * 
+ *
  * This file contains all the content data for the services listing page.
  * It defines the hero section, introduction, services grid, and CTA.
- * 
+ *
  * Structure:
  * - hero: Hero section with title, subtitle, and background image
  * - intro: Introduction section explaining services expertise
  * - services: Array of service offerings with icons, descriptions, and links
  * - cta: Call-to-action section for business inquiries
- * 
+ *
  * Data Usage:
  * - Used by: /src/app/services/page.tsx
  * - Hero content for ServicesHero component
  * - Services array mapped to ServiceCard components
  * - CTA content for ServicesCTA component
- * 
+ *
  * Service Object Structure:
  * - icon: Lucide React icon component
  * - title: Service display name
  * - description: Brief service description
  * - href: Link to detailed service page
- * 
+ *
  * Notes:
  * - Background images use local storage paths
  * - Services showcase Hyniva's main service offerings
  * - Each service links to its detailed page
  */
 
-import { 
-    Cpu, 
-    Cloud, 
-    Shield, 
-    Database, 
-    Lightbulb, 
-    Map, 
+import {
+    Cpu,
+    Cloud,
+    Shield,
+    Database,
+    Lightbulb,
+    Map,
     Radio,
     Code,
     BarChart,
@@ -98,7 +98,7 @@ export const servicesListingContent = {
             icon: Map,
             title: "IT Strategy",
             description: "Strategic IT consulting and roadmap development to align technology with business goals.",
-            href: "https://products.hyniva.com/business-it-strategy/",
+            href: "/business-it-strategy/",
         },
         {
             icon: Settings,
