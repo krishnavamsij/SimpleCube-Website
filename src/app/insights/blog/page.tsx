@@ -30,7 +30,8 @@ export default function BlogPage() {
                         variants={fadeInUp} 
                         className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
                     >
-                        {blogContent.hero.description}
+                        Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce,<br className="hidden sm:block" />
+                        AWS, Microsoft, and the future of enterprise transformation.
                     </motion.p>
                 </motion.div>
 
