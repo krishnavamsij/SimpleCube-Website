@@ -554,10 +554,10 @@ export const footerContent = {
         {
             title: "Services",
             links: [
-                { title: "Digital Transformation", href: "https://products.hyniva.com/digital-transformation" },
-                { title: "Enterprise Platforms", href: "https://products.hyniva.com/salesforce" },
-                { title: "Product Engineering", href: "https://products.hyniva.com/product-dev" },
-                { title: "Strategy Consulting", href: "https://products.hyniva.com/business-it-strategy/" },
+                { title: "Digital Transformation", href: "/digital-transformation" },
+                { title: "Enterprise Platforms", href: "/salesforce" },
+                { title: "Product Engineering", href: "/product-dev" },
+                { title: "Strategy Consulting", href: "/business-it-strategy/" },
             ],
         },
         {
