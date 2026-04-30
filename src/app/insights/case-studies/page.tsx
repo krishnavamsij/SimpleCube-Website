@@ -25,15 +25,16 @@ export default function CaseStudiesPage() {
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         CASE STUDIES
                     </motion.div>
-                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-8 font-display">
+                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-12 font-display">
                         Real <span className="text-[#00D4AA]">Results.</span><br />
                         Proven <span className="text-[#00D4AA]">Impact.</span>
                     </motion.h1>
-                    <div className="border-l-[3px] border-[#00D4AA] pl-8 max-w-3xl">
-                        <motion.p variants={fadeInUp} className="text-xl sm:text-2xl text-slate-600 font-medium leading-[1.6]">
-                            {caseStudiesContent.hero.description}
-                        </motion.p>
-                    </div>
+                    <motion.p 
+                        variants={fadeInUp} 
+                        className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-3xl"
+                    >
+                        {caseStudiesContent.hero.description}
+                    </motion.p>
                 </motion.div>
 
                 {/* ── Card Grid ── */}
@@ -59,7 +60,7 @@ export default function CaseStudiesPage() {
                             {/* Card Body */}
                             <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                 <h3 
-                                    className="font-display text-[22px] font-extrabold text-[#030B3B] leading-[1.3] tracking-tight mb-4 flex-1"
+                                    className="font-sans text-[20px] font-medium text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
                                     dangerouslySetInnerHTML={{ __html: study.title }}
                                 />
                                 <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8">
