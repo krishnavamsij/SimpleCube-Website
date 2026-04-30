@@ -45,34 +45,31 @@ export default function CaseStudiesPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="group flex flex-col rounded-[32px] bg-[#0A102E] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] relative"
+                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
                         >
-                            {/* Top Glow Accent (Inspired by Why Hyniva) */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[150px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.3)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-
                             {/* Card Image */}
-                            <div className="h-[220px] overflow-hidden relative m-3 rounded-[24px]">
+                            <div className="h-[220px] overflow-hidden relative m-3 rounded-[24px] bg-white">
                                 <div 
                                     className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                                     style={{ backgroundImage: `url('${study.image}')` }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A102E] to-transparent opacity-40" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
                             </div>
 
                             {/* Card Body */}
                             <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                 <h3 
-                                    className="font-display text-[22px] font-extrabold text-white leading-[1.3] tracking-tight mb-4 flex-1"
+                                    className="font-display text-[22px] font-extrabold text-[#030B3B] leading-[1.3] tracking-tight mb-4 flex-1"
                                     dangerouslySetInnerHTML={{ __html: study.title }}
                                 />
-                                <p className="text-[15px] font-medium text-[#b4d2f8]/80 leading-relaxed mb-8">
+                                <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8">
                                     {study.description}
                                 </p>
                                 
                                 {/* CTA Button */}
                                 <Link
                                     href={study.href}
-                                    className="flex items-center justify-between w-full py-4 px-6 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white transition-all duration-300 group-hover:bg-[#3B82F6] group-hover:border-[#3B82F6] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]"
+                                    className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                                 >
                                     Read Case Study
                                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
