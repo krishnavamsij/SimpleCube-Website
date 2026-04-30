@@ -1,12 +1,12 @@
 /**
  * Contact Us Page Content Configuration
- * 
+ *
  * This file contains all content for the Contact Us page including:
  * - Hero section with background image
  * - Contact form details
  * - Office locations and contact information
  * - Footer content with links and certifications
- * 
+ *
  * Notes:
  * - Background image path matches WordPress site
  * - Contact form fields and validation
@@ -56,7 +56,7 @@ export const contactContent = {
             address: "13333 Blanco Road, Suite 206<br>San Antonio, Texas - 78216"
         },
         india: {
-            title: "India", 
+            title: "India",
             icon: "fa-solid fa-location-dot",
             address: "The Cube Karle Town Center, Building No.5, 5th Floor Nagavara Village<br>Bengaluru, KA - 560045"
         }
@@ -105,9 +105,9 @@ export const contactContent = {
             title: "PRODUCTS",
             links: [
                 { name: "AIRA", url: "/products/aira" },
-                { name: "FinXserve", url: "/products/finxserve" },
-                { name: "Claim Pioneer", url: "/products/claim-pioneer" },
-                { name: "Hyper", url: "/products/hyper" }
+                { name: "FinXserve", url: "https://products.hyniva.com/finxserve/" },
+                { name: "Claim Pioneer", url: "https://products.hyniva.com/claim-pioneer/" },
+                { name: "Hyper", url: "https://products.hyniva.com/hyper/" }
             ]
         },
         about: {
@@ -132,9 +132,9 @@ export const contactContent = {
             title: "CERTIFIED BY",
             images: [
                 { src: "/images/2024/06/Certified.jpg", alt: "Certified", width: "40%" },
-                { 
-                    src: "/images/2026/01/Certification-Badge-scaled.png", 
-                    alt: "Great Place to Work Certification", 
+                {
+                    src: "/images/2026/01/Certification-Badge-scaled.png",
+                    alt: "Great Place to Work Certification",
                     width: "30%",
                     link: "https://www.greatplacetowork.in/great/company/hyniva-consulting-services-private-limited"
                 }

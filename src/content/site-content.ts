@@ -6,9 +6,9 @@ export const navContent = {
     brand: { name: "Hyniva" },
     products: [
         { title: "AIRA", href: "/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
-        { title: "FinXserve", href: "/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
-        { title: "Claim Pioneer", href: "/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
-        { title: "Hyper", href: "/hyper", description: "Portfolio planner for well-informed investment decisions." },
+        { title: "FinXserve", href: "https://products.hyniva.com/finxserve/", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
+        { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer/", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
+        { title: "Hyper", href: "https://products.hyniva.com/hyper/", description: "Portfolio planner for well-informed investment decisions." },
     ],
     industries: [
         { title: "Banking", href: "/industries/banking" },
@@ -252,7 +252,7 @@ export const productsContent = {
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
             image: "/images/Product_Images/FINXSERVE.gif",
-            href: "/finxserve",
+            href: "https://products.hyniva.com/finxserve/",
         },
         {
             num: "02",
@@ -268,7 +268,7 @@ export const productsContent = {
             tags: ["Insurance"],
             description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
             image: "/images/Product_Images/Claim_pioneer.gif",
-            href: "/claim-pioneer",
+            href: "https://products.hyniva.com/claim-pioneer/",
         },
         {
             num: "04",
@@ -276,7 +276,7 @@ export const productsContent = {
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
             image: "/images/Product_Images/Hyper.gif",
-            href: "/hyper",
+            href: "https://products.hyniva.com/hyper/",
         },
     ],
 };
@@ -450,35 +450,35 @@ export const techPartnersContent = {
         { name: "Adobe", src: "/images/Partners_Logo/Adobe_Corporate_Logo.png" }
     ],
     hexagons: [
-        { 
-            title: "CRM & PLATFORMS", 
-            items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"], 
-            color: "bg-[#1F35A4]" 
+        {
+            title: "CRM & PLATFORMS",
+            items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
+            color: "bg-[#1F35A4]"
         },
-        { 
-            title: "CLOUD", 
-            items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"], 
-            color: "bg-[#00A8FF]" 
+        {
+            title: "CLOUD",
+            items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"],
+            color: "bg-[#00A8FF]"
         },
-        { 
-            title: "AI & DATA", 
-            items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"], 
-            color: "bg-[#008f72]" 
+        {
+            title: "AI & DATA",
+            items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"],
+            color: "bg-[#008f72]"
         },
-        { 
-            title: "FRONTEND", 
-            items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"], 
-            color: "bg-[#0D9488]" 
+        {
+            title: "FRONTEND",
+            items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"],
+            color: "bg-[#0D9488]"
         },
-        { 
-            title: "BACKEND", 
-            items: ["ASP.Net / TypeScript", "Java / Node.js / Python / PHP", "Microservices", "REST / GraphQL APIs"], 
-            color: "bg-[#1e1b4b]" 
+        {
+            title: "BACKEND",
+            items: ["ASP.Net / TypeScript", "Java / Node.js / Python / PHP", "Microservices", "REST / GraphQL APIs"],
+            color: "bg-[#1e1b4b]"
         },
-        { 
-            title: "QA & DEVOPS", 
-            items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Azure DevOps"], 
-            color: "bg-[#0f172a]" 
+        {
+            title: "QA & DEVOPS",
+            items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Azure DevOps"],
+            color: "bg-[#0f172a]"
         }
     ],
 };
@@ -563,10 +563,10 @@ export const footerContent = {
         {
             title: "Products",
             links: [
-                { title: "FinXServe", href: "/finxserve" },
+                { title: "FinXServe", href: "https://products.hyniva.com/finxserve/" },
                 { title: "AIRA", href: "/aira" },
-                { title: "Claim Pioneer", href: "/claim-pioneer" },
-                { title: "Hyper", href: "/hyper" },
+                { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer/" },
+                { title: "Hyper", href: "https://products.hyniva.com/hyper/" },
             ],
         },
         {
