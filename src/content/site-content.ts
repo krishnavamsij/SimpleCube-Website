@@ -292,25 +292,25 @@ export const caseStudiesContent = {
             title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
             description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
             image: "/images/Case_Study/1.png",
-            href: "https://products.hyniva.com/autonomous-lending-experiences-with-finxserve-and-agentforce/",
+            href: "/case-studies/autonomous-lending-experiences-with-finxserve-and-agentforce",
         },
         {
             title: "Modernizing Contact Centers with\n*Intelligent IVR Self-Service*",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
             image: "/images/Case_Study/2.png",
-            href: "https://products.hyniva.com/modernizing-contact-center-with-ivr-self-service/",
+            href: "/case-studies/modernizing-contact-center-with-ivr-self-service",
         },
         {
             title: "Autonomous Freight Operations\nwith *GenAI*",
             description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
             image: "/images/Case_Study/3.png",
-            href: "https://products.hyniva.com/engineering-autonomous-load-creation/",
+            href: "/case-studies/engineering-autonomous-load-creation",
         },
         {
             title: "Instant Loan with\n*Agentforce-Powered* Document Intelligence",
             description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
             image: "/images/Case_Study/4.png",
-            href: "https://products.hyniva.com/agentforce-powered-document-intelligence-for-instant-loan-processing/",
+            href: "/case-studies/agentforce-powered-document-intelligence-for-instant-loan-processing",
         },
         {
             title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
@@ -544,7 +544,7 @@ export const ctaContent = {
     label: "Let's Talk",
     headline: "Ready to simplify your enterprise?",
     sub: "Let's start with a 30-minute discovery call. No commitment,\nno sales pitch. Just a real conversation about your challenges.",
-    cta: { label: "Schedule a free consultation", href: "https://products.hyniva.com/contact-us/" },
+    cta: { label: "Schedule a free consultation", href: "/contact" },
 };
 
 // ── Footer ───────────────────────────────────────────────────────────────────
@@ -556,28 +556,26 @@ export const footerContent = {
             links: [
                 { title: "Digital Transformation", href: "/digital-transformation" },
                 { title: "Enterprise Platforms", href: "/salesforce" },
-                { title: "Product Engineering", href: "/product-dev" },
-                { title: "Strategy Consulting", href: "/business-it-strategy/" },
+                { title: "Product Engineering", href: "/product-development" },
+                { title: "Strategy Consulting", href: "/business-it-strategy" },
             ],
         },
         {
             title: "Products",
             links: [
-                { title: "FinXServe", href: "https://products.hyniva.com/finxserve/" },
+                { title: "FinXServe", href: "/finxserve" },
                 { title: "AIRA", href: "/aira" },
-                { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer/" },
-                { title: "Hyper", href: "https://products.hyniva.com/hyper/" },
+                { title: "Claim Pioneer", href: "/claim-pioneer" },
+                { title: "Hyper", href: "/hyper" },
             ],
         },
         {
             title: "Company",
             links: [
-                // UPDATED: Now points to local /about page
                 { title: "About Hyniva", href: "/about" },
-                { title: "Case Studies", href: "/case-studies" },
-                // UPDATED: Now points to local /careers page
+                { title: "Case Studies", href: "/insights/case-studies" },
                 { title: "Careers", href: "/careers" },
-                { title: "Privacy Policy", href: "https://products.hyniva.com/privacy" },
+                { title: "Privacy Policy", href: "/privacy" },
             ],
         },
     ],

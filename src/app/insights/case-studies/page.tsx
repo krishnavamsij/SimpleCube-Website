@@ -21,7 +21,7 @@ export default function CaseStudiesPage() {
                     variants={staggerContainer}
                     className="mb-20"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         CASE STUDIES
                     </motion.div>

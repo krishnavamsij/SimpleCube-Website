@@ -38,24 +38,28 @@ export function CaseStudies() {
             <div className="mx-auto w-full">
                 
                 {/* ── Section header ── */}
-                <div className="text-center px-6 mb-6 max-w-4xl mx-auto">
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
-                        {label}
+                <div className="mx-auto w-full max-w-[1400px] px-6 mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+                    <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                            {label}
+                        </div>
+                        
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0f172a] leading-[1.12] tracking-tight">
+                            {headline.split(highlightedWord || "").map((part, i, arr) => (
+                                <React.Fragment key={i}>
+                                    {part}
+                                    {i < arr.length - 1 && <span className="text-[#00D4AA] pr-1">{highlightedWord}</span>}
+                                </React.Fragment>
+                            ))}
+                        </h2>
                     </div>
                     
-                    <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0f172a] leading-[1.12] mb-3 tracking-tight">
-                        {headline.split(highlightedWord || "").map((part, i, arr) => (
-                            <React.Fragment key={i}>
-                                {part}
-                                {i < arr.length - 1 && <span className="text-[#00D4AA] pr-1">{highlightedWord}</span>}
-                            </React.Fragment>
-                        ))}
-                    </h2>
-                    
-                    <p className="mx-auto w-full max-w-3xl text-[16px] sm:text-[18px] font-medium text-slate-500 leading-[1.7] lg:whitespace-nowrap">
-                        {sub}
-                    </p>
+                    <div className="lg:max-w-xl pb-2">
+                        <p className="text-[16px] sm:text-[18px] font-medium text-slate-500 leading-[1.7]">
+                            {sub}
+                        </p>
+                    </div>
                 </div>
 
                 {/* ── Carousel wrapper ── */}

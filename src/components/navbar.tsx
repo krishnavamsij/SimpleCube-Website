@@ -37,23 +37,23 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         <motion.header
             initial={false}
             animate={{
-                width: scrolled ? "82%" : "100%",
-                maxWidth: scrolled ? "820px" : "1400px",
-                height: scrolled ? 52 : 64,
-                top: scrolled ? 16 : 0,
-                borderRadius: scrolled ? "9999px" : "0px",
-                backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)",
-                borderWidth: scrolled ? "1px" : "0px",
-                borderColor: "rgba(255, 255, 255, 0.12)",
-                boxShadow: scrolled ? "0 15px 30px rgba(0,0,0,0.1)" : "none",
+                width: "100%",
+                maxWidth: "100%",
+                height: scrolled ? 64 : 80,
+                top: 0,
+                borderRadius: "0px",
+                backgroundColor: scrolled || forceDarkText ? "rgba(255, 255, 255, 0.98)" : "rgba(3, 11, 59, 0)",
+                borderBottomWidth: scrolled || forceDarkText ? "1px" : "0px",
+                borderColor: "rgba(3, 11, 59, 0.08)",
+                boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.05)" : "none",
             }}
             transition={{
-                duration: 0.5,
-                ease: [0.32, 0.72, 0, 1],
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
             }}
             className="fixed z-50 left-1/2 -translate-x-1/2 backdrop-blur-xl"
         >
-            <nav className="mx-auto flex h-full w-full items-center px-6">
+            <nav className="mx-auto flex h-full w-full max-w-[1400px] items-center px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
                     <Image
