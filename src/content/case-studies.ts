@@ -70,7 +70,7 @@ export const caseStudiesContent = {
         {
             title: "Data-Driven Campaign Management for <span class='text-[#3B82F6]'>Enterprise Marketing</span>",
             image: "/images/Case_Studies/11. Data-DrivenCampaignManagementforEnterpriseMarketing.png",
-            description: "Enabled automated campaign scoring and tracking with a fully data-driven marketing platform.",
+            description: "Automated campaign scoring and tracking with a fully data-driven marketing platform.",
             href: "#",
         },
         {
