@@ -5,14 +5,14 @@ export const blogContent = {
     },
     posts: [
         {
-            title: "Intelligence Needs Infrastructure. Prepare Your Salesforce Platform for an <span class='text-[#3B82F6]'>Agent-Led Future.</span>",
+            title: "Prepare Your Salesforce Platform for an <span class='text-[#3B82F6]'>Agent-Led Future.</span>",
             date: "Feb 19, 2026",
             tag: "Salesforce",
             image: "/images/Blogs/Images/1. IntelligenceNeedsInfrastructure_PrepareYourSalesforcePlatformforanAgent-LedFuture.png",
             href: "https://www.hyniva.com/intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future/",
         },
         {
-            title: "Why Financial Institutions Are Modernizing Salesforce Experience Cloud with <span class='text-[#3B82F6]'>LWR</span>",
+            title: "Why Financial Institutions Modernize Experience Cloud with <span class='text-[#3B82F6]'>LWR</span>",
             date: "Feb 2, 2026",
             tag: "Salesforce",
             image: "/images/Blogs/Images/2. WhyFinancialInstitutionsAreModernizingSalesforceExperienceCloudwithLWR.png",
@@ -26,7 +26,7 @@ export const blogContent = {
             href: "https://www.hyniva.com/modernizing-the-contact-center-with-ai-agents-from-fragmented-interactions-to-connected-journeys/",
         },
         {
-            title: "Reimagining Loan Applications: <span class='text-[#3B82F6]'>Voice and Chat</span> Take Center Stage with Agentforce",
+            title: "Reimagining Loan Applications with <span class='text-[#3B82F6]'>Agentforce Voice and Chat</span>",
             date: "Dec 24, 2025",
             tag: "Salesforce",
             image: "/images/Blogs/Images/4. ReimaginingLoanApplications VoiceandChatTakeCenterStagewithAgentforce.png",
@@ -54,14 +54,14 @@ export const blogContent = {
             href: "https://www.hyniva.com/accelerating-digital-transformation-at-credit-unions/",
         },
         {
-            title: "Leveraging Salesforce for <span class='text-[#3B82F6]'>Advanced Analytics:</span> Insights into Sales and Customer Behavior",
+            title: "<span class='text-[#3B82F6]'>Advanced Analytics with Salesforce</span> for Sales and Customer Insights",
             date: "Feb 7, 2025",
             tag: "Salesforce",
             image: "/images/Blogs/Images/8. LeveragingSalesforceforAdvancedAnalytics.png",
             href: "https://www.hyniva.com/leveraging-salesforce-for-advanced-analytics-insights-into-sales-and-customer-behavior/",
         },
         {
-            title: "Salesforce for Marketing: Integrating Salesforce with Your <span class='text-[#3B82F6]'>Marketing Strategy</span>",
+            title: "Integrating Salesforce with Your <span class='text-[#3B82F6]'>Marketing Strategy</span>",
             date: "Jan 29, 2025",
             tag: "Salesforce",
             image: "/images/Blogs/Images/9. SalesforceforMarketing.png",
@@ -75,14 +75,14 @@ export const blogContent = {
             href: "https://www.hyniva.com/salesforce-lightning-vs-classic-why-you-should-switch/",
         },
         {
-            title: "Overcoming Data Integration Challenges with <span class='text-[#3B82F6]'>Salesforce Data Cloud</span>",
+            title: "Solving Data Integration Challenges with <span class='text-[#3B82F6]'>Salesforce Data Cloud</span>",
             date: "Jan 7, 2025",
             tag: "Salesforce",
             image: "/images/Blogs/Images/11. OvercomingDataIntegrationChallengeswithSalesforceDataCloud.png",
             href: "https://www.hyniva.com/overcoming-data-integration-challenges-with-salesforce-data-cloud/",
         },
         {
-            title: "Hyniva: Celebrating Success as a <span class='text-[#3B82F6]'>Great Place to Work</span> for the Second Year!",
+            title: "Celebrating Success as a <span class='text-[#3B82F6]'>Great Place to Work</span> for the Second Year!",
             date: "Jan 3, 2025",
             tag: "Company",
             image: "/images/Blogs/Images/12. HynivaCelebratingSuccessasaGreatPlacetoWorkfortheSecondConsecutiveYear.png",
@@ -124,7 +124,7 @@ export const blogContent = {
             href: "https://www.hyniva.com/optimizing-aws-infrastructure-costs-for-back-office-capabilities/",
         },
         {
-            title: "Hyniva's Vision for Harnessing <span class='text-[#3B82F6]'>Salesforce Customer 360</span> Innovations",
+            title: "Hyniva's Vision for <span class='text-[#3B82F6]'>Salesforce Customer 360</span> Innovations",
             date: "Oct 14, 2024",
             tag: "Salesforce",
             image: "/images/Blogs/Images/18. Hyniva’svisionforharnessingSalesforceCustomer360Innovationsforourclients.png",
@@ -159,7 +159,7 @@ export const blogContent = {
             href: "https://www.hyniva.com/hyniva-celebrates-the-launch-of-its-new-branch/",
         },
         {
-            title: "Hyniva Achieves <span class='text-[#3B82F6]'>SOC 2 Certification!</span>",
+            title: "Hyniva Achieves <span class='text-[#3B82F6]'>SOC 2 Certification.</span> Reinforcing Trust and Compliance",
             date: "Apr 11, 2024",
             tag: "Company",
             image: "/images/Blogs/Images/23. HynivaachievesSOC2Certification!.jpeg",
@@ -180,7 +180,7 @@ export const blogContent = {
             href: "https://www.hyniva.com/perpetually-in-motion-the-digital-factory/",
         },
         {
-            title: "Hyniva is a Proud Member of <span class='text-[#3B82F6]'>GSAC!</span>",
+            title: "Hyniva Becomes a <span class='text-[#3B82F6]'>Proud Member of GSAC</span>",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Images/26. HynivaisaProudMemberofGSAC.png",
