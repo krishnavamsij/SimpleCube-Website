@@ -25,19 +25,19 @@ const nextConfig: NextConfig = {
       // Product pages - clean URLs
       {
         source: '/aira',
-        destination: '/products/aira',
+        destination: '/aira',
       },
       {
         source: '/finxserve',
-        destination: '/products/finxserve',
+        destination: '/finxserve',
       },
       {
         source: '/claim-pioneer',
-        destination: '/products/claim-pioneer',
+        destination: '/claim-pioneer',
       },
       {
         source: '/hyper',
-        destination: '/products/hyper',
+        destination: '/hyper',
       },
       // Services pages - clean URLs
       {

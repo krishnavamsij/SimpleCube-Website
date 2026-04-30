@@ -71,46 +71,6 @@ function ServiceCard({
     );
 }
 
-/* ------------------- Hero Section ------------------- */
-
-function ServicesHero() {
-    return (
-        <section className="relative overflow-hidden py-20 pt-32 sm:py-28 sm:pt-36 md:py-32 md:pt-44 lg:py-36 lg:pt-48">
-            {/* Background layers */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${servicesListingContent.hero.backgroundImage}')` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#030b1e]/70" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(52,81,149,0.2)_0%,transparent_65%)]" />
-            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/50 via-[#020918]/30 to-transparent" />
-
-            {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                    className="max-w-4xl"
-                >
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage"
-                    >
-                        {servicesListingContent.hero.title}
-                    </motion.h1>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="mt-4 text-lg text-slate-200 sm:text-xl"
-                    >
-                        {servicesListingContent.hero.subtitle}
-                    </motion.p>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
 /* ------------------- Intro Section ------------------- */
 
 function ServicesIntro() {
@@ -160,44 +120,6 @@ function ServicesGrid() {
     );
 }
 
-/* ------------------- CTA Section ------------------- */
-
-function ServicesCTA() {
-    return (
-        <section className="relative overflow-hidden py-20 sm:py-24">
-            {/* Background */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${servicesListingContent.cta.backgroundImage}')` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#345195]/80 via-[#2563EB]/70 to-[#345195]/80" />
-
-            {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={scrollReveal}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="text-center"
-                >
-                    <h3 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl font-bricolage">
-                        {servicesListingContent.cta.title}
-                    </h3>
-                    <div className="mt-8 flex justify-center">
-                        <Link
-                            href={servicesListingContent.cta.buttonHref}
-                            className="inline-flex items-center gap-2 rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-900 shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                        >
-                            {servicesListingContent.cta.buttonText}
-                            <ArrowUpRightIcon className="h-4 w-4" />
-                        </Link>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
 
 /* ------------------- Page ------------------- */
 
@@ -206,10 +128,8 @@ export default function ServicesPage() {
         <>
             <Navbar />
             <main>
-                <ServicesHero />
                 <ServicesIntro />
                 <ServicesGrid />
-                <ServicesCTA />
             </main>
             <Footer />
         </>

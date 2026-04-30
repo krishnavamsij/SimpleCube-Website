@@ -18,7 +18,7 @@ export const navContent = {
         { title: "Education", href: "/industries/education" },
     ],
     services: [
-        { title: "Digital Transformation", href: "/services/digital-transformation" },
+        { title: "Digital Transformation", href: "/digital-transformation" },
         { title: "Salesforce", href: "/salesforce" },
         { title: "Microsoft Services", href: "/microsoft-services" },
         { title: "AWS Cloud", href: "/aws-cloud-services" },

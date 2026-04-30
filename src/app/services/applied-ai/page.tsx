@@ -236,7 +236,7 @@ function CaseStudiesSection() {
                     className="mb-12"
                 >
                     <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-blue-900">
-                        Our Capabilities
+                        Case Studies
                     </h2>
                 </motion.div>
                 <motion.div
@@ -302,45 +302,6 @@ function DeliveryEnablers() {
     );
 }
 
-/* ------------------- CTA Section ------------------- */
-
-function AppliedAICTA() {
-    return (
-        <section className="relative overflow-hidden py-20 sm:py-24">
-            {/* Background */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${appliedAIContent.cta.backgroundImage}')` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#345195]/80 via-[#2563EB]/70 to-[#345195]/80" />
-
-            {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={scrollReveal}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="text-center"
-                >
-                    <h3 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl font-bricolage">
-                        {appliedAIContent.cta.title}
-                    </h3>
-                    <div className="mt-8 flex justify-center">
-                        <Link
-                            href={appliedAIContent.cta.buttonHref}
-                            className="inline-flex items-center gap-2 rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-900 shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                        >
-                            {appliedAIContent.cta.buttonText}
-                            <ArrowUpRightIcon className="h-4 w-4" />
-                        </Link>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
 /* ------------------- Page ------------------- */
 
 export default function AppliedAIPage() {
@@ -353,7 +314,6 @@ export default function AppliedAIPage() {
                 <ServicesGrid />
                 <CaseStudiesSection />
                 <DeliveryEnablers />
-                <AppliedAICTA />
             </main>
             <Footer />
         </>
