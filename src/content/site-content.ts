@@ -18,15 +18,15 @@ export const navContent = {
         { title: "Education", href: "/industries/education" },
     ],
     services: [
-        { title: "Digital Transformation", href: "https://products.hyniva.com/digital-transformation" },
-        { title: "Salesforce", href: "https://products.hyniva.com/salesforce" },
-        { title: "Microsoft Services", href: "https://products.hyniva.com/microsoft" },
-        { title: "AWS Cloud", href: "https://products.hyniva.com/aws" },
-        { title: "Applied AI", href: "https://products.hyniva.com/applied-ai/" },
-        { title: "Data Intelligence", href: "https://products.hyniva.com/data" },
-        { title: "Product Development", href: "https://products.hyniva.com/product-dev" },
-        { title: "IT Strategy", href: "https://products.hyniva.com/business-it-strategy/" },
-        { title: "Cloud Migration", href: "https://products.hyniva.com/cloud-migration/" },
+        { title: "Digital Transformation", href: "/digital-transformation" },
+        { title: "Salesforce", href: "/salesforce" },
+        { title: "Microsoft Services", href: "/microsoft-services" },
+        { title: "AWS Cloud", href: "/aws-cloud-services" },
+        { title: "Applied AI", href: "/applied-ai" },
+        { title: "Data Intelligence", href: "/data-intelligence" },
+        { title: "Product Development", href: "/product-development" },
+        { title: "IT Strategy", href: "/business-it-strategy" },
+        { title: "Cloud Migration", href: "/cloud-migration" },
     ],
     insights: [
         { title: "Case Studies", href: "/case-studies" },
@@ -195,16 +195,16 @@ export const servicesContent = {
             num: "01",
             title: "Digital Transformation",
             description:
-                "We rebuild how enterprises operate — modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
+                "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
             tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
             image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
-            href: "https://products.hyniva.com/digital-transformation",
+            href: "/digital-transformation",
         },
         {
             num: "02",
             title: "Enterprise Platforms",
             description:
-                "We implement and optimize the platforms your business runs on — and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
+                "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
             image: "/images/Our_Services/2_Enterprise_Platforms.png",
             href: "https://products.hyniva.com/salesforce",
@@ -222,7 +222,7 @@ export const servicesContent = {
             num: "04",
             title: "Strategy Consulting",
             description:
-                "Before we write a line of code, we align on where you're going — so your technology investment has a direction, not just a deadline.",
+                "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
             image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
             href: "https://products.hyniva.com/business-it-strategy/",
@@ -234,8 +234,8 @@ export const servicesContent = {
 export const productsContent = {
     label: "Our Products",
     headline: "Product innovation is in our DNA.",
-    subheadline: "Seven products born from decades of enterprise delivery — proving our domain knowledge extends beyond implementation.",
-    rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney — a testament to what enterprise depth produces when it becomes a product.",
+    subheadline: "Seven products born from decades of enterprise delivery, proving our domain knowledge extends beyond implementation.",
+    rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney. A testament to what enterprise depth produces when it becomes a product.",
     logos: [
         { industry: "LENDING", name: "iLENDX", src: "/images/Product_Logos/Compressed/iLendX.png", acquiredBy: "Fiserv" },
         { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product_Logos/Compressed/Credit_Snap.png", acquiredBy: "SavvyMoney" },
@@ -266,7 +266,7 @@ export const productsContent = {
             num: "03",
             title: "Claim Pioneer",
             tags: ["Insurance"],
-            description: "End-to-end claims automation — from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
+            description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
             image: "/images/Product_Images/Claim_pioneer.gif",
             href: "/claim-pioneer",
         },
@@ -274,7 +274,7 @@ export const productsContent = {
             num: "04",
             title: "Hyper",
             tags: ["Wealth Management"],
-            description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations - helping advisors scale AUM and reduce acquisition costs.",
+            description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
             image: "/images/Product_Images/Hyper.gif",
             href: "/hyper",
         },
@@ -349,7 +349,7 @@ export const whyHynivaContent = {
             { value: "30+", label: "Enterprise\nClients" },
             { value: "100+", label: "Certified\nExperts" }
         ],
-        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live — not what gets proposed.",
+        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live, not by what gets proposed.",
         boldWords: ["already knows your industry", "measures success by what goes live"],
         cta: { label: "Know More →", href: "https://products.hyniva.com/about" }
     },
@@ -357,12 +357,12 @@ export const whyHynivaContent = {
         {
             icon: "UsersRound",
             title: "Zero Handoff",
-            description: "One team owns your\nengagement from strategy\nto production — no handoffs,\nno context loss."
+            description: "One team owns your\nengagement from strategy\nto production. No handoffs,\nno context loss."
         },
         {
             icon: "Globe2",
             title: "Industry Depth",
-            description: "15+ years inside regulated industries — we spend less time learning and more time building."
+            description: "15+ years inside regulated\nindustries. We spend less\ntime learning and more time\nbuilding."
         },
         {
             icon: "Zap",
@@ -372,7 +372,7 @@ export const whyHynivaContent = {
         {
             icon: "Activity",
             title: "Built for Outcomes",
-            description: "A product builder's mindset and an implementer's discipline — in every engagement."
+            description: "A product builder's mindset and an implementer's discipline in every engagement."
         }
     ]
 };
@@ -441,7 +441,7 @@ export const techContent = {
 export const techPartnersContent = {
     label: "Our Technology & Partners",
     headline: "Built on the platforms you already trust",
-    sub: "Our teams are certified and experienced across the platforms that power modern enterprises — so there's no ramp-up time and no translation layer between your goals and our delivery.",
+    sub: "Our teams are certified and experienced across the platforms that power modern enterprises. So there's no ramp-up time and no translation layer between your goals and our delivery.",
     partners: [
         { name: "Salesforce", src: "/images/Partners_Logo/Salesforce.com_logo.svg.png" },
         { name: "AWS", src: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png" },
@@ -543,7 +543,7 @@ export const statsContent = {
 export const ctaContent = {
     label: "Let's Talk",
     headline: "Ready to simplify your enterprise?",
-    sub: "Let's start with a 30-minute discovery call — no commitment,\nno sales pitch. Just a real conversation about your challenges.",
+    sub: "Let's start with a 30-minute discovery call. No commitment,\nno sales pitch. Just a real conversation about your challenges.",
     cta: { label: "Schedule a free consultation", href: "https://products.hyniva.com/contact-us/" },
 };
 

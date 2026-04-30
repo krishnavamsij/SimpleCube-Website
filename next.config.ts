@@ -25,19 +25,57 @@ const nextConfig: NextConfig = {
       // Product pages - clean URLs
       {
         source: '/aira',
-        destination: '/products/aira',
+        destination: '/aira',
       },
       {
         source: '/finxserve',
-        destination: '/products/finxserve',
+        destination: '/finxserve',
       },
       {
         source: '/claim-pioneer',
-        destination: '/products/claim-pioneer',
+        destination: '/claim-pioneer',
       },
       {
         source: '/hyper',
-        destination: '/products/hyper',
+        destination: '/hyper',
+      },
+      // Services pages - clean URLs
+      {
+        source: '/digital-transformation',
+        destination: '/services/digital-transformation',
+      },
+      // Services pages - clean URLs
+      {
+        source: '/salesforce',
+        destination: '/services/salesforce',
+      },
+      {
+        source: '/microsoft-services',
+        destination: '/services/microsoft-services',
+      },
+      {
+        source: '/aws-cloud-services',
+        destination: '/services/aws-cloud-services',
+      },
+      {
+        source: '/applied-ai',
+        destination: '/services/applied-ai',
+      },
+      {
+        source: '/data-intelligence',
+        destination: '/services/data-intelligence',
+      },
+      {
+        source: '/product-development',
+        destination: '/services/product-development',
+      },
+      {
+        source: '/business-it-strategy',
+        destination: '/services/it-strategy',
+      },
+      {
+        source: '/cloud-migration',
+        destination: '/services/cloud-migration',
       },
       // Insights pages - clean URLs
       {
