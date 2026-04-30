@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 
-export function Navbar() {
+export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -63,7 +63,8 @@ export function Navbar() {
                         height={32}
                         className={cn(
                             "transition-all duration-500",
-                            scrolled ? "h-6.5 w-auto" : "h-9 w-auto brightness-0 invert"
+                            scrolled ? "h-6.5 w-auto" : "h-9 w-auto",
+                            !(scrolled || forceDarkText) && "brightness-0 invert"
                         )}
                         priority
                     />
@@ -87,7 +88,7 @@ export function Navbar() {
                         >
                             <button className={cn(
                                 "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
-                                scrolled
+                                (scrolled || forceDarkText)
                                     ? "text-[12px] font-bold text-slate-600 hover:text-[#2563EB]"
                                     : "text-sm font-bold text-white/90 hover:text-white"
                             )}>
@@ -147,7 +148,7 @@ export function Navbar() {
                 <div className="flex items-center gap-2 lg:hidden">
                     <button className={cn(
                         "p-2",
-                        scrolled ? "text-slate-900" : "text-white"
+                        (scrolled || forceDarkText) ? "text-slate-900" : "text-white"
                     )} onClick={() => setMobileOpen(!mobileOpen)}>
                         {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </button>

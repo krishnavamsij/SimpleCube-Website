@@ -11,7 +11,7 @@ import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/an
 export default function CaseStudiesPage() {
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B]">
-            <Navbar />
+            <Navbar forceDarkText={true} />
             
             <main className="pt-32 pb-24 mx-auto w-full max-w-[1400px] px-6">
                 {/* ── Page Header ── */}
