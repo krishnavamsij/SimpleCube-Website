@@ -33,9 +33,16 @@ export const navContent = {
         { title: "Blog", href: "/blog" },
     ],
     about: [
-        { title: "About Us", href: "https://products.hyniva.com/about" },
-        { title: "Our Leadership", href: "https://products.hyniva.com/about#leadership" },
-        { title: "Careers", href: "https://products.hyniva.com/careers" },
+        // UPDATED: Now pointing to local /about page instead of external products.hyniva.com
+        { title: "About Us", href: "/about" },
+        // About Us page has a #leadership anchor for "Our Leaders" section
+        { title: "Our Leadership", href: "/about#leadership" },
+        // UPDATED: Careers is now a separate page at /careers
+        { title: "Careers", href: "/careers" },
+    ],
+    // ADDED: Contact Us as standalone navigation item
+    contact: [
+        { title: "Contact Us", href: "/contact" },
     ],
 };
 
@@ -565,9 +572,11 @@ export const footerContent = {
         {
             title: "Company",
             links: [
-                { title: "About Hyniva", href: "https://products.hyniva.com/about" },
+                // UPDATED: Now points to local /about page
+                { title: "About Hyniva", href: "/about" },
                 { title: "Case Studies", href: "/case-studies" },
-                { title: "Careers", href: "https://products.hyniva.com/careers" },
+                // UPDATED: Now points to local /careers page
+                { title: "Careers", href: "/careers" },
                 { title: "Privacy Policy", href: "https://products.hyniva.com/privacy" },
             ],
         },
