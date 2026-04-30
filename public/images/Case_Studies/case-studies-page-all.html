@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Studies — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:       #1e90ff;
+    --accent-light: #63c2ff;
+    --card-bg:      #0f1623;
+    --card-border:  rgba(255,255,255,0.07);
+    --body-bg:      #080d16;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--body-bg);
+    min-height: 100vh;
+    padding: 72px 48px 88px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+  }
+  .page-header__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .page-header__dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 8px var(--accent);
+    animation: blink 2.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.18} }
+  .page-header__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .page-header__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 700; color: #e8f0ff;
+    line-height: 1.15; letter-spacing: -.3px;
+    margin-bottom: 12px;
+  }
+  .page-header__title em { font-style: italic; color: var(--accent-light); }
+  .page-header__sub {
+    font-size: 15px; font-weight: 300;
+    color: rgba(160,185,230,.58); line-height: 1.65;
+    max-width: 520px;
+  }
+
+  /* ── Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Card shell ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s cubic-bezier(.22,1,.36,1),
+                box-shadow .3s,
+                border-color .3s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(30,144,255,0.2);
+    border-color: rgba(30,144,255,0.22);
+  }
+
+  /* ── Image block — top half ── */
+  .card__image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .card__image-inner {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: transform .6s ease;
+  }
+  .card:hover .card__image-inner { transform: scale(1.05); }
+
+  /* ── Text block — bottom half ── */
+  .card__body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Heading */
+  .card__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 1.5vw, 19px);
+    font-weight: 700; color: #eef5ff;
+    line-height: 1.28;
+    margin-bottom: 12px;
+    letter-spacing: -.1px;
+    flex: 1;
+  }
+  .card__heading em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  /* One-liner */
+  .card__line {
+    font-size: 13px; font-weight: 300;
+    color: rgba(160,195,240,.58);
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  /* Full-width CTA button */
+  .card__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 20px;
+    background: transparent;
+    border: 1px solid rgba(30,144,255,0.3);
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 400;
+    letter-spacing: .3px;
+    color: rgba(200,225,255,0.82);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .25s, border-color .25s, color .25s, gap .2s;
+    margin-top: auto;
+  }
+  .card:hover .card__cta {
+    background: rgba(30,144,255,0.1);
+    border-color: rgba(30,144,255,0.55);
+    color: #fff;
+    gap: 12px;
+  }
+  .card__cta svg {
+    width: 13px; height: 13px;
+    fill: none; stroke: currentColor; stroke-width: 2;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 48px 32px 60px; }
+  }
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card__image { height: 180px; }
+    body { padding: 40px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Page header -->
+<div class="page-header">
+  <div class="page-header__eyebrow">
+    <div class="page-header__dot"></div>
+    <span class="page-header__label">Case Studies</span>
+  </div>
+  <h1 class="page-header__title">
+    Real Results.<br><em>Proven Impact.</em>
+  </h1>
+  <p class="page-header__sub">
+    Explore how Hyniva helps leading financial institutions, logistics providers,
+    and enterprises modernize operations through intelligent technology.
+  </p>
+</div>
+
+<!-- Card grid -->
+<div class="card-grid">
+
+  <!-- 1 — Autonomous Lending -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Autonomous Lending Experience with <em>FinXServe &amp; Agentforce</em>
+      </div>
+      <div class="card__line">
+        Built an AI-driven lending journey that automates document processing, decisioning and approvals.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2 — Agentforce Loan Processing -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Accelerate Loan Processing with <em>Agentforce-Powered</em> Document Intelligence
+      </div>
+      <div class="card__line">
+        Loan applications completed in under 2 minutes with AI-driven document intelligence.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3 — IVR Contact Center -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Modernizing Contact Centers with <em>Intelligent IVR Self-Service</em>
+      </div>
+      <div class="card__line">
+        Transformed legacy IVR into a Smart Customer Engagement Interaction System.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 4 — GenAI Freight -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Autonomous Freight Operations with <em>GenAI</em>
+      </div>
+      <div class="card__line">
+        Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 5 — LWR Modernization -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        LWR Modernization for <em>High-Performance Experiences</em>
+      </div>
+      <div class="card__line">
+        Accelerated digital experience performance with Lightning Web Runtime, achieving 2× faster page loads.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 6 — Website Migration -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Rapid Reverse-Engineered <em>Website Migration</em>
+      </div>
+      <div class="card__line">
+        Delivered a full website migration in 2 months with zero downtime—without backend access.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 7 — Voice Biometrics Authentication -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Frictionless Customer Authentication for <em>Secure Banking</em>
+      </div>
+      <div class="card__line">
+        Modernized contact center authentication by implementing voice biometrics powered by Pindrop.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 8 — Core Banking Microsoft -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Core Banking Transformation on <em>Microsoft</em>
+      </div>
+      <div class="card__line">
+        Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 9 — Customer 360 Data Intelligence -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Turning Enterprise Data into a <em>Strategic Intelligence Engine</em>
+      </div>
+      <div class="card__line">
+        Enabled real-time Customer 360 insights with a unified, automated data platform.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 10 — AWS Document Platform -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        AWS-Powered Document <em>Platform Transformation</em>
+      </div>
+      <div class="card__line">
+        Saved $500K annually and improved performance by 5× with serverless AWS modernization.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 11 — Data-Driven Campaign Management -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Data-Driven Campaign Management for <em>Enterprise Marketing</em>
+      </div>
+      <div class="card__line">
+        Enabled automated campaign scoring and tracking with a fully data-driven marketing platform.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 12 — Salesforce Service Operations -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Intelligent Service Operations on <em>Salesforce</em>
+      </div>
+      <div class="card__line">
+        Enabled faster, smarter customer support through unified service operations on Salesforce.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 13 — Digital Member Engagement Banking -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Elevating Digital Member Engagement in <em>Modern Banking Operations</em>
+      </div>
+      <div class="card__line">
+        Delivered real-time lending and engagement through a unified digital experience platform.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 14 — Legacy CRM to Modern Lending -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Legacy CRM to <em>Modern Lending Platform</em>
+      </div>
+      <div class="card__line">
+        Rebuilt a legacy CRM into a scalable platform enabling faster and more efficient lending operations.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 15 — Enterprise CRM Microsoft Cloud -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Enterprise CRM Modernization on <em>Microsoft Cloud</em>
+      </div>
+      <div class="card__line">
+        Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 16 — Zero-Downtime AWS Deployments -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Enabling Zero-Downtime Deployments with <em>AWS</em>
+      </div>
+      <div class="card__line">
+        Reduced downtime by 95% and accelerated deployments by 70% using AWS blue-green strategy.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 17 — AI Customer Support Automation -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        AI-Powered Customer <em>Support Automation</em>
+      </div>
+      <div class="card__line">
+        Enabled AI-driven self-service to automate queries and reduce customer support effort.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 18 — Logistics Platform Modernization -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Logistics Platform <em>Modernization</em>
+      </div>
+      <div class="card__line">
+        Enabled real-time tracking and 100% mobile operations through Microsoft-powered platform transformation.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 19 — Cost-Optimized AWS Document Platform -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&q=80');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__heading">
+        Cost-Optimized Document Platform on <em>AWS</em>
+      </div>
+      <div class="card__line">
+        Reduced costs to zero licensing while scaling document management on AWS.
+      </div>
+      <a href="#" class="card__cta">
+        Read Case Study
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,23 +1,3 @@
-/**
- * CASE STUDIES MODULE
- * 
- * This component displays detailed case studies of Hyniva's work with clients.
- * Each case study showcases real-world implementations and results.
- * 
- * Structure:
- * - Hero section with background image and animated content
- * - Grid layout of case study cards
- * - Individual cards with titles, descriptions, and external links
- * 
- * Features:
- * - Animated components using Framer Motion
- * - Responsive grid layout (2 columns on tablet, 3 on desktop)
- * - External links to detailed case study pages
- * - Consistent styling with site theme
- * 
- * URL: /insights/case-studies (rewritten to /case-studies)
- */
-
 "use client";
 
 import { Navbar } from "@/components/navbar";
@@ -25,209 +5,82 @@ import { Footer } from "@/components/footer";
 import { caseStudiesContent } from "@/content/case-studies";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-    scrollReveal,
-    scrollStaggerContainer,
-    viewportOnce,
-    staggerContainer,
-    fadeInUp,
-} from "@/lib/animations";
+import React from "react";
+import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/animations";
 
-/* ─────────────── Case Study Card Component ─────────────── */
-/**
- * CaseStudyCard - Individual card for displaying a case study
- * 
- * Props:
- * - study: Case study object containing title, description, href, and image
- * - index: Position in the grid for staggered animations
- * 
- * Features:
- * - Hover effects with translation and shadow changes
- * - Linked title for better UX
- * - Gradient button with arrow icon
- * - Animated entry using scrollReveal variant
- * 
- * Data source: caseStudiesContent.studies from /content/case-studies.ts
- */
-function CaseStudyCard({
-    study,
-    index,
-}: {
-    study: (typeof caseStudiesContent.studies)[number];
-    index: number;
-}) {
+export default function CaseStudiesPage() {
     return (
-        <motion.div
-            variants={scrollReveal}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-        >
-            <h3 className="mb-4 text-xl font-bold leading-snug text-blue-900">
-                <Link href={study.href} className="hover:text-blue-700 transition-colors">
-                    {study.title}
-                </Link>
-            </h3>
-            <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-600">
-                {study.description}
-            </p>
-            <div className="mt-auto">
-                <Link
-                    href={study.href}
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 to-blue-600 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                >
-                    Explore
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                </Link>
-            </div>
-        </motion.div>
-    );
-}
-
-/* ─────────────── Case Studies Hero Section ─────────────── */
-/**
- * CaseStudiesHero - Hero section for case studies page
- * 
- * Features:
- * - Background image from caseStudiesContent.hero.backgroundImage
- * - Gradient overlays for text readability
- * - Animated title and subtitle using Framer Motion
- * - Responsive typography scaling
- * - Consistent with other page heroes in the site
- * 
- * Content:
- * - Dynamic title from caseStudiesContent.hero.title
- * - Subtitle and description from content configuration
- * - Dark theme with blue accent colors
- */
-function CaseStudiesHero() {
-    return (
-        <section className="relative overflow-hidden bg-[#030b1e] py-20 pt-32 sm:py-28 sm:pt-36 md:py-32 md:pt-44 lg:py-36 lg:pt-48">
-            {/* Background layers */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${caseStudiesContent.hero.backgroundImage}')` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/60 via-[#061244]/40 to-[#030b1e]/60" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
-            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/40 via-[#020918]/20 to-transparent" />
-
-            {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={staggerContainer}
+        <div className="min-h-screen bg-[#080c14] font-sans">
+            <Navbar />
+            
+            <main className="pt-32 pb-24 px-6 sm:px-12 lg:px-24 max-w-[1400px] mx-auto">
+                {/* ── Page Header ── */}
+                <motion.div 
                     initial="hidden"
                     animate="visible"
+                    variants={staggerContainer}
+                    className="max-w-[1200px] mx-auto mb-16"
                 >
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage"
-                    >
-                        {caseStudiesContent.hero.title}
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        CASE STUDIES
+                    </motion.div>
+                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-white tracking-tight leading-[1.05] mb-8 font-display">
+                        Real <span className="text-[#00D4AA]">Results.</span><br />
+                        Proven <span className="text-[#00D4AA]">Impact.</span>
                     </motion.h1>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="mt-2 text-lg text-slate-200 sm:text-xl"
-                    >
-                        {caseStudiesContent.hero.subtitle}
-                    </motion.p>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="mt-4 max-w-xl text-base text-slate-300 sm:text-lg"
-                    >
+                    <motion.p variants={fadeInUp} className="text-xl sm:text-2xl text-slate-300 font-medium leading-[1.6] max-w-3xl mb-12">
                         {caseStudiesContent.hero.description}
                     </motion.p>
                 </motion.div>
-            </div>
-        </section>
-    );
-}
 
-/* ─────────────── Case Studies Grid Component ─────────────── */
-/**
- * CaseStudiesGrid - Grid layout for all case studies
- * 
- * Data Source:
- * - sectionTitle: From caseStudiesContent.sectionTitle
- * - studies: Array of case study objects from caseStudiesContent.studies
- * 
- * Layout:
- * - Responsive grid: 1 column (mobile), 2 columns (tablet), 3 columns (desktop)
- * - Staggered animation for cards
- * - Consistent spacing and alignment
- * - Section title with blue theme
- * 
- * Features:
- * - Scroll-triggered animations
- * - Hover effects on individual cards
- * - External links to detailed case study pages
- */
-function CaseStudiesGrid() {
-    const { sectionTitle, studies } = caseStudiesContent;
+                {/* ── Card Grid ── */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
+                    {caseStudiesContent.studies.map((study, idx) => (
+                        <motion.div
+                            key={idx}
+                            variants={scrollReveal}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                            className="group flex flex-col rounded-[24px] bg-[#0f1623] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#3B82F6]/30 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                        >
+                            {/* Card Image */}
+                            <div className="h-[220px] overflow-hidden relative">
+                                <div 
+                                    className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
+                                    style={{ backgroundImage: `url('${study.image}')` }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1623] to-transparent opacity-60" />
+                            </div>
 
-    return (
-        <section className="bg-[#f8fafc] py-16 sm:py-20 md:py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={scrollReveal}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="mb-12"
-                >
-                    <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl text-blue-900">
-                        {sectionTitle}
-                    </h2>
-                </motion.div>
-
-                <motion.div
-                    variants={scrollStaggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-                >
-                    {studies.map((study, index) => (
-                        <CaseStudyCard key={study.title} study={study} index={index} />
+                            {/* Card Body */}
+                            <div className="p-8 flex flex-col flex-1 relative">
+                                <h3 
+                                    className="font-display text-[22px] font-extrabold text-white leading-[1.3] tracking-tight mb-4 flex-1"
+                                    dangerouslySetInnerHTML={{ __html: study.title }}
+                                />
+                                <p className="text-[15px] font-medium text-slate-400 leading-relaxed mb-8">
+                                    {study.description}
+                                </p>
+                                
+                                {/* CTA Button */}
+                                <Link
+                                    href={study.href}
+                                    className="flex items-center justify-between w-full py-4 px-6 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-white transition-all duration-300 group-hover:bg-[#3B82F6] group-hover:border-[#3B82F6] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]"
+                                >
+                                    Read Case Study
+                                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </Link>
+                            </div>
+                        </motion.div>
                     ))}
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
-/* ─────────────── Main Case Studies Page Component ─────────────── */
-/**
- * CaseStudiesPage - Main page component for case studies section
- * 
- * Structure:
- * 1. Navbar - Site navigation
- * 2. Main content area:
- *    - CaseStudiesHero - Hero section with background image
- *    - CaseStudiesGrid - Grid of case study cards
- * 3. Footer - Site footer
- * 
- * Features:
- * - Clean URL: /insights/case-studies (rewritten to /case-studies)
- * - Responsive design across all devices
- * - Smooth animations and transitions
- * - External links to detailed case study pages
- * - Integration with main site navigation
- * 
- * Related files:
- * - /content/case-studies.ts - Case studies data configuration
- * - /insights/page.tsx - Parent insights page
- * - next.config.ts - URL rewrites configuration
- */
-export default function CaseStudiesPage() {
-    return (
-        <>
-            <Navbar />
-            <main>
-                <CaseStudiesHero />
-                <CaseStudiesGrid />
+                </div>
             </main>
+
             <Footer />
-        </>
+        </div>
     );
 }

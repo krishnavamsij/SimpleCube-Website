@@ -1,150 +1,149 @@
-/**
- * CASE STUDIES CONTENT CONFIGURATION
- * 
- * This file contains all the content data for the case studies section.
- * It defines the hero section and individual case study information.
- * 
- * Structure:
- * - hero: Hero section content with title, subtitle, description, and background image
- * - sectionTitle: Title for the main grid section
- * - studies: Array of case study objects with titles, descriptions, and external links
- * 
- * Data Usage:
- * - Used by: /src/app/insights/case-studies/page.tsx
- * - Hero content displayed in CaseStudiesHero component
- * - Studies array mapped to CaseStudyCard components
- * - All href links point to external detailed case study pages
- * 
- * Notes:
- * - Background image path uses local storage (/images/2023/11/section-bg.jpg)
- * - All case study links are external URLs to hyniva.com
- * - Studies are ordered by importance/recency
- * - Each study includes a compelling title and concise description
- */
-
 export const caseStudiesContent = {
     hero: {
-        title: "Hyniva's Impact: Case Studies on Cloud, Data & AI Solutions",
+        title: "Real Results. Proven Impact.",
         subtitle: "From challenge to transformation.",
-        description: "Every engagement started with trust. Every outcome is how we honored it.",
+        description: "Discover how Hyniva enables enterprises to modernize operations and deliver measurable business impact.",
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
     sectionTitle: "Hyniva In Action",
     studies: [
         {
-            title: "Intelligent Lending",
-            description: "Built a secure platform to automate loan pre-qualification and routing. Improved speed, accuracy, and conversion rates.",
-            href: "https://www.hyniva.com/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation/",
+            title: "Autonomous Lending Experience with <em class='italic text-[#3B82F6] font-serif'>FinXServe & Agentforce</em>",
+            image: "/images/Case_Studies/1. AutonomousLendingExperiencewithFinXServeandAgentforce.png",
+            description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+            href: "#",
         },
         {
-            title: "Claims Reimagined",
-            description: "Digitized claims processing with a scalable, automated platform. Reduced manual effort and accelerated turnaround time.",
-            href: "https://www.hyniva.com/transforming-insurance-claims-operations-with-a-scalable-digital-platform/",
+            title: "Faster Loan Processing with <em class='italic text-[#3B82F6] font-serif'>Agentforce Document Intelligence</em>",
+            image: "/images/Case_Studies/2. AccelerateLoanProcessingWithAgentforce-PoweredDocumentIntelligence.png",
+            description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
+            href: "#",
         },
         {
-            title: "Zero-Defect Scaling",
-            description: "A leading education provider partnered with Hyniva to build a scalable platform — achieving zero-defect delivery at scale.",
-            href: "https://www.hyniva.com/scaling-a-multi-portal-education-platform-with-zero-defect-delivery/",
+            title: "Modernizing Contact Centers with <em class='italic text-[#3B82F6] font-serif'>Intelligent IVR Self-Service</em>",
+            image: "/images/Case_Studies/3. ModernizingContactCenterswithIntelligentIVRSelf-Service.png",
+            description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+            href: "#",
         },
         {
-            title: "Legacy to Digital",
-            description: "Replaced a legacy system with a scalable, modern case management platform. Improved workflows, visibility, and operational efficiency.",
-            href: "https://www.hyniva.com/modernizing-case-management-for-a-community-healthcare-provider-stop/",
+            title: "Autonomous Freight Operations with <em class='italic text-[#3B82F6] font-serif'>GenAI</em>",
+            image: "/images/Case_Studies/4. AutonomousFreightOperationswithGenAI.png",
+            description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
+            href: "#",
         },
         {
-            title: "Autonomous Lending",
-            description: "Hyniva implemented Agentforce within FinXServe to deliver a conversational lending journey from inquiry to loan application in one seamless interaction.",
-            href: "https://www.hyniva.com/autonomous-lending-experiences-with-finxserve-and-agentforce/",
+            title: "LWR Modernization for <em class='italic text-[#3B82F6] font-serif'>High-Performance Experiences</em>",
+            image: "/images/Case_Studies/5. LWRModernizationForHigh-PerformanceExperiences.png",
+            description: "Improved digital experience performance. 2× faster page loads with Lightning Web Runtime.",
+            href: "#",
         },
         {
-            title: "Voice Authentication",
-            description: "Hyniva integrated Pindrop into the contact center to enable passive, multi-factor voice authentication, reducing handle time while strengthening fraud protection.",
-            href: "https://www.hyniva.com/engineering-secure-authentication-through-pindrop-integration/",
+            title: "Rapid Reverse-Engineered <em class='italic text-[#3B82F6] font-serif'>Website Migration</em>",
+            image: "/images/Case_Studies/6. RapidReverse-EngineeredWebsiteMigration.png",
+            description: "Delivered a full website migration in 2 months with zero downtime without backend access.",
+            href: "#",
         },
         {
-            title: "AI Loan Processing",
-            description: "Hyniva embedded Agentforce-powered document intelligence into FinXServe to automate verification and enable near-instant digital loan approvals.",
-            href: "https://www.hyniva.com/agentforce-powered-document-intelligence-for-instant-loan-processing/",
+            title: "Frictionless Customer Authentication for <em class='italic text-[#3B82F6] font-serif'>Secure Banking</em>",
+            image: "/images/Case_Studies/7. FrictionlessCustomerAuthenticationforSecureBanking.png",
+            description: "Modernized contact center authentication with Pindrop voice biometrics.",
+            href: "#",
         },
         {
-            title: "IVR Modernization",
-            description: "Hyniva modernized a wealth management firm's IVR self-service platform, simplifying call routing, improving security, and reducing call handling time.",
-            href: "https://www.hyniva.com/modernizing-contact-center-with-ivr-self-service/",
+            title: "Core Banking Transformation on <em class='italic text-[#3B82F6] font-serif'>Microsoft</em>",
+            image: "/images/Case_Studies/8. CoreBankingTransformationonMicrosoft.png",
+            description: "50% faster loan approvals and 30% lower costs with Microsoft-led modernization.",
+            href: "#",
         },
         {
-            title: "LWR Modernization",
-            description: "Hyniva modernized a credit union's Experience Cloud platform by migrating from Aura to LWR, improving speed, scalability, and mobile performance.",
-            href: "https://www.hyniva.com/accelerating-platform-performance-through-lwr-modernization/",
+            title: "Turning Enterprise Data into a <em class='italic text-[#3B82F6] font-serif'>Strategic Intelligence Engine</em>",
+            image: "/images/Case_Studies/9. TurningEnterpriseDataintoaStrategicIntelligenceEngine.png",
+            description: "Enabled real-time Customer 360 insights with a unified, automated data platform.",
+            href: "#",
         },
         {
-            title: "Cloud Modernization",
-            description: "Hyniva transformed legacy CRM into a modern Dynamics 365 platform, improving scalability, efficiency, and user experience for smarter service delivery.",
-            href: "https://www.hyniva.com/empowering-enterprises-through-microsoft-powered-modernization/",
+            title: "AWS-Powered Document <em class='italic text-[#3B82F6] font-serif'>Platform Transformation</em>",
+            image: "/images/Case_Studies/10. AWS-PoweredDocumentPlatformTransformation.png",
+            description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
+            href: "#",
         },
         {
-            title: "Credit Union CX",
-            description: "Lending transformed with FinXForce, unifying digital channels & reducing loan offer times to under 60 seconds—boosting ROI, engagement, & member satisfaction.",
-            href: "https://www.hyniva.com/member-experience-transformation-at-a-leading-credit-union/",
+            title: "Data-Driven Campaign Management for <em class='italic text-[#3B82F6] font-serif'>Enterprise Marketing</em>",
+            image: "/images/Case_Studies/11. Data-DrivenCampaignManagementforEnterpriseMarketing.png",
+            description: "Enabled automated campaign scoring and tracking with a fully data-driven marketing platform.",
+            href: "#",
         },
         {
-            title: "Campaign Reinvented",
-            description: "Hyniva created a custom .NET solution for smarter, automated campaign management. The platform drives efficiency, precision and scalability for IT businesses.",
-            href: "https://hyniva.com/hyniva-campaign-management/",
+            title: "Modernizing Case Management for a Community Healthcare Provider",
+            image: "/images/Case_Studies/12. ModernizingCaseManagementforaCommunityHealthcareProvider.png",
+            description: "Streamlined case workflows for real-time visibility, better coordination and efficient service delivery.",
+            href: "#",
         },
         {
-            title: "GenAI Boosts Logistics",
-            description: "Hyniva's GenAI solution cut load creation time from 20 minutes to seconds for a top logistics firm. It boosted speed, accuracy, and cost savings for software development.",
-            href: "https://hyniva.com/engineering-autonomous-load-creation/",
+            title: "Intelligent Service Operations on <em class='italic text-[#3B82F6] font-serif'>Salesforce</em>",
+            image: "/images/Case_Studies/13. IntelligentServiceOperationsonSalesforce.png",
+            description: "Enabled faster, smarter customer support through unified service operations on Salesforce.",
+            href: "#",
         },
         {
-            title: "Zero-Access Migration",
-            description: "Hyniva completed a full digital migration in 2 months using only the live site — no backend access. Agile execution and SDET-led quality turned the impossible into enterprise-grade delivery.",
-            href: "https://www.hyniva.com/a-race-against-time-that-others-refused-to-run/",
+            title: "Elevating Member Engagement in <em class='italic text-[#3B82F6] font-serif'>Modern Banking Operations</em>",
+            image: "/images/Case_Studies/14. ElevatingDigital MemberEngagementinModernBankingOperations.png",
+            description: "Delivered real-time lending and engagement through a unified digital experience platform.",
+            href: "#",
         },
         {
-            title: "Digital Logistics",
-            description: "Hyniva transformed legacy logistics with Microsoft technologies, enabling real-time tracking, mobile operations, faster performance, and better customer experiences.",
-            href: "https://www.hyniva.com/enterprise-modernization-with-microsoft/",
+            title: "Optimizing Loan Routing and Pre-Qualification with <em class='italic text-[#3B82F6] font-serif'>AI</em>",
+            image: "/images/Case_Studies/15. OptimizingLoanRoutingandPre-QualificationwithIntelligentAutomation.png",
+            description: "Real-time borrower evaluation and lender routing to improve matches and speed up lending.",
+            href: "#",
         },
         {
-            title: "5x Increase in Customer Experience",
-            description: "Learn how Hyniva leveraged AWS to help a global investment firm save over half a million dollars annually, transform their customer experience and increase performance by 5x.",
-            href: "https://hyniva.com/hyniva-leverages-aws-half-a-million-dollars-savings-annually/",
+            title: "Legacy CRM to <em class='italic text-[#3B82F6] font-serif'>Modern Lending Platform</em>",
+            image: "/images/Case_Studies/16. LegacyCRMtoModernLendingPlatform.png",
+            description: "Rebuilt a legacy CRM into a scalable platform enabling faster and efficient lending operations.",
+            href: "#",
         },
         {
-            title: "Salesforce Advantage",
-            description: "Hyniva reimagined customer support with Salesforce — unifying data, automating workflows, and enabling proactive care for faster resolutions and happier customers.",
-            href: "https://www.hyniva.com/scaling-service-operations-with-salesforce/",
+            title: "Transforming Claims Operations with a <em class='italic text-[#3B82F6] font-serif'>Scalable Digital Platform</em>",
+            image: "/images/Case_Studies/17. TransformingInsuranceClaimsOperationswithaScalableDigitalPlatform.png",
+            description: "Unified claims workflows with real-time processing and visibility for faster settlements.",
+            href: "#",
         },
         {
-            title: "AWS Cloud Efficiency",
-            description: "In the heart of technological transformation, Hyniva embarked on a groundbreaking journey with an asset management company, steering them towards unparalleled efficiency and cost effectiveness.",
-            href: "https://hyniva.com/aws-enabled-efficiency/",
+            title: "Enterprise CRM Modernization on <em class='italic text-[#3B82F6] font-serif'>Microsoft Cloud</em>",
+            image: "/images/Case_Studies/18. EnterpriseCRMModernizationonMicrosoftCloud.png",
+            description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
+            href: "#",
         },
         {
-            title: "Superpowered Data",
-            description: "Effectively analyzing and leveraging data can transform your business in unimaginable ways. Learn how Hyniva is helping leading banks and lenders do it, and discover the untapped superpower.",
-            href: "https://hyniva.com/data-is-your-superpower/",
+            title: "Enabling Zero-Downtime Deployments with <em class='italic text-[#3B82F6] font-serif'>AWS</em>",
+            image: "/images/Case_Studies/19. EnablingZero-DowntimeDeploymentswithAWS.png",
+            description: "95% less downtime and 70% faster deployments using AWS blue-green strategy.",
+            href: "#",
         },
         {
-            title: "Impact of Blue Green Strategy",
-            description: "Our client faced significant challenges due to their rigid infrastructure and architecture. Explore how our Blue Green strategy enhanced efficiency and resilience.",
-            href: "https://hyniva.com/blue-green-deployment/",
+            title: "Scalable Multi-Portal Platform for <em class='italic text-[#3B82F6] font-serif'>Complex Education Workflows</em>",
+            image: "/images/Case_Studies/20. EngineeredaScalableMulti-Portal PlatformforComplexEducationWorkflows.png",
+            description: "Streamlined academic workflows for real-time visibility and seamless interactions.",
+            href: "#",
         },
         {
-            title: "AI Transforming Customer Service",
-            description: "Hyniva is working with a financial management company to improve its customer experience by leveraging AI for customer interaction and increasing overall productivity.",
-            href: "https://hyniva.com/leveraging-ai-to-transform-customer-service/",
+            title: "Building a Mobile-First, Real-Time <em class='italic text-[#3B82F6] font-serif'>Logistics Platform</em>",
+            image: "/images/Case_Studies/21. LogisticsPlatformModernization.png",
+            description: "Real-time tracking and fully mobile operations with Microsoft-powered transformation.",
+            href: "#",
         },
         {
-            title: "Banking Modernization",
-            description: "Hyniva reimagined financial workflows using Microsoft technologies, streamlining loan processing, compliance, and customer onboarding.",
-            href: "https://www.hyniva.com/transforming-core-banking-operations-with-microsoft-innovation/",
+            title: "Cost-Optimized Document Platform on <em class='italic text-[#3B82F6] font-serif'>AWS</em>",
+            image: "/images/Case_Studies/22. Cost-OptimizedDocumentPlatformonAWS.png",
+            description: "Reduced costs to zero licensing while scaling document management on AWS.",
+            href: "#",
         },
         {
-            title: "CRM Modernization",
-            description: "A prominent player in the auto loan aggregation space with nearly two decades of experience, faced a critical juncture of migrating to a new platform in a record time, proving to be a challenge for everyone.",
-            href: "https://hyniva.com/modernizing-a-legacy-platform/",
+            title: "AI-Powered Customer <em class='italic text-[#3B82F6] font-serif'>Support Automation</em>",
+            image: "/images/Case_Studies/23. AI-PoweredCustomerSupportAutomation.png",
+            description: "Deployed an AI chatbot to improve response times and reduce support effort.",
+            href: "#",
         },
     ],
 };
