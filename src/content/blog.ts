@@ -1,124 +1,197 @@
-/**
- * BLOG CONTENT CONFIGURATION
- * 
- * This file contains all the content data for the blog section.
- * It defines the hero section and individual blog post information.
- * 
- * Structure:
- * - hero: Hero section content with title, subtitle, description, and background image
- * - sectionTitle: Title for the main grid section
- * - posts: Array of blog post objects with metadata and content
- * 
- * Data Usage:
- * - Used by: /src/app/insights/blog/page.tsx
- * - Hero content displayed in BlogHero component
- * - Posts array mapped to BlogCard components
- * - All href links point to external detailed blog post pages
- * 
- * Post Object Structure:
- * - title: Blog post title
- * - excerpt: Brief summary of the content
- * - date: Publication date in "Month DD, YYYY" format
- * - author: Author name (currently all "Hyniva")
- * - image: Path to featured image in /images directory
- * - href: External URL to the full blog post
- * 
- * Notes:
- * - Background image path uses local storage (/images/2023/11/section-bg.jpg)
- * - All blog post links are external URLs to products.hyniva.com
- * - Posts are ordered chronologically (newest first)
- * - Image paths follow year/month naming convention
- * - Excerpts are truncated versions of full content
- */
-
 export const blogContent = {
     hero: {
-        title: "Hyniva Blogs: Salesforce, AWS, Company News & Culture",
-        subtitle: "Insights and innovations from our team.",
-        description: "Explore Hyniva's blogs on Salesforce, AWS, company updates, and Digital insights. Stay informed with the latest trends in Tech.",
-        backgroundImage: "/images/2023/11/section-bg.jpg",
+        title: "Our Digital <span class='text-[#00D4AA]'>Thoughts.</span>",
+        description: "Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce, AWS, Microsoft, and the future of enterprise transformation.",
     },
-    sectionTitle: "Latest Insights",
     posts: [
         {
-            title: "Hyniva's vision for harnessing Salesforce Customer 360 Innovations for our clients",
-            excerpt: "In an increasingly competitive market, businesses are constantly seeking ways to deepen their understanding of customers and enhance engagement. Salesforce's [...]",
-            date: "October 14, 2024",
-            author: "Hyniva",
-            image: "/images/2024/10/Customer-360-Innovations.png",
-            href: "https://products.hyniva.com/hynivas-vision-for-harnessing-salesforce-customer-360-innovations-for-our-clients/",
+            title: "Intelligence Needs Infrastructure. Prepare Your Salesforce Platform for an <span class='text-[#3B82F6]'>Agent-Led Future.</span>",
+            date: "Feb 19, 2026",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/1. IntelligenceNeedsInfrastructure_PrepareYourSalesforcePlatformforanAgent-LedFuture.png",
+            href: "https://www.hyniva.com/intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future/",
         },
         {
-            title: "Salesforce Unveils Agentforce: A Game-Changer in Customer Service",
-            excerpt: "In an era where customer expectations are at an all-time high, businesses are constantly seeking innovative solutions to enhance their [...]",
-            date: "October 3, 2024",
-            author: "Hyniva",
-            image: "/images/2024/10/Agentforce_Customer-service.png",
-            href: "https://products.hyniva.com/salesforce-unveils-agentforce-a-game-changer-in-customer-service/",
+            title: "Why Financial Institutions Are Modernizing Salesforce Experience Cloud with <span class='text-[#3B82F6]'>LWR</span>",
+            date: "Feb 2, 2026",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/2. WhyFinancialInstitutionsAreModernizingSalesforceExperienceCloudwithLWR.png",
+            href: "https://www.hyniva.com/why-financial-institutions-are-modernizing-salesforce-experience-cloud-with-lwr/",
         },
         {
-            title: "Overcoming Business Challenges with Salesforce",
-            excerpt: "In today's fast-paced market, organizations face numerous challenges that can hinder growth and efficiency. From customer retention to data management, [...]",
-            date: "September 18, 2024",
-            author: "Hyniva",
-            image: "/images/2024/09/Salesforce.png",
-            href: "https://products.hyniva.com/overcoming-business-challenges-with-salesforce/",
+            title: "Modernizing the Contact Center with Agentforce: <span class='text-[#3B82F6]'>Connected Journeys</span>",
+            date: "Jan 23, 2026",
+            tag: "AI",
+            image: "/images/Blogs/Images/3. ModernizingTheContactCenterWithAgentforce.png",
+            href: "https://www.hyniva.com/modernizing-the-contact-center-with-ai-agents-from-fragmented-interactions-to-connected-journeys/",
         },
         {
-            title: "AI – Empowering Financial Institutions",
-            excerpt: "Artificial Intelligence (AI) is changing at a rapid pace, and businesses across all industries are trying to identify the best [...]",
-            date: "September 16, 2024",
-            author: "Hyniva",
-            image: "/images/2024/09/Artificial-Intelligence_Finance-sector-2.png",
-            href: "https://products.hyniva.com/ai-empowering-financial-institutions/",
+            title: "Reimagining Loan Applications: <span class='text-[#3B82F6]'>Voice and Chat</span> Take Center Stage with Agentforce",
+            date: "Dec 24, 2025",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/4. ReimaginingLoanApplications VoiceandChatTakeCenterStagewithAgentforce.png",
+            href: "https://www.hyniva.com/reimagining-loan-applications-voice-and-chat-take-center-stage-with-agentforce/",
         },
         {
-            title: "Hyniva Celebrates the Launch of Its New Branch!",
-            excerpt: "The inauguration of Hyniva's Global Delivery Headquarters near Manyata Tech Park in Bangalore was truly special, featuring a ribbon-cutting ceremony, [...]",
-            date: "August 27, 2024",
-            author: "Hyniva",
-            image: "/images/2024/08/DKHP5846-scaled.jpg",
-            href: "https://products.hyniva.com/hyniva-celebrates-the-launch-of-its-new-branch/",
+            title: "Empowering Credit Unions to Thrive in a <span class='text-[#3B82F6]'>Digital Era</span>",
+            date: "Apr 14, 2025",
+            tag: "Banking",
+            image: "/images/Blogs/Images/5. EmpoweringCreditUnionstoThriveinaDigitalEra .png",
+            href: "https://www.hyniva.com/empowering-credit-unions-to-thrive-in-a-digital-era/",
         },
         {
-            title: "Hyniva achieves SOC 2 Certification!",
-            excerpt: "A Testament to Our Commitment to Security and Data Integrity We at Hyniva are thrilled to share that we are [...]",
-            date: "April 11, 2024",
-            author: "Hyniva",
-            image: "/images/2024/04/1712699115972.jpeg",
-            href: "https://products.hyniva.com/hyniva-achieves-soc-2-certification/",
+            title: "Hyniva Receives <span class='text-[#3B82F6]'>SOC 2 Type II</span> Compliance",
+            date: "Apr 1, 2025",
+            tag: "Company",
+            image: "/images/Blogs/Images/6. HynivaReceivesSOC2TypeIICompliance.png",
+            href: "https://www.hyniva.com/hyniva-achieves-soc-2-type-ii-compliance-security-first/",
         },
         {
-            title: "Generative AI – Why it's a Game Changer",
-            excerpt: "Every industry has been proactively interested in Large Language Models (LLM) and Generative AI in the past few years. Generative [...]",
-            date: "March 27, 2024",
-            author: "Hyniva",
-            image: "/images/2024/02/AdobeStock_474498018-scaled.jpeg",
-            href: "https://products.hyniva.com/generative-ai-why-its-a-game-changer/",
+            title: "Accelerating <span class='text-[#3B82F6]'>Digital Transformation</span> at Credit Unions",
+            date: "Mar 12, 2025",
+            tag: "Banking",
+            image: "/images/Blogs/Images/7. AcceleratingDigitalTransformationatCreditUnions.png",
+            href: "https://www.hyniva.com/accelerating-digital-transformation-at-credit-unions/",
         },
         {
-            title: "Perpetually in Motion – The Digital Factory",
-            excerpt: "Up till a few years ago, the Software Development Life Cycle (SDLC) was based on a few models, but the [...]",
-            date: "December 13, 2023",
-            author: "Hyniva",
-            image: "/images/2023/11/photobox4.jpg",
-            href: "https://products.hyniva.com/perpetually-in-motion-the-digital-factory/",
+            title: "Leveraging Salesforce for <span class='text-[#3B82F6]'>Advanced Analytics:</span> Insights into Sales and Customer Behavior",
+            date: "Feb 7, 2025",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/8. LeveragingSalesforceforAdvancedAnalytics.png",
+            href: "https://www.hyniva.com/leveraging-salesforce-for-advanced-analytics-insights-into-sales-and-customer-behavior/",
         },
         {
-            title: "Hyniva is a Proud Member of GSAC!",
-            excerpt: "We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce, and we couldn't [...]",
-            date: "December 13, 2023",
-            author: "Hyniva",
-            image: "/images/2023/12/Greater-SA-Stickers-05-1.png",
-            href: "https://products.hyniva.com/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce/",
+            title: "Salesforce for Marketing: Integrating Salesforce with Your <span class='text-[#3B82F6]'>Marketing Strategy</span>",
+            date: "Jan 29, 2025",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/9. SalesforceforMarketing.png",
+            href: "https://www.hyniva.com/salesforce-for-marketing-integrating-salesforce-with-your-marketing-strategy/",
         },
         {
-            title: "Hyniva is Officially a \"Great Place to Work\"!",
-            excerpt: "We're Thrilled to Share Exciting News! At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about [...]",
-            date: "December 13, 2023",
-            author: "Hyniva",
-            image: "/images/2023/12/Amazing_Culture.png",
-            href: "https://products.hyniva.com/hyniva-is-officially-a-great-place-to-work/",
+            title: "Salesforce <span class='text-[#3B82F6]'>Lightning vs. Classic:</span> Why You Should Switch",
+            date: "Jan 27, 2025",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/10. SalesforceLightningvs.ClassicWhyYouShouldSwitch.png",
+            href: "https://www.hyniva.com/salesforce-lightning-vs-classic-why-you-should-switch/",
+        },
+        {
+            title: "Overcoming Data Integration Challenges with <span class='text-[#3B82F6]'>Salesforce Data Cloud</span>",
+            date: "Jan 7, 2025",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/11. OvercomingDataIntegrationChallengeswithSalesforceDataCloud.png",
+            href: "https://www.hyniva.com/overcoming-data-integration-challenges-with-salesforce-data-cloud/",
+        },
+        {
+            title: "Hyniva: Celebrating Success as a <span class='text-[#3B82F6]'>Great Place to Work</span> for the Second Year!",
+            date: "Jan 3, 2025",
+            tag: "Company",
+            image: "/images/Blogs/Images/12. HynivaCelebratingSuccessasaGreatPlacetoWorkfortheSecondConsecutiveYear.png",
+            href: "https://www.hyniva.com/hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year/",
+        },
+        {
+            title: "Unlock the Future of CRM with the Latest <span class='text-[#3B82F6]'>Salesforce Innovations</span>",
+            date: "Dec 24, 2024",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/13. UnlocktheFutureofCRMwiththeLatestSalesforceInnovations.png",
+            href: "https://www.hyniva.com/unlock-the-future-of-crm-with-the-latest-salesforce-innovations/",
+        },
+        {
+            title: "Start Your <span class='text-[#3B82F6]'>Salesforce FSC</span> Optimization Journey",
+            date: "Dec 17, 2024",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/14. StartYourSalesforceFSCOptimizationJourney.png",
+            href: "https://www.hyniva.com/optimizing-salesforce-fsc-future-proofing-your-financial-institution-with-hynivas-expertise/",
+        },
+        {
+            title: "The Future of Cloud Computing: <span class='text-[#3B82F6]'>AWS Trends</span>",
+            date: "Nov 29, 2024",
+            tag: "AWS",
+            image: "/images/Blogs/Images/15.Futureofcloudcomputing.png",
+            href: "https://www.hyniva.com/the-future-of-cloud-computing-aws-trends/",
+        },
+        {
+            title: "Benefits of a <span class='text-[#3B82F6]'>Tailored AWS Infrastructure:</span> How Hyniva Can Help",
+            date: "Nov 15, 2024",
+            tag: "AWS",
+            image: "/images/Blogs/Images/16. BenefitsofaTailoredAWSInfrastructure.png",
+            href: "https://www.hyniva.com/benefits-of-a-tailored-aws-infrastructure-how-hyniva-can-help/",
+        },
+        {
+            title: "Optimizing AWS Infrastructure Costs for <span class='text-[#3B82F6]'>Back-Office Capabilities</span>",
+            date: "Oct 23, 2024",
+            tag: "AWS",
+            image: "/images/Blogs/Images/17. OptimizingAWSInfrastructureCostsforBack-OfficeCapabilities.png",
+            href: "https://www.hyniva.com/optimizing-aws-infrastructure-costs-for-back-office-capabilities/",
+        },
+        {
+            title: "Hyniva's Vision for Harnessing <span class='text-[#3B82F6]'>Salesforce Customer 360</span> Innovations",
+            date: "Oct 14, 2024",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/18. Hyniva’svisionforharnessingSalesforceCustomer360Innovationsforourclients.png",
+            href: "https://www.hyniva.com/hynivas-vision-for-harnessing-salesforce-customer-360-innovations-for-our-clients/",
+        },
+        {
+            title: "Salesforce Unveils Agentforce: A <span class='text-[#3B82F6]'>Game-Changer</span> in Customer Service",
+            date: "Oct 3, 2024",
+            tag: "AI",
+            image: "/images/Blogs/Images/19. SalesforceUnveilsAgentforce.png",
+            href: "https://www.hyniva.com/salesforce-unveils-agentforce-a-game-changer-in-customer-service/",
+        },
+        {
+            title: "Overcoming Business Challenges with <span class='text-[#3B82F6]'>Salesforce</span>",
+            date: "Sep 18, 2024",
+            tag: "Salesforce",
+            image: "/images/Blogs/Images/20. OvercomingBusinessChallengeswithSalesforce.png",
+            href: "https://www.hyniva.com/overcoming-business-challenges-with-salesforce/",
+        },
+        {
+            title: "AI — Empowering <span class='text-[#3B82F6]'>Financial Institutions</span>",
+            date: "Sep 16, 2024",
+            tag: "AI",
+            image: "/images/Blogs/Images/21. AI–EmpoweringFinancialInstitutions.png",
+            href: "https://www.hyniva.com/ai-empowering-financial-institutions/",
+        },
+        {
+            title: "Hyniva Celebrates the Launch of Its <span class='text-[#3B82F6]'>New Branch!</span>",
+            date: "Aug 27, 2024",
+            tag: "Company",
+            image: "/images/Blogs/Images/22. HynivaCelebratestheLaunchofItsNewBranch.jpg",
+            href: "https://www.hyniva.com/hyniva-celebrates-the-launch-of-its-new-branch/",
+        },
+        {
+            title: "Hyniva Achieves <span class='text-[#3B82F6]'>SOC 2 Certification!</span>",
+            date: "Apr 11, 2024",
+            tag: "Company",
+            image: "/images/Blogs/Images/23. HynivaachievesSOC2Certification!.jpeg",
+            href: "https://www.hyniva.com/hyniva-achieves-soc-2-certification/",
+        },
+        {
+            title: "Generative AI — <span class='text-[#3B82F6]'>Why It's a Game Changer</span>",
+            date: "Mar 27, 2024",
+            tag: "AI",
+            image: "/images/Blogs/Images/24.GenerativeAIWhyit’saGameChanger.jpeg",
+            href: "https://www.hyniva.com/generative-ai-why-its-a-game-changer/",
+        },
+        {
+            title: "Perpetually in Motion — <span class='text-[#3B82F6]'>The Digital Factory</span>",
+            date: "Dec 13, 2023",
+            tag: "Technology",
+            image: "/images/Blogs/Images/25. PerpetuallyinMotionTheDigitalFactory.png",
+            href: "https://www.hyniva.com/perpetually-in-motion-the-digital-factory/",
+        },
+        {
+            title: "Hyniva is a Proud Member of <span class='text-[#3B82F6]'>GSAC!</span>",
+            date: "Dec 13, 2023",
+            tag: "Company",
+            image: "/images/Blogs/Images/26. HynivaisaProudMemberofGSAC.png",
+            href: "https://www.hyniva.com/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce/",
+        },
+        {
+            title: "Hyniva is Officially a <span class='text-[#3B82F6]'>\"Great Place to Work\"!</span>",
+            date: "Dec 13, 2023",
+            tag: "Company",
+            image: "/images/Blogs/Images/27. HynivaisOfficiallyaGreatPlacetoWork.png",
+            href: "https://www.hyniva.com/hyniva-is-officially-a-great-place-to-work/",
         },
     ],
 };
