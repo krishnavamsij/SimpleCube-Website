@@ -109,7 +109,7 @@ export function ProductsShowcase() {
                         <div className="flex flex-col justify-center lg:items-end w-full">
                             <div className="border-l-[2px] border-[#00D4AA] pl-6 py-2 lg:max-w-[480px] w-full mr-auto lg:mr-0">
                                 <p className="text-xl sm:text-2xl text-slate-400 font-medium leading-[1.6] max-w-[480px]">
-                                    Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span> — a testament to what enterprise depth produces when it becomes a product.
+                                    Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span>. A testament to what enterprise depth produces when it becomes a product.
                                 </p>
                             </div>
                         </div>
