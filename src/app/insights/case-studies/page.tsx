@@ -33,7 +33,8 @@ export default function CaseStudiesPage() {
                         variants={fadeInUp} 
                         className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
                     >
-                        Discover how Hyniva enables enterprises to modernize<br className="hidden sm:block" /> operations and deliver measurable business impact.
+                        Discover how Hyniva enables enterprises to modernize<br className="hidden sm:block" />
+                        operations and deliver measurable business impact.
                     </motion.p>
                 </motion.div>
 
@@ -60,7 +61,7 @@ export default function CaseStudiesPage() {
                             {/* Card Body */}
                             <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                 <h3 
-                                    className="font-sans text-[22px] font-bold text-[#030B3B] leading-[1.3] tracking-tight mb-4 flex-1"
+                                    className="font-sans text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
                                     dangerouslySetInnerHTML={{ __html: study.title }}
                                 />
                                 <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8">
