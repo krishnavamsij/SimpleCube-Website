@@ -1,0 +1,84 @@
+/* Salesforce page styles */
+.salesforceHero {
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.photoboxCarousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.kdPhotobox {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.pbcContent {
+  display: flex;
+  align-items: center;
+}
+
+.carouselControls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.carouselButton {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.carouselButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carouselIndicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .carouselControls {
+    padding: 0 10px;
+  }
+  
+  .carouselButton {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
