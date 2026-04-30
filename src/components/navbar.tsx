@@ -88,9 +88,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         >
                             <button className={cn(
                                 "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
-                                (scrolled || forceDarkText)
-                                    ? "text-[12px] font-bold text-slate-600 hover:text-[#2563EB]"
-                                    : "text-sm font-bold text-white/90 hover:text-white"
+                                scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
+                                (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
                             )}>
                                 {group.label}
                                 <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
