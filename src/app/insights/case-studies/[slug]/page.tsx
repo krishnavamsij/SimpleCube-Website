@@ -123,12 +123,13 @@ export default function CaseStudyDetailPage() {
                             id={section.id}
                             className="scroll-mt-40 group"
                         >
-                            <div className={`flex flex-col lg:flex-row gap-16 lg:items-start ${(!study.heroImage || idx !== 0) ? "justify-center" : ""}`}>
+                            <div className="flex flex-col items-center max-w-4xl mx-auto">
                                 {/* Text Content */}
-                                <div className={(study.heroImage && idx === 0) ? "lg:w-1/2" : "w-full max-w-4xl mx-auto"}>
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <div className="w-12 h-1 bg-[#3B82F6] rounded-full group-hover:w-20 transition-all duration-500" />
-                                        <h2 className="text-3xl font-[800] text-[#030B3B] tracking-tight">{section.title}</h2>
+                                <div className="w-full text-left">
+                                    <div className="flex items-center justify-center gap-4 mb-8">
+                                        <div className="w-12 h-1 bg-[#3B82F6] rounded-full" />
+                                        <h2 className="text-3xl font-[800] text-[#030B3B] tracking-tight text-center">{section.title}</h2>
+                                        <div className="w-12 h-1 bg-[#3B82F6] rounded-full" />
                                     </div>
                                     
                                     <div 
@@ -142,14 +143,14 @@ export default function CaseStudyDetailPage() {
                                     />
                                 </div>
 
-                                {/* Right Side: Image/Visual (Only for the first section and if unique) */}
+                                {/* Centered Image/Visual (Only for the first section and if unique) */}
                                 {(idx === 0 && study.heroImage && study.heroImage !== "/images/2023/11/section-bg.jpg") && (
-                                    <div className="lg:w-1/2">
+                                    <div className="w-full max-w-5xl mt-16 mx-auto">
                                         <motion.div 
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
-                                            className="rounded-[40px] overflow-hidden bg-[#F8FAFC] border border-[#030B3B]/5 p-4 shadow-2xl shadow-blue-500/5 transition-transform duration-500 group-hover:scale-[1.02]"
+                                            className="rounded-[40px] overflow-hidden bg-[#F8FAFC] border border-[#030B3B]/5 p-4 shadow-2xl shadow-blue-500/5 transition-transform duration-500 hover:scale-[1.01]"
                                         >
                                             <img 
                                                 src={study.heroImage} 
