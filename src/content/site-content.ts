@@ -197,7 +197,7 @@ export const servicesContent = {
             description:
                 "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
             tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
-            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
+            image: "/images/Our_Services/PNG Compressed/1. digital_transformation.png",
             href: "/digital-transformation",
         },
         {
@@ -206,7 +206,7 @@ export const servicesContent = {
             description:
                 "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
-            image: "/images/Our_Services/2_Enterprise_Platforms.png",
+            image: "/images/Our_Services/PNG Compressed/2. Enterprise_Platforms.png",
             href: "https://products.hyniva.com/salesforce",
         },
         {
@@ -215,7 +215,7 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
-            image: "/images/Our_Services/Product_Engineering_no_BG.png",
+            image: "/images/Our_Services/PNG Compressed/3. Product_Engineering.png",
             href: "https://products.hyniva.com/product-dev",
         },
         {
@@ -224,7 +224,7 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
+            image: "/images/Our_Services/PNG Compressed/4. Strategy _Consulting.png",
             href: "https://products.hyniva.com/business-it-strategy/",
         },
     ],
