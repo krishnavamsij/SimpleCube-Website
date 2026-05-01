@@ -251,7 +251,7 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
-            image: "/images/Product_Images/FINXSERVE.gif",
+            image: "/images/Product_Images/Compressed/Finxserve.gif",
             href: "https://products.hyniva.com/finxserve/",
         },
         {
@@ -259,7 +259,7 @@ export const productsContent = {
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
-            image: "/images/Product_Images/AIRA.gif",
+            image: "/images/Product_Images/Compressed/AIRA.gif",
             href: "/aira",
         },
         {
@@ -267,7 +267,7 @@ export const productsContent = {
             title: "Claim Pioneer",
             tags: ["Insurance"],
             description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
-            image: "/images/Product_Images/Claim_pioneer.gif",
+            image: "/images/Product_Images/Compressed/ClaimPioneer.gif",
             href: "https://products.hyniva.com/claim-pioneer/",
         },
         {
@@ -275,7 +275,7 @@ export const productsContent = {
             title: "Hyper",
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
-            image: "/images/Product_Images/Hyper.gif",
+            image: "/images/Product_Images/Compressed/Hyper.gif",
             href: "https://products.hyniva.com/hyper/",
         },
     ],
