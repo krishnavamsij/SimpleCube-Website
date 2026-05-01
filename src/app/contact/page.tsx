@@ -161,33 +161,33 @@ export default function ContactPage() {
                                     
                                     <form className="space-y-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="space-y-3">
+                                            <div className="space-y-4">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">First Name *</label>
                                                 <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
-                                            <div className="space-y-3">
+                                            <div className="space-y-4">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Last Name *</label>
                                                 <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
                                         </div>
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="space-y-3">
+                                            <div className="space-y-4">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Work Email *</label>
                                                 <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
-                                            <div className="space-y-3">
+                                            <div className="space-y-4">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
                                                 <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-3">
+                                        <div className="space-y-4">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
                                             <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                         </div>
 
-                                        <div className="space-y-3">
+                                        <div className="space-y-4">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
                                             <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all appearance-none cursor-pointer">
                                                 <option>Select your industry</option>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        <div className="space-y-3">
+                                        <div className="space-y-4">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Message *</label>
                                             <textarea rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all resize-none" />
                                         </div>
