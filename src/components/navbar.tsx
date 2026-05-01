@@ -37,19 +37,19 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         <motion.header
             initial={false}
             animate={{
-                width: "100%",
-                maxWidth: "100%",
-                height: scrolled ? 64 : 80,
-                top: 0,
-                borderRadius: "0px",
-                backgroundColor: scrolled || forceDarkText ? "rgba(255, 255, 255, 0.98)" : "rgba(3, 11, 59, 0)",
-                borderBottomWidth: scrolled || forceDarkText ? "1px" : "0px",
-                borderColor: "rgba(3, 11, 59, 0.08)",
-                boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.05)" : "none",
+                width: scrolled ? "82%" : "100%",
+                maxWidth: scrolled ? "1200px" : "100%",
+                height: scrolled ? 58 : 80,
+                top: scrolled ? 16 : 0,
+                borderRadius: scrolled ? "9999px" : "0px",
+                backgroundColor: scrolled || forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)",
+                borderWidth: scrolled || forceDarkText ? "1px" : "0px",
+                borderColor: scrolled || forceDarkText ? "rgba(3, 11, 59, 0.08)" : "transparent",
+                boxShadow: scrolled ? "0 15px 35px rgba(0,0,0,0.08)" : "none",
             }}
             transition={{
-                duration: 0.4,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.5,
+                ease: [0.32, 0.72, 0, 1],
             }}
             className="fixed z-50 left-1/2 -translate-x-1/2 backdrop-blur-xl"
         >
