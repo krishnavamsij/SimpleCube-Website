@@ -59,7 +59,7 @@ export default function ContactPage() {
                 {/* ── Content Section (White Background) ── */}
                 <section className="py-24 bg-white">
                     <div className="mx-auto max-w-[1400px] px-6">
-                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
                             
                             {/* Left Column: Details */}
                             <div className="w-full lg:w-[42%]">
@@ -163,38 +163,49 @@ export default function ContactPage() {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                             <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">First Name *</label>
-                                                <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                                <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                             <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Last Name *</label>
-                                                <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                                <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                         </div>
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                             <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Work Email *</label>
-                                                <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                                <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                             <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
-                                                <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                                <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                         </div>
 
                                         <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
-                                            <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                            <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                         </div>
 
                                         <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
-                                            <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all appearance-none cursor-pointer">
+                                            <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all appearance-none cursor-pointer">
                                                 <option>Select your industry</option>
-                                                <option>Banking</option>
+                                                <option>Financial Services</option>
+                                                <option>Healthcare & Life Sciences</option>
+                                                <option>Logistics, Transportation & Supply Chain</option>
                                                 <option>Insurance</option>
-                                                <option>Healthcare</option>
-                                                <option>Technology</option>
+                                                <option>Education</option>
+                                                <option>Retail & Consumer Goods</option>
+                                                <option>Manufacturing & Industrial</option>
+                                                <option>Media & Telecommunications</option>
+                                                <option>Energy & Utilities</option>
+                                                <option>Real Estate & Construction</option>
+                                                <option>Travel, Hospitality & Leisure</option>
+                                                <option>Professional & Business Services</option>
+                                                <option>Agriculture & Food Production</option>
+                                                <option>Public Sector & Government</option>
+                                                <option>Others</option>
                                             </select>
                                         </div>
 
@@ -209,9 +220,9 @@ export default function ContactPage() {
                                             </div>
                                         </div>
 
-                                        <div className="space-y-4">
+                                        <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Message *</label>
-                                            <textarea rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all resize-none" />
+                                            <textarea rows={2} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
                                         </div>
 
                                         <button className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)]">
