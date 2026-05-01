@@ -162,18 +162,18 @@ export default function ContactPage() {
                                     <form className="space-y-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                             <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">First Name *</label>
-                                                <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
+                                                <input type="text" placeholder="Jane Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                             <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Last Name *</label>
-                                                <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
+                                                <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                         </div>
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                             <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Work Email *</label>
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Email *</label>
                                                 <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
                                             <div className="flex flex-col gap-2.5">
@@ -183,14 +183,9 @@ export default function ContactPage() {
                                         </div>
 
                                         <div className="flex flex-col gap-2.5">
-                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
-                                            <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
-                                        </div>
-
-                                        <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
                                             <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all appearance-none cursor-pointer">
-                                                <option>Select your industry</option>
+                                                <option className="text-slate-400">Select your industry</option>
                                                 <option>Financial Services</option>
                                                 <option>Healthcare & Life Sciences</option>
                                                 <option>Logistics, Transportation & Supply Chain</option>
@@ -210,13 +205,15 @@ export default function ContactPage() {
                                         </div>
 
                                         <div className="space-y-6">
-                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What are you looking for? (Select all that apply)</label>
-                                            <div className="flex flex-wrap gap-3">
-                                                {["Salesforce", "AWS Cloud", "Microsoft Azure", "Applied AI", "Digital Transformation", "Data Intelligence", "Product Development", "IT Strategy", "Not sure — need advice"].map((service) => (
-                                                    <button key={service} type="button" className="px-5 py-2.5 rounded-full border border-slate-200 text-[13px] font-bold text-[#030B3B] hover:border-[#3B82F6] hover:text-[#3B82F6] hover:bg-[#3B82F6]/5 transition-all">
-                                                        {service}
-                                                    </button>
-                                                ))}
+                                            <div className="flex flex-col gap-4">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? (Select all that apply)</label>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {["Salesforce", "AWS Cloud", "Microsoft Azure", "Applied AI", "Digital Transformation", "Data Intelligence", "Product Development", "IT Strategy", "Not sure — need advice"].map((service) => (
+                                                        <button key={service} type="button" className="px-5 py-2.5 rounded-full border border-slate-200 text-[13px] font-bold text-[#030B3B] hover:border-[#3B82F6] hover:text-[#3B82F6] hover:bg-[#3B82F6]/5 transition-all">
+                                                            {service}
+                                                        </button>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
 
