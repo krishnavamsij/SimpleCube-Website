@@ -1,628 +1,231 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { contactContent } from "@/content/contact";
-import { useState } from "react";
-import {
-    scrollReveal,
-    viewportOnce,
-    fadeInUp,
-} from "@/lib/animations";
-
-/* ─────────────── Contact Hero Section ─────────────── */
-
-function ContactHero() {
-    return (
-        <section className="relative overflow-hidden" style={{paddingTop: "150px", paddingBottom: "150px", backgroundImage: `url('${contactContent.hero.backgroundImage}')`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-            {/* Content */}
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="max-w-6xl text-center"
-                >
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        {contactContent.hero.title}
-                    </h1>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
-/* ─────────────── Contact Content Section ─────────────── */
-
-function ContactContent() {
-    return (
-        <section className="bg-white py-16 px-8 sm:px-12 lg:px-16">
-            <div className="mx-auto max-w-7xl">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Column - The Hyniva Difference Image */}
-                    <div className="order-2 lg:order-1">
-                        <motion.div
-                            variants={fadeInUp}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={viewportOnce}
-                            className="text-left"
-                        >
-                            <figure className="mb-0">
-                                <div className="vc_single_image-wrapper vc_box_border_grey">
-                                    <Image
-                                        src={contactContent.differenceImage.src}
-                                        alt={contactContent.differenceImage.alt}
-                                        width={contactContent.differenceImage.width}
-                                        height={contactContent.differenceImage.height}
-                                        className="vc_single_image-img attachment-large w-full h-auto object-cover"
-                                        priority
-                                    />
-                                </div>
-                            </figure>
-                        </motion.div>
-                    </div>
-                    
-                    {/* Right Column - Contact Form */}
-                    <div className="order-1 lg:order-2">
-                        <motion.div
-                            variants={fadeInUp}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={viewportOnce}
-                            className="text-left"
-                            data-animation-delay="200"
-                        >
-                            {/* Form Header */}
-                            <header className="kd-section-title col-lg-12 text-left mb-8">
-                                <h2 className="separator_off text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-                                    {contactContent.contactForm.title}
-                                </h2>
-                                <h6 className="subtitle text-lg text-slate-600">
-                                    {contactContent.contactForm.subtitle}
-                                </h6>
-                            </header>
-                            
-                            {/* Empty Space */}
-                            <div className="vc_empty_space" style={{height: "20px"}}>
-                                <span className="vc_empty_space_inner"></span>
-                            </div>
-                            
-                            {/* Contact Form 7 Structure */}
-                            <div className="kd-contact-form full-width-cf">
-                                <div className="wpcf7 js" id="wpcf7-f5208-p5756-o1" lang="en-US" dir="ltr">
-                                    <form 
-                                        action="/contact-us/#wpcf7-f5208-p5756-o1" 
-                                        method="post" 
-                                        className="wpcf7-form init"
-                                        aria-label="Contact form"
-                                        noValidate
-                                    >
-                                        <p>
-                                            <span className="wpcf7-form-control-wrap" data-name="your-name">
-                                                <input 
-                                                    size={40} 
-                                                    maxLength={400} 
-                                                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none mb-4" 
-                                                    aria-required="true" 
-                                                    aria-invalid="false" 
-                                                    placeholder="Your name" 
-                                                    type="text" 
-                                                    name="your-name"
-                                                />
-                                            </span>
-                                            <br />
-                                            <span className="wpcf7-form-control-wrap" data-name="your-email">
-                                                <input 
-                                                    size={40} 
-                                                    maxLength={400} 
-                                                    className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none mb-4" 
-                                                    aria-required="true" 
-                                                    aria-invalid="false" 
-                                                    placeholder="Your email" 
-                                                    type="email" 
-                                                    name="your-email"
-                                                />
-                                            </span>
-                                            <br />
-                                            <span className="wpcf7-form-control-wrap" data-name="your-message">
-                                                <textarea 
-                                                    cols={40} 
-                                                    rows={10} 
-                                                    maxLength={2000} 
-                                                    className="wpcf7-form-control wpcf7-textarea w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none resize-none mb-4" 
-                                                    aria-invalid="false" 
-                                                    placeholder="Your message" 
-                                                    name="your-message"
-                                                ></textarea>
-                                            </span>
-                                            <br />
-                                            <input 
-                                                className="wpcf7-form-control wpcf7-submit has-spinner bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-all cursor-pointer border-2 border-blue-900" 
-                                                type="submit" 
-                                                value="Send message"
-                                            />
-                                        </p>
-                                        <div className="wpcf7-response-output" aria-hidden="true"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-
-/* ─────────────── WordPress Footer Component ─────────────── */
-
-function WordPressFooter() {
-    return (
-        <footer className="bg-white border-t-2 border-blue-900">
-            {/* Upper Footer */}
-            <div className="py-12">
-                <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* Logo and Social */}
-                        <div className="space-y-6">
-                            <Image
-                                src={contactContent.footer.logo.src}
-                                alt={contactContent.footer.logo.alt}
-                                width={contactContent.footer.logo.width}
-                                height={contactContent.footer.logo.height}
-                                className="h-auto"
-                            />
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.social.title}
-                                </h5>
-                                <div className="flex space-x-4">
-                                    {contactContent.footer.social.links.map((link, index) => (
-                                        <a
-                                            key={index}
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-blue-900 hover:text-blue-700 transition-colors"
-                                        >
-                                            <i className={`${link.icon} text-xl`}></i>
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Industries */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                {contactContent.footer.industries.title}
-                            </h5>
-                            <ul className="space-y-2">
-                                {contactContent.footer.industries.links.map((link, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            href={link.url}
-                                            className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Services */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                {contactContent.footer.services.title}
-                            </h5>
-                            <ul className="space-y-2">
-                                {contactContent.footer.services.links.map((link, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            href={link.url}
-                                            className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Products & About */}
-                        <div className="space-y-6">
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.products.title}
-                                </h5>
-                                <ul className="space-y-2">
-                                    {contactContent.footer.products.links.map((link, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={link.url}
-                                                className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.about.title}
-                                </h5>
-                                <ul className="space-y-2">
-                                    {contactContent.footer.about.links.map((link, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={link.url}
-                                                className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Lower Footer */}
-            <div className="border-t border-slate-200 py-8">
-                <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* US Office */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider flex items-center">
-                                <i className="fa-solid fa-location-dot mr-2"></i>
-                                {contactContent.offices.us.title}
-                            </h5>
-                            <div 
-                                className="text-slate-600 text-sm leading-relaxed pl-6"
-                                dangerouslySetInnerHTML={{ __html: contactContent.offices.us.address }}
-                            />
-                        </div>
-
-                        {/* India Office */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider flex items-center">
-                                <i className="fa-solid fa-location-dot mr-2"></i>
-                                {contactContent.offices.india.title}
-                            </h5>
-                            <div 
-                                className="text-slate-600 text-sm leading-relaxed pl-6"
-                                dangerouslySetInnerHTML={{ __html: contactContent.offices.india.address }}
-                            />
-                        </div>
-
-                        {/* Memberships */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">
-                                {contactContent.footer.memberships.title}
-                            </h5>
-                            <div className="flex space-x-4">
-                                {contactContent.footer.memberships.images.map((img, index) => (
-                                    <Image
-                                        key={index}
-                                        src={img.src}
-                                        alt={img.alt}
-                                        width={100}
-                                        height={50}
-                                        className="h-auto object-contain"
-                                        style={{ width: img.width }}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Certifications */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">
-                                {contactContent.footer.certifications.title}
-                            </h5>
-                            <div className="flex space-x-4">
-                                {contactContent.footer.certifications.images.map((img, index) => (
-                                    <div key={index}>
-                                        {img.link ? (
-                                            <a
-                                                href={img.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                title="Rating and Review"
-                                            >
-                                                <Image
-                                                    src={img.src}
-                                                    alt={img.alt}
-                                                    width={80}
-                                                    height={50}
-                                                    className="h-auto object-contain"
-                                                    style={{ width: img.width }}
-                                                />
-                                            </a>
-                                        ) : (
-                                            <Image
-                                                src={img.src}
-                                                alt={img.alt}
-                                                width={80}
-                                                height={50}
-                                                className="h-auto object-contain"
-                                                style={{ width: img.width }}
-                                            />
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-}
-
-/* ─────────────── Contact Footer Component ─────────────── */
-
-function ContactFooter() {
-    return (
-        <footer className="bg-white border-t border-slate-200">
-            {/* Upper Footer */}
-            <div className="py-12 sm:py-16">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* Logo and Social */}
-                        <div className="space-y-6">
-                            <Image
-                                src={contactContent.footer.logo.src}
-                                alt={contactContent.footer.logo.alt}
-                                width={contactContent.footer.logo.width}
-                                height={contactContent.footer.logo.height}
-                                className="h-auto"
-                            />
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.social.title}
-                                </h5>
-                                <div className="flex space-x-4">
-                                    {contactContent.footer.social.links.map((link, index) => (
-                                        <a
-                                            key={index}
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-blue-900 hover:text-blue-700 transition-colors"
-                                        >
-                                            <i className={`${link.icon} text-xl`}></i>
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Industries */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                {contactContent.footer.industries.title}
-                            </h5>
-                            <ul className="space-y-2">
-                                {contactContent.footer.industries.links.map((link, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            href={link.url}
-                                            className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Services */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                {contactContent.footer.services.title}
-                            </h5>
-                            <ul className="space-y-2">
-                                {contactContent.footer.services.links.map((link, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            href={link.url}
-                                            className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Products & About */}
-                        <div className="space-y-6">
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.products.title}
-                                </h5>
-                                <ul className="space-y-2">
-                                    {contactContent.footer.products.links.map((link, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={link.url}
-                                                className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-wider">
-                                    {contactContent.footer.about.title}
-                                </h5>
-                                <ul className="space-y-2">
-                                    {contactContent.footer.about.links.map((link, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={link.url}
-                                                className="text-slate-600 hover:text-blue-900 transition-colors text-sm"
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Lower Footer */}
-            <div className="border-t border-slate-200 py-8">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* US Office */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider flex items-center">
-                                <i className="fa-solid fa-location-dot mr-2"></i>
-                                {contactContent.offices.us.title}
-                            </h5>
-                            <div 
-                                className="text-slate-600 text-sm leading-relaxed"
-                                dangerouslySetInnerHTML={{ __html: contactContent.offices.us.address }}
-                            />
-                        </div>
-
-                        {/* India Office */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider flex items-center">
-                                <i className="fa-solid fa-location-dot mr-2"></i>
-                                {contactContent.offices.india.title}
-                            </h5>
-                            <div 
-                                className="text-slate-600 text-sm leading-relaxed"
-                                dangerouslySetInnerHTML={{ __html: contactContent.offices.india.address }}
-                            />
-                        </div>
-
-                        {/* Memberships */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">
-                                {contactContent.footer.memberships.title}
-                            </h5>
-                            <div className="flex space-x-4">
-                                {contactContent.footer.memberships.images.map((img, index) => (
-                                    <Image
-                                        key={index}
-                                        src={img.src}
-                                        alt={img.alt}
-                                        width={100}
-                                        height={50}
-                                        className="h-auto object-contain"
-                                        style={{ width: img.width }}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Certifications */}
-                        <div>
-                            <h5 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">
-                                {contactContent.footer.certifications.title}
-                            </h5>
-                            <div className="flex space-x-4">
-                                {contactContent.footer.certifications.images.map((img, index) => (
-                                    <div key={index}>
-                                        {img.link ? (
-                                            <a
-                                                href={img.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                title="Rating and Review"
-                                            >
-                                                <Image
-                                                    src={img.src}
-                                                    alt={img.alt}
-                                                    width={80}
-                                                    height={50}
-                                                    className="h-auto object-contain"
-                                                    style={{ width: img.width }}
-                                                />
-                                            </a>
-                                        ) : (
-                                            <Image
-                                                src={img.src}
-                                                alt={img.alt}
-                                                width={80}
-                                                height={50}
-                                                className="h-auto object-contain"
-                                                style={{ width: img.width }}
-                                            />
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-}
-
-/* ─────────────── Main Contact Page Component ─────────────── */
-
-function ContactHeader() {
-    return (
-        <section className="bg-white py-16 px-8 sm:px-12 lg:px-16">
-            <div className="mx-auto max-w-7xl">
-                <div className="wpb_wrapper">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        {/* Left Column - Title */}
-                        <div className="lg:col-span-4 md:col-span-12">
-                            <h3 
-                                style={{fontSize: "36px", lineHeight: "42px", textAlign: "left"}}
-                                className="vc_custom_heading text-blue-900 font-bold"
-                            >
-                                {contactContent.hero.subtitle}
-                            </h3>
-                        </div>
-                        
-                        {/* Right Column - Description */}
-                        <div className="lg:col-span-8 md:col-span-12">
-                            <h6 
-                                style={{textAlign: "left"}}
-                                className="vc_custom_heading text-slate-600 text-lg leading-relaxed"
-                            >
-                                {contactContent.hero.description}
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
+import { motion } from "framer-motion";
+import React from "react";
+import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import { Mail, Phone, Linkedin, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
     return (
-        <>
+        <div className="min-h-screen bg-white font-sans text-[#030B3B]">
             <Navbar />
+            
             <main>
-                <ContactHeader />
-                <ContactContent />
+                {/* ── Hero Section (Dark Gradient) ── */}
+                <section className="relative pt-48 pb-32 overflow-hidden bg-[#030b1e]">
+                    {/* Background layers - Matching homepage aesthetics */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+                    <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+                    <div
+                        className="absolute inset-0 opacity-[0.04]"
+                        style={{
+                            backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+                            backgroundSize: "40px 40px",
+                        }}
+                    />
+                    
+                    <div className="relative z-10 mx-auto max-w-[1400px] px-6 text-center">
+                        <motion.div
+                            variants={staggerContainer}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
+                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20">
+                                    <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                                    CONTACT US
+                                </span>
+                            </motion.div>
+                            
+                            <motion.h1 
+                                variants={fadeInUp}
+                                className="text-4xl sm:text-6xl lg:text-[84px] font-[900] text-white tracking-tight leading-[1.05] mb-12 font-display"
+                                dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
+                            />
+                            
+                            <motion.p 
+                                variants={fadeInUp}
+                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed"
+                            >
+                                {contactContent.hero.description}
+                            </motion.p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ── Content Section (White Background) ── */}
+                <section className="py-24 bg-white">
+                    <div className="mx-auto max-w-[1400px] px-6">
+                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+                            
+                            {/* Left Column: Details */}
+                            <div className="w-full lg:w-[42%]">
+                                <motion.div
+                                    variants={staggerContainer}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={viewportOnce}
+                                >
+                                    <motion.h2 
+                                        variants={fadeInUp}
+                                        className="text-4xl lg:text-5xl font-[900] text-[#030B3B] tracking-tight leading-tight mb-8 font-display"
+                                        dangerouslySetInnerHTML={{ __html: contactContent.body.title }}
+                                    />
+                                    
+                                    <motion.p 
+                                        variants={fadeInUp}
+                                        className="text-lg text-slate-600 font-medium leading-relaxed mb-12"
+                                    >
+                                        {contactContent.body.description}
+                                    </motion.p>
+
+                                    {/* Contact Methods */}
+                                    <motion.div variants={fadeInUp} className="space-y-6 mb-16">
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-12 h-12 rounded-2xl bg-[#ECF6FF] border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6]">
+                                                <Mail className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMAIL</p>
+                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                    {contactContent.body.contactInfo.email}
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-12 h-12 rounded-2xl bg-[#ECF6FF] border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6]">
+                                                <Phone className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR & CAREERS</p>
+                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                    {contactContent.body.contactInfo.hr}
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-12 h-12 rounded-2xl bg-[#ECF6FF] border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6]">
+                                                <Linkedin className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">LINKEDIN</p>
+                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                    {contactContent.body.contactInfo.linkedin}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Address Cards */}
+                                    <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <span className="text-2xl">🇺🇸</span>
+                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.us.title}</h4>
+                                            </div>
+                                            <p className="text-[15px] font-bold text-[#030B3B] leading-relaxed">
+                                                {contactContent.body.offices.us.address}
+                                            </p>
+                                        </div>
+
+                                        <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <span className="text-2xl">🇮🇳</span>
+                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
+                                            </div>
+                                            <p className="text-[15px] font-bold text-[#030B3B] leading-relaxed">
+                                                {contactContent.body.offices.india.address}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </motion.div>
+                            </div>
+
+                            {/* Right Column: Form Card */}
+                            <div className="w-full lg:w-[58%]">
+                                <motion.div
+                                    variants={fadeInUp}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={viewportOnce}
+                                    className="p-10 lg:p-14 rounded-[40px] border border-[#030B3B]/5 bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)]"
+                                >
+                                    <h3 className="text-3xl font-[900] text-[#030B3B] mb-10 font-display">
+                                        {contactContent.form.title}
+                                    </h3>
+                                    
+                                    <form className="space-y-8">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                            <div className="space-y-3">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">First Name *</label>
+                                                <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                            </div>
+                                            <div className="space-y-3">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Last Name *</label>
+                                                <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                            <div className="space-y-3">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Work Email *</label>
+                                                <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                            </div>
+                                            <div className="space-y-3">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
+                                                <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-3">
+                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
+                                            <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
+                                        </div>
+
+                                        <div className="space-y-3">
+                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
+                                            <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all appearance-none cursor-pointer">
+                                                <option>Select your industry</option>
+                                                <option>Banking</option>
+                                                <option>Insurance</option>
+                                                <option>Healthcare</option>
+                                                <option>Technology</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-6">
+                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What are you looking for? (Select all that apply)</label>
+                                            <div className="flex flex-wrap gap-3">
+                                                {["Salesforce", "AWS Cloud", "Microsoft Azure", "Applied AI", "Digital Transformation", "Data Intelligence", "Product Development", "IT Strategy", "Not sure — need advice"].map((service) => (
+                                                    <button key={service} type="button" className="px-5 py-2.5 rounded-full border border-slate-200 text-[13px] font-bold text-[#030B3B] hover:border-[#3B82F6] hover:text-[#3B82F6] hover:bg-[#3B82F6]/5 transition-all">
+                                                        {service}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-3">
+                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Message *</label>
+                                            <textarea rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all resize-none" />
+                                        </div>
+
+                                        <button className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)]">
+                                            {contactContent.form.submitButton}
+                                            <Send className="w-5 h-5" />
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
