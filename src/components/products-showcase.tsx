@@ -120,7 +120,7 @@ export function ProductsShowcase() {
 
                 {/* ── Logo Ribbon Footprint ── */}
                 <div className="mt-16 lg:mt-20 pt-10 border-t border-white/10 w-full mb-16 lg:mb-32 relative">
-                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap scrollbar-none gap-4 lg:gap-6 xl:gap-4 pb-10 w-full">
+                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-10 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
                                 {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
