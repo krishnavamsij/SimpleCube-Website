@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Study — Intelligent Service Operations on Salesforce</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:       #1e90ff;
+    --accent-light: #63c2ff;
+    --body-bg:      #f4f6fa;
+    --text-dark:    #111827;
+    --text-mid:     #374151;
+    --text-muted:   #6b7280;
+    --border:       #e5e7eb;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--body-bg); color: var(--text-dark); }
+
+  /* ════════════════════════ BANNER ════════════════════════ */
+  .banner { position:relative; width:100%; height:100vh; min-height:720px; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .b-bg { position:absolute; inset:0; background:linear-gradient(160deg,#020c1c 0%,#071a32 25%,#0c2244 55%,#050f20 100%); }
+  .b-dots { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(30,144,255,0.16) 1px,transparent 1px); background-size:38px 38px; opacity:0.38; }
+  .b-blob { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+  .b-blob--1 { width:650px; height:650px; left:-160px; top:-160px; background:radial-gradient(circle,rgba(10,70,180,0.22) 0%,transparent 65%); }
+  .b-blob--2 { width:600px; height:600px; right:-130px; bottom:-170px; background:radial-gradient(circle,rgba(30,144,255,0.2) 0%,transparent 62%); }
+  .b-blob--3 { width:500px; height:260px; left:50%; top:65%; transform:translate(-50%,-50%); filter:blur(60px); background:radial-gradient(ellipse,rgba(30,144,255,0.07) 0%,transparent 70%); }
+  .b-shimmer { position:absolute; left:0; right:0; height:1px; background:linear-gradient(to right,transparent 0%,rgba(99,194,255,0.5) 50%,transparent 100%); animation:shimmerSweep 7s ease-in-out infinite; pointer-events:none; }
+  @keyframes shimmerSweep { 0%{top:-2%;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{top:102%;opacity:0} }
+  .b-corner { position:absolute; width:20px; height:20px; border-color:rgba(30,144,255,0.28); border-style:solid; z-index:5; }
+  .b-corner--tl { top:22px; left:22px; border-width:1px 0 0 1px; }
+  .b-corner--tr { top:22px; right:22px; border-width:1px 1px 0 0; }
+  .b-corner--bl { bottom:22px; left:22px; border-width:0 0 1px 1px; }
+  .b-corner--br { bottom:22px; right:22px; border-width:0 1px 1px 0; }
+
+  .banner__hero { position:relative; z-index:3; text-align:center; padding:0 8vw; max-width:1000px; width:100%; margin-bottom:52px; }
+  .b-eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:24px; opacity:0; animation:fadeUp .55s ease forwards .08s; }
+  .b-eyebrow__dot { width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); animation:blink 2.6s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.16} }
+  .b-eyebrow__text { font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--accent-light); }
+  .b-eyebrow__dash { width:26px; height:1px; background:rgba(30,144,255,.3); }
+  .banner__heading { font-family:'Playfair Display',serif; font-size:clamp(26px,3.4vw,46px); font-weight:700; color:#edf5ff; line-height:1.18; letter-spacing:-.4px; margin-bottom:20px; opacity:0; animation:fadeUp .65s ease forwards .2s; max-width:820px; margin-left:auto; margin-right:auto; }
+  .banner__heading em { font-style:italic; color:var(--accent-light); text-shadow:0 0 48px rgba(99,194,255,.28); }
+  .b-rule { width:56px; height:2px; margin:0 auto 20px; background:linear-gradient(to right,transparent,var(--accent),transparent); opacity:0; animation:fadeUp .5s ease forwards .34s; }
+  .banner__summary { font-size:clamp(13px,1.25vw,15px); font-weight:300; line-height:1.78; color:rgba(188,214,245,.72); max-width:660px; margin:0 auto; opacity:0; animation:fadeUp .6s ease forwards .46s; }
+
+  .banner__metrics { position:relative; z-index:3; width:100%; max-width:1160px; padding:0 3vw; display:grid; grid-template-columns:repeat(4,1fr); opacity:0; animation:fadeUp .7s ease forwards .68s; }
+  .banner__metrics::before { content:''; position:absolute; top:0; left:3vw; right:3vw; height:1px; background:linear-gradient(to right,transparent,rgba(30,144,255,.22) 15%,rgba(99,194,255,.55) 50%,rgba(30,144,255,.22) 85%,transparent); }
+
+  .m-tile { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:34px 18px 30px; cursor:default; transition:background .3s; border-radius:0 0 8px 8px; overflow:hidden; }
+  .m-tile:hover { background:rgba(30,144,255,.05); }
+  .m-tile::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 80% at 50% 100%,rgba(30,144,255,.1),transparent 70%); opacity:0; transition:opacity .35s; pointer-events:none; }
+  .m-tile:hover::after { opacity:1; }
+  .m-tile:not(:last-child)::before { content:''; position:absolute; right:0; top:18%; bottom:18%; width:1px; background:linear-gradient(to bottom,transparent,rgba(30,144,255,.28) 30%,rgba(99,194,255,.42) 50%,rgba(30,144,255,.28) 70%,transparent); }
+  .m-tile__icon { width:48px; height:48px; border-radius:50%; border:1px solid rgba(30,144,255,.2); background:rgba(30,144,255,.07); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:18px; transition:border-color .3s,background .3s,box-shadow .3s; }
+  .m-tile:hover .m-tile__icon { border-color:rgba(99,194,255,.55); background:rgba(30,144,255,.15); box-shadow:0 0 20px rgba(30,144,255,.22); }
+  .m-tile__value { font-family:'Playfair Display',serif; font-size:clamp(24px,2.8vw,40px); font-weight:700; color:#fff; line-height:1; letter-spacing:-1px; margin-bottom:8px; text-shadow:0 0 40px rgba(99,194,255,.3); transition:color .3s,text-shadow .3s; }
+  .m-tile:hover .m-tile__value { color:var(--accent-light); text-shadow:0 0 60px rgba(99,194,255,.55); }
+  .m-tile__bar { width:28px; height:2px; border-radius:2px; margin-bottom:10px; background:linear-gradient(to right,var(--accent),var(--accent-light)); opacity:.42; transition:width .3s,opacity .3s; }
+  .m-tile:hover .m-tile__bar { width:46px; opacity:1; }
+  .m-tile__label { font-size:12.5px; font-weight:500; color:rgba(205,228,255,.84); line-height:1.35; margin-bottom:5px; }
+  .m-tile__sub   { font-size:11px; font-weight:300; color:rgba(120,165,215,.44); line-height:1.4; }
+
+  .b-scroll { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:7px; z-index:5; opacity:0; animation:fadeUp .8s ease forwards 1.2s; }
+  .b-scroll span { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(99,194,255,.36); }
+  .b-scroll__line { width:1px; height:32px; background:linear-gradient(to bottom,rgba(99,194,255,.44),transparent); animation:lineDrop 2s ease-in-out infinite; }
+  @keyframes lineDrop { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom;opacity:0} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ════════════════════════ BODY ════════════════════════ */
+  .cs-body { background:var(--body-bg); padding:80px 0 100px; }
+  .cs-container { max-width:900px; margin:0 auto; padding:0 40px; }
+  .cs-nav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:64px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .cs-nav__pill { font-size:12px; font-weight:500; letter-spacing:.5px; color:var(--text-muted); padding:6px 16px; border-radius:100px; border:1px solid var(--border); background:white; cursor:pointer; text-decoration:none; transition:all .2s; }
+  .cs-nav__pill:hover, .cs-nav__pill.active { background:var(--accent); border-color:var(--accent); color:white; }
+
+  .cs-section { margin-bottom:64px; scroll-margin-top:30px; }
+  .cs-section__eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .cs-section__num { width:28px; height:28px; border-radius:50%; background:var(--accent); color:white; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .cs-section__tag { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--accent); }
+  .cs-section__body { font-size:15.5px; font-weight:300; line-height:1.82; color:var(--text-mid); }
+  .cs-section__body p+p { margin-top:14px; }
+
+  /* Feature cards — challenge pain points */
+  .feature-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:24px; }
+  .feature-card { background:white; border:1px solid var(--border); border-radius:10px; padding:20px; transition:box-shadow .2s,transform .2s; }
+  .feature-card:hover { box-shadow:0 8px 30px rgba(0,0,0,.08); transform:translateY(-2px); }
+  .feature-card__icon { width:36px; height:36px; border-radius:8px; background:rgba(30,144,255,.08); border:1px solid rgba(30,144,255,.15); display:flex; align-items:center; justify-content:center; font-size:16px; margin-bottom:12px; }
+  .feature-card__title { font-size:13px; font-weight:600; color:var(--text-dark); margin-bottom:5px; }
+  .feature-card__text { font-size:13px; font-weight:300; line-height:1.6; color:var(--text-mid); }
+
+  /* Numbered steps */
+  .approach-list { margin-top:28px; display:flex; flex-direction:column; gap:20px; }
+  .approach-item { display:flex; gap:20px; background:white; border:1px solid var(--border); border-radius:10px; padding:22px 24px; transition:box-shadow .2s; }
+  .approach-item:hover { box-shadow:0 6px 24px rgba(0,0,0,.07); }
+  .approach-item__num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:rgba(30,144,255,.18); line-height:1; flex-shrink:0; width:36px; margin-top:-2px; }
+  .approach-item__title { font-size:14px; font-weight:600; color:var(--text-dark); margin-bottom:6px; }
+  .approach-item__desc  { font-size:13.5px; font-weight:300; color:var(--text-muted); line-height:1.65; }
+
+  /* Impact highlight cards */
+  .impact-highlights { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:28px; }
+  .impact-card { background:white; border:1px solid var(--border); border-radius:12px; padding:22px 24px; display:flex; gap:18px; align-items:flex-start; transition:box-shadow .2s,transform .2s; position:relative; overflow:hidden; }
+  .impact-card:hover { box-shadow:0 8px 28px rgba(0,0,0,.08); transform:translateY(-2px); }
+  .impact-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(to bottom,var(--accent),var(--accent-light)); border-radius:3px 0 0 3px; }
+  .impact-card__stat { font-family:'Playfair Display',serif; font-size:clamp(20px,2.2vw,28px); font-weight:700; color:var(--accent); line-height:1; flex-shrink:0; min-width:64px; }
+  .impact-card__content { display:flex; flex-direction:column; gap:4px; }
+  .impact-card__label { font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3; }
+  .impact-card__desc { font-size:12.5px; font-weight:300; color:var(--text-muted); line-height:1.55; }
+
+  .cs-divider { height:1px; margin:64px 0; background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent); }
+  .cs-cta { background:linear-gradient(135deg,#040b18 0%,#0d2240 100%); border-radius:14px; padding:52px 48px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; position:relative; overflow:hidden; margin-top:64px; }
+  .cs-cta::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(30,144,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(30,144,255,.06) 1px,transparent 1px); background-size:40px 40px; }
+  .cs-cta__text { position:relative; z-index:1; }
+  .cs-cta__label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent-light); margin-bottom:10px; }
+  .cs-cta__heading { font-family:'Playfair Display',serif; font-size:clamp(20px,2.5vw,28px); font-weight:700; color:#eef4ff; line-height:1.2; margin-bottom:10px; }
+  .cs-cta__sub { font-size:14px; font-weight:300; color:rgba(200,220,245,.65); line-height:1.6; }
+  .cs-cta__btn { position:relative; z-index:1; display:inline-block; padding:14px 32px; background:var(--accent); color:white; font-family:'Outfit',sans-serif; font-size:14px; font-weight:500; border-radius:6px; text-decoration:none; letter-spacing:.3px; white-space:nowrap; transition:background .2s,box-shadow .2s; }
+  .cs-cta__btn:hover { background:#1a7de0; box-shadow:0 0 24px rgba(30,144,255,.4); }
+
+  @media (max-width:768px) {
+    .banner { height:auto; min-height:100vh; padding:80px 0 40px; }
+    .banner__metrics { grid-template-columns:repeat(2,1fr); }
+    .cs-container { padding:0 20px; }
+    .cs-cta { padding:36px 24px; }
+  }
+  @media (max-width:480px) { .banner__heading { font-size:clamp(22px,6vw,32px); } }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="b-bg"></div>
+  <div class="b-dots"></div>
+  <div class="b-blob b-blob--1"></div>
+  <div class="b-blob b-blob--2"></div>
+  <div class="b-blob b-blob--3"></div>
+  <div class="b-shimmer"></div>
+  <div class="b-corner b-corner--tl"></div>
+  <div class="b-corner b-corner--tr"></div>
+  <div class="b-corner b-corner--bl"></div>
+  <div class="b-corner b-corner--br"></div>
+
+  <div class="banner__hero">
+    <div class="b-eyebrow">
+      <div class="b-eyebrow__dot"></div>
+      <span class="b-eyebrow__text">Case Study &nbsp;·&nbsp; Salesforce Service Cloud &amp; CX Transformation</span>
+      <div class="b-eyebrow__dash"></div>
+    </div>
+    <h1 class="banner__heading">
+      Intelligent Service Operations<br>
+      <em>on Salesforce</em>
+    </h1>
+    <div class="b-rule"></div>
+    <p class="banner__summary">
+      Implemented Salesforce Service Cloud to centralize customer support, automate workflows,
+      and improve case resolution speed across multiple service channels.
+    </p>
+  </div>
+
+  <div class="banner__metrics">
+    <div class="m-tile">
+      <div class="m-tile__icon">⚙️</div>
+      <div class="m-tile__value">50%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Less Manual Effort</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">⚡</div>
+      <div class="m-tile__value">30%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Faster Resolution</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">🔁</div>
+      <div class="m-tile__value">25%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Fewer Repeat Queries</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">📊</div>
+      <div class="m-tile__value">Real-Time</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Service Visibility</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="b-scroll">
+    <span>Scroll</span>
+    <div class="b-scroll__line"></div>
+  </div>
+</section>
+
+<!-- BODY -->
+<main class="cs-body">
+  <div class="cs-container">
+
+    <nav class="cs-nav">
+      <a href="#challenge"  class="cs-nav__pill active">Challenge</a>
+      <a href="#solution"   class="cs-nav__pill">Hyniva's Solution</a>
+      <a href="#impact"     class="cs-nav__pill">Business Impact</a>
+      <a href="#outcome"    class="cs-nav__pill">Outcome</a>
+    </nav>
+
+    <!-- CHALLENGE -->
+    <section class="cs-section" id="challenge">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">01</div>
+        <span class="cs-section__tag">Challenge</span>
+      </div>
+      <div class="cs-section__body">
+        <p>For a growing financial services firm, customer service had become a bottleneck.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">😓</div>
+          <div class="feature-card__title">Manual Case Overload</div>
+          <div class="feature-card__text">Agents were drowning in manual case handling, often missing SLAs.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔀</div>
+          <div class="feature-card__title">Fragmented Channel Experience</div>
+          <div class="feature-card__text">Customers had fragmented experiences across phone, email, and digital channels, fueling repeat queries and frustration.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔭</div>
+          <div class="feature-card__title">No Real-Time Visibility</div>
+          <div class="feature-card__text">Leadership had no real-time visibility into bottlenecks, making improvement impossible.</div>
+        </div>
+      </div>
+
+      <div class="cs-section__body" style="margin-top:24px;">
+        <p>The result? Slower service, rising costs, and declining satisfaction in a competitive market where experience is everything.</p>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- SOLUTION -->
+    <section class="cs-section" id="solution">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">02</div>
+        <span class="cs-section__tag">Hyniva's Solution</span>
+      </div>
+      <div class="cs-section__body">
+        <p>Instead of treating Salesforce as just another CRM, Hyniva reimagined the client's entire service model on Salesforce as a single source of truth and automation engine. By fusing customer data, omni-channel service, and intelligent workflows, we turned a fragmented support system into a real-time, proactive, customer-first experience.</p>
+      </div>
+
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-item__num">1</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Unified Customer View</div>
+            <div class="approach-item__desc">Consolidated ERP, IVR, and portal data into Salesforce, giving agents instant 360° visibility.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">2</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Omni-Channel Automation</div>
+            <div class="approach-item__desc">Cases automatically created from calls, emails, chat, and mobile apps — no query slipped through.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">3</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Smart Routing</div>
+            <div class="approach-item__desc">Salesforce Omni-Channel assigned requests by priority, skill, and workload, ensuring the right case reached the right agent.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">4</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Lifecycle Orchestration</div>
+            <div class="approach-item__desc">Automated workflows handled status updates, escalations, and resolution, freeing agents from repetitive tasks.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">5</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Proactive Service</div>
+            <div class="approach-item__desc">Real-time monitoring flagged abandoned digital sessions, enabling immediate follow-ups before issues escalated.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">6</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Knowledge + Personalization</div>
+            <div class="approach-item__desc">Salesforce Knowledge empowered both agents and customers with self-service; Marketing Cloud drove personalized updates and satisfaction surveys.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">7</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Actionable Insights</div>
+            <div class="approach-item__desc">Role-based dashboards gave agents, supervisors, and executives live metrics to track performance and take action.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- BUSINESS IMPACT -->
+    <section class="cs-section" id="impact">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">03</div>
+        <span class="cs-section__tag">Business Impact</span>
+      </div>
+      <div class="cs-section__body">
+        <p>The transformation was immediate and measurable:</p>
+      </div>
+
+      <div class="impact-highlights">
+        <div class="impact-card">
+          <div class="impact-card__stat">50%</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Less Manual Effort</div>
+            <div class="impact-card__desc">Agents now focus on problem-solving, not admin</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">30%</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Faster Turnaround</div>
+            <div class="impact-card__desc">Customers receive answers in hours, not days</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">↑</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Improved SLA Compliance</div>
+            <div class="impact-card__desc">Fewer breaches, more trust</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">25%</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Drop in Repeat Queries</div>
+            <div class="impact-card__desc">Knowledge and self-service resolved issues upfront</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">↑</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">CSAT Scores Climbed</div>
+            <div class="impact-card__desc">Personalized updates and proactive care changed the customer experience</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">📊</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Leadership Clarity</div>
+            <div class="impact-card__desc">Real-time dashboards gave decision-makers full control of the service funnel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- OUTCOME -->
+    <section class="cs-section" id="outcome">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">04</div>
+        <span class="cs-section__tag">Outcome</span>
+      </div>
+      <div class="cs-section__body">
+        <p>Hyniva didn't just modernize technology — we transformed service delivery into a future-ready advantage. Powered by Salesforce, the client now delivers faster resolutions, personalized care, and data-driven decisions that build lasting loyalty. This isn't just customer service reimagined — it's the new standard for customer experience in financial services.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <div class="cs-cta__text">
+        <div class="cs-cta__label">Get in touch</div>
+        <div class="cs-cta__heading">Ready to transform your service operations on Salesforce?</div>
+        <div class="cs-cta__sub">Follow us on LinkedIn for the latest updates.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cs-cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const sections = document.querySelectorAll('.cs-section');
+  const pills    = document.querySelectorAll('.cs-nav__pill');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        pills.forEach(p => p.classList.remove('active'));
+        const m = document.querySelector(`.cs-nav__pill[href="#${e.target.id}"]`);
+        if (m) m.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>

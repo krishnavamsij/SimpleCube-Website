@@ -1,1325 +1,2457 @@
+export interface CaseStudyMetric {
+    icon: string;
+    value: string;
+    label: string;
+    sub?: string;
+}
+
+export interface CaseStudySection {
+    id: string;
+    title: string;
+    type: 'text' | 'approach-list' | 'feature-grid' | 'impact-strip' | 'outcome-list' | 'future-tags';
+    content: any;
+}
+
 export interface CaseStudyDetail {
     slug: string;
+    eyebrow: string;
     title: string;
-    subtitle?: string;
-    heroImage: string;
-    sections: {
-        id: string;
-        title: string;
-        content: string;
-    }[];
+    summary: string;
+    metrics: CaseStudyMetric[];
+    sections: CaseStudySection[];
 }
 
 export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "autonomous-lending-experiences": {
-        slug: "autonomous-lending-experiences",
-        title: "Autonomous Lending Experiences with FinXServe and Agentforce",
-        subtitle: "Delivering a 24/7 digital lending journey without increasing operational headcount.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "autonomous-lending-experiences",
+        "eyebrow": "",
+        "title": "Autonomous Lending Experience with<br>\n      <em>FinXServe and Agentforce</em>",
+        "summary": "Built an AI-powered lending concierge to deliver instant loan processing,\n      streamlining the entire lending lifecycle from application to approval.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading U.S.-based credit union wanted to deliver a <strong>24/7 digital lending experience</strong> without increasing operational headcount or compromising compliance.</p>
-                    <p>Despite investing in Salesforce Financial Services Cloud (FSC) and digital channels, loan origination still relied on manual processes, static forms, and agent-assisted conversations. Borrowers often had to switch between web, mobile, and contact center channels to complete applications or check status updates.</p>
-                    <p>The institution needed a <strong>secure, scalable digital assistant capable of guiding borrowers from initial loan inquiry to application completion within a single seamless journey</strong>, while maintaining strict governance and regulatory controls.</p>
-                `
+                "icon": "🚀",
+                "value": "80%",
+                "label": "Faster Time-to-Market",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented <strong>Salesforce Agentforce natively within the FinXServe platform</strong>, enabling a conversational lending experience orchestrated on <strong>Salesforce Financial Services Cloud (FSC)</strong>.</p>
-                    <p>The AI-powered lending assistant guides borrowers through the full loan lifecycle — from product discovery to application completion — within a single conversational interaction.</p>
-                    <p>Key capabilities include:</p>
-                    <ul>
-                        <li>Guided loan product discovery and application initiation</li>
-                        <li>Secure borrower authentication through OTP-based identity verification</li>
-                        <li>Automatic retrieval and continuation of existing loan applications</li>
-                        <li>Conversational data capture for borrower details and required consents</li>
-                        <li>Real-time prequalified loan offers with rates, terms, and payment estimates</li>
-                        <li>Application completion including employment details, autopay setup, and funding selection</li>
-                        <li>Seamless escalation to loan officers when human expertise is required</li>
-                    </ul>
-                    <p>Unlike traditional chatbots that primarily answer questions, this <strong>AI-powered lending concierge executes real lending workflows</strong>, enabling borrowers to move from intent to prequalified offer within a single guided journey.</p>
-                `
+                "icon": "⚡",
+                "value": "70%",
+                "label": "Faster Loan Processing",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Hyniva delivered the solution using a <strong>Salesforce-native, low-code/no-code architecture built on FinXServe’s experience orchestration framework</strong>.</p>
-                    <p>Rather than replacing existing banking systems, FinXServe acts as a <strong>digital experience layer that sits above core banking and underwriting platforms</strong>, orchestrating lending journeys while preserving existing systems of record.</p>
-                    <p>Key elements of the approach included:</p>
-                    <p><strong>Low-Code/No-Code Agent Configuration</strong><br>Agentforce capabilities were configured using Salesforce Agent Builder and declarative tools, enabling conversational workflows without heavy custom development.</p>
-                    <p><strong>Platform-Native Lending Orchestration</strong><br>FinXServe’s managed package architecture and extended FSC data model enable lending journeys to be configured and reused across products.</p>
-                    <p><strong>API-Based System Integration</strong><br>Through FinXServe’s connector framework, the agent integrates with loan origination systems, credit bureaus, and underwriting platforms in real time.</p>
-                    <p><strong>Compliance-First Design</strong><br>Verification gates, consent capture, and audit logging are embedded directly into the lending workflow to ensure regulatory compliance.</p>
-                `
+                "icon": "💰",
+                "value": "50%",
+                "label": "Lower Cost of Ownership",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The shift from form-based lending to autonomous conversational lending delivered measurable results:</p>
-                    <ul>
-                        <li><strong>Up to 80% faster time-to-market</strong> for new digital lending experiences</li>
-                        <li><strong>Up to 70% faster product launches</strong> using reusable platform components</li>
-                        <li><strong>Up to 50% lower cost of ownership</strong> through FSC-native architecture</li>
-                        <li>Reduced borrower friction across digital channels</li>
-                        <li><strong>24/7 loan application capability without increasing staffing</strong></li>
-                    </ul>
-                    <p>Borrowers can now move from <strong>loan inquiry to prequalified offer within a single guided interaction</strong>, significantly improving the digital borrowing experience.</p>
-                `
+                "icon": "🕐",
+                "value": "24/7",
+                "label": "Always-On Lending",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A leading U.S.-based credit union wanted to deliver a 24/7 digital lending experience without increasing operational headcount or compromising compliance.</p>\n        <p>Despite investing in Salesforce Financial Services Cloud (FSC) and digital channels, loan origination still relied on manual processes, static forms, and agent-assisted conversations. Borrowers often had to switch between web, mobile, and contact center channels to complete applications or check status updates.</p>\n        <p>The institution needed a secure, scalable digital assistant capable of guiding borrowers from initial loan inquiry to application completion within a single seamless journey, while maintaining strict governance and regulatory controls.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The Agentforce and FinXServe implementation provides a scalable foundation for expanding AI-driven banking experiences.</p>
-                    <p>Future opportunities include extending conversational AI capabilities to:</p>
-                    <ul>
-                        <li>Account opening and onboarding</li>
-                        <li>Card servicing and dispute management</li>
-                        <li>Cross-sell and product recommendations</li>
-                        <li>Member servicing and collections workflows</li>
-                    </ul>
-                    <p>By combining Agentforce’s autonomous intelligence with FinXServe’s experience orchestration layer, the credit union is positioned to <strong>continuously evolve its digital banking capabilities while maintaining operational control and regulatory compliance.</strong></p>
-                `
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva implemented Salesforce Agentforce natively within the FinXServe platform, enabling a conversational lending experience orchestrated on Salesforce Financial Services Cloud (FSC).</p>\n        <p>The AI-powered lending assistant guides borrowers through the full loan lifecycle — from product discovery to application completion — within a single conversational interaction.</p>\n        <p>Key capabilities include:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Guided loan product discovery and application initiation",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Secure borrower authentication through OTP-based identity verification",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Automatic retrieval and continuation of existing loan applications",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Conversational data capture for borrower details and required consents",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Real-time prequalified loan offers with rates, terms, and payment estimates",
+                            "desc": ""
+                        },
+                        {
+                            "num": "6",
+                            "title": "Application completion including employment details, autopay setup, and funding selection",
+                            "desc": ""
+                        },
+                        {
+                            "num": "7",
+                            "title": "Seamless escalation to loan officers when human expertise is required",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "implementation",
+                "title": "Implementation Approach",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva delivered the solution using a Salesforce-native, low-code/no-code architecture built on FinXServe's experience orchestration framework.</p>\n        <p>Rather than replacing existing banking systems, FinXServe acts as a digital experience layer that sits above core banking and underwriting platforms, orchestrating lending journeys while preserving existing systems of record.</p>\n        <p>Key elements of the approach included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Low-Code / No-Code Agent Configuration",
+                            "desc": "Agentforce capabilities were configured using Salesforce Agent Builder and declarative tools, enabling conversational workflows without heavy custom development."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Platform-Native Lending Orchestration",
+                            "desc": "FinXServe's managed package architecture and extended FSC data model enable lending journeys to be configured and reused across products."
+                        },
+                        {
+                            "num": "3",
+                            "title": "API-Based System Integration",
+                            "desc": "Through FinXServe's connector framework, the agent integrates with loan origination systems, credit bureaus, and underwriting platforms in real time."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Compliance-First Design",
+                            "desc": "Verification gates, consent capture, and audit logging are embedded directly into the lending workflow to ensure regulatory compliance."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The shift from form-based lending to autonomous conversational lending delivered measurable results:</p>",
+                    "items": [
+                        "Up to 80% faster time-to-market for new digital lending experiences",
+                        "Up to 70% faster product launches using reusable platform components",
+                        "Up to 50% lower cost of ownership through FSC-native architecture",
+                        "Reduced borrower friction across digital channels",
+                        "24/7 loan application capability without increasing staffing"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>The Agentforce and FinXServe implementation provides a scalable foundation for expanding AI-driven banking experiences.</p>\n        <p>Future opportunities include extending conversational AI capabilities to:</p>",
+                    "items": [
+                        "Account opening and onboarding",
+                        "Card servicing and dispute management",
+                        "Cross-sell and product recommendations",
+                        "Member servicing and collections workflows"
+                    ]
+                }
             }
         ]
     },
     "instant-loan-processing": {
-        slug: "instant-loan-processing",
-        title: "Instant Loan Processing with Agentforce-Powered Document Intelligence",
-        subtitle: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "instant-loan-processing",
+        "eyebrow": "",
+        "title": "Accelerate Loan Processing with<br>\n      <em>Agentforce-Powered Document Intelligence</em>",
+        "summary": "Built an AI-enabled loan processing engine that automates document extraction, validation,\n      and decision workflows to improve lending efficiency.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>Traditional loan origination processes are manual, slow, and prone to error. Borrowers are often required to manually enter data from pay stubs, bank statements, and tax returns into static forms, a tedious process that can take 15–20 minutes and often results in drop-offs.</p>
-                    <p>For financial institutions, verifying these documents manually is equally inefficient, leading to high processing costs, long turnaround times, and inconsistent underwriting decisions. The institution needed an automated solution to streamline data capture, enhance accuracy, and deliver an instant borrowing experience.</p>
-                `
+                "icon": "📉",
+                "value": "70%",
+                "label": "Reduction in Manual Reviews",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented an <strong>Agentforce-powered Document Intelligence Agent</strong> that automates the extraction and validation of borrower information from unstructured documents.</p>
-                    <p>The AI agent acts as a conversational concierge, guiding borrowers through a zero-touch application process. Borrowers simply upload their documents, and the AI agent instantly extracts over 70+ data fields — including income, employment, and debt obligations — with over 99% accuracy.</p>
-                `
+                "icon": "⚡",
+                "value": "&lt; 2 min",
+                "label": "Application Completion",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Key technical features of the implementation include:</p>
-                    <ul>
-                        <li><strong>AI-Driven Extraction:</strong> Instantly captures data from PDFs, images, and handwritten documents.</li>
-                        <li><strong>Real-Time Validation:</strong> Cross-references extracted data with core banking systems to ensure accuracy.</li>
-                        <li><strong>Seamless Continuation:</strong> Borrowers can pause and resume applications across any channel.</li>
-                        <li><strong>Automated Decisioning:</strong> Prequalified offers are generated in seconds based on extracted data.</li>
-                    </ul>
-                `
+                "icon": "✅",
+                "value": "5-Step",
+                "label": "Automated Verification",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transition from manual to AI-driven loan processing delivered dramatic results:</p>
-                    <ul>
-                        <li><strong>98% faster application time:</strong> Reduced from 20 minutes to under 2 minutes.</li>
-                        <li><strong>99.6% extraction accuracy:</strong> Minimized manual review and rework.</li>
-                        <li><strong>99.5% reduction in processing costs:</strong> From $10 per document to $0.05.</li>
-                        <li><strong>24/7 availability:</strong> Applications are processed instantly at any time.</li>
-                        <li><strong>Zero-touch experience:</strong> Minimal borrower effort required for complex data entry.</li>
-                    </ul>
-                `
+                "icon": "🔄",
+                "value": "Real-Time",
+                "label": "Data Validation",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Banks and Credit Unions are under pressure to deliver real-time digital lending experiences. Customers expect to apply for a loan as easily as sending a message — from any device, at any time.</p>\n        <p>But document processing remains the bottleneck.</p>\n        <p>During onboarding, customers upload identity documents, income proofs, and financial records in various formats — mobile photos, scanned PDFs, low-light images, rotated files, or partially visible documents.</p>\n        <p>Traditional OCR tools struggle with layout variations and inconsistent image quality. They often misread critical fields or cannot confidently validate extracted data against application records in real time. As a result, operations teams must manually review identity attributes, delaying loan approvals and increasing processing costs.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The success of the Document Intelligence Agent has paved the way for broader AI adoption across the institution. Future plans include:</p>
-                    <ul>
-                        <li>Automated mortgage processing and underwriting.</li>
-                        <li>AI-driven commercial credit analysis.</li>
-                        <li>Enhanced fraud detection and compliance monitoring.</li>
-                        <li>Proactive financial health insights for members.</li>
-                    </ul>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>FinXServe is Hyniva's Salesforce-native digital banking experience platform that sits as an intelligent experience layer above core banking and underwriting systems. It enables Banks and Credit Unions to modernize lending journeys without replacing their existing core, unifying application intake, document processing, validation, and decisioning into a single, real-time workflow.</p>\n        <p>Within this framework, FinXServe integrates Salesforce Agentforce as its AI-powered document recognition engine embedded directly into the digital lending journey.</p>\n        <p>When a customer uploads a document:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Automatic Document Identification",
+                            "desc": "AI vision models detect the document type (e.g., driving license, passport)."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Intelligent Field Extraction",
+                            "desc": "Key identity attributes — first name, last name, date of birth, address, and document number — are extracted using advanced computer vision and language models."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Real-Time Data Validation",
+                            "desc": "Extracted values are instantly compared with loan application records inside FinXServe."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Straight-Through Verification",
+                            "desc": "If the extracted values match the application data, the document is automatically verified. Discrepancies are flagged in an automated review panel with clear match/mismatch indicators."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Conversational Exception Handling",
+                            "desc": "Agentforce's AI chatbot guides customers to re-upload clearer images, confirm updated information, and correct mismatched fields in real time."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>With AI-driven document intelligence embedded into FinXServe:</p>",
+                    "items": [
+                        "Up to 70% reduction in manual document reviews",
+                        "Significant acceleration in identity verification",
+                        "Faster loan approvals and higher conversion rates",
+                        "Improved compliance and reduced fraud risk",
+                        "Lower operational cost through automation"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>FinXServe is expanding its AI-powered document intelligence beyond identity verification to include income and financial documents such as W2 forms, pay stubs, bank statements, and proof-of-address records. The platform is introducing cross-document consistency checks to validate customer information across multiple uploads, ensuring higher data reliability and stronger fraud detection.</p>\n        <p>In parallel, AI-driven fraud and risk scoring will combine extracted document insights with application data to identify potential risks earlier in the onboarding journey. Continuous model learning from agent and customer corrections will further enhance extraction accuracy over time.</p>\n        <p>Together, these advancements position FinXServe as a truly AI-first digital lending platform — delivering faster decisions, stronger compliance, scalable operations, and intelligent growth for modern financial institutions.</p>"
             }
         ]
     },
     "intelligent-ivr-self-service": {
-        slug: "intelligent-ivr-self-service",
-        title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
-        subtitle: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "intelligent-ivr-self-service",
+        "eyebrow": "",
+        "title": "Modernizing Contact Centers with<br>\n      <em>Intelligent IVR Self-Service</em>",
+        "summary": "Streamlined IVR and routing systems to reduce call complexity, improve response times,\n      and offload routine queries from agents.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading U.S.-based wealth management firm sought to modernize its contact center as a large share of inbound volume consisted of routine service requests. Nearly <strong>60% of calls were suitable for self-service</strong>, yet a highly fragmented routing model with 50+ queues led to misrouted calls, longer wait times, and inefficient use of agent capacity. The firm required a secure, scalable IVR solution to streamline routing, increase self-service adoption, and enable agents to focus on complex, high-value interactions.</p>
-                `
+                "icon": "⏱️",
+                "value": "1.5 min",
+                "label": "Reduced Handle Time",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented a modern IVR self-service solution focused on <strong>security, simplicity, and scalability</strong>, delivered through a <strong>phased, risk-minimized approach</strong>.</p>
-                `
+                "icon": "🔀",
+                "value": "65%",
+                "label": "Routing Simplification",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The solution was deployed with a focus on seamless integration and member security:</p>
-                    <ul>
-                        <li>Customer-friendly IVR scripts and menu structures designed to minimize steps.</li>
-                        <li>Strong authentication using <strong>dual-factor verification and voice-based triple-factor authentication</strong>.</li>
-                        <li>Self-service capabilities for <strong>account balance checks, document notifications, and work item status tracking</strong>.</li>
-                        <li>Consolidation of <strong>50+ queues into 18 dedicated sales and service queues</strong>.</li>
-                        <li>Performance tracking and analytics for real-time monitoring of containment and success rates.</li>
-                    </ul>
-                `
+                "icon": "📞",
+                "value": "30%",
+                "label": "Calls Optimized",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The contact center now operates with greater predictability, speed, and control:</p>
-                    <ul>
-                        <li><strong>Average Call Handling Time (AHT) reduced by 1.5 minutes</strong>.</li>
-                        <li><strong>Average speed of answer (ASA) increased by 45 seconds</strong>.</li>
-                        <li><strong>Reduced routing complexity by 65%</strong>.</li>
-                        <li><strong>30% of calls optimized</strong> (10% fully contained, 20% partially).</li>
-                        <li>Strengthened access security through multi-layer authentication (2FA/3FA).</li>
-                    </ul>
-                `
+                "icon": "🔒",
+                "value": "3FA",
+                "label": "Secure Verification",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A leading U.S.-based wealth management firm sought to modernize its contact center as a large share of inbound volume consisted of routine service requests. Nearly 60% of calls were suitable for self-service, yet a highly fragmented routing model with 50+ queues led to misrouted calls, longer wait times, and inefficient use of agent capacity. The firm required a secure, scalable IVR solution to streamline routing, increase self-service adoption, and enable agents to focus on complex, high-value interactions.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>With a scalable IVR foundation in place, the firm is positioned to adapt to evolving customer needs. Plans include:</p>
-                    <ul>
-                        <li>IVR 2.0 roadmap with deeper personalization.</li>
-                        <li>Expanded self-service workflows.</li>
-                        <li>Proactive customer messaging.</li>
-                        <li>Seamless agent escalation refinements.</li>
-                    </ul>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Hyniva implemented a modern IVR self-service solution focused on security, simplicity, and scalability, delivered through a phased, risk-minimized approach. The engagement began with a detailed analysis of historical call logs to identify high-frequency, simple-service requests and define optimal IVR workflows.</p>\n        <p>Customer-friendly IVR scripts and menu structures were designed to minimize steps and provide clear guidance throughout the self-service journey, built on the firm's Genesys contact center platform to enable scalable flow orchestration and intelligent routing. Strong authentication was embedded using dual-factor verification and voice-based triple-factor authentication, validated through a controlled pilot with a limited user group.</p>\n        <p>Self-service capabilities included account balance checks, document notifications, and work item status tracking. Call routing was streamlined by consolidating 50+ queues into 18 dedicated sales and service queues, significantly reducing routing complexity and improving call flow. Robust exception handling ensured seamless escalation to live agents in cases of authentication failure or system exceptions.</p>\n        <p>To support continuous improvement, performance tracking and analytics were built into the solution, enabling real-time monitoring of IVR containment, authentication success rates, call volume optimization, and customer satisfaction. Insights from the pilot and ongoing metrics informed iterative refinements to workflows, authentication logic, exception handling, and routing prior to and after full deployment.</p>"
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "text",
+                "content": "<p>The contact center now operates with greater predictability, speed, and control. Customer demand is handled more evenly across self-service and assisted channels, reducing pressure on agents during peak periods while improving overall service responsiveness. Security is embedded seamlessly into customer interactions, and operational visibility enables teams to actively manage performance rather than react to issues.</p>"
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>With a scalable IVR foundation in place, the firm is positioned to continuously expand and refine self-service capabilities with minimal effort. The modular design allows new options to be introduced, reordered, or enhanced quickly, enabling the contact center to adapt to evolving customer needs without additional development complexity.</p>\n        <p>Built-in analytics will guide the next phase of optimization by highlighting usage patterns, drop-offs, and containment opportunities. Based on customer feedback and insights, the firm plans to advance toward an IVR 2.0 roadmap — introducing deeper personalization, expanded workflows, and proactive customer messaging — while maintaining strong authentication and seamless agent escalation.</p>"
             }
         ]
     },
     "autonomous-freight-operations": {
-        slug: "autonomous-freight-operations",
-        title: "Autonomous Freight Operations with GenAI",
-        subtitle: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "autonomous-freight-operations",
+        "eyebrow": "",
+        "title": "Autonomous Freight Operations<br>\n      <em>with GenAI</em>",
+        "summary": "Deployed a GenAI-powered solution to automate freight load creation, enabling near-instant\n      processing, significant cost reduction, and 24/7 autonomous operations.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading North American logistics provider faced growing operational pressure as shipment volumes surged. While their TMS platform was robust, the load creation process remained manual — requiring dispatchers to extract and input data from rate confirmation documents. Creating a single load entry took 15–20 minutes, leading to bottlenecks, data entry errors, and delayed carrier assignments.</p>
-                `
+                "icon": "🚀",
+                "value": "98%",
+                "label": "Faster Load Creation",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva deployed an <strong>Autonomous Document Intelligence Agent</strong> built specifically to transform how load information is extracted and entered into the TMS.</p>
-                `
+                "icon": "💰",
+                "value": "99.5%",
+                "label": "Cost Reduction",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The solution automates the extraction of shipment data from paper invoices and unstructured documents, identifying 70+ logistics-specific fields with carrier-aware processing. Manual intervention is now required only for final validation, ensuring zero-touch integration with existing TMS platforms.</p>
-                `
+                "icon": "🎯",
+                "value": "99.6%",
+                "label": "Accuracy",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>Massive gains in speed and efficiency were achieved:</p>
-                    <ul>
-                        <li><strong>98% faster load creation:</strong> From 20 minutes to just 20 seconds.</li>
-                        <li><strong>99.5% cost savings:</strong> Handling costs dropped from $5-$10 per document to $0.05.</li>
-                        <li><strong>99.6% extraction accuracy:</strong> Minimized billing errors and rework.</li>
-                        <li><strong>Scalable 24/7 operations:</strong> Growth without increasing headcount.</li>
-                    </ul>
-                `
+                "icon": "🕐",
+                "value": "24/7",
+                "label": "Autonomous Processing",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>A leading North American logistics provider faced growing operational pressure as shipment volumes surged. While their TMS platform was robust, the load creation process remained manual — requiring dispatchers to extract and input data from rate confirmation documents. As volumes increased, the lead time before a dispatcher could even begin processing a shipment order grew significantly, creating bottlenecks in the order-to-dispatch cycle. Besides delaying load creation, this added strain to back-office teams and impacted fulfillment speed.</p>",
+                    "items": [
+                        {
+                            "icon": "⏱️",
+                            "title": "Time-Intensive Workflow",
+                            "text": "Creating a single load entry took 15–20 minutes, particularly for complex or multi-page documents."
+                        },
+                        {
+                            "icon": "⚠️",
+                            "title": "Frequent Data Entry Errors",
+                            "text": "Typos, missing fields, and interpretation mistakes led to incorrect load data, billing issues, and rework."
+                        },
+                        {
+                            "icon": "🔄",
+                            "title": "Inconsistent Processing",
+                            "text": "Different planners interpreted rate confirmations differently, resulting in inconsistencies across entries."
+                        },
+                        {
+                            "icon": "📦",
+                            "title": "Volume-Based Bottlenecks",
+                            "text": "Manual processing limited the team's ability to keep up with increased load volumes during peak times, leading to backlogs that delayed dispatch and carrier assignments."
+                        },
+                        {
+                            "icon": "🕐",
+                            "title": "Increased Pre-Processing Lead Time",
+                            "text": "With high order volumes and limited staff, dispatchers experienced growing delays just to access and queue up orders, increasing unprocessed shipments."
+                        }
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The logistics provider has redefined its load creation process. Shipment data is now extracted, processed, and integrated with zero manual touch, enabling faster dispatch planning and a significant competitive advantage in the market.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>To address these challenges, Hyniva designed and deployed Autonomous Document Intelligence Agent — built specifically to transform how load information is extracted and entered into the TMS. This next-gen solution automates the extraction of shipment data from pager invoices and unstructured documents, instantly converting them into actionable TMS records. By eliminating manual data entry, it accelerates turnaround times, minimizes errors, and empowers teams to focus on strategic, value-driven logistics planning.</p>\n        <p>Manual intervention is now required only for final validation, with the system handling all upstream load creation tasks automatically. Shipment orders no longer sit in queue awaiting manual input — they are processed in real time, improving responsiveness and reducing lead time dramatically.</p>\n        <p>The result is a seamless, zero-touch experience — delivering consistency, accuracy, and operational speed at scale.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Versatile File Handling",
+                            "desc": "AI Agent intelligently extracts data from PDFs, images, and handwritten documents with seamless precision."
+                        },
+                        {
+                            "num": "2",
+                            "title": "AI-Driven Data Extraction",
+                            "desc": "The GenAI engine identifies and extracts 70+ logistics-specific fields with contextual and geographic awareness for accurate, carrier-aware processing."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Zero-Touch Load Generation",
+                            "desc": "A complete, pre-filled load entry is generated within seconds, requiring only minimal review."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Built-In Intelligence",
+                            "desc": "Context-aware automation with real-time tracking reduces burnout while enhancing performance and employee satisfaction."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": "<p>With Hyniva's Autonomous Document Intelligence Agent, the client's TMS operations have evolved from manual and error-prone to intelligent and autonomous. By embedding AI at the core of load creation, they've gained speed, accuracy, and scalability — and positioned themselves for the next wave of logistics innovation.</p>"
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>From backlogs and manual bottlenecks to a fully automated, real-time workflow — the logistics provider has redefined its load creation process through Hyniva's GenAI-powered innovation. With document intelligence at the core, shipment data is now extracted, processed, and integrated with speed, accuracy, and zero manual touch.</p>\n        <p>The result: load entries completed in seconds, costs cut by over 99%, and scalable operations that keep pace with demand. This shift not only optimized fulfillment but also positioned the company at the forefront of AI-driven logistics transformation.</p>\n        <p>Hyniva's GenAI solution didn't just improve performance — it changed the game.</p>"
             }
         ]
     },
     "lwr-modernization": {
-        slug: "lwr-modernization",
-        title: "LWR Modernization for High-Performance Experiences",
-        subtitle: "Improved digital experience performance. 2× faster page loads with Lightning Web Runtime.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "lwr-modernization",
+        "eyebrow": "",
+        "title": "LWR Modernization for<br>\n      <em>High-Performance Experiences</em>",
+        "summary": "Migrated legacy Experience Cloud to Lightning Web Runtime, delivering faster,\n      mobile-first, and scalable digital experiences.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading U.S.-based, enterprise-scale credit union relied on its Salesforce Experience Cloud Members portal to support service discovery, product access, and self-service. As digital usage increased, the existing Aura-based platform began to show performance limitations, including slow page loads and inconsistent mobile responsiveness.</p>
-                    <p>With more than <strong>77 service pages</strong> and static navigation, the credit union needed a structured approach to improve performance and enable scalable, personalized member experiences without disrupting operations.</p>
-                `
+                "icon": "⚡",
+                "value": "2×",
+                "label": "Faster Page Loads",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva led a phased modernization, migrating the Aura-based Members site to a <strong>Lightning Web Runtime (LWR)</strong> architecture.</p>
-                `
+                "icon": "🚀",
+                "value": "55%",
+                "label": "Performance Gain",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The modernization strategy included deep architectural refactoring and performance optimization:</p>
-                    <ul>
-                        <li>Migrating <strong>77 service pages</strong> to a modern LWR experience.</li>
-                        <li>Refactoring <strong>20 Aura components</strong> into modular, reusable Lightning Web Components (LWC).</li>
-                        <li>Implementing a <strong>dynamic, product-aware navigation framework</strong> for contextual personalization.</li>
-                        <li>Applying a performance-first architecture with server-side rendering and intelligent caching.</li>
-                    </ul>
-                `
+                "icon": "📱",
+                "value": "100%",
+                "label": "Mobile Responsive",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The modernization delivered measurable improvements:</p>
-                    <ul>
-                        <li><strong>2x faster page loads</strong> across all devices.</li>
-                        <li><strong>55% improvement</strong> in runtime performance and navigation speed.</li>
-                        <li><strong>100% improvement in mobile responsiveness</strong>.</li>
-                        <li><strong>25% improvement</strong> in SEO, accessibility, and maintainability.</li>
-                        <li>Enhanced member discoverability through personalized navigation.</li>
-                    </ul>
-                `
+                "icon": "🔍",
+                "value": "25%",
+                "label": "SEO Improvement",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A leading U.S.-based, enterprise-scale credit union relied on its Salesforce Experience Cloud Members portal to support service discovery, product access, and self-service across desktop and mobile channels.</p>\n        <p>As digital usage increased, the existing Aura-based platform began to show performance and scalability limitations, including slow page loads, navigation delays, and inconsistent mobile responsiveness. The architecture also increased maintenance effort, limited scalability, and restricted the adoption of modern Salesforce capabilities.</p>\n        <p>With more than 77 service pages and static navigation that limited personalization, the credit union needed a structured, low-risk modernization approach to improve performance and enable scalable, personalized member experiences, without disrupting ongoing operations.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The credit union now operates on a future-ready Experience Cloud platform. The modular LWC architecture and dynamic header capability enable scalable personalization and faster adoption of new Salesforce features with minimal refactoring.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva led a phased modernization of the Salesforce Experience Cloud platform, migrating the Aura-based Members site to a Lightning Web Runtime (LWR) architecture. The approach combined platform re-architecture, component modernization, and experience enhancements while aligning with the credit union's release governance and quality standards.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Full Site Migration to LWR",
+                            "desc": "Migrated 77 service pages to an LWR-based Members experience across desktop and mobile, and refactored 20 Aura components into modular, reusable Lightning Web Components optimized for performance and scalability."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Dynamic Product-Aware Navigation",
+                            "desc": "A dynamic, product-aware navigation framework was implemented to render menus based on member products, channels, and eligibility, enabling contextual personalization."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Performance-First Architecture",
+                            "desc": "Applied server-side rendering, intelligent caching, reduced JavaScript payloads, optimized Apex interactions, and responsive UI design with seamless, app-like navigation."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Enterprise-Grade Delivery & Governance",
+                            "desc": "Included detailed application and component analysis, performance baselining, phased development and testing across multiple environments, and close coordination with stakeholders through regular governance forums. Production readiness was ensured through regression testing, UAT support, compliance reviews, and post-release warranty."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "text",
+                "content": "<p>The LWR modernization delivered measurable improvements in performance, scalability, and member experience:</p>"
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>By migrating from Aura to LWR, the credit union now operates on a future-ready Experience Cloud platform that is faster, more resilient, and easier to maintain. The dynamic header capability enables scalable personalization, while the modular LWC architecture positions the platform to adopt new Salesforce capabilities with minimal refactoring.</p>\n        <p>Hyniva's structured delivery model, deep Salesforce expertise, and close collaboration with client stakeholders ensured a smooth migration with minimal disruption, enabling the credit union to confidently scale its digital member experiences.</p>"
             }
         ]
     },
     "a-race-against-time-that-others-refused-to-run": {
-        slug: "a-race-against-time-that-others-refused-to-run",
-        title: "Rapid Reverse-Engineered Website Migration",
-        subtitle: "Migrated an acquired firm's entire digital presence in 12 weeks with zero backend access.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "a-race-against-time-that-others-refused-to-run",
+        "eyebrow": "",
+        "title": "Rapid Reverse-Engineered<br>\n      <em>Website Migration</em>",
+        "summary": "Reverse-engineered and migrated a complete website to Adobe Experience Manager in just\n      2 months — without backend access — ensuring zero downtime and seamless user experience.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>Following a major acquisition, a leading asset management company needed to migrate the acquired firm's entire digital presence into its ecosystem within 3 months. The client had zero access to backend systems, APIs, or content repositories. Most vendors cited a 6-9 month timeline, calling the 12-week goal "not feasible."</p>
-                    <p>Key challenges included:</p>
-                    <ul>
-                        <li>No real-time data or API access</li>
-                        <li>Infrastructure blind spots and lack of backend visibility</li>
-                        <li>Aggressive regulatory and compliance deadlines</li>
-                        <li>Fragmented legacy content required for reverse-engineering</li>
-                    </ul>
-                `
+                "icon": "📅",
+                "value": "2 Months",
+                "label": "Full Delivery",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva delivered a full migration in just 2 months using an <strong>Agile Migration Solution</strong>. We assembled a specialized 20-member team and leveraged our <strong>Digital Factory Model</strong> to rebuild the site from the ground up by reverse-engineering the public-facing pages.</p>
-                `
+                "icon": "✅",
+                "value": "Zero",
+                "label": "Downtime",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our approach focused on precision and resilience:</p>
-                    <ul>
-                        <li><strong>SDET-Infused Delivery:</strong> Software Development Engineers in Test were embedded in every sprint to ensure quality at scale.</li>
-                        <li><strong>Adobe Experience Manager (AEM):</strong> Implemented a component-driven architecture for parallel development.</li>
-                        <li><strong>CSV-Based Data Pipelines:</strong> Simulated dynamic feeds to ensure progress despite no API access.</li>
-                        <li><strong>Proactive Governance:</strong> Early collaboration with compliance and legal teams to ensure 100% regulatory alignment.</li>
-                    </ul>
-                `
+                "icon": "👥",
+                "value": "20",
+                "label": "Team Deployed",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The migration was a high-stakes success:</p>
-                    <ul>
-                        <li><strong>Delivered in 2 months:</strong> Halved the projected industry timeline.</li>
-                        <li><strong>Zero-Access Success:</strong> Fully rebuilt an enterprise-grade platform without backend credentials.</li>
-                        <li><strong>100% Compliance:</strong> Seamless rollout with no regulatory breaches.</li>
-                        <li><strong>Scalable Architecture:</strong> Transitioned to a modern, responsive platform ready for future growth.</li>
-                    </ul>
-                `
+                "icon": "⚡",
+                "value": "50%+",
+                "label": "Timeline Reduction",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>Following the acquisition of a prominent US-based investment firm, a leading asset management company faced a daunting challenge: to migrate the acquired firm's entire digital presence into its existing design and technology ecosystem within 3 months.</p>\n        <p>On the surface, this may have appeared as a typical site migration, but beneath, it was anything but.</p>\n        <p>The client had no access to the backend systems, APIs, or content repositories of the acquired company site. The only reference point was the public-facing website, meaning the entire solution had to be rebuilt from scratch by reverse-engineering existing pages.</p>\n        <p>What made this challenge even more intense? The timeline.</p>\n        <p>The client required a complete, production-ready rollout within 12 weeks. However, during early consultations, most vendors declined to take on the project, citing that the scope was too complex with limited access to old system and the timeline too aggressive. The general industry estimate: a minimum of 6 to 9 months. Most called it \"not feasible.\"</p>\n        <p>Challenges Anticipated / Encountered:</p>",
+                    "items": [
+                        {
+                            "icon": "🔌",
+                            "title": "No Real-Time Data Access",
+                            "text": "APIs were unavailable, requiring temporary UI-side CSV-based data handling to simulate live content feeds."
+                        },
+                        {
+                            "icon": "🏗️",
+                            "title": "Infrastructure Blind Spots",
+                            "text": "Lack of backend visibility requires assumptions around infrastructure configurations, such as domain integration and page routing."
+                        },
+                        {
+                            "icon": "🔑",
+                            "title": "Limited Administrative Control",
+                            "text": "High dependency on the internal team for key tasks like cache clearance slowed development and testing cycles."
+                        },
+                        {
+                            "icon": "📋",
+                            "title": "External Compliance & Content Delays",
+                            "text": "Anticipated delay in content approvals and compliance reviews due to regulatory bound checks."
+                        }
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The successful migration has established a blueprint for future rapid acquisitions. The client is now moving toward integrating live APIs and expanding the platform's personalized content capabilities on the new AEM foundation.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Despite widespread skepticism, Hyniva delivered the full solution within 2 months, cutting projected timeline in half. Our approach wasn't just about speed — it was about precision, resilience, and innovative execution.</p>\n        <p>We achieved this through:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Accelerated Delivery with SDET-Infused Digital Factory Model",
+                            "desc": "Leveraging our Digital Factory framework, we quickly assembled a specialized 20 member delivery team in a week aligned with the client's business objectives, compliance needs, and UI replication requirements. A key differentiator was our SDET-infused digital factory delivery model — Software Development Engineers in Test were embedded within each delivery pod from day one. This seamless integration enabled continuous testing, early detection of integration gaps, and automation at scale, all in parallel with development. By making quality engineering an inherent part of every sprint, we reduced rework, accelerated QA cycles, and improved delivery precision. Sprint-wise go/no-go decisions became data-driven and predictable, ensuring both agility and confidence at every stage."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Strategic Infrastructure Enablement",
+                            "desc": "Using Adobe Experience Manager (AEM), we implemented a component-driven architecture to enable parallel tracks for content and development. With no API access, we started with CSV-based data pipelines to simulate dynamic data feeds, ensuring uninterrupted progress. Our team also proactively configured underlying infrastructure such as domain integration, dispatcher setup, and page routing despite limited backend visibility."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Proactive Stakeholder Management",
+                            "desc": "We began with early stakeholder identification and mapping, ensuring the right voices were engaged from the start. Through clear communication channels, daily syncs, and structured feedback loops, we enabled continuous engagement and alignment across teams. Early collaboration with the compliance and legal teams during content extraction ensured compliance, reduced rework, and boosted organizational trust. Despite limited access and client-side constraints, we maintained momentum through risk communication and transparency, adaptive workflows, and involvement in key decisions."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "results",
+                "title": "Results",
+                "type": "text",
+                "content": "<p>Hyniva successfully led a complex AEM site migration — transforming a legacy digital property into a fully responsive, enterprise-grade web platform with no direct access to core systems.</p>"
             }
         ]
     },
     "engineering-secure-authentication-through-pindrop-integration": {
-        slug: "engineering-secure-authentication-through-pindrop-integration",
-        title: "Frictionless Customer Authentication for Secure Banking",
-        subtitle: "Strengthening security while reducing member friction through intelligent Pindrop integration.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "engineering-secure-authentication-through-pindrop-integration",
+        "eyebrow": "",
+        "title": "Frictionless Customer Authentication<br>\n      <em>for Secure Banking</em>",
+        "summary": "Enabled secure and seamless customer authentication using voice biometrics, allowing contact\n      center agents to verify customers instantly without lengthy security questions.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading financial institution faced a dual challenge: rising fraud attempts in their contact center and increasing member friction during authentication. Legacy security methods relied on static knowledge-based authentication, which was slow and vulnerable to social engineering. The goal was to implement <strong>Pindrop's multi-factor authentication</strong> to secure the channel without adding hurdles for legitimate members.</p>
-                `
+                "icon": "⏱️",
+                "value": "~2 min",
+                "label": "Reduced Handle Time",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva engineered a seamless integration between the institution's contact center platform and <strong>Pindrop's biometric and risk-scoring engine</strong>. This solution enables real-time identity verification based on "something the member is" (voice) and "something the member has" (device), rather than just what they know.</p>
-                `
+                "icon": "🔐",
+                "value": "3×",
+                "label": "Stronger Authentication",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The integration was executed with an emphasis on security and member experience:</p>
-                    <ul>
-                        <li><strong>Passive Biometric Enrollment:</strong> Voiceprints are captured during natural conversation to minimize member effort.</li>
-                        <li><strong>Real-Time Risk Scoring:</strong> Pindrop analyzes call metadata and audio to flag potential spoofing or fraud in seconds.</li>
-                        <li><strong>Step-Up Authentication:</strong> High-risk calls are automatically routed for additional verification, while low-risk calls are fast-tracked.</li>
-                        <li><strong>API Orchestration:</strong> Seamless data flow between the IVR, agent desktop, and Pindrop's cloud platform.</li>
-                    </ul>
-                `
+                "icon": "🚫",
+                "value": "Zero",
+                "label": "KBA Dependency",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The Pindrop integration delivered immediate security and efficiency gains:</p>
-                    <ul>
-                        <li><strong>45-second reduction in authentication time</strong> per call.</li>
-                        <li><strong>Significant drop in fraud-related losses</strong> due to real-time spoofing detection.</li>
-                        <li><strong>Higher Member Satisfaction (CSAT):</strong> Legitimate members enjoy a faster, frictionless experience.</li>
-                        <li><strong>Improved Agent Productivity:</strong> Agents focus on service rather than manual interrogation.</li>
-                    </ul>
-                `
+                "icon": "🎙️",
+                "value": "100%",
+                "label": "Passive Verification",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A leading U.S.-based investment management firm sought to modernize contact center authentication without compromising security. Despite existing IVR and enhanced controls, authentication for sensitive interactions remained slow and friction-heavy.</p>\n        <p>The existing process relied heavily on knowledge-based authentication (KBA), requiring multiple profile questions and one-time passcodes due to rising spoofing and masking fraud attempts. The absence of voice-based authentication resulted in repetitive questioning, longer IVR journeys, and extended agent handling time.</p>\n        <p>This added nearly 3 minutes to average handle time per call, lowered customer satisfaction, and increased operational strain. The firm needed a secure, low-friction authentication model that could reduce customer effort while strengthening fraud protection.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The institution is now exploring the extension of biometric authentication to mobile and digital channels, creating a unified and secure identity framework across the entire banking ecosystem.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Hyniva integrated Pindrop as a foundational authentication layer within the firm's IVR and contact center ecosystem, leveraging its capabilities for real-time ANI verification, device trust scoring, spoof and masking detection, and passive voice biometrics. Authentication was embedded within existing IVR flows, enabling callers to be verified passively as they stated their intent — without explicit enrollment or intrusive questioning. The implementation was integrated with the firm's Genesys Cloud environment and surfaced authentication outcomes to agents through Salesforce Service Cloud, ensuring verification insights were available during and after each interaction.</p>\n        <p>These capabilities were then structured into a progressive authentication framework. A single PII-based prompt was combined with passive device validation, ANI verification, and voice biometrics to achieve triple-factor authentication for most interactions. This significantly reduced reliance on KBA while ensuring customers were securely verified before reaching an agent. Exception handling mechanisms enabled controlled escalation when confidence thresholds were not met.</p>\n        <p>The integration followed a structured, low-risk rollout approach, with rapid validation and close collaboration across security and compliance teams to ensure minimal operational disruption.</p>"
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "text",
+                "content": ""
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>The integration transformed authentication from a contact center bottleneck into a strategic advantage. What was once a time-intensive verification process became an invisible layer of trust — accelerating service without compromising control.</p>\n        <p>By shifting verification upstream and embedding intelligence into the call journey, the firm reduced operational drag, improved service consistency, and elevated agent productivity. Authentication no longer dictated handle time or customer effort.</p>\n        <p>More importantly, the organization now operates on a future-ready security architecture — one that supports growth in high-value transactions, digital servicing, and evolving fraud patterns without reintroducing friction.</p>"
             }
         ]
     },
     "transforming-core-banking-operations-with-microsoft-innovation": {
-        slug: "transforming-core-banking-operations-with-microsoft-innovation",
-        title: "Core Banking Modernization with Microsoft",
-        subtitle: "Modernizing core operations to create a scalable, secure, and agile financial platform.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "transforming-core-banking-operations-with-microsoft-innovation",
+        "eyebrow": "",
+        "title": "Core Banking Transformation<br>\n      <em>on Microsoft</em>",
+        "summary": "Built a modern banking platform integrating workflows, data, and analytics to deliver\n      faster loan processing, reduced costs, and real-time operational intelligence.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A major banking and financial services provider was under growing pressure to modernize its core operations. Legacy systems managing loan processing, account verification, and customer onboarding led to slow, manual workflows, inconsistent data synchronization, and high maintenance costs.</p>
-                    <p>The organization needed to streamline financial workflows, centralize data, and enable rapid innovation without compromising security or compliance.</p>
-                `
+                "icon": "⚡",
+                "value": "50%",
+                "label": "Faster Loan Approvals",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva designed and executed a robust modernization strategy using Microsoft's ecosystem. We replaced outdated workflows with an agile, future-ready platform that serves as a single source of truth for core banking functions.</p>
-                `
+                "icon": "💰",
+                "value": "30%",
+                "label": "Cost Reduction",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our approach focused on architectural excellence and automation:</p>
-                    <ul>
-                        <li><strong>Workflow Automation:</strong> Migrated key customer service and loan processing workflows to ASP.NET MVC and Angular.</li>
-                        <li><strong>Centralized Integration Layer:</strong> Built secure RESTful middleware for KYC/AML validation and account lookup.</li>
-                        <li><strong>Event-Driven Architecture:</strong> Deployed Azure Service Bus for asynchronous processing and real-time updates.</li>
-                        <li><strong>Azure Logic Apps:</strong> Automated document validation and escalation procedures.</li>
-                    </ul>
-                `
+                "icon": "📊",
+                "value": "Real-Time",
+                "label": "Dashboards & Insights",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transformation delivered immediate operational gains:</p>
-                    <ul>
-                        <li><strong>50% faster loan approvals:</strong> Automated decision engines cut turnaround time in half.</li>
-                        <li><strong>30% reduction in processing costs:</strong> Retired legacy forms and manual processes.</li>
-                        <li><strong>Real-time Visibility:</strong> Executive dashboards provide up-to-the-minuted insights on operations.</li>
-                        <li><strong>Improved Compliance:</strong> Enhanced audit logging across all API layers.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>With a scalable foundation in place, the organization is now positioned to rapidly launch new financial products and explore AI-driven predictive analytics for customer health monitoring.</p>
-                `
+                "icon": "🏗️",
+                "value": "Scalable",
+                "label": "Banking Architecture",
+                "sub": ""
             }
-        ]
-    },
-    "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
-        slug: "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
-        title: "Frictionless Loan Matching for Small Businesses",
-        subtitle: "Automating pre-qualification and partner distribution for faster access to capital.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        ],
+        "sections": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A financial services organization matching small business owners with Community Development Financial Institutions (CDFIs) struggled with manual bottlenecks. Pre-qualified leads were distributed via secure email, introducing security risks and slowing down response times, which impacted conversion rates.</p>
-                `
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>A major banking and financial services provider was under growing pressure to modernize its core operations. With multiple legacy systems managing loan processing, account verification, compliance, and customer onboarding, the organization struggled with:</p>",
+                    "items": [
+                        {
+                            "icon": "🐢",
+                            "title": "Slow, Manual Workflows",
+                            "text": "Slow, manual workflows causing customer dissatisfaction."
+                        },
+                        {
+                            "icon": "🔀",
+                            "title": "Inconsistent Data Synchronization",
+                            "text": "Inconsistent data synchronization across financial products."
+                        },
+                        {
+                            "icon": "🔒",
+                            "title": "Rigid Legacy Systems",
+                            "text": "Rigid systems that delayed the launch of new financial services."
+                        },
+                        {
+                            "icon": "💸",
+                            "title": "High Maintenance Costs",
+                            "text": "High maintenance costs from aging technologies and siloed architecture."
+                        }
+                    ]
+                }
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented an intelligent routing platform that automates the entire lead lifecycle—from conversational data capture to algorithmic partner matching—ensuring small businesses get the right capital at the right time.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva designed and executed a robust modernization strategy to create a scalable, secure, and agile financial platform using Microsoft's ecosystem.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Workflow Automation & UI Modernization",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Centralized Integration Layer",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Event-Driven Architecture with Azure",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Real-Time Dashboards & Reporting",
+                            "desc": ""
+                        }
+                    ]
+                }
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The solution integrated front-end ease with back-office intelligence:</p>
-                    <ul>
-                        <li><strong>Conversational Interface:</strong> captures applicant data and evaluates it in real-time.</li>
-                        <li><strong>Algorithmic Risk Engine:</strong> Analyzes business profiles and location for instant eligibility determination.</li>
-                        <li><strong>Intelligent Routing:</strong> Automatically matches applicants with the most suitable CDFI partner.</li>
-                        <li><strong>Secure Data Transfer:</strong> Replaced email-based sharing with encrypted system-to-system integrations.</li>
-                    </ul>
-                `
+                "id": "impact",
+                "title": "Business Impact",
+                "type": "text",
+                "content": "<p>Hyniva's solution replaced outdated workflows with an agile, future-ready platform, empowering both internal teams and customers.</p>"
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The platform transformed small business lending operations:</p>
-                    <ul>
-                        <li><strong>Operational Efficiency at Scale:</strong> Eliminated manual vetting and human error.</li>
-                        <li><strong>Reduced Cost per Lead:</strong> Labor-intensive workflows replaced by intelligent automation.</li>
-                        <li><strong>Improved Conversion:</strong> Instant routing enabled partners to engage prospects faster.</li>
-                        <li><strong>Future-Ready:</strong> Architecture supports growing lead volumes without increasing overhead.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The organization plans to further refine its risk models and expand its network of CDFI partners, driving deeper financial inclusion for underserved small businesses.</p>
-                `
-            }
-        ]
-    },
-    "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
-        slug: "transforming-insurance-claims-operations-with-a-scalable-digital-platform",
-        title: "Modernizing Insurance Claims Management",
-        subtitle: "Streamlining the end-to-end claims lifecycle with automated financial workflows.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>Insurance agencies managing claims at scale often struggle with fragmented systems, manual payment processing, and limited visibility into financial operations. Performance bottlenecks and security gaps in data handling were hindering operational growth and impacting user experience.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva delivered a scalable digital platform that automates core workflows across the claims lifecycle—from assignment to settlement—ensuring accuracy, speed, and security in every transaction.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We took an engineering-led approach to build a modern foundation:</p>
-                    <ul>
-                        <li><strong>Financial Automation:</strong> Streamlined invoicing, payments, and adjuster commission calculations.</li>
-                        <li><strong>Secure Payment Infrastructure:</strong> Integrated ACH payments and strengthened security protocols.</li>
-                        <li><strong>Performance Optimization:</strong> Re-engineered the database architecture to handle high transaction volumes.</li>
-                        <li><strong>Operational Intelligence:</strong> Introduced configurable reporting for real-time claims and financial tracking.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The modernization delivered measurable business value:</p>
-                    <ul>
-                        <li><strong>80% reduction in manual work:</strong> Automation eliminated repetitive tasks.</li>
-                        <li><strong>Faster turnaround time:</strong> Streamlined workflows accelerated the claims lifecycle.</li>
-                        <li><strong>Accurate Financial Management:</strong> Ensured data precision across invoicing and payments.</li>
-                        <li><strong>Improved Decision-Making:</strong> Operational intelligence provided clear visibility into claims health.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>Future enhancements will focus on AI-driven claims insights and predictive analytics, enabling agencies to further optimize settlements and detect fraud earlier in the process.</p>
-                `
-            }
-        ]
-    },
-    "modernizing-case-management-for-a-community-healthcare-provider-stop": {
-        slug: "modernizing-case-management-for-a-community-healthcare-provider-stop",
-        title: "Modernizing Healthcare Case Management",
-        subtitle: "Reimagining legacy systems with a cloud-native, API-first architecture.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A community-focused healthcare provider's STOP program relied on a heavily customized Microsoft Access system. The system had become an operational bottleneck: difficult to scale, desktop-bound, and buried in complex workflows. Fragmented user experiences and tightly coupled logic made maintenance nearly impossible.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva reimagined the system's architecture, transforming it from a rigid desktop tool into a cloud-native, API-first platform. By reverse-engineering the legacy application, we delivered a flexible, future-ready solution using ReactJS.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our modernization strategy focused on decoupling logic and enhancing usability:</p>
-                    <ul>
-                        <li><strong>API-First Architecture:</strong> Extructured hidden business rules into scalable APIs.</li>
-                        <li><strong>Modern Web Interface:</strong> Replaced cluttered screens with a clean, responsive ReactJS frontend.</li>
-                        <li><strong>Participant Management:</strong> Automated rules for age validation, SSN formatting, and compliance checks.</li>
-                        <li><strong>Logistics Optimization:</strong> Rebuilt the transportation module to handle scheduling and cost calculations (mileage, fees).</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transformation delivered immediate operational improvements:</p>
-                    <ul>
-                        <li><strong>Standardized Workflows:</strong> Eliminated data entry inconsistencies.</li>
-                        <li><strong>Anywhere Accessibility:</strong> Enabled real-time access for managers across locations and devices.</li>
-                        <li><strong>Increased Efficiency:</strong> Reduced time spent navigating complex forms.</li>
-                        <li><strong>Rapid Modernization:</strong> Delivered a complete transformation without disrupting ongoing healthcare services.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>Future enhancements will focus on deeper analytics and advanced reporting, providing case managers with real-time insights to further optimize participant outcomes on the new cloud foundation.</p>
-                `
-            }
-        ]
-    },
-    "empowering-enterprises-through-microsoft-powered-modernization": {
-        slug: "empowering-enterprises-through-microsoft-powered-modernization",
-        title: "Enterprise Modernization with Microsoft",
-        subtitle: "Scaling multi-domain enterprise applications with cloud-first Dynamics 365 strategies.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading IT Solutions provider needed to modernize its enterprise applications supporting Municipal Administration and Smart City programs. They relied on a legacy Dynamics CRM 2015 on-premises environment that was difficult to scale and lacked modern features like smart notes and document tracking.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva deployed a specialized team of Power Platform and Dynamics CRM experts to implement a cloud-first modernization strategy. We transitioned the client to Dynamics 365, ensuring minimal disruption and maximum scalability.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>The modernization combined platform migration with custom UI development:</p>
-                    <ul>
-                        <li><strong>Power Platform Integration:</strong> Built Model-Driven and Canvas Apps to revamp user interfaces.</li>
-                        <li><strong>Custom Customization:</strong> Developed bespoke Plugins and Workflows to extend platform capabilities.</li>
-                        <li><strong>Interactive UI:</strong> Used Power Apps Component Framework (PCF) with React and TypeScript for rich controls.</li>
-                        <li><strong>Phased Migration:</strong> Carried out a secure transfer from on-premises to the cloud with full data integrity.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The strategic modernization future-proofed the client's operations:</p>
-                    <ul>
-                        <li><strong>Improved Scalability:</strong> Cloud architecture now supports increasing service demands.</li>
-                        <li><strong>Enhanced UX:</strong> Modern, responsive designs improved usability across all departments.</li>
-                        <li><strong>Operational Efficiency:</strong> Automation reduced manual efforts and accelerated turnaround times.</li>
-                        <li><strong>Secure Migration:</strong> Business-critical data was migrated with zero downtime.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>With the new Dynamics 365 foundation, the client is exploring deeper AI integration for predictive service delivery and expanding their Smart City solution portfolio.</p>
-                `
-            }
-        ]
-    },
-    "aws-enabled-efficiency-transforming-document-management": {
-        slug: "aws-enabled-efficiency-transforming-document-management",
-        title: "AWS Enabled Efficiency",
-        subtitle: "Migrating 8 million+ documents to a cost-effective, high-performance AWS ecosystem.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A dynamic investment management firm relied on Alfresco for document management, incurring staggering annual costs. With over 8 million documents, the need for a cost-effective, SEC17a-4 compliant alternative was imperative to relieve financial strain and improve performance.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva crafted a tailored document management system on AWS, leveraging serverless computing and scalable storage. The solution not only saved millions in fees but also dramatically improved responsiveness.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our AWS-native solution prioritized compliance and speed:</p>
-                    <ul>
-                        <li><strong>Amazon S3:</strong> Deployed for secure, scalable storage fulfilling SEC regulatory requirements.</li>
-                        <li><strong>AWS Lambda:</strong> Implemented serverless computing for on-demand processing with zero server management.</li>
-                        <li><strong>DynamoDB:</strong> Facilitated lightning-fast queries and metadata storage.</li>
-                        <li><strong>API Gateway:</strong> Streamlined digital communication for seamless data exchange.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transformation delivered a new echelon of efficiency:</p>
-                    <ul>
-                        <li><strong>Significant Cost Savings:</strong> Eliminated exorbitant annual legacy software fees.</li>
-                        <li><strong>5x Faster Performance:</strong> API calls and queries execute dramatically faster than before.</li>
-                        <li><strong>Enhanced User Experience:</strong> Documents are instantly available via multiple intuitive filters.</li>
-                        <li><strong>Strategic Innovation:</strong> Catapulted the firm's infrastructure into a modern, compliant cloud state.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The firm is now well-positioned to leverage advanced AWS analytics services to gain deeper insights from their 8 million+ documents, further enhancing strategic decision-making.</p>
-                `
-            }
-        ]
-    },
-    "hyniva-campaign-management": {
-        slug: "hyniva-campaign-management",
-        title: "Modernizing IT Campaign Management",
-        subtitle: "Bespoke .NET application with automated scoring for scalable media growth.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>An Information Technology Solutions company needed to build a modern media campaign management application from the ground up. The goal was to efficiently capture campaigns, handle complex file uploads, and implement a built-in scoring model based on predefined business logic.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva developed a bespoke application on the latest .NET Framework, managing the entire lifecycle from functional design to handover. The solution automates complex calculations and ensures high-performance data management.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We combined rigorous development practices with custom logic integration:</p>
-                    <ul>
-                        <li><strong>Automated Scoring Model:</strong> Integrated business logic to automatically calculate campaign scores.</li>
-                        <li><strong>Optimized Database:</strong> Built robust architecture with high-performance stored procedures.</li>
-                        <li><strong>Process Adherence:</strong> Used Team Foundation Server (TFS) for precise code tracking and quality metrics.</li>
-                        <li><strong>User Enablement:</strong> Delivered comprehensive online help and end-user documentation for smooth onboarding.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The custom-fit solution precisely matched the client's vision:</p>
-                    <ul>
-                        <li><strong>Efficiency Gains:</strong> Automated scoring saved significant time and improved calculation accuracy.</li>
-                        <li><strong>Scalable Foundation:</strong> Optimized data management supports growing campaign volumes.</li>
-                        <li><strong>Quality Assurance:</strong> Rigorous adherence to best practices reduced long-term maintenance costs.</li>
-                        <li><strong>Better Support:</strong> Online help resources empowered users for immediate day-to-day productivity.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The scalable architecture is now ready for future feature expansion, with plans to integrate real-time campaign performance analytics and deeper CRM connectivity.</p>
-                `
-            }
-        ]
-    },
-    "hyniva-leverages-aws-half-a-million-dollars-savings-annually": {
-        slug: "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
-        title: "AWS Solution Saves $500K Annually",
-        subtitle: "Slashing operational costs by 5x through cloud-native document management.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A global investment firm was incurring high annual costs due to a legacy platform managing ~125 million customer documents. The overly complex, multi-platform design inhibited efficient enhancements and made supporting evolving business requirements difficult. They needed a leaner, more cost-effective solution.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva designed a creative AWS-based document management system that improved performance by nearly 5x. By leveraging Hyniva’s deep cloud expertise, we built a solution that is simpler to support, highly scalable, and drastically more efficient.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We implemented a tailored serverless architecture on AWS:</p>
-                    <ul>
-                        <li><strong>Amazon S3:</strong> Scalable storage fulfilling SEC17a-4 compliance requirements for investment management.</li>
-                        <li><strong>AWS Lambda:</strong> Serverless computing for on-demand processing and event-triggered uploads.</li>
-                        <li><strong>DynamoDB:</strong> High-performance NoSQL database for metadata and lightning-fast query execution.</li>
-                        <li><strong>Serverless EMR:</strong> Batch processing for metadata uploads from extensive Input CSV files.</li>
-                        <li><strong>CloudFormation:</strong> Infrastructure as Code (IaC) for consistent and automated environment provisioning.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transition delivered remarkable business and technical results:</p>
-                    <ul>
-                        <li><strong>$500,000+ Annual Savings:</strong> Drastically cut operational and software licensing costs.</li>
-                        <li><strong>5x Performance Boost:</strong> Instant document viewing on web and mobile apps.</li>
-                        <li><strong>Rapid Migration:</strong> 125 million documents migrated securely in just 10 hours.</li>
-                        <li><strong>Zero Downtime:</strong> Enhanced system availability and customer satisfaction through faster batch processing.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The firm has set a new industry benchmark for speed and efficiency, and is now poised to leverage advanced AWS analytics to gain deeper strategic insights from their massive document repository.</p>
-                `
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>With Hyniva's support, the banking institution transitioned from legacy-dependent operations to a modern, agile financial services platform.</p>\n        <p>The result: better customer engagement, faster service delivery, and a scalable foundation for launching new banking products.</p>"
             }
         ]
     },
     "hynivas-customer-360-insights-solution": {
-        slug: "hynivas-customer-360-insights-solution",
-        title: "Customer 360 Insights Solution",
-        subtitle: "Unifying fragmented bank data into a real-time intelligence layer.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "hynivas-customer-360-insights-solution",
+        "eyebrow": "",
+        "title": "Turning Enterprise Data into a<br>\n      <em>Strategic Intelligence Engine</em>",
+        "summary": "Built a unified AWS data platform that integrates multiple banking systems to deliver\n      real-time Customer 360 insights and a single source of truth.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading bank in Guam faced severe data fragmentation across isolated systems (FIS, credit card platforms, sales). This limited visibility into customer relationships, delayed reporting, and hindered business teams from making data-driven decisions in lending and marketing.</p>
-                `
+                "icon": "🔭",
+                "value": "360°",
+                "label": "Customer View",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented a real-time, cloud-native data platform to unify disparate sources into a single foundation. We built an automated pipeline using AWS serverless technologies to deliver a comprehensive Customer 360 view.</p>
-                `
+                "icon": "⚙️",
+                "value": "100%",
+                "label": "Automated ETL",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our solution focused on end-to-end data orchestration:</p>
-                    <ul>
-                        <li><strong>AWS Glue & PySpark:</strong> Large-scale data processing and transformation for core banking data.</li>
-                        <li><strong>AWS Lambda:</strong> Orchestration and triggering of automated data workflows.</li>
-                        <li><strong>System Integration:</strong> Seamless connectivity between mainframe systems, flat files, and modern web platforms.</li>
-                        <li><strong>Data Warehouse:</strong> Centralized repository capturing complete customer lifecycle insights.</li>
-                    </ul>
-                `
+                "icon": "🔗",
+                "value": "Multi-Source",
+                "label": "Data Integration",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The new intelligence layer transformed bank operations:</p>
-                    <ul>
-                        <li><strong>Unified Customer View:</strong> Consolidated intelligence enabling smarter decisions across all business units.</li>
-                        <li><strong>60% Less Manual Effort:</strong> Automated pipelines replaced tedious manual extraction and reconciliation.</li>
-                        <li><strong>70% Faster Reporting:</strong> Near real-time data availability accelerated business responsiveness.</li>
-                        <li><strong>Improved Personalization:</strong> Deeper visibility enabled targeted cross-sell offerings and better engagement.</li>
-                    </ul>
-                `
+                "icon": "🎯",
+                "value": "Single",
+                "label": "Source of Truth",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A leading bank in Guam operated across multiple core systems — including FIS, credit card platforms, and sales systems — each with isolated data environments.</p>\n        <p>This fragmentation limited visibility into customer relationships, delayed reporting, and made it difficult to generate actionable insights. Business teams lacked a unified view of customer behavior, impacting decision-making across lending, marketing, and service functions.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>With a modern foundation in place, the bank is now positioned to unlock the next phase of innovation, including AI-driven predictive analytics and real-time customer decisioning.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Hyniva designed and implemented a real-time, cloud-native data platform to unify disparate data sources into a single, scalable foundation.</p>\n        <p>The engagement began with a comprehensive assessment of existing systems and data flows to define a long-term data strategy.</p>\n        <p>Leveraging AWS serverless technologies, Hyniva built an automated data pipeline architecture:</p>"
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": ""
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The bank evolved from operating on fragmented data to running on a unified, real-time intelligence layer.</p>\n        <p>Data is now embedded into everyday decision-making — enabling faster execution, improved customer engagement, and a stronger foundation for digital growth.</p>"
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>With a modern data platform in place, the bank is positioned to unlock the next phase of innovation — including AI-driven insights, predictive analytics, and real-time customer decisioning.</p>\n        <p>What started as a data consolidation initiative is now a catalyst for continuous transformation.</p>"
             }
         ]
     },
-    "ai-hynivas-innovative-solutions": {
-        slug: "ai-hynivas-innovative-solutions",
-        title: "AI-Driven Customer Service Transformation",
-        subtitle: "Revolutionizing support with NLP-powered chatbots and 24/7 instant response.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+    "hyniva-leverages-aws-half-a-million-dollars-savings-annually": {
+        "slug": "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+        "eyebrow": "",
+        "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
+        "summary": "Replaced a legacy document management system with a serverless AWS architecture,\n      significantly reducing costs while improving performance and scalability.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A rapidly growing financial organization was unable to meet the high volume of support requests over phone and chat. Desk staff were overwhelmed, leading to increased wait times and significant customer frustration during critical processes like loan applications.</p>
-                `
+                "icon": "💰",
+                "value": "$500K+",
+                "label": "Annual Savings",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented AI-driven chatbots powered by Natural Language Processing (NLP). Integrated into the customer portal, these bots provide instant, human-like responses to routine queries, freeing up staff for complex problem-solving.</p>
-                `
+                "icon": "⚡",
+                "value": "5×",
+                "label": "Performance Gain",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We focused on creating an efficient, human-centric automated channel:</p>
-                    <ul>
-                        <li><strong>NLP Integration:</strong> Enabled machines to interpret real-time customer intent and queries.</li>
-                        <li><strong>24/7 Accessibility:</strong> Provided instant support in the customer portal, regardless of staff availability.</li>
-                        <li><strong>Machine Learning:</strong> Implemented feedback loops for the chatbot to continually improve performance over time.</li>
-                        <li><strong>Process Optimization:</strong> Automated common transactions and routine questions to accelerate loan processing.</li>
-                    </ul>
-                `
+                "icon": "🚀",
+                "value": "10 Hours",
+                "label": "Rapid Migration",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The AI collaboration transformed customer engagement:</p>
-                    <ul>
-                        <li><strong>Instant Support:</strong> Provided 24/7 resolution for common inquiries, reducing call center volume.</li>
-                        <li><strong>Drastic Processing Reduction:</strong> Loan application times were significantly cut through automated guidance.</li>
-                        <li><strong>Staff Efficiency:</strong> Back-office teams now focus exclusively on complex, high-value cases.</li>
-                        <li><strong>Enhanced Satisfaction:</strong> Eliminated wait-time frustration, driving overall operational profitability.</li>
-                    </ul>
-                `
+                "icon": "☁️",
+                "value": "Serverless",
+                "label": "Scalable Architecture",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Hyniva's client – a global investment firm – was incurring high annual costs due to their reliance on a legacy platform for managing ~125 million customer documents. The overly complex document management platform posed significant technical challenges due to its multi-platform design and inhibited the support team from making efficient enhancements to meet the client's evolving requirements.</p>\n        <p>They needed a leaner, more cost-effective solution and turned to Hyniva for its expertise in AWS.</p>"
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>This partnership serves as a testament to the potential of AI in revolutionizing customer engagement. Hyniva is expanding these NLP models to support multi-lingual support and deeper predictive sentiment analysis.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva quickly designed a creative solution to meet their client's document management goals. By harnessing Hyniva's deep expertise in AWS capabilities, the team built a solution that has improved performance by nearly 5x which dramatically improved customer experience. Instead of waiting for almost a minute, customers are now instantly viewing their documents on the web and on the mobile app. The new document management platform is much more efficient to run, simpler to support, and highly scalable as the client grows their business. Migration is always a risk for any platform replacement, but the Hyniva team carefully managed this and migrated the extensive document repository of ~125 million documents in only 10 hours.</p>\n        <p>Hyniva crafted a tailored document management system entirely on AWS, and the design is summarized below:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Amazon S3",
+                            "desc": "A scalable storage service deployed to securely store large volumes of documents, handle batch processing, and communicate with API-based events such as upload or download. S3 also fulfilled SEC17a-4 compliance requirements which is critical for any investment management business."
+                        },
+                        {
+                            "num": "2",
+                            "title": "AWS Lambda",
+                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management. Additionally, Lambda handled events triggered from S3 events for batch/upload processes."
+                        },
+                        {
+                            "num": "3",
+                            "title": "DynamoDB",
+                            "desc": "A high-performance NoSQL database that facilitated lightning-fast query execution and stored document metadata and status-related data."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Amazon API Gateway",
+                            "desc": "Streamlined API communication efforts within the system, ensuring seamless data exchange."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Amazon Serverless EMR",
+                            "desc": "Enabled batch uploads of metadata into the global firm's document metadata store. This component takes an input CSV file containing metadata and notification data, processes it in batch to upload metadata, and publishes notifications for successful updates."
+                        },
+                        {
+                            "num": "6",
+                            "title": "AWS CloudFormation",
+                            "desc": "Used to define and provision the infrastructure of the document management system by deploying infrastructure as code."
+                        },
+                        {
+                            "num": "7",
+                            "title": "AWS CloudWatch",
+                            "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "text",
+                "content": "<p>The new unified document management platform drastically cut down the costs, resulting in annual savings of over $500,000. API calls and database queries were executed at a remarkable speed – nearly 5 times faster than the previous platform. Batch processing times that once took hours were reduced to a few minutes. This radical improvement meant that documents, accessible via multiple interfaces, were not only easily queried but also instantly available, enhancing overall business productivity and customer experience.</p>"
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>Hyniva's innovative use of AWS technology for the document management platform not only helped the global investment management firm save over half a million dollars annually, but also significantly enhanced the speed and efficiency of their document management system. The improved user experience and system performance set a new standard in the industry. By leveraging their AWS expertise, Hyniva quickly delivered efficiency to its client.</p>\n        <p>If you're ready to explore how your business can harness the power of AWS to achieve your goals, Hyniva is ready to be your partner in achieving excellence. Let's discuss how we can partner to drive your success!</p>"
             }
         ]
     },
-    "blue-green-deployment-boosting-efficiency-resilience": {
-        slug: "blue-green-deployment-boosting-efficiency-resilience",
-        title: "Boosting Resilience with Blue-Green Deployment",
-        subtitle: "Achieving 95% reduction in downtime for mission-critical trading platforms.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+    "hyniva-campaign-management": {
+        "slug": "hyniva-campaign-management",
+        "eyebrow": "",
+        "title": "Data-Driven Campaign Management<br>\n      <em>for Enterprise Marketing</em>",
+        "summary": "Built a custom campaign management platform with automated scoring and full lifecycle\n      tracking for scalable marketing operations.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A prominent investment firm faced challenges with rigid infrastructure that hindered disaster recovery and smooth rollbacks. For a 24/7 trading environment, frequent maintenance windows and service disruptions were unacceptable risks to customer trust and loyalty.</p>
-                `
+                "icon": "🏗️",
+                "value": "100%",
+                "label": "Custom Platform",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva implemented a Blue-Green Deployment strategy on AWS. By maintaining two identical production environments, we enabled seamless updates and near-zero downtime for end users, even during critical release periods.</p>
-                `
+                "icon": "⚙️",
+                "value": "Automated",
+                "label": "Campaign Scoring",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our release management strategy focused on stability and speed:</p>
-                    <ul>
-                        <li><strong>Dual Environment Sync:</strong> Blue handles live traffic while Green acts as the staging ground for new features.</li>
-                        <li><strong>Automated Traffic Switch:</strong> Used AWS Lambda, CloudFront, and Global Accelerator to switch traffic in under a minute.</li>
-                        <li><strong>Rigorous QA:</strong> Green environment allows for full automation and performance testing without affecting live users.</li>
-                        <li><strong>Safe Rollbacks:</strong> Traffic can be instantly switched back to the stable Blue environment if any issues are detected.</li>
-                    </ul>
-                `
+                "icon": "🔄",
+                "value": "Full",
+                "label": "Lifecycle Coverage",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The strategy transformed the firm's operational resilience:</p>
-                    <ul>
-                        <li><strong>95% Less Deployment Downtime:</strong> Achieved near-zero disruption for active trading sessions.</li>
-                        <li><strong>70% Faster Deployment:</strong> Streamlined processes through GitHub Actions and automated approvals.</li>
-                        <li><strong>Minimized Risk:</strong> Extensive pre-deployment testing in a live-identical environment.</li>
-                        <li><strong>Strengthened Trust:</strong> Uninterrupted 24/7 access bolstered the firm’s reliability and customer loyalty.</li>
-                    </ul>
-                `
+                "icon": "🚫",
+                "value": "Zero",
+                "label": "Manual Tracking",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>An Information Technology Solutions company needed to build a modern media campaign management application from the ground up. Their goal was to capture and manage advertising campaigns efficiently while handling multiple types of campaign-related file uploads. A crucial requirement was to design and implement a built-in scoring model capable of calculating scores for campaigns based on predefined business logic.</p>\n        <p>Additionally, the project required:</p>",
+                    "items": [
+                        {
+                            "icon": "🗄️",
+                            "title": "Database Design",
+                            "text": "Comprehensive database design, including creation of database scripts and stored procedures."
+                        },
+                        {
+                            "icon": "📖",
+                            "title": "End-User Documentation",
+                            "text": "Development of clear, updated end-user manuals and online help resources."
+                        },
+                        {
+                            "icon": "✅",
+                            "title": "Quality & Traceability",
+                            "text": "Adherence to strict development practices for quality and traceability across the software lifecycle."
+                        }
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The success of this implementation has cemented Hyniva as a trusted AWS Partner for mission-critical infrastructure. We are now expanding this model to include automated regional failover for global disaster recovery.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Hyniva developed a bespoke application on the latest .NET Framework, tailored to the client's specific campaign management needs. Our team managed the entire lifecycle, delivering:</p>"
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": ""
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The new campaign management platform empowered the client to manage media campaigns more efficiently, with streamlined processes, real-time scoring insights, and enhanced user support. Hyniva's solution delivered a high-quality, scalable application that aligned perfectly with the client's vision and set the foundation for future feature expansion and business growth.</p>"
             }
         ]
     },
-    "member-experience-transformation-at-a-leading-credit-union": {
-        slug: "member-experience-transformation-at-a-leading-credit-union",
-        title: "Member Experience Transformation at a Leading Credit Union",
-        subtitle: "Boosting consumer lending with a unified, cross-channel digital experience.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+    "modernizing-case-management-for-a-community-healthcare-provider-stop": {
+        "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
+        "eyebrow": "",
+        "title": "Modernizing Case Management for a Community<br>\n      <em>Healthcare Provider</em>",
+        "summary": "Streamlined case intake, tracking, and resolution workflows — enabling real-time visibility, improved coordination across care teams, and more efficient service delivery for community healthcare programs.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading, award-winning Credit Union with over half a million members aimed to boost consumer lending across auto loans, personal loans, and credit cards. However, they faced fragmented digital interfaces, high application abandonment rates, and a disjointed experience across mobile, web, and branch channels. Their existing Salesforce CRM was not integrated with the member-facing digital experience.</p>
-                `
+                "icon": "🗂️",
+                "value": "100%",
+                "label": "Digital Case Management",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva deployed FinXServe, a Salesforce-native solution designed for rapid delivery of digital lending experiences. We unified the application process for all loan types, ensuring a consistent and user-friendly experience across all digital and physical touchpoints.</p>
-                `
+                "icon": "⚡",
+                "value": "Real-Time",
+                "label": "Data Visibility",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We leveraged a configuration-driven approach to minimize risk and time-to-market:</p>
-                    <ul>
-                        <li><strong>Salesforce Integration:</strong> Tightly coupled FinXServe with Financial Services Cloud and Experience Cloud.</li>
-                        <li><strong>Omni-Channel Continuity:</strong> Members can start an application on one channel and resume on any other.</li>
-                        <li><strong>Core Banking Sync:</strong> Real-time data synchronization with the modern core banking platform.</li>
-                        <li><strong>Staff Empowerment:</strong> Provided frontline staff with the same digital tools to assist members efficiently.</li>
-                    </ul>
-                `
+                "icon": "📊",
+                "value": "50%",
+                "label": "Faster Reporting",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transformation delivered rapid results for both members and the institution:</p>
-                    <ul>
-                        <li><strong>< 2 Minute Loan Offers:</strong> Drastically reduced from the previous turnaround of several hours.</li>
-                        <li><strong>Lower Abandonment:</strong> A streamlined, intuitive UI significantly boosted completion rates.</li>
-                        <li><strong>Expanded Reach:</strong> Increased engagement from both existing members and non-members.</li>
-                        <li><strong>Higher ROI:</strong> Faster deployment and measurable gains strengthened the Salesforce investment.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>With a modern lending foundation in place, the Credit Union is now poised to expand into automated mortgage processing and AI-driven personalized financial wellness tools.</p>
-                `
+                "icon": "✅",
+                "value": "Zero",
+                "label": "Manual Dependencies",
+                "sub": ""
             }
-        ]
-    },
-    "modernizing-a-legacy-platform": {
-        slug: "modernizing-a-legacy-platform",
-        title: "Modernizing a Legacy CRM for Tresl",
-        subtitle: "Overhauling a rigid CRM into a scalable, high-performance lending ecosystem.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        ],
+        "sections": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>Tresl’s legacy CRM platform was struggling to keep pace with rapid organizational growth, creating efficiency bottlenecks. The system had a rigid UI, lacked self-service features, and was incompatible with modern 3rd-party APIs. A full migration was required within a strict six-month window.</p>
-                `
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>A leading community-focused healthcare and social services provider's STOP program (Specialized Treatment for Optimized Programming) relied on a heavily customized Microsoft Access system to manage critical participant data, incident reporting, and logistics.</p>\n        <p>Over time, the system became a major operational bottleneck — difficult to scale, hard to navigate, and nearly impossible to maintain.</p>\n        <p>Key challenges included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Deeply complex workflows buried within nested forms and tabs",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Tightly coupled business logic, leading to inconsistent data entry",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Limited accessibility, with a desktop-bound system restricting remote usage",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Fragmented user experience impacting productivity and accuracy",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Urgent modernization needs without disrupting ongoing operations",
+                            "desc": ""
+                        }
+                    ]
+                }
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva undertook a complete overhaul of Tresl’s CRM platform. Using our Digital Factory’s agile methodology, we delivered a fully functional, cloud-native solution that aligned perfectly with Tresl’s business goals and timeline.</p>
-                `
+                "id": "approach",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>We didn't just migrate the system — we reimagined its architecture, usability, and scalability.</p>\n        <p>By reverse-engineering the legacy application and introducing a cloud-native, API-first approach, we transformed a rigid system into a flexible, future-ready platform.</p>\n        <p>Our approach focused on:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "API-First Architecture",
+                            "desc": "Decoupled business logic through a secure API-first architecture, enabling flexibility and future integrations without system lock-in."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Modern Frontend Rebuild",
+                            "desc": "Rebuilt the frontend with a modern, responsive ReactJS framework — replacing a rigid desktop application with a clean, accessible web interface."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Workflow Simplification",
+                            "desc": "Simplified complex, multi-tabbed workflows into intuitive user experiences that improve speed and accuracy across high-frequency operational tasks."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Rapid, Non-Disruptive Delivery",
+                            "desc": "Ensured rapid delivery with minimal disruption to daily operations, completing a full transformation within an aggressive project timeline."
+                        }
+                    ]
+                }
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We focused on speed and modern user experience:</p>
-                    <ul>
-                        <li><strong>AngularJS Frontend:</strong> Created a lightweight, intuitive UI for Customer Service Representatives.</li>
-                        <li><strong>Concurrent Development:</strong> Agile sprints allowed for simultaneous feature building and testing.</li>
-                        <li><strong>API-First Design:</strong> Ensured the platform could easily interface with evolving fintech technologies.</li>
-                        <li><strong>Streamlined Workflows:</strong> Empowered staff to track leads and process applications with ease.</li>
-                    </ul>
-                `
+                "id": "solutions",
+                "title": "Key Solutions Delivered",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Across five core solution areas, we delivered a complete digital transformation of the STOP program's operational infrastructure:</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Extracted and restructured embedded business rules into scalable APIs",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Decoupled frontend and backend for flexibility and future integrations",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Built a secure, cloud-native foundation for long-term scalability",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Simplified complex workflows into logical, user-friendly components",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Designed responsive interfaces for multi-device accessibility",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved navigation and usability for high-frequency operational tasks",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Automated rules for age validation, SSN formatting, and compliance checks",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Centralized tracking of sensitive participant data and legal statuses",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Eliminated redundant workflows to ensure data consistency and accuracy",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Automated tracking of staff time, mileage, and fees",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Enabled real-time visibility into departure and arrival schedules",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved planning efficiency for field operations",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Simplified logging of incidents, law enforcement interactions, and case notes",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Enabled faster data entry with structured and guided inputs",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved accuracy and completeness of critical reporting data",
+                            "desc": ""
+                        }
+                    ]
+                }
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The modernization transformed Tresl's operational capacity:</p>
-                    <ul>
-                        <li><strong>35–40% Faster Processing:</strong> Workflow optimization eliminated legacy system bottlenecks.</li>
-                        <li><strong>20% More Applications:</strong> Improved digital experience simplified the submission process.</li>
-                        <li><strong>18% Higher Approval Rates:</strong> Enhanced prequalification and screening improved application quality.</li>
-                        <li><strong>Omni-Channel Consistency:</strong> Unified workflows across web and internal applications.</li>
-                    </ul>
-                `
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The transformation delivered immediate and measurable improvements:</p>",
+                    "items": [
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Standardized Workflows & Data Accuracy</strong> — Eliminated inconsistencies by enforcing a single, structured data entry process",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Anywhere Accessibility</strong> — Enabled real-time access for case managers across locations and devices",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Operational Efficiency</strong> — Reduced time spent navigating complex forms and manual processes",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Future-Ready Platform</strong> — Established a scalable architecture ready for enhancements and integrations",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Rapid Modernization</strong> — Delivered a complete transformation within an aggressive timeline without disrupting operations"
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The new platform provides a future-ready foundation for Tresl to continue expanding its digital lending capabilities and integrate advanced AI for real-time decisioning.</p>
-                `
-            }
-        ]
-    },
-    "scaling-a-multi-portal-education-platform-with-zero-defect-delivery": {
-        slug: "scaling-a-multi-portal-education-platform-with-zero-defect-delivery",
-        title: "Scaling a Multi-Portal Education Platform",
-        subtitle: "Engineering a complex ecosystem for students, parents, and administrators with zero defects.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
-            {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A leading educational institution needed a multi-portal ecosystem for Administrators, Students, and Parents. The complexity involved managing highly regulated SPED workflows, real-time academic tracking, and dynamic tutor scheduling without UI fragmentation or performance issues.</p>
-                `
-            },
-            {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva took ownership of the frontend architecture and product experience. We defined a modular ReactJS-based architecture and a custom design system, ensuring long-term scalability and a consistent user experience from day one.</p>
-                `
-            },
-            {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our approach focused on architectural excellence and quality:</p>
-                    <ul>
-                        <li><strong>Modular Frontend:</strong> Used ReactJS and MUI for a scalable, maintainable codebase.</li>
-                        <li><strong>LMS Integration:</strong> Real-time data visibility with platforms like Canvas and Edgenuity.</li>
-                        <li><strong>SPED Workflow:</strong> Engineered a secure, compliant system for complex educational notes and approvals.</li>
-                        <li><strong>Dynamic Scheduling:</strong> Built an intelligent engine for primary and backup tutor assignments.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The engineering-led approach translated into measurable business value:</p>
-                    <ul>
-                        <li><strong>Zero-Defect Delivery:</strong> Maintained a flawless record with no client complaints.</li>
-                        <li><strong>Reduced Operational Overhead:</strong> Automated workflows cut manual administrative effort significantly.</li>
-                        <li><strong>Seamless Scalability:</strong> Expanded from basic features to a full-scale ecosystem without rework.</li>
-                        <li><strong>Improved Productivity:</strong> Intuitive UI and intelligent dashboards improved end-user efficiency.</li>
-                    </ul>
-                `
-            },
-            {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The platform is now evolving toward a data-driven ecosystem, with planned investments in AI-driven student insights and predictive performance tracking.</p>
-                `
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>With a modern, cloud-based platform in place, the healthcare service provider is now equipped to continuously evolve its STOP program.</p>\n        <p>Future enhancements will focus on:</p>",
+                    "items": [
+                        "Deeper analytics capabilities",
+                        "Improved reporting workflows",
+                        "Further workflow automation",
+                        "Scalable platform integrations"
+                    ]
+                }
             }
         ]
     },
     "scaling-service-operations-with-salesforce": {
-        slug: "scaling-service-operations-with-salesforce",
-        title: "Scaling Service Operations with Salesforce",
-        subtitle: "Transforming customer support into a proactive, customer-first experience.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "scaling-service-operations-with-salesforce",
+        "eyebrow": "",
+        "title": "Intelligent Service Operations<br>\n      <em>on Salesforce</em>",
+        "summary": "Implemented Salesforce Service Cloud to centralize customer support, automate workflows,\n      and improve case resolution speed across multiple service channels.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>For a growing financial services firm, customer service had become a bottleneck. Agents were overwhelmed with manual case handling, leading to missed SLAs and fragmented customer experiences across phone, email, and digital channels. Leadership lacked real-time visibility into performance.</p>
-                `
+                "icon": "⚙️",
+                "value": "50%",
+                "label": "Less Manual Effort",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva reimagined the client’s service model on Salesforce as a single source of truth. By fusing customer data, omni-channel service, and intelligent workflows, we turned a fragmented system into a proactive, customer-first operation.</p>
-                `
+                "icon": "⚡",
+                "value": "30%",
+                "label": "Faster Resolution",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>We built a real-time automation engine within Salesforce:</p>
-                    <ul>
-                        <li><strong>Unified 360° View:</strong> Consolidated ERP, IVR, and portal data for instant agent visibility.</li>
-                        <li><strong>Smart Routing:</strong> Automated assignment based on priority, skill, and workload.</li>
-                        <li><strong>Lifecycle Orchestration:</strong> Automated status updates and escalations freed agents from admin tasks.</li>
-                        <li><strong>Proactive Monitoring:</strong> Real-time flagging of abandoned sessions for immediate follow-up.</li>
-                    </ul>
-                `
+                "icon": "🔁",
+                "value": "25%",
+                "label": "Fewer Repeat Queries",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The transformation was immediate and measurable:</p>
-                    <ul>
-                        <li><strong>50% Less Manual Effort:</strong> Agents now focus on problem-solving instead of administration.</li>
-                        <li><strong>30% Faster Turnaround:</strong> Significant improvement in response times and customer trust.</li>
-                        <li><strong>25% Drop in Repeat Queries:</strong> Knowledge and self-service resolved issues upfront.</li>
-                        <li><strong>Clarity for Leadership:</strong> Role-based dashboards gave live metrics for executive decision-making.</li>
-                    </ul>
-                `
+                "icon": "📊",
+                "value": "Real-Time",
+                "label": "Service Visibility",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>For a growing financial services firm, customer service had become a bottleneck.</p>",
+                    "items": [
+                        {
+                            "icon": "😓",
+                            "title": "Manual Case Overload",
+                            "text": "Agents were drowning in manual case handling, often missing SLAs."
+                        },
+                        {
+                            "icon": "🔀",
+                            "title": "Fragmented Channel Experience",
+                            "text": "Customers had fragmented experiences across phone, email, and digital channels, fueling repeat queries and frustration."
+                        },
+                        {
+                            "icon": "🔭",
+                            "title": "No Real-Time Visibility",
+                            "text": "Leadership had no real-time visibility into bottlenecks, making improvement impossible."
+                        }
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The success of this implementation provides a foundation for deeper AI integration, including sentiment analysis and automated response drafting for even faster resolutions.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Instead of treating Salesforce as just another CRM, Hyniva reimagined the client's entire service model on Salesforce as a single source of truth and automation engine. By fusing customer data, omni-channel service, and intelligent workflows, we turned a fragmented support system into a real-time, proactive, customer-first experience.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Unified Customer View",
+                            "desc": "Consolidated ERP, IVR, and portal data into Salesforce, giving agents instant 360° visibility."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Omni-Channel Automation",
+                            "desc": "Cases automatically created from calls, emails, chat, and mobile apps — no query slipped through."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Smart Routing",
+                            "desc": "Salesforce Omni-Channel assigned requests by priority, skill, and workload, ensuring the right case reached the right agent."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Lifecycle Orchestration",
+                            "desc": "Automated workflows handled status updates, escalations, and resolution, freeing agents from repetitive tasks."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Proactive Service",
+                            "desc": "Real-time monitoring flagged abandoned digital sessions, enabling immediate follow-ups before issues escalated."
+                        },
+                        {
+                            "num": "6",
+                            "title": "Knowledge + Personalization",
+                            "desc": "Salesforce Knowledge empowered both agents and customers with self-service; Marketing Cloud drove personalized updates and satisfaction surveys."
+                        },
+                        {
+                            "num": "7",
+                            "title": "Actionable Insights",
+                            "desc": "Role-based dashboards gave agents, supervisors, and executives live metrics to track performance and take action."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Business Impact",
+                "type": "text",
+                "content": "<p>The transformation was immediate and measurable:</p>"
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>Hyniva didn't just modernize technology — we transformed service delivery into a future-ready advantage. Powered by Salesforce, the client now delivers faster resolutions, personalized care, and data-driven decisions that build lasting loyalty. This isn't just customer service reimagined — it's the new standard for customer experience in financial services.</p>"
+            }
+        ]
+    },
+    "member-experience-transformation-at-a-leading-credit-union": {
+        "slug": "member-experience-transformation-at-a-leading-credit-union",
+        "eyebrow": "",
+        "title": "Elevating Digital Member Engagement in<br>\n      <em>Modern Banking Operations</em>",
+        "summary": "Unified lending and engagement journeys across multiple channels to deliver instant\n      loan offers and seamless member experiences at scale.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "&lt; 2 min",
+                "label": "Loan Offers",
+                "sub": ""
+            },
+            {
+                "icon": "👥",
+                "value": "500K+",
+                "label": "Members Served",
+                "sub": ""
+            },
+            {
+                "icon": "🔗",
+                "value": "Unified",
+                "label": "Multi-Channel Experience",
+                "sub": ""
+            },
+            {
+                "icon": "📈",
+                "value": "Enhanced",
+                "label": "Digital Engagement",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>A leading, award-winning Credit Union with over half a million members aimed to significantly boost consumer lending across auto loans, personal loans, and credit cards. However, they faced several critical challenges:</p>",
+                    "items": [
+                        "Outdated and fragmented digital interfaces led to high application abandon rates and stagnant lending volumes.",
+                        "Disjointed application experiences across mobile, web, branch, and phone channels caused member confusion and hindered cross-channel loan processing.",
+                        "Although the Credit Union used Salesforce for CRM and contact center operations, it was not integrated with the digital experiences offered to members.",
+                        "Returns on investment have consistently fallen short of expectations.",
+                        "There was minimal engagement from non-members, limiting new customer acquisition through digital channels.",
+                        "The loan application process was cumbersome and unintuitive for non-members applying online."
+                    ]
+                }
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>The Credit Union partnered with Hyniva to deploy FinXServe, a Salesforce-native solution designed for rapid configuration and delivery of digital lending experiences. Key aspects of the solution included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "FinXServe on Salesforce FSC & Experience Cloud",
+                            "desc": "Implementation of FinXServe on the existing Salesforce platform, tightly integrated with Salesforce Financial Services Cloud and Experience Cloud."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Unified Multi-Channel Loan Applications",
+                            "desc": "User-friendly loan application experiences for auto loans, personal loans, and credit cards — accessible via mobile, website, branch, and contact center."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Frontline Staff Empowerment",
+                            "desc": "Empowered frontline staff to assist members using the same digital platform, ensuring seamless support and service continuity across channels."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Modern Core Banking Integration",
+                            "desc": "Well integrated with a Modern Core Banking Platform, enabling real-time processing and data synchronization."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Configuration-Driven Approach",
+                            "desc": "A configuration- and workflow-driven approach (instead of custom development), significantly reducing implementation time, risk, and cost."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits",
+                "type": "text",
+                "content": ""
+            }
+        ]
+    },
+    "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
+        "slug": "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
+        "eyebrow": "",
+        "title": "Optimizing Loan Routing and Pre-Qualification with<br>\n      <em>Intelligent Automation</em>",
+        "summary": "An automation-driven solution that evaluated borrower data in real time and routed applications to the right lenders — reducing friction, improving match quality, and accelerating the end-to-end lending journey.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "70%",
+                "label": "Faster Pre-Qualification",
+                "sub": ""
+            },
+            {
+                "icon": "🔀",
+                "value": "Intelligent",
+                "label": "Loan Routing",
+                "sub": ""
+            },
+            {
+                "icon": "🤖",
+                "value": "100%",
+                "label": "Automated Workflows",
+                "sub": ""
+            },
+            {
+                "icon": "🏗️",
+                "value": "Scalable",
+                "label": "Lending Platform",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>A financial services organization focused on enabling small business lending through a network of Community Development Financial Institutions (CDFIs). Their mission was to simplify access to capital by efficiently matching small business owners with the right lending partners.</p>\n        <p>The client aimed to build a seamless pre-qualification journey for small business owners while ensuring accurate partner matching based on parameters such as geography, loan size, and risk profile.</p>\n        <p>However, their existing process created significant operational and strategic challenges:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Manual Bottlenecks",
+                            "desc": "Pre-qualified leads were processed and distributed manually via secure email attachments, increasing turnaround time and dependency on back-office teams."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Security & Compliance Risks",
+                            "desc": "Sensitive financial data shared through emails introduced vulnerabilities and potential compliance issues."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Operational Inefficiency",
+                            "desc": "Matching leads with appropriate CDFI partners required manual validation against multiple criteria, making the process slow and error-prone."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Customer Experience Gaps",
+                            "desc": "Delays in routing leads resulted in slower response times, impacting customer satisfaction and reducing conversion rates."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva designed and implemented a fully integrated digital ecosystem that streamlined the entire lead lifecycle — from data capture to partner distribution.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Conversational Pre-Qualification Interface",
+                            "desc": "We developed an intuitive, automated interface that captures applicant data and evaluates it in real time using a proprietary risk assessment algorithm — ensuring faster and more accurate pre-qualification."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Algorithmic Risk Assessment Engine",
+                            "desc": "A custom-built risk engine analyzed multiple parameters such as business profile, loan requirements, and location to determine eligibility and readiness — eliminating manual vetting."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Intelligent Partner Matching & Routing",
+                            "desc": "An automated routing engine instantly matched pre-qualified applicants with the most suitable CDFI partner based on granular criteria, ensuring precision and speed."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Custom CRM as a Unified Backbone",
+                            "desc": "We implemented a bespoke CRM platform that served as a single source of truth, seamlessly connecting front-end interactions with back-office workflows and partner integrations."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Secure System-to-System Data Transfer",
+                            "desc": "Manual email-based data sharing was replaced with encrypted, direct system integrations, ensuring end-to-end data security and compliance."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The transformation delivered measurable improvements across efficiency, cost, and customer experience:</p>",
+                    "items": [
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Operational Efficiency at Scale</strong> — Automated the entire pre-qualification and routing process, significantly reducing manual intervention and eliminating human errors",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Reduced Cost per Lead</strong> — Replacing labor-intensive workflows with automation led to substantial cost savings in processing and operations",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Speed-to-Lead & Conversion Rates</strong> — Instant routing enabled CDFI partners to engage prospects faster, improving customer satisfaction and increasing loan conversion rates",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Data Intelligence</strong> — The centralized CRM created a robust data foundation, enabling continuous optimization of risk models and customer journeys",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Future-Ready Scalability</strong> — The modern architecture supports growing lead volumes and onboarding of additional CDFI partners without increasing operational overhead"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>With a scalable and secure digital ecosystem in place, the client is now positioned to expand its lending network, refine its proprietary risk models, and deliver faster, more personalized access to capital for small businesses.</p>\n        <p>Future priorities include:</p>",
+                    "items": [
+                        "Expanded CDFI lending network",
+                        "Refined proprietary risk models",
+                        "Personalized capital access",
+                        "Deeper analytics & optimization"
+                    ]
+                }
+            }
+        ]
+    },
+    "modernizing-a-legacy-platform": {
+        "slug": "modernizing-a-legacy-platform",
+        "eyebrow": "",
+        "title": "Legacy CRM to<br>\n      <em>Modern Lending Platform</em>",
+        "summary": "Re-architected an outdated CRM into a modern platform, enabling better usability,\n      streamlined workflows, and integration with external systems.",
+        "metrics": [
+            {
+                "icon": "🔄",
+                "value": "100%",
+                "label": "Platform Replacement",
+                "sub": ""
+            },
+            {
+                "icon": "✨",
+                "value": "Enhanced",
+                "label": "User Experience",
+                "sub": ""
+            },
+            {
+                "icon": "⚡",
+                "value": "Faster",
+                "label": "Lending Operations",
+                "sub": ""
+            },
+            {
+                "icon": "📅",
+                "value": "6 Months",
+                "label": "Rapid Delivery",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Scalability Issues with Legacy CRM: Tresl's legacy CRM platform struggled to keep pace with the rapid growth of the organization, creating bottlenecks in efficiency.</p>\n        <p>Time-Sensitive Platform Migration: The urgency stemmed from the need to migrate to a new CRM platform within a six-month timeframe, necessitating a seamless transition.</p>\n        <p>Rigid User Interface and Lack of Self-Service Features: The existing CRM had a user interface that hindered user experience, lacking self-service features that are essential in today's tech-savvy market.</p>\n        <p>Incompatibility with 3rd Party APIs: Tresl's CRM platform couldn't interface smoothly with new 3rd Party APIs, limiting the company's ability to integrate with evolving technologies.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Understanding the critical nature of Tresl's challenges, Hyniva conducted a comprehensive review of the existing platform to understand the business. Given the nature of the business transition and the legacy technology upon which the platform was built, it posed a challenge for traditional upgrades. Additionally, the impending expiration of Tresl's CRM contract necessitated a swift and comprehensive transition to a new in-house platform.</p>\n        <p>Leveraging its expertise and commitment to innovation, Hyniva undertook the monumental task of a complete overhaul of Tresl's CRM platform. The project's complexity was heightened by the need to deliver a fully functional solution within the stringent time frame of six months. Hyniva's Digital Factory, characterized by its agility and simultaneous development efforts, played a pivotal role in meeting the project's ambitious timeline. The team ensured that every aspect of the solution aligned seamlessly with Tresl's business goals. Recognizing the importance of a user-friendly interface, Hyniva employed the lightweight yet powerful AngularJS framework to create a streamlined and intuitive UI. This transformation empowered Customer Service Representatives (CSRs) to efficiently track leads, follow up with customers, and process loan applications with ease.</p>"
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": ""
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The modernization of the legacy CRM platform enabled the organization to transition to a scalable, digitally enabled lending ecosystem. By streamlining workflows, improving application quality, and enhancing the borrower experience, the organization was able to increase loan application volumes, improve operational efficiency, and deliver a more responsive lending experience for both customers and internal teams.</p>\n        <p>The new platform also provided a future-ready foundation for integrating modern APIs and expanding digital lending capabilities as the business grows.</p>"
+            }
+        ]
+    },
+    "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
+        "slug": "transforming-insurance-claims-operations-with-a-scalable-digital-platform",
+        "eyebrow": "",
+        "title": "Transforming Insurance Claims Operations with a<br>\n      <em>Scalable Digital Platform</em>",
+        "summary": "Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "60%",
+                "label": "Faster Claims Processing",
+                "sub": ""
+            },
+            {
+                "icon": "📈",
+                "value": "40%",
+                "label": "Operational Efficiency Gain",
+                "sub": ""
+            },
+            {
+                "icon": "🔍",
+                "value": "Real-Time",
+                "label": "Claims Tracking",
+                "sub": ""
+            },
+            {
+                "icon": "🏗️",
+                "value": "Scalable",
+                "label": "Digital Platform",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Insurance agencies managing claims at scale often struggle with fragmented systems, manual processes, and limited visibility into financial operations.</p>\n        <p>The existing platform faced several operational and technical challenges:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Manual, error-prone payment processing slowing down operations",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Invoice mapping inconsistencies across carriers",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Limited reporting capabilities impacting decision-making",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Performance bottlenecks affecting user experience",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Security gaps in financial transactions and data handling",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "approach",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Rather than incremental fixes, we took a long-term, engineering-led approach to design a platform that can streamline the end-to-end claims lifecycle.</p>\n        <p>Over a multi-year engagement, we continuously evolved the platform with a focus on:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Workflow Automation",
+                            "desc": "Automating core workflows across the claims lifecycle to eliminate manual overhead and reduce processing delays."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Secure Financial Systems",
+                            "desc": "Strengthening financial systems with secure, reliable processing to improve compliance and protect sensitive transaction data."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Performance at Scale",
+                            "desc": "Enhancing platform performance to support growing operational scale without degradation in user experience or system reliability."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Scalable Architecture",
+                            "desc": "Building a flexible, scalable architecture designed to accommodate future growth, integrations, and evolving business requirements."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "solutions",
+                "title": "Key Solutions Delivered",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Advanced invoice generation and carrier mapping",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Fully integrated payment processing module",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Automated adjuster commission calculations",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Payroll system with ACH integration for seamless disbursements",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Strengthened payment security protocols",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Reduced risks associated with manual financial handling",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved compliance and data protection standards",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Eliminated performance bottlenecks across key workflows",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved system responsiveness and user experience",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Ensured stability under high transaction volumes",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Configurable reports for financial tracking and claims insights",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Automated reporting workflows for faster decision-making",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Improved transparency across the claims lifecycle",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Designed a scalable database architecture",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Enabled flexibility for new feature additions and integrations",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Ensured long-term maintainability and performance",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The transformation delivered significant, measurable outcomes:</p>",
+                    "items": [
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>With a modern, scalable foundation, the platform is now positioned to evolve into a more intelligent, automation-driven system.</p>\n        <p>Future enhancements will focus on:</p>",
+                    "items": [
+                        "Deeper analytics capabilities",
+                        "AI-driven claims insights",
+                        "Continued operations optimization",
+                        "Greater speed & accuracy"
+                    ]
+                }
+            }
+        ]
+    },
+    "empowering-enterprises-through-microsoft-powered-modernization": {
+        "slug": "empowering-enterprises-through-microsoft-powered-modernization",
+        "eyebrow": "",
+        "title": "Enterprise CRM Modernization<br>\n      <em>on Microsoft Cloud</em>",
+        "summary": "Modernized a legacy CRM into a scalable, cloud-native Microsoft ecosystem spanning\n      multiple business domains, ensuring seamless migration with zero downtime.",
+        "metrics": [
+            {
+                "icon": "☁️",
+                "value": "Cloud-First",
+                "label": "Enterprise Architecture",
+                "sub": ""
+            },
+            {
+                "icon": "🏗️",
+                "value": "4",
+                "label": "Domains Modernized",
+                "sub": ""
+            },
+            {
+                "icon": "✅",
+                "value": "Zero",
+                "label": "Downtime Migration",
+                "sub": ""
+            },
+            {
+                "icon": "⚙️",
+                "value": "6",
+                "label": "Technologies Delivered",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>A leading Information Technology Solutions provider was under increasing pressure to modernize and scale its enterprise applications. With a diverse portfolio supporting Municipal Administration, Smart City programs, and Trustee & Guardianship services, the client faced several pressing challenges:</p>",
+                    "items": [
+                        "Managing and enhancing complex, multi-domain solutions across Dynamics CRM and Power Platform.",
+                        "Migrating a legacy Dynamics CRM 2015 on-premises system to a secure, cloud-based Dynamics 365 environment.",
+                        "Adding new features such as document tracking and smart notes in Dynamics 365.",
+                        "Seamlessly migrating critical data from legacy CRM tables to newly designed custom entities."
+                    ]
+                }
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva deployed a cross-functional team of Power Platform and Dynamics CRM specialists to implement a scalable, cloud-first modernization strategy aligned with the client's business goals.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "App Modernization with Power Platform",
+                            "desc": "Built Model-Driven Apps and Canvas Apps to revamp user interfaces, streamline workflows, and modernize solution delivery."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Advanced Dynamics 365 Customization",
+                            "desc": "Extended platform capabilities by developing custom Plugins, Workflows, and Web Resources with HTML and JavaScript."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Interactive UI with PCF Controls",
+                            "desc": "Used Power Apps Component Framework (PCF) with TypeScript and React to build rich, interactive user controls for advanced functionality."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Seamless Cloud Migration",
+                            "desc": "Carried out a phased migration from Dynamics CRM 2015 on-premises to Dynamics 365, ensuring accurate data transfer, business rule retention, and minimal downtime."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Business Impact",
+                "type": "text",
+                "content": "<p>Through Hyniva's strategic modernization efforts, the client unlocked new capabilities while future-proofing their operations.</p>"
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>Hyniva successfully modernized the client's Dynamics and Power Platform ecosystem, enabling the organization to drive innovation across key public service domains. The solution laid a scalable, flexible, and modern foundation — ready to support future enhancements, smarter services, and digital excellence.</p>\n        <p>Hyniva's Microsoft experts help enterprise and public-sector clients modernize legacy systems into agile, cloud-first platforms that drive growth, innovation, and service excellence.</p>"
+            }
+        ]
+    },
+    "blue-green-deployment-boosting-efficiency-resilience": {
+        "slug": "blue-green-deployment-boosting-efficiency-resilience",
+        "eyebrow": "",
+        "title": "Enabling Zero-Downtime<br>\n      <em>Deployments with AWS</em>",
+        "summary": "Implemented AWS blue-green deployment to ensure seamless releases, instant rollback\n      capabilities, and uninterrupted system availability.",
+        "metrics": [
+            {
+                "icon": "📉",
+                "value": "95%",
+                "label": "Downtime Reduction",
+                "sub": ""
+            },
+            {
+                "icon": "🚀",
+                "value": "70%",
+                "label": "Faster Deployments",
+                "sub": ""
+            },
+            {
+                "icon": "⚡",
+                "value": "&lt; 1 Min",
+                "label": "Switch Time",
+                "sub": ""
+            },
+            {
+                "icon": "🕐",
+                "value": "24/7",
+                "label": "Availability",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Our client, a prominent investment management firm, faced significant challenges due to their rigid infrastructure and architecture. As an investment company, maintaining constant availability — 24/7, 365 days a year — is not just essential but a cornerstone of their commitment to customer trust and industry excellence. These limitations hindered their ability to effectively manage disaster recovery and perform smooth rollbacks in the event of critical bugs. The inflexible system led to frequent maintenance windows, which disrupted service availability and negatively impacted user experience.</p>\n        <p>Users experienced interruptions during deployment periods, and critical bugs could result in prolonged service outages. The lack of a robust disaster recovery plan made the system vulnerable to regional outages, further compromising service reliability and user satisfaction. The firm needed a solution to enhance system resilience, ensure uninterrupted service, and provide a seamless user experience even during maintenance or emergencies.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Given that the goal was to ensure smooth and seamless updates to software while drastically minimizing disruption and risks, we would need a strong release management strategy. The application userbase was active throughout the day, creating a unique challenge in identifying the best maintenance window for the latest updates. Transaction processing and data streaming were highly crucial during user sessions. Hyniva identified that the Blue-Green Deployment strategy would be the ideal solution to tackle these challenges.</p>\n        <p>In Blue-Green Deployment, there are two identical production environments simultaneously running at any given time. This strategy enables seamless delivery of new features to the application with minimized risks and near-zero downtime for the end user. Also, configuration of two production environments allows easier and safer rollbacks in case of errors. Once the configuration was completed, Hyniva performed a test run to demonstrate the process to the client. The Blue-Green Deployment process involved the following steps:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Two Environment Configuration",
+                            "desc": "The current production environment is labelled as Blue which handles the live traffic, and the staging environment for the new version is labelled as Green. All new features can be extensively tested on Green without affecting any Blue users."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Quality Assurance Testing",
+                            "desc": "The quality assurance team performs automation testing, manual quality assurance and performance checks in the Green environment to ensure that the new version is functioning and operating as expected by the business team."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Switch Traffic",
+                            "desc": "Once the new version was cleared by the quality assurance team, the traffic from Blue environment is switched seamlessly over to Green. Hyniva developed an automated switch using global accelerator and CloudFront that is triggered by AWS Lambda."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Monitor & Review",
+                            "desc": "Once the environment switch is completed, the team closely monitored production to ensure smooth user experience and operations. In the event of an issue or disaster recovery scenario, rollback is easily performed by switching traffic back to the Blue environment."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": "<p>For our client, the Blue-Green strategy was a game-changer for several reasons. As an investment management firm, ensuring their trading platforms and financial services are always available was crucial for strengthening customer trust and loyalty. Data security was enhanced, and transaction processing was further streamlined. The Blue-Green Deployment strategy provided the following advantages:</p>"
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The Blue-Green Deployment strategy significantly enhanced our client's operational efficiency. By adopting this strategy, the firm achieved uninterrupted 24/7 access, drastically reduced deployment downtime by nearly 95%, and accelerated deployment times by 70%. The ability to conduct thorough testing of new features and seamlessly roll back if needed further minimized potential risk factors and enabled a seamless user experience with nearly zero downtime. Our client is now also prepared with robust infrastructure to manage and recover from failures, strengthening the resilience of their disaster recovery plan. This successful implementation not only bolstered the firm's reliability but also strengthened our strategic partnership and further cemented Hyniva as a trusted AWS Partner.</p>"
+            }
+        ]
+    },
+    "scaling-a-multi-portal-education-platform-with-zero-defect-delivery": {
+        "slug": "scaling-a-multi-portal-education-platform-with-zero-defect-delivery",
+        "eyebrow": "",
+        "title": "Engineered a Scalable Multi-Portal Platform for<br>\n      <em>Complex Education Workflows</em>",
+        "summary": "Streamlined complex academic workflows, enabled real-time data visibility, and supported seamless interactions across students, faculty, and administrators.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "Real-time",
+                "label": "Data Processing & Visibility",
+                "sub": ""
+            },
+            {
+                "icon": "🔀",
+                "value": "Complex",
+                "label": "Workflow Orchestration Enabled",
+                "sub": ""
+            },
+            {
+                "icon": "📈",
+                "value": "Scalable",
+                "label": "Performance & Architecture",
+                "sub": ""
+            },
+            {
+                "icon": "🏛️",
+                "value": "Multi-portal",
+                "label": "Unified Experience",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>A leading educational institution set out to build a multi-portal educational ecosystem serving Administrators, Students, and Parents — but the complexity quickly escalated.</p>\n        <p>The platform needed to manage highly regulated workflows like Special Education (SPED), enable real-time academic tracking, and support dynamic tutor scheduling — all while maintaining a consistent and intuitive user experience.</p>\n        <p>Key challenges included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Managing multi-role workflows with strict compliance and audit requirements",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Building a dynamic tutoring system with real-time scheduling and fallback logic",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Integrating external LMS platforms for live academic data visibility",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Preventing UI fragmentation without an established design framework",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Ensuring scalability and performance across rapidly expanding feature sets",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "approach",
+                "title": "Hyniva's Approach",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Instead of simply executing requirements, we took ownership of the frontend architecture and product experience.</p>\n        <p>Unlike traditional execution models, we proactively defined architecture, design systems, and delivery workflows — ensuring long-term scalability from day one.</p>\n        <p>From day one, we established scalable UI foundations, introduced structured development workflows, and proactively solved for long-term maintainability.</p>\n        <p>Our approach focused on:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Modular Frontend Architecture",
+                            "desc": "Defined a modular frontend architecture using ReactJS and MUI for scalability and long-term maintainability."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Custom Design System",
+                            "desc": "Standardized UI/UX across all portals through a unified custom design system, eliminating fragmentation from the start."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Agile Delivery Workflows",
+                            "desc": "Drove agile delivery through optimized Jira workflows, enabling structured, efficient team collaboration across releases."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Automated Testing Frameworks",
+                            "desc": "Introduced automated testing frameworks proactively to ensure long-term stability and zero-regression delivery across all releases."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "solutions",
+                "title": "Key Solutions Delivered",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Across four core solution areas, we delivered engineering-led capabilities that addressed the institution's most complex operational challenges:</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Granular permissions for creation, editing, archiving, and approvals",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Bulk operations for note creation and SEIF signature workflows",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Soft-delete functionality to maintain audit trails and compliance integrity",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Seamless UI handling of multi-step approvals and edge cases",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Real-time integration with platforms like Canvas and Edgenuity",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Intelligent dashboards for course progress, grades, and activity tracking",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Saved filters, pinned responses, and automated workflows to eliminate repetitive tasks and improve efficiency",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Multi-tutor assignment with Primary and Backup logic",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Support for both 1:1 tutoring and large-scale proctoring sessions",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Capacity management allowing monitoring of up to 50 students per session",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Intelligent reassignment for schedule conflicts and availability gaps",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Introduced unit testing and automated testing frameworks proactively",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Successfully handled continuous API evolution (v1.0.0 to v9.7.0)",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Ensured consistent performance across releases with zero regression incidents",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Business Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
+                    "items": [
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Zero-Defect Delivery</strong> — Maintained a flawless delivery record with no client complaints since project inception",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Reduced Operational Overhead</strong> — Reduced client coordination effort significantly by moving from daily syncs to bi-weekly check-ins",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Scalable Platform Foundation</strong> — Enabled seamless expansion from basic features to a full-scale multi-portal system without rework",
+                        "<div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Productivity for End Users</strong> — Automated workflows and intuitive UI significantly reduced manual administrative effort for administrators and SSAs"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>With a strong, scalable foundation in place, the institution is now positioned to rapidly expand its platform capabilities.</p>\n        <p>Looking ahead, the platform is evolving toward a more data-driven ecosystem, with planned investments in:</p>",
+                    "items": [
+                        "AI-driven student insights",
+                        "Predictive performance tracking",
+                        "Intelligent workflow automation",
+                        "Enhanced educator outcomes"
+                    ]
+                }
             }
         ]
     },
     "logistics-platform-modernization-with-microsoft": {
-        slug: "logistics-platform-modernization-with-microsoft",
-        title: "Building a Mobile-First, Real-Time Logistics Platform",
-        subtitle: "Enabling real-time tracking and 100% mobile operations through Microsoft-powered platform transformation.",
-        heroImage: "/images/2023/11/section-bg.jpg",
-        sections: [
+        "slug": "logistics-platform-modernization-with-microsoft",
+        "eyebrow": "",
+        "title": "Logistics Platform<br>\n      <em>Modernization</em>",
+        "summary": "Rebuilt legacy logistics systems into a real-time, mobile-enabled platform with\n      end-to-end operational visibility.",
+        "metrics": [
             {
-                id: "challenge",
-                title: "Challenge",
-                content: `
-                    <p>A rapidly expanding logistics provider was struggling with a legacy, desktop-bound system that hindered real-time visibility. Dispatchers and drivers relied on manual updates and paper-based tracking, leading to delays, data entry errors, and poor customer communication. The company needed a modern, mobile-first platform to unify operations and enable real-time tracking at scale.</p>
-                `
+                "icon": "📍",
+                "value": "Real-Time",
+                "label": "Shipment Tracking",
+                "sub": ""
             },
             {
-                id: "solution",
-                title: "Solution",
-                content: `
-                    <p>Hyniva architected and delivered a cloud-native, mobile-first logistics platform built on the Microsoft ecosystem. We transformed fragmented manual processes into a streamlined, automated workflow that provides end-to-end visibility across the entire supply chain.</p>
-                `
+                "icon": "📱",
+                "value": "100%",
+                "label": "Mobile Enablement",
+                "sub": ""
             },
             {
-                id: "implementation",
-                title: "Implementation Approach",
-                content: `
-                    <p>Our implementation focused on connectivity and usability:</p>
-                    <ul>
-                        <li><strong>Mobile-First Design:</strong> Developed a responsive web and mobile experience for drivers and field personnel.</li>
-                        <li><strong>Real-Time Tracking:</strong> Integrated GPS and automated status updates for live shipment visibility.</li>
-                        <li><strong>Cloud-Native Foundation:</strong> Leveraged Microsoft Azure for secure, scalable data management and processing.</li>
-                        <li><strong>Automated Dispatching:</strong> Built an intelligent engine to optimize route planning and driver assignments.</li>
-                    </ul>
-                `
+                "icon": "⚡",
+                "value": "45%",
+                "label": "Performance Gain",
+                "sub": ""
             },
             {
-                id: "impact",
-                title: "Impact",
-                content: `
-                    <p>The new platform revolutionized the client's logistics operations:</p>
-                    <ul>
-                        <li><strong>100% Mobile Operations:</strong> Drivers now manage all tasks directly from their mobile devices.</li>
-                        <li><strong>Real-Time Visibility:</strong> Eliminated tracking blind spots, improving customer satisfaction by 40%.</li>
-                        <li><strong>Reduced Operational Costs:</strong> Automation and route optimization cut fuel and labor costs significantly.</li>
-                        <li><strong>Zero Data Entry Errors:</strong> Automated status updates replaced manual logs, ensuring 100% data accuracy.</li>
-                    </ul>
-                `
+                "icon": "🔗",
+                "value": "Improved",
+                "label": "Cross-Module Coordination",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "feature-grid",
+                "content": {
+                    "body": "<p>Legacy systems in logistics don't just slow operations — they block agility, transparency, and customer experience. A leading transportation and logistics provider was struggling to keep up with the speed of its own business. Behind the scenes, disconnected systems, outdated tools, and a lack of real-time visibility were creating growing pain points across operations, customer service, and field teams.</p>",
+                    "items": [
+                        {
+                            "icon": "📦",
+                            "title": "No Real-Time Shipment Tracking",
+                            "text": "Dispatch teams had to rely on outdated batch updates and manual calls to know where shipments were. ETAs were guesswork. Customers kept calling — and trust was eroding."
+                        },
+                        {
+                            "icon": "📱",
+                            "title": "Mobile Apps Didn't Sync",
+                            "text": "Field staff were capturing updates on mobile — but the core systems didn't reflect them in real-time. Delays, duplicate data entry, and miscommunication became routine."
+                        },
+                        {
+                            "icon": "🖥️",
+                            "title": "Operations Ran on Legacy ASP Systems",
+                            "text": "Slow performance, limited scalability, and high maintenance costs made innovation impossible. Even simple changes took weeks of development."
+                        },
+                        {
+                            "icon": "🔌",
+                            "title": "No Integration Between Tools",
+                            "text": "With no centralized middleware, customer portals, internal dashboards, and operations systems worked in silos — slowing down every team involved."
+                        }
+                    ]
+                }
             },
             {
-                id: "road-ahead",
-                title: "The Road Ahead",
-                content: `
-                    <p>The foundation is set for the integration of predictive analytics and IoT-based sensor monitoring, enabling even deeper insights into fleet health and shipment conditions.</p>
-                `
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>The goal was to build a future-ready, mobile-first, and real-time logistics ecosystem. Hyniva applied a cloud-first, API-first, and mobile-ready modernization strategy using Microsoft's technology stack to overhaul the logistics platform.</p>\n        <p>Instead of a simple lift-and-shift, the application was re-architected into a component-based, maintainable solution on the latest .NET platform. Migration and modernization were executed in phases aligned to key business modules (Customer Portal, Logistics, Waybills & Challans, Tracking), ensuring enhancements such as mobile access, real-time communication, and performance optimization were seamlessly integrated.</p>\n        <p>This hybrid approach balanced risk reduction (via phasing) with business value delivery (new features and performance improvements), resulting in a system that is both modern and future ready.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Cloud-First Migration & Modular Re-Architecture",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Real-Time Integration Using Microsoft Azure",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Mobility & Performance Engineering",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Business Impact",
+                "type": "text",
+                "content": "<p>We responded with a robust transformation strategy focused on modular architecture, cloud-native integration, and high-performance engineering — turning a bottlenecked platform into a streamlined digital engine.</p>"
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>At Hyniva, we don't just upgrade technology — we transform the way enterprises operate. By leveraging the full Microsoft technology stack, we helped our client move from outdated architecture to a high-performance, real-time digital logistics platform.</p>\n        <p>The result? Faster operations, empowered field teams, happier customers, and a future-ready foundation that scales.</p>\n        <p>No matter your industry, Hyniva brings proven Microsoft expertise to turn outdated systems into agile, high-performance platforms.</p>"
             }
         ]
     },
+    "aws-enabled-efficiency-transforming-document-management": {
+        "slug": "aws-enabled-efficiency-transforming-document-management",
+        "eyebrow": "",
+        "title": "Cost-Optimized Document<br>\n      <em>Platform on AWS</em>",
+        "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs,\n      enhance performance, and support large-scale data operations.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "5×",
+                "label": "Faster Queries",
+                "sub": ""
+            },
+            {
+                "icon": "📄",
+                "value": "8M+",
+                "label": "Documents Migrated",
+                "sub": ""
+            },
+            {
+                "icon": "💰",
+                "value": "$0",
+                "label": "Licensing Cost",
+                "sub": ""
+            },
+            {
+                "icon": "☁️",
+                "value": "Serverless",
+                "label": "Scalable Architecture",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A dynamic player in the investment management realm faced a daunting challenge. Their reliance on Alfresco as a document management tool incurred a staggering annual cost, putting immense strain on their financial resources. The need to transition from this costly solution was imperative, driving our client to seek a cost-effective, efficient alternative.</p>"
+            },
+            {
+                "id": "advantage",
+                "title": "Advantage of AWS Services",
+                "type": "text",
+                "content": "<p>With profound expertise in AWS services, Hyniva identified an opportunity to revolutionize our partner's document management. By harnessing AWS's capabilities, Hyniva conceived a solution that not only cataloged the investment management company's extensive document repository of over 8 million documents, but also substantially augmented the system's performance and responsiveness.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva crafted a tailored document management system on AWS:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Amazon S3",
+                            "desc": "A scalable storage service deployed to securely store the vast document volume while fulfilling SEC17a-4 compliance."
+                        },
+                        {
+                            "num": "2",
+                            "title": "AWS Lambda",
+                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management."
+                        },
+                        {
+                            "num": "3",
+                            "title": "DynamoDB",
+                            "desc": "A high-performance NoSQL database that facilitated lightning-fast queries and metadata storage."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Amazon API Gateway",
+                            "desc": "Streamlined digital communication efforts within the system, ensuring seamless data exchange."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The impact of Hyniva's solution was nothing short of transformative. The new document management system not only eliminated exorbitant annual fees but also redefined user experience. Post-launch, API calls and queries executed at a remarkable speed – 5 times faster than the previous Alfresco system. This radical improvement meant that documents, accessible via multiple filters, were not only easily queried but also instantly available, enhancing productivity and user satisfaction.</p>\n        <p>Our client's success became a testament to strategic technology adoption. By embracing AWS services, Hyniva not only saved the company millions but also catapulted their document management system into a new echelon of efficiency and speed. This achievement fortified the partnership between Hyniva and our client, setting an industry benchmark for innovation.</p>\n        <p>In the expansive canvas of digital transformation, this collaboration stands tall, illuminating how vision, technology, and expertise converge to craft solutions that redefine possibilities. It exemplifies how businesses can not only survive but thrive in the dynamic digital age, serving as a guiding light for the industry's future endeavors.</p>"
+            }
+        ]
+    },
+    "ai-hynivas-innovative-solutions": {
+        "slug": "ai-hynivas-innovative-solutions",
+        "eyebrow": "",
+        "title": "AI-Powered Customer<br>\n      <em>Support Automation</em>",
+        "summary": "Implemented an AI chatbot to handle high-volume, repetitive queries, improving response\n      times while reducing dependency on support agents.",
+        "metrics": [
+            {
+                "icon": "🕐",
+                "value": "24/7",
+                "label": "Instant Support",
+                "sub": ""
+            },
+            {
+                "icon": "⚡",
+                "value": "Real-Time",
+                "label": "Query Resolution",
+                "sub": ""
+            },
+            {
+                "icon": "↓",
+                "value": "Reduced",
+                "label": "Processing Time",
+                "sub": ""
+            },
+            {
+                "icon": "🔗",
+                "value": "100%",
+                "label": "Portal Integration",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>An organization with an ever increasing customer base that is unable to meet the large volumes of support requests over phone and chat with the existing desk staff. This has caused growing frustration among customers due to increased wait times for support calls.</p>\n        <p>The financial management company faced a common dilemma in the digital age: the need to provide timely and effective support to an ever-increasing customer base. To address this challenge, they turned to Hyniva, a trusted partner in the realm of AI-driven solutions.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "text",
+                "content": "<p>Hyniva recognized that one of the most effective ways to streamline customer interactions and boost efficiency is through the use of chatbots powered by natural language processing (NLP). NLP enables machines to interpret and respond to human language, making it a game-changer in the realm of customer support. The majority of users were active in the customer portal that enabled them to raise support tickets or contact the business team.</p>\n        <p>The team set out to implement and enhance a chatbot experience with pre-built NLP capabilities. These capabilities enabled the chatbots to interpret real-time customer queries, provide relevant responses in an almost human-like way, and continually improve their performance through machine learning. This automated communication channel was able to take the extra workload off of the core business staff and allow them to focus on action items. By integrating an AI chatbot, we provided instant, 24/7 support for common inquiries and issues, reducing the volume of calls that needed to be handled by their call center team.</p>\n        <p>The time required for loan application processing was drastically reduced as customers were empowered with instant support for any general issues or questions they had during the loan application. The AI chatbot efficiently managed routine questions and transactions, allowing the back-office team to focus on more complex cases, ultimately enhancing overall customer satisfaction and operational efficiency.</p>"
+            },
+            {
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": ""
+            },
+            {
+                "id": "conclusion",
+                "title": "Conclusion",
+                "type": "text",
+                "content": "<p>Hyniva's successful collaboration with the Fortune 500 company illustrates the transformative power of AI-driven solutions in the customer service sector. As businesses across the globe seek to enhance customer experience in the digital age, AI and NLP-powered chatbots are becoming essential tools.</p>\n        <p>This partnership serves as a testament to the potential of AI in revolutionizing the way companies engage with their customers, driving increased satisfaction, efficiency, and profitability.</p>"
+            }
+        ]
+    }
 };

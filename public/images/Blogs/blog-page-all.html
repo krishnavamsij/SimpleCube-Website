@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:       #1e90ff;
+    --accent-light: #63c2ff;
+    --card-bg:      #0f1623;
+    --card-border:  rgba(255,255,255,0.07);
+    --body-bg:      #080d16;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--body-bg);
+    min-height: 100vh;
+    padding: 72px 48px 88px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto 56px;
+  }
+  .page-header__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .page-header__dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 8px var(--accent);
+    animation: blink 2.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.18} }
+  .page-header__label {
+    font-size: 10px; font-weight: 500; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .page-header__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 700; color: #e8f0ff;
+    line-height: 1.15; letter-spacing: -.3px;
+    margin-bottom: 12px;
+  }
+  .page-header__title em { font-style: italic; color: var(--accent-light); }
+  .page-header__sub {
+    font-size: 15px; font-weight: 300;
+    color: rgba(160,185,230,.58); line-height: 1.65;
+    max-width: 520px;
+  }
+
+  /* ── Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Card shell ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s cubic-bezier(.22,1,.36,1),
+                box-shadow .3s,
+                border-color .3s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(30,144,255,0.2);
+    border-color: rgba(30,144,255,0.22);
+  }
+
+  /* ── Image block — top half ── */
+  .card__image {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  .card__image-inner {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: transform .6s ease;
+  }
+  .card:hover .card__image-inner { transform: scale(1.05); }
+
+  /* ── Meta row ── */
+  .card__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .card__date {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(160,195,240,.45);
+    letter-spacing: .3px;
+  }
+  .card__tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(30,144,255,0.08);
+    border: 1px solid rgba(30,144,255,0.18);
+    border-radius: 100px;
+    padding: 2px 9px;
+  }
+
+  /* ── Text block — bottom half ── */
+  .card__body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Heading */
+  .card__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 1.5vw, 19px);
+    font-weight: 700; color: #eef5ff;
+    line-height: 1.28;
+    margin-bottom: 12px;
+    letter-spacing: -.1px;
+    flex: 1;
+  }
+  .card__heading em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  /* One-liner */
+  .card__line {
+    font-size: 13px; font-weight: 300;
+    color: rgba(160,195,240,.58);
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  /* Full-width CTA button */
+  .card__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 20px;
+    background: transparent;
+    border: 1px solid rgba(30,144,255,0.3);
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 400;
+    letter-spacing: .3px;
+    color: rgba(200,225,255,0.82);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .25s, border-color .25s, color .25s, gap .2s;
+    margin-top: auto;
+  }
+  .card:hover .card__cta {
+    background: rgba(30,144,255,0.1);
+    border-color: rgba(30,144,255,0.55);
+    color: #fff;
+    gap: 12px;
+  }
+  .card__cta svg {
+    width: 13px; height: 13px;
+    fill: none; stroke: currentColor; stroke-width: 2;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 48px 32px 60px; }
+  }
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card__image { height: 180px; }
+    body { padding: 40px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Page header -->
+<div class="page-header">
+  <div class="page-header__eyebrow">
+    <div class="page-header__dot"></div>
+    <span class="page-header__label">Blog</span>
+  </div>
+  <h1 class="page-header__title">
+    Our Digital <em>Thoughts.</em>
+  </h1>
+  <p class="page-header__sub">
+    Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce, AWS,
+    Microsoft, and the future of enterprise transformation.
+  </p>
+</div>
+
+<!-- Card grid -->
+<div class="card-grid">
+
+  <!-- 1 — Agentforce Readiness -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2026/02/Agentforce-Readiness_Blog-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Feb 19, 2026</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Intelligence Needs Infrastructure. Prepare Your Salesforce Platform for an <em>Agent-Led Future.</em>
+      </div>
+      <a href="https://www.hyniva.com/intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2 — LWR Modernization -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2026/02/Accelerating-Platform-Performance-Through-LWR-Modernization-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Feb 2, 2026</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Why Financial Institutions Are Modernizing Salesforce Experience Cloud with <em>LWR</em>
+      </div>
+      <a href="https://www.hyniva.com/why-financial-institutions-are-modernizing-salesforce-experience-cloud-with-lwr/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3 — Contact Center Agentforce -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2026/02/Accelerating-Platform-Performance-Through-LWR-Modernization-1-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Jan 23, 2026</span>
+        <span class="card__tag">AI</span>
+      </div>
+      <div class="card__heading">
+        Modernizing the Contact Center with Agentforce: <em>Connected Journeys</em>
+      </div>
+      <a href="https://www.hyniva.com/modernizing-the-contact-center-with-ai-agents-from-fragmented-interactions-to-connected-journeys/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 4 — Loan Applications Agentforce -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/12/Blog-Post-Loan-Agentforce-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 24, 2025</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Reimagining Loan Applications: <em>Voice and Chat</em> Take Center Stage with Agentforce
+      </div>
+      <a href="https://www.hyniva.com/reimagining-loan-applications-voice-and-chat-take-center-stage-with-agentforce/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 5 — Credit Unions Digital Era -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/04/Empowering-Credit-Unions-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Apr 14, 2025</span>
+        <span class="card__tag">Banking</span>
+      </div>
+      <div class="card__heading">
+        Empowering Credit Unions to Thrive in a <em>Digital Era</em>
+      </div>
+      <a href="https://www.hyniva.com/empowering-credit-unions-to-thrive-in-a-digital-era/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 6 — SOC 2 Type II -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/04/Compliant-Poster-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Apr 1, 2025</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva Receives <em>SOC 2 Type II</em> Compliance
+      </div>
+      <a href="https://www.hyniva.com/hyniva-achieves-soc-2-type-ii-compliance-security-first/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 7 — Digital Transformation Credit Unions -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/03/Copy-of-Credit-Unions--400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Mar 12, 2025</span>
+        <span class="card__tag">Banking</span>
+      </div>
+      <div class="card__heading">
+        Accelerating <em>Digital Transformation</em> at Credit Unions
+      </div>
+      <a href="https://www.hyniva.com/accelerating-digital-transformation-at-credit-unions/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 8 — Salesforce Advanced Analytics -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/02/2-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Feb 7, 2025</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Leveraging Salesforce for <em>Advanced Analytics:</em> Insights into Sales and Customer Behavior
+      </div>
+      <a href="https://www.hyniva.com/leveraging-salesforce-for-advanced-analytics-insights-into-sales-and-customer-behavior/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 9 — Salesforce Marketing -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/01/Salesforce-for-Marketing-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Jan 29, 2025</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Salesforce for Marketing: Integrating Salesforce with Your <em>Marketing Strategy</em>
+      </div>
+      <a href="https://www.hyniva.com/salesforce-for-marketing-integrating-salesforce-with-your-marketing-strategy/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 10 — Salesforce Lightning vs Classic -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/01/Salesforce-Classic-and-Lighting-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Jan 27, 2025</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Salesforce <em>Lightning vs. Classic:</em> Why You Should Switch
+      </div>
+      <a href="https://www.hyniva.com/salesforce-lightning-vs-classic-why-you-should-switch/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 11 — Salesforce Data Cloud -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/01/Salesforce-Data-Cloud-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Jan 7, 2025</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Overcoming Data Integration Challenges with <em>Salesforce Data Cloud</em>
+      </div>
+      <a href="https://www.hyniva.com/overcoming-data-integration-challenges-with-salesforce-data-cloud/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 12 — Great Place to Work 2025 -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2025/01/Amazing_Culture_US-1-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Jan 3, 2025</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva: Celebrating Success as a <em>Great Place to Work</em> for the Second Year!
+      </div>
+      <a href="https://www.hyniva.com/hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 13 — Future of CRM Salesforce -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/12/Unlock-the-future-of-CRM-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 24, 2024</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Unlock the Future of CRM with the Latest <em>Salesforce Innovations</em>
+      </div>
+      <a href="https://www.hyniva.com/unlock-the-future-of-crm-with-the-latest-salesforce-innovations/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 14 — Salesforce FSC Optimization -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/12/Salesforce-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 17, 2024</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Start Your <em>Salesforce FSC</em> Optimization Journey
+      </div>
+      <a href="https://www.hyniva.com/optimizing-salesforce-fsc-future-proofing-your-financial-institution-with-hynivas-expertise/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 15 — AWS Cloud Trends -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/11/The-Future-of-Cloud-Computing-AWS-Trends-1-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Nov 29, 2024</span>
+        <span class="card__tag">AWS</span>
+      </div>
+      <div class="card__heading">
+        The Future of Cloud Computing: <em>AWS Trends</em>
+      </div>
+      <a href="https://www.hyniva.com/the-future-of-cloud-computing-aws-trends/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 16 — Tailored AWS Infrastructure -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/11/Copy-of-Power-of-AWS-2-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Nov 15, 2024</span>
+        <span class="card__tag">AWS</span>
+      </div>
+      <div class="card__heading">
+        Benefits of a <em>Tailored AWS Infrastructure:</em> How Hyniva Can Help
+      </div>
+      <a href="https://www.hyniva.com/benefits-of-a-tailored-aws-infrastructure-how-hyniva-can-help/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 17 — AWS Infrastructure Cost Optimization -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/10/Full-Stack-AWS-Development-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Oct 23, 2024</span>
+        <span class="card__tag">AWS</span>
+      </div>
+      <div class="card__heading">
+        Optimizing AWS Infrastructure Costs for <em>Back-Office Capabilities</em>
+      </div>
+      <a href="https://www.hyniva.com/optimizing-aws-infrastructure-costs-for-back-office-capabilities/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 18 — Salesforce Customer 360 -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/10/Customer-360-1-1-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Oct 14, 2024</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Hyniva's Vision for Harnessing <em>Salesforce Customer 360</em> Innovations
+      </div>
+      <a href="https://www.hyniva.com/hynivas-vision-for-harnessing-salesforce-customer-360-innovations-for-our-clients/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 19 — Agentforce Customer Service -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/10/Agentforce_Customer-service-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Oct 3, 2024</span>
+        <span class="card__tag">AI</span>
+      </div>
+      <div class="card__heading">
+        Salesforce Unveils Agentforce: A <em>Game-Changer</em> in Customer Service
+      </div>
+      <a href="https://www.hyniva.com/salesforce-unveils-agentforce-a-game-changer-in-customer-service/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 20 — Overcoming Business Challenges Salesforce -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/09/Salesforce-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Sep 18, 2024</span>
+        <span class="card__tag">Salesforce</span>
+      </div>
+      <div class="card__heading">
+        Overcoming Business Challenges with <em>Salesforce</em>
+      </div>
+      <a href="https://www.hyniva.com/overcoming-business-challenges-with-salesforce/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 21 — AI Empowering Financial Institutions -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/09/Artificial-Intelligence_Finance-sector-2-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Sep 16, 2024</span>
+        <span class="card__tag">AI</span>
+      </div>
+      <div class="card__heading">
+        AI — Empowering <em>Financial Institutions</em>
+      </div>
+      <a href="https://www.hyniva.com/ai-empowering-financial-institutions/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 22 — New Branch Launch -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/08/DKHP5846-400x250.jpg');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Aug 27, 2024</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva Celebrates the Launch of Its <em>New Branch!</em>
+      </div>
+      <a href="https://www.hyniva.com/hyniva-celebrates-the-launch-of-its-new-branch/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 23 — SOC 2 Certification -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/04/1712699115972-400x250.jpeg');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Apr 11, 2024</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva Achieves <em>SOC 2 Certification!</em>
+      </div>
+      <a href="https://www.hyniva.com/hyniva-achieves-soc-2-certification/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 24 — Generative AI Game Changer -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2024/02/AdobeStock_474498018-400x250.jpeg');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Mar 27, 2024</span>
+        <span class="card__tag">AI</span>
+      </div>
+      <div class="card__heading">
+        Generative AI — <em>Why It's a Game Changer</em>
+      </div>
+      <a href="https://www.hyniva.com/generative-ai-why-its-a-game-changer/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 25 — Digital Factory -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2023/11/photobox4-400x250.jpg');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 13, 2023</span>
+        <span class="card__tag">Technology</span>
+      </div>
+      <div class="card__heading">
+        Perpetually in Motion — <em>The Digital Factory</em>
+      </div>
+      <a href="https://www.hyniva.com/perpetually-in-motion-the-digital-factory/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 26 — GSAC Member -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2023/12/Greater-SA-Stickers-05-1-360x250.png'); background-color: #0f1a2e;"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 13, 2023</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva is a Proud Member of <em>GSAC!</em>
+      </div>
+      <a href="https://www.hyniva.com/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 27 — Great Place to Work 2023 -->
+  <div class="card">
+    <div class="card__image">
+      <div class="card__image-inner" style="background-image:url('https://www.hyniva.com/wp-content/uploads/2023/12/Amazing_Culture-400x250.png');"></div>
+    </div>
+    <div class="card__body">
+      <div class="card__meta">
+        <span class="card__date">Dec 13, 2023</span>
+        <span class="card__tag">Company</span>
+      </div>
+      <div class="card__heading">
+        Hyniva is Officially a <em>"Great Place to Work"!</em>
+      </div>
+      <a href="https://www.hyniva.com/hyniva-is-officially-a-great-place-to-work/" class="card__cta">
+        Read Article
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

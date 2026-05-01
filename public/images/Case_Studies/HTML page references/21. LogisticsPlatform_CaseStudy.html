@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Study — Logistics Platform Modernization</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:       #1e90ff;
+    --accent-light: #63c2ff;
+    --body-bg:      #f4f6fa;
+    --text-dark:    #111827;
+    --text-mid:     #374151;
+    --text-muted:   #6b7280;
+    --border:       #e5e7eb;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--body-bg); color: var(--text-dark); }
+
+  /* ════════════════════════ BANNER ════════════════════════ */
+  .banner { position:relative; width:100%; height:100vh; min-height:720px; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .b-bg { position:absolute; inset:0; background:linear-gradient(160deg,#020c1c 0%,#071a32 25%,#0c2244 55%,#050f20 100%); }
+  .b-dots { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(30,144,255,0.16) 1px,transparent 1px); background-size:38px 38px; opacity:0.38; }
+  .b-blob { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+  .b-blob--1 { width:650px; height:650px; left:-160px; top:-160px; background:radial-gradient(circle,rgba(10,70,180,0.22) 0%,transparent 65%); }
+  .b-blob--2 { width:600px; height:600px; right:-130px; bottom:-170px; background:radial-gradient(circle,rgba(30,144,255,0.2) 0%,transparent 62%); }
+  .b-blob--3 { width:500px; height:260px; left:50%; top:65%; transform:translate(-50%,-50%); filter:blur(60px); background:radial-gradient(ellipse,rgba(30,144,255,0.07) 0%,transparent 70%); }
+  .b-shimmer { position:absolute; left:0; right:0; height:1px; background:linear-gradient(to right,transparent 0%,rgba(99,194,255,0.5) 50%,transparent 100%); animation:shimmerSweep 7s ease-in-out infinite; pointer-events:none; }
+  @keyframes shimmerSweep { 0%{top:-2%;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{top:102%;opacity:0} }
+  .b-corner { position:absolute; width:20px; height:20px; border-color:rgba(30,144,255,0.28); border-style:solid; z-index:5; }
+  .b-corner--tl { top:22px; left:22px; border-width:1px 0 0 1px; }
+  .b-corner--tr { top:22px; right:22px; border-width:1px 1px 0 0; }
+  .b-corner--bl { bottom:22px; left:22px; border-width:0 0 1px 1px; }
+  .b-corner--br { bottom:22px; right:22px; border-width:0 1px 1px 0; }
+
+  .banner__hero { position:relative; z-index:3; text-align:center; padding:0 8vw; max-width:1000px; width:100%; margin-bottom:52px; }
+  .b-eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:24px; opacity:0; animation:fadeUp .55s ease forwards .08s; }
+  .b-eyebrow__dot { width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); animation:blink 2.6s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.16} }
+  .b-eyebrow__text { font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--accent-light); }
+  .b-eyebrow__dash { width:26px; height:1px; background:rgba(30,144,255,.3); }
+  .banner__heading { font-family:'Playfair Display',serif; font-size:clamp(26px,3.4vw,46px); font-weight:700; color:#edf5ff; line-height:1.18; letter-spacing:-.4px; margin-bottom:20px; opacity:0; animation:fadeUp .65s ease forwards .2s; max-width:820px; margin-left:auto; margin-right:auto; }
+  .banner__heading em { font-style:italic; color:var(--accent-light); text-shadow:0 0 48px rgba(99,194,255,.28); }
+  .b-rule { width:56px; height:2px; margin:0 auto 20px; background:linear-gradient(to right,transparent,var(--accent),transparent); opacity:0; animation:fadeUp .5s ease forwards .34s; }
+  .banner__summary { font-size:clamp(13px,1.25vw,15px); font-weight:300; line-height:1.78; color:rgba(188,214,245,.72); max-width:660px; margin:0 auto; opacity:0; animation:fadeUp .6s ease forwards .46s; }
+
+  .banner__metrics { position:relative; z-index:3; width:100%; max-width:1160px; padding:0 3vw; display:grid; grid-template-columns:repeat(4,1fr); opacity:0; animation:fadeUp .7s ease forwards .68s; }
+  .banner__metrics::before { content:''; position:absolute; top:0; left:3vw; right:3vw; height:1px; background:linear-gradient(to right,transparent,rgba(30,144,255,.22) 15%,rgba(99,194,255,.55) 50%,rgba(30,144,255,.22) 85%,transparent); }
+
+  .m-tile { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; padding:34px 18px 30px; cursor:default; transition:background .3s; border-radius:0 0 8px 8px; overflow:hidden; }
+  .m-tile:hover { background:rgba(30,144,255,.05); }
+  .m-tile::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 80% at 50% 100%,rgba(30,144,255,.1),transparent 70%); opacity:0; transition:opacity .35s; pointer-events:none; }
+  .m-tile:hover::after { opacity:1; }
+  .m-tile:not(:last-child)::before { content:''; position:absolute; right:0; top:18%; bottom:18%; width:1px; background:linear-gradient(to bottom,transparent,rgba(30,144,255,.28) 30%,rgba(99,194,255,.42) 50%,rgba(30,144,255,.28) 70%,transparent); }
+  .m-tile__icon { width:48px; height:48px; border-radius:50%; border:1px solid rgba(30,144,255,.2); background:rgba(30,144,255,.07); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:18px; transition:border-color .3s,background .3s,box-shadow .3s; }
+  .m-tile:hover .m-tile__icon { border-color:rgba(99,194,255,.55); background:rgba(30,144,255,.15); box-shadow:0 0 20px rgba(30,144,255,.22); }
+  .m-tile__value { font-family:'Playfair Display',serif; font-size:clamp(24px,2.8vw,40px); font-weight:700; color:#fff; line-height:1; letter-spacing:-1px; margin-bottom:8px; text-shadow:0 0 40px rgba(99,194,255,.3); transition:color .3s,text-shadow .3s; }
+  .m-tile:hover .m-tile__value { color:var(--accent-light); text-shadow:0 0 60px rgba(99,194,255,.55); }
+  .m-tile__bar { width:28px; height:2px; border-radius:2px; margin-bottom:10px; background:linear-gradient(to right,var(--accent),var(--accent-light)); opacity:.42; transition:width .3s,opacity .3s; }
+  .m-tile:hover .m-tile__bar { width:46px; opacity:1; }
+  .m-tile__label { font-size:12.5px; font-weight:500; color:rgba(205,228,255,.84); line-height:1.35; margin-bottom:5px; }
+  .m-tile__sub   { font-size:11px; font-weight:300; color:rgba(120,165,215,.44); line-height:1.4; }
+
+  .b-scroll { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:7px; z-index:5; opacity:0; animation:fadeUp .8s ease forwards 1.2s; }
+  .b-scroll span { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(99,194,255,.36); }
+  .b-scroll__line { width:1px; height:32px; background:linear-gradient(to bottom,rgba(99,194,255,.44),transparent); animation:lineDrop 2s ease-in-out infinite; }
+  @keyframes lineDrop { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom;opacity:0} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ════════════════════════ BODY ════════════════════════ */
+  .cs-body { background:var(--body-bg); padding:80px 0 100px; }
+  .cs-container { max-width:900px; margin:0 auto; padding:0 40px; }
+  .cs-nav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:64px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .cs-nav__pill { font-size:12px; font-weight:500; letter-spacing:.5px; color:var(--text-muted); padding:6px 16px; border-radius:100px; border:1px solid var(--border); background:white; cursor:pointer; text-decoration:none; transition:all .2s; }
+  .cs-nav__pill:hover, .cs-nav__pill.active { background:var(--accent); border-color:var(--accent); color:white; }
+
+  .cs-section { margin-bottom:64px; scroll-margin-top:30px; }
+  .cs-section__eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .cs-section__num { width:28px; height:28px; border-radius:50%; background:var(--accent); color:white; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .cs-section__tag { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--accent); }
+  .cs-section__body { font-size:15.5px; font-weight:300; line-height:1.82; color:var(--text-mid); }
+  .cs-section__body p+p { margin-top:14px; }
+
+  /* Feature cards — challenge pain points */
+  .feature-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:24px; }
+  .feature-card { background:white; border:1px solid var(--border); border-radius:10px; padding:20px; transition:box-shadow .2s,transform .2s; }
+  .feature-card:hover { box-shadow:0 8px 30px rgba(0,0,0,.08); transform:translateY(-2px); }
+  .feature-card__icon { width:36px; height:36px; border-radius:8px; background:rgba(30,144,255,.08); border:1px solid rgba(30,144,255,.15); display:flex; align-items:center; justify-content:center; font-size:16px; margin-bottom:12px; }
+  .feature-card__title { font-size:13px; font-weight:600; color:var(--text-dark); margin-bottom:5px; }
+  .feature-card__text { font-size:13px; font-weight:300; line-height:1.6; color:var(--text-mid); }
+
+  /* Numbered steps with sub-bullets */
+  .approach-list { margin-top:28px; display:flex; flex-direction:column; gap:20px; }
+  .approach-item { background:white; border:1px solid var(--border); border-radius:10px; padding:22px 24px; transition:box-shadow .2s; }
+  .approach-item:hover { box-shadow:0 6px 24px rgba(0,0,0,.07); }
+  .approach-item__header { display:flex; gap:20px; align-items:flex-start; margin-bottom:12px; }
+  .approach-item__num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:rgba(30,144,255,.18); line-height:1; flex-shrink:0; width:36px; margin-top:-2px; }
+  .approach-item__title { font-size:14px; font-weight:600; color:var(--text-dark); padding-top:6px; }
+  .approach-item__bullets { padding-left:56px; display:flex; flex-direction:column; gap:8px; }
+  .approach-item__bullet { font-size:13.5px; font-weight:300; color:var(--text-muted); line-height:1.65; display:flex; gap:10px; align-items:flex-start; }
+  .approach-item__bullet::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:7px; opacity:.6; }
+
+  /* Tech tags */
+  .tech-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .tech-tag { font-size:11.5px; font-weight:500; color:var(--accent); background:rgba(30,144,255,.07); border:1px solid rgba(30,144,255,.18); border-radius:100px; padding:5px 13px; }
+
+  /* Impact highlight cards */
+  .impact-highlights { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:28px; }
+  .impact-card { background:white; border:1px solid var(--border); border-radius:12px; padding:22px 24px; display:flex; gap:18px; align-items:flex-start; transition:box-shadow .2s,transform .2s; position:relative; overflow:hidden; }
+  .impact-card:hover { box-shadow:0 8px 28px rgba(0,0,0,.08); transform:translateY(-2px); }
+  .impact-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(to bottom,var(--accent),var(--accent-light)); border-radius:3px 0 0 3px; }
+  .impact-card__stat { font-family:'Playfair Display',serif; font-size:clamp(20px,2.2vw,28px); font-weight:700; color:var(--accent); line-height:1; flex-shrink:0; min-width:64px; }
+  .impact-card__content { display:flex; flex-direction:column; gap:4px; }
+  .impact-card__label { font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3; }
+  .impact-card__desc { font-size:12.5px; font-weight:300; color:var(--text-muted); line-height:1.55; }
+
+  .cs-divider { height:1px; margin:64px 0; background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent); }
+  .cs-cta { background:linear-gradient(135deg,#040b18 0%,#0d2240 100%); border-radius:14px; padding:52px 48px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; position:relative; overflow:hidden; margin-top:64px; }
+  .cs-cta::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(30,144,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(30,144,255,.06) 1px,transparent 1px); background-size:40px 40px; }
+  .cs-cta__text { position:relative; z-index:1; }
+  .cs-cta__label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent-light); margin-bottom:10px; }
+  .cs-cta__heading { font-family:'Playfair Display',serif; font-size:clamp(20px,2.5vw,28px); font-weight:700; color:#eef4ff; line-height:1.2; margin-bottom:10px; }
+  .cs-cta__sub { font-size:14px; font-weight:300; color:rgba(200,220,245,.65); line-height:1.6; }
+  .cs-cta__btn { position:relative; z-index:1; display:inline-block; padding:14px 32px; background:var(--accent); color:white; font-family:'Outfit',sans-serif; font-size:14px; font-weight:500; border-radius:6px; text-decoration:none; letter-spacing:.3px; white-space:nowrap; transition:background .2s,box-shadow .2s; }
+  .cs-cta__btn:hover { background:#1a7de0; box-shadow:0 0 24px rgba(30,144,255,.4); }
+
+  @media (max-width:768px) {
+    .banner { height:auto; min-height:100vh; padding:80px 0 40px; }
+    .banner__metrics { grid-template-columns:repeat(2,1fr); }
+    .cs-container { padding:0 20px; }
+    .cs-cta { padding:36px 24px; }
+  }
+  @media (max-width:480px) { .banner__heading { font-size:clamp(22px,6vw,32px); } }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="b-bg"></div>
+  <div class="b-dots"></div>
+  <div class="b-blob b-blob--1"></div>
+  <div class="b-blob b-blob--2"></div>
+  <div class="b-blob b-blob--3"></div>
+  <div class="b-shimmer"></div>
+  <div class="b-corner b-corner--tl"></div>
+  <div class="b-corner b-corner--tr"></div>
+  <div class="b-corner b-corner--bl"></div>
+  <div class="b-corner b-corner--br"></div>
+
+  <div class="banner__hero">
+    <div class="b-eyebrow">
+      <div class="b-eyebrow__dot"></div>
+      <span class="b-eyebrow__text">Case Study &nbsp;·&nbsp; Microsoft &amp; Logistics Platform Modernization</span>
+      <div class="b-eyebrow__dash"></div>
+    </div>
+    <h1 class="banner__heading">
+      Logistics Platform<br>
+      <em>Modernization</em>
+    </h1>
+    <div class="b-rule"></div>
+    <p class="banner__summary">
+      Rebuilt legacy logistics systems into a real-time, mobile-enabled platform with
+      end-to-end operational visibility.
+    </p>
+  </div>
+
+  <div class="banner__metrics">
+    <div class="m-tile">
+      <div class="m-tile__icon">📍</div>
+      <div class="m-tile__value">Real-Time</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Shipment Tracking</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">📱</div>
+      <div class="m-tile__value">100%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Mobile Enablement</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">⚡</div>
+      <div class="m-tile__value">45%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Performance Gain</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">🔗</div>
+      <div class="m-tile__value">Improved</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Cross-Module Coordination</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="b-scroll">
+    <span>Scroll</span>
+    <div class="b-scroll__line"></div>
+  </div>
+</section>
+
+<!-- BODY -->
+<main class="cs-body">
+  <div class="cs-container">
+
+    <nav class="cs-nav">
+      <a href="#challenge"  class="cs-nav__pill active">Challenge</a>
+      <a href="#solution"   class="cs-nav__pill">Hyniva's Solution</a>
+      <a href="#impact"     class="cs-nav__pill">Business Impact</a>
+      <a href="#outcome"    class="cs-nav__pill">Outcome</a>
+    </nav>
+
+    <!-- CHALLENGE -->
+    <section class="cs-section" id="challenge">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">01</div>
+        <span class="cs-section__tag">Challenge</span>
+      </div>
+      <div class="cs-section__body">
+        <p>Legacy systems in logistics don't just slow operations — they block agility, transparency, and customer experience. A leading transportation and logistics provider was struggling to keep up with the speed of its own business. Behind the scenes, disconnected systems, outdated tools, and a lack of real-time visibility were creating growing pain points across operations, customer service, and field teams.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">📦</div>
+          <div class="feature-card__title">No Real-Time Shipment Tracking</div>
+          <div class="feature-card__text">Dispatch teams had to rely on outdated batch updates and manual calls to know where shipments were. ETAs were guesswork. Customers kept calling — and trust was eroding.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">📱</div>
+          <div class="feature-card__title">Mobile Apps Didn't Sync</div>
+          <div class="feature-card__text">Field staff were capturing updates on mobile — but the core systems didn't reflect them in real-time. Delays, duplicate data entry, and miscommunication became routine.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🖥️</div>
+          <div class="feature-card__title">Operations Ran on Legacy ASP Systems</div>
+          <div class="feature-card__text">Slow performance, limited scalability, and high maintenance costs made innovation impossible. Even simple changes took weeks of development.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔌</div>
+          <div class="feature-card__title">No Integration Between Tools</div>
+          <div class="feature-card__text">With no centralized middleware, customer portals, internal dashboards, and operations systems worked in silos — slowing down every team involved.</div>
+        </div>
+      </div>
+
+      <div class="cs-section__body" style="margin-top:24px;">
+        <p>The result? Slower turnarounds. Frustrated customers. Disconnected teams. Lost opportunities.</p>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- SOLUTION -->
+    <section class="cs-section" id="solution">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">02</div>
+        <span class="cs-section__tag">Hyniva's Solution</span>
+      </div>
+      <div class="cs-section__body">
+        <p>The goal was to build a future-ready, mobile-first, and real-time logistics ecosystem. Hyniva applied a cloud-first, API-first, and mobile-ready modernization strategy using Microsoft's technology stack to overhaul the logistics platform.</p>
+        <p>Instead of a simple lift-and-shift, the application was re-architected into a component-based, maintainable solution on the latest .NET platform. Migration and modernization were executed in phases aligned to key business modules (Customer Portal, Logistics, Waybills &amp; Challans, Tracking), ensuring enhancements such as mobile access, real-time communication, and performance optimization were seamlessly integrated.</p>
+        <p>This hybrid approach balanced risk reduction (via phasing) with business value delivery (new features and performance improvements), resulting in a system that is both modern and future ready.</p>
+      </div>
+
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-item__header">
+            <div class="approach-item__num">1</div>
+            <div class="approach-item__title">Cloud-First Migration &amp; Modular Re-Architecture</div>
+          </div>
+          <div class="approach-item__bullets">
+            <div class="approach-item__bullet">Re-architected the logistics platform using ASP.NET MVC and ASP.NET Framework, enabling modular, scalable services.</div>
+            <div class="approach-item__bullet">Developed component-based, dynamic UIs using Angular with the MVVM design pattern to enable flexibility and maintainability.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__header">
+            <div class="approach-item__num">2</div>
+            <div class="approach-item__title">Real-Time Integration Using Microsoft Azure</div>
+          </div>
+          <div class="approach-item__bullets">
+            <div class="approach-item__bullet">Built centralized RESTful middleware APIs for tracking, delivery status, and authentication.</div>
+            <div class="approach-item__bullet">Integrated Azure Service Bus to deliver real-time communication across web, mobile, and operations systems.</div>
+            <div class="approach-item__bullet">Used Azure SignalR to push live logistics updates to customers and internal users.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__header">
+            <div class="approach-item__num">3</div>
+            <div class="approach-item__title">Mobility &amp; Performance Engineering</div>
+          </div>
+          <div class="approach-item__bullets">
+            <div class="approach-item__bullet">Delivered a unified, cross-platform mobile app using Xamarin.Forms, integrated with backend and middleware systems for seamless field operations.</div>
+            <div class="approach-item__bullet">Boosted performance using Redis Cache to minimize latency during peak usage times.</div>
+            <div class="approach-item__bullet">Applied SQL Server tuning, advanced indexing, and query optimization to support real-time reporting and dashboard performance.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-tags">
+        <span class="tech-tag">ASP.NET MVC</span>
+        <span class="tech-tag">Angular</span>
+        <span class="tech-tag">Azure Service Bus</span>
+        <span class="tech-tag">Azure SignalR</span>
+        <span class="tech-tag">Xamarin.Forms</span>
+        <span class="tech-tag">SQL Server</span>
+        <span class="tech-tag">Redis Cache</span>
+        <span class="tech-tag">REST APIs</span>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- BUSINESS IMPACT -->
+    <section class="cs-section" id="impact">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">03</div>
+        <span class="cs-section__tag">Business Impact</span>
+      </div>
+      <div class="cs-section__body">
+        <p>We responded with a robust transformation strategy focused on modular architecture, cloud-native integration, and high-performance engineering — turning a bottlenecked platform into a streamlined digital engine.</p>
+      </div>
+
+      <div class="impact-highlights">
+        <div class="impact-card">
+          <div class="impact-card__stat">📍</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Real-Time Shipment Tracking</div>
+            <div class="impact-card__desc">Real-time shipment tracking and status updates delivered across all platforms</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">100%</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Mobile-Enabled Operations</div>
+            <div class="impact-card__desc">Fully mobile-enabled operations, enabling staff and customers to act on-the-go</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">45%</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Database Performance Improvement</div>
+            <div class="impact-card__desc">Improvement in database performance, accelerating dashboards and reports</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">360°</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">End-to-End Visibility</div>
+            <div class="impact-card__desc">End-to-end visibility across field and back-office systems through middleware integration</div>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card__stat">↑</div>
+          <div class="impact-card__content">
+            <div class="impact-card__label">Improved Customer Satisfaction</div>
+            <div class="impact-card__desc">Driven by live notifications and faster response times</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- OUTCOME -->
+    <section class="cs-section" id="outcome">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">04</div>
+        <span class="cs-section__tag">Outcome</span>
+      </div>
+      <div class="cs-section__body">
+        <p>At Hyniva, we don't just upgrade technology — we transform the way enterprises operate. By leveraging the full Microsoft technology stack, we helped our client move from outdated architecture to a high-performance, real-time digital logistics platform.</p>
+        <p>The result? Faster operations, empowered field teams, happier customers, and a future-ready foundation that scales.</p>
+        <p>No matter your industry, Hyniva brings proven Microsoft expertise to turn outdated systems into agile, high-performance platforms.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <div class="cs-cta__text">
+        <div class="cs-cta__label">Get in touch</div>
+        <div class="cs-cta__heading">Ready to modernize your logistics platform?</div>
+        <div class="cs-cta__sub">Follow us on LinkedIn for the latest updates.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cs-cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const sections = document.querySelectorAll('.cs-section');
+  const pills    = document.querySelectorAll('.cs-nav__pill');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        pills.forEach(p => p.classList.remove('active'));
+        const m = document.querySelector(`.cs-nav__pill[href="#${e.target.id}"]`);
+        if (m) m.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>

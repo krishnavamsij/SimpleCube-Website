@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Study — Transforming Insurance Claims Operations with a Scalable Digital Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:       #1e90ff;
+    --accent-light: #63c2ff;
+    --body-bg:      #f4f6fa;
+    --text-dark:    #111827;
+    --text-mid:     #374151;
+    --text-muted:   #6b7280;
+    --border:       #e5e7eb;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--body-bg); color: var(--text-dark); }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 720px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .b-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #020c1c 0%, #071a32 25%, #0c2244 55%, #050f20 100%);
+  }
+  .b-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(30,144,255,0.16) 1px, transparent 1px);
+    background-size: 38px 38px;
+    opacity: 0.38;
+  }
+  .b-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); pointer-events: none;
+  }
+  .b-blob--1 { width:650px; height:650px; left:-160px; top:-160px;
+    background: radial-gradient(circle, rgba(10,70,180,0.22) 0%, transparent 65%); }
+  .b-blob--2 { width:600px; height:600px; right:-130px; bottom:-170px;
+    background: radial-gradient(circle, rgba(30,144,255,0.2) 0%, transparent 62%); }
+  .b-blob--3 { width:500px; height:260px; left:50%; top:65%;
+    transform: translate(-50%,-50%); filter: blur(60px);
+    background: radial-gradient(ellipse, rgba(30,144,255,0.07) 0%, transparent 70%); }
+
+  .b-shimmer {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent 0%, rgba(99,194,255,0.5) 50%, transparent 100%);
+    animation: shimmerSweep 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes shimmerSweep {
+    0%   { top: -2%;  opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { top: 102%; opacity: 0; }
+  }
+
+  .b-corner {
+    position: absolute; width: 20px; height: 20px;
+    border-color: rgba(30,144,255,0.28); border-style: solid; z-index: 5;
+  }
+  .b-corner--tl { top: 22px; left: 22px;   border-width: 1px 0 0 1px; }
+  .b-corner--tr { top: 22px; right: 22px;  border-width: 1px 1px 0 0; }
+  .b-corner--bl { bottom: 22px; left: 22px;  border-width: 0 0 1px 1px; }
+  .b-corner--br { bottom: 22px; right: 22px; border-width: 0 1px 1px 0; }
+
+  .banner__hero {
+    position: relative; z-index: 3;
+    text-align: center;
+    padding: 0 8vw;
+    max-width: 1000px; width: 100%;
+    margin-bottom: 52px;
+  }
+
+  .b-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 24px;
+    opacity: 0; animation: fadeUp .55s ease forwards .08s;
+  }
+  .b-eyebrow__dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 10px var(--accent);
+    animation: blink 2.6s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.16} }
+  .b-eyebrow__text { font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--accent-light); }
+  .b-eyebrow__dash { width:26px; height:1px; background:rgba(30,144,255,.3); }
+
+  .banner__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.4vw, 46px);
+    font-weight: 700; color: #edf5ff;
+    line-height: 1.18; letter-spacing: -.4px;
+    margin-bottom: 20px;
+    opacity: 0; animation: fadeUp .65s ease forwards .2s;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .banner__heading em {
+    font-style: italic; color: var(--accent-light);
+    text-shadow: 0 0 48px rgba(99,194,255,.28);
+  }
+
+  .b-rule {
+    width: 56px; height: 2px; margin: 0 auto 20px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: 0; animation: fadeUp .5s ease forwards .34s;
+  }
+
+  .banner__summary {
+    font-size: clamp(13px, 1.25vw, 15px); font-weight: 300;
+    line-height: 1.78; color: rgba(188,214,245,.72);
+    max-width: 660px; margin: 0 auto;
+    opacity: 0; animation: fadeUp .6s ease forwards .46s;
+  }
+
+  .banner__metrics {
+    position: relative; z-index: 3;
+    width: 100%; max-width: 1160px;
+    padding: 0 3vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    opacity: 0; animation: fadeUp .7s ease forwards .68s;
+  }
+
+  .banner__metrics::before {
+    content: ''; position: absolute;
+    top: 0; left: 3vw; right: 3vw; height: 1px;
+    background: linear-gradient(to right,
+      transparent,
+      rgba(30,144,255,.22) 15%,
+      rgba(99,194,255,.55) 50%,
+      rgba(30,144,255,.22) 85%,
+      transparent
+    );
+  }
+
+  .m-tile {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 34px 18px 30px;
+    cursor: default;
+    transition: background .3s;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+  .m-tile:hover { background: rgba(30,144,255,.05); }
+
+  .m-tile::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 80% at 50% 100%, rgba(30,144,255,.1), transparent 70%);
+    opacity: 0; transition: opacity .35s; pointer-events: none;
+  }
+  .m-tile:hover::after { opacity: 1; }
+
+  .m-tile:not(:last-child)::before {
+    content: ''; position: absolute;
+    right: 0; top: 18%; bottom: 18%; width: 1px;
+    background: linear-gradient(to bottom,
+      transparent,
+      rgba(30,144,255,.28) 30%,
+      rgba(99,194,255,.42) 50%,
+      rgba(30,144,255,.28) 70%,
+      transparent
+    );
+  }
+
+  .m-tile__icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1px solid rgba(30,144,255,.2);
+    background: rgba(30,144,255,.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 18px;
+    transition: border-color .3s, background .3s, box-shadow .3s;
+  }
+  .m-tile:hover .m-tile__icon {
+    border-color: rgba(99,194,255,.55);
+    background: rgba(30,144,255,.15);
+    box-shadow: 0 0 20px rgba(30,144,255,.22);
+  }
+
+  .m-tile__value {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 700; color: #fff;
+    line-height: 1; letter-spacing: -1px; margin-bottom: 8px;
+    text-shadow: 0 0 40px rgba(99,194,255,.3);
+    transition: color .3s, text-shadow .3s;
+  }
+  .m-tile:hover .m-tile__value {
+    color: var(--accent-light);
+    text-shadow: 0 0 60px rgba(99,194,255,.55);
+  }
+
+  .m-tile__bar {
+    width: 28px; height: 2px; border-radius: 2px; margin-bottom: 10px;
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    opacity: .42; transition: width .3s, opacity .3s;
+  }
+  .m-tile:hover .m-tile__bar { width: 46px; opacity: 1; }
+
+  .m-tile__label { font-size:12.5px; font-weight:500; color:rgba(205,228,255,.84); line-height:1.35; margin-bottom:5px; }
+  .m-tile__sub   { font-size:11px;   font-weight:300; color:rgba(120,165,215,.44); line-height:1.4; }
+
+  .b-scroll {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center;
+    gap: 7px; z-index: 5;
+    opacity: 0; animation: fadeUp .8s ease forwards 1.2s;
+  }
+  .b-scroll span { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(99,194,255,.36); }
+  .b-scroll__line {
+    width: 1px; height: 32px;
+    background: linear-gradient(to bottom, rgba(99,194,255,.44), transparent);
+    animation: lineDrop 2s ease-in-out infinite;
+  }
+  @keyframes lineDrop {
+    0%   { transform:scaleY(0); transform-origin:top;    opacity:1; }
+    50%  { transform:scaleY(1); transform-origin:top;    opacity:1; }
+    51%  { transform:scaleY(1); transform-origin:bottom; }
+    100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(22px); }
+    to   { opacity:1; transform:translateY(0);    }
+  }
+
+  .cs-body { background: var(--body-bg); padding: 80px 0 100px; }
+  .cs-container { max-width:900px; margin:0 auto; padding:0 40px; }
+
+  .cs-nav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:64px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .cs-nav__pill {
+    font-size:12px; font-weight:500; letter-spacing:.5px; color:var(--text-muted);
+    padding:6px 16px; border-radius:100px; border:1px solid var(--border);
+    background:white; cursor:pointer; text-decoration:none; transition:all .2s;
+  }
+  .cs-nav__pill:hover, .cs-nav__pill.active { background:var(--accent); border-color:var(--accent); color:white; }
+
+  .cs-section { margin-bottom:64px; scroll-margin-top:30px; }
+  .cs-section__eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .cs-section__num {
+    width:28px; height:28px; border-radius:50%;
+    background:var(--accent); color:white; font-size:11px; font-weight:600;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .cs-section__tag { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--accent); }
+  .cs-section__body { font-size:15.5px; font-weight:300; line-height:1.82; color:var(--text-mid); }
+  .cs-section__body p+p { margin-top:14px; }
+
+  .approach-list { margin-top:28px; display:flex; flex-direction:column; gap:20px; }
+  .approach-item { display:flex; gap:20px; background:white; border:1px solid var(--border); border-radius:10px; padding:22px 24px; transition:box-shadow .2s; }
+  .approach-item:hover { box-shadow:0 6px 24px rgba(0,0,0,.07); }
+  .approach-item__num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:rgba(30,144,255,.18); line-height:1; flex-shrink:0; width:36px; margin-top:-2px; }
+  .approach-item__title { font-size:14px; font-weight:600; color:var(--text-dark); margin-bottom:6px; }
+  .approach-item__desc  { font-size:13.5px; font-weight:300; color:var(--text-muted); line-height:1.65; }
+
+  .outcome-list { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+  .outcome-item { display:flex; align-items:flex-start; gap:12px; font-size:15px; font-weight:300; color:var(--text-mid); line-height:1.65; }
+  .outcome-item__dot { width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:7px; opacity:.7; }
+
+  .future-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .future-tag { display:flex; align-items:center; gap:8px; background:white; border:1px solid var(--border); border-radius:100px; padding:10px 18px; font-size:13px; font-weight:400; color:var(--text-mid); transition:all .2s; }
+  .future-tag:hover { border-color:var(--accent); color:var(--accent); background:rgba(30,144,255,.04); }
+  .future-tag__dot { width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.5; }
+
+  .cs-divider { height:1px; margin:64px 0; background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent); }
+
+  .cs-cta { background:linear-gradient(135deg,#040b18 0%,#0d2240 100%); border-radius:14px; padding:52px 48px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; position:relative; overflow:hidden; margin-top:64px; }
+  .cs-cta::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(30,144,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(30,144,255,.06) 1px,transparent 1px); background-size:40px 40px; }
+  .cs-cta__text { position:relative; z-index:1; }
+  .cs-cta__label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent-light); margin-bottom:10px; }
+  .cs-cta__heading { font-family:'Playfair Display',serif; font-size:clamp(20px,2.5vw,28px); font-weight:700; color:#eef4ff; line-height:1.2; margin-bottom:10px; }
+  .cs-cta__sub { font-size:14px; font-weight:300; color:rgba(200,220,245,.65); line-height:1.6; }
+  .cs-cta__btn { position:relative; z-index:1; display:inline-block; padding:14px 32px; background:var(--accent); color:white; font-family:'Outfit',sans-serif; font-size:14px; font-weight:500; border-radius:6px; text-decoration:none; letter-spacing:.3px; white-space:nowrap; transition:background .2s,box-shadow .2s; }
+  .cs-cta__btn:hover { background:#1a7de0; box-shadow:0 0 24px rgba(30,144,255,.4); }
+
+  @media (max-width: 768px) {
+    .banner { height:auto; min-height:100vh; padding:80px 0 40px; }
+    .banner__metrics { grid-template-columns:repeat(2,1fr); }
+    .cs-container { padding:0 20px; }
+    .cs-cta { padding:36px 24px; }
+  }
+  @media (max-width: 480px) {
+    .banner__heading { font-size:clamp(22px,6vw,32px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="b-bg"></div>
+  <div class="b-dots"></div>
+  <div class="b-blob b-blob--1"></div>
+  <div class="b-blob b-blob--2"></div>
+  <div class="b-blob b-blob--3"></div>
+  <div class="b-shimmer"></div>
+  <div class="b-corner b-corner--tl"></div>
+  <div class="b-corner b-corner--tr"></div>
+  <div class="b-corner b-corner--bl"></div>
+  <div class="b-corner b-corner--br"></div>
+
+  <div class="banner__hero">
+    <div class="b-eyebrow">
+      <div class="b-eyebrow__dot"></div>
+      <span class="b-eyebrow__text">Case Study &nbsp;·&nbsp; Insurance Claims Transformation</span>
+      <div class="b-eyebrow__dash"></div>
+    </div>
+    <h1 class="banner__heading">
+      Transforming Insurance Claims Operations with a<br>
+      <em>Scalable Digital Platform</em>
+    </h1>
+    <div class="b-rule"></div>
+    <p class="banner__summary">
+      Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.
+    </p>
+  </div>
+
+  <div class="banner__metrics">
+    <div class="m-tile">
+      <div class="m-tile__icon">⚡</div>
+      <div class="m-tile__value">60%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Faster Claims Processing</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">📈</div>
+      <div class="m-tile__value">40%</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Operational Efficiency Gain</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">🔍</div>
+      <div class="m-tile__value">Real-Time</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Claims Tracking</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+    <div class="m-tile">
+      <div class="m-tile__icon">🏗️</div>
+      <div class="m-tile__value">Scalable</div>
+      <div class="m-tile__bar"></div>
+      <div class="m-tile__label">Digital Platform</div>
+      <div class="m-tile__sub">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="b-scroll">
+    <span>Scroll</span>
+    <div class="b-scroll__line"></div>
+  </div>
+</section>
+
+<!-- BODY -->
+<main class="cs-body">
+  <div class="cs-container">
+
+    <nav class="cs-nav">
+      <a href="#challenge"  class="cs-nav__pill active">Challenge</a>
+      <a href="#approach"   class="cs-nav__pill">Hyniva's Solution</a>
+      <a href="#solutions"  class="cs-nav__pill">Key Solutions</a>
+      <a href="#impact"     class="cs-nav__pill">Impact</a>
+      <a href="#future"     class="cs-nav__pill">Road Ahead</a>
+    </nav>
+
+    <!-- CHALLENGE -->
+    <section class="cs-section" id="challenge">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">01</div>
+        <span class="cs-section__tag">Challenge</span>
+      </div>
+
+      <div class="cs-section__body">
+        <p>Insurance agencies managing claims at scale often struggle with fragmented systems, manual processes, and limited visibility into financial operations.</p>
+        <p>The existing platform faced several operational and technical challenges:</p>
+      </div>
+
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-item__num">1</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Manual, error-prone payment processing slowing down operations</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">2</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Invoice mapping inconsistencies across carriers</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">3</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Limited reporting capabilities impacting decision-making</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">4</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Performance bottlenecks affecting user experience</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">5</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Security gaps in financial transactions and data handling</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section__body" style="margin-top:24px;">
+        <p>These limitations created inefficiencies across the claims lifecycle — from assignment to settlement.</p>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- HYNIVA'S SOLUTION -->
+    <section class="cs-section" id="approach">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">02</div>
+        <span class="cs-section__tag">Hyniva's Solution</span>
+      </div>
+
+      <div class="cs-section__body">
+        <p>Rather than incremental fixes, we took a long-term, engineering-led approach to design a platform that can streamline the end-to-end claims lifecycle.</p>
+        <p>Over a multi-year engagement, we continuously evolved the platform with a focus on:</p>
+      </div>
+
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-item__num">1</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Workflow Automation</div>
+            <div class="approach-item__desc">Automating core workflows across the claims lifecycle to eliminate manual overhead and reduce processing delays.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">2</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Secure Financial Systems</div>
+            <div class="approach-item__desc">Strengthening financial systems with secure, reliable processing to improve compliance and protect sensitive transaction data.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">3</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Performance at Scale</div>
+            <div class="approach-item__desc">Enhancing platform performance to support growing operational scale without degradation in user experience or system reliability.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">4</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Scalable Architecture</div>
+            <div class="approach-item__desc">Building a flexible, scalable architecture designed to accommodate future growth, integrations, and evolving business requirements.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- KEY SOLUTIONS -->
+    <section class="cs-section" id="solutions">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">03</div>
+        <span class="cs-section__tag">Key Solutions Delivered</span>
+      </div>
+
+      <div class="cs-section__body">
+        <p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>
+      </div>
+
+      <!-- Solution 1 -->
+      <div class="cs-section__body" style="margin-top:28px;">
+        <p><strong style="color:var(--text-dark); font-weight:600;">1. End-to-End Financial Workflow Automation</strong></p>
+        <p style="margin-top:8px;">We streamlined financial operations across invoicing, payments, and payroll.</p>
+      </div>
+      <div class="approach-list" style="margin-top:16px;">
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Advanced invoice generation and carrier mapping</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Fully integrated payment processing module</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Automated adjuster commission calculations</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Payroll system with ACH integration for seamless disbursements</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution 2 -->
+      <div class="cs-section__body" style="margin-top:36px;">
+        <p><strong style="color:var(--text-dark); font-weight:600;">2. Secure &amp; Compliant Payment Infrastructure</strong></p>
+        <p style="margin-top:8px;">We enhanced platform security to ensure safe and reliable financial transactions.</p>
+      </div>
+      <div class="approach-list" style="margin-top:16px;">
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Strengthened payment security protocols</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Reduced risks associated with manual financial handling</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Improved compliance and data protection standards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution 3 -->
+      <div class="cs-section__body" style="margin-top:36px;">
+        <p><strong style="color:var(--text-dark); font-weight:600;">3. Performance Optimization at Scale</strong></p>
+        <p style="margin-top:8px;">We re-engineered the platform to handle increasing workloads efficiently.</p>
+      </div>
+      <div class="approach-list" style="margin-top:16px;">
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Eliminated performance bottlenecks across key workflows</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Improved system responsiveness and user experience</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Ensured stability under high transaction volumes</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution 4 -->
+      <div class="cs-section__body" style="margin-top:36px;">
+        <p><strong style="color:var(--text-dark); font-weight:600;">4. Reporting &amp; Operational Intelligence</strong></p>
+        <p style="margin-top:8px;">We introduced robust reporting capabilities to improve visibility and control.</p>
+      </div>
+      <div class="approach-list" style="margin-top:16px;">
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Configurable reports for financial tracking and claims insights</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Automated reporting workflows for faster decision-making</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Improved transparency across the claims lifecycle</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution 5 -->
+      <div class="cs-section__body" style="margin-top:36px;">
+        <p><strong style="color:var(--text-dark); font-weight:600;">5. Scalable Architecture for Long-Term Growth</strong></p>
+        <p style="margin-top:8px;">We modernized the platform's foundation to support future expansion.</p>
+      </div>
+      <div class="approach-list" style="margin-top:16px;">
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Designed a scalable database architecture</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Enabled flexibility for new feature additions and integrations</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">✦</div>
+          <div class="approach-item__content">
+            <div class="approach-item__title">Ensured long-term maintainability and performance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- IMPACT -->
+    <section class="cs-section" id="impact">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">04</div>
+        <span class="cs-section__tag">Impact</span>
+      </div>
+
+      <div class="cs-section__body">
+        <p>The transformation delivered significant, measurable outcomes:</p>
+      </div>
+
+      <div class="outcome-list" style="margin-top:16px;">
+        <div class="outcome-item"><div class="outcome-item__dot"></div><div><strong style="color:var(--text-dark);font-weight:600;">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead</div></div>
+        <div class="outcome-item"><div class="outcome-item__dot"></div><div><strong style="color:var(--text-dark);font-weight:600;">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle</div></div>
+        <div class="outcome-item"><div class="outcome-item__dot"></div><div><strong style="color:var(--text-dark);font-weight:600;">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy</div></div>
+        <div class="outcome-item"><div class="outcome-item__dot"></div><div><strong style="color:var(--text-dark);font-weight:600;">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations</div></div>
+        <div class="outcome-item"><div class="outcome-item__dot"></div><div><strong style="color:var(--text-dark);font-weight:600;">Enhanced Security &amp; Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data</div></div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- ROAD AHEAD -->
+    <section class="cs-section" id="future">
+      <div class="cs-section__eyebrow">
+        <div class="cs-section__num">05</div>
+        <span class="cs-section__tag">The Road Ahead</span>
+      </div>
+
+      <div class="cs-section__body">
+        <p>With a modern, scalable foundation, the platform is now positioned to evolve into a more intelligent, automation-driven system.</p>
+        <p>Future enhancements will focus on:</p>
+      </div>
+
+      <div class="future-tags">
+        <div class="future-tag"><div class="future-tag__dot"></div>Deeper analytics capabilities</div>
+        <div class="future-tag"><div class="future-tag__dot"></div>AI-driven claims insights</div>
+        <div class="future-tag"><div class="future-tag__dot"></div>Continued operations optimization</div>
+        <div class="future-tag"><div class="future-tag__dot"></div>Greater speed &amp; accuracy</div>
+      </div>
+
+      <div class="cs-section__body" style="margin-top:24px;">
+        <p>Enabling agencies to operate with greater speed, accuracy, and confidence — built on a platform designed to continuously adapt and scale.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <div class="cs-cta__text">
+        <div class="cs-cta__label">Get in touch</div>
+        <div class="cs-cta__heading">Ready to modernize your claims operations?</div>
+        <div class="cs-cta__sub">Follow us on LinkedIn for the latest updates.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cs-cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const sections = document.querySelectorAll('.cs-section');
+  const pills    = document.querySelectorAll('.cs-nav__pill');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        pills.forEach(p => p.classList.remove('active'));
+        const m = document.querySelector(`.cs-nav__pill[href="#${e.target.id}"]`);
+        if (m) m.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
