@@ -204,22 +204,9 @@ export default function ContactPage() {
                                             </select>
                                         </div>
 
-                                        <div className="space-y-6">
-                                            <div className="flex flex-col gap-4">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? (Select all that apply)</label>
-                                                <div className="flex flex-wrap gap-3">
-                                                    {["Salesforce", "AWS Cloud", "Microsoft Azure", "Applied AI", "Digital Transformation", "Data Intelligence", "Product Development", "IT Strategy", "Not sure — need advice"].map((service) => (
-                                                        <button key={service} type="button" className="px-5 py-2.5 rounded-full border border-slate-200 text-[13px] font-bold text-[#030B3B] hover:border-[#3B82F6] hover:text-[#3B82F6] hover:bg-[#3B82F6]/5 transition-all">
-                                                            {service}
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div className="flex flex-col gap-2.5">
-                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Message *</label>
-                                            <textarea rows={2} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
+                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? *</label>
+                                            <textarea rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
                                         </div>
 
                                         <button className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)]">
