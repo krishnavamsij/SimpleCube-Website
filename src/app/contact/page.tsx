@@ -42,7 +42,7 @@ export default function ContactPage() {
                             
                             <motion.h1 
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-6xl lg:text-[84px] font-[900] text-white tracking-tight leading-[1.05] mb-12 font-display"
+                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-12 font-display"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
                             
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 {/* ── Content Section (White Background) ── */}
                 <section className="py-24 bg-white">
                     <div className="mx-auto max-w-[1400px] px-6">
-                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
                             
                             {/* Left Column: Details */}
                             <div className="w-full lg:w-[42%]">
@@ -71,7 +71,7 @@ export default function ContactPage() {
                                 >
                                     <motion.h2 
                                         variants={fadeInUp}
-                                        className="text-4xl lg:text-5xl font-[900] text-[#030B3B] tracking-tight leading-tight mb-8 font-display"
+                                        className="text-3xl lg:text-[42px] font-[900] text-[#030B3B] tracking-tight leading-tight mb-8 font-display"
                                         dangerouslySetInnerHTML={{ __html: contactContent.body.title }}
                                     />
                                     
@@ -136,7 +136,7 @@ export default function ContactPage() {
                                         <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
                                             <div className="flex items-center gap-3 mb-4">
                                                 <span className="text-2xl">🇮🇳</span>
-                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
+                                                <h4 className="text((11px)] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
                                             </div>
                                             <p className="text-[15px] font-bold text-[#030B3B] leading-relaxed">
                                                 {contactContent.body.offices.india.address}
@@ -161,33 +161,33 @@ export default function ContactPage() {
                                     
                                     <form className="space-y-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="space-y-4">
+                                            <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">First Name *</label>
                                                 <input type="text" placeholder="Jane" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
-                                            <div className="space-y-4">
+                                            <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Last Name *</label>
                                                 <input type="text" placeholder="Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
                                         </div>
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="space-y-4">
+                                            <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Work Email *</label>
                                                 <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
-                                            <div className="space-y-4">
+                                            <div className="flex flex-col gap-2.5">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
                                                 <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-4">
+                                        <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
                                             <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all" />
                                         </div>
 
-                                        <div className="space-y-4">
+                                        <div className="flex flex-col gap-2.5">
                                             <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
                                             <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-medium transition-all appearance-none cursor-pointer">
                                                 <option>Select your industry</option>
