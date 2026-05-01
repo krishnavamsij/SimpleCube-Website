@@ -1,205 +1,194 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import {
-    Brain,
-    Plug,
-    Shield,
-    Eye,
-    MessagesSquare,
-    FileSearch,
-    BarChart3,
-    Settings2,
-    Boxes,
-    Clock,
-    UserCheck,
-    TrendingDown,
-    Lightbulb,
-    Scale,
-    ArrowUpRightIcon,
-} from "lucide-react";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
+import { Button } from '@/components/ui/button'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
     scrollReveal,
     scrollStaggerContainer,
     viewportOnce,
     fadeInUp,
     staggerContainer,
-} from "@/lib/animations";
+} from "@/lib/animations"
 
-/* ─────────────── Data ─────────────── */
-
-const differentiators = [
+const whatMakesDiff = [
     {
-        icon: Brain,
-        title: "Autonomous Reasoning at Scale",
-        description:
-            "Executes multi-step reasoning, orchestrates specialized agents, and delivers end-to-end workflows — going beyond answers to drive efficiency, accuracy, and intelligent automation",
+        img: '/images/products/Autonomous-reasoning.png',
+        title: 'Autonomous Reasoning at Scale',
+        desc: 'Executes multi-step reasoning, orchestrates specialized agents, and delivers end-to-end workflows — going beyond answers to drive efficiency, accuracy, and intelligent automation',
     },
     {
-        icon: Plug,
-        title: "Frictionless Integration",
-        description:
-            "At the heart of AIRA is OneAPI — a breakthrough integration framework that reduces onboarding from months to weeks, eliminating costly, complex system integrations.",
+        img: '/images/products/Frictionless-Integration-1.png',
+        title: 'Frictionless Integration',
+        desc: 'At the heart of AIRA is OneAPI — a breakthrough integration framework that reduces onboarding from months to weeks, eliminating costly, complex system integrations.',
     },
     {
-        icon: Boxes,
-        title: "Modular & Future-Proof",
-        description:
-            "Pre-built agents for chat, transactions, documents, and omnichannel service - extensible as technology and regulations evolve.",
+        img: '/images/products/Modular-Future-proof-1.png',
+        title: 'Modular & Future-Proof',
+        desc: 'Pre-built agents for chat, transactions, documents, and omnichannel service - extensible as technology and regulations evolve.',
     },
     {
-        icon: Scale,
-        title: "Bias-Aware, Configurable AI",
-        description:
-            "Responses are customizable to align with compliance rules, regulatory policies, and institutional brand standards.",
+        img: '/images/products/Bias-aware.png',
+        title: 'Bias-Aware, Configurable AI',
+        desc: 'Responses are customizable to align with compliance rules, regulatory policies, and institutional brand standards.',
     },
     {
-        icon: Shield,
-        title: "Enterprise-Grade Security & Compliance",
-        description:
-            "Every output is validated through guardrails, compliance engines, and audit trails designed for financial regulation.",
+        img: '/images/products/auditing-1.png',
+        title: 'Enterprise-Grade Security & Compliance',
+        desc: 'Every output is validated through guardrails, compliance engines, and audit trails designed for financial regulation.',
     },
-];
+]
 
 const capabilities = [
     {
-        icon: MessagesSquare,
-        title: "Omnichannel Experience",
-        description: "Support for customer interactions across web, mobile, IVR, email, and messaging platforms.",
+        img: '/images/products/Omnichannel-Experience-1.png',
+        title: 'Omnichannel Experience',
+        desc: 'Support for customer interactions across web, mobile, IVR, email, and messaging platforms.',
     },
     {
-        icon: FileSearch,
-        title: "Intelligent Document Processing",
-        description: "Automates KYC, compliance, and transaction documentation with real-time validation.",
+        img: '/images/products/Intelligent-Document-Processing.png',
+        title: 'Intelligent Document Processing',
+        desc: 'Automates KYC, compliance, and transaction documentation with real-time validation.',
     },
     {
-        icon: Eye,
-        title: "Visual Intelligence",
-        description: "Extracts and verifies data from images and video, supporting areas like fraud detection and claims.",
+        img: '/images/products/Visual-Intelligence.png',
+        title: 'Visual Intelligence',
+        desc: 'Extracts and verifies data from images and video, supporting areas like fraud detection and claims.',
     },
     {
-        icon: UserCheck,
-        title: "Contextual Memory",
-        description: "Retains institutional knowledge and client history for consistent, personalized service.",
+        img: '/images/products/Contextual-Memory-1.png',
+        title: 'Contextual Memory',
+        desc: 'Retains institutional knowledge and client history for consistent, personalized service.',
     },
     {
-        icon: BarChart3,
-        title: "Observability & Analytics",
-        description: "Real-time logging, tracing, and metrics to meet regulatory audit and SLA requirements.",
+        img: '/images/products/Observability-Analytics.png',
+        title: 'Observability & Analytics',
+        desc: 'Real-time logging, tracing, and metrics to meet regulatory audit and SLA requirements.',
     },
     {
-        icon: Settings2,
-        title: "No-Code Administration",
-        description: "Empower business teams to configure workflows, prompts, and compliance guardrails without developer dependency.",
+        img: '/images/products/No-Code-Administration.png',
+        title: 'No-Code Administration',
+        desc: 'Empower business teams to configure workflows, prompts, and compliance guardrails without developer dependency.',
     },
-];
+]
 
 const impacts = [
     {
-        icon: Clock,
-        title: "Instant, Always-On Support",
-        description: "Provides 24/7 intelligent assistance, ensuring clients get critical services and information instantly, without delays.",
+        img: '/images/products/Instant-Always-On-Support-.png',
+        title: 'Instant, Always-On Support',
+        desc: 'Provides 24/7 intelligent assistance, ensuring clients get critical services and information instantly, without delays.',
     },
     {
-        icon: UserCheck,
-        title: "Personalized Client Interactions",
-        description: "Context-aware responses powered by transaction history and preferences, enabling hyper-personalized experiences.",
+        img: '/images/products/Personalized-Client-Interactions-.png',
+        title: 'Personalized Client Interactions',
+        desc: 'Context-aware responses powered by transaction history and preferences, enabling hyper-personalized experiences.',
     },
     {
-        icon: TrendingDown,
-        title: "Cost-Effective Operations",
-        description: "Automates routine, high-volume tasks — cutting operational overhead, lowering manual effort, and boosting efficiency across teams and processes.",
+        img: '/images/products/Cost-Effective-Operations-.png',
+        title: 'Cost-Effective Operations',
+        desc: 'Automates routine, high-volume tasks — cutting operational overhead, lowering manual effort, and boosting efficiency across teams and processes.',
     },
-];
-
-/* ─────────────── Hero ─────────────── */
+    {
+        img: '/images/products/Effortless-Scalability-.png',
+        title: 'Effortless Scalability',
+        desc: 'Handles high client volumes during peak periods without increasing costs or degrading performance.',
+    },
+    {
+        img: '/images/products/Deep-Customer-Insights-.png',
+        title: 'Deep Customer Insights',
+        desc: 'Unlocks actionable analytics from conversations, helping teams tailor offerings and improve engagement.',
+    },
+    {
+        img: '/images/products/Consistent-Reliable-Information-.png',
+        title: 'Consistent, Reliable Information',
+        desc: 'Delivers accurate, uniform answers aligned with regulatory standards — reducing errors and escalation.',
+    },
+]
 
 function AiraHero() {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-    const imageY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
     return (
-        <section ref={ref} className="relative min-h-screen overflow-hidden">
-            {/* Background image */}
-            <motion.div style={{ y: imageY }} className="absolute inset-x-0 inset-y-0 lg:left-1/2 lg:w-1/2">
-                <Image src="/images/Product Images/AIRA.gif" alt="" fill priority className="object-cover lg:object-contain" />
-            </motion.div>
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-700/90 via-indigo-800/85 to-purple-900/90" />
-            <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/50 via-transparent to-transparent" />
+        <section className="relative h-[515px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
+            {/* Background video */}
+            <div className="absolute inset-0 z-0">
+                <video 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="object-cover w-full h-full"
+                >
+                    <source src="/images/products/HERO-PAGE-.mp4" type="video/mp4" />
+                </video>
+            </div>
 
             {/* Content */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-6 pt-24 pb-20">
-                <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-                    <motion.span
-                        variants={fadeInUp}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md"
-                    >
-                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                        AI / Automation Product
-                    </motion.span>
-
+            <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 lg:px-8">
+                <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-[550px]">
+                    <motion.div variants={fadeInUp} className="mb-8">
+                        <Image src="/images/products/dummy.png" alt="AIRA" width={200} height={60} className="opacity-0" />
+                    </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="mt-8 text-4xl font-extrabold text-white sm:text-5xl md:text-6xl lg:text-7xl"
-                        style={{ fontFamily: "var(--font-bricolage)" }}
+                        className="text-white mb-6"
+                        style={{ fontFamily: "Roboto, sans-serif", fontSize: "40px", lineHeight: "50px", fontWeight: 500 }}
                     >
-                        Autonomous Intelligent<br />Reasoning Agent
+                        Autonomous Intelligent Reasoning Agent
                     </motion.h1>
-                    <motion.p variants={fadeInUp} className="mt-6 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+                    <motion.p 
+                        variants={fadeInUp} 
+                        className="text-white mb-8"
+                        style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", lineHeight: "28px", fontWeight: 400, maxWidth: "480px" }}
+                    >
                         The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
                     </motion.p>
-
-                    <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4">
-                        <Button size="lg" asChild className="bg-white text-blue-700 font-bold shadow-xl hover:bg-blue-50">
-                            <Link href="/contact">
-                                Get Started <ArrowUpRightIcon className="ml-1 h-4 w-4" />
-                            </Link>
-                        </Button>
-                        <Button size="lg" variant="outline" asChild className="border-2 border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
-                            <Link href="#capabilities">See Capabilities</Link>
+                    <motion.div variants={fadeInUp}>
+                        <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontFamily: "Roboto, sans-serif", fontSize: "15px", fontWeight: 600, padding: "12px 25px", borderRadius: "0px", height: "auto" }} className="hover:bg-gray-100 transition-colors uppercase">
+                            <Link href="/contact">Get Started</Link>
                         </Button>
                     </motion.div>
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }
-
-/* ─────────────── Intro ─────────────── */
 
 function AiraIntro() {
     return (
-        <section className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24">
-            <div className="mx-auto max-w-[1000px] px-6">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-left bg-white dark:bg-slate-950 shadow-xl border border-border/50 rounded-3xl p-10 md:p-16">
-                    <h2 className="text-3xl font-extrabold tracking-tight text-[#3b5998] dark:text-blue-400 sm:text-4xl">
-                        Introducing AIRA
-                    </h2>
-                    <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                        AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI platform for financial services that unifies autonomous reasoning, compliance-first design, and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
-                    </p>
-                </motion.div>
+        <section className="bg-white py-[60px] lg:py-[80px]">
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+                <div className="flex flex-wrap justify-center">
+                    <div className="w-full md:w-10/12 lg:w-9/12">
+                        <motion.div 
+                            variants={scrollReveal} 
+                            initial="hidden" 
+                            whileInView="visible" 
+                            viewport={viewportOnce} 
+                            className="bg-[#f8f9fa] p-10 lg:p-16 rounded-[15px] text-center shadow-sm border border-gray-100"
+                        >
+                            <h2 className="text-[#345195] text-3xl font-bold mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                Introducing AIRA
+                            </h2>
+                            <h6 className="text-[#666666] text-[18px] leading-[30px] font-normal m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI platform for financial services that unifies autonomous reasoning, compliance-first design, and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
+                            </h6>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
-    );
+    )
 }
-
-/* ─────────────── Differentiators ─────────────── */
 
 function AiraDifferentiators() {
     return (
-        <section className="bg-slate-50 dark:bg-slate-900 pb-16 sm:pb-24 pt-8">
-            <div className="mx-auto max-w-[1400px] px-6">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center">
-                    <h2 className="text-3xl font-extrabold tracking-tight text-[#3b5998] dark:text-blue-400 sm:text-4xl lg:text-5xl">
+        <section className="bg-[#f8f9fa] py-[60px] lg:py-[80px]">
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
+                    <h2 className="text-[#345195] text-3xl font-bold">
                         What Makes AIRA Different
                     </h2>
                 </motion.div>
@@ -209,40 +198,57 @@ function AiraDifferentiators() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    className="flex flex-col gap-[30px]"
                 >
-                    {differentiators.map((item) => (
-                        <motion.div
-                            key={item.title}
-                            variants={scrollReveal}
-                            className="group relative overflow-hidden text-center sm:text-left rounded-xl bg-white dark:bg-slate-950 p-8 shadow-sm transition-all duration-300 hover:shadow-xl"
-                        >
-                            <div className="mb-6 flex sm:justify-start justify-center">
-                                <item.icon className="h-10 w-10 text-foreground" strokeWidth={1.5} />
-                            </div>
-                            <h3 className="text-lg font-medium text-foreground">{item.title}</h3>
-                            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                        </motion.div>
-                    ))}
+                    {/* Top Row: 2 items */}
+                    <div className="grid md:grid-cols-2 gap-[30px]">
+                        {whatMakesDiff.slice(0, 2).map((item, idx) => (
+                            <motion.div
+                                key={idx}
+                                variants={scrollReveal}
+                                className="bg-white p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                            >
+                                <div className="mb-[20px]">
+                                    <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
+                                </div>
+                                <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                    {/* Bottom Row: 3 items */}
+                    <div className="grid md:grid-cols-3 gap-[30px]">
+                        {whatMakesDiff.slice(2).map((item, idx) => (
+                            <motion.div
+                                key={idx}
+                                variants={scrollReveal}
+                                className="bg-white p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                            >
+                                <div className="mb-[20px]">
+                                    <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
+                                </div>
+                                <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }
-
-/* ─────────────── Key Capabilities ─────────────── */
 
 function AiraCapabilities() {
     return (
-        <section id="capabilities" className="bg-[#0b1021] py-20 sm:py-28">
-            <div className="mx-auto max-w-[1400px] px-6">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-16">
-                    <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <section id="capabilities" className="bg-[#0b1021] py-[60px] lg:py-[80px]">
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
+                    <h2 className="text-white text-3xl font-bold mb-[10px]">
                         Key Capabilities
                     </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-base text-slate-300 sm:text-lg">
+                    <h6 className="text-white text-base font-normal">
                         AIRA brings a financial-services lens to every capability
-                    </p>
+                    </h6>
                 </motion.div>
 
                 <motion.div
@@ -250,71 +256,67 @@ function AiraCapabilities() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-[30px] sm:grid-cols-2 lg:grid-cols-3"
                 >
-                    {capabilities.map((cap) => (
+                    {capabilities.map((cap, idx) => (
                         <motion.div
-                            key={cap.title}
+                            key={idx}
                             variants={scrollReveal}
-                            className="group rounded-xl border border-slate-700 bg-slate-800/50 p-7 transition-all duration-300 hover:border-cyan-500/40 hover:bg-slate-800"
+                            className="group flex flex-col"
                         >
-                            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-500/10">
-                                <cap.icon className="h-6 w-6 text-cyan-400" />
+                            <div className="w-full h-auto">
+                                <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover" />
                             </div>
-                            <h3 className="text-base font-bold text-white">{cap.title}</h3>
-                            <p className="mt-2.5 text-sm leading-relaxed text-slate-300">{cap.description}</p>
+                            <div className="bg-[#040c31] p-[30px] text-center flex-grow flex flex-col items-center">
+                                <h5 className="text-[20px] font-bold text-white mb-[15px] leading-tight">{cap.title}</h5>
+                                <p className="text-white text-[15px] leading-[26px] m-0">{cap.desc}</p>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }
-
-/* ─────────────── CEO Vision ─────────────── */
 
 function CeoVision() {
     return (
-        <section className="bg-slate-50 dark:bg-slate-900 py-20 sm:py-28">
-            <div className="mx-auto max-w-[900px] px-6 text-center sm:text-left flex flex-col items-center">
-                <p className="text-3xl font-extrabold tracking-tight text-[#3b5998] dark:text-blue-400 mb-10">CEO's Vision</p>
-                <motion.div
-                    variants={scrollReveal}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="flex flex-col items-center gap-10 sm:flex-row"
-                >
-                    <div className="flex-shrink-0">
-                        <div className="h-44 w-40 overflow-hidden bg-muted relative">
-                            {/* Avatar placeholder, replace with real image if found */}
-                            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-400 to-slate-600">
-                                <span className="text-3xl font-bold text-white">SJ</span>
-                            </div>
+        <section id="ceo" className="py-20 bg-[#f9f9f9]">
+            <div className="max-w-[1240px] mx-auto px-[15px]">
+                <header className="text-center mb-12">
+                    <h2 className="text-[35px] font-medium leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        CEO's Vision
+                    </h2>
+                </header>
+                <div className="flex flex-wrap -mx-[15px]">
+                    <div className="hidden md:block md:w-1/6 px-[15px]"></div>
+                    <div className="w-full md:w-2/12 px-[15px] mb-8 md:mb-0 flex justify-center">
+                        <div className="pt-[10px]">
+                            <Image src="/images/products/Sreeram-_Plain-Background-414437.png" alt="Sreeram Jadapolu" width={200} height={200} className="border border-gray-300" />
                         </div>
                     </div>
-
-                    <div>
-                        <blockquote className="text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
+                    <div className="w-full md:w-1/2 px-[15px]">
+                        <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             “When we built AIRA, our vision was clear: AI that financial institutions can finally trust with mission-critical decisions. AIRA combines reasoning, compliance, and OneAPI-powered integration into a single, scalable platform. It's not just about solving today's challenges — it's about empowering the industry to reimagine what's possible with GenAI for customers, regulators, and institutions alike.”
-                        </blockquote>
-                        <p className="mt-4 text-base font-bold text-[#3b5998] dark:text-blue-400">Sreeram Jadapolu,</p>
-                        <p className="text-base text-muted-foreground">Founder & CEO, Hyniva</p>
+                        </p>
+                        <h6 className="text-[16px] font-normal leading-[26px] text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <strong>Sreeram Jadapolu,</strong><br/>
+                            <strong>Founder & CEO, Hyniva</strong>
+                        </h6>
                     </div>
-                </motion.div>
+                    <div className="hidden md:block md:w-1/6 px-[15px]"></div>
+                </div>
             </div>
         </section>
-    );
+    )
 }
-
-/* ─────────────── Enterprise Impact ─────────────── */
 
 function EnterpriseImpact() {
     return (
-        <section className="bg-[#0b1021] py-20 sm:py-28">
-            <div className="mx-auto max-w-[1400px] px-6">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center">
-                    <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <section className="bg-white py-[60px] lg:py-[80px]">
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
+                    <h2 className="text-3xl font-bold text-gray-900">
                         Enterprise Impact
                     </h2>
                 </motion.div>
@@ -324,29 +326,45 @@ function EnterpriseImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-14 grid gap-6 sm:grid-cols-3"
+                    className="grid gap-[30px] sm:grid-cols-2 lg:grid-cols-3"
                 >
                     {impacts.map((item, index) => (
                         <motion.div
-                            key={item.title}
+                            key={index}
                             variants={scrollReveal}
-                            className={`group relative overflow-hidden rounded-xl p-8 shadow-sm transition-all duration-300 ${index === 1 ? 'bg-[#3b5998] text-white' : 'bg-white text-foreground'
-                                }`}
+                            className="bg-white p-[30px] rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-2"
                         >
-                            <div className="mb-6 flex">
-                                <item.icon className="h-10 w-10 opacity-80" strokeWidth={1} />
+                            <div className="mb-[20px]">
+                                <Image src={item.img} alt={item.title} width={60} height={60} className="object-contain" />
                             </div>
-                            <h3 className="text-lg font-medium">{item.title}</h3>
-                            <p className={`mt-3 text-sm leading-relaxed ${index === 1 ? 'text-white/90' : 'text-muted-foreground'}`}>{item.description}</p>
+                            <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                            <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
                         </motion.div>
                     ))}
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }
 
-/* ─────────────── CTA ─────────────── */
+function CustomerCentric() {
+    return (
+        <section className="bg-[#f8f9fa] py-[60px] lg:py-[80px]">
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+                    <h2 className="text-3xl font-bold text-[#345195] mb-[30px]">
+                        Customer-Centric by Design
+                    </h2>
+                    <div className="max-w-[800px] mx-auto text-left">
+                        <p className="text-[15px] text-[#6d6d6d] leading-[26px] m-0">
+                            "At Hyniva, we know AI adoption in financial services is not a one-time project — it's an ongoing journey. AIRA was designed to scale with that journey, adapting to evolving regulations, shifting customer expectations, and expanding technology landscapes. With modular agents, built-in compliance, and no-code configurability, institutions can start with targeted use cases and expand seamlessly — without re-engineering legacy systems or risking regulatory setbacks."
+                        </p>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    )
+}
 
 function AiraCta() {
     return (
@@ -355,39 +373,37 @@ function AiraCta() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-center text-white sm:py-28"
+            className="bg-white py-[60px] lg:py-[80px]"
         >
-            <div className="mx-auto max-w-[700px] px-6">
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-                    Ready to Transform Your Customer Experience?
-                </h2>
-                <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-blue-100 sm:text-lg">
-                    See how AIRA can deliver intelligent, compliant, always-on support for your institution.
-                </p>
-                <div className="mt-10 flex flex-wrap justify-center gap-4">
-                    <Link
-                        href="/contact"
-                        className="inline-block rounded-lg bg-white px-8 py-4 text-base font-bold text-blue-700 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-                    >
-                        Request a Demo
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="inline-block rounded-lg border-2 border-white/40 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/20"
-                    >
-                        Talk to Sales
-                    </Link>
+            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+                <div className="flex flex-wrap justify-center">
+                    <div className="w-full max-w-[850px]">
+                        <div className="bg-[#ed3137] p-10 lg:p-16 rounded-[15px] text-center shadow-xl">
+                            <h2 className="text-[32px] font-bold text-white mb-[10px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                Reimagine financial services with AIRA
+                            </h2>
+                            <h6 className="text-[16px] text-white font-normal mb-[40px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                The Autonomous Intelligent Reasoning Agent.
+                            </h6>
+                            <div className="flex flex-wrap justify-center gap-[20px]">
+                                <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "none" }} className="hover:bg-gray-100 transition-colors uppercase">
+                                    <Link href="/contact">Get Started</Link>
+                                </Button>
+                                <Button asChild style={{ backgroundColor: "transparent", color: "#ffffff", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "2px solid #ffffff" }} className="hover:bg-white/10 transition-colors uppercase">
+                                    <Link href="/contact">Contact Us</Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </motion.section>
-    );
+    )
 }
-
-/* ─────────────── Page ─────────────── */
 
 export default function AiraPage() {
     return (
-        <>
+        <main className="min-h-screen">
             <Navbar />
             <AiraHero />
             <AiraIntro />
@@ -395,8 +411,9 @@ export default function AiraPage() {
             <AiraCapabilities />
             <CeoVision />
             <EnterpriseImpact />
+            <CustomerCentric />
             <AiraCta />
             <Footer />
-        </>
-    );
+        </main>
+    )
 }
