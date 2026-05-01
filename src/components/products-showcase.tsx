@@ -26,15 +26,17 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     useEffect(() => {
         if (isInView) {
             if (p.image.includes('.gif')) {
-                // Force GIF to restart by appending timestamp
-                setGifSrc(`${p.image}?t=${Date.now()}`);
+                // Remove the timestamp to allow browser caching. 
+                // GIFs will still play from the beginning if the browser handles it, 
+                // or we can use a more efficient way if needed.
+                setGifSrc(p.image);
             } else if (p.image.includes('.mp4') && videoRef.current) {
                 videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => {});
             }
         } else {
-            // Reset when moving out of frame
-            setGifSrc("");
+            // We keep the gifSrc to avoid re-triggering a download when it comes back into view
+            // but we can pause it if we were using a video. 
             if (videoRef.current) {
                 videoRef.current.pause();
                 videoRef.current.currentTime = 0;

@@ -9,12 +9,8 @@ import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 import { HeroPuzzle } from "@/components/hero-puzzle";
 
-// GIF per slide — index matches slide index
-const slideGifs = [
-    "/images/1.gif",
-    "https://media.giphy.com/media/3oKIPrzoi6rbZc4aDC/giphy.gif", // slide 2 placeholder
-    "/images/3.gif",
-];
+// GIF per slide — removed as unused in current high-fidelity 3D hero
+
 
 // Triangle layout: card 0 = top full-width, card 1 = bottom-left, card 2 = bottom-right
 const cardPositions = [

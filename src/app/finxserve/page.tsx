@@ -87,39 +87,39 @@ export default function FinxservePage() {
             <Navbar />
 
             {/* Hero Banner Section */}
-            <section className="relative pt-[120px] pb-16 bg-[#030b49]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <div className="flex flex-wrap -mx-[15px] items-center min-h-[400px]">
-                        <div className="w-full md:w-1/2 px-[15px] z-10 relative">
+            <section className="relative pt-[120px] pb-16 bg-[#030b49] overflow-hidden">
+                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row items-center min-h-[400px] gap-12">
+                        <div className="w-full md:w-1/2 z-10 relative text-center md:text-left">
                             <Image 
                                 src="/images/products/Artboard-15@2x-scaled.png"
-                                alt="Artboard 15"
+                                alt="FinXServe Logo"
                                 width={231}
                                 height={97}
-                                className="mb-6"
+                                className="mb-8 mx-auto md:ml-0"
                             />
-                            <h2 className="text-[40px] font-medium leading-[46px] text-white mb-[15px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-white mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Frictionless Consumer<br/>
                                 Lending Experience.<br/>
                                 Native to Salesforce.
-                            </h2>
-                            <h6 className="text-[14px] font-normal leading-[21px] text-white mb-[30px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            </h1>
+                            <p className="text-base sm:text-lg font-normal leading-relaxed text-white/90 mb-10 max-w-[500px] mx-auto md:mx-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Designed for lenders who believe experience closes more loans than systems.
-                            </h6>
-                            <div className="flex flex-wrap items-center gap-[20px]">
+                            </p>
+                            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
                                 <Link
                                     href="/contact"
-                                    className="inline-block bg-[#f9f9f9] text-[#020202] px-[19px] py-[12px] text-[12px] font-medium leading-[29px] border-[3px] border-white rounded-[6px] transition-colors hover:bg-transparent hover:text-white"
+                                    className="w-full sm:w-auto inline-block bg-[#f9f9f9] text-[#020202] px-8 py-4 text-sm font-semibold rounded-lg transition-all hover:bg-transparent hover:text-white border-2 border-white text-center"
                                     style={{ fontFamily: 'Roboto, sans-serif' }}
                                 >
                                     Book a Demo
                                 </Link>
                                 <Link
                                     href="/contact"
-                                    className="inline-block bg-transparent text-white px-[19px] py-[12px] text-[12px] font-medium leading-[29px] border-[3px] border-white rounded-[6px] transition-colors hover:bg-white/10"
+                                    className="w-full sm:w-auto inline-block bg-transparent text-white px-8 py-4 text-sm font-semibold rounded-lg transition-all hover:bg-white/10 border-2 border-white text-center"
                                     style={{ fontFamily: 'Roboto, sans-serif' }}
                                 >
-                                    See How It Work
+                                    See How It Works
                                 </Link>
                             </div>
                         </div>
@@ -161,30 +161,30 @@ export default function FinxservePage() {
             </section>
 
             {/* Intro */}
-            <section id="intro" className="py-20 bg-white">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+            <section id="intro" className="py-16 sm:py-20 bg-white">
+                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
                     <motion.div 
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-wrap -mx-[15px]"
+                        className="flex flex-col md:flex-row items-center gap-12"
                     >
-                        <div className="w-full md:w-1/2 px-[15px]">
-                            <header className="mb-[20px]">
-                                <h2 className="text-[35px] font-medium leading-[45px] text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <div className="w-full md:w-1/2 text-center md:text-left">
+                            <header className="mb-6">
+                                <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     FinXServe — Powering the Future of Digital Banking Experience
                                 </h2>
                             </header>
-                            <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <p className="text-base sm:text-lg font-normal leading-relaxed text-[#666666] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 FinXServe is a Salesforce-native digital banking experience platform that enables financial institutions to modernize without replacing their core systems, unifying lending, deposits, and member engagement through a single intelligent experience layer.
                             </p>
-                            <p className="text-[15px] font-normal leading-[25px] text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <p className="text-base sm:text-lg font-normal leading-relaxed text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 FinXServe’s vision is to deliver deeply personalized member experiences that fuel responsible growth, strengthen compliance and trust, and accelerate innovation at lower operational cost on a trusted, scalable platform. Built by banking experts with over two decades of transformation experience, FinXServe helps institutions turn digital experiences into seamless connected journey — without disruption.
                             </p>
                         </div>
-                        <div className="w-full md:w-1/2 px-[15px] flex items-center justify-center mt-10 md:mt-0">
-                            <div className="border border-gray-200 shadow-sm p-1">
+                        <div className="w-full md:w-1/2 flex items-center justify-center">
+                            <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
                                 <Image src="/images/products/Artboard-1@2x-1.png" alt="FinXServe Intro" width={600} height={400} className="w-full h-auto" />
                             </div>
                         </div>
@@ -196,11 +196,11 @@ export default function FinxservePage() {
             <section id="capabilities" className="bg-[#030B49] py-[85px] overflow-hidden">
                 <div className="max-w-[1500px] mx-auto px-4 lg:px-[60px] flex flex-col lg:flex-row gap-[60px]">
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10">
-                        <h2 className="text-[48px] font-bold text-white mb-[25px] leading-[1.2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Capabilities That<br/>Drive Growth
                         </h2>
-                        <p className="text-[18px] leading-[1.7] text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <p className="text-lg leading-relaxed text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Driving faster launches, lower costs, and frictionless journeys across every
                             channel. Built by banking experts.
                         </p>
@@ -252,23 +252,27 @@ export default function FinxservePage() {
                                 CEO's Vision
                             </h2>
                         </header>
-                        <div className="flex flex-wrap -mx-[15px]">
-                            <div className="hidden md:block md:w-1/6 px-[15px]"></div>
-                            <div className="w-full md:w-2/12 px-[15px] mb-8 md:mb-0 flex justify-center">
-                                <div className="pt-[10px]">
-                                    <Image src="/images/products/Sreeram-_Plain-Background-414437.png" alt="Sreeram Jadapolu" width={200} height={200} className="border border-gray-300" />
-                                </div>
+                        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center max-w-[900px] mx-auto">
+                            <div className="w-[180px] sm:w-[200px] shrink-0">
+                                <Image 
+                                    src="/images/products/Sreeram-_Plain-Background-414437.png" 
+                                    alt="Sreeram Jadapolu" 
+                                    width={200} 
+                                    height={200} 
+                                    className="border border-gray-300 rounded-lg shadow-md w-full h-auto" 
+                                />
                             </div>
-                            <div className="w-full md:w-1/2 px-[15px]">
-                                <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <div className="flex-1 text-center md:text-left">
+                                <p className="text-base sm:text-[17px] font-normal leading-relaxed text-[#666666] mb-6 italic" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     “We envision a future where every Credit Union leads with intelligence and empathy — where technology doesn’t complicate, but connects. FinXServe was built to unify digital banking journeys on Salesforce, transforming complexity into clarity and every interaction into a personalized experience. This is how modern finance grows — seamlessly, securely, and sustainably.”
                                 </p>
-                                <h6 className="text-[16px] font-normal leading-[26px] text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    <strong>Sreeram Jadapolu,</strong><br/>
-                                    <strong>Founder & CEO, Hyniva</strong>
+                                <h6 className="text-lg font-bold text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    Sreeram Jadapolu
                                 </h6>
+                                <p className="text-sm text-gray-500 font-medium">
+                                    Founder & CEO, Hyniva
+                                </p>
                             </div>
-                            <div className="hidden md:block md:w-1/6 px-[15px]"></div>
                         </div>
                     </motion.div>
                 </div>
@@ -283,13 +287,13 @@ export default function FinxservePage() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <header className="mb-[40px]">
-                            <h2 className="text-[35px] font-medium leading-[45px] text-white mb-2" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <header className="mb-10 text-center md:text-left">
+                            <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-white mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Tangible Business Value
                             </h2>
-                            <h6 className="text-[15px] font-medium leading-[25px] text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <p className="text-base sm:text-lg font-normal leading-relaxed text-white/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 FinXServe transforms results at every stage of the member and lender journey
-                            </h6>
+                            </p>
                         </header>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px] pt-[24px] pb-[2px]">
                             {values.map((item, idx) => (
@@ -315,22 +319,23 @@ export default function FinxservePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-wrap -mx-[15px] items-center"
                     >
-                        <div className="w-full md:w-1/2 px-[15px] mb-8 md:mb-0">
-                            <div className="border border-gray-200 shadow-sm p-1">
-                                <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
+                        <div className="flex flex-col md:flex-row items-center gap-12">
+                            <div className="w-full md:w-1/2">
+                                <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
+                                    <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="w-full md:w-5/12 md:offset-1/12 px-[15px]">
-                            <header className="mb-[20px]">
-                                <h2 className="text-[35px] font-medium leading-[45px] text-[#222222] mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    Two Decades of Financial & Salesforce Expertise
-                                </h2>
-                                <h6 className="text-[15px] font-medium leading-[25px] text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    FinXServe was born from Hyniva’s deep legacy in building banking platforms and transforming Credit Unions and Banks on Salesforce. With proven cross-cloud expertise — Financial Services, Experience, Data, Marketing, and Loyalty Clouds — our certified teams architect secure, scalable, and compliant Salesforce ecosystems that power FinXServe’s speed, intelligence, and reliability.
-                                </h6>
-                            </header>
+                            <div className="w-full md:w-1/2 text-center md:text-left">
+                                <header className="mb-6">
+                                    <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                        Two Decades of Financial & Salesforce Expertise
+                                    </h2>
+                                    <p className="text-base sm:text-lg font-normal leading-relaxed text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                        FinXServe was born from Hyniva’s deep legacy in building banking platforms and transforming Credit Unions and Banks on Salesforce. With proven cross-cloud expertise — Financial Services, Experience, Data, Marketing, and Loyalty Clouds — our certified teams architect secure, scalable, and compliant Salesforce ecosystems that power FinXServe’s speed, intelligence, and reliability.
+                                    </p>
+                                </header>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
@@ -378,16 +383,16 @@ export default function FinxservePage() {
 
             {/* Final Section (Reimagined Banking) */}
             <section id="customer" className="py-20 bg-white">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
                     <motion.div 
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-wrap -mx-[15px] items-center"
+                        className="flex flex-col md:flex-row items-center gap-12"
                     >
-                        <div className="w-full md:w-1/2 px-[15px] mb-10 md:mb-0">
-                            <div className="shadow-lg border border-gray-100 p-1">
+                        <div className="w-full md:w-1/2">
+                            <div className="shadow-2xl border border-gray-100 p-1 rounded-xl overflow-hidden">
                                 <Image 
                                     src="/images/products/fin_con.jpg" 
                                     alt="FinXServe Reimagined" 
@@ -397,25 +402,23 @@ export default function FinxservePage() {
                                 />
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2 px-[15px]">
-                            <div className="md:pl-10">
-                                <header className="mb-[40px]">
-                                    <h2 className="text-[35px] font-medium leading-[45px] text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        We didn’t just remove friction from lending — we reimagined how people experience banking.
-                                    </h2>
-                                    <h6 className="text-[18px] font-medium leading-[28px] text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        Ready to redefine your digital banking journey?
-                                    </h6>
-                                </header>
-                                <div className="flex">
-                                    <Link
-                                        href="/contact"
-                                        className="inline-block bg-[#345195] text-white px-[35px] py-[15px] text-[15px] font-medium rounded transition-colors hover:bg-[#283d71]"
-                                        style={{ fontFamily: 'Roboto, sans-serif' }}
-                                    >
-                                        Get Started
-                                    </Link>
-                                </div>
+                        <div className="w-full md:w-1/2 text-center md:text-left">
+                            <header className="mb-10">
+                                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    We didn’t just remove friction from lending — we reimagined how people experience banking.
+                                </h2>
+                                <p className="text-lg sm:text-xl font-medium leading-relaxed text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    Ready to redefine your digital banking journey?
+                                </p>
+                            </header>
+                            <div className="flex justify-center md:justify-start">
+                                <Link
+                                    href="/contact"
+                                    className="inline-block bg-[#345195] text-white px-10 py-4 text-base font-semibold rounded-lg shadow-lg transition-all hover:bg-[#283d71] hover:-translate-y-1"
+                                    style={{ fontFamily: 'Roboto, sans-serif' }}
+                                >
+                                    Get Started
+                                </Link>
                             </div>
                         </div>
                     </motion.div>

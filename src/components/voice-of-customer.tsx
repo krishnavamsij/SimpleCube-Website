@@ -36,22 +36,22 @@ export function VoiceOfCustomer() {
             {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <div className="absolute top-[55%] left-[70%] -translate-y-1/2 w-full h-full flex items-center justify-center">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    {[1, 2, 3, 4, 5].map((i) => (
                         <motion.div
                             key={i}
                             initial={{ scale: 0.7, opacity: 0 }}
                             animate={{ scale: 1, opacity: 0.25 }}
                             transition={{ 
-                                delay: i * 0.15, 
-                                duration: 2.5, 
+                                delay: i * 0.25, 
+                                duration: 3, 
                                 repeat: Infinity, 
                                 repeatType: "reverse",
                                 ease: "easeInOut"
                             }}
-                            className="absolute rounded-full border-[2px] border-[#1e90ff]/40"
+                            className="absolute rounded-full border-[2px] border-[#1e90ff]/30"
                             style={{ 
-                                width: `${i * 240}px`, 
-                                height: `${i * 240}px` 
+                                width: `${i * 380}px`, 
+                                height: `${i * 380}px` 
                             }}
                         />
                     ))}

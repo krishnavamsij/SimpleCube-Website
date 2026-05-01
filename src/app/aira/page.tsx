@@ -126,27 +126,27 @@ function AiraHero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 lg:px-8">
-                <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-[550px]">
-                    <motion.div variants={fadeInUp} className="mb-8">
+            <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 lg:px-8 py-12 md:py-0">
+                <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-[650px] md:max-w-[550px] text-center md:text-left mx-auto md:mx-0">
+                    <motion.div variants={fadeInUp} className="mb-8 hidden md:block">
                         <Image src="/images/products/dummy.png" alt="AIRA" width={200} height={60} className="opacity-0" />
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-6"
-                        style={{ fontFamily: "Roboto, sans-serif", fontSize: "40px", lineHeight: "50px", fontWeight: 500 }}
+                        className="text-white mb-6 text-3xl sm:text-4xl md:text-5xl leading-tight font-medium"
+                        style={{ fontFamily: "Roboto, sans-serif" }}
                     >
                         Autonomous Intelligent Reasoning Agent
                     </motion.h1>
                     <motion.p 
                         variants={fadeInUp} 
-                        className="text-white mb-8"
-                        style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", lineHeight: "28px", fontWeight: 400, maxWidth: "480px" }}
+                        className="text-white mb-8 text-lg sm:text-xl font-normal leading-relaxed max-w-[480px] mx-auto md:mx-0"
+                        style={{ fontFamily: "Roboto, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
                     </motion.p>
-                    <motion.div variants={fadeInUp}>
-                        <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontFamily: "Roboto, sans-serif", fontSize: "15px", fontWeight: 600, padding: "12px 25px", borderRadius: "0px", height: "auto" }} className="hover:bg-gray-100 transition-colors uppercase">
+                    <motion.div variants={fadeInUp} className="flex justify-center md:justify-start">
+                        <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontFamily: "Roboto, sans-serif", fontSize: "15px", fontWeight: 600, padding: "12px 25px", borderRadius: "0px", height: "auto" }} className="hover:bg-gray-100 transition-colors uppercase shadow-lg">
                             <Link href="/contact">Get Started</Link>
                         </Button>
                     </motion.div>
@@ -160,19 +160,19 @@ function AiraIntro() {
     return (
         <section className="bg-white py-[60px] lg:py-[80px]">
             <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-                <div className="flex flex-wrap justify-center">
-                    <div className="w-full md:w-10/12 lg:w-9/12">
+                <div className="flex justify-center">
+                    <div className="w-full lg:w-10/12">
                         <motion.div 
                             variants={scrollReveal} 
                             initial="hidden" 
                             whileInView="visible" 
                             viewport={viewportOnce} 
-                            className="bg-[#f8f9fa] p-10 lg:p-16 rounded-[15px] text-center shadow-sm border border-gray-100"
+                            className="bg-[#f8f9fa] p-8 sm:p-10 lg:p-16 rounded-[15px] text-center shadow-sm border border-gray-100"
                         >
-                            <h2 className="text-[#345195] text-3xl font-bold mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h2 className="text-[#345195] text-2xl sm:text-3xl font-bold mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Introducing AIRA
                             </h2>
-                            <h6 className="text-[#666666] text-[18px] leading-[30px] font-normal m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h6 className="text-[#666666] text-base sm:text-lg leading-relaxed font-normal m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI platform for financial services that unifies autonomous reasoning, compliance-first design, and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
                             </h6>
                         </motion.div>
@@ -198,37 +198,37 @@ function AiraDifferentiators() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="flex flex-col gap-[30px]"
+                    className="grid gap-6 sm:gap-[30px]"
                 >
-                    {/* Top Row: 2 items */}
-                    <div className="grid md:grid-cols-2 gap-[30px]">
+                    {/* First Row items */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-[30px]">
                         {whatMakesDiff.slice(0, 2).map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
                                 </div>
-                                <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
-                                <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
+                                <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
-                    {/* Bottom Row: 3 items */}
-                    <div className="grid md:grid-cols-3 gap-[30px]">
+                    {/* Remaining items */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-[30px]">
                         {whatMakesDiff.slice(2).map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
                                 </div>
-                                <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
-                                <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
+                                <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -267,9 +267,9 @@ function AiraCapabilities() {
                             <div className="w-full h-auto">
                                 <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover" />
                             </div>
-                            <div className="bg-[#040c31] p-[30px] text-center flex-grow flex flex-col items-center">
-                                <h5 className="text-[20px] font-bold text-white mb-[15px] leading-tight">{cap.title}</h5>
-                                <p className="text-white text-[15px] leading-[26px] m-0">{cap.desc}</p>
+                            <div className="bg-[#040c31] p-6 sm:p-[30px] text-center flex-grow flex flex-col items-center">
+                                <h5 className="text-lg sm:text-[20px] font-bold text-white mb-[15px] leading-tight">{cap.title}</h5>
+                                <p className="text-white text-[15px] leading-relaxed m-0">{cap.desc}</p>
                             </div>
                         </motion.div>
                     ))}
@@ -288,23 +288,27 @@ function CeoVision() {
                         CEO's Vision
                     </h2>
                 </header>
-                <div className="flex flex-wrap -mx-[15px]">
-                    <div className="hidden md:block md:w-1/6 px-[15px]"></div>
-                    <div className="w-full md:w-2/12 px-[15px] mb-8 md:mb-0 flex justify-center">
-                        <div className="pt-[10px]">
-                            <Image src="/images/products/Sreeram-_Plain-Background-414437.png" alt="Sreeram Jadapolu" width={200} height={200} className="border border-gray-300" />
-                        </div>
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center max-w-[900px] mx-auto">
+                    <div className="w-[180px] sm:w-[200px] shrink-0">
+                        <Image 
+                            src="/images/products/Sreeram-_Plain-Background-414437.png" 
+                            alt="Sreeram Jadapolu" 
+                            width={200} 
+                            height={200} 
+                            className="border border-gray-300 rounded-lg shadow-md w-full h-auto" 
+                        />
                     </div>
-                    <div className="w-full md:w-1/2 px-[15px]">
-                        <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    <div className="flex-1 text-center md:text-left">
+                        <p className="text-base sm:text-[17px] font-normal leading-relaxed text-[#666666] mb-6 italic" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             “When we built AIRA, our vision was clear: AI that financial institutions can finally trust with mission-critical decisions. AIRA combines reasoning, compliance, and OneAPI-powered integration into a single, scalable platform. It's not just about solving today's challenges — it's about empowering the industry to reimagine what's possible with GenAI for customers, regulators, and institutions alike.”
                         </p>
-                        <h6 className="text-[16px] font-normal leading-[26px] text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            <strong>Sreeram Jadapolu,</strong><br/>
-                            <strong>Founder & CEO, Hyniva</strong>
+                        <h6 className="text-lg font-bold text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            Sreeram Jadapolu
                         </h6>
+                        <p className="text-sm text-gray-500 font-medium">
+                            Founder & CEO, Hyniva
+                        </p>
                     </div>
-                    <div className="hidden md:block md:w-1/6 px-[15px]"></div>
                 </div>
             </div>
         </section>
@@ -332,13 +336,13 @@ function EnterpriseImpact() {
                         <motion.div
                             key={index}
                             variants={scrollReveal}
-                            className="bg-white p-[30px] rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-2"
+                            className="bg-white p-6 sm:p-[30px] rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-2"
                         >
                             <div className="mb-[20px]">
                                 <Image src={item.img} alt={item.title} width={60} height={60} className="object-contain" />
                             </div>
-                            <h6 className="text-[18px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
-                            <p className="text-[#000000] text-[15px] leading-[26px] m-0">{item.desc}</p>
+                            <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                            <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -378,18 +382,18 @@ function AiraCta() {
             <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
                 <div className="flex flex-wrap justify-center">
                     <div className="w-full max-w-[850px]">
-                        <div className="bg-[#ed3137] p-10 lg:p-16 rounded-[15px] text-center shadow-xl">
-                            <h2 className="text-[32px] font-bold text-white mb-[10px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <div className="bg-[#ed3137] p-8 sm:p-10 lg:p-16 rounded-[15px] text-center shadow-xl">
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-[15px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Reimagine financial services with AIRA
                             </h2>
-                            <h6 className="text-[16px] text-white font-normal mb-[40px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h6 className="text-base sm:text-lg text-white font-normal mb-[40px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 The Autonomous Intelligent Reasoning Agent.
                             </h6>
-                            <div className="flex flex-wrap justify-center gap-[20px]">
-                                <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "none" }} className="hover:bg-gray-100 transition-colors uppercase">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[20px]">
+                                <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "none" }} className="hover:bg-gray-100 transition-colors uppercase w-full sm:w-auto">
                                     <Link href="/contact">Get Started</Link>
                                 </Button>
-                                <Button asChild style={{ backgroundColor: "transparent", color: "#ffffff", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "2px solid #ffffff" }} className="hover:bg-white/10 transition-colors uppercase">
+                                <Button asChild style={{ backgroundColor: "transparent", color: "#ffffff", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "2px solid #ffffff" }} className="hover:bg-white/10 transition-colors uppercase w-full sm:w-auto">
                                     <Link href="/contact">Contact Us</Link>
                                 </Button>
                             </div>
