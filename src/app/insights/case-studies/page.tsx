@@ -53,7 +53,7 @@ export default function CaseStudiesPage() {
                             <div className="h-[220px] overflow-hidden relative m-3 rounded-[24px] bg-white">
                                 <div 
                                     className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
-                                    style={{ backgroundImage: `url('${encodeURI(study.image)}')` }}
+                                    style={{ backgroundImage: `url('${study.image}')` }}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
                             </div>

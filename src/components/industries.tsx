@@ -12,35 +12,35 @@ const INDUSTRIES_DATA = [
         description: "Modernizing how financial institutions acquire, serve and retain customers — from digital lending to member experience.",
         image: "/images/Industries_Section/Banks_and_Credit_Unions.png",
         bgColor: "#ECF4FD",
-        href: "https://products.hyniva.com/retail-commercial-banking/"
+        href: "/industries/banking"
     },
     {
         title: "Wealth & Asset Management",
         description: "Helping wealth managers and advisors deliver personalized, compliant investment experiences that grow AUM and deepen client relationships.",
         image: "/images/Industries_Section/Wealth_and_Asset_Management.png",
         bgColor: "#E0F2FD",
-        href: "https://products.hyniva.com/wealth-asset-management/"
+        href: "/industries/wealth-asset-management"
     },
     {
         title: "Insurance",
         description: "Transforming claims operations and policy administration with automation, AI assignment and real-time visibility across the full claims lifecycle.",
         image: "/images/Industries_Section/Insurance.png",
         bgColor: "#EAF6FE",
-        href: "https://products.hyniva.com/insurance/"
+        href: "/industries/insurance"
     },
     {
         title: "Transportation & Logistics",
         description: "Building the platforms that keep fleets moving, shipments tracked and operations connected — from warehouse to last-mile delivery.",
         image: "/images/Industries_Section/Transportation_and_Logistics.png",
         bgColor: "#E3F4FE",
-        href: "https://products.hyniva.com/transportation-logistics/"
+        href: "/industries/transportation-logistics"
     },
     {
         title: "Education",
         description: "Enabling institutions to streamline administration, improve student outcomes and scale operations through purpose-built technology.",
         image: "/images/Industries_Section/Education.png",
         bgColor: "#EAF8FF",
-        href: "https://products.hyniva.com/education/"
+        href: "/industries/education"
     }
 ];
 

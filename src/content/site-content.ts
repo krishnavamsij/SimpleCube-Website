@@ -6,9 +6,9 @@ export const navContent = {
     brand: { name: "Hyniva" },
     products: [
         { title: "AIRA", href: "/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
-        { title: "FinXserve", href: "https://products.hyniva.com/finxserve/", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
-        { title: "Claim Pioneer", href: "https://products.hyniva.com/claim-pioneer/", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
-        { title: "Hyper", href: "https://products.hyniva.com/hyper/", description: "Portfolio planner for well-informed investment decisions." },
+        { title: "FinXserve", href: "/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
+        { title: "Claim Pioneer", href: "/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
+        { title: "Hyper", href: "/hyper", description: "Portfolio planner for well-informed investment decisions." },
     ],
     industries: [
         { title: "Banking", href: "/industries/banking" },
@@ -18,19 +18,19 @@ export const navContent = {
         { title: "Education", href: "/industries/education" },
     ],
     services: [
-        { title: "Digital Transformation", href: "/digital-transformation" },
-        { title: "Salesforce", href: "/salesforce" },
-        { title: "Microsoft Services", href: "/microsoft-services" },
-        { title: "AWS Cloud", href: "/aws-cloud-services" },
-        { title: "Applied AI", href: "/applied-ai" },
-        { title: "Data Intelligence", href: "/data-intelligence" },
-        { title: "Product Development", href: "/product-development" },
-        { title: "IT Strategy", href: "/business-it-strategy" },
-        { title: "Cloud Migration", href: "/cloud-migration" },
+        { title: "Digital Transformation", href: "/services/digital-transformation" },
+        { title: "Salesforce", href: "/services/salesforce" },
+        { title: "Microsoft Services", href: "/services/microsoft-services" },
+        { title: "AWS Cloud", href: "/services/aws-cloud-services" },
+        { title: "Applied AI", href: "/services/applied-ai" },
+        { title: "Data Intelligence", href: "/services/data-intelligence" },
+        { title: "Product Development", href: "/services/product-development" },
+        { title: "IT Strategy", href: "/services/it-strategy" },
+        { title: "Cloud Migration", href: "/services/cloud-migration" },
     ],
     insights: [
-        { title: "Case Studies", href: "/case-studies" },
-        { title: "Blog", href: "/blog" },
+        { title: "Case Studies", href: "/insights/case-studies" },
+        { title: "Blog", href: "/insights/blog" },
     ],
     about: [
         // UPDATED: Now pointing to local /about page instead of external products.hyniva.com
@@ -87,8 +87,8 @@ export const heroSlides = [
 ];
 
 export const heroCtas = {
-    primary: { label: "Discuss Your Project", href: "https://products.hyniva.com/contact" },
-    secondary: { label: "See Case Studies", href: "/case-studies" },
+    primary: { label: "Discuss Your Project", href: "/contact" },
+    secondary: { label: "See Case Studies", href: "/insights/case-studies" },
 };
 
 // ── Trusted By ───────────────────────────────────────────────────────────────
@@ -177,7 +177,7 @@ export const approachContent = {
         { value: 30, suffix: "%", label: "Faster POC & Prototype Stages" },
         { value: 50, suffix: "%", label: "Less Planning Time" },
     ],
-    cta: { label: "See Our Approach", href: "https://products.hyniva.com/about" },
+    cta: { label: "See Our Approach", href: "/about" },
 };
 
 // ── Services ─────────────────────────────────────────────────────────────────
@@ -197,8 +197,8 @@ export const servicesContent = {
             description:
                 "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
             tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
-            image: "/images/Our_Services/PNG Compressed/1. digital_transformation.png",
-            href: "/digital-transformation",
+            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
+            href: "/services/digital-transformation",
         },
         {
             num: "02",
@@ -206,8 +206,8 @@ export const servicesContent = {
             description:
                 "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
-            image: "/images/Our_Services/PNG Compressed/2. Enterprise_Platforms.png",
-            href: "https://products.hyniva.com/salesforce",
+            image: "/images/Our_Services/2_Enterprise_Platforms.png",
+            href: "/services/salesforce",
         },
         {
             num: "03",
@@ -215,8 +215,8 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
-            image: "/images/Our_Services/PNG Compressed/3. Product_Engineering.png",
-            href: "https://products.hyniva.com/product-dev",
+            image: "/images/Our_Services/Product_Engineering_no_BG.png",
+            href: "/services/product-development",
         },
         {
             num: "04",
@@ -224,8 +224,8 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/Our_Services/PNG Compressed/4. Strategy _Consulting.png",
-            href: "https://products.hyniva.com/business-it-strategy/",
+            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
+            href: "/services/it-strategy",
         },
     ],
 };
@@ -251,8 +251,8 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
-            image: "/images/Product_Images/Compressed/Finxserve.gif",
-            href: "https://products.hyniva.com/finxserve/",
+            image: "/images/Product_Images/FINXSERVE.gif",
+            href: "/finxserve",
         },
         {
             num: "02",
@@ -267,16 +267,17 @@ export const productsContent = {
             title: "Claim Pioneer",
             tags: ["Insurance"],
             description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
-            image: "/images/Product_Images/Compressed/ClaimPioneer.gif",
-            href: "https://products.hyniva.com/claim-pioneer/",
+            image: "/images/Product_Images/Claim_pioneer.gif",
+            href: "/claim-pioneer",
         },
         {
             num: "04",
             title: "Hyper",
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
-            image: "/images/Product_Images/Compressed/Hyper.gif",
-            href: "https://products.hyniva.com/hyper/",
+            image: "/images/Product_Images/Hyper.gif",
+            href: "/hyper",
+
         },
     ],
 };
@@ -292,49 +293,49 @@ export const caseStudiesContent = {
             title: "Autonomous Lending Experience\nwith *FinXServe & Agentforce*",
             description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
             image: "/images/Case_Study/1.png",
-            href: "/case-studies/autonomous-lending-experiences-with-finxserve-and-agentforce",
+            href: "/insights/case-studies/autonomous-lending-experiences",
         },
         {
             title: "Modernizing Contact Centers with\n*Intelligent IVR Self-Service*",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
             image: "/images/Case_Study/2.png",
-            href: "/case-studies/modernizing-contact-center-with-ivr-self-service",
+            href: "/insights/case-studies/intelligent-ivr-self-service",
         },
         {
             title: "Autonomous Freight Operations\nwith *GenAI*",
             description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
             image: "/images/Case_Study/3.png",
-            href: "/case-studies/engineering-autonomous-load-creation",
+            href: "/insights/case-studies/autonomous-freight-operations",
         },
         {
             title: "Instant Loan with\n*Agentforce-Powered* Document Intelligence",
             description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
             image: "/images/Case_Study/4.png",
-            href: "/case-studies/agentforce-powered-document-intelligence-for-instant-loan-processing",
+            href: "/insights/case-studies/instant-loan-processing",
         },
         {
             title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
             description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
             image: "/images/Case_Study/5.png",
-            href: "https://products.hyniva.com/empowering-enterprises-through-microsoft-powered-modernization/",
+            href: "/insights/case-studies/empowering-enterprises-through-microsoft-powered-modernization",
         },
         {
             title: "Rapid Reverse-Engineered\n*Website Migration*",
             description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
             image: "/images/Case_Study/6.png",
-            href: "https://products.hyniva.com/a-race-against-time-that-others-refused-to-run/",
+            href: "/insights/case-studies/a-race-against-time-that-others-refused-to-run",
         },
         {
             title: "AWS-Powered Document\n*Platform Transformation*",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
             image: "/images/Case_Study/7.png",
-            href: "https://products.hyniva.com/hyniva-leverages-aws-half-a-million-dollars-savings-annually/",
+            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         },
         {
             title: "Core Banking Transformation\non *Microsoft*",
             description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
             image: "/images/Case_Study/8.png",
-            href: "https://products.hyniva.com/transforming-core-banking-operations-with-microsoft-innovation/",
+            href: "/insights/case-studies/transforming-core-banking-operations-with-microsoft-innovation",
         },
     ],
 };
@@ -351,7 +352,7 @@ export const whyHynivaContent = {
         ],
         description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live, not by what gets proposed.",
         boldWords: ["already knows your industry", "measures success by what goes live"],
-        cta: { label: "Know More →", href: "https://products.hyniva.com/about" }
+        cta: { label: "Know More →", href: "/about" }
     },
     bottomBox: [
         {
@@ -497,7 +498,7 @@ export const vocContent = {
             company: "PeopleFund",
             image: "/images/voc/gustavo_transparent.png",
             logo: "/logos/Additional/People_fund.png",
-            caseStudyHref: "https://products.hyniva.com/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation/",
+            caseStudyHref: "/insights/case-studies/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
         },
         {
             industry: "Transportation & Logistics",
@@ -507,7 +508,7 @@ export const vocContent = {
             company: "Always Track",
             image: "/images/voc/jose_zamora.png",
             logo: "/logos/Additional/Always_Track.png",
-            caseStudyHref: "https://products.hyniva.com/engineering-autonomous-load-creation/",
+            caseStudyHref: "/insights/case-studies/autonomous-freight-operations",
         },
     ]
 };
@@ -554,10 +555,10 @@ export const footerContent = {
         {
             title: "Services",
             links: [
-                { title: "Digital Transformation", href: "/digital-transformation" },
-                { title: "Enterprise Platforms", href: "/salesforce" },
-                { title: "Product Engineering", href: "/product-development" },
-                { title: "Strategy Consulting", href: "/business-it-strategy" },
+                { title: "Digital Transformation", href: "/services/digital-transformation" },
+                { title: "Enterprise Platforms", href: "/services/salesforce" },
+                { title: "Product Engineering", href: "/services/product-development" },
+                { title: "Strategy Consulting", href: "/services/it-strategy" },
             ],
         },
         {

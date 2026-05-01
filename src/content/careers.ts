@@ -149,7 +149,7 @@ export const careersContent = {
         title: "Ready to Join Hyniva?",
         subtitle: "Take the next step in your career journey.",
         buttonText: "Explore Open Positions",
-        buttonHref: "https://products.hyniva.com/careers/",
+        buttonHref: "#job-openings",
     },
     jobListings: {
         title: "India",
