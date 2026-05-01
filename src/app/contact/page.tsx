@@ -90,7 +90,7 @@ export default function ContactPage() {
                                             </div>
                                             <div>
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMAIL</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-medium text-[#030B3B] hover:text-[#3B82F6] transition-colors">
                                                     {contactContent.body.contactInfo.email}
                                                 </a>
                                             </div>
@@ -102,7 +102,7 @@ export default function ContactPage() {
                                             </div>
                                             <div>
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR & CAREERS</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-medium text-[#030B3B] hover:text-[#3B82F6] transition-colors">
                                                     {contactContent.body.contactInfo.hr}
                                                 </a>
                                             </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                                             </div>
                                             <div>
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">LINKEDIN</p>
-                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-bold text-[#030B3B] hover:text-[#3B82F6] transition-colors">
+                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-medium text-[#030B3B] hover:text-[#3B82F6] transition-colors">
                                                     {contactContent.body.contactInfo.linkedin}
                                                 </a>
                                             </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                                                 <span className="text-2xl">🇺🇸</span>
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.us.title}</h4>
                                             </div>
-                                            <p className="text-[15px] font-bold text-[#030B3B] leading-relaxed">
+                                            <p className="text-[15px] font-medium text-[#030B3B] leading-relaxed">
                                                 {contactContent.body.offices.us.address}
                                             </p>
                                         </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                                                 <span className="text-2xl">🇮🇳</span>
                                                 <h4 className="text((11px)] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
                                             </div>
-                                            <p className="text-[15px] font-bold text-[#030B3B] leading-relaxed">
+                                            <p className="text-[15px] font-medium text-[#030B3B] leading-relaxed">
                                                 {contactContent.body.offices.india.address}
                                             </p>
                                         </div>
@@ -155,9 +155,14 @@ export default function ContactPage() {
                                     viewport={viewportOnce}
                                     className="p-10 lg:p-14 rounded-[40px] border border-[#030B3B]/5 bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)]"
                                 >
-                                    <h3 className="text-3xl font-[900] text-[#030B3B] mb-10 font-display">
-                                        {contactContent.form.title}
-                                    </h3>
+                                    <div className="mb-10">
+                                        <h3 className="text-3xl font-[900] text-[#030B3B] mb-3 font-display leading-tight">
+                                            {contactContent.form.title}
+                                        </h3>
+                                        <p className="text-[15px] font-medium text-slate-500 leading-relaxed">
+                                            Fill in the form below and we&apos;ll get in touch with you — no obligations.
+                                        </p>
+                                    </div>
                                     
                                     <form className="space-y-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
