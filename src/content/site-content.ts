@@ -197,7 +197,7 @@ export const servicesContent = {
             description:
                 "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
             tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
-            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
+            image: "/images/Our_Services/PNG Compressed/1. digital_transformation.png",
             href: "/digital-transformation",
         },
         {
@@ -206,7 +206,7 @@ export const servicesContent = {
             description:
                 "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
             tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
-            image: "/images/Our_Services/2_Enterprise_Platforms.png",
+            image: "/images/Our_Services/PNG Compressed/2. Enterprise_Platforms.png",
             href: "https://products.hyniva.com/salesforce",
         },
         {
@@ -215,7 +215,7 @@ export const servicesContent = {
             description:
                 "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
-            image: "/images/Our_Services/Product_Engineering_no_BG.png",
+            image: "/images/Our_Services/PNG Compressed/3. Product_Engineering.png",
             href: "https://products.hyniva.com/product-dev",
         },
         {
@@ -224,7 +224,7 @@ export const servicesContent = {
             description:
                 "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
-            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
+            image: "/images/Our_Services/PNG Compressed/4. Strategy _Consulting.png",
             href: "https://products.hyniva.com/business-it-strategy/",
         },
     ],
@@ -251,7 +251,7 @@ export const productsContent = {
             title: "FinXServe",
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
-            image: "/images/Product_Images/FINXSERVE.gif",
+            image: "/images/Product_Images/Compressed/Finxserve.gif",
             href: "https://products.hyniva.com/finxserve/",
         },
         {
@@ -259,7 +259,7 @@ export const productsContent = {
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
-            image: "/images/Product_Images/AIRA.gif",
+            image: "/images/Product_Images/Compressed/AIRA.gif",
             href: "/aira",
         },
         {
@@ -267,7 +267,7 @@ export const productsContent = {
             title: "Claim Pioneer",
             tags: ["Insurance"],
             description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
-            image: "/images/Product_Images/Claim_pioneer.gif",
+            image: "/images/Product_Images/Compressed/ClaimPioneer.gif",
             href: "https://products.hyniva.com/claim-pioneer/",
         },
         {
@@ -275,7 +275,7 @@ export const productsContent = {
             title: "Hyper",
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
-            image: "/images/Product_Images/Hyper.gif",
+            image: "/images/Product_Images/Compressed/Hyper.gif",
             href: "https://products.hyniva.com/hyper/",
         },
     ],
@@ -580,8 +580,8 @@ export const footerContent = {
         },
     ],
     offices: [
-        { country: "United States", address: "13333 Blanco Road, Suite 206, San Antonio, Texas - 78216" },
-        { country: "India", address: "The Cube Karle Town Center, Building No.5, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
+        { country: "United States", address: "13333 Blanco Road, Suite 206, San Antonio,\nTexas - 78216" },
+        { country: "India", address: "The Cube Karle Town Center, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
     ],
     linkedin: "https://www.linkedin.com/company/hyniva/",
     email: "connect@hyniva.com",

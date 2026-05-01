@@ -15,11 +15,11 @@ export const contactContent = {
         offices: {
             us: {
                 title: "UNITED STATES",
-                address: "13333 Blanco Road, Suite 206, San Antonio, Texas – 78216"
+                address: "13333 Blanco Road,<br />Suite 206, San Antonio,<br />Texas – 78216"
             },
             india: {
                 title: "INDIA",
-                address: "The Cube, Karle Town Center, Bldg. 5, 5th Floor, Nagavara Village, Bengaluru – 560045"
+                address: "The Cube, Karle Town<br />Center, 5th Floor,<br />Nagavara Village,<br />Bengaluru – 560045"
             }
         }
     },

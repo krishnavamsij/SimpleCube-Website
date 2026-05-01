@@ -128,9 +128,10 @@ export default function ContactPage() {
                                                 <span className="text-2xl">🇺🇸</span>
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.us.title}</h4>
                                             </div>
-                                            <p className="text-[15px] font-medium text-[#030B3B] leading-relaxed">
-                                                {contactContent.body.offices.us.address}
-                                            </p>
+                                            <p 
+                                                className="text-[15px] font-medium text-[#030B3B] leading-relaxed"
+                                                dangerouslySetInnerHTML={{ __html: contactContent.body.offices.us.address }}
+                                            />
                                         </div>
 
                                         <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
@@ -138,9 +139,10 @@ export default function ContactPage() {
                                                 <span className="text-2xl">🇮🇳</span>
                                                 <h4 className="text((11px)] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
                                             </div>
-                                            <p className="text-[15px] font-medium text-[#030B3B] leading-relaxed">
-                                                {contactContent.body.offices.india.address}
-                                            </p>
+                                            <p 
+                                                className="text-[15px] font-medium text-[#030B3B] leading-relaxed"
+                                                dangerouslySetInnerHTML={{ __html: contactContent.body.offices.india.address }}
+                                            />
                                         </div>
                                     </motion.div>
                                 </motion.div>
