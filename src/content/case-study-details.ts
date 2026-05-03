@@ -24,7 +24,7 @@ export interface CaseStudyDetail {
 export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "autonomous-lending-experiences": {
         "slug": "autonomous-lending-experiences",
-        "eyebrow": "",
+        "eyebrow": "AI-Driven Lending & Agentforce",
         "title": "Autonomous Lending Experience with<br>\n      <em>FinXServe and Agentforce</em>",
         "summary": "Built an AI-powered lending concierge to deliver instant loan processing,\n      streamlining the entire lending lifecycle from application to approval.",
         "metrics": [
@@ -168,7 +168,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "instant-loan-processing": {
         "slug": "instant-loan-processing",
-        "eyebrow": "",
+        "eyebrow": "Document Intelligence & Agentforce",
         "title": "Accelerate Loan Processing with<br>\n      <em>Agentforce-Powered Document Intelligence</em>",
         "summary": "Built an AI-enabled loan processing engine that automates document extraction, validation,\n      and decision workflows to improve lending efficiency.",
         "metrics": [
@@ -264,7 +264,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "intelligent-ivr-self-service": {
         "slug": "intelligent-ivr-self-service",
-        "eyebrow": "",
+        "eyebrow": "Contact Center & IVR",
         "title": "Modernizing Contact Centers with<br>\n      <em>Intelligent IVR Self-Service</em>",
         "summary": "Streamlined IVR and routing systems to reduce call complexity, improve response times,\n      and offload routine queries from agents.",
         "metrics": [
@@ -322,7 +322,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "autonomous-freight-operations": {
         "slug": "autonomous-freight-operations",
-        "eyebrow": "",
+        "eyebrow": "Logistics & GenAI Automation",
         "title": "Autonomous Freight Operations<br>\n      <em>with GenAI</em>",
         "summary": "Deployed a GenAI-powered solution to automate freight load creation, enabling near-instant\n      processing, significant cost reduction, and 24/7 autonomous operations.",
         "metrics": [
@@ -433,7 +433,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "lwr-modernization": {
         "slug": "lwr-modernization",
-        "eyebrow": "",
+        "eyebrow": "Salesforce Experience Cloud & LWR",
         "title": "LWR Modernization for<br>\n      <em>High-Performance Experiences</em>",
         "summary": "Migrated legacy Experience Cloud to Lightning Web Runtime, delivering faster,\n      mobile-first, and scalable digital experiences.",
         "metrics": [
@@ -515,7 +515,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "a-race-against-time-that-others-refused-to-run": {
         "slug": "a-race-against-time-that-others-refused-to-run",
-        "eyebrow": "",
+        "eyebrow": "AEM Migration & Digital Transformation",
         "title": "Rapid Reverse-Engineered<br>\n      <em>Website Migration</em>",
         "summary": "Reverse-engineered and migrated a complete website to Adobe Experience Manager in just\n      2 months — without backend access — ensuring zero downtime and seamless user experience.",
         "metrics": [
@@ -610,7 +610,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "engineering-secure-authentication-through-pindrop-integration": {
         "slug": "engineering-secure-authentication-through-pindrop-integration",
-        "eyebrow": "",
+        "eyebrow": "Voice Biometrics & Contact Center Security",
         "title": "Frictionless Customer Authentication<br>\n      <em>for Secure Banking</em>",
         "summary": "Enabled secure and seamless customer authentication using voice biometrics, allowing contact\n      center agents to verify customers instantly without lengthy security questions.",
         "metrics": [
@@ -668,7 +668,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "transforming-core-banking-operations-with-microsoft-innovation": {
         "slug": "transforming-core-banking-operations-with-microsoft-innovation",
-        "eyebrow": "",
+        "eyebrow": "Microsoft & Core Banking Modernization",
         "title": "Core Banking Transformation<br>\n      <em>on Microsoft</em>",
         "summary": "Built a modern banking platform integrating workflows, data, and analytics to deliver\n      faster loan processing, reduced costs, and real-time operational intelligence.",
         "metrics": [
@@ -774,7 +774,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "hynivas-customer-360-insights-solution": {
         "slug": "hynivas-customer-360-insights-solution",
-        "eyebrow": "",
+        "eyebrow": "AWS Data Platform & Customer Intelligence",
         "title": "Turning Enterprise Data into a<br>\n      <em>Strategic Intelligence Engine</em>",
         "summary": "Built a unified AWS data platform that integrates multiple banking systems to deliver\n      real-time Customer 360 insights and a single source of truth.",
         "metrics": [
@@ -838,7 +838,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "hyniva-leverages-aws-half-a-million-dollars-savings-annually": {
         "slug": "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
-        "eyebrow": "",
+        "eyebrow": "AWS Cloud & Document Management",
         "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
         "summary": "Replaced a legacy document management system with a serverless AWS architecture,\n      significantly reducing costs while improving performance and scalability.",
         "metrics": [
@@ -935,7 +935,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "hyniva-campaign-management": {
         "slug": "hyniva-campaign-management",
-        "eyebrow": "",
+        "eyebrow": "Campaign Management & Marketing Technology",
         "title": "Data-Driven Campaign Management<br>\n      <em>for Enterprise Marketing</em>",
         "summary": "Built a custom campaign management platform with automated scoring and full lifecycle\n      tracking for scalable marketing operations.",
         "metrics": [
@@ -1012,7 +1012,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "modernizing-case-management-for-a-community-healthcare-provider-stop": {
         "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
-        "eyebrow": "",
+        "eyebrow": "Healthcare System Modernization",
         "title": "Modernizing Case Management for a Community<br>\n      <em>Healthcare Provider</em>",
         "summary": "Streamlined case intake, tracking, and resolution workflows — enabling real-time visibility, improved coordination across care teams, and more efficient service delivery for community healthcare programs.",
         "metrics": [
@@ -1225,7 +1225,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "scaling-service-operations-with-salesforce": {
         "slug": "scaling-service-operations-with-salesforce",
-        "eyebrow": "",
+        "eyebrow": "Salesforce Service Cloud & CX Transformation",
         "title": "Intelligent Service Operations<br>\n      <em>on Salesforce</em>",
         "summary": "Implemented Salesforce Service Cloud to centralize customer support, automate workflows,\n      and improve case resolution speed across multiple service channels.",
         "metrics": [
@@ -1341,7 +1341,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "member-experience-transformation-at-a-leading-credit-union": {
         "slug": "member-experience-transformation-at-a-leading-credit-union",
-        "eyebrow": "",
+        "eyebrow": "FinXServe & Credit Union Digital Lending",
         "title": "Elevating Digital Member Engagement in<br>\n      <em>Modern Banking Operations</em>",
         "summary": "Unified lending and engagement journeys across multiple channels to deliver instant\n      loan offers and seamless member experiences at scale.",
         "metrics": [
@@ -1432,7 +1432,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
         "slug": "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
-        "eyebrow": "",
+        "eyebrow": "FinTech Lending Automation",
         "title": "Optimizing Loan Routing and Pre-Qualification with<br>\n      <em>Intelligent Automation</em>",
         "summary": "An automation-driven solution that evaluated borrower data in real time and routed applications to the right lenders — reducing friction, improving match quality, and accelerating the end-to-end lending journey.",
         "metrics": [
@@ -1560,7 +1560,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "modernizing-a-legacy-platform": {
         "slug": "modernizing-a-legacy-platform",
-        "eyebrow": "",
+        "eyebrow": "CRM Modernization & Lending Platform",
         "title": "Legacy CRM to<br>\n      <em>Modern Lending Platform</em>",
         "summary": "Re-architected an outdated CRM into a modern platform, enabling better usability,\n      streamlined workflows, and integration with external systems.",
         "metrics": [
@@ -1618,7 +1618,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
         "slug": "transforming-insurance-claims-operations-with-a-scalable-digital-platform",
-        "eyebrow": "",
+        "eyebrow": "Insurance Claims Transformation",
         "title": "Transforming Insurance Claims Operations with a<br>\n      <em>Scalable Digital Platform</em>",
         "summary": "Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.",
         "metrics": [
@@ -1836,7 +1836,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "empowering-enterprises-through-microsoft-powered-modernization": {
         "slug": "empowering-enterprises-through-microsoft-powered-modernization",
-        "eyebrow": "",
+        "eyebrow": "Microsoft Dynamics 365 & Cloud Modernization",
         "title": "Enterprise CRM Modernization<br>\n      <em>on Microsoft Cloud</em>",
         "summary": "Modernized a legacy CRM into a scalable, cloud-native Microsoft ecosystem spanning\n      multiple business domains, ensuring seamless migration with zero downtime.",
         "metrics": [
@@ -1926,7 +1926,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "blue-green-deployment-boosting-efficiency-resilience": {
         "slug": "blue-green-deployment-boosting-efficiency-resilience",
-        "eyebrow": "",
+        "eyebrow": "AWS Blue-Green Deployment & DevOps",
         "title": "Enabling Zero-Downtime<br>\n      <em>Deployments with AWS</em>",
         "summary": "Implemented AWS blue-green deployment to ensure seamless releases, instant rollback\n      capabilities, and uninterrupted system availability.",
         "metrics": [
@@ -2008,7 +2008,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "scaling-a-multi-portal-education-platform-with-zero-defect-delivery": {
         "slug": "scaling-a-multi-portal-education-platform-with-zero-defect-delivery",
-        "eyebrow": "",
+        "eyebrow": "Education Platform Engineering",
         "title": "Engineered a Scalable Multi-Portal Platform for<br>\n      <em>Complex Education Workflows</em>",
         "summary": "Streamlined complex academic workflows, enabled real-time data visibility, and supported seamless interactions across students, faculty, and administrators.",
         "metrics": [
@@ -2215,7 +2215,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "logistics-platform-modernization-with-microsoft": {
         "slug": "logistics-platform-modernization-with-microsoft",
-        "eyebrow": "",
+        "eyebrow": "Microsoft & Logistics Platform Modernization",
         "title": "Logistics Platform<br>\n      <em>Modernization</em>",
         "summary": "Rebuilt legacy logistics systems into a real-time, mobile-enabled platform with\n      end-to-end operational visibility.",
         "metrics": [
@@ -2316,7 +2316,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "aws-enabled-efficiency-transforming-document-management": {
         "slug": "aws-enabled-efficiency-transforming-document-management",
-        "eyebrow": "",
+        "eyebrow": "AWS Serverless & Document Management",
         "title": "Cost-Optimized Document<br>\n      <em>Platform on AWS</em>",
         "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs,\n      enhance performance, and support large-scale data operations.",
         "metrics": [
@@ -2398,7 +2398,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "ai-hynivas-innovative-solutions": {
         "slug": "ai-hynivas-innovative-solutions",
-        "eyebrow": "",
+        "eyebrow": "AI Chatbot & Customer Support Automation",
         "title": "AI-Powered Customer<br>\n      <em>Support Automation</em>",
         "summary": "Implemented an AI chatbot to handle high-volume, repetitive queries, improving response\n      times while reducing dependency on support agents.",
         "metrics": [
