@@ -57,14 +57,36 @@ import {
     Plus,
     FolderOpen,
     Files,
+    Map as LucideMap,
+    Shield,
     type LucideIcon
 } from "lucide-react";
 
 // --- Components ---
 
 const iconMap: Record<string, LucideIcon> = {
+    "🚀": Rocket,
+    "⚡": Zap,
+    "💰": DollarSign,
+    "📈": TrendingUp,
+    "📉": TrendingDown,
+    "🔄": Activity,
+    "⏱️": Timer,
+    "⏲️": Timer,
+    "🎯": Target,
+    "👥": Users,
+    "🏗️": Construction,
+    "✨": Rocket,
+    "🌟": Rocket,
+    "💎": Rocket,
+    "💸": DollarSign,
+    "🤝": Users,
+    "🛠️": Construction,
+    "🎨": Layout,
+    "📖": Layout,
     "🔐": Lock,
     "🎙️": Mic,
+    "🎙": Mic,
     "📍": MapPin,
     "📱": Smartphone,
     "🔗": Link,
@@ -80,27 +102,42 @@ const iconMap: Record<string, LucideIcon> = {
     "🔀": Activity,
     "🚫": ShieldAlert,
     "⚠️": ShieldAlert,
+    "⚠": ShieldAlert,
     "✅": CheckCircle2,
-    "⚡": Zap,
-    "💰": DollarSign,
-    "📈": TrendingUp,
-    "📉": TrendingUp,
-    "🔄": Activity,
-    "⏱️": Timer,
-    "⏲️": Timer,
-    "🚀": Rocket,
-    "🎯": Target,
-    "👥": Users,
     "🔌": Zap,
-    "🏗️": Construction,
-    "✨": Rocket,
-    "🌟": Rocket,
-    "💎": Rocket,
-    "💸": DollarSign,
-    "🤝": Users,
-    "🛠️": Construction,
-    "🎨": Layout,
-    "📖": Layout,
+    "🐢": Clock,
+    "↑": TrendingUp,
+    "↓": TrendingDown,
+    "🔭": Search,
+    "☁️": Cloud,
+    "🔁": RefreshCw,
+    "👤": User,
+    "🤖": Bot,
+    "⏳": Hourglass,
+    "🖥️": Monitor,
+    "🖥": Monitor,
+    "🐌": Clock,
+    "🛑": OctagonAlert,
+    "🏛️": Building,
+    "🧩": Puzzle,
+    "↩": Undo2,
+    "💾": HardDrive,
+    "📜": ScrollText,
+    "➕": Plus,
+    "📂": FolderOpen,
+    "📊": BarChart3,
+    "🌐": Globe,
+    "🧠": Brain,
+    "⚖️": Scale,
+    "👔": Briefcase,
+    "🗄️": Database,
+    "⚙️": Settings,
+    "⚙": Settings,
+    "🛡️": ShieldCheck,
+    "🛡": Shield,
+    "🗂️": Files,
+    "🗺️": LucideMap,
+    "🗺": LucideMap,
 };
 
 const MetricIcon = ({ icon }: { icon: string }) => {
@@ -199,7 +236,11 @@ export default function CaseStudyDetailPage() {
                                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
                                     <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
                                         <div className="w-10 h-10 rounded-lg bg-[#1e90ff14] border border-[#1e90ff26] flex items-center justify-center group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff1a] transition-all duration-300">
-                                            <div className="text-[18px]">{item.icon}</div>
+                                            {iconMap[item.icon] ? (
+                                                React.createElement(iconMap[item.icon], { className: "w-5 h-5 text-[#1e90ff]" })
+                                            ) : (
+                                                <div className="text-[18px]">{item.icon}</div>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-1.5 pt-0.5">
