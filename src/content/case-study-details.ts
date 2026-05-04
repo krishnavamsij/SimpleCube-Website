@@ -728,8 +728,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 }
             },
             {
-                "id": "summary",
-                "title": "Summary",
+                "id": "outcome",
+                "title": "Outcome",
                 "type": "text",
                 "content": "<p>This case exemplifies Hyniva's ability to thrive in high-pressure, high-constraint environments. Through a resilient delivery structure, SDET-driven quality, and agile stakeholder management, we redefined what's possible in enterprise digital transformation — even when the odds were against it.</p>"
             }
@@ -2020,8 +2020,36 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Decision Visibility",
                             "desc": "Advanced reporting provided better visibility into real-time operations."
                         }
-                    ],
-                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Security &amp; Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data</div></div>\n      </div>"
+                    ]
+                }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The transformation delivered significant, measurable outcomes:</p>",
+                    "items": [
+                        "<strong>80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
+                        "<strong>Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
+                        "<strong>Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
+                        "<strong>Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
+                        "<strong>Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>Future enhancements will focus on:</p>",
+                    "items": [
+                        "Deeper analytics capabilities",
+                        "AI-driven claims insights",
+                        "Continued operations optimization",
+                        "Greater speed & accuracy"
+                    ]
                 }
             }
         ]
@@ -2382,7 +2410,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "impact",
-                "title": "Business Impact",
+                "title": "Impact",
                 "type": "impact-strip",
                 "content": {
                     "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
@@ -2407,8 +2435,35 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Productivity",
                             "desc": "Automated workflows reduced manual administrative effort for staff."
                         }
-                    ],
-                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Zero-Defect Delivery</strong> — Maintained a flawless delivery record with no client complaints since project inception</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Reduced Operational Overhead</strong> — Reduced client coordination effort significantly by moving from daily syncs to bi-weekly check-ins</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Scalable Platform Foundation</strong> — Enabled seamless expansion from basic features to a full-scale multi-portal system without rework</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Productivity for End Users</strong> — Automated workflows and intuitive UI significantly reduced manual administrative effort for administrators and SSAs</div></div>\n      </div>"
+                    ]
+                }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
+                    "items": [
+                        "<strong>Zero-Defect Delivery</strong> — Maintained a flawless delivery record with no client complaints since project inception",
+                        "<strong>Reduced Operational Overhead</strong> — Reduced client coordination effort significantly by moving from daily syncs to bi-weekly check-ins",
+                        "<strong>Scalable Platform Foundation</strong> — Enabled seamless expansion from basic features to a full-scale multi-portal system without rework",
+                        "<strong>Improved Productivity for End Users</strong> — Automated workflows and intuitive UI significantly reduced manual administrative effort for administrators and SSAs"
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>These initiatives will further enhance outcomes for educators and students alike, building on the platform architecture already in place.</p>",
+                    "items": [
+                        "AI-driven student insights",
+                        "Predictive performance tracking",
+                        "Intelligent workflow automation",
+                        "Enhanced educator outcomes"
+                    ]
                 }
             }
         ]

@@ -180,16 +180,19 @@ export default function CaseStudyDetailPage() {
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 group">
-                                    <div className="w-10 h-10 rounded-lg bg-[#1e90ff14] border border-[#1e90ff26] flex items-center justify-center mb-4 group-hover:border-[#63c2ff8c] transition-all duration-300">
-                                        <div className="text-[18px]">
-                                            {item.icon}
+                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
+                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
+                                    <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
+                                        <div className="w-10 h-10 rounded-lg bg-[#1e90ff14] border border-[#1e90ff26] flex items-center justify-center group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff1a] transition-all duration-300">
+                                            <div className="text-[18px]">{item.icon}</div>
                                         </div>
                                     </div>
-                                    <h4 className="text-[14px] font-semibold text-[#111827] mb-2 font-sans">{item.title}</h4>
-                                    <p className="text-[14px] text-slate-600 font-light leading-relaxed">{item.text}</p>
+                                    <div className="flex flex-col gap-1.5 pt-0.5">
+                                        <h4 className="text-[14px] font-semibold text-[#111827] leading-snug font-sans">{item.title}</h4>
+                                        <p className="text-[14px] text-slate-500 font-light leading-relaxed">{item.text}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -200,16 +203,16 @@ export default function CaseStudyDetailPage() {
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-white border border-slate-200 rounded-xl p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
+                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
                                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
                                     <div className="text-[26px] md:text-[30px] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
                                         {item.value}
                                     </div>
                                     <div className="flex flex-col gap-1.5 pt-0.5">
                                         <div className="text-[14px] font-semibold text-[#111827] leading-snug">{item.label}</div>
-                                        {item.desc && <p className="text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>}
+                                        {item.desc && <p className="text-[14px] text-slate-500 font-light leading-relaxed">{item.desc}</p>}
                                     </div>
                                 </div>
                             ))}
