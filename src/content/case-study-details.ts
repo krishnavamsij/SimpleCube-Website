@@ -1261,9 +1261,9 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Transparency",
                             "desc": "Full traceability across the software lifecycle"
                         }
-                    ]
-                },
+                    ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Enabling agencies to operate with greater speed, accuracy, and confidence — built on a platform designed to continuously adapt and scale.</p>\n      </div>"
+                }
             },
             {
                 "id": "outcome",
