@@ -158,14 +158,14 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>The Agentforce and FinXServe implementation provides a scalable foundation for expanding AI-driven banking experiences. By combining Agentforce's autonomous intelligence with FinXServe's experience orchestration layer, the credit union is positioned to continuously evolve its digital banking capabilities while maintaining operational control and regulatory compliance.</p>\n        <p>Future opportunities include extending conversational AI capabilities to:</p>",
+                    "body": "<p>The Agentforce and FinXServe implementation provides a scalable foundation for expanding AI-driven banking experiences.</p>\n        <p>Future opportunities include extending conversational AI capabilities to:</p>",
                     "items": [
                         "Account opening and onboarding",
                         "Card servicing and dispute management",
                         "Cross-sell and product recommendations",
                         "Member servicing and collections workflows"
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>By combining Agentforce's autonomous intelligence with FinXServe's experience orchestration layer, the credit union is positioned to continuously evolve its digital banking capabilities while maintaining operational control and regulatory compliance.</p>\n      </div>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The implementation provides a scalable foundation for expanding AI-driven banking experiences while maintaining operational control and regulatory compliance.</p>\n      </div>"
                 }
             }
         ]
@@ -451,7 +451,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Context-aware automation with real-time tracking reduces burnout while enhancing performance and employee satisfaction."
                         }
                     ],
-                    "footer": "<p>Manual intervention is now required only for final validation, with the system handling all upstream load creation tasks automatically. Shipment orders no longer sit in queue awaiting manual input — they are processed in real time, improving responsiveness and reducing lead time dramatically.</p>\n        <p>The result is a seamless, zero-touch experience — delivering consistency, accuracy, and operational speed at scale.</p>"
+                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/readme.png\" alt=\"Autonomous Freight Operations Dashboard\"/>\n        </div>"
                 }
             },
             {
@@ -459,7 +459,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>With Hyniva's Autonomous Document Intelligence Agent, the client's TMS operations have evolved from manual and error-prone to intelligent and autonomous. By embedding AI at the core of load creation, they've gained speed, accuracy, and scalability — and positioned themselves for the next wave of logistics innovation.</p>",
+                    "body": "",
                     "items": [
                         {
                             "value": "98%",
@@ -486,8 +486,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Reduced Lead Time",
                             "desc": "Shipment orders no longer wait in queue — near-instant readiness enables faster dispatch planning"
                         }
-                    ],
-                    "footer": "<blockquote class=\"border-l-4 border-[#1e90ff] pl-6 py-2 my-8 bg-slate-50/50 rounded-r-lg\"><p class=\"text-[19px] italic text-[#1e90ff] font-display\">\"What used to take 20 minutes now takes just 20 seconds — with no compromise in accuracy.\"</p></blockquote>"
+                    ]
                 }
             },
             {
@@ -1090,7 +1089,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "challenge",
                 "title": "Challenge",
                 "type": "text",
-                "content": "<p>A global investment firm was incurring high annual costs due to their reliance on a legacy platform for managing ~125 million customer documents. The overly complex platform inhibited efficient enhancements and meeting evolving requirements.</p>"
+                "content": "<p>Hyniva's client – a global investment firm – was incurring high annual costs due to their reliance on a legacy platform for managing ~125 million customer documents. The overly complex document management platform posed significant technical challenges due to its multi-platform design and inhibited the support team from making efficient enhancements to meet the client's evolving requirements.</p>\n        <p>They needed a leaner, more cost-effective solution and turned to Hyniva for its expertise in AWS.</p>"
             },
             {
                 "id": "solution",
@@ -1141,16 +1140,41 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "impact",
                 "title": "Impact",
-                "type": "text",
-                "content": "<p>The new unified document management platform drastically cut down the costs, resulting in annual savings of over $500,000. API calls and database queries were executed at a remarkable speed – nearly 5 times faster than the previous platform. Batch processing times that once took hours were reduced to a few minutes. This radical improvement meant that documents, accessible via multiple interfaces, were not only easily queried but also instantly available, enhancing overall business productivity and customer experience.</p>"
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>The new unified document management platform drastically cut down the costs, resulting in annual savings of over $500,000. API calls and database queries were executed at a remarkable speed – nearly 5 times faster than the previous platform. Batch processing times that once took hours were reduced to a few minutes. This radical improvement meant that documents, accessible via multiple interfaces, were not only easily queried but also instantly available, enhancing overall business productivity and customer experience.</p>",
+                    "items": [
+                        {
+                            "value": "$500K+",
+                            "label": "Annual Cost Savings",
+                            "desc": "Unified platform drastically cut operational costs by over $500,000 annually"
+                        },
+                        {
+                            "value": "5×",
+                            "label": "Faster API &amp; Query Execution",
+                            "desc": "API calls and database queries executed nearly 5 times faster than the previous platform"
+                        },
+                        {
+                            "value": "Minutes",
+                            "label": "Batch Processing Time",
+                            "desc": "Batch processing times reduced from hours to just a few minutes"
+                        },
+                        {
+                            "value": "Instant",
+                            "label": "Document Availability",
+                            "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
+                        }
+                    ],
+                    "footer": "<div class=\"impact-image\">\n        <img src=\"https://www.hyniva.com/wp-content/uploads/2024/11/AWS-Doc-Manager_Impact-Section-1024x494.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
+                }
             },
             {
                 "id": "future",
                 "title": "The Road Ahead",
                 "type": "text",
                 "content": "<p>Hyniva's innovative use of AWS technology for the document management platform not only helped the global investment management firm save over half a million dollars annually, but also significantly enhanced the speed and efficiency of their document management system. The improved user experience and system performance set a new standard in the industry. By leveraging their AWS expertise, Hyniva quickly delivered efficiency to its client.</p>\n        <p>If you're ready to explore how your business can harness the power of AWS to achieve your goals, Hyniva is ready to be your partner in achieving excellence. Let's discuss how we can partner to drive your success!</p>"
-            }
-        ]
+            },
+                    ]
     },
     "hyniva-campaign-management": {
         "slug": "hyniva-campaign-management",
@@ -1189,7 +1213,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Challenge",
                 "type": "feature-grid",
                 "content": {
-                    "body": "<p>An Information Technology Solutions company needed to build a modern media campaign management application from the ground up. Their goal was to capture and manage advertising campaigns efficiently while handling multiple types of campaign-related file uploads. A crucial requirement was to design and implement a built-in scoring model capable of calculating scores for campaigns based on predefined business logic.</p>",
+                    "body": "<p>An Information Technology Solutions company needed to build a modern media campaign management application from the ground up. Their goal was to capture and manage advertising campaigns efficiently while handling multiple types of campaign-related file uploads. A crucial requirement was to design and implement a built-in scoring model capable of calculating scores for campaigns based on predefined business logic.</p>\n        <p>Additionally, the project required:</p>",
                     "items": [
                         {
                             "icon": "🗄️",
@@ -1212,57 +1236,42 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>Hyniva developed a bespoke application on the latest .NET Framework, tailored to the client's specific campaign management needs. Our team managed the entire lifecycle, delivering:</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "Bespoke .NET Application",
-                            "desc": "Built a custom application from the ground up to match precise campaign management workflows."
-                        },
-                        {
-                            "num": "2",
-                            "title": "Automated Scoring Model",
-                            "desc": "Integrated a robust scoring engine to automate campaign evaluations based on business logic."
-                        },
-                        {
-                            "num": "3",
-                            "title": "Quality Assurance",
-                            "desc": "Maintained rigorous standards using TFS for tracking, code quality metrics, and unit test coverage."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Hyniva developed a bespoke application on the latest .NET Framework, tailored to the client's specific campaign management needs. Our team managed the entire lifecycle, delivering:</p>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Delivery &amp; Documentation</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Functional designs, technical designs, test plans, test cases, release documents, and detailed user manuals for seamless handover and ongoing support.</div>\n          <div class=\"solution-group__bullet\">A robust scoring model integrated into the application to automate campaign scoring.</div>\n          <div class=\"solution-group__bullet\">Comprehensive database architecture with well-optimized stored procedures and scripts to ensure high performance.</div>\n          <div class=\"solution-group__bullet\">Online help and end-user documentation for better usability and support.</div>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Throughout the project, we maintained rigorous quality and process adherence using:</p>\n      </div>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Quality &amp; Process Controls</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Team Foundation Server (TFS) for code tracking and collaboration.</div>\n          <div class=\"solution-group__bullet\">Code quality metrics and unit test coverage to ensure maintainability and reliability.</div>\n          <div class=\"solution-group__bullet\">Earned value metrics for transparent project tracking and delivery assurance.</div>\n        </div>\n      </div>"
             },
             {
-                "id": "impact",
+                "id": "benefits",
                 "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The platform transformed campaign management from a manual hurdle into a streamlined, high-quality operational asset.</p>",
+                    "body": "",
                     "items": [
                         {
-                            "value": "100%",
-                            "label": "Custom Fit",
-                            "desc": "Precisely matched to campaign workflows and rules"
+                            "value": "✓",
+                            "label": "Custom-Fit Solution",
+                            "desc": "A tailored application designed to precisely match campaign management workflows and business rules"
                         },
                         {
                             "value": "⚙️",
-                            "label": "Automation",
-                            "desc": "Scoring engine eliminated manual calculations and errors"
+                            "label": "Efficiency &amp; Automation",
+                            "desc": "Automated scoring reduced manual calculations, saving time and improving accuracy"
                         },
                         {
                             "value": "🗄️",
-                            "label": "Data Integrity",
-                            "desc": "Optimized DB design ensured fast access and scalability"
+                            "label": "Robust Data Management",
+                            "desc": "Optimized database design delivered fast data access and scalability"
                         },
                         {
                             "value": "🔍",
-                            "label": "Transparency",
-                            "desc": "Full traceability across the software lifecycle"
+                            "label": "Quality &amp; Transparency",
+                            "desc": "Adherence to industry best practices ensured high-quality code, traceability, and reduced long-term maintenance costs"
+                        },
+                        {
+                            "value": "📖",
+                            "label": "Improved User Support",
+                            "desc": "Comprehensive end-user manuals and online help enabled quick onboarding and smoother day-to-day operations"
                         }
-                    ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Enabling agencies to operate with greater speed, accuracy, and confidence — built on a platform designed to continuously adapt and scale.</p>\n      </div>"
+                    ]
                 }
             },
             {
@@ -1270,8 +1279,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Outcome",
                 "type": "text",
                 "content": "<p>The new campaign management platform empowered the client to manage media campaigns more efficiently, with streamlined processes, real-time scoring insights, and enhanced user support. Hyniva's solution delivered a high-quality, scalable application that aligned perfectly with the client's vision and set the foundation for future feature expansion and business growth.</p>"
-            }
-        ]
+            },
+                    ]
     },
     "modernizing-case-management-for-a-community-healthcare-provider-stop": {
         "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
@@ -1306,51 +1315,36 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         ],
         "sections": [
             {
-                "id": "challenge",
-                "title": "Challenge",
+                "id": "solutions",
+                "title": "Key Solutions Delivered",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>A community healthcare provider's STOP program relied on a heavily customized Microsoft Access system that became an operational bottleneck — difficult to scale, navigate, and maintain.</p>",
+                    "body": "<p>Across five core solution areas, we delivered a complete digital transformation of the STOP program's operational infrastructure:</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Complex Nested Workflows",
-                            "desc": "Critical workflows buried within multi-tabbed forms made navigation and updates difficult."
+                            "title": "Legacy System Deconstruction & API-First Architecture",
+                            "desc": "Systematically reverse-engineered the MS Access database to extract business rules into scalable APIs, decoupling frontend and backend for long-term flexibility."
                         },
                         {
                             "num": "2",
-                            "title": "Data Inconsistency",
-                            "desc": "Tightly coupled business logic led to fragmented data entry and inconsistent reporting."
+                            "title": "UX Transformation with Modern Web Interface",
+                            "desc": "Replaced cluttered desktop screens with a clean, intuitive web experience designed for responsive multi-device accessibility."
                         },
                         {
                             "num": "3",
-                            "title": "Limited Accessibility",
-                            "desc": "Desktop-bound legacy system restricted remote usage for field coordinators."
-                        }
-                    ]
-                }
-            },
-            {
-                "id": "approach",
-                "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>We reimagined the platform's architecture using a cloud-native, API-first approach to transform a rigid legacy system into a future-ready service engine.</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "API-First Architecture",
-                            "desc": "Decoupled business logic into secure APIs, enabling long-term flexibility and easy integration."
+                            "title": "Advanced Participant Management System",
+                            "desc": "Digitized critical workflows with automated age validation and compliance checks, ensuring data consistency and accuracy."
                         },
                         {
-                            "num": "2",
-                            "title": "Modern Frontend Rebuild",
-                            "desc": "Rebuilt the UI with ReactJS, providing a clean, accessible web interface for all devices."
+                            "num": "4",
+                            "title": "Transportation & Logistics Optimization",
+                            "desc": "Rebuilt the transportation module to handle complex scheduling, staff time tracking, and real-time visibility into field operations."
                         },
                         {
-                            "num": "3",
-                            "title": "Workflow Simplification",
-                            "desc": "Streamlined complex forms into intuitive components, improving data entry speed and accuracy."
+                            "num": "5",
+                            "title": "Streamlined Incident Reporting",
+                            "desc": "Transformed dense reporting forms into efficient digital workflows with structured inputs, improving accuracy and completeness of critical data."
                         }
                     ]
                 }
@@ -1466,30 +1460,44 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva reimagined the service model on Salesforce as a single source of truth, fusing customer data with intelligent automation.</p>",
+                    "body": "<p>Instead of treating Salesforce as just another CRM, Hyniva reimagined the client's entire service model on Salesforce as a single source of truth and automation engine. By fusing customer data, omni-channel service, and intelligent workflows, we turned a fragmented support system into a real-time, proactive, customer-first experience.</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Unified Customer 360",
-                            "desc": "Consolidated ERP, IVR, and portal data into Salesforce for instant agent visibility."
+                            "title": "Unified Customer View",
+                            "desc": "Consolidated ERP, IVR, and portal data into Salesforce, giving agents instant 360° visibility."
                         },
                         {
                             "num": "2",
                             "title": "Omni-Channel Automation",
-                            "desc": "Automated case creation across all digital channels, ensuring no query is lost."
+                            "desc": "Cases automatically created from calls, emails, chat, and mobile apps — no query slipped through."
                         },
                         {
                             "num": "3",
-                            "title": "Intelligent Routing",
-                            "desc": "Assigned requests by priority and skill, ensuring fast and accurate resolutions."
+                            "title": "Smart Routing",
+                            "desc": "Salesforce Omni-Channel assigned requests by priority, skill, and workload, ensuring the right case reached the right agent."
                         },
                         {
                             "num": "4",
-                            "title": "Proactive Monitoring",
-                            "desc": "Real-time tracking flags abandoned sessions for immediate proactive follow-ups."
+                            "title": "Lifecycle Orchestration",
+                            "desc": "Automated workflows handled status updates, escalations, and resolution, freeing agents from repetitive tasks."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Proactive Service",
+                            "desc": "Real-time monitoring flagged abandoned digital sessions, enabling immediate follow-ups before issues escalated."
+                        },
+                        {
+                            "num": "6",
+                            "title": "Knowledge + Personalization",
+                            "desc": "Salesforce Knowledge empowered both agents and customers with self-service; Marketing Cloud drove personalized updates."
+                        },
+                        {
+                            "num": "7",
+                            "title": "Actionable Insights",
+                            "desc": "Role-based dashboards gave agents, supervisors, and executives live metrics to track performance and take action."
                         }
-                    ],
-                    "footer": "<div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Extracted and restructured embedded business rules into scalable APIs</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Decoupled frontend and backend for flexibility and future integrations</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Built a secure, cloud-native foundation for long-term scalability</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 2 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">2. UX Transformation with Modern Web Interface</strong></p>\n        <p style=\"margin-top:8px;\">We replaced cluttered, multi-tabbed desktop screens with a clean and intuitive web experience.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Simplified complex workflows into logical, user-friendly components</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Designed responsive interfaces for multi-device accessibility</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved navigation and usability for high-frequency operational tasks</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 3 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">3. Advanced Participant Management System</strong></p>\n        <p style=\"margin-top:8px;\">We digitized and enhanced critical participant workflows with strong validation and automation.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Automated rules for age validation, SSN formatting, and compliance checks</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Centralized tracking of sensitive participant data and legal statuses</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Eliminated redundant workflows to ensure data consistency and accuracy</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 4 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">4. Transportation &amp; Logistics Optimization</strong></p>\n        <p style=\"margin-top:8px;\">We rebuilt the transportation module to handle complex scheduling and cost calculations.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Automated tracking of staff time, mileage, and fees</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Enabled real-time visibility into departure and arrival schedules</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved planning efficiency for field operations</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 5 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">5. Streamlined Incident Reporting</strong></p>\n        <p style=\"margin-top:8px;\">We transformed dense reporting forms into efficient digital workflows.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Simplified logging of incidents, law enforcement interactions, and case notes</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Enabled faster data entry with structured and guided inputs</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved accuracy and completeness of critical reporting data</div>\n          </div>\n        </div>\n      </div>"
+                    ]
                 }
             },
             {
@@ -1497,12 +1505,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Business Impact",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The transformation delivered a new standard of customer experience with measurable efficiency gains.</p>",
+                    "body": "<p>The transformation was immediate and measurable:</p>",
                     "items": [
                         {
                             "value": "50%",
-                            "label": "Manual Reduction",
-                            "desc": "Agents focus on problem-solving instead of administration"
+                            "label": "Less Manual Effort",
+                            "desc": "Agents now focus on problem-solving instead of administration"
                         },
                         {
                             "value": "30%",
@@ -1511,13 +1519,23 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "25%",
-                            "label": "Fewer Repeats",
+                            "label": "Fewer Repeat Queries",
                             "desc": "Integrated knowledge base resolved queries on first contact"
                         },
                         {
                             "value": "↑",
                             "label": "CSAT Scores",
                             "desc": "Proactive service and personalized care boosted loyalty"
+                        },
+                        {
+                            "value": "↑",
+                            "label": "SLA Compliance",
+                            "desc": "Real-time monitoring and routing reduced missed deadlines"
+                        },
+                        {
+                            "value": "📊",
+                            "label": "Leadership Clarity",
+                            "desc": "Dashboards gave decision-makers full control of the service funnel"
                         }
                     ]
                 }
@@ -1598,27 +1616,32 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva re-engineered the member journey by implementing an end-to-end digital engagement platform that unified communication, simplified loan applications, and personalized the experience.</p>",
+                    "body": "<p>The Credit Union partnered with Hyniva to deploy FinXServe, a Salesforce-native solution designed for rapid configuration and delivery of digital lending experiences. Key aspects of the solution included:</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Personalized Member Dashboards",
-                            "desc": "Created intuitive, personalized interfaces that provided members with real-time insights into their financial health and eligible offers."
+                            "title": "FinXServe on Salesforce FSC & Experience Cloud",
+                            "desc": "Implementation of FinXServe tightly integrated with Salesforce Financial Services Cloud and Experience Cloud."
                         },
                         {
                             "num": "2",
-                            "title": "Digital Pre-Qualification Engine",
-                            "desc": "Integrated an automated pre-qualification tool that allowed members to check their eligibility instantly without impacting their credit scores."
+                            "title": "Unified Multi-Channel Loan Applications",
+                            "desc": "User-friendly experiences for auto loans, personal loans, and credit cards — accessible via mobile, website, branch, and contact center."
                         },
                         {
                             "num": "3",
-                            "title": "Multi-Channel Engagement Strategy",
-                            "desc": "Deployed a unified communication layer across email, SMS, and in-app notifications to deliver timely, relevant updates."
+                            "title": "Frontline Staff Empowerment",
+                            "desc": "Empowered frontline staff to assist members using the same digital platform, ensuring seamless support across all channels."
                         },
                         {
                             "num": "4",
-                            "title": "Streamlined Loan Processing Integration",
-                            "desc": "Seamlessly connected the front-end engagement layer with back-office loan origination systems for frictionless processing."
+                            "title": "Modern Core Banking Integration",
+                            "desc": "Deep integration with Modern Core Banking Platforms, enabling real-time processing and data synchronization."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Configuration-Driven Approach",
+                            "desc": "A configuration- and workflow-driven approach that significantly reduced implementation time, risk, and cost compared to custom development."
                         }
                     ]
                 }
@@ -1631,24 +1654,44 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     "body": "<p>The transformation delivered immediate and measurable improvements across member satisfaction and business performance:</p>",
                     "items": [
                         {
-                            "value": "↑ 40%",
-                            "label": "Member Satisfaction",
-                            "desc": "Enhanced digital touchpoints led to a significant boost in member engagement and NPS scores."
+                            "value": "✓",
+                            "label": "Modern Experience",
+                            "desc": "Consistent digital and physical lending experience"
                         },
                         {
-                            "value": "↑ 25%",
-                            "label": "Loan App Volume",
-                            "desc": "Simplified pre-qualification and personalized offers drove higher intent and application rates."
+                            "value": "< 2 min",
+                            "label": "Instant Offers",
+                            "desc": "Loan offers delivered to members in under 2 minutes"
                         },
                         {
-                            "value": "30%",
-                            "label": "Efficiency",
-                            "desc": "Automated lead routing and digital workflows reduced manual overhead for back-office teams."
+                            "value": "🔗",
+                            "label": "Channel Continuity",
+                            "desc": "Resume applications seamlessly through any preferred channel"
                         },
                         {
-                            "value": "↑ 50%",
-                            "label": "Digital Adoption",
-                            "desc": "Members transitioned from traditional branches to the more convenient digital platform."
+                            "value": "↓",
+                            "label": "Lower Abandonment",
+                            "desc": "Improved UX significantly reduced application drop-offs"
+                        },
+                        {
+                            "value": "↑",
+                            "label": "Higher Engagement",
+                            "desc": "Increased reach among both members and non-members"
+                        },
+                        {
+                            "value": "👥",
+                            "label": "Staff Empowered",
+                            "desc": "Staff tools to assist members more efficiently across channels"
+                        },
+                        {
+                            "value": "🏆",
+                            "label": "First of Its Kind",
+                            "desc": "First fully member-facing lending on Salesforce Experience Cloud"
+                        },
+                        {
+                            "value": "ROI",
+                            "label": "Salesforce ROI",
+                            "desc": "Measurable performance gains strengthened platform investment"
                         }
                     ]
                 }
@@ -1833,60 +1876,46 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>The organization’s legacy CRM platform struggled to keep pace with rapid growth, creating bottlenecks and limiting technical capabilities:</p>",
-                    "items": [
-                        {
-                            "icon": "🏗️",
-                            "title": "Scalability Issues",
-                            "text": "Legacy architecture could not handle increasing volumes, creating significant efficiency bottlenecks."
-                        },
-                        {
-                            "icon": "⏱️",
-                            "title": "Time-Sensitive Migration",
-                            "text": "Urgent need to migrate to a new platform within a strict six-month timeframe due to contract expirations."
-                        },
-                        {
-                            "icon": "🖥️",
-                            "title": "Rigid User Interface",
-                            "text": "Outdated UI hindered user experience and lacked critical self-service features."
-                        },
-                        {
-                            "icon": "🔌",
-                            "title": "3rd Party API Incompatibility",
-                            "text": "The system could not interface smoothly with modern APIs, limiting technology integration."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Scalability Issues with Legacy CRM: Tresl's legacy CRM platform struggled to keep pace with the rapid growth of the organization, creating bottlenecks in efficiency.</p>\n        <p>Time-Sensitive Platform Migration: The urgency stemmed from the need to migrate to a new CRM platform within a six-month timeframe, necessitating a seamless transition.</p>\n        <p>Rigid User Interface and Lack of Self-Service Features: The existing CRM had a user interface that hindered user experience, lacking self-service features that are essential in today's tech-savvy market.</p>\n        <p>Incompatibility with 3rd Party APIs: Tresl's CRM platform couldn't interface smoothly with new 3rd Party APIs, limiting the company's ability to integrate with evolving technologies.</p>"
             },
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
                 "type": "text",
-                "content": "<p>Hyniva undertook a complete overhaul of the CRM platform, re-architecting it into a modern, functional solution within a stringent six-month window.</p><p>Leveraging our Digital Factory approach, we employed an agile methodology to develop a streamlined and intuitive UI using AngularJS. This transformation empowered Customer Service Representatives (CSRs) to efficiently track leads, follow up with customers, and process loan applications with ease. The new platform was built to be compatible with 3rd Party APIs, ensuring long-term flexibility.</p>"
+                "content": "<p>Understanding the critical nature of Tresl's challenges, Hyniva conducted a comprehensive review of the existing platform to understand the business. Given the nature of the business transition and the legacy technology upon which the platform was built, it posed a challenge for traditional upgrades. Additionally, the impending expiration of Tresl's CRM contract necessitated a swift and comprehensive transition to a new in-house platform.</p>\n        <p>Leveraging its expertise and commitment to innovation, Hyniva undertook the monumental task of a complete overhaul of Tresl's CRM platform. The project's complexity was heightened by the need to deliver a fully functional solution within the stringent time frame of six months. Hyniva's Digital Factory, characterized by its agility and simultaneous development efforts, played a pivotal role in meeting the project's ambitious timeline. The team ensured that every aspect of the solution aligned seamlessly with Tresl's business goals. Recognizing the importance of a user-friendly interface, Hyniva employed the lightweight yet powerful AngularJS framework to create a streamlined and intuitive UI. This transformation empowered Customer Service Representatives (CSRs) to efficiently track leads, follow up with customers, and process loan applications with ease.</p>"
             },
             {
-                "id": "impact",
+                "id": "benefits",
                 "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The transformation delivered immediate results in operational throughput and customer engagement:</p>",
+                    "body": "",
                     "items": [
                         {
                             "value": "35–40%",
-                            "label": "Faster Processing",
-                            "desc": "Streamlined workflows and eliminated legacy system bottlenecks."
+                            "label": "Faster Loan Processing",
+                            "desc": "Streamlined workflows and eliminated legacy system bottlenecks, enabling back-office teams to process loan applications more efficiently"
                         },
                         {
-                            "value": "↑ 20%",
-                            "label": "App Volume",
-                            "desc": "Improved digital experience simplified the application process for customers."
+                            "value": "20%",
+                            "label": "Increase in Loan Applications",
+                            "desc": "The improved digital experience simplified the loan application process, allowing customers to submit documents online and track application status"
                         },
                         {
                             "value": "15–18%",
-                            "label": "Approval Rates",
-                            "desc": "Better prequalification and screening improved the quality of applications."
+                            "label": "Improvement in Loan Approval Rates",
+                            "desc": "Prequalification and screening capabilities improved the quality of loan applications and reduced incomplete submissions"
+                        },
+                        {
+                            "value": "✓",
+                            "label": "Unified Omni-Channel Lending Platform",
+                            "desc": "Seamless workflows across web and internal applications, creating a consistent experience for back-office teams across devices"
+                        },
+                        {
+                            "value": "↑",
+                            "label": "Improved Member Experience",
+                            "desc": "Customers navigate the lending journey more easily, access prequalification insights, and gain better visibility into loan eligibility and available offers"
                         }
                     ]
                 }
@@ -1895,7 +1924,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>In just six months, Hyniva delivered a fully modernized lending platform that replaced a rigid, outdated CRM with an agile, user-friendly system built for growth. The transformation empowered Customer Service Representatives with the tools to track leads, process applications, and engage borrowers more effectively — laying a scalable foundation for future product expansion and integration.</p>"
+                "content": "<p>The modernization of the legacy CRM platform enabled the organization to transition to a scalable, digitally enabled lending ecosystem. By streamlining workflows, improving application quality, and enhancing the borrower experience, the organization was able to increase loan application volumes, improve operational efficiency, and deliver a more responsive lending experience for both customers and internal teams.</p>"
             }
         ]
     },
@@ -1934,122 +1963,109 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
+                "type": "approach-list",
                 "content": {
-                    "body": "<p>Managing insurance claims at scale was hindered by fragmented systems, manual processes, and limited visibility into financial operations:</p>",
+                    "body": "<p>Insurance agencies managing claims at scale often struggle with fragmented systems, manual processes, and limited visibility into financial operations.</p>\n        <p>The existing platform faced several operational and technical challenges:</p>",
                     "items": [
                         {
-                            "icon": "💸",
-                            "title": "Manual Payment Processing",
-                            "text": "Error-prone processes were slowing down operations and settlements."
+                            "num": "1",
+                            "title": "Manual, error-prone payment processing slowing down operations",
+                            "desc": ""
                         },
                         {
-                            "icon": "🗺️",
-                            "title": "Mapping Inconsistencies",
-                            "text": "Invoice mapping inconsistencies across different carriers created data silos."
+                            "num": "2",
+                            "title": "Invoice mapping inconsistencies across carriers",
+                            "desc": ""
                         },
                         {
-                            "icon": "📊",
-                            "title": "Reporting Gaps",
-                            "text": "Limited reporting capabilities impacted executive decision-making and visibility."
+                            "num": "3",
+                            "title": "Limited reporting capabilities impacting decision-making",
+                            "desc": ""
                         },
                         {
-                            "icon": "🐌",
-                            "title": "Performance Bottlenecks",
-                            "text": "System slowdowns affected user experience during peak volumes."
+                            "num": "4",
+                            "title": "Performance bottlenecks affecting user experience",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Security gaps in financial transactions and data handling",
+                            "desc": ""
                         }
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>These limitations created inefficiencies across the claims lifecycle — from assignment to settlement.</p>\n      </div>"
+                    "footer": "<p>These limitations created inefficiencies across the claims lifecycle — from assignment to settlement.</p>"
                 }
             },
             {
-                "id": "solution",
+                "id": "approach",
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>We took a long-term, engineering-led approach to design a platform that unified the end-to-end claims lifecycle, focusing on automation and scalability.</p>",
+                    "body": "<p>Rather than incremental fixes, we took a long-term, engineering-led approach to design a platform that can streamline the end-to-end claims lifecycle.</p>\n        <p>Over a multi-year engagement, we continuously evolved the platform with a focus on:</p>",
                     "items": [
                         {
                             "num": "1",
                             "title": "Workflow Automation",
-                            "desc": "Automated core workflows across the claims lifecycle to eliminate manual overhead."
+                            "desc": "Automating core workflows across the claims lifecycle to eliminate manual overhead and reduce processing delays."
                         },
                         {
                             "num": "2",
                             "title": "Secure Financial Systems",
-                            "desc": "Strengthening financial systems with secure, reliable processing to improve compliance."
+                            "desc": "Strengthening financial systems with secure, reliable processing to improve compliance and protect sensitive transaction data."
                         },
                         {
                             "num": "3",
                             "title": "Performance at Scale",
-                            "desc": "Enhanced platform performance to support growing scale without degradation."
+                            "desc": "Enhancing platform performance to support growing operational scale without degradation in user experience or system reliability."
                         },
                         {
                             "num": "4",
                             "title": "Scalable Architecture",
-                            "desc": "Flexible, scalable architecture designed for future growth and integrations."
+                            "desc": "Building a flexible, scalable architecture designed to accommodate future growth, integrations, and evolving business requirements."
                         }
-                    ],
-                    "footer": "<div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Advanced invoice generation and carrier mapping</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Fully integrated payment processing module</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Automated adjuster commission calculations</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Payroll system with ACH integration for seamless disbursements</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 2 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">2. Secure &amp; Compliant Payment Infrastructure</strong></p>\n        <p style=\"margin-top:8px;\">We enhanced platform security to ensure safe and reliable financial transactions.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Strengthened payment security protocols</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Reduced risks associated with manual financial handling</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved compliance and data protection standards</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 3 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">3. Performance Optimization at Scale</strong></p>\n        <p style=\"margin-top:8px;\">We re-engineered the platform to handle increasing workloads efficiently.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Eliminated performance bottlenecks across key workflows</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved system responsiveness and user experience</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Ensured stability under high transaction volumes</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 4 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">4. Reporting &amp; Operational Intelligence</strong></p>\n        <p style=\"margin-top:8px;\">We introduced robust reporting capabilities to improve visibility and control.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Configurable reports for financial tracking and claims insights</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Automated reporting workflows for faster decision-making</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Improved transparency across the claims lifecycle</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 5 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">5. Scalable Architecture for Long-Term Growth</strong></p>\n        <p style=\"margin-top:8px;\">We modernized the platform's foundation to support future expansion.</p>\n      </div>\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Designed a scalable database architecture</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Enabled flexibility for new feature additions and integrations</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Ensured long-term maintainability and performance</div>\n          </div>\n        </div>\n      </div>"
+                    ]
                 }
+            },
+            {
+                "id": "solutions",
+                "title": "Key Solutions Delivered",
+                "type": "text",
+                "content": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>\n        <p style=\"margin-top:24px;\"><strong style=\"color:#111827; font-weight:600;\">1. End-to-End Financial Workflow Automation</strong></p>\n        <p style=\"margin-top:8px;\">We streamlined financial operations across invoicing, payments, and payroll.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Advanced invoice generation and carrier mapping</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Fully integrated payment processing module</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Automated adjuster commission calculations</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Payroll system with ACH integration for seamless disbursements</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">2. Secure & Compliant Payment Infrastructure</strong></p>\n        <p style=\"margin-top:8px;\">We enhanced platform security to ensure safe and reliable financial transactions.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Strengthened payment security protocols</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Reduced risks associated with manual financial handling</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved compliance and data protection standards</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">3. Performance Optimization at Scale</strong></p>\n        <p style=\"margin-top:8px;\">We re-engineered the platform to handle increasing workloads efficiently.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Eliminated performance bottlenecks across key workflows</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved system responsiveness and user experience</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Ensured stability under high transaction volumes</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">4. Reporting & Operational Intelligence</strong></p>\n        <p style=\"margin-top:8px;\">We introduced robust reporting capabilities to improve visibility and control.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Configurable reports for financial tracking and claims insights</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Automated reporting workflows for faster decision-making</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved transparency across the claims lifecycle</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">5. Scalable Architecture for Long-Term Growth</strong></p>\n        <p style=\"margin-top:8px;\">We modernized the platform's foundation to support future expansion.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Designed a scalable database architecture</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Enabled flexibility for new feature additions and integrations</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Ensured long-term maintainability and performance</div>\n          </div>\n        </div>"
             },
             {
                 "id": "impact",
                 "title": "Impact",
-                "type": "impact-strip",
+                "type": "outcome-list",
                 "content": {
                     "body": "<p>The transformation delivered significant, measurable outcomes:</p>",
                     "items": [
-                        {
-                            "value": "80%",
-                            "label": "Manual Work Reduction",
-                            "desc": "Automation eliminated repetitive tasks and reduced operational overhead."
-                        },
-                        {
-                            "value": "⚡",
-                            "label": "Faster Settlements",
-                            "desc": "Streamlined workflows improved turnaround time across the claims lifecycle."
-                        },
-                        {
-                            "value": "100%",
-                            "label": "Financial Accuracy",
-                            "desc": "Enhanced invoicing, payments, and reporting ensured absolute data accuracy."
-                        },
-                        {
-                            "value": "🔍",
-                            "label": "Decision Visibility",
-                            "desc": "Advanced reporting provided better visibility into real-time operations."
-                        }
+                        "<strong style=\"color:var(--text-dark);font-weight:600;\">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
+                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
+                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
+                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
+                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
                     ]
                 }
             },
             {
                 "id": "outcome",
                 "title": "Outcome",
-                "type": "outcome-list",
-                "content": {
-                    "body": "<p>The transformation delivered significant, measurable outcomes:</p>",
-                    "items": [
-                        "<strong>80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
-                        "<strong>Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
-                        "<strong>Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
-                        "<strong>Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
-                        "<strong>Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
-                    ]
-                }
+                "type": "text",
+                "content": "<p>The modernization of the claims operations platform enabled the insurance agency to transition from a fragmented, manual environment to a unified, digitally-driven ecosystem. By automating core financial workflows and optimizing system performance, the organization achieved significant operational efficiency, improved data accuracy, and enhanced its ability to scale while maintaining high standards of security and compliance.</p>"
             },
             {
                 "id": "future",
-                "title": "Road Ahead",
+                "title": "The Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>Future enhancements will focus on:</p>",
+                    "body": "<p>With a modern, scalable foundation, the platform is now positioned to evolve into a more intelligent, automation-driven system.</p>\n        <p>Future enhancements will focus on:</p>",
                     "items": [
                         "Deeper analytics capabilities",
                         "AI-driven claims insights",
                         "Continued operations optimization",
                         "Greater speed & accuracy"
-                    ]
+                    ],
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Enabling agencies to operate with greater speed, accuracy, and confidence — built on a platform designed to continuously adapt and scale.</p>\n      </div>"
                 }
             }
         ]

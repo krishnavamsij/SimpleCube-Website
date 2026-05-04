@@ -145,11 +145,11 @@ const iconMap: Record<string, LucideIcon> = {
 const StandardIcon = ({ icon, className = "" }: { icon: string, className?: string }) => {
     const Icon = iconMap[icon];
     return (
-        <div className={`w-12 h-12 rounded-full bg-[#1e90ff12] border border-[#1e90ff33] flex items-center justify-center group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff26] group-hover:shadow-[0_0_20px_rgba(30,144,255,0.22)] transition-all duration-300 ${className}`}>
+        <div className={`w-9 h-9 rounded-[8px] bg-[rgba(30,144,255,0.08)] border border-[rgba(30,144,255,0.15)] flex items-center justify-center ${className}`}>
             {Icon ? (
-                <Icon className="w-5 h-5 text-[#1e90ff]" />
+                <Icon className="w-4 h-4 text-[#1e90ff]" />
             ) : (
-                <span className="text-xl">{icon}</span>
+                <span className="text-base">{icon}</span>
             )}
         </div>
     );
@@ -220,7 +220,7 @@ export default function CaseStudyDetailPage() {
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group">
                                     <div className="text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display">
-                                        {item.num}
+                                        {item.num || '✦'}
                                     </div>
                                     <div className="pt-1">
                                         <h4 className="text-[17px] font-normal text-[#111827] mb-3 font-sans">{item.title}</h4>
@@ -236,17 +236,14 @@ export default function CaseStudyDetailPage() {
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
-                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
-                                    <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
+                                <div key={idx} className="bg-white border border-[#e5e7eb] rounded-[10px] p-5 transition-all duration-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5">
+                                    <div className="flex flex-col items-center justify-center mb-3">
                                         <StandardIcon icon={item.icon} />
                                     </div>
-                                    <div className="flex flex-col gap-1.5 pt-0.5">
-                                        <h4 className="text-[14px] font-semibold text-[#111827] leading-snug font-sans">{item.title}</h4>
-                                        <p className="text-[14px] text-slate-500 font-light leading-relaxed">{item.text}</p>
-                                    </div>
+                                    <h4 className="text-[13px] font-semibold text-[#111827] mb-[5px] text-center">{item.title}</h4>
+                                    <p className="text-[13px] font-light leading-[1.6] text-[#374151] text-center">{item.text}</p>
                                 </div>
                             ))}
                         </div>
@@ -257,22 +254,22 @@ export default function CaseStudyDetailPage() {
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] mt-7">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
-                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
+                                <div key={idx} className="bg-white border border-[#e5e7eb] rounded-[12px] p-[22px_24px] flex gap-[18px] items-start transition-all duration-200 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden">
+                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-[3px_0_0_3px]" />
                                     {iconMap[item.value] ? (
-                                        <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
+                                        <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px]">
                                             <StandardIcon icon={item.value} />
                                         </div>
                                     ) : (
-                                        <div className="text-[26px] md:text-[30px] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
+                                        <div className="text-[clamp(20px,2.2vw,28px)] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
                                             {item.value}
                                         </div>
                                     )}
-                                    <div className="flex flex-col gap-1.5 pt-0.5">
-                                        <div className="text-[14px] font-semibold text-[#111827] leading-snug">{item.label}</div>
-                                        {item.desc && <p className="text-[14px] text-slate-500 font-light leading-relaxed">{item.desc}</p>}
+                                    <div className="flex flex-col gap-1">
+                                        <div className="text-[13px] font-semibold text-[#111827] leading-[1.3]">{item.label}</div>
+                                        {item.desc && <p className="text-[12.5px] font-light leading-[1.55] text-[#6b7280]">{item.desc}</p>}
                                     </div>
                                 </div>
                             ))}
@@ -308,6 +305,12 @@ export default function CaseStudyDetailPage() {
                             ))}
                         </div>
                         {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
+                    </div>
+                );
+            case 'text':
+                return (
+                    <div className="cs-content">
+                        <div dangerouslySetInnerHTML={{ __html: content.body || content }} />
                     </div>
                 );
             default:
@@ -509,6 +512,136 @@ export default function CaseStudyDetailPage() {
                 .cs-content strong {
                     color: #111827 !important;
                     font-weight: 600 !important;
+                }
+
+                
+                /* ── Solution Group Styling ── */
+                .solution-group {
+                    background: white;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 10px;
+                    padding: 22px 24px;
+                    margin-top: 20px;
+                    transition: box-shadow 0.2s;
+                }
+                .solution-group:hover {
+                    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+                }
+                .solution-group__label {
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 2.5px;
+                    text-transform: uppercase;
+                    color: #1e90ff;
+                    margin-bottom: 14px;
+                }
+                .solution-group__bullets {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .solution-group__bullet {
+                    display: flex;
+                    gap: 12px;
+                    align-items: flex-start;
+                    font-size: 13.5px;
+                    font-weight: 300;
+                    color: #374151;
+                    line-height: 1.65;
+                }
+                .solution-group__bullet::before {
+                    content: '';
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #1e90ff;
+                    flex-shrink: 0;
+                    margin-top: 7px;
+                    opacity: 0.6;
+                }
+
+                /* ── Solution Card Styling ── */
+                .solution-card {
+                    background: white;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    padding: 18px 24px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    margin-bottom: 12px;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+                }
+                .solution-card:hover {
+                    box-shadow: 0 8px 24px rgba(30,144,255,0.08);
+                    border-color: #1e90ff33;
+                    transform: translateX(4px);
+                }
+                .solution-card__sparkle {
+                    color: #1e90ff;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    background: #1e90ff0a;
+                    border-radius: 50%;
+                    text-shadow: 0 0 10px rgba(30,144,255,0.3);
+                }
+                .solution-card__text {
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #111827;
+                    line-height: 1.4;
+                }
+
+                /* ── Approach List Styling ── */
+                .approach-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .approach-item {
+                    display: flex;
+                    gap: 28px;
+                    align-items: flex-start;
+                }
+                .approach-item__num {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--text-dark);
+                    margin-bottom: 6px;
+                }
+                .approach-item__content {
+                    flex: 1;
+                }
+                .approach-item__title {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--text-dark);
+                    margin-bottom: 6px;
+                }
+                .approach-item__desc {
+                    font-size: 13.5px;
+                    font-weight: 300;
+                    color: var(--text-muted);
+                    line-height: 1.65;
+                }
+
+                /* ── Solution Image Styling ── */
+                .solution-image {
+                    margin-top: 32px;
+                    text-align: center;
+                }
+                .solution-image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                    border: 1px solid #e5e7eb;
                 }
             `}</style>
         </div>
