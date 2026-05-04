@@ -173,54 +173,63 @@ export default function CaseStudyDetailPage() {
                                 </div>
                             ))}
                         </div>
+                        {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
                     </div>
                 );
             case 'feature-grid':
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-7 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-1 group">
-                                    <div className="w-12 h-12 rounded-full bg-[#1e90ff12] border border-[#1e90ff33] flex items-center justify-center mb-5 group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff26] group-hover:shadow-[0_0_20px_rgba(30,144,255,0.22)] transition-all duration-300">
-                                        <div className="text-[#1e90ff]">
+                                <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 group">
+                                    <div className="w-10 h-10 rounded-lg bg-[#1e90ff14] border border-[#1e90ff26] flex items-center justify-center mb-4 group-hover:border-[#63c2ff8c] transition-all duration-300">
+                                        <div className="text-[18px]">
                                             {item.icon}
                                         </div>
                                     </div>
-                                    <h4 className="text-[17px] font-normal text-[#111827] mb-2 font-sans">{item.title}</h4>
-                                    <p className="text-[14.5px] text-slate-500 font-light leading-relaxed">{item.text}</p>
+                                    <h4 className="text-[14px] font-semibold text-[#111827] mb-2 font-sans">{item.title}</h4>
+                                    <p className="text-[14px] text-slate-600 font-light leading-relaxed">{item.text}</p>
                                 </div>
                             ))}
                         </div>
+                        {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
                     </div>
                 );
             case 'impact-strip':
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-slate-200 gap-[1px] rounded-2xl overflow-hidden border border-slate-200">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="bg-[#ECF6FF] p-8 flex flex-col gap-2">
-                                    <div className="text-[42px] font-normal text-[#1e90ff] leading-none font-display">{item.value}</div>
-                                    <div className="text-[12px] font-semibold text-slate-400 uppercase tracking-wider">{item.label}</div>
-                                    <p className="text-[12px] text-slate-400 font-light mt-1">{item.desc}</p>
+                                <div key={idx} className="bg-white border border-slate-200 rounded-xl p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
+                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
+                                    <div className="text-[26px] md:text-[30px] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
+                                        {item.value}
+                                    </div>
+                                    <div className="flex flex-col gap-1.5 pt-0.5">
+                                        <div className="text-[14px] font-semibold text-[#111827] leading-snug">{item.label}</div>
+                                        {item.desc && <p className="text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>}
+                                    </div>
                                 </div>
                             ))}
                         </div>
+                        {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
                     </div>
                 );
             case 'outcome-list':
                 return (
                     <div className="space-y-6">
                         {content.body && <div className="cs-content mb-4" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-4 items-start">
-                                    <div className="w-2 h-2 rounded-full bg-[#1e90ff] shrink-0 mt-2.5 opacity-70" />
-                                    <span className="text-[17px] font-light text-slate-600" dangerouslySetInnerHTML={{ __html: item }} />
+                                    <div className="w-2 h-2 rounded-full bg-[#1e90ff] shrink-0 mt-2 opacity-70" />
+                                    <span className="text-[16px] font-light text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
                                 </div>
                             ))}
                         </div>
+                        {content.footer && <div className="cs-content mt-6" dangerouslySetInnerHTML={{ __html: content.footer }} />}
                     </div>
                 );
             case 'future-tags':
@@ -229,17 +238,21 @@ export default function CaseStudyDetailPage() {
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="flex flex-wrap gap-3">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#ECF6FF] border border-[#ECF6FF]/80 text-[14.5px] font-medium text-slate-600 hover:border-[#1e90ff] hover:text-[#1e90ff] transition-all cursor-default">
+                                <div key={idx} className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-[14px] font-medium text-slate-600 hover:border-[#1e90ff] hover:text-[#1e90ff] hover:bg-[#1e90ff0a] transition-all cursor-default">
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] opacity-50" />
                                     {item}
                                 </div>
                             ))}
                         </div>
+                        {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
                     </div>
                 );
             default:
                 return (
-                    <div className="cs-content" dangerouslySetInnerHTML={{ __html: content }} />
+                    <div className="cs-content">
+                        {content.body && <div dangerouslySetInnerHTML={{ __html: content.body }} />}
+                        {typeof content === "string" && <div dangerouslySetInnerHTML={{ __html: content }} />}
+                    </div>
                 );
         }
     };

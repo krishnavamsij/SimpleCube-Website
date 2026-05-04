@@ -50,7 +50,8 @@ export default function CaseStudiesPage() {
                             className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
                         >
                             {/* Card Image */}
-                            <div className="h-[220px] overflow-hidden relative m-3 rounded-[24px] bg-white">
+                            {/* Card Image */}
+                            <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
                                 <div 
                                     className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                                     style={{ backgroundImage: `url('${study.image}')` }}

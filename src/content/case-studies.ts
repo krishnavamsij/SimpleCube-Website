@@ -141,7 +141,7 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>AI-Powered Customer Support</span> Automation",
-            image: "/images/Case_Studies/Optimized/cs-23.png",
+            image: "/images/Case_Studies/23. AI-PoweredCustomerSupportAutomation.png",
             description: "Deployed an AI chatbot to improve response times and reduce support effort.",
             href: "/insights/case-studies/ai-hynivas-innovative-solutions",
         },
