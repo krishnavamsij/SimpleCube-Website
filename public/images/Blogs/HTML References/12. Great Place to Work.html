@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Great Place to Work — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+  border: 1px solid rgba(110,179,255,.3);
+  border-radius: 100px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+  opacity: 0; animation: up .5s ease forwards;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── MILESTONE CARDS ─── */
+.milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+.milestone {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+.milestone__icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+.milestone__content {}
+.milestone__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.milestone__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* ─── QUOTE BLOCK ─── */
+.pullquote {
+  margin-top: 48px;
+  border-left: 3px solid var(--blue);
+  padding: 8px 0 8px 28px;
+}
+.pullquote__text {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .milestone { flex-direction: column; gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <div class="banner__badge">Great Place to Work · 2nd Consecutive Year</div>
+    <h1 class="banner__title">
+      Celebrating Success.<br>
+      A Great Place to Work — <em>Two Years Running.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <p>We are absolutely thrilled to announce that Hyniva has once again been recognized as a Great Place to Work for the second consecutive year. This remarkable achievement is a testament to the passion, dedication, and vibrant culture that every member of the Hyniva family brings to work every single day.</p>
+      <p>It reflects the incredible collaboration and commitment that define who we are — a workplace where everyone is encouraged to grow, succeed, and thrive.</p>
+
+      <div class="pullquote">
+        <div class="pullquote__text">"Being named a Great Place to Work for the second year in a row is not just an award — it's a milestone of the collective effort, collaboration, and positive mindset of every individual at Hyniva."</div>
+      </div>
+
+      <h2>A Culture of Excellence</h2>
+      <p>At Hyniva, we believe that a thriving company starts with its people. Our foundation is built on a culture of teamwork, trust, and innovation — where every voice matters and every contribution is valued.</p>
+      <p>Our commitment to providing employees with meaningful work, genuine opportunities for development, and a space where they can be their authentic selves has truly paid off. This recognition belongs to every person who shows up with purpose and enthusiasm each day.</p>
+
+      <h2>Highlights from 2024</h2>
+      <p>2024 has been an exceptional year for Hyniva — marked by growth, collaboration, and a number of standout moments that brought our team closer together.</p>
+
+      <div class="milestones">
+        <div class="milestone">
+          <div class="milestone__icon">🌿</div>
+          <div class="milestone__content">
+            <div class="milestone__title">Team Building Activities</div>
+            <div class="milestone__desc">Hyniva employees participated in outdoor retreats and collaborative workshops that strengthened relationships, boosted morale, and fostered a genuine spirit of camaraderie. Employees shared how much they valued the opportunity to connect with colleagues beyond the office — building a stronger sense of community across the organization.</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone__icon">🏆</div>
+          <div class="milestone__content">
+            <div class="milestone__title">Certifications and Personal Growth</div>
+            <div class="milestone__desc">Several employees achieved key certifications in Salesforce, AWS, and Scrum Master this year. Hyniva supported them every step of the way — through flexible hours, study resources, and dedicated mentorship. This commitment to professional development continues to fuel our collective growth and the quality of work we deliver to clients.</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone__icon">🪔</div>
+          <div class="milestone__content">
+            <div class="milestone__title">Festival Celebrations</div>
+            <div class="milestone__desc">At Hyniva, we celebrate culture and diversity with genuine enthusiasm. This year, our team came together for Diwali, Christmas, and more — with vibrant decorations, delicious food, and joyful activities that brought everyone closer. The energy and enthusiasm during these celebrations was truly contagious across the entire company.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Our Vision Moving Forward</h2>
+      <p>This recognition is just the beginning. We are more committed than ever to building on our achievements and creating an even better environment for our employees to flourish.</p>
+      <p>As Hyniva continues to grow, we will ensure our workplace remains a space where creativity, collaboration, and personal development are not just encouraged — they are embedded into everything we do.</p>
+      <ul>
+        <li>Continued investment in professional development and certification support</li>
+        <li>Expanding team-building and culture initiatives across the organization</li>
+        <li>Deepening our commitment to inclusion and employee wellbeing</li>
+        <li>Building on the momentum that earned this recognition — two years and counting</li>
+      </ul>
+      <p>The future looks incredibly bright. With our team's passion and a shared desire to make a difference, we know that the most exciting milestones are still ahead.</p>
+
+      <h2>Thank You to the Hyniva Family</h2>
+      <p>None of this would be possible without the incredible dedication of every single person at Hyniva. This achievement belongs to you — to the hard work, the positivity, and the commitment you bring each day.</p>
+      <p>Together, we will continue to build on our strengths, push forward with a shared vision of success, and shape a workplace that not only excites us but inspires others as well.</p>
+      <p>The journey is far from over — and we could not be more excited to see where it takes us next.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Learn more</div>
+        <div class="cta__heading">See our Great Place to Work certification.</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.greatplacetowork.com/certified-company/7078812" class="cta__btn">View Certification →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

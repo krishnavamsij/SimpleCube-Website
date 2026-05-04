@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hyniva is Officially a "Great Place to Work" — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 52px 0 16px;
+}
+
+/* ─── VALUE CARDS ─── */
+.values {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.value-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px;
+  background: var(--surface);
+}
+.value-card__num {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.value-card__content {}
+.value-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.value-card__body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* ─── THANK YOU BLOCK ─── */
+.thankyou {
+  margin-top: 48px;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.thankyou::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.thankyou__title {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(18px, 2.4vw, 24px);
+  color: #e8f0ff;
+  margin-bottom: 14px;
+}
+.thankyou__body {
+  position: relative; z-index: 1;
+  font-size: 15.5px;
+  font-weight: 300;
+  color: rgba(200,220,245,.7);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Hyniva is Officially a<br>
+      <em>"Great Place to Work."</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+      <p>At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community we have built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To Work® Certification™.</p>
+      <p>This recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives — both personally and professionally.</p>
+
+      <h2>What This Means at Hyniva</h2>
+      <p>The certification reflects five core values that define who we are as a team and how we show up for each other every day.</p>
+    </div>
+
+    <!-- VALUE CARDS -->
+    <div class="values">
+
+      <div class="value-card">
+        <div class="value-card__num">1</div>
+        <div class="value-card__content">
+          <div class="value-card__title">Employee-Centric Culture</div>
+          <div class="value-card__body">Our success is built on the foundation of an employee-centric culture — with a core belief that when our team is happy and thriving, so is our organization.</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__num">2</div>
+        <div class="value-card__content">
+          <div class="value-card__title">Dedication to Growth</div>
+          <div class="value-card__body">Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement at every stage.</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__num">3</div>
+        <div class="value-card__content">
+          <div class="value-card__title">Inclusivity and Diversity</div>
+          <div class="value-card__body">We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment where every background is valued.</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__num">4</div>
+        <div class="value-card__content">
+          <div class="value-card__title">Open Communication</div>
+          <div class="value-card__body">Communication is key. At Hyniva, we promote open and transparent communication channels where every team member's unique perspective is heard and genuinely valued.</div>
+        </div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__num">5</div>
+        <div class="value-card__content">
+          <div class="value-card__title">Collaborative Spirit</div>
+          <div class="value-card__body">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- THANK YOU -->
+    <div class="thankyou">
+      <div class="thankyou__title">Thank You, Hyniva Family</div>
+      <div class="thankyou__body">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Stay connected</div>
+        <div class="cta__heading">Follow our journey and what comes next.</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

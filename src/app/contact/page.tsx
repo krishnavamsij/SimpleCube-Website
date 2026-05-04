@@ -15,7 +15,7 @@ export default function ContactPage() {
             
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-48 pb-32 overflow-hidden bg-[#030b1e]">
+                <section className="relative pt-32 pb-16 overflow-hidden bg-[#030b1e]">
                     {/* Background layers - Matching homepage aesthetics */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -57,7 +57,7 @@ export default function ContactPage() {
                 </section>
 
                 {/* ── Content Section (White Background) ── */}
-                <section className="py-24 bg-white">
+                <section className="py-16 bg-white">
                     <div className="mx-auto max-w-[1400px] px-6">
                         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
                             

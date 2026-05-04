@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why Financial Institutions Are Modernizing Salesforce Experience Cloud with LWR — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Why Financial Institutions Are Modernizing<br>
+      Salesforce Experience Cloud with <em>LWR.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <p>For financial institutions, digital experience has become a primary differentiator. Members and customers increasingly expect fast, intuitive, and personalized interactions, whether they are accessing services from a desktop, mobile device, or assisted channel.</p>
+      <p>Salesforce Experience Cloud has long been a foundation for digital portals, but many institutions built their platforms on Aura-based architectures that were never designed for today's performance and scalability expectations. As digital traffic grows, these legacy foundations are starting to show their limits.</p>
+      <p>This is why many organizations are now turning to Lightning Web Runtime (LWR) as a strategic modernization path.</p>
+
+      <h2>The Growing Performance Gap in Legacy Experience Cloud</h2>
+      <p>Aura-based Experience Cloud implementations often struggle as platforms scale. Common challenges include:</p>
+      <ul>
+        <li>Slower page load times as content and functionality expand</li>
+        <li>Navigation lag caused by heavier JavaScript execution</li>
+        <li>Inconsistent performance across devices and browsers</li>
+        <li>Higher operational effort to maintain and enhance the platform</li>
+      </ul>
+      <p>For financial institutions managing complex service catalogs and compliance-driven journeys, these issues directly impact engagement, satisfaction, and cost to serve.</p>
+
+      <h2>What Is LWR and Why It Matters</h2>
+      <p>Lightning Web Runtime is Salesforce's modern framework for building high-performance Experience Cloud sites. It embraces modern web standards and a lightweight architecture designed for speed, scalability, and maintainability.</p>
+      <p>Key benefits of LWR include:</p>
+      <ul>
+        <li>Server-side rendering that improves initial page load times</li>
+        <li>Optimized client-side routing for smoother navigation</li>
+        <li>Reduced JavaScript payloads, especially critical for mobile users</li>
+        <li>Cleaner, SEO-friendly markup</li>
+        <li>Native alignment with Lightning Web Components</li>
+      </ul>
+      <p>Together, these capabilities allow Experience Cloud sites to perform more like modern web applications rather than traditional portals.</p>
+
+      <h2>Enabling Personalization Without Complexity</h2>
+      <p>Performance is only part of the story. Modern digital experiences must also feel relevant.</p>
+      <p>LWR enables financial institutions to move away from static, one-size-fits-all portals toward context-aware experiences that adapt based on user attributes such as products, eligibility, or channel.</p>
+      <p>With LWR-powered Experience Cloud sites, institutions can:</p>
+      <ul>
+        <li>Dynamically render navigation and menus</li>
+        <li>Tailor content and services based on member profiles</li>
+        <li>Improve discoverability without increasing UI complexity</li>
+        <li>Support personalization at scale without tightly coupled logic</li>
+      </ul>
+      <p>This approach not only improves member satisfaction but also reduces friction and support dependency.</p>
+
+      <h2>Why Modernization Is More Than a Technical Upgrade</h2>
+      <p>Modernizing Experience Cloud with LWR is not simply a framework change — it is a strategic investment in digital agility.</p>
+      <p>Organizations that adopt LWR benefit from:</p>
+      <ul>
+        <li>Lower long-term maintenance costs</li>
+        <li>Faster rollout of enhancements and new experiences</li>
+        <li>Improved accessibility and compliance readiness</li>
+        <li>Easier adoption of future Salesforce innovations</li>
+      </ul>
+      <p>Most importantly, teams spend less time managing platform constraints and more time delivering meaningful digital experiences.</p>
+
+      <h2>A Future-Ready Foundation for Financial Institutions</h2>
+      <p>As member expectations continue to evolve, Experience Cloud platforms must keep pace. LWR provides a clear path for institutions to modernize without rebuilding their digital platform from the ground up.</p>
+      <p>By investing in LWR modernization, financial institutions can:</p>
+      <ul>
+        <li>Deliver consistently fast, reliable experiences</li>
+        <li>Scale personalization as products and services grow</li>
+        <li>Build a digital foundation designed for long-term change</li>
+      </ul>
+      <p>In a competitive financial landscape, experience performance is no longer optional — it is foundational.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to modernize your Experience Cloud platform with LWR?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

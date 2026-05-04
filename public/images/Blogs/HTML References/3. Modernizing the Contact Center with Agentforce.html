@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Modernizing the Contact Center with Agentforce — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin: 32px 0 10px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* Capability cards */
+.capabilities {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cap-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+.cap-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--blue);
+  border-radius: 4px 0 0 4px;
+}
+.cap-card__title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: .1px;
+}
+.cap-card__body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* Outcome strip */
+.outcomes {
+  margin-top: 48px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 36px 32px;
+  border: 1px solid var(--border);
+}
+.outcomes__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.outcomes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.outcome-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.6;
+}
+.outcome-item__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .outcomes__grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Modernizing the Contact Center with Agentforce.<br>
+      From Fragmented Interactions to <em>Connected Journeys.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>The Reality Today: Fragmented Journeys and Overloaded Agents</h2>
+      <p>As customer expectations continue to rise, contact centers are under pressure to deliver faster, more accurate, and low-effort experiences. However, for many financial services organizations, the contact center remains one of the most fragmented parts of the customer journey.</p>
+      <p>Customers face long wait times, dropped calls, and slow resolution even for simple requests, while Member Service Representatives (MSRs) manage high volumes with limited automation and minimal real-time support. The challenge is not intent or effort — it is how contact center journeys are designed today.</p>
+      <p>In most environments, experience breakdowns stem from a set of systemic gaps:</p>
+      <ul>
+        <li>Long wait times and call drops that drive frustration and repeat attempts</li>
+        <li>Manual journeys where routine requests still require live agent involvement</li>
+        <li>High MSR workload driven by end-to-end manual steps rather than inefficiency</li>
+        <li>Limited automation, forcing agents to search across systems, draft responses, and complete after-call work manually</li>
+      </ul>
+      <p>IVR systems often reinforce these issues. Static menus and shallow intent capture fail to resolve requests early, pushing more interactions into live queues. Customers repeat information, context is lost, and resolution times increase — even for straightforward needs. As interaction volumes grow, these inefficiencies compound, consuming skilled agent time on low-complexity tasks and creating delays that feel disproportionate to the request itself.</p>
+
+      <h2>The Core Problem: Contact Centers Built for Tools, Not Journeys</h2>
+      <p>Most contact centers were built by layering tools over time — IVR, routing, CRM, workforce systems — without rethinking the end-to-end journey.</p>
+      <p>The result:</p>
+      <ul>
+        <li>Customers experience the contact center as a series of disconnected steps</li>
+        <li>MSRs carry the burden of stitching those steps together manually</li>
+        <li>Operations teams react to volume spikes instead of anticipating them</li>
+      </ul>
+      <p>This model does not scale — and it places unnecessary strain on both customers and agents.</p>
+
+      <h2>Rethinking Modernization: Agentforce Across the Contact Center Lifecycle</h2>
+      <p>Modernizing the contact center isn't about optimizing a single system. It requires applying intelligence across the entire lifecycle of an interaction — before, during, and after the call.</p>
+      <p>This is where Agentforce comes in.</p>
+      <p>Agentforce enables organizations to embed intelligent, task-aware support directly into contact center journeys — working alongside MSRs, not replacing them. Instead of relying on static automation or siloed AI features, Agentforce operates across Salesforce data, workflows, and channels to create connected, adaptive experiences.</p>
+
+      <h2>How Agentforce Supports the Contact Center</h2>
+      <p>A modern contact center can leverage Agentforce in multiple ways, each addressing a specific gap in the journey:</p>
+
+      <div class="capabilities">
+        <div class="cap-card">
+          <div class="cap-card__title">Conversational &amp; Entry-Point Experiences</div>
+          <div class="cap-card__body">Agentforce enables natural intent capture and guided self-service at the point of entry, helping resolve simple requests early and reducing unnecessary wait times and transfers.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__title">Intelligent Routing</div>
+          <div class="cap-card__body">By using real-time context from Salesforce, Agentforce helps route customers to the right MSR based on skills, language, priority, and history — reducing misroutes and rework.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__title">Real-Time MSR Support</div>
+          <div class="cap-card__body">During live interactions, Agentforce assists MSRs with contextual insights, next-best actions, and automated tasks — helping agents respond faster and more accurately without switching systems.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__title">Automated Wrap-Up and Summarization</div>
+          <div class="cap-card__body">Agentforce can streamline after-call work by generating summaries, updating records, and triggering follow-up actions — reducing documentation time and cognitive load.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__title">Quality, Sentiment, and Learning</div>
+          <div class="cap-card__body">By continuously analyzing interactions, Agentforce helps surface sentiment trends, coaching opportunities, and experience gaps that drive continuous improvement.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__title">Forecasting and Workforce Intelligence</div>
+          <div class="cap-card__body">Agentforce supports operations teams with predictive insights, helping anticipate demand and plan staffing proactively rather than reacting to spikes.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px;">Each of these capabilities addresses a different pain point — but together, they begin to repair fragmented journeys.</p>
+
+      <h2>From Isolated Fixes to a Connected Salesforce Ecosystem</h2>
+      <p>The goal of contact center modernization isn't to perfect IVR, agent assist, or analytics in isolation. It's to orchestrate them together on a single platform.</p>
+      <p>When Agentforce is applied holistically across Salesforce:</p>
+
+      <div class="outcomes">
+        <div class="outcomes__title">What Changes</div>
+        <div class="outcomes__grid">
+          <div class="outcome-item"><span class="outcome-item__dot"></span>Customers wait less and repeat themselves less</div>
+          <div class="outcome-item"><span class="outcome-item__dot"></span>MSRs resolve issues faster with reduced manual effort</div>
+          <div class="outcome-item"><span class="outcome-item__dot"></span>Operations teams gain real-time visibility and control</div>
+          <div class="outcome-item"><span class="outcome-item__dot"></span>The contact center shifts from reactive problem handling to connected journey orchestration</div>
+        </div>
+      </div>
+
+      <h2>Building a Foundation for What Comes Next</h2>
+      <p>The Agentforce capabilities outlined here represent a starting point — not the end state. As organizations mature, Agentforce can extend into proactive engagement, personalization, advanced analytics, and continuous learning.</p>
+      <p>By rethinking the contact center as an evolving Agentforce-powered ecosystem, organizations move away from fragmented, tool-driven models and toward experiences that are consistent, scalable, and human-centered.</p>
+      <p>This foundation makes it possible to go deeper — through focused case studies, implementations, and measurable outcomes — without losing sight of the bigger picture.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to transform your contact center with Agentforce?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

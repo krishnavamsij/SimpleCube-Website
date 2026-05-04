@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Salesforce Lightning vs. Classic — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── COMPARISON TABLE ─── */
+.compare {
+  margin-top: 32px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.compare__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: var(--ink);
+}
+.compare__header div {
+  padding: 14px 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.compare__header div:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.compare__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.compare__row:nth-child(even) { background: var(--surface); }
+.compare__cell {
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.6;
+}
+.compare__cell:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+.compare__cell--label {
+  font-weight: 500;
+  color: var(--text);
+}
+.compare__cell--positive {
+  color: var(--blue);
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .compare__header,
+  .compare__row { grid-template-columns: 1fr; }
+  .compare__header div:not(:last-child),
+  .compare__cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Salesforce Lightning vs. Classic.<br>
+      Why It's Time to <em>Make the Switch.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>A Platform That Has Evolved — Has Yours?</h2>
+      <p>Salesforce is one of the most powerful CRM tools available today, helping businesses streamline processes, enhance productivity, and make data-driven decisions. Since its launch, Salesforce has evolved significantly — with the Lightning Experience representing a major leap forward from the traditional Classic interface.</p>
+      <p>If your organization is still running on Salesforce Classic, the question is no longer whether to switch. It's when — and how to do it without disruption.</p>
+
+      <h2>Key Differences: Lightning vs. Classic at a Glance</h2>
+      <p>The gap between Salesforce Classic and Lightning has widened considerably. From interface design to AI capabilities, the differences now affect user productivity, platform performance, and long-term competitive positioning.</p>
+
+      <div class="compare">
+        <div class="compare__header">
+          <div>Category</div>
+          <div>Salesforce Classic</div>
+          <div>Salesforce Lightning</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">User Interface</div>
+          <div class="compare__cell">Text-heavy, outdated design with limited customization</div>
+          <div class="compare__cell compare__cell--positive">Modern, drag-and-drop dashboard with visual components</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Features &amp; Automation</div>
+          <div class="compare__cell">Basic CRM functionality, no AI capabilities</div>
+          <div class="compare__cell compare__cell--positive">Lightning App Builder, process automation, and Salesforce Einstein</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Performance</div>
+          <div class="compare__cell">Slower load times, less optimized</div>
+          <div class="compare__cell compare__cell--positive">Faster, more responsive — especially for larger organizations</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Mobile Experience</div>
+          <div class="compare__cell">Limited mobile functionality</div>
+          <div class="compare__cell compare__cell--positive">Optimized mobile app with seamless cross-device experience</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Customization</div>
+          <div class="compare__cell">Basic configuration options</div>
+          <div class="compare__cell compare__cell--positive">Highly flexible via Lightning App Builder for rapid adaptation</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">AI-Powered Insights</div>
+          <div class="compare__cell">Not available</div>
+          <div class="compare__cell compare__cell--positive">Salesforce Einstein: lead scoring, forecasting, predictive analytics</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Collaboration</div>
+          <div class="compare__cell">Limited cross-team collaboration tools</div>
+          <div class="compare__cell compare__cell--positive">Chatter integration and collaborative components built in</div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__cell compare__cell--label">Future Investment</div>
+          <div class="compare__cell">No longer receiving new features</div>
+          <div class="compare__cell compare__cell--positive">All new Salesforce features, security updates, and innovations</div>
+        </div>
+      </div>
+
+      <h2>Eight Reasons to Make the Switch</h2>
+      <p>Beyond the feature comparison, the case for Lightning is strategic. Here is what organizations gain when they move:</p>
+      <ul>
+        <li><strong>Modern UI:</strong> A sleek, customizable dashboard with drag-and-drop components that dramatically improves daily usability and user adoption.</li>
+        <li><strong>Advanced Automation:</strong> Lightning App Builder and process automation tools reduce manual work and accelerate workflows across teams.</li>
+        <li><strong>AI-Powered Decision Making:</strong> Salesforce Einstein delivers predictive analytics, lead scoring, and forecasting — none of which exist in Classic.</li>
+        <li><strong>Faster Performance:</strong> Reduced load times and a more responsive interface translate directly into productivity gains at scale.</li>
+        <li><strong>Mobile-First Operations:</strong> A fully optimized mobile app supports sales and service teams wherever they work.</li>
+        <li><strong>Greater Customization:</strong> Adapt the platform rapidly to changing business needs without extensive development effort.</li>
+        <li><strong>Stronger Collaboration:</strong> Chatter integration and collaborative components keep cross-functional teams aligned within the platform.</li>
+        <li><strong>Future-Proof Investment:</strong> Salesforce is directing all new features, innovations, and security updates exclusively to Lightning.</li>
+      </ul>
+
+      <h2>How Hyniva Manages Your Lightning Transition</h2>
+      <p>At Hyniva, we specialize in helping businesses migrate from Salesforce Classic to Salesforce Lightning — seamlessly, and with minimal disruption to ongoing operations. Whether you're a growing startup or a large enterprise, our approach is tailored to your environment.</p>
+      <ul>
+        <li><strong>Comprehensive Assessment:</strong> We begin with a thorough evaluation of your current Classic setup — identifying functionality gaps, performance issues, and optimization opportunities before a single line is changed.</li>
+        <li><strong>Customized Migration Plan:</strong> Our team develops a tailored migration roadmap aligned with your business operations, designed to minimize disruption and maximize the benefits of Lightning from day one.</li>
+        <li><strong>Training and Enablement:</strong> We provide comprehensive training for your team to ensure they can take full advantage of the new interface, features, and workflows immediately after go-live.</li>
+        <li><strong>Performance Optimization:</strong> Post-migration, Hyniva fine-tunes your Lightning environment — optimizing workflows, dashboards, reports, and integrations for sustained efficiency.</li>
+        <li><strong>Ongoing Enhancement:</strong> Our support doesn't end at migration. We help your Salesforce platform evolve continuously as new Lightning features and capabilities are released.</li>
+      </ul>
+
+      <h2>The Time to Switch Is Now</h2>
+      <p>Salesforce Classic served businesses well for many years. But the Lightning Experience now offers advantages in usability, performance, and AI capability that Classic simply cannot match — and Salesforce's roadmap makes the direction clear.</p>
+      <p>Organizations that delay the switch are not just missing new features. They are falling further behind competitors who are already running smarter, faster, and more connected operations on Lightning.</p>
+      <p>With Hyniva, the transition is structured, supported, and built to preserve everything your team has already invested in Salesforce — while unlocking the next generation of CRM capability.</p>
+      <p>The switch to Lightning is not a disruption.<br>
+      With the right partner, it is an acceleration.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to make the switch to Salesforce Lightning?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

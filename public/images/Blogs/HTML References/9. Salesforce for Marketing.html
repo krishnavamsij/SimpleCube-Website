@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Salesforce for Marketing — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Salesforce for Marketing.<br>
+      Integrating Salesforce with Your <em>Marketing Strategy.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>A Unified Approach to Sales and Marketing</h2>
+      <p>Integrating Salesforce with your marketing platforms and strategies is essential for creating a seamless, unified customer experience across sales and marketing channels.</p>
+      <p>By combining the robust CRM capabilities of Salesforce with various marketing tools, businesses can ensure consistent communication and personalization throughout the customer journey.</p>
+
+      <h2>Salesforce Integration with Marketing Platforms</h2>
+      <p>Connecting Salesforce to your core marketing stack unlocks a new level of targeting, coordination, and intelligence across every channel your customers interact with.</p>
+      <ul>
+        <li><strong>Email Marketing:</strong> Platforms like Mailchimp or Pardot can be integrated with Salesforce to enable targeted campaigns. By syncing contact data, marketers can create highly personalized emails based on customer behavior, engagement history, and demographics — crucial for nurturing leads.</li>
+        <li><strong>Social Media:</strong> Tools such as Social Studio or third-party platforms like Hootsuite can integrate with Salesforce to track and engage with leads from social media, feeding interaction data into Salesforce for deeper customer insights.</li>
+        <li><strong>Landing Pages &amp; Web Forms:</strong> Integrating Salesforce with landing page builders like Unbounce or HubSpot automates the transfer of lead information directly into Salesforce, ensuring all captured leads are immediately available for sales follow-up.</li>
+        <li><strong>Advertising Platforms:</strong> Connecting Salesforce to Google Ads or Facebook Ads enables better targeting based on CRM data — syncing customer segments so marketers can create personalized ad campaigns that resonate with their audience.</li>
+      </ul>
+
+      <h2>Personalized Marketing Campaigns Across Channels</h2>
+      <p>With Salesforce as the central hub for customer data, organizations can achieve a 360-degree view of every customer. Syncing marketing data — email engagement, website activity, social media interactions — with Salesforce enables more effective segmentation and personalization across all channels.</p>
+      <ul>
+        <li>Customer data unification for consistent, channel-wide personalization</li>
+        <li>Lead scoring and nurturing based on real engagement signals</li>
+        <li>Automated customer journeys triggered by specific customer actions</li>
+        <li>Prioritized lead handoffs with full prospect journey visibility</li>
+      </ul>
+      <p>Salesforce automation tools like Journey Builder in Marketing Cloud allow marketers to set up automated customer journeys — triggering the right message at the right moment based on what each customer actually does.</p>
+
+      <h2>Seamless Collaboration Between Sales and Marketing</h2>
+      <p>Integrated Salesforce environments eliminate the silos that slow down revenue teams. When sales and marketing operate from a shared data foundation, alignment is structural — not aspirational.</p>
+      <ul>
+        <li>Shared dashboards and reporting give both teams access to the same customer analytics</li>
+        <li>Cross-team workflow automation ensures smooth lead handoffs from marketing to sales</li>
+        <li>Marketing-qualified leads are automatically assigned to the right sales rep within Salesforce</li>
+        <li>Aligned strategies reduce redundant outreach and improve customer targeting precision</li>
+      </ul>
+      <p>Once a marketing-qualified lead is identified, it can automatically be routed to a sales representative within Salesforce — making the handoff efficient, transparent, and data-rich.</p>
+
+      <h2>Hyniva's Role in Salesforce Marketing Integration</h2>
+      <p>Hyniva plays a crucial role in helping businesses integrate Salesforce with marketing platforms and strategies — providing tailored solutions that bridge the gap between CRM systems and marketing execution.</p>
+      <p>Hyniva's platform enables seamless synchronization of customer data across multiple touchpoints, improving data quality and the depth of customer insights available to both teams.</p>
+      <ul>
+        <li><strong>Data Enrichment and Integration:</strong> Hyniva integrates Salesforce with third-party marketing tools to ensure data is updated, clean, and enriched in real time — so both teams always work from the most comprehensive customer profiles available.</li>
+        <li><strong>Advanced Analytics:</strong> Hyniva helps leverage Salesforce data to provide in-depth insights into customer behavior and campaign performance, including predictive analytics to anticipate needs and optimize engagement.</li>
+        <li><strong>Lead Management:</strong> Hyniva sets up advanced lead management processes that ensure every lead generated from marketing campaigns is routed efficiently to sales — with the right level of personalization and context.</li>
+      </ul>
+
+      <h2>Key Benefits of a Unified Integration</h2>
+      <p>When Salesforce is properly integrated with your marketing stack, the impact is felt across every team, channel, and customer interaction.</p>
+      <ul>
+        <li>Consistent messaging at every customer touchpoint</li>
+        <li>Improved personalization driven by rich, centralized CRM data</li>
+        <li>Increased efficiency through automation and reduced manual work</li>
+        <li>Higher conversion rates from better-aligned sales and marketing efforts</li>
+        <li>Faster deal cycles as sales teams gain full visibility into prospect journeys</li>
+      </ul>
+
+      <h2>The Unified Customer Experience Starts with Integration</h2>
+      <p>Integrating Salesforce with your marketing strategy transforms how customers experience your brand — and how your teams work together to serve them.</p>
+      <p>By connecting Salesforce with email marketing, social media, landing pages, and advertising platforms, businesses can deliver personalized, timely communication across every touchpoint — without gaps, inconsistencies, or missed moments.</p>
+      <p>Hyniva enhances this integration by providing sophisticated tools to manage customer data, enrich leads, and surface deep analytics — ensuring that marketing and sales efforts are aligned, optimized, and continuously improving.</p>
+      <p>This unified approach drives better customer engagement.<br>
+      And better engagement drives higher conversion rates, faster sales cycles, and sustained growth.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to integrate Salesforce with your marketing strategy?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

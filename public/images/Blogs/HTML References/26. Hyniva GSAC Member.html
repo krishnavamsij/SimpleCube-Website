@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hyniva is a Proud Member of GSAC — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+/* ─── PILLARS ─── */
+.pillars {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+.pillar {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  background: var(--surface);
+  text-align: center;
+}
+.pillar__icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(30,111,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+}
+.pillar__icon svg { width: 20px; height: 20px; }
+.pillar__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.pillar__body {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+/* ─── THANK YOU BLOCK ─── */
+.thankyou {
+  margin-top: 48px;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.thankyou::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.thankyou__title {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(18px, 2.4vw, 24px);
+  color: #e8f0ff;
+  margin-bottom: 14px;
+}
+.thankyou__body {
+  position: relative; z-index: 1;
+  font-size: 15.5px;
+  font-weight: 300;
+  color: rgba(200,220,245,.7);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner  { padding: 52px 24px; }
+  .body    { padding: 48px 24px 72px; }
+  .cta     { padding: 36px 24px; }
+  .pillars { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Hyniva is a Proud Member<br>
+      of <em>GSAC.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+      <p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce — and we couldn't be more excited about the possibilities that lie ahead.</p>
+      <p>Being part of this esteemed Chamber is not just about membership; it's about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>
+    </div>
+
+    <!-- PILLARS -->
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3a7 7 0 100 14A7 7 0 0010 3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pillar__title">Growth</div>
+        <div class="pillar__body">Joining a network that actively drives business growth and opens new doors for every member.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 10c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M3.5 10a6.5 6.5 0 1013 0 6.5 6.5 0 00-13 0z" stroke="#1e6fff" stroke-width="1.3"/></svg>
+        </div>
+        <div class="pillar__title">Collaboration</div>
+        <div class="pillar__body">Building lasting relationships with like-minded businesses dedicated to the San Antonio community.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2l2.4 4.8 5.3.77-3.85 3.75.91 5.3L10 14l-4.76 2.62.91-5.3L2.3 7.57l5.3-.77L10 2z" stroke="#1e6fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pillar__title">Prosperity</div>
+        <div class="pillar__body">Contributing to meaningful initiatives that create a stronger, more prosperous San Antonio for all.</div>
+      </div>
+    </div>
+
+    <!-- THANK YOU -->
+    <div class="thankyou">
+      <div class="thankyou__title">A Heartfelt Thank You to GSAC</div>
+      <div class="thankyou__body">Thank you to the Greater San Antonio Chamber of Commerce for welcoming Hyniva into this dynamic community. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the San Antonio business landscape. Looking forward to a bright future together.</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Stay connected</div>
+        <div class="cta__heading">Follow our journey as we grow with the San Antonio community.</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

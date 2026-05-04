@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Start Your Salesforce FSC Optimization Journey — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em { font-style: italic; color: var(--sky); }
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── BENEFITS GRID ─── */
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+.benefit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+}
+.benefit-card__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.benefit-card__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+/* ─── JOURNEY STEPS ─── */
+.journey {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+  position: relative;
+}
+.journey::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 19px;
+  width: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.journey-step {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 28px;
+}
+.journey-step:last-child { padding-bottom: 0; }
+.journey-step__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--sky);
+  flex-shrink: 0;
+}
+.journey-step__content {}
+.journey-step__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+  padding-top: 8px;
+}
+.journey-step__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .benefits { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Start Your Salesforce FSC<br>
+      <em>Optimization Journey.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>Beyond Adoption — The Case for Optimization</h2>
+      <p>In the rapidly evolving financial landscape, institutions need more than just a CRM system. They need a powerful, adaptable platform that can manage client relationships, streamline operations, and enable seamless integration across every service they offer.</p>
+      <p>Salesforce Financial Services Cloud is purpose-built for exactly this. But simply adopting FSC is not enough. To truly future-proof your institution, the platform must be optimized in a way that drives ongoing efficiency, elevates the client experience, and keeps your organization competitive in an increasingly digital world.</p>
+
+      <h2>Why Salesforce FSC Matters for Financial Institutions</h2>
+      <p>Salesforce FSC is tailored for wealth management, retail banking, insurance, and broader financial services — combining Salesforce's CRM capabilities with deep, industry-specific functionality. When deployed and optimized correctly, it delivers four core advantages:</p>
+
+      <div class="benefits">
+        <div class="benefit-card">
+          <div class="benefit-card__label">Client Experience</div>
+          <div class="benefit-card__desc">A 360-degree view of every client enables tailored communication and stronger, longer-lasting relationships.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__label">Data-Driven Insights</div>
+          <div class="benefit-card__desc">AI-powered analytics surface deeper client intelligence, improving the quality of financial advice and service delivery.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__label">Operational Efficiency</div>
+          <div class="benefit-card__desc">Automation reduces manual tasks, boosts productivity, and improves collaboration across departments and functions.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__label">Scalability</div>
+          <div class="benefit-card__desc">Cloud-based architecture and seamless third-party integration ensure the platform grows alongside your institution.</div>
+        </div>
+      </div>
+
+      <h2>How Optimization Future-Proofs Your Institution</h2>
+      <p>The financial services industry never stands still — and neither can your platform. Here is what a well-optimized Salesforce FSC environment enables your institution to do:</p>
+      <ul>
+        <li><strong>Adapt to Market Changes:</strong> Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</li>
+        <li><strong>Enhance Client Retention and Acquisition:</strong> Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</li>
+        <li><strong>Improve Cross-Team Collaboration:</strong> A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</li>
+        <li><strong>Stay Ahead of Technology Trends:</strong> Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</li>
+        <li><strong>Strengthen Security and Compliance:</strong> Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</li>
+      </ul>
+
+      <h2>Hyniva's Six-Step FSC Optimization Framework</h2>
+      <p>Starting your FSC optimization journey may seem complex — but with the right approach, it is a clear and measurable process. Hyniva guides financial institutions through each stage with structured expertise.</p>
+
+      <div class="journey">
+        <div class="journey-step">
+          <div class="journey-step__dot">1</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Comprehensive Needs Assessment</div>
+            <div class="journey-step__desc">We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__dot">2</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Optimization Strategy and Roadmap</div>
+            <div class="journey-step__desc">With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__dot">3</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Leverage AI and Automation</div>
+            <div class="journey-step__desc">We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__dot">4</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Tailor Client Engagement Processes</div>
+            <div class="journey-step__desc">We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__dot">5</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Continuous Monitoring and Improvement</div>
+            <div class="journey-step__desc">Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__dot">6</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Training and Change Management</div>
+            <div class="journey-step__desc">A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>The Future of Financial Services Starts with Your Platform</h2>
+      <p>Optimizing Salesforce Financial Services Cloud is not a technical exercise — it is a strategic imperative. Institutions that invest in FSC optimization will be better positioned to adapt, grow, and lead in a landscape defined by rapid change and rising client expectations.</p>
+      <p>With Hyniva's expertise, the path from adoption to optimization is structured, supported, and built for measurable, long-term impact.</p>
+      <p>The future of financial services is already unfolding.<br>
+      The institutions that prepare their platforms today will define what it looks like tomorrow.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to start your Salesforce FSC optimization journey?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

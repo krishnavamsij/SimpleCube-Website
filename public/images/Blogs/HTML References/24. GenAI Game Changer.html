@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Generative AI – Why It's a Game Changer — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 52px 0 16px;
+}
+
+/* ─── APPLICATION CARDS ─── */
+.app-cards {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.app-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.app-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.app-card__num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.app-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.app-card__body {
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ─── IMPACT ITEMS ─── */
+.impact-items {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.impact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.impact-item__bar {
+  width: 4px;
+  border-radius: 4px;
+  background: var(--blue);
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 36px;
+}
+.impact-item__title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.impact-item__body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* ─── CLOSING QUOTE ─── */
+.closing-quote {
+  margin-top: 48px;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.closing-quote::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.closing-quote__text {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-style: italic;
+  color: #c8d9f5;
+  line-height: 1.55;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Generative AI –<br>
+      Why It's a <em>Game Changer.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+    <div class="prose">
+
+      <p>Every industry has been proactively interested in Large Language Models (LLMs) and Generative AI in the past few years. GenAI has been receiving unprecedented levels of interest from global tech giants and the public alike in a remarkably short time span. Most organizations today are trying to optimize their processes, operations, and technology using AI capabilities — embarking on a new era of transformation and inquisitiveness.</p>
+      <p>We'd like to share our insight on why GenAI could be the next step into the future — one that may disrupt existing jobs, but will generate tremendous growth for any organization that embraces it.</p>
+
+      <h2>What Is GenAI?</h2>
+      <p>GenAI is a type of artificial intelligence capable of producing data objects such as text, pictures, and sound in response to user prompts or descriptions. GenAI models are trained to understand the patterns and structures of their training data and use that as a reference to generate outputs with similar characteristics. The most commonly discussed implementation is the use of Large Language Models (LLMs) — in the form of tools like ChatGPT and Gemini.</p>
+
+      <h2>Applications of GenAI</h2>
+      <p>AI has the potential to reinvent roles across any enterprise — imagine humans working with AI co-pilots that eradicate human errors and dramatically augment the results people achieve. Here is how GenAI will impact core areas:</p>
+
+    </div>
+
+    <div class="app-cards">
+
+      <div class="app-card">
+        <div class="app-card__header">
+          <div class="app-card__num">1</div>
+          <div class="app-card__title">Coding and Development</div>
+        </div>
+        <div class="app-card__body">GenAI has already started to "widgetize" blocks of code for consumption. It can transform code from language to language, correct errors based on input and context, and suggest methodology to improve efficiency and coding practices. While it is still far from replacing entry-level programmers, it will meaningfully boost developer productivity.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__header">
+          <div class="app-card__num">2</div>
+          <div class="app-card__title">Security</div>
+        </div>
+        <div class="app-card__body">AI can monitor network activity, prioritize issues, and fix anomalies in ways that outpace human capacity. Compared to manual review, AI bots can analyze large sets of data to identify fraudulent or suspicious activity in a fraction of the time — providing a critical layer of protection for organizations.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__header">
+          <div class="app-card__num">3</div>
+          <div class="app-card__title">Creative Construction</div>
+        </div>
+        <div class="app-card__body">GenAI creates new thoughts, algorithms, and structures by smartly combining existing but unrelated objects. We see this in music composition — where algorithms can blend melodies or compose entire pieces based on simple instructions — and in many other creative domains where it serves as a powerful generative tool.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__header">
+          <div class="app-card__num">4</div>
+          <div class="app-card__title">Healthcare</div>
+        </div>
+        <div class="app-card__body">Human biology represents an enormous dataset — medical procedures, specialist knowledge, research, disease developments, and thousands of chemical compounds. GenAI can help identify new drug combinations and precision medicines by creating or reinventing molecular structures, transforming what is today a tedious process of trial and error into something far more efficient.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__header">
+          <div class="app-card__num">5</div>
+          <div class="app-card__title">Creating New Jobs</div>
+        </div>
+        <div class="app-card__body">GenAI is a powerful tool — but it still requires human effort to build, maintain, and govern. New disciplines are already emerging, from AI engineering to AI in architecture. Courses have been added to both online and university curricula, creating new career pathways alongside the technology itself.</div>
+      </div>
+
+    </div>
+
+    <div class="prose">
+      <h2>The Potential Impact of GenAI on Jobs</h2>
+      <p>With the ability to generate a wide range of content almost instantaneously, the tech industry has raised legitimate concerns about job disruption. GenAI can already create text, code, images, videos, and audio when given sufficiently clear prompts. Here is where the impact is most visible:</p>
+    </div>
+
+    <div class="impact-items">
+      <div class="impact-item">
+        <div class="impact-item__bar"></div>
+        <div>
+          <div class="impact-item__title">Automation of Repetitive Tasks</div>
+          <div class="impact-item__body">Certain aspects of customer service, manufacturing, data entry, and transportation include a significant number of repetitive tasks that can be automated — boosting overall productivity and delivering greater value to clients in a shorter timespan.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-item__bar"></div>
+        <div>
+          <div class="impact-item__title">Complex Problem Analysis</div>
+          <div class="impact-item__body">Mathematical and scientific problems of high complexity — which may require significant effort from human experts — could potentially be addressed with greater speed and precision through AI-assisted analysis.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-item__bar"></div>
+        <div>
+          <div class="impact-item__title">Creation of Creative Content</div>
+          <div class="impact-item__body">Filmmaking, music, and video game development could all see faster time-to-market, reduced production timelines, and lower costs — fundamentally reshaping how creative industries operate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing-quote">
+      <div class="closing-quote__text">With the right regulations, AI can become a powerful tool that will assist humans rather than replace them. GenAI is here to stay — and adapting its technology will help us further optimize existing processes, create better digital experiences, and make revolutionary discoveries.</div>
+    </div>
+
+    <div class="prose">
+      <p style="margin-top: 40px;">Overall, AI will be nothing short of transformative for the world — with a huge positive impact on productivity and human creativity. The possibilities seem endless. GenAI is here to stay, and those who adapt earliest will be best positioned to lead what comes next.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to explore what GenAI can do for your organization?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

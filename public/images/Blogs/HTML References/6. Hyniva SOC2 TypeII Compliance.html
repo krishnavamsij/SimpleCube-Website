@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hyniva Receives SOC 2 Type II Compliance — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 52px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── TRUST CRITERIA ─── */
+.criteria {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.criterion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text);
+}
+.criterion__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+/* ─── TYPE COMPARISON ─── */
+.type-compare {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.type-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+  background: var(--surface);
+}
+.type-card--active {
+  border-color: rgba(30,111,255,.35);
+  background: rgba(30,111,255,.04);
+}
+.type-card__label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.type-card__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.type-card__body {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* ─── PROCESS STEPS ─── */
+.process {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.process-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.process-step__icon {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  background: rgba(30,111,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.process-step__icon svg { width: 16px; height: 16px; }
+.process-step__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.process-step__body {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* ─── BENEFITS GRID ─── */
+.benefits {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.benefit {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+  background: var(--surface);
+}
+.benefit__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.benefit__title::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+.benefit__body {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* ─── ONGOING STRIP ─── */
+.ongoing {
+  margin-top: 48px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 28px;
+  background: var(--surface);
+}
+.ongoing__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.ongoing__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ongoing__item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.ongoing__item::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner        { padding: 52px 24px; }
+  .body          { padding: 48px 24px 72px; }
+  .cta           { padding: 36px 24px; }
+  .type-compare  { grid-template-columns: 1fr; }
+  .benefits      { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Hyniva Receives<br>
+      <em>SOC 2 Type II</em> Compliance.
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+    <div class="prose">
+
+      <p>We at Hyniva are excited to announce that we have successfully achieved SOC 2 Type II compliance once again. This marks a major milestone in our commitment to security, privacy, and data integrity.</p>
+      <p>Our journey to SOC 2 compliance involved rigorous evaluation and continuous improvement of our security controls. We extend our sincere gratitude to our dedicated team and our trusted audit partner, <strong>Johanson Group LLP</strong>, for their expertise and support throughout this process.</p>
+
+      <h2>What is SOC 2 Compliance?</h2>
+      <p>SOC 2 (Service Organization Control 2) is a widely recognized standard developed by the American Institute of Certified Public Accountants (AICPA). It ensures that service providers securely manage customer data to protect privacy and confidentiality.</p>
+      <p>SOC 2 compliance is evaluated based on five key trust service criteria:</p>
+
+      <div class="criteria">
+        <div class="criterion"><span class="criterion__dot"></span> Security</div>
+        <div class="criterion"><span class="criterion__dot"></span> Availability</div>
+        <div class="criterion"><span class="criterion__dot"></span> Processing Integrity</div>
+        <div class="criterion"><span class="criterion__dot"></span> Confidentiality</div>
+        <div class="criterion"><span class="criterion__dot"></span> Privacy</div>
+      </div>
+
+      <h2>SOC 2 Type I vs. SOC 2 Type II</h2>
+      <p>SOC 2 compliance is divided into two types — each demonstrating a different depth of commitment:</p>
+
+      <div class="type-compare">
+        <div class="type-card">
+          <div class="type-card__label">Type I</div>
+          <div class="type-card__title">Point-in-Time Assessment</div>
+          <div class="type-card__body">Assesses an organization's security controls at a specific point in time.</div>
+        </div>
+        <div class="type-card type-card--active">
+          <div class="type-card__label">Type II</div>
+          <div class="type-card__title">Continuous Evaluation</div>
+          <div class="type-card__body">Evaluates the effectiveness of security controls over a period, demonstrating continuous adherence to best practices.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px;">Achieving SOC 2 Type II compliance underscores Hyniva's long-term dedication to maintaining robust security standards and protecting our clients' data.</p>
+
+      <h2>Why SOC 2 Compliance Matters to Hyniva</h2>
+      <p>Security is a top priority at Hyniva. As an IT and business consulting services provider, our clients trust us with their most sensitive information. SOC 2 compliance reassures them that we have rigorous security measures in place to safeguard their data.</p>
+      <p>This certification strengthens our credibility and provides clients with the confidence that we adhere to the highest security and privacy standards.</p>
+
+      <h2>Our SOC 2 Compliance Journey</h2>
+      <p>Achieving SOC 2 compliance required a structured approach, thorough assessment, and collaboration with security experts.</p>
+
+      <div class="process">
+        <div class="process-step">
+          <div class="process-step__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="5.5" r="2.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M3 13.5c0-2.21 2.239-4 5-4s5 1.79 5 4" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="process-step__title">Dedicated Cross-Functional Team</div>
+            <div class="process-step__body">We assembled a cross-functional team to oversee our SOC 2 compliance project, ensuring alignment with best security practices across every function.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1e6fff" stroke-width="1.2"/></svg>
+          </div>
+          <div>
+            <div class="process-step__title">Selecting the Right Audit Partner</div>
+            <div class="process-step__body">We partnered with Johanson Group LLP for their deep expertise in SOC 2 audits. Their commitment to quality made the process smooth and efficient.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2a6 6 0 100 12A6 6 0 008 2z" stroke="#1e6fff" stroke-width="1.2"/><path d="M5.5 8.5l1.5 1.5 3-3" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="process-step__title">Security Enhancements</div>
+            <div class="process-step__body">We evaluated and strengthened our policies, procedures, and infrastructure to fully meet SOC 2 standards before and during the audit period.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5l3 3 7-7" stroke="#1e6fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="process-step__title">Audit and Assessment</div>
+            <div class="process-step__body">Johanson Group conducted a detailed audit of our security controls over a defined period, formally confirming our compliance.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>The Benefits of SOC 2 Compliance for Our Clients</h2>
+      <p>Our SOC 2 certification brings significant advantages to the organizations we serve:</p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit__title">Enhanced Security</div>
+          <div class="benefit__body">Assurance that client data is managed with industry-leading security practices at every layer.</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__title">Regulatory Compliance</div>
+          <div class="benefit__body">Helping clients meet their own compliance requirements with greater confidence and less effort.</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__title">Increased Trust</div>
+          <div class="benefit__body">Strengthening relationships with existing and prospective clients through demonstrated commitment to data protection.</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit__title">Operational Excellence</div>
+          <div class="benefit__body">Ensuring the reliability, availability, and integrity of our services throughout every engagement.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ongoing commitment -->
+    <div class="ongoing">
+      <div class="ongoing__title">Our Ongoing Commitment to Security</div>
+      <div class="ongoing__list">
+        <div class="ongoing__item">Conduct regular security audits and continuous monitoring</div>
+        <div class="ongoing__item">Implement quarterly security reviews to adapt to evolving threats</div>
+        <div class="ongoing__item">Maintain an unwavering focus on data protection and privacy</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p style="margin-top: 40px;">We are grateful to our clients, partners, and the entire Hyniva team for making this achievement possible. As we move forward, we remain committed to innovation, excellence, and maintaining the trust our clients place in us.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Want to learn more about our security practices?</div>
+        <div class="cta__sub">Reach out to explore how Hyniva can support your compliance and security needs.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reimagining Loan Applications: Voice and Chat Take Center Stage with Agentforce — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── JOURNEY STEPS ─── */
+.journey {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.journey::before {
+  content: '';
+  position: absolute;
+  left: 19px; top: 24px; bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue), rgba(30,111,255,.15));
+}
+.journey-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 0 0 28px;
+  position: relative;
+}
+.journey-step:last-child { padding-bottom: 0; }
+.journey-step__num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.journey-step__content { padding-top: 8px; }
+.journey-step__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.journey-step__body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* ─── STATS STRIP ─── */
+.stats {
+  margin-top: 48px;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 40px 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.stat {
+  position: relative; z-index: 1;
+  text-align: center;
+}
+.stat__value {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: var(--sky);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat__label {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(200,220,245,.65);
+  line-height: 1.5;
+}
+
+/* ─── CAPABILITIES ─── */
+.cap-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cap-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.cap-item__icon {
+  width: 32px; height: 32px;
+  background: rgba(30,111,255,.1);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cap-item__icon svg { width: 16px; height: 16px; }
+.cap-item__text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.cap-item__text strong {
+  font-weight: 600;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .stats  { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Reimagining Loan Applications.<br>
+      Voice and Chat Take Center Stage <em>with Agentforce.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+    <div class="prose">
+
+      <p>For decades, applying for a loan was a slow and paperwork-heavy process. Borrowers filled out lengthy forms, submitted documents, visited branches, and waited days or even weeks for updates. Even as financial institutions digitized parts of the journey, the experience remained largely transactional, fragmented, and frustrating.</p>
+      <p>Today, that model is rapidly becoming obsolete.</p>
+      <p>With FinXserve integrated with Salesforce Agentforce, Hyniva is redefining the loan application experience by placing voice and chat-driven interactions at the heart of lending — delivering a conversational, AI-assisted journey that feels intuitive, human, and significantly faster.</p>
+
+      <h2>Why the Traditional Loan Journey Falls Short</h2>
+      <p>Despite advances in digital banking, many lenders still rely on form-driven processes that create friction at every step. Long applications, manual eligibility checks, repetitive customer queries, disconnected data systems, and slow turnaround times continue to impact both members and internal teams.</p>
+      <p>At the same time, member expectations have evolved. Borrowers now expect speed, personalization, clarity, and the ability to engage anytime, from any channel. They want answers instantly — not after filling out multiple forms and waiting for follow-ups.</p>
+      <p>This growing gap between expectations and experience is exactly where Agentforce-powered conversational lending changes the game.</p>
+
+      <h2>From Clicking Forms to Conversational Lending</h2>
+      <p>FinXserve, enhanced by Salesforce Agentforce, enables members to apply for loans simply by talking or chatting with an AI-powered assistant.</p>
+      <p>Instead of navigating multiple screens, a member can open their banking app or website and say, <em>"I'd like to apply for a personal loan."</em> From there, the AI agent takes over — asking the right questions, pulling existing member data, pre-filling information, and guiding the borrower through the entire process in a single conversation.</p>
+      <p>The experience feels less like filling out an application and more like having a guided discussion with a knowledgeable advisor.</p>
+
+      <h2>A Seamless Member Experience, Step by Step</h2>
+
+      <div class="journey">
+        <div class="journey-step">
+          <div class="journey-step__num">1</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Discovery &amp; Pre-Qualification</div>
+            <div class="journey-step__body">Members ask natural questions about interest rates, eligibility, or required documents and receive instant, accurate responses powered by FinXserve's integrated data and Agentforce intelligence.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__num">2</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Guided Application</div>
+            <div class="journey-step__body">The AI agent collects information conversationally, retrieves historical data, and enables document uploads directly within the chat or voice interface. Known details are automatically pre-filled, reducing effort and eliminating repetition.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__num">3</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Real-Time Decisioning</div>
+            <div class="journey-step__body">FinXserve's decisioning and analytics engine evaluates eligibility, risk scores, KYC validations, and document checks as the conversation unfolds — delivering immediate status updates without days of waiting.</div>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step__num">4</div>
+          <div class="journey-step__content">
+            <div class="journey-step__title">Resolution in Minutes</div>
+            <div class="journey-step__body">What once took hours or days can now be completed in minutes — with the member fully informed and guided throughout.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>How Hyniva Powers Intelligent Lending Experiences</h2>
+      <p>At Hyniva, we bring together FinXserve's financial engagement layer and Salesforce Agentforce's conversational intelligence to deliver end-to-end, AI-led lending journeys.</p>
+
+      <div class="cap-list">
+        <div class="cap-item">
+          <div class="cap-item__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM2 8a6 6 0 1112 0A6 6 0 012 8z" fill="#1e6fff"/><path d="M8 4.5a.5.5 0 01.5.5v3.29l2.1 1.21a.5.5 0 01-.5.87l-2.35-1.35A.5.5 0 017.5 8.5V5a.5.5 0 01.5-.5z" fill="#1e6fff"/></svg>
+          </div>
+          <div class="cap-item__text">
+            <strong>Unified voice and chat interactions</strong>
+            Consistent, cross-channel conversations that meet members wherever they are.
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-item__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="5" r="3" stroke="#1e6fff" stroke-width="1.2"/><path d="M2.5 13.5c0-2.485 2.462-4.5 5.5-4.5s5.5 2.015 5.5 4.5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="cap-item__text">
+            <strong>360-degree member view</strong>
+            Complete context on every member, surfaced automatically during every interaction.
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-item__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M5 7h6M5 9.5h4" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="cap-item__text">
+            <strong>Automated document collection &amp; decisioning</strong>
+            Workflows that handle compliance, validation, and approvals without manual hand-offs.
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-item__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L7 8l2.5 2.5L13 5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cap-item__text">
+            <strong>AI-powered loan officer productivity</strong>
+            Summaries, recommendations, and next-best actions that keep officers focused on high-value decisions.
+          </div>
+        </div>
+      </div>
+
+      <h2>Real-World Impact: Faster Loans, Happier Members</h2>
+      <p>Financial institutions leveraging FinXserve with Agentforce are already seeing measurable results.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__value">40%</div>
+          <div class="stat__label">Drop in loan application abandonment rates</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">50%</div>
+          <div class="stat__label">Acceleration in processing times</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">↑</div>
+          <div class="stat__label">Higher member satisfaction scores and improved compliance</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 28px;">This is not just about automation — it's about reimagining how lending should feel for the modern borrower.</p>
+
+      <h2>Why Conversational Lending Matters Now</h2>
+      <p>Members want lending to fit seamlessly into their daily lives — on their phones, inside digital banking portals, through messaging apps, or via voice assistants. Voice and chat transform these everyday channels into powerful loan origination touchpoints.</p>
+      <p>With FinXserve and Salesforce Agentforce, lending becomes simpler, more transparent, and more accessible — without sacrificing control or compliance.</p>
+
+      <h2>The Future of Lending Is Conversational</h2>
+      <p>Loan applications are no longer static, form-based processes. They are intelligent, guided conversations that adapt to each member's needs in real time.</p>
+      <p>Hyniva is proud to lead this evolution. With FinXserve and Salesforce Agentforce, we are helping financial institutions deliver lending experiences that are simple, human-like, fast, accurate, and always available.</p>
+      <p>This is the new standard for lending — and it's only the beginning.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to reimagine your lending experience with Agentforce?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

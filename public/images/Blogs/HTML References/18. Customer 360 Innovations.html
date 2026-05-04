@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hyniva's Vision for Harnessing Salesforce Customer 360 Innovations — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em { font-style: italic; color: var(--sky); }
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── FEATURE PILLS ─── */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px;
+  border-top: 3px solid var(--blue);
+}
+.feature-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 7px;
+}
+.feature-card__desc {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+/* ─── VISION CARDS ─── */
+.vision {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+.vision-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.vision-card__index {
+  background: var(--ink);
+  color: var(--sky);
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  width: 52px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 22px;
+  align-self: stretch;
+}
+.vision-card__body {
+  padding: 20px 22px 20px 0;
+}
+.vision-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.vision-card__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.vision-card__example {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-left: 3px solid var(--blue);
+  border-radius: 4px;
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.vision-card__example span {
+  font-weight: 500;
+  color: var(--sub);
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner  { padding: 52px 24px; }
+  .body    { padding: 48px 24px 72px; }
+  .cta     { padding: 36px 24px; }
+  .features { grid-template-columns: 1fr; }
+  .vision-card { grid-template-columns: 44px 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Hyniva's Vision for Harnessing<br>
+      <em>Salesforce Customer 360 Innovations.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>A Single View of Every Customer — At Every Touchpoint</h2>
+      <p>In an increasingly competitive market, businesses are constantly seeking ways to deepen their understanding of customers and enhance engagement. Salesforce's Customer 360 innovations, unveiled at Dreamforce 2024, give organizations the tools to achieve exactly that — a holistic, unified view of every customer interaction across the entire relationship lifecycle.</p>
+      <p>At Hyniva, we see the transformative potential these innovations hold for our clients — and we have a clear vision for how to put them to work.</p>
+
+      <h2>What Is Customer 360?</h2>
+      <p>Customer 360 is Salesforce's comprehensive approach to unifying customer data across every touchpoint — creating a single, cohesive view of each customer so organizations can personalize interactions, anticipate needs, and build lasting relationships. The latest enhancements bring four powerful capabilities to the platform:</p>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-card__title">Unified Customer Profiles</div>
+          <div class="feature-card__desc">AI-driven insights aggregate data from multiple sources into a complete picture of customer interactions, preferences, and behaviors.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__title">Enhanced Data Integration</div>
+          <div class="feature-card__desc">Seamless integration with third-party applications ensures that sales, service, and marketing data is always readily accessible in one place.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__title">Personalization at Scale</div>
+          <div class="feature-card__desc">Tools that tailor marketing messages and service offerings to individual customer data — enhancing relevance and engagement at any volume.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__title">Real-Time Analytics</div>
+          <div class="feature-card__desc">Powerful analytics that monitor customer interactions as they happen, enabling proactive engagement strategies before opportunities are missed.</div>
+        </div>
+      </div>
+
+      <h2>Hyniva's Vision: Putting Customer 360 to Work for Clients</h2>
+      <p>Hyniva's approach to Customer 360 goes beyond implementation. We align every feature to specific client business goals — developing roadmaps, optimizing processes, and deploying proprietary accelerators that reduce time-to-market and cost. Here is how we plan to leverage these innovations, illustrated through the lens of the banking sector:</p>
+
+      <div class="vision">
+
+        <div class="vision-card">
+          <div class="vision-card__index">1</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Tailored Customer Experiences</div>
+            <div class="vision-card__desc">Using unified customer profiles, Hyniva creates personalized marketing strategies that speak to each individual customer's history, preferences, and current context.</div>
+            <div class="vision-card__example"><span>Banking example:</span> Crafting unique mortgage rate offers based on a customer's financial history and current market conditions — driving higher engagement and satisfaction.</div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card__index">2</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Data-Driven Decision Making</div>
+            <div class="vision-card__desc">Real-time analytics empower clients to make informed decisions based on current customer behaviors and trends — not yesterday's data.</div>
+            <div class="vision-card__example"><span>Banking example:</span> Analyzing transaction data to uncover spending patterns and adjust credit card rewards programs to better align with what customers actually value.</div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card__index">3</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Streamlined Communication</div>
+            <div class="vision-card__desc">Enhanced data integration creates seamless communication across departments — ensuring every team works from the same customer profile and speaks with one consistent voice.</div>
+            <div class="vision-card__example"><span>Banking example:</span> Marketing, sales, and service teams accessing shared profiles to deliver consistent, coordinated responses to loan product inquiries.</div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card__index">4</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Proactive Customer Engagement</div>
+            <div class="vision-card__desc">AI-powered insights help clients anticipate customer needs and address concerns before they escalate — shifting the relationship from reactive to genuinely proactive.</div>
+            <div class="vision-card__example"><span>Banking example:</span> Using predictive analytics to identify customers at risk of overdrawing, then proactively offering overdraft protection options before an issue occurs.</div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card__index">5</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Improved ROI on Marketing Campaigns</div>
+            <div class="vision-card__desc">More precise targeting and personalization translate directly into higher campaign returns — because every message reaches the right customer at the right moment.</div>
+            <div class="vision-card__example"><span>Banking example:</span> A targeted email campaign promoting new investment services to customers already showing interest in wealth management — significantly increasing conversion rates.</div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card__index">6</div>
+          <div class="vision-card__body">
+            <div class="vision-card__title">Scalable Solutions</div>
+            <div class="vision-card__desc">As businesses grow, their customer data needs grow with them. Hyniva leverages Customer 360's native scalability to ensure the platform expands seamlessly alongside each client's operations.</div>
+            <div class="vision-card__example"><span>Banking example:</span> Integrating new branches or digital services into existing customer profiles as a bank scales — maintaining a cohesive experience without disruption.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <h2>Committed to Meaningful Customer Interactions</h2>
+      <p>Hyniva's approach to Customer 360 is built on a clear principle: technology only delivers value when it is aligned to the goals of the business and the needs of the customer.</p>
+      <p>Through roadmap development, process optimization, user-focused design, and proprietary deployment accelerators, we reduce time-to-market and cost — allowing clients to start benefiting from Customer 360 faster than a conventional implementation would allow.</p>
+      <p>The result is not just a better-connected CRM.<br>
+      It is a platform that drives measurably improved business outcomes — and deeper, more lasting customer relationships.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to harness the power of Salesforce Customer 360?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

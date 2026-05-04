@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Accelerating Digital Transformation at Credit Unions — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 52px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── CHALLENGE + SOLUTION BLOCKS ─── */
+.section-block {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.block-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.block-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.block-card__num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.block-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.block-card__body {
+  padding: 20px 24px;
+  background: var(--white);
+}
+.block-card__body p {
+  font-size: 15.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* stat pill */
+.stat-pill {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(30,111,255,.05);
+  border: 1px solid rgba(30,111,255,.18);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.stat-pill__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+.stat-pill__text {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+/* solution card */
+.solution-card {
+  margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.solution-card__label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.solution-card__text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Accelerating Digital Transformation<br>
+      at <em>Credit Unions.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+    <div class="prose">
+
+      <p>Credit unions have long been an integral part of financial services, offering members personalized banking experiences, competitive rates, and a strong sense of community. However, as the financial landscape evolves with rapid technological advancements and shifting consumer expectations, credit unions face significant challenges in staying competitive.</p>
+
+      <h2>Challenges Faced by Credit Unions</h2>
+      <p>Despite their strong member-centric approach, credit unions often encounter operational roadblocks that hinder growth and efficiency.</p>
+
+    </div>
+
+    <!-- CHALLENGES -->
+    <div class="section-block">
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">1</div>
+          <div class="block-card__title">High Dependency on Legacy Systems</div>
+        </div>
+        <div class="block-card__body">
+          <p>In an era where mobile banking, AI-driven services, and automation dominate the financial sector, many credit unions still rely on legacy systems. These outdated infrastructures make it difficult to provide seamless digital experiences, leading to inefficiencies, longer processing times, and frustrated members who expect fast, modern solutions.</p>
+          <div class="stat-pill">
+            <span class="stat-pill__label">Stat</span>
+            <span class="stat-pill__text">As of September 30, 2024, there were 4,499 federally insured credit unions serving 142.0 million members.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">2</div>
+          <div class="block-card__title">Limited Resources &amp; Budget Constraints</div>
+        </div>
+        <div class="block-card__body">
+          <p>Unlike larger financial institutions, credit unions often operate on tighter budgets, making it challenging to invest in new technologies and innovations. The cost of upgrading core systems, integrating AI-powered tools, or enhancing cybersecurity can be prohibitive without strategic partnerships and cost-effective solutions.</p>
+          <div class="stat-pill">
+            <span class="stat-pill__label">Stat</span>
+            <span class="stat-pill__text">Federally insured credit unions saw total assets reach $2.31 trillion by Q3 2024 — an $82 billion increase (3.7%) from the prior quarter.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">3</div>
+          <div class="block-card__title">Regulatory &amp; Compliance Burdens</div>
+        </div>
+        <div class="block-card__body">
+          <p>Navigating the ever-changing landscape of financial regulations is a major challenge for credit unions. Compliance requirements demand significant time and resources, and failure to comply can result in hefty fines or reputational damage. Keeping up with these changes while maintaining operational efficiency can be overwhelming.</p>
+          <div class="stat-pill">
+            <span class="stat-pill__label">Stat</span>
+            <span class="stat-pill__text">The NCUA identified regulatory compliance as one of the top challenges for credit unions in 2024.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">4</div>
+          <div class="block-card__title">Fraud Prevention &amp; Cybersecurity Risks</div>
+        </div>
+        <div class="block-card__body">
+          <p>As digital banking becomes the norm, the risk of fraud and cyber threats increases. Credit unions must proactively implement robust security measures to protect member data and financial assets. However, many lack the advanced fraud detection tools that larger banks leverage.</p>
+          <div class="stat-pill">
+            <span class="stat-pill__label">Stat</span>
+            <span class="stat-pill__text">The NCUA's 2024 report emphasizes the importance of enhancing cybersecurity measures to combat increasing threats.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">5</div>
+          <div class="block-card__title">Meeting High Member Expectations</div>
+        </div>
+        <div class="block-card__body">
+          <p>Members' expectations have changed dramatically. Today's consumers seek hyper-personalized experiences, instant approvals, and seamless digital interactions. Without sophisticated data analytics and AI-driven insights, credit unions struggle to tailor services that meet these evolving demands.</p>
+          <div class="stat-pill">
+            <span class="stat-pill__label">Stat</span>
+            <span class="stat-pill__text">77% of consumers primarily access their accounts through digital tools like mobile banking, making features such as transaction histories and lost card management essential.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prose">
+      <h2>How Hyniva Helps Credit Unions Overcome Their Challenges</h2>
+      <p>Hyniva provides strategic solutions that enable credit unions to close these gaps, streamline operations, and enhance member satisfaction. Our expertise in AI, automation, and digital transformation empowers credit unions with the tools they need to stay ahead.</p>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="section-block">
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">1</div>
+          <div class="block-card__title">AI-Driven Digital Transformation</div>
+        </div>
+        <div class="block-card__body">
+          <p>Hyniva specializes in modernizing credit unions with AI-powered solutions that automate and optimize lending, onboarding, and document management. By leveraging intelligent automation, credit unions can reduce operational bottlenecks, enhance efficiency, and provide members with faster, more responsive services.</p>
+          <div class="solution-card">
+            <div class="solution-card__label">Case Study</div>
+            <div class="solution-card__text">Hyniva's FinXForce revolutionized the banking experience and helped a credit union get to market <strong>3x faster</strong> with a new lending experience for members.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">2</div>
+          <div class="block-card__title">Cost-Effective Cloud Solutions</div>
+        </div>
+        <div class="block-card__body">
+          <p>Migrating to cloud-based systems allows credit unions to scale operations efficiently while reducing costs. Hyniva's cloud migration services ensure a seamless transition, enabling real-time data access, enhanced security, and improved collaboration across teams.</p>
+          <div class="solution-card">
+            <div class="solution-card__label">Case Study</div>
+            <div class="solution-card__text">Hyniva's use of AWS technology for a document management platform helped a global investment management firm save over <strong>$500K annually</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">3</div>
+          <div class="block-card__title">Simplified Compliance &amp; Regulatory Support</div>
+        </div>
+        <div class="block-card__body">
+          <p>Staying compliant is no longer a burden with Hyniva's regulatory compliance automation. Our solutions help credit unions automate audits, generate compliance reports, and stay ahead of changing financial regulations without additional manual effort.</p>
+          <div class="solution-card">
+            <div class="solution-card__label">Insight</div>
+            <div class="solution-card__text">Hyniva's expertise in automation streamlines compliance processes, reducing the time and resources required to meet regulatory standards.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">4</div>
+          <div class="block-card__title">Advanced Fraud Detection &amp; Cybersecurity</div>
+        </div>
+        <div class="block-card__body">
+          <p>Hyniva integrates AI-driven fraud detection tools that analyze real-time transactions to flag suspicious activities. Our cybersecurity frameworks protect sensitive member data while ensuring compliance with industry security standards.</p>
+          <div class="solution-card">
+            <div class="solution-card__label">Insight</div>
+            <div class="solution-card__text">Implementing advanced fraud detection systems can significantly reduce the risk of financial losses due to fraudulent activities.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-card">
+        <div class="block-card__header">
+          <div class="block-card__num">5</div>
+          <div class="block-card__title">Data-Driven Member Engagement &amp; Personalization</div>
+        </div>
+        <div class="block-card__body">
+          <p>Hyniva's AI-powered analytics help credit unions gain deep insights into member behavior and preferences. This allows institutions to craft personalized financial solutions, targeted marketing campaigns, and predictive member services that drive loyalty and growth.</p>
+          <div class="solution-card">
+            <div class="solution-card__label">Insight</div>
+            <div class="solution-card__text">Data-driven strategies can increase sales by <strong>20%</strong>, highlighting the potential for boosting member engagement and revenue.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prose">
+      <h2>The Future of Credit Unions: Thriving with Hyniva</h2>
+      <p>The financial industry is evolving at an unprecedented pace, and credit unions must embrace innovation to remain relevant. By partnering with Hyniva, credit unions gain access to cutting-edge technology, streamlined operations, and enhanced member engagement strategies.</p>
+      <p>Hyniva empowers credit unions to not only bridge operational gaps but to create a sustainable, future-proof model that fosters growth, security, and member satisfaction.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to take your credit union to the next level?</div>
+        <div class="cta__sub">Contact Hyniva today to explore how we can help you transform your financial institution.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Optimizing AWS Infrastructure Costs for Back-Office Capabilities — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em { font-style: italic; color: var(--sky); }
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── PROBLEMS GRID ─── */
+.problems {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.problem-row {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.problem-row:last-child { border-bottom: none; }
+.problem-row:nth-child(even) { background: var(--surface); }
+.problem-row__num {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 15px;
+  color: var(--blue);
+}
+.problem-row__body {
+  padding: 16px 20px 16px 4px;
+}
+.problem-row__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.problem-row__desc {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+/* ─── STRATEGY CARDS ─── */
+.strategies {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+.strategy-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.strategy-card__tag {
+  background: var(--ink);
+  color: var(--sky);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  padding: 5px 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+.strategy-card__body {}
+.strategy-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.strategy-card__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .strategy-card { flex-direction: column; gap: 10px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Optimizing AWS Infrastructure Costs<br>
+      for <em>Back-Office Capabilities.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>Cloud Power, Controlled Cost</h2>
+      <p>Businesses are increasingly turning to cloud solutions to enhance operational efficiency and agility — and Amazon Web Services stands out as the leading platform for full-stack development. But leveraging AWS effectively means more than provisioning services. It means optimizing infrastructure costs while building the back-office capabilities that keep the business running.</p>
+      <p>For most organizations, that balance is harder to strike than it looks.</p>
+
+      <h2>Why Back-Office Capabilities Matter</h2>
+      <p>Back-office capabilities — finance, HR, inventory management, data analytics — are the behind-the-scenes processes that support every core business function. When these systems are efficient, the entire organization benefits:</p>
+      <ul>
+        <li><strong>Streamlined Processes:</strong> Automation reduces manual effort and minimizes the errors that slow operations down.</li>
+        <li><strong>Data-Driven Decisions:</strong> Real-time analytics give decision-makers the information they need, when they need it.</li>
+        <li><strong>Scalability:</strong> Robust back-office systems grow alongside the business — without requiring continuous re-engineering.</li>
+      </ul>
+
+      <h2>The Problem with Legacy Infrastructure</h2>
+      <p>Most organizations carry the weight of legacy systems that were never designed for today's demands. These systems create compounding challenges that erode efficiency and increase cost over time.</p>
+
+      <div class="problems">
+        <div class="problem-row">
+          <div class="problem-row__num">1</div>
+          <div class="problem-row__body">
+            <div class="problem-row__title">Inefficiency</div>
+            <div class="problem-row__desc">Legacy systems require extensive manual processes, leading to slower operations and a higher risk of error at every step.</div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-row__num">2</div>
+          <div class="problem-row__body">
+            <div class="problem-row__title">Limited Integration</div>
+            <div class="problem-row__desc">Older platforms struggle to connect with modern tools, creating data silos and a fragmented view of operations across the organization.</div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-row__num">3</div>
+          <div class="problem-row__body">
+            <div class="problem-row__title">High Maintenance Costs</div>
+            <div class="problem-row__desc">Sustaining outdated technology consumes disproportionate resources and attention — diverting both from more strategic initiatives.</div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-row__num">4</div>
+          <div class="problem-row__body">
+            <div class="problem-row__title">Inflexibility</div>
+            <div class="problem-row__desc">Legacy infrastructure cannot adapt quickly to changing business needs, making it difficult to scale, pivot, or respond to market shifts.</div>
+          </div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-row__num">5</div>
+          <div class="problem-row__body">
+            <div class="problem-row__title">Data Limitations</div>
+            <div class="problem-row__desc">Restricted access to real-time data weakens decision-making and limits the business agility that modern competition demands.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Five Strategies for Optimizing AWS Infrastructure Costs</h2>
+      <p>Transitioning to AWS unlocks significant capability — but only organizations that actively manage their cloud spend realize the full return on that investment. These five strategies form the foundation of effective AWS cost optimization.</p>
+
+      <div class="strategies">
+        <div class="strategy-card">
+          <div class="strategy-card__tag">Strategy 1</div>
+          <div class="strategy-card__body">
+            <div class="strategy-card__title">Choose the Right Services</div>
+            <div class="strategy-card__desc">Not every AWS service is necessary for every application. A targeted assessment of requirements — and selecting only what is needed — prevents overspending from the start. For example, AWS Lambda for serverless computing eliminates costs associated with idle server time entirely.</div>
+          </div>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-card__tag">Strategy 2</div>
+          <div class="strategy-card__body">
+            <div class="strategy-card__title">Utilize Cost Management Tools</div>
+            <div class="strategy-card__desc">AWS Cost Explorer and AWS Budgets provide visibility into spending patterns and allow teams to set alerts before thresholds are breached. Regular reviews surface optimization opportunities that would otherwise go unnoticed.</div>
+          </div>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-card__tag">Strategy 3</div>
+          <div class="strategy-card__body">
+            <div class="strategy-card__title">Implement Auto Scaling</div>
+            <div class="strategy-card__desc">Auto Scaling automatically adjusts compute capacity based on real-time demand — ensuring organizations pay only for what they use and avoid unnecessary expenses during off-peak periods.</div>
+          </div>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-card__tag">Strategy 4</div>
+          <div class="strategy-card__body">
+            <div class="strategy-card__title">Leverage Reserved Instances and Savings Plans</div>
+            <div class="strategy-card__desc">For predictable workloads, Reserved Instances and AWS Savings Plans offer substantial cost reductions compared to on-demand pricing. The upfront commitment yields meaningful long-term savings for stable, well-understood environments.</div>
+          </div>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-card__tag">Strategy 5</div>
+          <div class="strategy-card__body">
+            <div class="strategy-card__title">Optimize Storage Solutions</div>
+            <div class="strategy-card__desc">Selecting the right storage class for each data type leads to significant savings. Amazon S3 Intelligent Tiering automatically moves data to the most cost-effective class based on access patterns — with no manual management required.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Hyniva's Role in AWS Cost Optimization</h2>
+      <p>Hyniva specializes in helping organizations optimize their AWS infrastructure costs while simultaneously enhancing back-office capabilities. Our approach is hands-on, continuous, and tailored to each client's environment.</p>
+      <ul>
+        <li><strong>Tailored Solutions:</strong> We conduct a thorough analysis of each client's needs and recommend the most appropriate AWS services and configurations — ensuring no spend goes toward features the business doesn't need.</li>
+        <li><strong>Cost Monitoring and Management:</strong> Hyniva implements advanced monitoring tooling and provides real-time spending insights and recommendations, so clients stay within budget while achieving full operational efficiency.</li>
+        <li><strong>Automation and Scalability:</strong> We automate back-office processes through AWS Lambda, Step Functions, and other serverless solutions — reducing operational costs and increasing the platform's responsiveness to business demands.</li>
+        <li><strong>Training and Support:</strong> Hyniva provides training and ongoing support to equip teams with the knowledge to manage and optimize their AWS environments independently and confidently.</li>
+        <li><strong>Continuous Improvement:</strong> We regularly review and refine each client's AWS strategy as business needs evolve and new services emerge — ensuring the platform remains agile, efficient, and cost-effective over the long term.</li>
+      </ul>
+
+      <h2>Every Dollar Invested Should Work Harder</h2>
+      <p>In a world where cloud spend can accelerate or spiral with equal ease, effective cost management paired with robust back-office capabilities is the difference between a cloud investment that delivers and one that drains.</p>
+      <p>Organizations that approach AWS strategically — with the right architecture, the right tooling, and the right partner — will build back-office operations that scale, adapt, and compound in value over time.</p>
+      <p>With Hyniva, that strategic approach is built in from day one.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to optimize your AWS infrastructure costs?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

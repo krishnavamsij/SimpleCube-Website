@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Unlock the Future of CRM with the Latest Salesforce Innovations — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── INNOVATION CARDS ─── */
+.innovations {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 32px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.inno-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: background .2s;
+}
+.inno-card:last-child { border-bottom: none; }
+.inno-card:hover { background: var(--surface); }
+.inno-card__num {
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--sky);
+  flex-shrink: 0;
+}
+.inno-card__body {
+  padding: 24px 28px;
+}
+.inno-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.inno-card__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .inno-card { grid-template-columns: 44px 1fr; }
+  .inno-card__body { padding: 20px 18px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Unlock the Future of CRM<br>with the Latest <em>Salesforce Innovations.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>CRM Is No Longer Just About Tracking — It's About Transforming</h2>
+      <p>In the fast-paced digital age, Customer Relationship Management is not just about logging interactions. It's about harnessing data, leveraging artificial intelligence, and delivering personalized experiences at scale.</p>
+      <p>Salesforce has always been at the forefront of CRM innovation — and their latest advancements are designed to help businesses not only keep pace with customer expectations, but exceed them in ways never before possible.</p>
+
+      <h2>Four Innovations Reshaping What CRM Can Do</h2>
+      <p>Salesforce's most recent updates span AI, data unification, workflow automation, and personalized marketing. Each innovation builds on the last — creating a platform that is smarter, faster, and more connected than any previous generation of CRM.</p>
+
+      <div class="innovations">
+        <div class="inno-card">
+          <div class="inno-card__num">1</div>
+          <div class="inno-card__body">
+            <div class="inno-card__title">AI + Data + CRM: The Einstein 1 Platform</div>
+            <div class="inno-card__desc">The Einstein 1 Platform integrates generative AI and real-time data to deliver personalized, predictive, and actionable insights. It anticipates customer needs, predicts buying behavior, and offers intelligent recommendations — and it grows smarter with every interaction. Businesses can now make faster decisions with the confidence that their CRM is always aligned with the latest customer intelligence.</div>
+          </div>
+        </div>
+        <div class="inno-card">
+          <div class="inno-card__num">2</div>
+          <div class="inno-card__body">
+            <div class="inno-card__title">Data Cloud Enhancements: A Unified Customer View</div>
+            <div class="inno-card__desc">Salesforce's upgraded Data Cloud combines customer data from every touchpoint — email, social media, in-store, and more — into a single, centralized hub. This unified view enables precision segmentation, more targeted campaigns, and a holistic understanding of each customer. The result is sharper business decisions and deeper, more consistent customer relationships.</div>
+          </div>
+        </div>
+        <div class="inno-card">
+          <div class="inno-card__num">3</div>
+          <div class="inno-card__body">
+            <div class="inno-card__title">Flow Automation Boost: Smarter, More Efficient Operations</div>
+            <div class="inno-card__desc">Salesforce's expanded Flow Automation tools bring low-code solutions to complex workflows — empowering sales, marketing, and service teams to automate processes without needing a dedicated developer. From escalating customer issues to streamlining lead qualification, automation eliminates manual effort and frees teams to focus on strategy and customer engagement.</div>
+          </div>
+        </div>
+        <div class="inno-card">
+          <div class="inno-card__num">4</div>
+          <div class="inno-card__body">
+            <div class="inno-card__title">Personalization at Scale: Supercharge Your Marketing</div>
+            <div class="inno-card__desc">Salesforce's enhanced Marketing Cloud enables hyper-personalized campaigns across every channel — email, social media, dynamic web content, and more. By leveraging customer data, preferences, and behaviors, businesses can deliver experiences that feel individual at any volume. Personalization at this scale drives brand loyalty, deepens relationships, and directly accelerates revenue growth.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>What These Innovations Mean for Your Business</h2>
+      <p>Taken together, these four pillars — AI-driven intelligence, unified data, workflow automation, and personalized marketing — represent a fundamental shift in what CRM can accomplish.</p>
+      <ul>
+        <li>Predict and respond to customer needs before they arise</li>
+        <li>Eliminate data silos with a single, trusted source of customer truth</li>
+        <li>Automate complex workflows without heavy development investment</li>
+        <li>Deliver experiences that feel personal — at enterprise scale</li>
+        <li>Make faster, more confident decisions backed by real-time intelligence</li>
+      </ul>
+      <p>The businesses that adopt these capabilities now will not simply keep pace with the competition — they will set the pace.</p>
+
+      <h2>Hyniva: Your Partner in Embracing Salesforce Innovations</h2>
+      <p>At Hyniva, we understand how transformative these innovations can be for businesses of all sizes. From implementing new Salesforce features to optimizing existing environments, we are dedicated to helping our clients harness the full potential of Salesforce's latest advancements.</p>
+      <p>Our team of experts works with you to integrate the right tools, ensure they align with your business goals, and deliver measurable results from day one — whether you're starting fresh or building on an existing Salesforce investment.</p>
+      <p>The future of CRM is already here.<br>
+      With Salesforce and Hyniva, your organization is ready for it.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to unlock the latest Salesforce innovations?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

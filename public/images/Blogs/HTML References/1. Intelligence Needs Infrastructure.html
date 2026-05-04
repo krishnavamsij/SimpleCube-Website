@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Intelligence Needs Infrastructure — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 48px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Intelligence Needs Infrastructure.<br>
+      Prepare Your Salesforce Platform for an <em>Agent-Led Future.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>Adopting Agentforce Demands Structural Alignment</h2>
+      <p>Agentforce introduces a new model of intelligent automation on Salesforce. But for most enterprises, adopting Agentforce is not a feature activation.</p>
+      <p>It is a foundation decision.</p>
+      <p>Agentforce can only deliver value when the existing Salesforce ecosystem is architected to support agent-driven execution. Without structural alignment, even the most advanced automation layer struggles to scale.</p>
+
+      <h2>The Reality: Legacy Salesforce Was Not Built for Agentforce</h2>
+      <p>Most organizations operate mature Salesforce environments built over years of customization and business evolution.</p>
+      <p>These ecosystems include custom Apex, complex Flows, embedded workflows, tailored data models, and reusable components. They power mission-critical processes — but they were not designed for an autonomous, agent-orchestrated model.</p>
+      <p>When Agentforce is introduced into such environments, friction emerges:</p>
+      <ul>
+        <li>Components are tightly coupled and difficult to orchestrate</li>
+        <li>Automation logic lacks modular reusability</li>
+        <li>Data models are not structured for intelligent execution</li>
+        <li>Inconsistent design standards block scalable use cases</li>
+      </ul>
+      <p>The result is rework, delay, and rising implementation cost — slowing the very transformation Agentforce is meant to accelerate.</p>
+
+      <h2>What Agentforce Readiness Really Means</h2>
+      <p>Agentforce Readiness is not a rebuild initiative. It is a structured modernization sprint. The objective is simple — ensure your current Salesforce investments work with Agentforce — not against it.</p>
+      <p>Readiness aligns architecture, code structure, automation logic, and data design with Agentforce-supported patterns so intelligence can be layered without disruption.</p>
+      <p>It transforms Salesforce from a workflow engine into an agent-ready execution platform.</p>
+
+      <h2>Agentforce Readiness: What Hyniva Actually Does</h2>
+      <p>Hyniva enables Agentforce adoption through focused architectural realignment and modernization — designed for enterprise and regulated environments.</p>
+      <p>We conduct a structured evaluation and transformation across your Salesforce foundation to ensure scalable, agent-driven execution.</p>
+      <ul>
+        <li>Assess architectural compliance against Agentforce-supported standards</li>
+        <li>Refactor Apex and Flows into modular, reusable service layers</li>
+        <li>Rationalize data models for clean orchestration and reasoning</li>
+        <li>Standardize automation logic for scalability and governance</li>
+        <li>Identify and remediate technical debt that blocks reuse</li>
+        <li>Establish extensible design patterns for future Agentforce use cases</li>
+      </ul>
+      <p>This is not about replacing your platform. It is about converting existing assets into Agentforce-compatible building blocks — preserving prior investments while enabling intelligence at scale.</p>
+
+      <h2>The Outcome: Faster, Cleaner Agentforce Adoption</h2>
+      <p>Once Agentforce Readiness is completed, organizations experience measurable acceleration:</p>
+      <ul>
+        <li>Agentforce-compatible components without large-scale rebuild</li>
+        <li>Rapid activation of agent-driven use cases</li>
+        <li>Reduced redevelopment effort</li>
+        <li>Lower implementation risk</li>
+        <li>Improved time-to-value</li>
+      </ul>
+      <p>Agentforce becomes an extension of your ecosystem — not a disruption to it.</p>
+
+      <h2>Readiness Is a Competitive Advantage</h2>
+      <p>Agentforce is not just another Salesforce enhancement.<br>
+      It represents a structural shift toward AI-driven execution.</p>
+      <p>Organizations that treat it as a plug-in will struggle.<br>
+      Organizations that prepare their foundation will accelerate.</p>
+      <p>Agentforce Readiness is what separates experimentation from enterprise-scale AI transformation.</p>
+      <p>In a market where intelligent automation is redefining speed, efficiency, and customer experience, architectural alignment is no longer a technical concern — it is a competitive imperative.</p>
+      <p>With Hyniva, enterprises can modernize their Salesforce foundation to support AI-driven orchestration, accelerate Agentforce adoption without disruption, and move in pace with competitors who are already embedding intelligence into their core operations.</p>
+      <p>The future of Salesforce is agent-led.<br>
+      The organizations that prepare today will lead tomorrow.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to prepare your Salesforce platform for Agentforce?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

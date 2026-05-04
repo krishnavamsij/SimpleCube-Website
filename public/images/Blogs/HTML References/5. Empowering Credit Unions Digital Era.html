@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Empowering Credit Unions to Thrive in a Digital Era — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 72px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%;
+  text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.18;
+  letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em {
+  font-style: italic;
+  color: var(--sky);
+}
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body {
+  background: var(--white);
+  padding: 64px 48px 100px;
+}
+.body__inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prose {
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 56px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prose ul li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.prose ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── CHALLENGE BLOCK ─── */
+.challenge-block {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.challenge {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.challenge__header {
+  background: var(--ink);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.challenge__header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.challenge__num {
+  position: relative; z-index: 1;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.challenge__title {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  color: #e8f0ff;
+  line-height: 1.3;
+}
+
+.challenge__body {
+  padding: 24px 28px;
+  background: var(--white);
+}
+.challenge__problem {
+  font-size: 15.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.solution-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.challenge__solutions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.solution-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.solution-item::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* ─── STORY PILL ─── */
+.story {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.story__icon {
+  width: 32px; height: 32px;
+  background: rgba(30,111,255,.12);
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.story__icon svg { width: 15px; height: 15px; }
+.story__content {}
+.story__label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.story__text {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--sub);
+  line-height: 1.75;
+}
+
+/* ─── CLOSING ─── */
+.closing {
+  margin-top: 56px;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .challenge__header { padding: 18px 20px; }
+  .challenge__body   { padding: 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Empowering Credit Unions<br>
+      to Thrive in a <em>Digital Era.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+    <div class="prose">
+
+      <p>Credit unions have long been trusted for their personalized financial services, but the evolving digital landscape presents significant challenges. Limited resources, outdated technology, and fragmented expertise often hinder their ability to compete with larger financial institutions.</p>
+      <p>At Hyniva, we understand these obstacles and are committed to enabling credit unions to overcome them through tailored solutions that drive innovation, efficiency, and member satisfaction.</p>
+
+      <h2>Transforming Challenges into Opportunities</h2>
+      <p>Hyniva's approach is centered on empowering credit unions with cutting-edge technology, strategic insights, and operational excellence. Below are the key challenges faced by credit unions — and how Hyniva bridges the gap.</p>
+
+    </div>
+
+    <!-- CHALLENGE BLOCKS -->
+    <div class="challenge-block">
+
+      <!-- Challenge 1 -->
+      <div class="challenge">
+        <div class="challenge__header">
+          <div class="challenge__num">1</div>
+          <div class="challenge__title">Legacy Systems and Limited Digital Expertise</div>
+        </div>
+        <div class="challenge__body">
+          <p class="challenge__problem">Credit unions often rely on outdated systems that fail to meet modern member expectations for intuitive mobile apps, real-time transactions, and robust security features. This lack of digital infrastructure hampers growth and member engagement.</p>
+          <div class="solution-label">Hyniva's Solution</div>
+          <div class="challenge__solutions">
+            <div class="solution-item">Comprehensive digital transformation services, including UI/UX enhancements and API integrations</div>
+            <div class="solution-item">Secure, scalable cloud-based banking solutions tailored to credit union needs</div>
+            <div class="solution-item">Regulatory compliance support for seamless adoption of new technologies</div>
+          </div>
+          <div class="story">
+            <div class="story__icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="story__content">
+              <div class="story__label">Success Story</div>
+              <div class="story__text">A regional credit union struggling with slow online loan applications partnered with Hyniva. By implementing a streamlined digital lending platform, loan processing time was reduced by <strong>40%</strong>, while application completion rates increased by <strong>25%</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 2 -->
+      <div class="challenge">
+        <div class="challenge__header">
+          <div class="challenge__num">2</div>
+          <div class="challenge__title">Delayed Project Implementation</div>
+        </div>
+        <div class="challenge__body">
+          <p class="challenge__problem">Without specialized project management expertise, many credit unions face delays in rolling out essential features like mobile banking or automated customer support — resulting in lost opportunities and member dissatisfaction.</p>
+          <div class="solution-label">Hyniva's Solution</div>
+          <div class="challenge__solutions">
+            <div class="solution-item">Agile implementation methodologies for faster go-to-market timelines</div>
+            <div class="solution-item">Dedicated project management teams to prioritize high-impact initiatives</div>
+            <div class="solution-item">Structured development approaches that maximize ROI</div>
+          </div>
+          <div class="story">
+            <div class="story__icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="story__content">
+              <div class="story__label">Success Story</div>
+              <div class="story__text">A mid-sized credit union aimed to launch AI-driven customer support but faced repeated delays. Hyniva restructured the project timeline and implemented a chatbot solution within <strong>8 weeks</strong>, reducing call center inquiries by <strong>30%</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 3 -->
+      <div class="challenge">
+        <div class="challenge__header">
+          <div class="challenge__num">3</div>
+          <div class="challenge__title">Inefficient Member Engagement</div>
+        </div>
+        <div class="challenge__body">
+          <p class="challenge__problem">Fragmented data and outdated marketing strategies often prevent credit unions from personalizing communication effectively, leading to reduced member retention.</p>
+          <div class="solution-label">Hyniva's Solution</div>
+          <div class="challenge__solutions">
+            <div class="solution-item">AI-driven analytics for member segmentation and targeted communication</div>
+            <div class="solution-item">Omnichannel marketing strategies that enhance engagement across platforms</div>
+            <div class="solution-item">CRM solutions designed to improve customer interactions and loyalty</div>
+          </div>
+          <div class="story">
+            <div class="story__icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="story__content">
+              <div class="story__label">Success Story</div>
+              <div class="story__text">A credit union experiencing declining engagement saw a <strong>50% increase</strong> in email open rates and a <strong>20% rise</strong> in new product sign-ups after Hyniva implemented a data-driven email marketing campaign.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 4 -->
+      <div class="challenge">
+        <div class="challenge__header">
+          <div class="challenge__num">4</div>
+          <div class="challenge__title">Security and Compliance Risks</div>
+        </div>
+        <div class="challenge__body">
+          <p class="challenge__problem">The rise of cyber threats and evolving regulatory requirements demand constant updates to security protocols — a task many credit unions struggle to manage internally.</p>
+          <div class="solution-label">Hyniva's Solution</div>
+          <div class="challenge__solutions">
+            <div class="solution-item">Advanced cybersecurity solutions with real-time threat monitoring</div>
+            <div class="solution-item">Regular security audits and employee training programs</div>
+            <div class="solution-item">Compliance support aligned with industry standards like NCUA and FFIEC</div>
+          </div>
+          <div class="story">
+            <div class="story__icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="story__content">
+              <div class="story__label">Success Story</div>
+              <div class="story__text">A credit union facing phishing attacks partnered with Hyniva for a security overhaul, resulting in a <strong>60% reduction</strong> in incidents and improved member trust.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 5 -->
+      <div class="challenge">
+        <div class="challenge__header">
+          <div class="challenge__num">5</div>
+          <div class="challenge__title">Limited Innovation and Competitive Differentiation</div>
+        </div>
+        <div class="challenge__body">
+          <p class="challenge__problem">To stand out in a crowded market, credit unions must innovate — but many lack the expertise to develop new financial products or adopt emerging technologies like AI or blockchain.</p>
+          <div class="solution-label">Hyniva's Solution</div>
+          <div class="challenge__solutions">
+            <div class="solution-item">Strategic consulting to identify growth opportunities</div>
+            <div class="solution-item">Fintech partnerships enabling cutting-edge financial solutions</div>
+            <div class="solution-item">AI-driven tools that enhance operational efficiency</div>
+          </div>
+          <div class="story">
+            <div class="story__icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="story__content">
+              <div class="story__label">Success Story</div>
+              <div class="story__text">A forward-thinking credit union wanted to offer a digital-only savings account but lacked technical expertise. Hyniva developed the product in under <strong>six months</strong>, attracting younger members and boosting deposits by <strong>35%</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END CHALLENGE BLOCKS -->
+
+    <div class="prose closing">
+      <h2>Driving Growth Through Partnership</h2>
+      <p>At Hyniva, we believe that every challenge is an opportunity for transformation. By leveraging our expertise in digital innovation, project acceleration, member engagement personalization, security enhancement, and strategic differentiation, we empower credit unions to thrive in today's competitive landscape.</p>
+      <p>Our tailored solutions ensure that credit unions can modernize their operations while delivering unparalleled value to their members.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to transform your credit union for the digital era?</div>
+        <div class="cta__sub">Contact us today to explore how we can empower your organization for sustained success.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
