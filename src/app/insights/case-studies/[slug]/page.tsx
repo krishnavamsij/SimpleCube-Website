@@ -59,6 +59,7 @@ import {
     Files,
     Map as LucideMap,
     Shield,
+    Sparkles,
     type LucideIcon
 } from "lucide-react";
 
@@ -138,12 +139,13 @@ const iconMap: Record<string, LucideIcon> = {
     "🗂️": Files,
     "🗺️": LucideMap,
     "🗺": LucideMap,
+    "✦": Sparkles,
 };
 
-const MetricIcon = ({ icon }: { icon: string }) => {
+const StandardIcon = ({ icon, className = "" }: { icon: string, className?: string }) => {
     const Icon = iconMap[icon];
     return (
-        <div className="w-12 h-12 rounded-full bg-[#1e90ff12] border border-[#1e90ff33] flex items-center justify-center mb-5 group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff26] group-hover:shadow-[0_0_20px_rgba(30,144,255,0.22)] transition-all duration-300">
+        <div className={`w-12 h-12 rounded-full bg-[#1e90ff12] border border-[#1e90ff33] flex items-center justify-center group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff26] group-hover:shadow-[0_0_20px_rgba(30,144,255,0.22)] transition-all duration-300 ${className}`}>
             {Icon ? (
                 <Icon className="w-5 h-5 text-[#1e90ff]" />
             ) : (
@@ -151,6 +153,10 @@ const MetricIcon = ({ icon }: { icon: string }) => {
             )}
         </div>
     );
+};
+
+const MetricIcon = ({ icon }: { icon: string }) => {
+    return <StandardIcon icon={icon} className="mb-5" />;
 };
 
 const SectionHeader = ({ num, tag }: { num?: string, tag?: string, isFirst?: boolean }) => (
@@ -235,13 +241,7 @@ export default function CaseStudyDetailPage() {
                                 <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
                                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
                                     <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
-                                        <div className="w-10 h-10 rounded-lg bg-[#1e90ff14] border border-[#1e90ff26] flex items-center justify-center group-hover:border-[#63c2ff8c] group-hover:bg-[#1e90ff1a] transition-all duration-300">
-                                            {iconMap[item.icon] ? (
-                                                React.createElement(iconMap[item.icon], { className: "w-5 h-5 text-[#1e90ff]" })
-                                            ) : (
-                                                <div className="text-[18px]">{item.icon}</div>
-                                            )}
-                                        </div>
+                                        <StandardIcon icon={item.icon} />
                                     </div>
                                     <div className="flex flex-col gap-1.5 pt-0.5">
                                         <h4 className="text-[14px] font-semibold text-[#111827] leading-snug font-sans">{item.title}</h4>
@@ -261,9 +261,15 @@ export default function CaseStudyDetailPage() {
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="bg-white border border-slate-200 rounded-[10px] p-6 flex gap-4 items-start transition-all duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden group">
                                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-sm" />
-                                    <div className="text-[26px] md:text-[30px] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
-                                        {item.value}
-                                    </div>
+                                    {iconMap[item.value] ? (
+                                        <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px] pt-1">
+                                            <StandardIcon icon={item.value} />
+                                        </div>
+                                    ) : (
+                                        <div className="text-[26px] md:text-[30px] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
+                                            {item.value}
+                                        </div>
+                                    )}
                                     <div className="flex flex-col gap-1.5 pt-0.5">
                                         <div className="text-[14px] font-semibold text-[#111827] leading-snug">{item.label}</div>
                                         {item.desc && <p className="text-[14px] text-slate-500 font-light leading-relaxed">{item.desc}</p>}
