@@ -1521,6 +1521,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>By implementing Salesforce Service Cloud as the unified backbone of their service operations, the financial services firm transformed manual, fragmented workflows into an intelligent, omni-channel engine. Agents now resolve cases faster — with complete customer context at their fingertips — driving stronger satisfaction scores, fewer repeat queries, and a support experience that builds lasting loyalty.</p>"
             }
         ]
     },
@@ -1646,6 +1652,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>By deploying FinXServe on Salesforce Experience Cloud and Financial Services Cloud, the credit union unified fragmented digital touchpoints into a seamless, multi-channel member journey. Loan offers are now delivered in under two minutes, application abandonment has dropped significantly, and engagement has grown across both members and non-members — marking the first fully member-facing lending experience built on Salesforce Experience Cloud.</p>"
             }
         ]
     },
@@ -1777,6 +1789,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     ],
                     "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Operational Efficiency at Scale</strong> — Automated the entire pre-qualification and routing process, significantly reducing manual intervention and eliminating human errors</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Reduced Cost per Lead</strong> — Replacing labor-intensive workflows with automation led to substantial cost savings in processing and operations</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Speed-to-Lead &amp; Conversion Rates</strong> — Instant routing enabled CDFI partners to engage prospects faster, improving customer satisfaction and increasing loan conversion rates</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Data Intelligence</strong> — The centralized CRM created a robust data foundation, enabling continuous optimization of risk models and customer journeys</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Future-Ready Scalability</strong> — The modern architecture supports growing lead volumes and onboarding of additional CDFI partners without increasing operational overhead</div></div>\n      </div>"
                 }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "text",
+                "content": "<p>With the automation layer in place, the organization now operates with a scalable, intelligence-driven lending infrastructure. As the CDFI network grows and borrower profiles evolve, the platform is primed to incorporate advanced credit decisioning models, expanded partner onboarding workflows, and deeper analytics — all without increasing operational overhead.</p>"
             }
         ]
     },
@@ -1872,6 +1890,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>In just six months, Hyniva delivered a fully modernized lending platform that replaced a rigid, outdated CRM with an agile, user-friendly system built for growth. The transformation empowered Customer Service Representatives with the tools to track leads, process applications, and engage borrowers more effectively — laying a scalable foundation for future product expansion and integration.</p>"
             }
         ]
     },
@@ -2123,6 +2147,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "text",
+                "content": "<p>With a cloud-native Microsoft Dynamics 365 ecosystem now powering Municipal Administration, Smart City programs, and Trustee services, the organization is positioned to continuously evolve its platform capabilities. The modular architecture and Power Platform foundation enable rapid feature delivery, new portal integrations, and AI-driven automation — all without disrupting live operations.</p>"
             }
         ]
     },
@@ -2248,6 +2278,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Our client noticed a nearly zero downtime during deployments due to the implementation of automated approvals with GitHub actions, and the automated switch implementation made the switch between environments less than a minute. The streamlined deployment process also enabled nearly 70% faster deployment times, increasing overall productivity and efficiency. In the event of functional bugs, issues, or disaster recovery scenarios, the seamless rollover feature ensures the client can maintain uninterrupted operations for their users with confidence.</p>\n      </div>"
                 }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "text",
+                "content": "<p>With blue-green deployment now embedded in the release pipeline, the investment management firm operates with confidence at every release cycle. The automated switchover infrastructure is a reusable template for future services — enabling the organization to scale deployments across new regions and products while maintaining the same near-zero downtime guarantee.</p>"
             }
         ]
     },
@@ -2499,6 +2535,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The re-architected logistics platform replaced a fragmented, manual operation with a real-time, mobile-first system built for scale. Field teams now operate with live shipment visibility, dispatch teams access centralized data through a unified middleware layer, and customers receive proactive notifications — transforming the logistics operation into a competitive, customer-centric service.</p>"
             }
         ]
     },
@@ -2623,6 +2665,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The impact was nothing short of transformative. The new document management system eliminated exorbitant annual licensing fees while redefining user experience — API calls and queries now execute 5× faster than the previous Alfresco system, with 8 million+ documents instantly accessible via multiple filters.</p>\n        <p>This achievement fortified the partnership between Hyniva and the client, setting an industry benchmark for cloud-native document innovation and illustrating how vision, technology, and expertise converge to redefine possibilities.</p>"
             }
         ]
     },
@@ -2747,6 +2795,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         }
                     ]
                 }
+            },
+            {
+                "id": "future",
+                "title": "Conclusion",
+                "type": "text",
+                "content": "<p>Hyniva's collaboration with this Fortune 500 financial management firm illustrates the transformative power of AI-driven solutions in customer service. As businesses seek to enhance customer experience in the digital age, AI and NLP-powered chatbots are becoming essential tools for scalable, always-on support.</p>\n        <p>This partnership serves as a testament to the potential of AI in revolutionizing how companies engage with their customers — driving increased satisfaction, operational efficiency, and long-term profitability.</p>"
             }
         ]
     }
