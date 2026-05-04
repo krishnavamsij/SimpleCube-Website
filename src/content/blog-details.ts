@@ -2956,7 +2956,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         date: "Mar 27, 2024",
         author: "Hyniva",
         tag: "AI",
-        heroImage: "/images/Blogs/Optimized/blog-24.jpeg",
+        heroImage: "/images/Blogs/Optimized/blog-24.jpg",
         sections: [
             {
                 id: "intro",

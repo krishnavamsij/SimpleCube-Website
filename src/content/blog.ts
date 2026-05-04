@@ -169,7 +169,7 @@ export const blogContent = {
             title: "Generative AI — Why It's a Game Changer",
             date: "Mar 27, 2024",
             tag: "AI",
-            image: "/images/Blogs/Optimized/blog-24.jpeg",
+            image: "/images/Blogs/Optimized/blog-24.jpg",
             href: "/insights/blog/generative-ai-why-its-a-game-changer",
         },
         {
