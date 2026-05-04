@@ -262,7 +262,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "future",
-                "title": "The Road Ahead",
+                "title": "Road Ahead",
                 "type": "text",
                 "content": "<p>FinXServe is expanding its AI-powered document intelligence beyond identity verification to include income and financial documents such as W2 forms, pay stubs, bank statements, and proof-of-address records. The platform is introducing cross-document consistency checks to validate customer information across multiple uploads, ensuring higher data reliability and stronger fraud detection.</p>\n        <p>In parallel, AI-driven fraud and risk scoring will combine extracted document insights with application data to identify potential risks earlier in the onboarding journey. Continuous model learning from agent and customer corrections will further enhance extraction accuracy over time.</p>\n        <p>Together, these advancements position FinXServe as a truly AI-first digital lending platform — delivering faster decisions, stronger compliance, scalable operations, and intelligent growth for modern financial institutions.</p>"
             }
@@ -349,7 +349,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "future",
-                "title": "Road Ahead",
+                "title": "THE ROAD AHEAD",
                 "type": "text",
                 "content": "<p>With a scalable IVR foundation in place, the firm is positioned to continuously expand and refine self-service capabilities with minimal effort. The modular design allows new options to be introduced, reordered, or enhanced quickly, enabling the contact center to adapt to evolving customer needs without additional development complexity.</p>\n        <p>Built-in analytics will guide the next phase of optimization by highlighting usage patterns, drop-offs, and containment opportunities. Based on customer feedback and insights, the firm plans to advance toward an IVR 2.0 roadmap — introducing deeper personalization, expanded workflows, and proactive customer messaging — while maintaining strong authentication and seamless agent escalation.</p>"
             }
@@ -428,7 +428,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>To address these challenges, Hyniva designed and deployed Autonomous Document Intelligence Agent — built specifically to transform how load information is extracted and entered into the TMS. This next-gen solution automates the extraction of shipment data from pager invoices and unstructured documents, instantly converting them into actionable TMS records. By eliminating manual data entry, it accelerates turnaround times, minimizes errors, and empowers teams to focus on strategic, value-driven logistics planning.</p>",
+                    "body": "<p>To address these challenges, Hyniva designed and deployed Autonomous Document Intelligence Agent — built specifically to transform how load information is extracted and entered into the TMS. This next-gen solution automates the extraction of shipment data from pager invoices and unstructured documents, instantly converting them into actionable TMS records. By eliminating manual data entry, it accelerates turnaround times, minimizes errors, and empowers teams to focus on strategic, value-driven logistics planning.</p>\n        <p>Manual intervention is now required only for final validation, with the system handling all upstream load creation tasks automatically. Shipment orders no longer sit in queue awaiting manual input — they are processed in real time, improving responsiveness and reducing lead time dramatically.</p>\n        <p>The result is a seamless, zero-touch experience — delivering consistency, accuracy, and operational speed at scale.</p>",
                     "items": [
                         {
                             "num": "1",
@@ -459,7 +459,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "",
+                    "body": "<p>With Hyniva's Autonomous Document Intelligence Agent, the client's TMS operations have evolved from manual and error-prone to intelligent and autonomous. By embedding AI at the core of load creation, they've gained speed, accuracy, and scalability — and positioned themselves for the next wave of logistics innovation.</p>",
                     "items": [
                         {
                             "value": "98%",
@@ -486,14 +486,15 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Reduced Lead Time",
                             "desc": "Shipment orders no longer wait in queue — near-instant readiness enables faster dispatch planning"
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"cs-content mt-10\">\n        <blockquote style=\"border-left: 3px solid #1e90ff; padding-left: 1.5rem; font-style: italic; font-size: 1.1rem; color: #111827;\">\"What used to take 20 minutes now takes just 20 seconds — with no compromise in accuracy.\"</blockquote>\n      </div>"
                 }
             },
             {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>From backlogs and manual bottlenecks to a fully automated, real-time workflow — the logistics provider has redefined its load creation process through Hyniva's GenAI-powered innovation. With document intelligence at the core, shipment data is now extracted, processed, and integrated with speed, accuracy, and zero manual touch.</p>\n        <p>The result: load entries completed in seconds, costs cut by over 99%, and scalable operations that keep pace with demand. This shift not only optimized fulfillment but also positioned the company at the forefront of AI-driven logistics transformation.</p>\n        <p>Hyniva's GenAI solution didn't just improve performance — it changed the game.</p>\n        <blockquote>\"What used to take 20 minutes now takes just 20 seconds — with no compromise in accuracy.\"</blockquote>"
+                "content": "<p>From backlogs and manual bottlenecks to a fully automated, real-time workflow — the logistics provider has redefined its load creation process through Hyniva's GenAI-powered innovation. With document intelligence at the core, shipment data is now extracted, processed, and integrated with speed, accuracy, and zero manual touch.</p>\n        <p>The result: load entries completed in seconds, costs cut by over 99%, and scalable operations that keep pace with demand. This shift not only optimized fulfillment but also positioned the company at the forefront of AI-driven logistics transformation.</p>\n        <p>Hyniva's GenAI solution didn't just improve performance — it changed the game.</p>"
             }
         ]
     },
@@ -602,7 +603,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "future",
-                "title": "The Road Ahead",
+                "title": "Road Ahead",
                 "type": "text",
                 "content": "<p>By migrating from Aura to LWR, the credit union now operates on a future-ready Experience Cloud platform that is faster, more resilient, and easier to maintain. The dynamic header capability enables scalable personalization, while the modular LWC architecture positions the platform to adopt new Salesforce capabilities with minimal refactoring.</p>\n        <p>Hyniva's structured delivery model, deep Salesforce expertise, and close collaboration with client stakeholders ensured a smooth migration with minimal disruption, enabling the credit union to confidently scale its digital member experiences.</p>"
             }
@@ -1134,7 +1135,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
                         }
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p>\n      </div>\n\n      <div class=\"solution-image\">\n        <img src=\"https://www.hyniva.com/wp-content/uploads/2024/11/AWS-Doc-Manager-1024x653.png\" alt=\"AWS Document Management Architecture\"/>\n      </div>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p>\n      </div>\n\n      <div class=\"solution-image\">\n        <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Architecture\"/>\n      </div>"
                 }
             },
             {
@@ -1165,7 +1166,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
                         }
                     ],
-                    "footer": "<div class=\"impact-image\">\n        <img src=\"https://www.hyniva.com/wp-content/uploads/2024/11/AWS-Doc-Manager_Impact-Section-1024x494.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
+                    "footer": "<div class=\"impact-image\">\n        <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
                 }
             },
             {
