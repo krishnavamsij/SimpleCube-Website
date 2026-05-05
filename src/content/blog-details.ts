@@ -2759,7 +2759,7 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
     },
     "hyniva-celebrates-the-launch-of-its-new-branch": {
         title: "Hyniva Celebrates the Launch of Its New Branch!",
-        subtitle: "Overview",
+        subtitle: "",
         date: "Aug 27, 2024",
         author: "Hyniva",
         tag: "Company",
@@ -3020,7 +3020,7 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
             {
                 id: "content",
                 title: "Overview",
-                content: `<p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce, and we couldnât be more excited about the possibilities that lie ahead!&nbsp;<br><br>Being part of this esteemed Chamber is not just about membership; itâs about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>
+                content: `<p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce, and we couldn't be more excited about the possibilities that lie ahead!&nbsp;<br><br>Being part of this esteemed Chamber is not just about membership; it's about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>
 
 
 
@@ -3045,72 +3045,75 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva is Officially a \"Great Place to Work\"!",
-        subtitle: "Overview",
+        title: "Hyniva is Officially a<br/><span class=\"text-[#63c2ff] italic\">\"Great Place to Work.\"</span>",
+        subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
         tag: "Company",
         heroImage: "/images/Blogs/Optimized/blog-27.png",
         sections: [
             {
-                id: "content",
-                title: "Overview",
-                content: `<p><strong>Weâre Thrilled to Share Exciting News!</strong></p>
-
-
-
-<p>At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community weâve built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To WorkÂ® Certificationâ¢.</p>
-
-
-
-
-
-
-
-<p>Great Place to Work recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives both personally and professionally. It serves as a recognition of our commitment to providing an supportive, and growth-oriented atmosphere.</p>
-
-
-
-<p><strong>Key Takeways of Hyniva:</strong></p>
-
-
-
-<ol>
-<li><strong>Employee-Centric Culture:</strong> Our success is built on the foundation of an employee-centric culture with a core belief that when our team is happy and thriving, so is our organization.</li>
-
-
-
-<li><strong>Dedication to Growth:</strong> Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement.</li>
-
-
-
-<li><strong>Inclusivity and Diversity:</strong> We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment.</li>
-
-
-
-<li><strong>Open Communication:</strong> Communication is key, and at Hyniva, we promote open and transparent communication channels. Every team memberâs unique perspective is heard and valued.</li>
-
-
-
-<li><strong>Collaborative Spirit:</strong> Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department.</li>
-</ol>
-
-
-
-<p><strong>Thank You, Hyniva Family!</strong></p>
-
-
-
-<p>Becoming a âGreat Place to Workâ is not just a certification for us; it is a shared success. We extend our deepest gratitude to each and every member of the <a href="https://www.staging15.hyniva.com/">Hyniva</a> Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</p>
-
-
-
-<img src="/images/Blogs/Content/hyniva-is-officially-a-great-place-to-work-1.png" alt="" class="w-full h-auto rounded-2xl my-8" />
-
-
-
-<p>Follow us on <strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong> for the latest updates.</p>`
+                id: "intro",
+                title: "",
+                content: `<p>At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community we have built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To Work® Certification™.</p>
+<p>This recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives — both personally and professionally.</p>`
             },
+            {
+                id: "what-this-means-at-hyniva",
+                title: "What This Means at Hyniva",
+                content: `<p>The certification reflects five core values that define who we are as a team and how we show up for each other every day.</p>
+<div class="flex flex-col gap-3 mt-8">
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-5 bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">1</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Employee-Centric Culture</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">Our success is built on the foundation of an employee-centric culture — with a core belief that when our team is happy and thriving, so is our organization.</div>
+    </div>
+  </div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-5 bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">2</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Dedication to Growth</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement at every stage.</div>
+    </div>
+  </div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-5 bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">3</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Inclusivity and Diversity</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment where every background is valued.</div>
+    </div>
+  </div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-5 bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">4</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Open Communication</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">Communication is key. At Hyniva, we promote open and transparent communication channels where every team member's unique perspective is heard and genuinely valued.</div>
+    </div>
+  </div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-5 bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">5</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Collaborative Spirit</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
+    </div>
+  </div>
+</div>
+<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">Thank You, Hyniva Family</div>
+  <div class="relative z-10 text-[15.5px] font-light text-[rgba(200,220,245,.7)] leading-[1.8] max-w-[520px] mx-auto m-0">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
+</div>
+<div class="mt-16 bg-[#0a0f1e] rounded-2xl px-6 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 36px 36px;"></div>
+  <div class="relative z-10 text-left">
+    <div class="text-[10px] tracking-[3px] uppercase text-[#6eb3ff] mb-2.5">Stay connected</div>
+    <div class="text-[clamp(20px,2.4vw,27px)] text-[#eef4ff] leading-[1.25] mb-2" style="font-family: 'DM Serif Display', serif;">Follow our journey and what comes next.</div>
+    <div class="text-[14px] font-light text-[rgba(200,220,245,.6)] m-0">Follow us on LinkedIn for the latest updates and insights.</div>
+  </div>
+  <a href="https://www.linkedin.com/company/hyniva/" class="relative z-10 inline-block px-7 py-3.5 bg-[#1e6fff] text-white font-sans text-[14px] font-medium rounded-lg no-underline transition-all hover:bg-[#1a5fe0] hover:shadow-[0_0_28px_rgba(30,111,255,.4)] whitespace-nowrap">Connect on LinkedIn →</a>
+</div>`
+            }
         ]
     },
 };
