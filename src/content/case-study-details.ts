@@ -1351,37 +1351,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "solutions",
                 "title": "Key Solutions Delivered",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>Across five core solution areas, we delivered a complete digital transformation of the STOP program's operational infrastructure:</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "Legacy System Deconstruction & API-First Architecture",
-                            "desc": "Systematically reverse-engineered the MS Access database to extract business rules into scalable APIs, decoupling frontend and backend for long-term flexibility."
-                        },
-                        {
-                            "num": "2",
-                            "title": "UX Transformation with Modern Web Interface",
-                            "desc": "Replaced cluttered desktop screens with a clean, intuitive web experience designed for responsive multi-device accessibility."
-                        },
-                        {
-                            "num": "3",
-                            "title": "Advanced Participant Management System",
-                            "desc": "Digitized critical workflows with automated age validation and compliance checks, ensuring data consistency and accuracy."
-                        },
-                        {
-                            "num": "4",
-                            "title": "Transportation & Logistics Optimization",
-                            "desc": "Rebuilt the transportation module to handle complex scheduling, staff time tracking, and real-time visibility into field operations."
-                        },
-                        {
-                            "num": "5",
-                            "title": "Streamlined Incident Reporting",
-                            "desc": "Transformed dense reporting forms into efficient digital workflows with structured inputs, improving accuracy and completeness of critical data."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Across five core solution areas, we delivered a complete digital transformation of the STOP program's operational infrastructure:</p>\n        <div class=\"cs-section__body\" style=\"margin-top:28px;\">\n          <p><strong style=\"color:var(--text-dark); font-weight:600;\">1. Legacy System Deconstruction &amp; API-First Architecture</strong></p>\n          <p style=\"margin-top:8px;\">We systematically reverse-engineered the MS Access database to uncover hidden logic and dependencies.</p>\n        </div>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Extracted and restructured embedded business rules into scalable APIs</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Decoupled frontend and backend for flexibility and future integrations</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Built a secure, cloud-native foundation for long-term scalability</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n          <p><strong style=\"color:var(--text-dark); font-weight:600;\">2. UX Transformation with Modern Web Interface</strong></p>\n          <p style=\"margin-top:8px;\">We replaced cluttered, multi-tabbed desktop screens with a clean and intuitive web experience.</p>\n        </div>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Simplified complex workflows into logical, user-friendly components</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Designed responsive interfaces for multi-device accessibility</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved navigation and usability for high-frequency operational tasks</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n          <p><strong style=\"color:var(--text-dark); font-weight:600;\">3. Advanced Participant Management System</strong></p>\n          <p style=\"margin-top:8px;\">We digitized and enhanced critical participant workflows with strong validation and automation.</p>\n        </div>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Automated rules for age validation, SSN formatting, and compliance checks</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Centralized tracking of sensitive participant data and legal statuses</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Eliminated redundant workflows to ensure data consistency and accuracy</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n          <p><strong style=\"color:var(--text-dark); font-weight:600;\">4. Transportation &amp; Logistics Optimization</strong></p>\n          <p style=\"margin-top:8px;\">We rebuilt the transportation module to handle complex scheduling and cost calculations.</p>\n        </div>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Automated tracking of staff time, mileage, and fees</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Enabled real-time visibility into departure and arrival schedules</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved planning efficiency for field operations</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n          <p><strong style=\"color:var(--text-dark); font-weight:600;\">5. Streamlined Incident Reporting</strong></p>\n          <p style=\"margin-top:8px;\">We transformed dense reporting forms into efficient digital workflows.</p>\n        </div>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Simplified logging of incidents, law enforcement interactions, and case notes</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Enabled faster data entry with structured and guided inputs</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">&#10022;</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved accuracy and completeness of critical reporting data</div>\n            </div>\n          </div>\n        </div>"
             },
             {
                 "id": "impact",
@@ -1389,28 +1360,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "type": "impact-strip",
                 "content": {
                     "body": "<p>The transformation delivered immediate and measurable improvements across the healthcare program's operations.</p>",
-                    "items": [
-                        {
-                            "value": "100%",
-                            "label": "Digital Intake",
-                            "desc": "Full migration from legacy Access to cloud-native platform"
-                        },
-                        {
-                            "value": "Real-Time",
-                            "label": "Visibility",
-                            "desc": "Care teams access case data instantly from any location"
-                        },
-                        {
-                            "value": "50%",
-                            "label": "Faster Reports",
-                            "desc": "Reporting time halved through automated data consolidation"
-                        },
-                        {
-                            "value": "0",
-                            "label": "Manual Delay",
-                            "desc": "Eliminated manual tracking and paper dependencies"
-                        }
-                    ],
+                    "items": [],
                     "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Standardized Workflows &amp; Data Accuracy</strong> — Eliminated inconsistencies by enforcing a single, structured data entry process</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Anywhere Accessibility</strong> — Enabled real-time access for case managers across locations and devices</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Operational Efficiency</strong> — Reduced time spent navigating complex forms and manual processes</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Future-Ready Platform</strong> — Established a scalable architecture ready for enhancements and integrations</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Rapid Modernization</strong> — Delivered a complete transformation within an aggressive timeline without disrupting operations</div></div>\n      </div>"
                 }
             },

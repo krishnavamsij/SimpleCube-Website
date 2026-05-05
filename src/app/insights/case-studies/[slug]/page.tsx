@@ -621,12 +621,21 @@ export default function CaseStudyDetailPage() {
                 .approach-list {
                     display: flex;
                     flex-direction: column;
-                    gap: 32px;
+                    gap: 12px;
                 }
                 .approach-item {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    align-items: center;
                     gap: 16px;
+                    background: #ffffff;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 12px;
+                    padding: 20px 24px;
+                    transition: all 0.2s ease;
+                }
+                .approach-item:hover {
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
                 }
                 .approach-item__header {
                     display: flex;
@@ -634,11 +643,8 @@ export default function CaseStudyDetailPage() {
                     gap: 16px;
                 }
                 .approach-item__num {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 8px;
-                    background: rgba(30,144,255,0.08);
-                    border: 1px solid rgba(30,144,255,0.15);
+                    width: 24px;
+                    height: 24px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -647,9 +653,12 @@ export default function CaseStudyDetailPage() {
                     color: #1e90ff;
                     flex-shrink: 0;
                 }
+                .approach-item__content {
+                    flex: 1;
+                }
                 .approach-item__title {
-                    font-size: 18px;
-                    font-weight: 600;
+                    font-size: 15px;
+                    font-weight: 500;
                     color: #111827;
                     line-height: 1.4;
                 }
@@ -722,6 +731,36 @@ export default function CaseStudyDetailPage() {
                     line-height: 1.5;
                 }
                 .tech-bullet strong {
+                    color: #111827;
+                    font-weight: 600;
+                }
+
+                /* ── Outcome List Styling ── */
+                .outcome-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-top: 16px;
+                }
+                .outcome-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                }
+                .outcome-item__dot {
+                    width: 8px;
+                    height: 8px;
+                    background: #1e90ff;
+                    border-radius: 50%;
+                    flex-shrink: 0;
+                    margin-top: 6px;
+                }
+                .outcome-item div:last-child {
+                    font-size: 14px;
+                    color: #374151;
+                    line-height: 1.5;
+                }
+                .outcome-item strong {
                     color: #111827;
                     font-weight: 600;
                 }
