@@ -775,3 +775,60 @@ html {
 .vc_tta-panel.vc_active .vc_tta-icon {
   color: white;
 }
+
+/* ─── Premium Feature Cards ─── */
+.feature-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+}
+.feature-card {
+    background: white;
+    border: 1px solid #eef2f6;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.feature-card:hover {
+    border-color: #1e90ff33;
+    box-shadow: 0 8px 24px rgba(30,144,255,0.08);
+    transform: translateX(4px);
+}
+.feature-card__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1e90ff; /* Hyniva Blue */
+    flex-shrink: 0;
+    margin-top: 10px;
+    opacity: 0.6;
+}
+.feature-card__content strong {
+    display: block;
+    font-size: 16px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+.feature-card__content p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+}
+/* ─── Mini CTA (LinkedIn) ─── */
+.cta-mini {
+    background: #f8fafc;
+    border-left: 4px solid #1e90ff;
+    padding: 20px 24px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 40px;
+}
+.cta-mini p {
+    margin-bottom: 0 !important;
+    font-size: 15px;
+}
