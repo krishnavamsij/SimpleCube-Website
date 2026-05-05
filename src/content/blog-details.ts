@@ -1798,31 +1798,31 @@ The organizations that prepare today will lead tomorrow.</p>`
                 content: `<p>Salesforce's most recent updates span AI, data unification, workflow automation, and personalized marketing. Each innovation builds on the last — creating a platform that is smarter, faster, and more connected than any previous generation of CRM.</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>AI + Data + CRM: The Einstein 1 Platform</strong>
-            <p>The Einstein 1 Platform integrates generative AI and real-time data to deliver personalized, predictive, and actionable insights. It anticipates customer needs, predicts buying behavior, and offers intelligent recommendations — and it grows smarter with every interaction.</p>
+            <p>The Einstein 1 Platform integrates generative AI and real-time data to deliver personalized, predictive, and actionable insights. It anticipates customer needs, predicts buying behavior, and offers intelligent recommendations — and it grows smarter with every interaction. Businesses can now make faster decisions with the confidence that their CRM is always aligned with the latest customer intelligence.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Data Cloud Enhancements: A Unified Customer View</strong>
-            <p>Salesforce's upgraded Data Cloud combines customer data from every touchpoint — email, social media, in-store, and more — into a single, centralized hub. This unified view enables precision segmentation, more targeted campaigns, and a holistic understanding of each customer.</p>
+            <p>Salesforce's upgraded Data Cloud combines customer data from every touchpoint — email, social media, in-store, and more — into a single, centralized hub. This unified view enables precision segmentation, more targeted campaigns, and a holistic understanding of each customer. The result is sharper business decisions and deeper, more consistent customer relationships.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Flow Automation Boost: Smarter, More Efficient Operations</strong>
-            <p>Salesforce's expanded Flow Automation tools bring low-code solutions to complex workflows — empowering teams to automate processes without needing a dedicated developer. From escalating customer issues to streamlining lead qualification, automation eliminates manual effort.</p>
+            <p>Salesforce's expanded Flow Automation tools bring low-code solutions to complex workflows — empowering sales, marketing, and service teams to automate processes without needing a dedicated developer. From escalating customer issues to streamlining lead qualification, automation eliminates manual effort and frees teams to focus on strategy and customer engagement.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Personalization at Scale: Supercharge Your Marketing</strong>
-            <p>Salesforce's enhanced Marketing Cloud enables hyper-personalized campaigns across every channel — email, social media, dynamic web content, and more. By leveraging customer data and behaviors, businesses can deliver experiences that feel individual at any volume.</p>
+            <p>Salesforce's enhanced Marketing Cloud enables hyper-personalized campaigns across every channel — email, social media, dynamic web content, and more. By leveraging customer data, preferences, and behaviors, businesses can deliver experiences that feel individual at any volume. Personalization at this scale drives brand loyalty, deepens relationships, and directly accelerates revenue growth.</p>
         </div>
     </div>
 </div>`
@@ -1846,15 +1846,7 @@ The organizations that prepare today will lead tomorrow.</p>`
                 content: `<p>At Hyniva, we understand how transformative these innovations can be for businesses of all sizes. From implementing new Salesforce features to optimizing existing environments, we are dedicated to helping our clients harness the full potential of Salesforce's latest advancements.</p>
 <p>Our team of experts works with you to integrate the right tools, ensure they align with your business goals, and deliver measurable results from day one — whether you're starting fresh or building on an existing Salesforce investment.</p>
 <p>The future of CRM is already here.<br>
-With Salesforce and Hyniva, your organization is ready for it.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to unlock the latest Salesforce innovations?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates and insights.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+With Salesforce and Hyniva, your organization is ready for it.</p>`
             }
         ]
     },
@@ -1878,28 +1870,28 @@ With Salesforce and Hyniva, your organization is ready for it.</p>
                 content: `<p>Salesforce FSC is tailored for wealth management, retail banking, insurance, and broader financial services — combining Salesforce's CRM capabilities with deep, industry-specific functionality. When deployed and optimized correctly, it delivers four core advantages:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Client Experience</strong>
             <p>A 360-degree view of every client enables tailored communication and stronger, longer-lasting relationships.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Data-Driven Insights</strong>
             <p>AI-powered analytics surface deeper client intelligence, improving the quality of financial advice and service delivery.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Operational Efficiency</strong>
             <p>Automation reduces manual tasks, boosts productivity, and improves collaboration across departments and functions.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Scalability</strong>
             <p>Cloud-based architecture and seamless third-party integration ensure the platform grows alongside your institution.</p>
@@ -1925,42 +1917,42 @@ With Salesforce and Hyniva, your organization is ready for it.</p>
                 content: `<p>Starting your FSC optimization journey may seem complex — but with the right approach, it is a clear and measurable process. Hyniva guides financial institutions through each stage with structured expertise:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Comprehensive Needs Assessment</strong>
             <p>We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Optimization Strategy and Roadmap</strong>
             <p>With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure measurable progress.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Leverage AI and Automation</strong>
             <p>We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Tailor Client Engagement Processes</strong>
             <p>We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">5</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Continuous Monitoring and Improvement</strong>
             <p>Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">6</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Training and Change Management</strong>
             <p>A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</p>
@@ -2151,42 +2143,42 @@ The institutions that prepare their platforms today will define what it looks li
                 title: "Key Advantages of a Tailored AWS Strategy",
                 content: `<div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Seamless Cloud Migration</strong>
             <p>We craft migration strategies that minimize downtime and maintain robust security, helping you achieve up to a 25% reduction in migration time compared to traditional methods.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Enhanced Data Management</strong>
             <p>Using Amazon S3, RDS, RedShift, and Glue, we enable efficient data processing that can lead to 35% faster data retrieval and 20% lower storage costs.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Robust GRC Frameworks</strong>
             <p>Our Governance, Risk, and Compliance services use AWS tools for real-time monitoring and risk mitigation, ensuring up to 30% faster compliance reporting.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Streamlined DevOps & CI/CD</strong>
             <p>We implement automated pipelines that enable 50% faster software delivery, significantly enhancing collaboration and scalability across your engineering teams.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">5</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Comprehensive Managed Services</strong>
             <p>Hyniva provides 24/7 monitoring, routine maintenance, and proactive issue resolution, often reducing operational overhead by up to 40%.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">6</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Scalable Infrastructure Design</strong>
             <p>Our AWS-certified experts design cost-effective architectures that ensure 100% availability during peak demand while saving up to 30% in infrastructure costs.</p>
@@ -2230,28 +2222,28 @@ The institutions that prepare their platforms today will define what it looks li
                 content: `<p>Efficient back-office operations — covering finance, HR, inventory, and analytics — are crucial for business survival. Many organizations struggle with legacy infrastructure that introduces significant risk:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Operational Inefficiency</strong>
             <p>Legacy systems often require extensive manual processes, leading to slower operations and increased potential for human error.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Limited Integration</strong>
             <p>Older systems struggle to integrate with modern platforms, resulting in data silos and a fragmented view of operations.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>High Maintenance Costs</strong>
             <p>Maintaining outdated tech is costly in both resources and time, diverting attention from strategic growth initiatives.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Structural Inflexibility</strong>
             <p>Legacy infrastructure lacks the agility to adapt to changing needs, making it difficult for organizations to scale or pivot.</p>
@@ -2375,28 +2367,28 @@ The institutions that prepare their platforms today will define what it looks li
                 content: `<p>Hyniva recognizes the transformative potential of Customer 360 in delivering personalized solutions, particularly in financial services:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot">1</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Tailored Customer Experiences</strong>
             <p>We create personalized marketing strategies, such as unique mortgage rate offers based on a customer's financial history and current market conditions.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">2</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Data-Driven Decision Making</strong>
             <p>Banks can analyze transaction data to uncover spending patterns, enabling them to adjust credit card rewards programs to better align with customer preferences.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">3</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Proactive Engagement</strong>
             <p>Predictive analytics can identify customers at risk of overdrawing accounts, allowing the bank to proactively offer protection options before issues escalate.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot">4</div>
+        <div class="feature-card__dot"></div>
         <div class="feature-card__content">
             <strong>Scalable Growth</strong>
             <p>Customer 360 supports rapid expansion, seamlessly integrating new branches or digital services into existing unified profiles for a cohesive experience.</p>
