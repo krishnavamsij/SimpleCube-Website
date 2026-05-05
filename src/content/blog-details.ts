@@ -15,170 +15,83 @@ export interface BlogDetail {
 }
 
 export const blogDetails: Record<string, BlogDetail> = {
-    "intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future": {
-        title: "Prepare Your Salesforce Platform for an Agent-Led Future.",
-        subtitle: "Adopting Agentforce Demands Structural Alignment",
+        "intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future": {
+        title: "Intelligence Needs Infrastructure: Prepare Your Salesforce Platform for an Agent-Led Future",
+        subtitle: "",
         date: "Feb 19, 2026",
         author: "Hyniva",
         tag: "Salesforce",
-        heroImage: "/images/Blogs/Optimized/blog-1.png",
+        heroImage: "",
         sections: [
             {
                 id: "adopting-agentforce-demands-structural-a",
                 title: "Adopting Agentforce Demands Structural Alignment",
                 content: `<p>Agentforce introduces a new model of intelligent automation on Salesforce. But for most enterprises, adopting Agentforce is not a feature activation.</p>
-
-
-
 <p>It is a foundation decision.</p>
-
-
-
 <p>Agentforce can only deliver value when the existing Salesforce ecosystem is architected to support agent-driven execution. Without structural alignment, even the most advanced automation layer struggles to scale.</p>`
             },
             {
                 id: "the-reality-legacy-salesforce-was-not-bu",
                 title: "The Reality: Legacy Salesforce Was Not Built for Agentforce",
                 content: `<p>Most organizations operate mature Salesforce environments built over years of customization and business evolution.</p>
-
-
-
-<p>These ecosystems include custom Apex, complex Flows, embedded workflows, tailored data models, and reusable components. They power mission-critical processes â but they were not designed for an autonomous, agent-orchestrated model.</p>
-
-
-
+<p>These ecosystems include custom Apex, complex Flows, embedded workflows, tailored data models, and reusable components. They power mission-critical processes — but they were not designed for an autonomous, agent-orchestrated model.</p>
 <p>When Agentforce is introduced into such environments, friction emerges:</p>
-
-
-
 <ul>
-<li>Components are tightly coupled and difficult to orchestrate</li>
-
-
-
-<li>Automation logic lacks modular reusability</li>
-
-
-
-<li>Data models are not structured for intelligent execution</li>
-
-
-
-<li>Inconsistent design standards block scalable use cases</li>
+  <li>Components are tightly coupled and difficult to orchestrate</li>
+  <li>Automation logic lacks modular reusability</li>
+  <li>Data models are not structured for intelligent execution</li>
+  <li>Inconsistent design standards block scalable use cases</li>
 </ul>
-
-
-
-<p>The result is rework, delay, and rising implementation cost â slowing the very transformation Agentforce is meant to accelerate.</p>`
+<p>The result is rework, delay, and rising implementation cost — slowing the very transformation Agentforce is meant to accelerate.</p>`
             },
             {
                 id: "what-agentforce-readiness-really-means",
                 title: "What Agentforce Readiness Really Means",
-                content: `<p>Agentforce Readiness is not a rebuild initiative. It is a structured modernization sprint. The objective is simple â <strong>Ensure your current Salesforce investments work with Agentforce â not against it.</strong></p>
-
-
-
+                content: `<p>Agentforce Readiness is not a rebuild initiative. It is a structured modernization sprint. The objective is simple — ensure your current Salesforce investments work with Agentforce — not against it.</p>
 <p>Readiness aligns architecture, code structure, automation logic, and data design with Agentforce-supported patterns so intelligence can be layered without disruption.</p>
-
-
-
 <p>It transforms Salesforce from a workflow engine into an agent-ready execution platform.</p>`
             },
             {
                 id: "agentforce-readiness-what-hyniva-actuall",
                 title: "Agentforce Readiness: What Hyniva Actually Does",
-                content: `<p>Hyniva enables Agentforce adoption through focused architectural realignment and modernization â designed for enterprise and regulated environments.</p>
-
-
-
+                content: `<p>Hyniva enables Agentforce adoption through focused architectural realignment and modernization — designed for enterprise and regulated environments.</p>
 <p>We conduct a structured evaluation and transformation across your Salesforce foundation to ensure scalable, agent-driven execution.</p>
-
-
-
 <ul>
-<li>Assess architectural compliance against Agentforce-supported standards</li>
-
-
-
-<li>Refactor Apex and Flows into modular, reusable service layers</li>
-
-
-
-<li>Rationalize data models for clean orchestration and reasoning</li>
-
-
-
-<li>Standardize automation logic for scalability and governance</li>
-
-
-
-<li>Identify and remediate technical debt that blocks reuse</li>
-
-
-
-<li>Establish extensible design patterns for future Agentforce use cases</li>
+  <li>Assess architectural compliance against Agentforce-supported standards</li>
+  <li>Refactor Apex and Flows into modular, reusable service layers</li>
+  <li>Rationalize data models for clean orchestration and reasoning</li>
+  <li>Standardize automation logic for scalability and governance</li>
+  <li>Identify and remediate technical debt that blocks reuse</li>
+  <li>Establish extensible design patterns for future Agentforce use cases</li>
 </ul>
-
-
-
-<p>This is not about replacing your platform. It is about <strong>converting existing assets into Agentforce-compatible building blocks â preserving prior investments while enabling intelligence at scale.</strong></p>`
+<p>This is not about replacing your platform. It is about converting existing assets into Agentforce-compatible building blocks — preserving prior investments while enabling intelligence at scale.</p>`
             },
             {
                 id: "the-outcome-faster-cleaner-agentforce-ad",
                 title: "The Outcome: Faster, Cleaner Agentforce Adoption",
                 content: `<p>Once Agentforce Readiness is completed, organizations experience measurable acceleration:</p>
-
-
-
 <ul>
-<li>Agentforce-compatible components without large-scale rebuild</li>
-
-
-
-<li>Rapid activation of agent-driven use cases</li>
-
-
-
-<li>Reduced redevelopment effort</li>
-
-
-
-<li>Lower implementation risk</li>
-
-
-
-<li>Improved time-to-value</li>
+  <li>Agentforce-compatible components without large-scale rebuild</li>
+  <li>Rapid activation of agent-driven use cases</li>
+  <li>Reduced redevelopment effort</li>
+  <li>Lower implementation risk</li>
+  <li>Improved time-to-value</li>
 </ul>
-
-
-
-<p>Agentforce becomes an extension of your ecosystem â not a disruption to it.</p>`
+<p>Agentforce becomes an extension of your ecosystem — not a disruption to it.</p>`
             },
             {
                 id: "readiness-is-a-competitive-advantage",
                 title: "Readiness Is a Competitive Advantage",
-                content: `<p>Agentforce is not just another Salesforce enhancement.<br>It represents a structural shift toward AI-driven execution.</p>
-
-
-
-<p>Organizations that treat it as a plug-in will struggle.<br>Organizations that prepare their foundation will accelerate.</p>
-
-
-
+                content: `<p>Agentforce is not just another Salesforce enhancement.<br>
+It represents a structural shift toward AI-driven execution.</p>
+<p>Organizations that treat it as a plug-in will struggle.<br>
+Organizations that prepare their foundation will accelerate.</p>
 <p>Agentforce Readiness is what separates experimentation from enterprise-scale AI transformation.</p>
-
-
-
-<p>In a market where intelligent automation is redefining speed, efficiency, and customer experience, architectural alignment is no longer a technical concern â it is a competitive imperative.</p>
-
-
-
+<p>In a market where intelligent automation is redefining speed, efficiency, and customer experience, architectural alignment is no longer a technical concern — it is a competitive imperative.</p>
 <p>With Hyniva, enterprises can modernize their Salesforce foundation to support AI-driven orchestration, accelerate Agentforce adoption without disruption, and move in pace with competitors who are already embedding intelligence into their core operations.</p>
-
-
-
-<p>The future of Salesforce is agent-led.<br>The organizations that prepare today will lead tomorrow.</p>`
-            },
+<p>The future of Salesforce is agent-led.<br>
+The organizations that prepare today will lead tomorrow.</p>`
+            }
         ]
     },
     "why-financial-institutions-are-modernizing-salesforce-experience-cloud-with-lwr": {
