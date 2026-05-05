@@ -2233,8 +2233,37 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "text",
-                "content": "<p>A leading educational institution set out to build a multi-portal educational ecosystem serving Administrators, Students, and Parents — but the complexity quickly escalated.</p>\n        <p>The platform needed to manage highly regulated workflows like Special Education (SPED), enable real-time academic tracking, and support dynamic tutor scheduling — all while maintaining a consistent and intuitive user experience.</p>\n        <p>Key challenges included:</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">1</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Managing multi-role workflows with strict compliance and audit requirements</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">2</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Building a dynamic tutoring system with real-time scheduling and fallback logic</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">3</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Integrating external LMS platforms for live academic data visibility</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">4</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Preventing UI fragmentation without an established design framework</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">5</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Ensuring scalability and performance across rapidly expanding feature sets</div>\n            </div>\n          </div>\n        </div>"
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>A leading educational institution set out to build a multi-portal educational ecosystem serving Administrators, Students, and Parents — but the complexity quickly escalated.</p>\n        <p>The platform needed to manage highly regulated workflows like Special Education (SPED), enable real-time academic tracking, and support dynamic tutor scheduling — all while maintaining a consistent and intuitive user experience.</p>\n        <p>Key challenges included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Managing multi-role workflows with strict compliance and audit requirements",
+                            "desc": ""
+                        },
+                        {
+                            "num": "2",
+                            "title": "Building a dynamic tutoring system with real-time scheduling and fallback logic",
+                            "desc": ""
+                        },
+                        {
+                            "num": "3",
+                            "title": "Integrating external LMS platforms for live academic data visibility",
+                            "desc": ""
+                        },
+                        {
+                            "num": "4",
+                            "title": "Preventing UI fragmentation without an established design framework",
+                            "desc": ""
+                        },
+                        {
+                            "num": "5",
+                            "title": "Ensuring scalability and performance across rapidly expanding feature sets",
+                            "desc": ""
+                        }
+                    ]
+                }
             },
             {
                 "id": "approach",

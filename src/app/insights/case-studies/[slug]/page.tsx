@@ -450,9 +450,9 @@ export default function CaseStudyDetailPage() {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                     }}
-                                    className={`px-6 py-3 rounded-2xl text-sm font-bold font-sans transition-all duration-300 whitespace-nowrap border ${activeSection === section.id
-                                        ? "bg-[#1e90ff] text-white border-[#1e90ff] shadow-[0_0_20px_rgba(30,144,255,0.3)]"
-                                        : "bg-white border-[#1e90ff]/20 text-[#1e90ff] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
+                                    className={`px-4 py-1.5 rounded-full text-[12px] font-medium font-sans transition-all duration-200 whitespace-nowrap border ${activeSection === section.id
+                                        ? "bg-[#1e90ff] text-white border-[#1e90ff]"
+                                        : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
                                         }`}
                                 >
                                     {section.title || section.id}
