@@ -2620,89 +2620,41 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>An investment firm faced staggering annual costs and performance strain from their reliance on a legacy Alfresco document management system:</p>",
-                    "items": [
-                        {
-                            "icon": "💸",
-                            "title": "High Licensing",
-                            "text": "Staggering annual fees were putting immense strain on financial resources."
-                        },
-                        {
-                            "icon": "💾",
-                            "title": "Legacy Strain",
-                            "text": "Outdated tools hindered agility and large-scale document operations."
-                        },
-                        {
-                            "icon": "🔍",
-                            "title": "Query Lag",
-                            "text": "Difficulty in quickly searching and retrieving documents from an 8M+ repository."
-                        },
-                        {
-                            "icon": "📜",
-                            "title": "Compliance",
-                            "text": "Need to maintain SEC17a-4 compliance while migrating to a new system."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>A dynamic player in the investment management realm faced a daunting challenge. Their reliance on Alfresco as a document management tool incurred a staggering annual cost, putting immense strain on their financial resources. The need to transition from this costly solution was imperative, driving our client to seek a cost-effective, efficient alternative.</p>"
+            },
+            {
+                "id": "advantage",
+                "title": "Advantage of AWS Services",
+                "type": "text",
+                "content": "<p>With profound expertise in AWS services, Hyniva identified an opportunity to revolutionize our partner's document management. By harnessing AWS's capabilities, Hyniva conceived a solution that not only cataloged the investment management company's extensive document repository of over 8 million documents, but also substantially augmented the system's performance and responsiveness.</p>"
             },
             {
                 "id": "solution",
-                "title": "Hyniva's Solution",
+                "title": "Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva harnessed AWS's serverless capabilities to build a high-performance, compliant document management solution.</p>",
+                    "body": "<p>Hyniva crafted a tailored document management system on AWS:</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Amazon S3 Storage",
-                            "desc": "Deployed for secure, compliant storage of the 8 million+ document repository."
+                            "title": "Amazon S3",
+                            "desc": "A scalable storage service deployed to securely store the vast document volume while fulfilling SEC17a-4 compliance."
                         },
                         {
                             "num": "2",
                             "title": "AWS Lambda",
-                            "desc": "Used for serverless computing to ensure on-demand processing without server overhead."
+                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management."
                         },
                         {
                             "num": "3",
-                            "title": "DynamoDB Metadata",
-                            "desc": "Facilitated lightning-fast queries and metadata storage for the massive document set."
+                            "title": "DynamoDB",
+                            "desc": "A high-performance NoSQL database that facilitated lightning-fast queries and metadata storage."
                         },
                         {
                             "num": "4",
                             "title": "Amazon API Gateway",
-                            "desc": "Streamlined data exchange and system communication for a seamless digital experience."
-                        }
-                    ]
-                }
-            },
-            {
-                "id": "impact",
-                "title": "Business Impact",
-                "type": "impact-strip",
-                "content": {
-                    "body": "<p>The transformative solution redefined the user experience and eliminated exorbitant costs:</p>",
-                    "items": [
-                        {
-                            "value": "$0",
-                            "label": "Licensing",
-                            "desc": "Eliminated heavy annual fees through a pay-as-you-go serverless model."
-                        },
-                        {
-                            "value": "5×",
-                            "label": "Speed Gain",
-                            "desc": "Queries and API calls execute significantly faster than the legacy system."
-                        },
-                        {
-                            "value": "8M+",
-                            "label": "Docs Managed",
-                            "desc": "Extensive document repository is now easily accessible and instantly queried."
-                        },
-                        {
-                            "value": "✨",
-                            "label": "Experience",
-                            "desc": "Enhanced productivity through multiple filters and instant document availability."
+                            "desc": "Streamlined digital communication efforts within the system, ensuring seamless data exchange."
                         }
                     ]
                 }
@@ -2711,7 +2663,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>The impact was nothing short of transformative. The new document management system eliminated exorbitant annual licensing fees while redefining user experience — API calls and queries now execute 5× faster than the previous Alfresco system, with 8 million+ documents instantly accessible via multiple filters.</p>\n        <p>This achievement fortified the partnership between Hyniva and the client, setting an industry benchmark for cloud-native document innovation and illustrating how vision, technology, and expertise converge to redefine possibilities.</p>"
+                "content": "<p>The impact of Hyniva's solution was nothing short of transformative. The new document management system not only eliminated exorbitant annual fees but also redefined user experience. Post-launch, API calls and queries executed at a remarkable speed – 5 times faster than the previous Alfresco system. This radical improvement meant that documents, accessible via multiple filters, were not only easily queried but also instantly available, enhancing productivity and user satisfaction.</p><p>Our client's success became a testament to strategic technology adoption. By embracing AWS services, Hyniva not only saved the company millions but also catapulted their document management system into a new echelon of efficiency and speed. This achievement fortified the partnership between Hyniva and our client, setting an industry benchmark for innovation.</p><p>In the expansive canvas of digital transformation, this collaboration stands tall, illuminating how vision, technology, and expertise converge to craft solutions that redefine possibilities. It exemplifies how businesses can not only survive but thrive in the dynamic digital age, serving as a guiding light for the industry's future endeavors.</p>"
             }
         ]
     },
@@ -2750,98 +2702,26 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>A financial management firm struggled to meet high volumes of support requests with existing staff, causing customer frustration:</p>",
-                    "items": [
-                        {
-                            "icon": "📞",
-                            "title": "Call Volume",
-                            "text": "Unable to meet increasing support requests over phone and chat with existing staff."
-                        },
-                        {
-                            "icon": "⌛",
-                            "title": "High Wait Times",
-                            "text": "Long wait times led to growing frustration and a drop in customer satisfaction."
-                        },
-                        {
-                            "icon": "🔄",
-                            "title": "Repetitive Tasks",
-                            "text": "Core staff were bogged down by routine queries instead of focusing on complex cases."
-                        },
-                        {
-                            "icon": "🐌",
-                            "title": "Processing Lag",
-                            "text": "Support bottlenecks slowed down overall operations, including loan application processing."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>An organization with an ever increasing customer base that is unable to meet the large volumes of support requests over phone and chat with the existing desk staff. This has caused growing frustration among customers due to increased wait times for support calls.</p><p>The financial management company faced a common dilemma in the digital age: the need to provide timely and effective support to an ever-increasing customer base. To address this challenge, they turned to Hyniva, a trusted partner in the realm of AI-driven solutions.</p>"
             },
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>We implemented a chatbot powered by Natural Language Processing (NLP) to automate routine interactions within the customer portal.</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "NLP-Powered Chatbot",
-                            "desc": "Built with pre-trained capabilities to interpret and respond to queries in a human-like way."
-                        },
-                        {
-                            "num": "2",
-                            "title": "Machine Learning",
-                            "desc": "Enabled the chatbot to continually improve its performance and accuracy over time."
-                        },
-                        {
-                            "num": "3",
-                            "title": "24/7 Availability",
-                            "desc": "Provided instant support for common issues, reducing the volume of calls to agents."
-                        },
-                        {
-                            "num": "4",
-                            "title": "Workflow Integration",
-                            "desc": "Directly integrated into the customer portal to empower users during complex processes like loan applications."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Hyniva recognized that one of the most effective ways to streamline customer interactions and boost efficiency is through the use of chatbots powered by natural language processing (NLP). NLP enables machines to interpret and respond to human language, making it a game-changer in the realm of customer support. The majority of users were active in the customer portal that enabled them to raise support tickets or contact the business team.</p><p>The team set out to implement and enhance a chatbot experience with pre-built NLP capabilities. These capabilities enabled the chatbots to interpret real-time customer queries, provide relevant responses in an almost human-like way, and continually improve their performance through machine learning. This automated communication channel was able to take the extra workload off of the core business staff and allow them to focus on action items. By integrating an AI chatbot, we provided instant, 24/7 support for common inquiries and issues, reducing the volume of calls that needed to be handled by their call center team.</p><p>The time required for loan application processing was drastically reduced as customers were empowered with instant support for any general issues or questions they had during the loan application. The AI chatbot efficiently managed routine questions and transactions, allowing the back-office team to focus on more complex cases, ultimately enhancing overall customer satisfaction and operational efficiency.</p>"
             },
             {
-                "id": "impact",
-                "title": "Business Impact",
-                "type": "impact-strip",
-                "content": {
-                    "body": "<p>The AI-driven solution transformed the customer support sector for the firm:</p>",
-                    "items": [
-                        {
-                            "value": "24/7",
-                            "label": "Service",
-                            "desc": "Customers now receive instant, around-the-clock support for common inquiries."
-                        },
-                        {
-                            "value": "⚡",
-                            "label": "Processing",
-                            "desc": "Loan application processing time was drastically reduced via instant guidance."
-                        },
-                        {
-                            "value": "↓",
-                            "label": "Overhead",
-                            "desc": "Taking the extra workload off business staff allowed them to focus on complex cases."
-                        },
-                        {
-                            "value": "📈",
-                            "label": "Satisfaction",
-                            "desc": "Improved resolution speed led to higher overall operational efficiency."
-                        }
-                    ]
-                }
+                "id": "benefits",
+                "title": "Benefits Realized",
+                "type": "text",
+                "content": "<div class=\"benefits-image\">\n        <img src=\"/images/Case_Studies/Optimized/benefits.png\" alt=\"AI Chatbot Benefits Realized\"/>\n      </div>"
             },
             {
-                "id": "future",
+                "id": "conclusion",
                 "title": "Conclusion",
                 "type": "text",
-                "content": "<p>Hyniva's collaboration with this Fortune 500 financial management firm illustrates the transformative power of AI-driven solutions in customer service. As businesses seek to enhance customer experience in the digital age, AI and NLP-powered chatbots are becoming essential tools for scalable, always-on support.</p>\n        <p>This partnership serves as a testament to the potential of AI in revolutionizing how companies engage with their customers — driving increased satisfaction, operational efficiency, and long-term profitability.</p>"
+                "content": "<p>Hyniva's successful collaboration with the Fortune 500 company illustrates the transformative power of AI-driven solutions in the customer service sector. As businesses across the globe seek to enhance customer experience in the digital age, AI and NLP-powered chatbots are becoming essential tools.</p><p>This partnership serves as a testament to the potential of AI in revolutionizing the way companies engage with their customers, driving increased satisfaction, efficiency, and profitability.</p>"
             }
         ]
     }
