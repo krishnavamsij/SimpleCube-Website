@@ -16,7 +16,7 @@ export interface BlogDetail {
 }
 
 export const blogDetails: Record<string, BlogDetail> = {
-        "intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future": {
+    "intelligence-needs-infrastructure-prepare-your-salesforce-platform-for-an-agent-led-future": {
         title: "Intelligence Needs Infrastructure: Prepare Your Salesforce Platform for an Agent-Led Future",
         subtitle: "",
         date: "Feb 19, 2026",
@@ -1529,174 +1529,164 @@ The organizations that prepare today will lead tomorrow.</p>`
         ]
     },
     "overcoming-data-integration-challenges-with-salesforce-data-cloud": {
-        title: "Overcoming Data Integration Challenges with Salesforce Data Cloud",
-        subtitle: "",
+        title: "Solving Data Integration Challenges with Salesforce Data Cloud",
+        subtitle: "The Growing Data Integration Challenge",
         date: "Jan 7, 2025",
         author: "Hyniva",
         tag: "Salesforce",
         heroImage: "/images/Blogs/Optimized/blog-11.png",
         sections: [
             {
-                id: "data-is-the-backbone",
-                title: "Data Is the Backbone - But Integration Is the Bottleneck",
-                content: `<p>In the digital age, data is the backbone of business success. Companies today generate vast amounts of data from CRM systems, social media, IoT devices, and more. Yet managing and integrating this data into a unified, actionable system remains one of the most significant challenges organizations face.</p>
-<p>Disparate data silos, inconsistent data quality, and slow decision-making processes continue to hold businesses back. Salesforce Data Cloud is purpose-built to solve exactly these challenges.</p>`
+                id: "intro",
+                title: "Introduction",
+                content: `<p>In the digital age, data is the backbone of business success. Companies today are generating vast amounts of data from various sourcesâCRM systems, social media, IoT devices, and more. However, managing and integrating this data into a unified, actionable system remains a significant challenge. Disparate data silos, inconsistent data quality, and slow decision-making processes are just a few of the obstacleâs organizations face. This is where <strong>Salesforce Data Cloud</strong> comes in as the perfect solution for overcoming these data integration challenges.</p>`
             },
             {
                 id: "the-growing-data-integration-challenge",
                 title: "The Growing Data Integration Challenge",
-                content: `<p>As businesses grow, so does their data - and so does the complexity of managing it. The most common data integration obstacles organizations encounter today include:</p>
-<div class="feature-cards">
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Data Silos</strong>
-      <p>Different departments or systems store data independently, making it difficult to get a complete view of customers and operations across the organization.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Inconsistent Data Quality</strong>
-      <p>Inaccurate, outdated, or incomplete data leads to poor business decisions, missed opportunities, and eroded customer trust.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Lack of Real-Time Insights</strong>
-      <p>In a fast-moving business environment, waiting for batch processing causes delays that cost competitive advantage.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Scalability Constraints</strong>
-      <p>As organizations expand, data volume and complexity grow - and traditional systems often cannot keep pace.</p>
-    </div>
-  </div>
-</div>
-<p>These are not edge cases. They are structural challenges that affect most enterprises operating at scale - and they demand a structural solution.</p>`
+                content: `<p>As businesses grow, so does their data. However, many companies struggle with integrating data from various sources into one cohesive system. The common data integration challenges include:&nbsp;</p>
+
+
+
+<ul>
+<li><strong>Data Silos</strong>: Different departments or systems often store data independently, making it difficult for businesses to get a complete view of operations and customers.&nbsp;</li>
+</ul>
+
+
+
+<ul>
+<li><strong>Inconsistent Data Quality</strong>: Inaccurate, outdated, or incomplete data can lead to poor business decisions and missed opportunities.&nbsp;</li>
+</ul>
+
+
+
+<ul>
+<li><strong>Lack of Real-Time Insights</strong>: In a fast-moving business environment, waiting for batch processing can cause delays in decision-making.&nbsp;</li>
+</ul>
+
+
+
+<ul>
+<li><strong>Scalability Issues</strong>: As organizations expand, the volume and complexity of data grows, and traditional systems may struggle to keep up.&nbsp;</li>
+</ul>
+
+
+
+<p>Salesforce Data Cloud is designed to solve these common challenges and more, making it a perfect solution for businesses seeking seamless data integration.&nbsp;</p>`
             },
             {
                 id: "what-is-salesforce-data-cloud",
                 title: "What is Salesforce Data Cloud?",
-                content: `<p>Salesforce Data Cloud is a comprehensive data platform that connects disparate data sources into a unified environment. It centralizes customer and business data, makes it accessible in real time, and maintains data quality and compliance - providing organizations with a single source of truth for better decisions and enhanced customer experiences.</p>
-<p>The platform is built around four core capabilities:</p>
-<div class="feature-cards">
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Unified Data Integration</strong>
-      <p>Pull data from CRM, ERP, marketing platforms, and third-party applications into a single, real-time environment - eliminating silos at the source.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Real-Time Analytics</strong>
-      <p>Analyze data as it arrives, enabling organizations to respond immediately to changes in customer behavior, market conditions, or operational performance.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Scalable and Flexible Architecture</strong>
-      <p>Built to handle large and growing data volumes, the platform scales alongside the business without requiring disruptive infrastructure overhauls.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Data Quality and Governance</strong>
-      <p>Built-in tools monitor accuracy and consistency, while simplifying compliance with regulations such as GDPR and CCPA.</p>
-    </div>
-  </div>
-</div>`
+                content: `<p>Salesforce Data Cloud (formerly known as Customer 360) is a comprehensive data platform that connects disparate data sources into a unified environment. It centralizes customer and business data, making it accessible in real-time, while maintaining data quality and compliance. The platform provides businesses with a single source of truth, enabling better decision-making and enhanced customer experiences.&nbsp;</p>
+
+
+
+<p>Key features of Salesforce Data Cloud include:&nbsp;</p>
+
+
+
+<ol start="1">
+<li><strong>Unified Data Integration</strong>: Salesforce Data Cloud enables businesses to pull data from multiple systemsâCRM, ERP, marketing platforms, and third-party applicationsâinto a single location, offering a comprehensive, real-time view of customer and business information.&nbsp;&nbsp;&nbsp;</li>
+</ol>
+
+
+
+<ol start="2">
+<li><strong>Real-Time Analytics</strong>: With the platformâs advanced analytics capabilities, companies can analyze data in real time, helping them respond quickly to changes in customer behavior, market conditions, or business performance.&nbsp;</li>
+</ol>
+
+
+
+<ol start="3">
+<li><strong>Scalable and Flexible</strong>: As organizations scale, Salesforce Data Cloud grows with them. The platform is built to handle large data volumes, ensuring that businesses can continue to operate efficiently as their data needs evolve.&nbsp;</li>
+</ol>
+
+
+
+<ol start="4">
+<li><strong>Data Quality and Governance</strong>: Salesforce Data Cloud emphasizes data integrity, offering tools to monitor and ensure the accuracy and consistency of data. It also simplifies data governance, helping businesses comply with regulations like GDPR and CCPA.&nbsp;</li>
+</ol>`
             },
             {
-                id: "hynivas-role",
-                title: "Hyniva's Role in Maximizing Salesforce Data Cloud",
-                content: `<p>Hyniva helps businesses unlock the full potential of Salesforce Data Cloud through tailored solutions that integrate, manage, and optimize data - aligned with each organization's specific architecture, industry, and scale.</p>
-<div class="feature-cards">
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Customized Data Integration</strong>
-      <p>Hyniva designs integration strategies that connect legacy systems, third-party applications, and cloud services with Salesforce Data Cloud - ensuring a smooth transition and uninterrupted data flow.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Real-Time Insights Enablement</strong>
-      <p>Hyniva configures real-time data processing environments so businesses can access up-to-the-moment information for faster, more confident decisions - particularly in retail, finance, and healthcare.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Unified Customer View</strong>
-      <p>By integrating data across departments, Hyniva enables a 360-degree view of every customer - enhancing personalized marketing, service delivery, and sales execution.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Data Quality Management</strong>
-      <p>Leveraging Salesforce Data Cloud's governance tools, Hyniva ensures businesses maintain accurate, consistent data they can actually rely on.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Scalable Architecture</strong>
-      <p>Hyniva designs Data Cloud architectures built to grow - supporting global expansion, new market entry, and increasing data complexity without performance degradation.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Compliance and Data Governance</strong>
-      <p>Hyniva implements best practices for regulatory compliance, ensuring sensitive information is protected and governance standards are met across the organization.</p>
-    </div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card__dot"></div>
-    <div class="feature-card__content">
-      <strong>Training and Ongoing Support</strong>
-      <p>Hyniva provides comprehensive training and post-deployment support so teams can use Salesforce Data Cloud effectively from day one and resolve issues rapidly.</p>
-    </div>
-  </div>
-</div>`
+                id: "hynivas-role-in-maximizing-the-value-of",
+                title: "Hynivaâs Role in Maximizing the Value of Salesforce Data Cloud",
+                content: `<p>Hyniva helps businesses unlock the full potential of Salesforce Data Cloud through tailored solutions that integrate, manage, and optimize data. By aligning with Salesforceâs core features, Hyniva ensures businesses gain maximum value from the platform.&nbsp;</p>
+
+
+
+<ol start="1">
+<li><strong>Customized Data Integration</strong>: Hyniva designs integration strategies to connect legacy systems, third-party apps, and cloud services with Salesforce Data Cloud, ensuring a smooth transition and seamless data flow.&nbsp;</li>
+</ol>
+
+
+
+<ol start="2">
+<li><strong>Real-Time Insights</strong>: With real-time data processing, Hyniva helps businesses access up-to-date information for faster, data-driven decisions, particularly valuable in industries like retail, finance, and healthcare.&nbsp;</li>
+</ol>
+
+
+
+<ol start="3">
+<li><strong>Unified Customer View</strong>: Hyniva enables businesses to create a 360-degree view of their customers by integrating data across departments, enhancing personalized marketing, customer service, and sales strategies.&nbsp;</li>
+</ol>
+
+
+
+<ol start="4">
+<li><strong>Data Quality Management</strong>: Leveraging Salesforce Data Cloudâs tools, Hyniva ensures businesses maintain accurate, consistent data, helping them rely on high-quality information for decision-making.&nbsp;</li>
+</ol>
+
+
+
+<ol start="5">
+<li><strong>Scalable Solutions</strong>: Hyniva assists businesses in scaling their Salesforce Data Cloud architecture to manage growing data volumes and complexity, supporting global expansion or new market entry.&nbsp;</li>
+</ol>
+
+
+
+<ol start="6">
+<li><strong>Data Governance</strong>: Hyniva implements best practices for data governance, ensuring compliance with regulations while safeguarding sensitive information.&nbsp;</li>
+</ol>
+
+
+
+<ol start="7">
+<li><strong>Faster Decisions &amp; Improved Efficiency</strong>: Real-time analytics empower businesses to make quicker, more informed decisions. By centralizing data, Hyniva enhances operational efficiency, reducing manual data handling and improving processes. <strong>Companies have reported a 30% increase in operational efficiency</strong> after leveraging real-time analytics with Salesforce Data Cloud.&nbsp;</li>
+</ol>
+
+
+
+<ol start="8">
+<li><strong>Cost-Effective Scalability</strong>: Salesforce Data Cloudâs cloud infrastructure allows businesses to scale without large capital investments in hardware, with Hyniva ensuring seamless growth. <strong>On average, businesses experience a 20% reduction in IT infrastructure costs</strong> by moving to the cloud.&nbsp;</li>
+</ol>
+
+
+
+<ol start="9">
+<li><strong>Training &amp; Support</strong>: Hyniva provides training and ongoing support, ensuring businesses can effectively use Salesforce Data Cloud and resolve technical issues quickly.&nbsp;</li>
+</ol>`
             },
             {
-                id: "measurable-outcomes",
-                title: "Measurable Outcomes for Data-Driven Organizations",
-                content: `<p>The impact of a well-implemented Salesforce Data Cloud strategy is concrete and measurable. Organizations partnering with Hyniva have reported significant improvements across operations, efficiency, and cost structure.</p>
-<div class="stats">
-  <div class="stat-card">
-    <div class="stat-card__number">50%</div>
-    <div class="stat-card__label">Increase in data integration speed</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-card__number">30%</div>
-    <div class="stat-card__label">Improvement in operational efficiency via real-time analytics</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-card__number">20%</div>
-    <div class="stat-card__label">Reduction in IT infrastructure costs by moving to the cloud</div>
-  </div>
-</div>`
+                id: "conclusion",
+                title: "Conclusion",
+                content: `<p><a href="https://www.staging15.hyniva.com/salesforce/">Salesforce</a> Data Cloud is a game-changer for businesses struggling with data integration challenges. By unifying disparate data sources, providing real-time analytics, and ensuring data quality, it helps organizations become more agile and data driven. With Hynivaâs expertise in cloud integration and data management, businesses can leverage Salesforce Data Cloud to streamline operations, improve customer experiences, and drive better outcomes.&nbsp;</p>
+
+
+
+<p>By partnering with Hyniva, companies can ensure they get the most out of Salesforce Data Cloud, navigating the complexities of data integration and transformation with ease. <strong>Businesses working with Hyniva have seen up to a 50% increase in data integration speed</strong> and improved decision-making capabilities.&nbsp;</p>
+
+
+
+<p>With this powerful solution, businesses are well-equipped to meet the demands of a data-driven world and stay ahead of the competition.&nbsp;</p>
+
+
+
+<p>Follow us on <strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong> for the latest updates.</p>
+
+
+
+<p>#Hyniva #SalesforceDataCloud #DataIntegration #RealTimeAnalytics #DataManagement #DataGovernance #CloudSolutions #BusinessIntelligence #Customer360 #DataDriven #Scalability #DigitalTransformation #Innovation #BusinessGrowth #TechSolutions &nbsp;</p>`
             },
-            {
-                id: "competitive-advantage",
-                title: "From Data Complexity to Competitive Advantage",
-                content: `<p>Salesforce Data Cloud is a fundamental shift in how organizations relate to their data. By unifying disparate sources, enabling real-time analytics, and enforcing data quality, it transforms businesses into agile, data-driven operations capable of responding faster than their competitors.</p>
-<p>With Hyniva's expertise in cloud integration and data management, organizations can navigate the complexity of data transformation without disruption - and emerge with a platform that continuously delivers value as their needs evolve.</p>
-<p>The businesses that will lead in a data-driven world are not necessarily those with the most data.<br>
-They are the ones who can integrate it, trust it, and act on it - faster than anyone else.</p>`
-            }
         ]
     },
     "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
@@ -2958,8 +2948,8 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         ]
     },
     "perpetually-in-motion-the-digital-factory": {
-        title: "Perpetually in Motion — The Digital Factory",
-        subtitle: "Key Differentiators",
+        title: "Perpetually in Motion –<br/><span class=\"text-[#63c2ff] italic\">The Digital Factory.</span>",
+        subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
         tag: "Technology",
@@ -2967,49 +2957,79 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         sections: [
             {
                 id: "intro",
-                title: "Introduction",
-                content: `<p>Up till a few years ago, the Software Development Life Cycle (SDLC) was based on a few models, but the most prominent one was the âWaterfallâ model. The traditional Waterfall model is a pre-defined linear set of phases that are executed sequentially. Given the rigid nature of the Waterfall model it provides zero room for any identification of early issues or visibility of the overall product status for business stakeholders. Documentation was a by-product of the entire process that provided little to no intrinsic value. Although this traditional SDLC model has succeeded for many years, there was always a craving for a more cost effective, collaborative and efficient methodology in the market.&nbsp;</p>
-
-
-
-<p>Conversely, the traditional factory model, whether itâs manufacturing screws, processing materials, or even managing manual work processes, constant scrutiny and adjustment of various parameters are essential. These adjustments are made to align with the ever-evolving market demands. They are value-driven changes that aim to make the end product superior, more competitive, and ultimately meet the increasing expectations of end consumers.&nbsp;</p>
-
-
-
-<p>At <a href="https://www.staging15.hyniva.com/">Hyniva</a>, we firmly believe that the principles that have long driven improvement and efficiency in over a century of traditional manufacturing can also be applied to the world of software. Hynivaâs Digital Factory is a living, breathing machine that leverages the Agile Development framework to create a powerful process that promotes agility, adaptability, and collaboration.&nbsp;</p>
-
-
-
-<img src="/images/Blogs/Content/perpetually-in-motion-the-digital-factory-1.png" alt="" class="w-full h-auto rounded-2xl my-8" />`
+                title: "",
+                content: `<p>Up until a few years ago, the Software Development Life Cycle (SDLC) was dominated by the Waterfall model — a pre-defined, linear set of phases executed sequentially. Given its rigid nature, the Waterfall model provided zero room for early issue identification or stakeholder visibility. Documentation was a byproduct of the entire process that delivered little intrinsic value. Although this model succeeded for many years, there was always a craving for something more cost-effective, collaborative, and efficient.</p>
+<p>Conversely, the traditional factory model — whether manufacturing screws, processing materials, or managing manual workflows — has always required constant scrutiny and adjustment of parameters to align with ever-evolving market demands. These are value-driven changes that make the end product superior, more competitive, and better suited to meet the expectations of end consumers.</p>
+<p>At Hyniva, we firmly believe that the principles driving improvement and efficiency across a century of traditional manufacturing can also be applied to the world of software. Hyniva's Digital Factory is a living, breathing machine that leverages the Agile Development framework to create a powerful process promoting agility, adaptability, and collaboration.</p>`
+            },
+            {
+                id: "two-models",
+                title: "Two Models, One Evolution",
+                content: `<div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="border border-[#e4e8f0] rounded-xl px-[22px] py-6 bg-[#f7f8fc]">
+    <div class="text-[10px] tracking-[2.5px] uppercase font-semibold mb-2.5 text-[#8492a6]">Traditional</div>
+    <div class="text-[17px] mb-2.5 text-[#0a0f1e]" style="font-family: 'DM Serif Display', serif;">The Waterfall Model</div>
+    <div class="text-[14.5px] font-light leading-[1.75] text-[#4a5568] m-0">A rigid, sequential process with no room for early issue detection, limited stakeholder visibility, and documentation that added minimal value to the final product.</div>
+  </div>
+  <div class="rounded-xl px-[22px] py-6 bg-[#0a0f1e] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+    <div class="relative z-10 text-[10px] tracking-[2.5px] uppercase font-semibold mb-2.5 text-[#6eb3ff]">Hyniva's Approach</div>
+    <div class="relative z-10 text-[17px] mb-2.5 text-[#e8f0ff]" style="font-family: 'DM Serif Display', serif;">The Digital Factory</div>
+    <div class="relative z-10 text-[14.5px] font-light leading-[1.75] text-[rgba(200,220,245,.65)] m-0">An Agile-driven, iterative system that continuously adapts — delivering visibility, early issue resolution, and genuine collaboration at every stage.</div>
+  </div>
+</div>`
             },
             {
                 id: "key-differentiators",
                 title: "Key Differentiators",
-                content: `<ul>
-<li><strong>Iterative, Incremental Delivery Cycle for Visibility:</strong> Unlike the old, rigid production methods, an Agile Digital Factory operates on an iterative and incremental delivery cycle. Each phase provides clear visibility into the progress of the project, allowing for early identification of any issues that may arise. This approach ensures that problems can be addressed promptly, leading to more efficient and error-free software development.<br></li>
+                content: `<p>Hyniva's Digital Factory is built on four foundational principles that set it apart from conventional software development approaches.</p>
+<div class="mt-8 flex flex-col gap-3.5">
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[rgba(30,111,255,.1)] flex items-center justify-center shrink-0">
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]"><path d="M7.5 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" stroke="#1e6fff" stroke-width="1.2"/><path d="M7.5 5v2.5l2 1.5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e] m-0">Iterative, Incremental Delivery Cycle for Visibility</div>
+    </div>
+    <div class="px-[22px] py-4 text-[15px] font-light text-[#4a5568] leading-[1.8] m-0">Unlike rigid legacy production methods, an Agile Digital Factory operates on an iterative and incremental delivery cycle. Each phase provides clear visibility into project progress, allowing for early identification of issues. This approach ensures problems can be addressed promptly — leading to more efficient and error-free software development.</div>
+  </div>
 
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[rgba(30,111,255,.1)] flex items-center justify-center shrink-0">
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]"><path d="M7.5 1.5l1.43 2.9 3.2.47-2.32 2.25.55 3.19L7.5 8.77 4.64 10.3l.55-3.19L2.87 4.87l3.2-.47L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e] m-0">Identify and Resolve Issues Early in the SDLC</div>
+    </div>
+    <div class="px-[22px] py-4 text-[15px] font-light text-[#4a5568] leading-[1.8] m-0">The Agile Digital Factory actively promotes early issue detection and resolution during each sprint or phase of the project. Catching problems early saves time and resources, and ensures a higher quality end product — before issues compound later in the cycle.</div>
+  </div>
 
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[rgba(30,111,255,.1)] flex items-center justify-center shrink-0">
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]"><circle cx="7.5" cy="5" r="2.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M2.5 13c0-2.485 2.239-5 5-5s5 2.515 5 5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e] m-0">Actively Engage Business Stakeholders</div>
+    </div>
+    <div class="px-[22px] py-4 text-[15px] font-light text-[#4a5568] leading-[1.8] m-0">Agile methodologies emphasize collaboration and close engagement with business stakeholders throughout the entire process. This interaction ensures that the software being developed aligns perfectly with the business's needs, goals, and evolving priorities — not just at the end, but at every step.</div>
+  </div>
 
-<li><strong>Identify and Resolve Issues Early in the SDLC:</strong> The Software Development Life Cycle, or SDLC in short encompasses all stages of software creation. The Agile Digital Factory actively promotes early issue detection and resolution during each sprint or phase of the project, thus ensuring you can save time, resources, and ensure a higher quality end product.&nbsp;<br></li>
-
-
-
-<li><strong>Actively Engage Business Stakeholders:</strong> Agile methodologies emphasize collaboration and close engagement with business stakeholders. This interaction ensures that the software being developed aligns perfectly with the businessâs needs and goals.&nbsp;<br></li>
-
-
-
-<li><strong>Eliminate the Need for Extensive Documentation:</strong> In traditional software development, extensive documentation is often required to manage complex processes. In contrast, the Agile Digital Factory streamlines this by focusing on delivering working software over comprehensive documentation. While documentation remains important, it is kept to a minimum, allowing teams to concentrate on producing functional, efficient software.</li>
-</ul>
-
-
-
-<p>Follow us on <strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong> for the latest updates.</p>`
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[rgba(30,111,255,.1)] flex items-center justify-center shrink-0">
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]"><rect x="2" y="2.5" width="11" height="10" rx="1.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M5 6h5M5 8.5h3" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e] m-0">Eliminate the Need for Extensive Documentation</div>
+    </div>
+    <div class="px-[22px] py-4 text-[15px] font-light text-[#4a5568] leading-[1.8] m-0">In traditional development, extensive documentation is often required just to manage complexity. The Agile Digital Factory streamlines this by focusing on delivering working software over comprehensive documentation. While documentation remains important, it is kept to a minimum — allowing teams to concentrate on producing functional, efficient software.</div>
+  </div>
+</div>`
             },
         ]
     },
     "hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce": {
-        title: "Hyniva Becomes a Proud Member of GSAC",
-        subtitle: "Overview",
+        title: "Hyniva is a Proud Member<br/>of <span class=\"text-[#63c2ff] italic\">GSAC.</span>",
+        subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
         tag: "Company",
@@ -3017,28 +3037,37 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         sections: [
             {
                 id: "content",
-                title: "Overview",
-                content: `<p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce, and we couldn't be more excited about the possibilities that lie ahead!&nbsp;<br><br>Being part of this esteemed Chamber is not just about membership; it's about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>
-
-
-
-<img src="/images/Blogs/Content/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce-1.png" alt="" class="w-full h-auto rounded-2xl my-8" />
-
-
-
-<p><br>A heartfelt thanks to the Greater San Antonio Chamber of Commerce for welcoming <a href="https://www.staging15.hyniva.com/">Hyniva</a> into this dynamic community. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the San Antonio business landscape.</p>
-
-
-
-<p>Looking forward to a bright future together!</p>
-
-
-
-<p>Follow us on <strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong> for the latest updates.</p>
-
-
-
-<p><br>#Hyniva #SanAntonioBusiness #ChamberOfCommerce #BusinessGrowth #CommunityEngagement #Networking #Innovation</p>`
+                title: "",
+                content: `<p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce — and we couldn't be more excited about the possibilities that lie ahead.</p>
+<p>Being part of this esteemed Chamber is not just about membership; it's about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>
+<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3.5">
+  <div class="border border-[#e4e8f0] rounded-xl py-6 px-5 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[rgba(30,111,255,.1)] flex items-center justify-center mx-auto mb-3.5">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M10 3a7 7 0 100 14A7 7 0 0010 3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="text-[14px] font-semibold text-[#0a0f1e] mb-1.5 m-0">Growth</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-[1.65] m-0">Joining a network that actively drives business growth and opens new doors for every member.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl py-6 px-5 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[rgba(30,111,255,.1)] flex items-center justify-center mx-auto mb-3.5">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M7 10c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M3.5 10a6.5 6.5 0 1013 0 6.5 6.5 0 00-13 0z" stroke="#1e6fff" stroke-width="1.3"/></svg>
+    </div>
+    <div class="text-[14px] font-semibold text-[#0a0f1e] mb-1.5 m-0">Collaboration</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-[1.65] m-0">Building lasting relationships with like-minded businesses dedicated to the San Antonio community.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl py-6 px-5 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[rgba(30,111,255,.1)] flex items-center justify-center mx-auto mb-3.5">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M10 2l2.4 4.8 5.3.77-3.85 3.75.91 5.3L10 14l-4.76 2.62.91-5.3L2.3 7.57l5.3-.77L10 2z" stroke="#1e6fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="text-[14px] font-semibold text-[#0a0f1e] mb-1.5 m-0">Prosperity</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-[1.65] m-0">Contributing to meaningful initiatives that create a stronger, more prosperous San Antonio for all.</div>
+  </div>
+</div>
+<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">A Heartfelt Thank You to GSAC</div>
+  <div class="relative z-10 text-[15.5px] font-light text-[rgba(200,220,245,.7)] leading-[1.8] max-w-[520px] mx-auto m-0">Thank you to the Greater San Antonio Chamber of Commerce for welcoming Hyniva into this dynamic community. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the San Antonio business landscape. Looking forward to a bright future together.</div>
+</div>`
             },
         ]
     },
@@ -3096,20 +3125,15 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
       <div class="text-[15px] font-light text-[#4a5568] leading-[1.75] m-0">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
     </div>
   </div>
-</div>
-<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
+</div>`
+            },
+            {
+                id: "thank-you",
+                title: "",
+                content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
   <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
-  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">Thank You, Hyniva Family</div>
-  <div class="relative z-10 text-[15.5px] font-light text-[rgba(200,220,245,.7)] leading-[1.8] max-w-[520px] mx-auto m-0">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
-</div>
-<div class="mt-16 bg-[#0a0f1e] rounded-2xl px-6 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 36px 36px;"></div>
-  <div class="relative z-10 text-left">
-    <div class="text-[10px] tracking-[3px] uppercase text-[#6eb3ff] mb-2.5">Stay connected</div>
-    <div class="text-[clamp(20px,2.4vw,27px)] text-[#eef4ff] leading-[1.25] mb-2" style="font-family: 'DM Serif Display', serif;">Follow our journey and what comes next.</div>
-    <div class="text-[14px] font-light text-[rgba(200,220,245,.6)] m-0">Follow us on LinkedIn for the latest updates and insights.</div>
-  </div>
-  <a href="https://www.linkedin.com/company/hyniva/" class="relative z-10 inline-block px-7 py-3.5 bg-[#1e6fff] text-white font-sans text-[14px] font-medium rounded-lg no-underline transition-all hover:bg-[#1a5fe0] hover:shadow-[0_0_28px_rgba(30,111,255,.4)] whitespace-nowrap">Connect on LinkedIn →</a>
+  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">Thank You, Hyniva Family!</div>
+  <div class="relative z-10 text-[15.5px] font-light text-[rgba(200,220,245,.7)] leading-[1.8] max-w-[520px] mx-auto m-0">Becoming a “Great Place to Work” is not just a certification for us; it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
 </div>`
             }
         ]
