@@ -2687,7 +2687,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "generative-ai-why-its-a-game-changer": {
-        title: "Generative AI –<br/><span class=\"text-white italic\">Why It's a Game Changer.</span>",
+        title: "Generative AI — Why It's a <em>Game Changer.</em>",
         subtitle: "",
         date: "Mar 27, 2024",
         author: "Hyniva",
@@ -2696,89 +2696,87 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "",
-                content: `<p>Every industry has been proactively interested in Large Language Models (LLMs) and Generative AI in the past few years. GenAI has been receiving unprecedented levels of interest from global tech giants and the public alike in a remarkably short time span. Most organizations today are trying to optimize their processes, operations, and technology using AI capabilities — embarking on a new era of transformation and inquisitiveness.</p>
-<p>We'd like to share our insight on why GenAI could be the next step into the future — one that may disrupt existing jobs, but will generate tremendous growth for any organization that embraces it.</p>`
+                title: "A New Era of Transformation",
+                content: `<p>Every industry has been proactively exploring Large Language Models (LLM) and Generative AI. Tech giants and the public alike are seeing unprecedented levels of interest in these tools. Organizations are now leveraging AI capabilities to optimize processes, embark on digital transformations, and boost annual growth.</p>`
             },
             {
                 id: "what-is-genai",
-                title: "What Is GenAI?",
-                content: `<p>GenAI is a type of artificial intelligence capable of producing data objects such as text, pictures, and sound in response to user prompts or descriptions. GenAI models are trained to understand the patterns and structures of their training data and use that as a reference to generate outputs with similar characteristics. The most commonly discussed implementation is the use of Large Language Models (LLMs) — in the form of tools like ChatGPT and Gemini.</p>`
+                title: "What is GenAI?",
+                content: `<p>GenAI is a type of artificial intelligence capable of producing data objects—such as text, images, and sound—in response to user prompts. Trained on massive datasets, these models understand patterns to generate outputs with similar characteristics, with common implementations including ChatGPT and Gemini.</p>`
             },
             {
-                id: "applications-of-genai",
+                id: "applications",
                 title: "Applications of GenAI",
-                content: `<p>AI has the potential to reinvent roles across any enterprise — imagine humans working with AI co-pilots that eradicate human errors and dramatically augment the results people achieve. Here is how GenAI will impact core areas:</p>
-<div class="mt-8 flex flex-col gap-3">
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">1</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Coding and Development</div>
+                content: `<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Coding and Development</strong>
+            <p>GenAI can "widgetize" blocks of code, transform languages, and suggest methodology to improve efficiency and coding practices, significantly boosting developer productivity.</p>
+        </div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">GenAI has already started to "widgetize" blocks of code for consumption. It can transform code from language to language, correct errors based on input and context, and suggest methodology to improve efficiency and coding practices. While it is still far from replacing entry-level programmers, it will meaningfully boost developer productivity.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">2</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Security</div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Security and Monitoring</strong>
+            <p>AI bots analyze large datasets to identify fraudulent or suspicious activity in real-time, monitoring network activity and prioritizing critical anomalies faster than humanly possible.</p>
+        </div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">AI can monitor network activity, prioritize issues, and fix anomalies in ways that outpace human capacity. Compared to manual review, AI bots can analyze large sets of data to identify fraudulent or suspicious activity in a fraction of the time — providing a critical layer of protection for organizations.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">3</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Creative Construction</div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Healthcare Innovation</strong>
+            <p>GenAI helps identify new drug combinations and precision medicine by creating or reinventing molecular structures, accelerating what has traditionally been a tedious process.</p>
+        </div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">GenAI creates new thoughts, algorithms, and structures by smartly combining existing but unrelated objects. We see this in music composition — where algorithms can blend melodies or compose entire pieces based on simple instructions — and in many other creative domains where it serves as a powerful generative tool.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">4</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Healthcare</div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Creative Construction</strong>
+            <p>By effectively combining existing but unrelated objects, GenAI assists in music composition, structural design, and new algorithmic developments through smart synthesis.</p>
+        </div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Human biology represents an enormous dataset — medical procedures, specialist knowledge, research, disease developments, and thousands of chemical compounds. GenAI can help identify new drug combinations and precision medicines by creating or reinventing molecular structures, transforming what is today a tedious process of trial and error into something far more efficient.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">5</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Creating New Jobs</div>
-    </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">GenAI is a powerful tool — but it still requires human effort to build, maintain, and govern. New disciplines are already emerging, from AI engineering to AI in architecture. Courses have been added to both online and university curricula, creating new career pathways alongside the technology itself.</div>
-  </div>
 </div>`
             },
             {
-                id: "the-potential-impact-of-genai-on-jobs",
-                title: "The Potential Impact of GenAI on Jobs",
-                content: `<p>With the ability to generate a wide range of content almost instantaneously, the tech industry has raised legitimate concerns about job disruption. GenAI can already create text, code, images, videos, and audio when given sufficiently clear prompts. Here is where the impact is most visible:</p>
-<div class="mt-7 flex flex-col gap-3.5">
-  <div class="flex gap-4 items-start bg-[#f7f8fc] border border-[#e4e8f0] rounded-xl p-5">
-    <div class="w-1 rounded bg-[#1e6fff] self-stretch min-h-[36px] shrink-0"></div>
-    <div>
-      <div class="text-[14.5px] font-semibold text-[#0a0f1e] mb-1">Automation of Repetitive Tasks</div>
-      <div class="text-[15px] font-light text-[#4a5568] m-0 leading-[1.75]">Certain aspects of customer service, manufacturing, data entry, and transportation include a significant number of repetitive tasks that can be automated — boosting overall productivity and delivering greater value to clients in a shorter timespan.</div>
+                id: "job-impact",
+                title: "Impact on the Future of Work",
+                content: `<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Automation of Repetitive Tasks</strong>
+            <p>Repetitive tasks in customer service, data entry, and manufacturing can be automated to increase value delivery in shorter timespans.</p>
+        </div>
     </div>
-  </div>
-  <div class="flex gap-4 items-start bg-[#f7f8fc] border border-[#e4e8f0] rounded-xl p-5">
-    <div class="w-1 rounded bg-[#1e6fff] self-stretch min-h-[36px] shrink-0"></div>
-    <div>
-      <div class="text-[14.5px] font-semibold text-[#0a0f1e] mb-1">Complex Problem Analysis</div>
-      <div class="text-[15px] font-light text-[#4a5568] m-0 leading-[1.75]">Mathematical and scientific problems of high complexity — which may require significant effort from human experts — could potentially be addressed with greater speed and precision through AI-assisted analysis.</div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Complex Problem Analysis</strong>
+            <p>Highly complex mathematical and scientific problems can be addressed with AI assistance, augmenting human capabilities for breakthrough results.</p>
+        </div>
     </div>
-  </div>
-  <div class="flex gap-4 items-start bg-[#f7f8fc] border border-[#e4e8f0] rounded-xl p-5">
-    <div class="w-1 rounded bg-[#1e6fff] self-stretch min-h-[36px] shrink-0"></div>
-    <div>
-      <div class="text-[14.5px] font-semibold text-[#0a0f1e] mb-1">Creation of Creative Content</div>
-      <div class="text-[15px] font-light text-[#4a5568] m-0 leading-[1.75]">Filmmaking, music, and video game development could all see faster time-to-market, reduced production timelines, and lower costs — fundamentally reshaping how creative industries operate.</div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>New Job Creation</strong>
+            <p>While some roles shift, new skills in AI engineering and architecture are emerging, requiring human effort to build, maintain, and regulate these systems.</p>
+        </div>
     </div>
-  </div>
-</div>
-<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
-  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">With the right regulations, AI can become a powerful tool that will assist humans rather than replace them. GenAI is here to stay — and adapting its technology will help us further optimize existing processes, create better digital experiences, and make revolutionary discoveries.</div>
-</div>
-<p class="mt-10">Overall, AI will be nothing short of transformative for the world — with a huge positive impact on productivity and human creativity. The possibilities seem endless. GenAI is here to stay, and those who adapt earliest will be best positioned to lead what comes next.</p>`
+</div>`
+            },
+            {
+                id: "conclusion",
+                title: "The Future is Collaborative",
+                content: `<p>Overall, AI will be transformative, having a huge positive impact on productivity and human creativity. Adapting to this technology will help us optimize processes and create revolutionary digital experiences.</p>
+<div class="cta-banner">
+    <div class="cta-banner__content">
+        <span class="cta-banner__kicker">Embrace AI</span>
+        <h3 class="cta-banner__title">Ready to explore the power of GenAI?</h3>
+        <p class="cta-banner__desc">Follow us on LinkedIn for the latest insights on Generative AI and how it's shaping the future of business.</p>
+    </div>
+    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
+</div>`
             },
         ]
     },
