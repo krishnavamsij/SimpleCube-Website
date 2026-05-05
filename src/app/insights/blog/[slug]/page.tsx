@@ -9,6 +9,7 @@ import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
+import { CaseStudyPopup } from "@/components/case-study-popup";
 import Link from "next/link";
 
 export default function BlogDetailPage() {
@@ -148,6 +149,7 @@ export default function BlogDetailPage() {
 
 
             <Footer />
+            <CaseStudyPopup />
         </div>
     );
 }

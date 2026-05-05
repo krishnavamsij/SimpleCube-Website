@@ -6,6 +6,7 @@ import { caseStudyDetails, CaseStudyMetric, CaseStudySection } from "@/content/c
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import { CaseStudyPopup } from "@/components/case-study-popup";
 
 import {
     Zap,
@@ -518,6 +519,7 @@ export default function CaseStudyDetailPage() {
             </main>
 
             <Footer />
+            <CaseStudyPopup />
 
             <style jsx global>{`
                 @keyframes shimmerSweep {

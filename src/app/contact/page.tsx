@@ -6,9 +6,47 @@ import { contactContent } from "@/content/contact";
 import { motion } from "framer-motion";
 import React from "react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { Mail, Phone, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, MapPin, Send, Check } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactPage() {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            await fetch("https://formsubmit.co/ajax/d060496e42eb4e0c8ea1f70e4b9e4ff5", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: `Corporate Inquiry: ${data.name} via Hyniva Contact`,
+                    "Inquiry Overview": "This user is interested to know more about Hyniva",
+                    "Contact Name": data.name,
+                    "Organization": data.organization,
+                    "Email Address": data.email,
+                    "Phone": data.phone || "Not Provided",
+                    "Industry": data.industry,
+                    "Message": data.message,
+                    "_template": "table"
+                })
+            });
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error("Form submission error", error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B]">
             <Navbar />
@@ -162,65 +200,85 @@ export default function ContactPage() {
                                             {contactContent.form.title}
                                         </h3>
                                         <p className="text-[15px] font-medium text-slate-500 leading-relaxed">
-                                            Fill in the form below and we&apos;ll get in touch with you — no obligations.
+                                            {isSubmitted ? "Your message has been sent successfully. We'll get back to you soon!" : "Fill in the form below and we'll get in touch with you — no obligations."}
                                         </p>
                                     </div>
                                     
-                                    <form className="space-y-8">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
-                                                <input type="text" placeholder="Jane Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                    {isSubmitted ? (
+                                        <div className="flex flex-col items-center justify-center py-20 text-center">
+                                            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-6">
+                                                <Check className="w-10 h-10" />
                                             </div>
-                                            <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
-                                                <input type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                            <h4 className="text-2xl font-bold text-[#030B3B] mb-2">Message Sent!</h4>
+                                            <p className="text-slate-500 mb-8">Thank you for reaching out. We usually respond within 24 hours.</p>
+                                            <button 
+                                                onClick={() => setIsSubmitted(false)}
+                                                className="text-[#2563EB] font-bold hover:underline"
+                                            >
+                                                Send another message
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <form onSubmit={handleSubmit} className="space-y-8">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                                <div className="flex flex-col gap-2.5">
+                                                    <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
+                                                    <input required name="name" type="text" placeholder="Jane Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                </div>
+                                                <div className="flex flex-col gap-2.5">
+                                                    <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
+                                                    <input required name="organization" type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                            <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Email *</label>
-                                                <input type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                                <div className="flex flex-col gap-2.5">
+                                                    <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Email *</label>
+                                                    <input required name="email" type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                </div>
+                                                <div className="flex flex-col gap-2.5">
+                                                    <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
+                                                    <input name="phone" type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                </div>
                                             </div>
+
                                             <div className="flex flex-col gap-2.5">
-                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
-                                                <input type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
+                                                <select name="industry" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all appearance-none cursor-pointer">
+                                                    <option value="">Select your industry</option>
+                                                    <option>Financial Services</option>
+                                                    <option>Healthcare & Life Sciences</option>
+                                                    <option>Logistics, Transportation & Supply Chain</option>
+                                                    <option>Insurance</option>
+                                                    <option>Education</option>
+                                                    <option>Retail & Consumer Goods</option>
+                                                    <option>Manufacturing & Industrial</option>
+                                                    <option>Media & Telecommunications</option>
+                                                    <option>Energy & Utilities</option>
+                                                    <option>Real Estate & Construction</option>
+                                                    <option>Travel, Hospitality & Leisure</option>
+                                                    <option>Professional & Business Services</option>
+                                                    <option>Agriculture & Food Production</option>
+                                                    <option>Public Sector & Government</option>
+                                                    <option>Others</option>
+                                                </select>
                                             </div>
-                                        </div>
 
-                                        <div className="flex flex-col gap-2.5">
-                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
-                                            <select className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all appearance-none cursor-pointer">
-                                                <option className="text-slate-400">Select your industry</option>
-                                                <option>Financial Services</option>
-                                                <option>Healthcare & Life Sciences</option>
-                                                <option>Logistics, Transportation & Supply Chain</option>
-                                                <option>Insurance</option>
-                                                <option>Education</option>
-                                                <option>Retail & Consumer Goods</option>
-                                                <option>Manufacturing & Industrial</option>
-                                                <option>Media & Telecommunications</option>
-                                                <option>Energy & Utilities</option>
-                                                <option>Real Estate & Construction</option>
-                                                <option>Travel, Hospitality & Leisure</option>
-                                                <option>Professional & Business Services</option>
-                                                <option>Agriculture & Food Production</option>
-                                                <option>Public Sector & Government</option>
-                                                <option>Others</option>
-                                            </select>
-                                        </div>
+                                            <div className="flex flex-col gap-2.5">
+                                                <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? *</label>
+                                                <textarea required name="message" rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
+                                            </div>
 
-                                        <div className="flex flex-col gap-2.5">
-                                            <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? *</label>
-                                            <textarea rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
-                                        </div>
-
-                                        <button className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)]">
-                                            {contactContent.form.submitButton}
-                                            <Send className="w-5 h-5" />
-                                        </button>
-                                    </form>
+                                            <button 
+                                                disabled={isSubmitting}
+                                                type="submit" 
+                                                className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+                                            >
+                                                {isSubmitting ? "Sending..." : contactContent.form.submitButton}
+                                                {!isSubmitting && <Send className="w-5 h-5" />}
+                                            </button>
+                                        </form>
+                                    )}
                                 </motion.div>
                             </div>
                         </div>
