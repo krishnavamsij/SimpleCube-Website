@@ -110,7 +110,7 @@ export const blogContent = {
             href: "/insights/blog/the-future-of-cloud-computing-aws-trends",
         },
         {
-            title: "Benefits of a Tailored AWS Infrastructure: How Hyniva Can Help",
+            title: "Benefits of a Tailored AWS Infrastructure. How Hyniva Can Help",
             date: "Nov 15, 2024",
             tag: "AWS",
             image: "/images/Blogs/Optimized/blog-16.png",

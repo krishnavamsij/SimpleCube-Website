@@ -353,40 +353,92 @@ export default function BlogDetailPage() {
                     transform: translateY(-2px);
                 }
                 .stats {
+                    margin-top: 36px;
+                    background: #0a0f1e;
+                    border-radius: 14px;
+                    padding: 36px 32px;
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    gap: 16px;
-                    margin: 32px 0;
+                    gap: 20px;
+                    position: relative;
+                    overflow: hidden;
                 }
-                .stat-card {
-                    background: #f8fafc;
-                    border: 1px solid #e2e8f0;
-                    border-radius: 12px;
-                    padding: 24px;
+                .stats::before {
+                    content: '';
+                    position: absolute; inset: 0;
+                    background-image: 
+                        linear-gradient(rgba(30,144,255,0.07) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(30,144,255,0.07) 1px, transparent 1px);
+                    background-size: 28px 28px;
+                }
+                .stat {
+                    position: relative; z-index: 1;
                     text-align: center;
-                    transition: all 0.3s ease;
                 }
-                .stat-card:hover {
-                    background: white;
-                    border-color: #1e90ff;
-                    box-shadow: 0 10px 30px -10px rgba(30,144,255,0.2);
-                    transform: translateY(-2px);
-                }
-                .stat-card__number {
+                .stat__value {
                     font-family: 'DM Serif Display', serif;
-                    font-size: 36px;
-                    color: #1e90ff;
+                    font-size: clamp(26px, 3.5vw, 38px);
+                    color: #63c2ff;
                     line-height: 1;
                     margin-bottom: 8px;
                 }
-                .stat-card__label {
-                    font-family: var(--font-display), sans-serif;
-                    font-size: 11px;
-                    font-weight: 700;
-                    color: #64748b;
-                    line-height: 1.4;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
+                .stat__label {
+                    font-size: 13px;
+                    font-weight: 300;
+                    color: rgba(200,220,245,.65);
+                    line-height: 1.5;
+                }
+                /* ─── BENEFIT CARDS ─── */
+                .benefits {
+                    margin-top: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .benefit-card {
+                    border: 1px solid #eef2f6;
+                    border-radius: 14px;
+                    overflow: hidden;
+                }
+                .benefit-card__header {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                    padding: 18px 22px;
+                    background: #f7f8fc;
+                    border-bottom: 1px solid #eef2f6;
+                }
+                .benefit-card__icon {
+                    width: 34px; height: 34px;
+                    border-radius: 9px;
+                    background: rgba(30,144,255,.1);
+                    display: flex; align-items: center; justify-content: center;
+                    flex-shrink: 0;
+                }
+                .benefit-card__icon svg { width: 16px; height: 16px; }
+                .benefit-card__title {
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #0a0f1e;
+                    flex: 1;
+                }
+                .benefit-card__metric {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #1e6fff;
+                    background: rgba(30,144,255,.08);
+                    border: 1px solid rgba(30,144,255,.18);
+                    border-radius: 100px;
+                    padding: 4px 12px;
+                    white-space: nowrap;
+                    flex-shrink: 0;
+                }
+                .benefit-card__body {
+                    padding: 18px 22px;
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: #4a5568;
+                    line-height: 1.8;
                 }
                 .pullquote {
                     margin: 40px 0;
@@ -402,6 +454,91 @@ export default function BlogDetailPage() {
                     color: #030b3b;
                     font-style: italic;
                 }
+                /* ─── STRATEGY CARDS ─── */
+                .strategies {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    margin-top: 28px;
+                }
+                .strategy-card {
+                    display: flex;
+                    gap: 20px;
+                    align-items: flex-start;
+                    background: #f7f8fc;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    padding: 22px 24px;
+                }
+                .strategy-card__tag {
+                    background: #0a0f1e;
+                    color: #63c2ff;
+                    font-size: 10px;
+                    font-weight: 500;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    border-radius: 6px;
+                    padding: 5px 10px;
+                    flex-shrink: 0;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                }
+                .strategy-card__body {
+                    flex: 1;
+                }
+                .strategy-card__title {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #0a0f1e;
+                    margin-bottom: 5px;
+                }
+                .strategy-card__desc {
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: #4a5568;
+                    line-height: 1.7;
+                }
+                /* ─── PROBLEMS GRID ─── */
+                .problems {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                    margin-top: 28px;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
+                .problem-row {
+                    display: grid;
+                    grid-template-columns: 44px 1fr;
+                    border-bottom: 1px solid #eef2f6;
+                }
+                .problem-row:last-child { border-bottom: none; }
+                .problem-row:nth-child(even) { background: #f7f8fc; }
+                .problem-row__num {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    padding-top: 18px;
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 15px;
+                    color: #1e90ff;
+                }
+                .problem-row__body {
+                    padding: 16px 20px 16px 4px;
+                }
+                .problem-row__title {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #0a0f1e;
+                    margin-bottom: 3px;
+                }
+                .problem-row__desc {
+                    font-size: 14.5px;
+                    font-weight: 300;
+                    color: #4a5568;
+                    line-height: 1.65;
+                }
                 @media (max-width: 768px) {
                     .stats {
                         grid-template-columns: 1fr;
@@ -410,6 +547,20 @@ export default function BlogDetailPage() {
                         flex-direction: column;
                         padding: 32px;
                         text-align: center;
+                    }
+                    .strategy-card {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    .problem-row {
+                        grid-template-columns: 1fr;
+                    }
+                    .problem-row__num {
+                        padding-top: 16px;
+                        padding-left: 20px;
+                    }
+                    .problem-row__body {
+                        padding: 4px 20px 16px 20px;
                     }
                 }
             ` }} />

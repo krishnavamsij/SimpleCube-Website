@@ -1903,13 +1903,43 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 id: "future-proofing",
                 title: "How Optimization Future-Proofs Your Institution",
                 content: `<p>The financial services industry never stands still — and neither can your platform. Here is what a well-optimized Salesforce FSC environment enables your institution to do:</p>
-<ul>
-    <li><strong>Adapt to Market Changes:</strong> Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands.</li>
-    <li><strong>Enhance Client Retention and Acquisition:</strong> Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations.</li>
-    <li><strong>Improve Cross-Team Collaboration:</strong> A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling teams to work from shared client data.</li>
-    <li><strong>Stay Ahead of Technology Trends:</strong> Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</li>
-    <li><strong>Strengthen Security and Compliance:</strong> Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant.</li>
-</ul>`
+<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Adapt to Market Changes</strong>
+            <p>Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Enhance Client Retention and Acquisition</strong>
+            <p>Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Improve Cross-Team Collaboration</strong>
+            <p>A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling teams to work from shared client data.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Stay Ahead of Technology Trends</strong>
+            <p>Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Strengthen Security and Compliance</strong>
+            <p>Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant.</p>
+        </div>
+    </div>
+</div>`
             },
             {
                 id: "optimization-framework",
@@ -1966,15 +1996,7 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 content: `<p>Optimizing Salesforce Financial Services Cloud is not a technical exercise — it is a strategic imperative. Institutions that invest in FSC optimization will be better positioned to adapt, grow, and lead in a landscape defined by rapid change and rising client expectations.</p>
 <p>With Hyniva's expertise, the path from adoption to optimization is structured, supported, and built for measurable, long-term impact.</p>
 <p>The future of financial services is already unfolding.<br>
-The institutions that prepare their platforms today will define what it looks like tomorrow.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to start your Salesforce FSC optimization journey?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates and insights.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+The institutions that prepare their platforms today will define what it looks like tomorrow.</p>`
             },
         ]
     },
@@ -2006,11 +2028,11 @@ The institutions that prepare their platforms today will define what it looks li
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">Serverless computing is gaining momentum with AWS Lambda, allowing businesses to run applications without managing infrastructure. Developers focus solely on writing code while AWS handles scaling and resource allocation.</p>
+                <p class="trend-card__row-text">Serverless computing is gaining momentum with AWS Lambda, allowing businesses to run applications without managing infrastructure. Developers focus solely on writing code while AWS handles scaling and resource allocation — ideal for building highly scalable, cost-efficient applications.</p>
             </div>
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Role</span>
-                <p class="trend-card__row-text">Hyniva helps businesses adopt serverless solutions by implementing AWS Lambda to streamline development — reducing server management overhead and accelerating deployment.</p>
+                <p class="trend-card__row-text">Hyniva helps businesses adopt serverless solutions by implementing AWS Lambda and other serverless tools to streamline development — reducing the need for traditional server management, accelerating deployment, and enabling faster, more cost-effective innovation.</p>
             </div>
         </div>
     </div>
@@ -2025,11 +2047,11 @@ The institutions that prepare their platforms today will define what it looks li
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">AI and machine learning are essential for improving decision-making and automating processes. AWS offers a wide range of services — including Amazon SageMaker — that simplify model development.</p>
+                <p class="trend-card__row-text">AI and machine learning are quickly becoming essential for businesses looking to improve decision-making, automate processes, and personalize customer experiences. AWS offers a wide range of AI/ML services — including Amazon SageMaker and AWS Comprehend — that simplify the development and deployment of sophisticated models.</p>
             </div>
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Expertise</span>
-                <p class="trend-card__row-text">Hyniva leverages AWS's AI/ML capabilities to build data-driven applications. From predictive analytics to automation, we help integrate AI into core operations.</p>
+                <p class="trend-card__row-text">Hyniva leverages AWS's AI and ML capabilities to build powerful data-driven applications. From predictive analytics to automation, Hyniva helps businesses integrate AI into their operations — driving smarter decisions and enhancing operational efficiency.</p>
             </div>
         </div>
     </div>
@@ -2044,11 +2066,11 @@ The institutions that prepare their platforms today will define what it looks li
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">With the growth of IoT, edge computing is becoming critical. AWS IoT Greengrass allows data to be processed closer to the source, reducing latency and bandwidth costs.</p>
+                <p class="trend-card__row-text">With the growth of IoT devices and demand for real-time data, edge computing is becoming increasingly important. AWS IoT Greengrass and AWS Wavelength allow data to be processed closer to where it's generated — reducing latency and bandwidth costs.</p>
             </div>
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Approach</span>
-                <p class="trend-card__row-text">Hyniva helps businesses deploy edge solutions to process data in real-time — improving performance in IoT, transportation, and logistics.</p>
+                <p class="trend-card__row-text">Hyniva helps businesses deploy edge computing solutions using AWS tools to process data in real time — improving performance in areas like IoT, transportation, and logistics, enabling faster responses to customer needs and operational demands.</p>
             </div>
         </div>
     </div>
@@ -2058,16 +2080,16 @@ The institutions that prepare their platforms today will define what it looks li
             <div class="trend-card__icon">
                 <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M9 2l6 2.5v5C15 13.5 12.5 16 9 17c-3.5-1-6-3.5-6-7.5v-5L9 2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 9l1.5 1.5 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="trend-card__title">Cloud Security: Protecting Data</div>
+            <div class="trend-card__title">Cloud Security: Protecting Data in the Cloud</div>
         </div>
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">As operations move to the cloud, security is a top priority. AWS provides tools like AWS Shield and Amazon Macie to protect data and ensure compliance.</p>
+                <p class="trend-card__row-text">As businesses move more operations to the cloud, security has become a top priority. AWS provides comprehensive tools including AWS Shield, Amazon Macie, and AWS Identity and Access Management (IAM) to protect data and ensure compliance.</p>
             </div>
             <div class="trend-card__row">
-                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Focus</span>
-                <p class="trend-card__row-text">Hyniva helps businesses secure cloud environments through audits, monitoring, and implementation of security best practices.</p>
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Security Focus</span>
+                <p class="trend-card__row-text">Hyniva helps businesses secure their cloud environments using AWS's advanced security features. Through regular security audits, continuous monitoring, and implementation of best practices, Hyniva ensures clients are protected against cyber threats and meet industry compliance standards.</p>
             </div>
         </div>
     </div>
@@ -2082,11 +2104,11 @@ The institutions that prepare their platforms today will define what it looks li
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">AWS is committed to net-zero carbon by 2040 — transitioning data centers to renewable energy and increasing energy efficiency.</p>
+                <p class="trend-card__row-text">As the environmental impact of cloud computing grows as a concern, AWS is committed to becoming net-zero carbon by 2040 — transitioning data centers to renewable energy and increasing energy efficiency across its infrastructure.</p>
             </div>
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Commitment</span>
-                <p class="trend-card__row-text">Hyniva helps build sustainable cloud architectures by leveraging AWS's green technologies and optimizing workloads to reduce energy consumption.</p>
+                <p class="trend-card__row-text">Hyniva helps businesses build sustainable cloud architectures by leveraging AWS's green technologies. By optimizing cloud workloads, reducing energy consumption, and selecting renewable energy-powered AWS services, Hyniva helps businesses minimize their carbon footprint while achieving their objectives.</p>
             </div>
         </div>
     </div>
@@ -2096,16 +2118,16 @@ The institutions that prepare their platforms today will define what it looks li
             <div class="trend-card__icon">
                 <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M4 13.5C2.5 13 1.5 11.5 1.5 10a4 4 0 014-4h.5A5 5 0 0116 8a3.5 3.5 0 01-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M10 11l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
             </div>
-            <div class="trend-card__title">Cloud Migration: A Smooth Transition</div>
+            <div class="trend-card__title">Cloud Migration: A Smooth Transition to the Cloud</div>
         </div>
         <div class="trend-card__body">
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
-                <p class="trend-card__row-text">Migrating to the cloud is complex. AWS offers tools like Migration Hub to make the process smoother and more efficient.</p>
+                <p class="trend-card__row-text">Many businesses are in the process of migrating to the cloud, but the transition can be complex. AWS offers tools like AWS Migration Hub and AWS Server Migration Service to make the process smoother and more efficient.</p>
             </div>
             <div class="trend-card__row">
                 <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Expertise</span>
-                <p class="trend-card__row-text">Hyniva provides end-to-end migration services, ensuring businesses move to AWS with minimal disruption and maximum cost-effectiveness.</p>
+                <p class="trend-card__row-text">Hyniva provides end-to-end cloud migration services, ensuring businesses can move to AWS with minimal disruption. Whether migrating legacy systems or optimizing post-migration operations, Hyniva ensures a seamless and cost-effective transition to the cloud.</p>
             </div>
         </div>
     </div>
@@ -2120,7 +2142,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "benefits-of-tailored-aws-infrastructure-how-hyniva-can-help": {
-        title: "Benefits of a Tailored <em>AWS Infrastructure.</em>",
+        title: "Benefits of a Tailored <em>AWS Infrastructure. How Hyniva Can Help.</em>",
         subtitle: "",
         date: "Nov 15, 2024",
         author: "Hyniva",
@@ -2129,76 +2151,98 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Maximizing the Potential of AWS",
-                content: `<p>Navigating the complexities of cloud computing can be challenging, especially with the vast array of services offered by Amazon Web Services (AWS). At Hyniva, we are committed to simplifying this transition for businesses of all sizes.</p>
-<p>As a certified member of the Amazon Partner Network, we help you unlock the full potential of AWS, ensuring smoother migration, reduced costs, enhanced performance, and scalable solutions that drive growth. By leveraging a tailored AWS infrastructure, organizations typically experience:</p>
-<ul>
-    <li><strong>Up to 30%</strong> reduction in infrastructure costs through optimized resource allocation.</li>
-    <li><strong>50%</strong> faster time to market for new applications by streamlining DevOps processes.</li>
-    <li><strong>40%</strong> increase in operational efficiency with automation and intelligent data management.</li>
-</ul>`
+                title: "",
+                content: `<p>Navigating the complexities of cloud computing can be challenging, especially with the vast array of services offered by Amazon Web Services (AWS). At Hyniva, we understand these challenges and are committed to simplifying the transition to the cloud for businesses of all sizes.</p>
+<p>As a certified member of the Amazon Partner Network, we help you unlock the full potential of AWS — ensuring smoother migration, reduced costs, enhanced performance, and scalable solutions that drive growth.</p>`
             },
             {
                 id: "key-benefits",
-                title: "Key Advantages of a Tailored AWS Strategy",
-                content: `<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Seamless Cloud Migration</strong>
-            <p>We craft migration strategies that minimize downtime and maintain robust security, helping you achieve up to a 25% reduction in migration time compared to traditional methods.</p>
+                title: "Key Benefits of a Tailored AWS Infrastructure",
+                content: `<div class="benefits">
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5C2.5 12 1.5 10.5 1.5 9a4 4 0 014-4h.5A5 5 0 0115 7.5a3.5 3.5 0 01-3.5 3.5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/><path d="M9 10l2 2-2 2M11 12H7" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="benefit-card__title">Seamless Cloud Migration</div>
+          <div class="benefit-card__metric">25% faster migration</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Enhanced Data Management</strong>
-            <p>Using Amazon S3, RDS, RedShift, and Glue, we enable efficient data processing that can lead to 35% faster data retrieval and 20% lower storage costs.</p>
+        <div class="benefit-card__body">Migrating to the cloud should be a smooth, hassle-free experience. Hyniva assesses your current systems and crafts a migration strategy that minimizes downtime and maintains robust security — achieving up to 25% reduction in migration time compared to traditional methods, so you can quickly leverage the benefits of AWS.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="8" cy="5" rx="5" ry="2" stroke="#1e6fff" stroke-width="1.2"/><path d="M3 5v3c0 1.1 2.24 5 2s5-.9 5-2V5" stroke="#1e6fff" stroke-width="1.2"/><path d="M3 8v3c0 1.1 2.24 5 2s5-.9 5-2V8" stroke="#1e6fff" stroke-width="1.2"/></svg>
+          </div>
+          <div class="benefit-card__title">Enhanced Data Management</div>
+          <div class="benefit-card__metric">35% faster retrieval</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Robust GRC Frameworks</strong>
-            <p>Our Governance, Risk, and Compliance services use AWS tools for real-time monitoring and risk mitigation, ensuring up to 30% faster compliance reporting.</p>
+        <div class="benefit-card__body">We implement scalable and secure data storage solutions with Amazon S3 and RDS, using powerful tools like Amazon Redshift and Glue for efficient data processing. The result: up to 35% faster data retrieval and a 20% reduction in storage costs — ensuring your data is always accessible and optimized for performance.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2l5 2v4C13 11 10.5 14 8 15 5.5 14 3 11 3 8V4l5-2z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="benefit-card__title">Robust Governance, Risk, and Compliance</div>
+          <div class="benefit-card__metric">30% faster reporting</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Streamlined DevOps & CI/CD</strong>
-            <p>We implement automated pipelines that enable 50% faster software delivery, significantly enhancing collaboration and scalability across your engineering teams.</p>
+        <div class="benefit-card__body">Hyniva enhances your governance framework with AWS tools that enable real-time monitoring, streamlined processes, and risk mitigation. This ensures up to 30% faster compliance reporting and helps reduce the costs associated with non-compliance through proactive security management and audit-ready systems.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10l4-4 3 3 5-6" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="benefit-card__title">Streamlined DevOps & CI/CD</div>
+          <div class="benefit-card__metric">50% faster delivery</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Comprehensive Managed Services</strong>
-            <p>Hyniva provides 24/7 monitoring, routine maintenance, and proactive issue resolution, often reducing operational overhead by up to 40%.</p>
+        <div class="benefit-card__body">Hyniva implements Continuous Integration/Continuous Deployment (CI/CD) pipelines that streamline the software development lifecycle. By automating deployment, we enable 50% faster software delivery and significantly enhance team collaboration — allowing your business to scale quickly and stay ahead of competitors.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M5 7h6M5 9.5h4" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="benefit-card__title">Comprehensive Managed Services</div>
+          <div class="benefit-card__metric">40% less overhead</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Scalable Infrastructure Design</strong>
-            <p>Our AWS-certified experts design cost-effective architectures that ensure 100% availability during peak demand while saving up to 30% in infrastructure costs.</p>
+        <div class="benefit-card__body">Hyniva provides ongoing support including 24/7 monitoring of your AWS infrastructure, routine maintenance like patching and backups, and proactive issue resolution. This allows you to focus on innovation and growth while we keep your systems running smoothly — clients report up to 40% reduction in operational overhead.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 13V7l5-4 5 4v6" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/><rect x="6" y="9" width="4" height="4" rx=".5" stroke="#1e6fff" stroke-width="1.2"/></svg>
+          </div>
+          <div class="benefit-card__title">Scalable Infrastructure Design</div>
+          <div class="benefit-card__metric">30% cost savings</div>
         </div>
-    </div>
-</div>`
+        <div class="benefit-card__body">Hyniva's AWS-certified experts design scalable, cost-effective cloud architectures tailored to your specific needs. By optimizing your infrastructure for growth, we help businesses save up to 30% in infrastructure costs while ensuring 100% availability during peak demand periods.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__header">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12.5l2.5-4 2.5 2 2.5-3.5 3 5.5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="benefit-card__title">Optimized Application Performance</div>
+          <div class="benefit-card__metric">20% better uptime</div>
+        </div>
+        <div class="benefit-card__body">We analyze and optimize your applications, employing auto-scaling strategies to manage fluctuating workloads effectively. This ensures applications perform at peak levels — improving user satisfaction and reducing system failures, resulting in a 20% improvement in uptime and a 25% increase in end-user satisfaction.</div>
+      </div>
+
+    </div>`
             },
             {
                 id: "conclusion",
                 title: "Empowering Your Cloud Journey",
-                content: `<p>Hyniva is more than just a service provider — we are a strategic partner committed to your long-term success. Our AWS experts help you unlock the full potential of the cloud, enabling your business to scale quickly, reduce costs, and improve overall operational efficiency.</p>
-<p>Ready to take your business to the next level? By embracing a well-architected AWS infrastructure, you can transform your operations and stay ahead in the digital landscape.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to maximize your AWS investment?</h3>
-        <p class="cta-banner__desc">Contact us today to learn how we can help you achieve tangible, business-altering results.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+                content: `<p>At Hyniva, we are more than just a service provider — we are a strategic partner committed to helping you achieve long-term success. Our AWS experts will help you unlock the full potential of the cloud, enabling your business to scale quickly, reduce costs, and improve overall operational efficiency.</p>
+<p>Whether you're migrating to the cloud, optimizing infrastructure, or automating key business processes, we provide tailored solutions that deliver real value and measurable outcomes.</p>`
             },
         ]
     },
@@ -2212,103 +2256,170 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Efficiency in the Cloud",
-                content: `<p>In today's fast-paced digital landscape, businesses are increasingly turning to cloud solutions to enhance operational efficiency and agility. Amazon Web Services (AWS) stands out as a leader, offering a robust set of tools for full-stack development.</p>
-<p>One of the key challenges organizations face when leveraging AWS is optimizing infrastructure costs while maintaining powerful back-office capabilities. This blog explores strategies for cost optimization and how Hyniva plays a pivotal role in this transformation.</p>`
+                title: "Cloud Power, Controlled Cost",
+                content: `<p>Businesses are increasingly turning to cloud solutions to enhance operational efficiency and agility — and Amazon Web Services stands out as the leading platform for full-stack development. But leveraging AWS effectively means more than provisioning services. It means optimizing infrastructure costs while building the back-office capabilities that keep the business running.</p>
+<p>For most organizations, that balance is harder to strike than it looks.</p>`
             },
             {
-                id: "legacy-challenges",
-                title: "Overcoming Back-Office Inefficiency",
-                content: `<p>Efficient back-office operations — covering finance, HR, inventory, and analytics — are crucial for business survival. Many organizations struggle with legacy infrastructure that introduces significant risk:</p>
+                id: "back-office-importance",
+                title: "Why Back-Office Capabilities Matter",
+                content: `<p>Back-office capabilities — finance, HR, inventory management, data analytics — are the behind-the-scenes processes that support every core business function. When these systems are efficient, the entire organization benefits:</p>
 <div class="feature-cards">
     <div class="feature-card">
         <div class="feature-card__dot"></div>
         <div class="feature-card__content">
-            <strong>Operational Inefficiency</strong>
-            <p>Legacy systems often require extensive manual processes, leading to slower operations and increased potential for human error.</p>
+            <strong>Streamlined Processes</strong>
+            <p>Automation reduces manual effort and minimizes the errors that slow operations down.</p>
         </div>
     </div>
     <div class="feature-card">
         <div class="feature-card__dot"></div>
         <div class="feature-card__content">
-            <strong>Limited Integration</strong>
-            <p>Older systems struggle to integrate with modern platforms, resulting in data silos and a fragmented view of operations.</p>
+            <strong>Data-Driven Decisions</strong>
+            <p>Real-time analytics give decision-makers the information they need, when they need it.</p>
         </div>
     </div>
     <div class="feature-card">
         <div class="feature-card__dot"></div>
         <div class="feature-card__content">
-            <strong>High Maintenance Costs</strong>
-            <p>Maintaining outdated tech is costly in both resources and time, diverting attention from strategic growth initiatives.</p>
+            <strong>Scalability</strong>
+            <p>Robust back-office systems grow alongside the business — without requiring continuous re-engineering.</p>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Structural Inflexibility</strong>
-            <p>Legacy infrastructure lacks the agility to adapt to changing needs, making it difficult for organizations to scale or pivot.</p>
+</div>`
+            },
+            {
+                id: "legacy-problems",
+                title: "The Problem with Legacy Infrastructure",
+                content: `<p>Most organizations carry the weight of legacy systems that were never designed for today's demands. These systems create compounding challenges that erode efficiency and increase cost over time.</p>
+<div class="problems">
+    <div class="problem-row">
+        <div class="problem-row__num">1</div>
+        <div class="problem-row__body">
+            <div class="problem-row__title">Inefficiency</div>
+            <div class="problem-row__desc">Legacy systems require extensive manual processes, leading to slower operations and a higher risk of error at every step.</div>
+        </div>
+    </div>
+    <div class="problem-row">
+        <div class="problem-row__num">2</div>
+        <div class="problem-row__body">
+            <div class="problem-row__title">Limited Integration</div>
+            <div class="problem-row__desc">Older platforms struggle to connect with modern tools, creating data silos and a fragmented view of operations across the organization.</div>
+        </div>
+    </div>
+    <div class="problem-row">
+        <div class="problem-row__num">3</div>
+        <div class="problem-row__body">
+            <div class="problem-row__title">High Maintenance Costs</div>
+            <div class="problem-row__desc">Sustaining outdated technology consumes disproportionate resources and attention — diverting both from more strategic initiatives.</div>
+        </div>
+    </div>
+    <div class="problem-row">
+        <div class="problem-row__num">4</div>
+        <div class="problem-row__body">
+            <div class="problem-row__title">Inflexibility</div>
+            <div class="problem-row__desc">Legacy infrastructure cannot adapt quickly to changing business needs, making it difficult to scale, pivot, or respond to market shifts.</div>
+        </div>
+    </div>
+    <div class="problem-row">
+        <div class="problem-row__num">5</div>
+        <div class="problem-row__body">
+            <div class="problem-row__title">Data Limitations</div>
+            <div class="problem-row__desc">Restricted access to real-time data weakens decision-making and limits the business agility that modern competition demands.</div>
         </div>
     </div>
 </div>`
             },
             {
                 id: "optimization-strategies",
-                title: "Strategies for AWS Cost Optimization",
-                content: `<p>To harness the full potential of AWS while managing costs, organizations should implement several key strategies:</p>
-<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Service Selection</strong>
-            <p>Choosing exactly the right services — such as AWS Lambda for serverless execution — prevents overspending on idle resources.</p>
+                title: "Five Strategies for Optimizing AWS Infrastructure Costs",
+                content: `<p>Transitioning to AWS unlocks significant capability — but only organizations that actively manage their cloud spend realize the full return on that investment. These five strategies form the foundation of effective AWS cost optimization.</p>
+<div class="strategies">
+    <div class="strategy-card">
+        <div class="strategy-card__tag">Strategy 1</div>
+        <div class="strategy-card__body">
+            <div class="strategy-card__title">Choose the Right Services</div>
+            <div class="strategy-card__desc">Not every AWS service is necessary for every application. A targeted assessment of requirements — and selecting only what is needed — prevents overspending from the start. For example, AWS Lambda for serverless computing eliminates costs associated with idle server time entirely.</div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Cost Management Tools</strong>
-            <p>Utilizing AWS Cost Explorer and Budgets to monitor spending patterns and set alerts for budget thresholds.</p>
+    <div class="strategy-card">
+        <div class="strategy-card__tag">Strategy 2</div>
+        <div class="strategy-card__body">
+            <div class="strategy-card__title">Utilize Cost Management Tools</div>
+            <div class="strategy-card__desc">AWS Cost Explorer and AWS Budgets provide visibility into spending patterns and allow teams to set alerts before thresholds are breached. Regular reviews surface optimization opportunities that would otherwise go unnoticed.</div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Auto Scaling</strong>
-            <p>Automatically adjusting capacity based on real-time demand ensures you only pay for what you use during peak and off-peak hours.</p>
+    <div class="strategy-card">
+        <div class="strategy-card__tag">Strategy 3</div>
+        <div class="strategy-card__body">
+            <div class="strategy-card__title">Implement Auto Scaling</div>
+            <div class="strategy-card__desc">Auto Scaling automatically adjusts compute capacity based on real-time demand — ensuring organizations pay only for what they use and avoid unnecessary expenses during off-peak periods.</div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Reserved Instances</strong>
-            <p>For predictable workloads, committing to Savings Plans can significantly reduce costs compared to on-demand pricing.</p>
+    <div class="strategy-card">
+        <div class="strategy-card__tag">Strategy 4</div>
+        <div class="strategy-card__body">
+            <div class="strategy-card__title">Leverage Reserved Instances and Savings Plans</div>
+            <div class="strategy-card__desc">For predictable workloads, Reserved Instances and AWS Savings Plans offer substantial cost reductions compared to on-demand pricing. The upfront commitment yields meaningful long-term savings for stable, well-understood environments.</div>
+        </div>
+    </div>
+    <div class="strategy-card">
+        <div class="strategy-card__tag">Strategy 5</div>
+        <div class="strategy-card__body">
+            <div class="strategy-card__title">Optimize Storage Solutions</div>
+            <div class="strategy-card__desc">Selecting the right storage class for each data type leads to significant savings. Amazon S3 Intelligent Tiering automatically moves data to the most cost-effective class based on access patterns — with no manual management required.</div>
         </div>
     </div>
 </div>`
             },
             {
                 id: "hyniva-role",
-                title: "The Hyniva Advantage",
-                content: `<p>Hyniva specializes in helping organizations optimize their AWS infrastructure while enhancing back-office capabilities:</p>
-<ul>
-    <li><strong>Tailored Solutions:</strong> Thorough analysis of client needs to recommend the most suitable AWS configurations.</li>
-    <li><strong>Cost Monitoring:</strong> Implementation of advanced tools to track spending in real-time and provide optimization insights.</li>
-    <li><strong>Automation:</strong> Excellence in automating processes through AWS Lambda and Step Functions to reduce operational overhead.</li>
-    <li><strong>Continuous Improvement:</strong> Proactive strategy reviews to adapt to emerging technologies and changing business demands.</li>
-</ul>`
+                title: "Hyniva's Role in AWS Cost Optimization",
+                content: `<p>Hyniva specializes in helping organizations optimize their AWS infrastructure costs while simultaneously enhancing back-office capabilities. Our approach is hands-on, continuous, and tailored to each client's environment.</p>
+<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Tailored Solutions</strong>
+            <p>We conduct a thorough analysis of each client's needs and recommend the most appropriate AWS services and configurations — ensuring no spend goes toward features the business doesn't need.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Cost Monitoring and Management</strong>
+            <p>Hyniva implements advanced monitoring tooling and provides real-time spending insights and recommendations, so clients stay within budget while achieving full operational efficiency.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Automation and Scalability</strong>
+            <p>We automate back-office processes through AWS Lambda, Step Functions, and other serverless solutions — reducing operational costs and increasing the platform's responsiveness to business demands.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Training and Support</strong>
+            <p>Hyniva provides training and ongoing support to equip teams with the knowledge to manage and optimize their AWS environments independently and confidently.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Continuous Improvement</strong>
+            <p>We regularly review and refine each client's AWS strategy as business needs evolve and new services emerge — ensuring the platform remains agile, efficient, and cost-effective over the long term.</p>
+        </div>
+    </div>
+</div>`
             },
             {
                 id: "conclusion",
-                title: "Maximize Your Cloud Investment",
-                content: `<p>Optimizing infrastructure costs while enabling back-office capabilities is essential for organizations leveraging AWS. By strategically utilizing cloud services and partnering with experts like Hyniva, businesses can enhance operational efficiency and maximize ROI.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to optimize your AWS back-office operations?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest cost optimization strategies and insights.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+                title: "Every Dollar Invested Should Work Harder",
+                content: `<p>In a world where cloud spend can accelerate or spiral with equal ease, effective cost management paired with robust back-office capabilities is the difference between a cloud investment that delivers and one that drains.</p>
+<p>Organizations that approach AWS strategically — with the right architecture, the right tooling, and the right partner — will build back-office operations that scale, adapt, and compound in value over time.</p>
+<p>With Hyniva, that strategic approach is built in from day one.</p>`
             },
         ]
     },
@@ -2400,15 +2511,7 @@ The institutions that prepare their platforms today will define what it looks li
                 id: "conclusion",
                 title: "Foster Meaningful Interactions",
                 content: `<p>Hyniva harnesses Salesforce's Customer 360 innovations to transform customer engagement. We align strategies with your business goals, focusing on roadmap development and process optimization for seamless adoption.</p>
-<p>Our proprietary accelerators and user-friendly designs reduce time-to-market and costs, allowing clients to swiftly benefit from the full potential of Customer 360.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to transform your customer engagement?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest Customer 360 insights and updates.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+<p>Our proprietary accelerators and user-friendly designs reduce time-to-market and costs, allowing clients to swiftly benefit from the full potential of Customer 360.</p>`
             },
         ]
     },

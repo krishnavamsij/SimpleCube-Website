@@ -113,13 +113,6 @@ export const awsCloudServicesContent = {
             link: "https://www.hyniva.com/the-future-of-cloud-computing-aws-trends/",
         },
         {
-            title: "Benefits of a Tailored AWS Infrastructure: How Hyniva Can Help",
-            type: "Article",
-            description: "Navigating the complexities of cloud computing can be challenging, especially with the vast array of services offered by Amazon Web Services (AWS).",
-            image: "/images/2024/11/Copy-of-Power-of-AWS-2.png",
-            link: "https://www.hyniva.com/benefits-of-a-tailored-aws-infrastructure-how-hyniva-can-help/",
-        },
-        {
             title: "Optimizing AWS Infrastructure Costs for Back-Office Capabilities",
             type: "Article",
             description: "In today's fast-paced digital landscape, businesses are increasingly turning to cloud solutions to enhance their operational efficiency and agility.",
