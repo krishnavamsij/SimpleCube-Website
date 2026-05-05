@@ -1662,32 +1662,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
+                "type": "approach-list",
                 "content": {
-                    "body": "<p>A financial services organization focused on enabling small business lending through a network of Community Development Financial Institutions (CDFIs) aimed to build a seamless pre-qualification journey. However, their existing process created significant operational hurdles:</p>",
+                    "body": "<p>A financial services organization focused on enabling small business lending through a network of Community Development Financial Institutions (CDFIs). Their mission was to simplify access to capital by efficiently matching small business owners with the right lending partners.</p>\n        <p>The client aimed to build a seamless pre-qualification journey for small business owners while ensuring accurate partner matching based on parameters such as geography, loan size, and risk profile.</p>\n        <p>However, their existing process created significant operational and strategic challenges:</p>",
                     "items": [
                         {
-                            "icon": "⏳",
+                            "num": "1",
                             "title": "Manual Bottlenecks",
-                            "text": "Pre-qualified leads were processed and distributed manually via secure email attachments, increasing turnaround time."
+                            "desc": "Pre-qualified leads were processed and distributed manually via secure email attachments, increasing turnaround time and dependency on back-office teams."
                         },
                         {
-                            "icon": "🛡️",
+                            "num": "2",
                             "title": "Security & Compliance Risks",
-                            "text": "Sensitive financial data shared through emails introduced vulnerabilities and potential compliance issues."
+                            "desc": "Sensitive financial data shared through emails introduced vulnerabilities and potential compliance issues."
                         },
                         {
-                            "icon": "⚙️",
+                            "num": "3",
                             "title": "Operational Inefficiency",
-                            "text": "Matching leads with partners required manual validation against multiple criteria, making the process slow."
+                            "desc": "Matching leads with appropriate CDFI partners required manual validation against multiple criteria, making the process slow and error-prone."
                         },
                         {
-                            "icon": "📉",
+                            "num": "4",
                             "title": "Customer Experience Gaps",
-                            "text": "Delays in routing leads resulted in slower response times, impacting satisfaction and conversion rates."
+                            "desc": "Delays in routing leads resulted in slower response times, impacting customer satisfaction and reducing conversion rates."
                         }
-                    ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The organization needed a scalable, secure, and intelligent system to automate pre-qualification and partner distribution without compromising data integrity.</p>\n      </div>"
+                    ]
                 }
             },
             {
@@ -1700,27 +1699,27 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         {
                             "num": "1",
                             "title": "Conversational Pre-Qualification Interface",
-                            "desc": "Intuitive, automated interface that captures applicant data and evaluates it in real time using a proprietary risk assessment algorithm."
+                            "desc": "We developed an intuitive, automated interface that captures applicant data and evaluates it in real time using a proprietary risk assessment algorithm — ensuring faster and more accurate pre-qualification."
                         },
                         {
                             "num": "2",
                             "title": "Algorithmic Risk Assessment Engine",
-                            "desc": "Custom-built risk engine analyzed multiple parameters such as business profile, loan requirements, and location to determine eligibility."
+                            "desc": "A custom-built risk engine analyzed multiple parameters such as business profile, loan requirements, and location to determine eligibility and readiness — eliminating manual vetting."
                         },
                         {
                             "num": "3",
                             "title": "Intelligent Partner Matching & Routing",
-                            "desc": "Automated routing engine instantly matched pre-qualified applicants with the most suitable CDFI partner based on granular criteria."
+                            "desc": "An automated routing engine instantly matched pre-qualified applicants with the most suitable CDFI partner based on granular criteria, ensuring precision and speed."
                         },
                         {
                             "num": "4",
                             "title": "Custom CRM as a Unified Backbone",
-                            "desc": "Bespoke CRM platform that served as a single source of truth, connecting front-end interactions with back-office workflows."
+                            "desc": "We implemented a bespoke CRM platform that served as a single source of truth, seamlessly connecting front-end interactions with back-office workflows and partner integrations."
                         },
                         {
                             "num": "5",
                             "title": "Secure System-to-System Data Transfer",
-                            "desc": "Manual data sharing was replaced with encrypted, direct system integrations, ensuring end-to-end data security."
+                            "desc": "Manual email-based data sharing was replaced with encrypted, direct system integrations, ensuring end-to-end data security and compliance."
                         }
                     ]
                 }
@@ -1728,39 +1727,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "impact",
                 "title": "Impact",
-                "type": "impact-strip",
+                "type": "outcome-list",
                 "content": {
                     "body": "<p>The transformation delivered measurable improvements across efficiency, cost, and customer experience:</p>",
                     "items": [
-                        {
-                            "value": "Scale",
-                            "label": "Operational Efficiency",
-                            "desc": "Automated the entire pre-qualification and routing process, eliminating human errors."
-                        },
-                        {
-                            "value": "Savings",
-                            "label": "Reduced Cost per Lead",
-                            "desc": "Replacing labor-intensive workflows with automation led to substantial cost savings."
-                        },
-                        {
-                            "value": "Instant",
-                            "label": "Speed-to-Lead",
-                            "desc": "Instant routing enabled partners to engage prospects faster, improving conversion rates."
-                        },
-                        {
-                            "value": "Robust",
-                            "label": "Data Intelligence",
-                            "desc": "Centralized CRM enabled continuous optimization of risk models and customer journeys."
-                        }
-                    ],
-                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Operational Efficiency at Scale</strong> — Automated the entire pre-qualification and routing process, significantly reducing manual intervention and eliminating human errors</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Reduced Cost per Lead</strong> — Replacing labor-intensive workflows with automation led to substantial cost savings in processing and operations</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Improved Speed-to-Lead &amp; Conversion Rates</strong> — Instant routing enabled CDFI partners to engage prospects faster, improving customer satisfaction and increasing loan conversion rates</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Data Intelligence</strong> — The centralized CRM created a robust data foundation, enabling continuous optimization of risk models and customer journeys</div></div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div><div><strong style=\"color:var(--text-dark);font-weight:600;\">Future-Ready Scalability</strong> — The modern architecture supports growing lead volumes and onboarding of additional CDFI partners without increasing operational overhead</div></div>\n      </div>"
+                        "<strong style=\"color:#111827;font-weight:600;\">Operational Efficiency at Scale</strong> — Automated the entire pre-qualification and routing process, significantly reducing manual intervention and eliminating human errors",
+                        "<strong style=\"color:#111827;font-weight:600;\">Reduced Cost per Lead</strong> — Replacing labor-intensive workflows with automation led to substantial cost savings in processing and operations",
+                        "<strong style=\"color:#111827;font-weight:600;\">Improved Speed-to-Lead & Conversion Rates</strong> — Instant routing enabled CDFI partners to engage prospects faster, improving customer satisfaction and increasing loan conversion rates",
+                        "<strong style=\"color:#111827;font-weight:600;\">Enhanced Data Intelligence</strong> — The centralized CRM created a robust data foundation, enabling continuous optimization of risk models and customer journeys",
+                        "<strong style=\"color:#111827;font-weight:600;\">Future-Ready Scalability</strong> — The modern architecture supports growing lead volumes and onboarding of additional CDFI partners without increasing operational overhead"
+                    ]
                 }
             },
             {
                 "id": "future",
-                "title": "Road Ahead",
-                "type": "text",
-                "content": "<p>With the automation layer in place, the organization now operates with a scalable, intelligence-driven lending infrastructure. As the CDFI network grows and borrower profiles evolve, the platform is primed to incorporate advanced credit decisioning models, expanded partner onboarding workflows, and deeper analytics — all without increasing operational overhead.</p>"
+                "title": "The Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>With a scalable and secure digital ecosystem in place, the client is now positioned to expand its lending network, refine its proprietary risk models, and deliver faster, more personalized access to capital for small businesses.</p>\n        <p>Future priorities include:</p>",
+                    "items": [
+                        "Expanded CDFI lending network",
+                        "Refined proprietary risk models",
+                        "Personalized capital access",
+                        "Deeper analytics & optimization"
+                    ]
+                }
             }
         ]
     },
