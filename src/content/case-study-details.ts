@@ -877,7 +877,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "text": "Inconsistent data synchronization across financial products."
                         },
                         {
-                            "icon": "🔒",
+                            "icon": "🔐",
                             "title": "Rigid Legacy Systems",
                             "text": "Rigid systems that delayed the launch of new financial services."
                         },
@@ -893,32 +893,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>Hyniva designed and executed a robust modernization strategy to create a scalable, secure, and agile financial platform using Microsoft's ecosystem.</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "Workflow Automation & UI Modernization",
-                            "desc": "Migrated key customer service and loan processing workflows to a modern ASP.NET MVC interface, enhancing responsiveness with Angular front-end experiences."
-                        },
-                        {
-                            "num": "2",
-                            "title": "Centralized Integration Layer",
-                            "desc": "Built a secure RESTful middleware to handle core banking functions like KYC/AML validation and transaction tracking with role-based authentication."
-                        },
-                        {
-                            "num": "3",
-                            "title": "Event-Driven Architecture with Azure",
-                            "desc": "Deployed Azure Service Bus for real-time workflow updates and integrated Azure Logic Apps for automated document validation and escalation."
-                        },
-                        {
-                            "num": "4",
-                            "title": "Real-Time Dashboards & Reporting",
-                            "desc": "Leveraged SQL Server and Redis Cache for high-performance access to data, delivering real-time reporting dashboards for senior management."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Hyniva designed and executed a robust modernization strategy to create a scalable, secure, and agile financial platform using Microsoft's ecosystem.</p>\n      <div class=\"flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group\">\n        <div class=\"text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display\">1</div>\n        <div class=\"pt-1\">\n          <h4 class=\"text-[17px] font-bold text-[#111827] mb-3 font-sans\">Workflow Automation &amp; UI Modernization</h4>\n          <p class=\"cs-content core-banking-sub\">Migrated key customer service and loan processing workflows from SharePoint and InfoPath forms to a modern web-based interface using ASP.NET MVC.</p>\n          <p class=\"cs-content core-banking-sub\" style=\"margin-top:8px;\">Developed dynamic front-end experiences with Angular to enhance responsiveness and interactivity.</p>\n        </div>\n      </div>\n      <div class=\"flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group\" style=\"margin-top:16px;\">\n        <div class=\"text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display\">2</div>\n        <div class=\"pt-1\">\n          <h4 class=\"text-[17px] font-bold text-[#111827] mb-3 font-sans\">Centralized Integration Layer</h4>\n          <p class=\"cs-content core-banking-sub\">Built a secure, scalable RESTful middleware to handle core banking functions such as KYC/AML validation, account lookup, and transaction status tracking.</p>\n          <p class=\"cs-content core-banking-sub\" style=\"margin-top:8px;\">Implemented role-based authentication and audit logging across all API layers to ensure compliance.</p>\n        </div>\n      </div>\n      <div class=\"flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group\" style=\"margin-top:16px;\">\n        <div class=\"text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display\">3</div>\n        <div class=\"pt-1\">\n          <h4 class=\"text-[17px] font-bold text-[#111827] mb-3 font-sans\">Event-Driven Architecture with Azure</h4>\n          <p class=\"cs-content core-banking-sub\">Deployed Azure Service Bus for asynchronous processing and real-time workflow updates across departments (credit, underwriting, compliance).</p>\n          <p class=\"cs-content core-banking-sub\" style=\"margin-top:8px;\">Integrated Azure Logic Apps for automating document validation and escalation procedures.</p>\n        </div>\n      </div>\n      <div class=\"flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group\" style=\"margin-top:16px;\">\n        <div class=\"text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display\">4</div>\n        <div class=\"pt-1\">\n          <h4 class=\"text-[17px] font-bold text-[#111827] mb-3 font-sans\">Real-Time Dashboards &amp; Reporting</h4>\n          <p class=\"cs-content core-banking-sub\">Leveraged SQL Server and Redis Cache for high-performance access to financial data and analytics.</p>\n          <p class=\"cs-content core-banking-sub\" style=\"margin-top:8px;\">Delivered real-time reporting dashboards for senior management with drill-down capabilities.</p>\n        </div>\n      </div>\n      <div class=\"tech-tags\" style=\"margin-top:32px;\">\n        <span class=\"tech-tag\">ASP.NET MVC</span>\n        <span class=\"tech-tag\">Azure Service Bus</span>\n        <span class=\"tech-tag\">REST APIs</span>\n        <span class=\"tech-tag\">Angular</span>\n        <span class=\"tech-tag\">SQL Server</span>\n        <span class=\"tech-tag\">Redis Cache</span>\n        <span class=\"tech-tag\">Azure Logic Apps</span>\n      </div>"
             },
             {
                 "id": "impact",
@@ -954,7 +930,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>With Hyniva's support, the banking institution transitioned from legacy-dependent operations to a modern, agile financial services platform. The result: better customer engagement, faster service delivery, and a scalable foundation for launching new banking products.</p>"
+                "content": "<p>With Hyniva's support, the banking institution transitioned from legacy-dependent operations to a modern, agile financial services platform.</p>\n        <p>The result: better customer engagement, faster service delivery, and a scalable foundation for launching new banking products.</p>"
             }
         ]
     },

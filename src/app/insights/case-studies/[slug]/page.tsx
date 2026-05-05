@@ -598,37 +598,98 @@ export default function CaseStudyDetailPage() {
                     line-height: 1.4;
                 }
 
+                /* ── Core Banking Specific Sub-points Styling ── */
+                .cs-content.core-banking-sub {
+                    font-size: 15px !important;
+                    color: #6b7280 !important;
+                    line-height: 1.5 !important;
+                    position: relative;
+                    padding-left: 12px !important;
+                    margin-top: 4px !important;
+                    font-weight: normal !important;
+                }
+                .cs-content.core-banking-sub::before {
+                    content: '•';
+                    color: #1e90ff !important;
+                    font-weight: bold;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
                 /* ── Approach List Styling ── */
                 .approach-list {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 32px;
                 }
                 .approach-item {
                     display: flex;
-                    gap: 28px;
-                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .approach-item__header {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
                 }
                 .approach-item__num {
-                    font-size: 14px;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 8px;
+                    background: rgba(30,144,255,0.08);
+                    border: 1px solid rgba(30,144,255,0.15);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
                     font-weight: 600;
-                    color: var(--text-dark);
-                    margin-bottom: 6px;
-                }
-                .approach-item__content {
-                    flex: 1;
+                    color: #1e90ff;
+                    flex-shrink: 0;
                 }
                 .approach-item__title {
-                    font-size: 14px;
+                    font-size: 18px;
                     font-weight: 600;
-                    color: var(--text-dark);
-                    margin-bottom: 6px;
+                    color: #111827;
+                    line-height: 1.4;
                 }
-                .approach-item__desc {
-                    font-size: 13.5px;
-                    font-weight: 300;
-                    color: var(--text-muted);
-                    line-height: 1.65;
+                .approach-item__bullets {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    padding-left: 52px;
+                }
+                .approach-item__bullet {
+                    font-size: 14px;
+                    color: #6b7280;
+                    line-height: 1.6;
+                    position: relative;
+                }
+                .approach-item__bullet::before {
+                    content: '•';
+                    color: #1e90ff;
+                    font-weight: bold;
+                    position: absolute;
+                    left: -16px;
+                }
+                
+                /* ── Tech Tags Styling ── */
+                .tech-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 32px;
+                    align-items: center;
+                }
+                .tech-tag {
+                    padding: 4px 8px;
+                    background: rgba(30,144,255,0.08);
+                    border: 1px solid rgba(30,144,255,0.15);
+                    border-radius: 12px;
+                    font-size: 11px;
+                    font-weight: 500;
+                    color: #1e90ff;
+                    white-space: nowrap;
                 }
 
                 /* ── Solution Image Styling ── */
