@@ -1708,7 +1708,7 @@ The organizations that prepare today will lead tomorrow.</p>`
         ]
     },
     "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
-        title: "Celebrating Success. A Great Place to Work â€” <em>Two Years Running.</em>",
+        title: "Celebrating Success. A Great Place to Work — <em>Two Years Running.</em>",
         subtitle: "",
         date: "Jan 3, 2025",
         author: "Hyniva",
@@ -1719,38 +1719,38 @@ The organizations that prepare today will lead tomorrow.</p>`
                 id: "intro",
                 title: "",
                 content: `<p>We are absolutely thrilled to announce that Hyniva has once again been recognized as a Great Place to Work for the second consecutive year. This remarkable achievement is a testament to the passion, dedication, and vibrant culture that every member of the Hyniva family brings to work every single day.</p>
-<p>It reflects the incredible collaboration and commitment that define who we are â€” a workplace where everyone is encouraged to grow, succeed, and thrive.</p>
+<p>It reflects the incredible collaboration and commitment that define who we are — a workplace where everyone is encouraged to grow, succeed, and thrive.</p>
 <div class="pullquote">
-  <div class="pullquote__text">"Being named a Great Place to Work for the second year in a row is not just an award â€” it's a milestone of the collective effort, collaboration, and positive mindset of every individual at Hyniva."</div>
+  <div class="pullquote__text">"Being named a Great Place to Work for the second year in a row is not just an award — it's a milestone of the collective effort, collaboration, and positive mindset of every individual at Hyniva."</div>
 </div>`
             },
             {
                 id: "a-culture-of-excellence",
                 title: "A Culture of Excellence",
-                content: `<p>At Hyniva, we believe that a thriving company starts with its people. Our foundation is built on a culture of teamwork, trust, and innovation â€” where every voice matters and every contribution is valued.</p>
+                content: `<p>At Hyniva, we believe that a thriving company starts with its people. Our foundation is built on a culture of teamwork, trust, and innovation — where every voice matters and every contribution is valued.</p>
 <p>Our commitment to providing employees with meaningful work, genuine opportunities for development, and a space where they can be their authentic selves has truly paid off. This recognition belongs to every person who shows up with purpose and enthusiasm each day.</p>`
             },
             {
                 id: "highlights-from-2024",
                 title: "Highlights from 2024",
-                content: `<p>2024 has been an exceptional year for Hyniva â€” marked by growth, collaboration, and a number of standout moments that brought our team closer together.</p>
+                content: `<p>2024 has been an exceptional year for Hyniva — marked by growth, collaboration, and a number of standout moments that brought our team closer together.</p>
 <div class="feature-cards">
   <div class="feature-card">
     <div class="feature-card__content">
-      <strong>ðŸŒ¿ Team Building Activities</strong>
-      <p>Hyniva employees participated in outdoor retreats and collaborative workshops that strengthened relationships, boosted morale, and fostered a genuine spirit of camaraderie. Employees shared how much they valued the opportunity to connect with colleagues beyond the office â€” building a stronger sense of community across the organization.</p>
+      <strong>🎉 Team Building Activities</strong>
+      <p>Hyniva employees participated in outdoor retreats and collaborative workshops that strengthened relationships, boosted morale, and fostered a genuine spirit of camaraderie. Employees shared how much they valued the opportunity to connect with colleagues beyond the office — building a stronger sense of community across the organization.</p>
     </div>
   </div>
   <div class="feature-card">
     <div class="feature-card__content">
-      <strong>ðŸ† Certifications and Personal Growth</strong>
-      <p>Several employees achieved key certifications in Salesforce, AWS, and Scrum Master this year. Hyniva supported them every step of the way â€” through flexible hours, study resources, and dedicated mentorship. This commitment to professional development continues to fuel our collective growth and the quality of work we deliver to clients.</p>
+      <strong>🎓 Certifications and Personal Growth</strong>
+      <p>Several employees achieved key certifications in Salesforce, AWS, and Scrum Master this year. Hyniva supported them every step of the way — through flexible hours, study resources, and dedicated mentorship. This commitment to professional development continues to fuel our collective growth and the quality of work we deliver to clients.</p>
     </div>
   </div>
   <div class="feature-card">
     <div class="feature-card__content">
-      <strong>ðŸª” Festival Celebrations</strong>
-      <p>At Hyniva, we celebrate culture and diversity with genuine enthusiasm. This year, our team came together for Diwali, Christmas, and more â€” with vibrant decorations, delicious food, and joyful activities that brought everyone closer. The energy and enthusiasm during these celebrations was truly contagious across the entire company.</p>
+      <strong>🎉 Festival Celebrations</strong>
+      <p>At Hyniva, we celebrate culture and diversity with genuine enthusiasm. This year, our team came together for Diwali, Christmas, and more — with vibrant decorations, delicious food, and joyful activities that brought everyone closer. The energy and enthusiasm during these celebrations was truly contagious across the entire company.</p>
     </div>
   </div>
 </div>`
@@ -1759,21 +1759,21 @@ The organizations that prepare today will lead tomorrow.</p>`
                 id: "our-vision-moving-forward",
                 title: "Our Vision Moving Forward",
                 content: `<p>This recognition is just the beginning. We are more committed than ever to building on our achievements and creating an even better environment for our employees to flourish.</p>
-<p>As Hyniva continues to grow, we will ensure our workplace remains a space where creativity, collaboration, and personal development are not just encouraged â€” they are embedded into everything we do.</p>
+<p>As Hyniva continues to grow, we will ensure our workplace remains a space where creativity, collaboration, and personal development are not just encouraged — they are embedded into everything we do.</p>
 <ul>
   <li>Continued investment in professional development and certification support</li>
   <li>Expanding team-building and culture initiatives across the organization</li>
   <li>Deepening our commitment to inclusion and employee wellbeing</li>
-  <li>Building on the momentum that earned this recognition â€” two years and counting</li>
+  <li>Building on the momentum that earned this recognition — two years and counting</li>
 </ul>
 <p>The future looks incredibly bright. With our team's passion and a shared desire to make a difference, we know that the most exciting milestones are still ahead.</p>`
             },
             {
                 id: "thank-you",
                 title: "Thank You to the Hyniva Family",
-                content: `<p>None of this would be possible without the incredible dedication of every single person at Hyniva. This achievement belongs to you â€” to the hard work, the positivity, and the commitment you bring each day.</p>
+                content: `<p>None of this would be possible without the incredible dedication of every single person at Hyniva. This achievement belongs to you — to the hard work, positivity, and the commitment you bring each day.</p>
 <p>Together, we will continue to build on our strengths, push forward with a shared vision of success, and shape a workplace that not only excites us but inspires others as well.</p>
-<p>The journey is far from over â€” and we could not be more excited to see where it takes us next.</p>`
+<p>The journey is far from over — and we could not be more excited to see where it takes us next.</p>`
             }
         ]
     },
