@@ -2873,7 +2873,7 @@ The institutions that prepare their platforms today will define what it looks li
             },
         ]
     },
-    "hyniva-is-a-certified-great-place-to-work": {
+    "hyniva-is-officially-a-great-place-to-work": {
         title: "Hyniva Earns <em>Great Place To Work® Certification™.</em>",
         subtitle: "",
         date: "Dec 13, 2023",
