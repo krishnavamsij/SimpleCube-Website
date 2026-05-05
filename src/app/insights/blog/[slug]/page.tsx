@@ -83,7 +83,7 @@ export default function BlogDetailPage() {
                                 variants={fadeInUp}
                                 className="text-4xl sm:text-5xl lg:text-[52px] font-normal text-[#e8f0ff] tracking-tight leading-[1.18] mb-8"
                                 style={{ fontFamily: "'DM Serif Display', serif" }}
-                                dangerouslySetInnerHTML={{ __html: post.title.replace('Agent-Led Future', '<span class="text-[#00D4AA] italic">Agent-Led Future</span>') }}
+                                dangerouslySetInnerHTML={{ __html: post.title.replace('Agent-Led Future', '<span class="text-white italic">Agent-Led Future</span>') }}
                             />
 
                             {post.subtitle && (

@@ -1703,14 +1703,7 @@ The organizations that prepare today will lead tomorrow.</p>`
                 title: "From Data Complexity to Competitive Advantage",
                 content: `<p>Salesforce Data Cloud is a fundamental shift in how organizations relate to their data. By unifying disparate sources, enabling real-time analytics, and enforcing data quality, it transforms businesses into agile, data-driven operations capable of responding faster than their competitors.</p>
 <p>With Hyniva's expertise in cloud integration and data management, organizations can navigate the complexity of data transformation without disruption - and emerge with a platform that continuously delivers value as their needs evolve.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Scale Your Data</span>
-        <h3 class="cta-banner__title">Ready to transform your data into a competitive advantage?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest insights on data integration and Salesforce Data Cloud innovations.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+<p>The businesses that will lead in a data-driven world are not necessarily those with most data. They are the ones who can integrate it, trust it, and act on it — faster than anyone else.</p>`
             }
         ]
     },
