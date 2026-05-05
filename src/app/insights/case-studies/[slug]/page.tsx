@@ -706,18 +706,18 @@ export default function CaseStudyDetailPage() {
                 .tech-tags {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 6px;
+                    gap: 12px;
                     margin-top: 32px;
                     align-items: center;
                 }
                 .tech-tag {
-                    padding: 4px 8px;
-                    background: rgba(30,144,255,0.08);
-                    border: 1px solid rgba(30,144,255,0.15);
-                    border-radius: 12px;
-                    font-size: 11px;
+                    padding: 8px 20px;
+                    background: #f0f6ff;
+                    border: 1px solid #cce2ff;
+                    border-radius: 9999px;
+                    font-size: 15px;
                     font-weight: 500;
-                    color: #1e90ff;
+                    color: #3b82f6;
                     white-space: nowrap;
                 }
 

@@ -1942,9 +1942,9 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "solutions",
-                "title": "Key Solutions",
+                "title": "Key Solutions Delivered",
                 "type": "text",
-                "content": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>"
+                "content": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>\n        <p style=\"margin-top:28px;\"><strong style=\"color:#111827; font-weight:600;\">1. End-to-End Financial Workflow Automation</strong></p>\n        <p style=\"margin-top:8px;\">We streamlined financial operations across invoicing, payments, and payroll.</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Advanced invoice generation and carrier mapping</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Fully integrated payment processing module</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Automated adjuster commission calculations</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Payroll system with ACH integration for seamless disbursements</div>\n            </div>\n          </div>\n        </div>\n        <p style=\"margin-top:36px;\"><strong style=\"color:#111827; font-weight:600;\">2. Secure & Compliant Payment Infrastructure</strong></p>\n        <p style=\"margin-top:8px;\">We enhanced platform security to ensure safe and reliable financial transactions.</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Strengthened payment security protocols</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Reduced risks associated with manual financial handling</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved compliance and data protection standards</div>\n            </div>\n          </div>\n        </div>\n        <p style=\"margin-top:36px;\"><strong style=\"color:#111827; font-weight:600;\">3. Performance Optimization at Scale</strong></p>\n        <p style=\"margin-top:8px;\">We re-engineered the platform to handle increasing workloads efficiently.</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Eliminated performance bottlenecks across key workflows</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved system responsiveness and user experience</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Ensured stability under high transaction volumes</div>\n            </div>\n          </div>\n        </div>\n        <p style=\"margin-top:36px;\"><strong style=\"color:#111827; font-weight:600;\">4. Reporting & Operational Intelligence</strong></p>\n        <p style=\"margin-top:8px;\">We introduced robust reporting capabilities to improve visibility and control.</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Configurable reports for financial tracking and claims insights</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Automated reporting workflows for faster decision-making</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Improved transparency across the claims lifecycle</div>\n            </div>\n          </div>\n        </div>\n        <p style=\"margin-top:36px;\"><strong style=\"color:#111827; font-weight:600;\">5. Scalable Architecture for Long-Term Growth</strong></p>\n        <p style=\"margin-top:8px;\">We modernized the platform's foundation to support future expansion.</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Designed a scalable database architecture</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Enabled flexibility for new feature additions and integrations</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">✦</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Ensured long-term maintainability and performance</div>\n            </div>\n          </div>\n        </div>"
             },
             {
                 "id": "impact",
@@ -2013,61 +2013,38 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>A leading Information Technology Solutions provider was under increasing pressure to modernize and scale its enterprise applications across Municipal Administration, Smart City programs, and Trustee services:</p>",
-                    "items": [
-                        {
-                            "icon": "⚙️",
-                            "title": "Complex Ecosystem",
-                            "text": "Managing and enhancing multi-domain solutions across Dynamics CRM and Power Platform."
-                        },
-                        {
-                            "icon": "☁️",
-                            "title": "On-Premises Legacy",
-                            "text": "Migrating a legacy Dynamics CRM 2015 on-premises system to a secure, cloud-based Dynamics 365 environment."
-                        },
-                        {
-                            "icon": "➕",
-                            "title": "Feature Gaps",
-                            "text": "Adding new features such as document tracking and smart notes in Dynamics 365."
-                        },
-                        {
-                            "icon": "📂",
-                            "title": "Data Migration",
-                            "text": "Seamlessly migrating critical data from legacy CRM tables to newly designed custom entities."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>A leading Information Technology Solutions provider was under increasing pressure to modernize and scale its enterprise applications. With a diverse portfolio supporting Municipal Administration, Smart City programs, and Trustee & Guardianship services, the client faced several pressing challenges:</p>\n      <div class=\"outcome-list\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Managing and enhancing complex, multi-domain solutions across Dynamics CRM and Power Platform.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Migrating a legacy Dynamics CRM 2015 on-premises system to a secure, cloud-based Dynamics 365 environment.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Adding new features such as document tracking and smart notes in Dynamics 365.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Seamlessly migrating critical data from legacy CRM tables to newly designed custom entities.</div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:20px;\">\n        <p>The client needed a partner with deep Microsoft expertise to deliver transformation with minimal disruption to ongoing operations.</p>\n      </div>"
             },
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva deployed a cross-functional team of Power Platform and Dynamics CRM specialists to implement a scalable, cloud-first modernization strategy.</p>",
+                    "body": "<p>Hyniva deployed a cross-functional team of Power Platform and Dynamics CRM specialists to implement a scalable, cloud-first modernization strategy aligned with the client's business goals.</p>",
                     "items": [
                         {
                             "num": "1",
                             "title": "App Modernization with Power Platform",
-                            "desc": "Built Model-Driven Apps and Canvas Apps to revamp user interfaces and streamline workflows."
+                            "desc": "Built Model-Driven Apps and Canvas Apps to revamp user interfaces, streamline workflows, and modernize solution delivery."
                         },
                         {
                             "num": "2",
                             "title": "Advanced Dynamics 365 Customization",
-                            "desc": "Extended platform capabilities by developing custom Plugins, Workflows, and Web Resources."
+                            "desc": "Extended platform capabilities by developing custom Plugins, Workflows, and Web Resources with HTML and JavaScript."
                         },
                         {
                             "num": "3",
                             "title": "Interactive UI with PCF Controls",
-                            "desc": "Used Power Apps Component Framework (PCF) with TypeScript and React to build rich, interactive user controls."
+                            "desc": "Used Power Apps Component Framework (PCF) with TypeScript and React to build rich, interactive user controls for advanced functionality."
                         },
                         {
                             "num": "4",
                             "title": "Seamless Cloud Migration",
-                            "desc": "Carried out a phased migration from Dynamics CRM 2015 to Dynamics 365 with minimal downtime."
+                            "desc": "Carried out a phased migration from Dynamics CRM 2015 on-premises to Dynamics 365, ensuring accurate data transfer, business rule retention, and minimal downtime."
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"tech-tags\">\n        <span class=\"tech-tag\">Dynamics 365</span>\n        <span class=\"tech-tag\">Power Platform</span>\n        <span class=\"tech-tag\">PCF</span>\n        <span class=\"tech-tag\">TypeScript</span>\n        <span class=\"tech-tag\">React</span>\n        <span class=\"tech-tag\">HTML</span>\n        <span class=\"tech-tag\">JavaScript</span>\n      </div>"
                 }
             },
             {
@@ -2075,36 +2052,36 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Business Impact",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>Through Hyniva's strategic modernization efforts, the client unlocked new capabilities while future-proofing their operations:</p>",
+                    "body": "<p>Through Hyniva's strategic modernization efforts, the client unlocked new capabilities while future-proofing their operations.</p>",
                     "items": [
                         {
                             "value": "↑",
-                            "label": "Scalability",
-                            "desc": "Cloud-native architecture supports increasing user demand and evolving service requirements."
+                            "label": "Improved System Scalability",
+                            "desc": "Cloud-native architecture supports increasing user demand and evolving service requirements"
                         },
                         {
                             "value": "✨",
-                            "label": "UX Quality",
-                            "desc": "Modern interfaces and responsive design improved usability across departments."
+                            "label": "Enhanced User Experience",
+                            "desc": "Modern interfaces and responsive design improved usability across departments and services"
                         },
                         {
-                            "value": "40%",
-                            "label": "Operational Efficiency Gain",
-                            "desc": "Custom workflows and automation reduced manual effort and turnaround times."
+                            "value": "⚡",
+                            "label": "Increased Operational Efficiency",
+                            "desc": "Custom workflows and automation reduced manual effort and turnaround times"
                         },
                         {
                             "value": "🔒",
-                            "label": "Data Integrity",
-                            "desc": "Business-critical data was migrated with integrity, ensuring uninterrupted service."
+                            "label": "Reliable, Secure Data Migration",
+                            "desc": "Business-critical data was migrated with integrity and precision, ensuring uninterrupted service delivery"
                         }
                     ]
                 }
             },
             {
-                "id": "future",
-                "title": "Road Ahead",
+                "id": "outcome",
+                "title": "Outcome",
                 "type": "text",
-                "content": "<p>With a cloud-native Microsoft Dynamics 365 ecosystem now powering Municipal Administration, Smart City programs, and Trustee services, the organization is positioned to continuously evolve its platform capabilities. The modular architecture and Power Platform foundation enable rapid feature delivery, new portal integrations, and AI-driven automation — all without disrupting live operations.</p>"
+                "content": "<p>Hyniva successfully modernized the client's Dynamics and Power Platform ecosystem, enabling the organization to drive innovation across key public service domains. The solution laid a scalable, flexible, and modern foundation — ready to support future enhancements, smarter services, and digital excellence.</p>\n        <p>Hyniva's Microsoft experts help enterprise and public-sector clients modernize legacy systems into agile, cloud-first platforms that drive growth, innovation, and service excellence.</p>"
             }
         ]
     },
