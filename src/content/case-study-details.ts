@@ -165,7 +165,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         "Cross-sell and product recommendations",
                         "Member servicing and collections workflows"
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The implementation provides a scalable foundation for expanding AI-driven banking experiences while maintaining operational control and regulatory compliance.</p>\n      </div>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>By combining Agentforce's autonomous intelligence with FinXServe's experience orchestration layer, the credit union is positioned to continuously evolve its digital banking capabilities while maintaining operational control and regulatory compliance.</p>\n      </div>"
                 }
             }
         ]
