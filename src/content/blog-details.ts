@@ -2895,13 +2895,12 @@ The institutions that prepare their platforms today will define what it looks li
                 content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
   <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
   <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">Embracing the Digital Factory mindset allows organizations to stay perpetually in motion, responding to market demands with speed and precision.</div>
-</div>
-<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn for the latest updates on agile transformation and digital engineering excellence.</p>`
+</div>`
             },
         ]
     },
     "hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce": {
-        title: "Hyniva Becomes a Proud Member of GSAC",
+        title: "<span class=\"text-white\">Hyniva is a Proud Member<br/>of <span class=\"italic\">GSAC.</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2910,23 +2909,47 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "announcement",
-                title: "A New Chapter of Collaboration",
-                content: `<p>We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce. Being part of this esteemed Chamber is about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio.</p>
-<img src="/images/Blogs/Content/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce-1.png" alt="GSAC Membership" class="w-full h-auto rounded-2xl my-8" />`
+                title: "",
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">We are thrilled to announce that Hyniva has officially joined the Greater San Antonio Chamber of Commerce — and we couldn't be more excited about the possibilities that lie ahead.</p>
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-4">Being part of this esteemed Chamber is not just about membership; it's about joining a thriving community of businesses committed to growth, collaboration, and the prosperity of San Antonio. The Greater San Antonio Chamber of Commerce aligns with our commitment to community development, and we are ready to contribute to meaningful initiatives.</p>`
             },
             {
                 id: "commitment",
-                title: "Our Commitment to San Antonio",
-                content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
-  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">The Greater San Antonio Chamber of Commerce aligns with our commitment to community development. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the local business landscape.</div>
+                title: "",
+                content: `<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3.5">
+  <div class="border border-[#e4e8f0] rounded-xl p-6 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[#1e6fff]/10 flex items-center justify-center mx-auto mb-3.5">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3a7 7 0 100 14A7 7 0 0010 3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M7 10l2 2 4-4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="text-sm font-semibold text-[#0a0f1e] mb-1.5">Growth</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-relaxed">Joining a network that actively drives business growth and opens new doors for every member.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl p-6 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[#1e6fff]/10 flex items-center justify-center mx-auto mb-3.5">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 10c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z" stroke="#1e6fff" stroke-width="1.3"/><path d="M3.5 10a6.5 6.5 0 1013 0 6.5 6.5 0 00-13 0z" stroke="#1e6fff" stroke-width="1.3"/></svg>
+    </div>
+    <div class="text-sm font-semibold text-[#0a0f1e] mb-1.5">Collaboration</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-relaxed">Building lasting relationships with like-minded businesses dedicated to the San Antonio community.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl p-6 bg-[#f7f8fc] text-center">
+    <div class="w-11 h-11 rounded-xl bg-[#1e6fff]/10 flex items-center justify-center mx-auto mb-3.5">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2l2.4 4.8 5.3.77-3.85 3.75.91 5.3L10 14l-4.76 2.62.91-5.3L2.3 7.57l5.3-.77L10 2z" stroke="#1e6fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="text-sm font-semibold text-[#0a0f1e] mb-1.5">Prosperity</div>
+    <div class="text-[13.5px] font-light text-[#4a5568] leading-relaxed">Contributing to meaningful initiatives that create a stronger, more prosperous San Antonio for all.</div>
+  </div>
 </div>
-<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn to stay updated on our community initiatives and local partnerships.</p>`
+</div>
+<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">A Heartfelt Thank You to GSAC</div>
+  <div class="relative z-10 text-[15.5px] font-light text-[#c8d9f5]/70 leading-[1.8] max-w-[520px] mx-auto m-0">Thank you to the Greater San Antonio Chamber of Commerce for welcoming Hyniva into this dynamic community. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the San Antonio business landscape. Looking forward to a bright future together.</div>
+</div>`
             },
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva is Officially a<br/><span class=\"text-[#63c2ff] italic\">\"Great Place to Work.\"</span>",
+        title: "<span class=\"text-white\">Hyniva is Officially a<br/><span class=\"italic\">\"Great Place to Work.\"</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2936,55 +2959,56 @@ The institutions that prepare their platforms today will define what it looks li
             {
                 id: "intro",
                 title: "",
-                content: `<p>At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community we have built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To Work® Certification™.</p>
-<p>This recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives — both personally and professionally.</p>`
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community we have built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To Work® Certification™.</p>
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-4">This recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives — both personally and professionally.</p>`
             },
             {
                 id: "what-this-means-at-hyniva",
                 title: "What This Means at Hyniva",
-                content: `<p>The certification reflects five core values that define who we are as a team and how we show up for each other every day.</p>
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">The certification reflects five core values that define who we are as a team and how we show up for each other every day.</p>
 <div class="mt-8 flex flex-col gap-3">
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">1</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Employee-Centric Culture</div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-[22px] bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">1</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Employee-Centric Culture</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75]">Our success is built on the foundation of an employee-centric culture — with a core belief that when our team is happy and thriving, so is our organization.</div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Our success is built on the foundation of an employee-centric culture — with a core belief that when our team is happy and thriving, so is our organization.</div>
   </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">2</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Dedication to Growth</div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-[22px] bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">2</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Dedication to Growth</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75]">Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement at every stage.</div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement at every stage.</div>
   </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">3</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Inclusivity and Diversity</div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-[22px] bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">3</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Inclusivity and Diversity</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75]">We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment where every background is valued.</div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment where every background is valued.</div>
   </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">4</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Open Communication</div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-[22px] bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">4</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Open Communication</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75]">Communication is key. At Hyniva, we promote open and transparent communication channels where every team member's unique perspective is heard and genuinely valued.</div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Communication is key. At Hyniva, we promote open and transparent communication channels where every team member's unique perspective is heard and genuinely valued.</div>
   </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">5</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Collaborative Spirit</div>
+  <div class="flex gap-5 items-start border border-[#e4e8f0] rounded-xl p-[22px] bg-[#f7f8fc]">
+    <div class="w-[34px] h-[34px] rounded-full bg-[#1e6fff] text-white text-[13px] font-semibold flex items-center justify-center shrink-0">5</div>
+    <div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e] mb-1">Collaborative Spirit</div>
+      <div class="text-[15px] font-light text-[#4a5568] leading-[1.75]">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
     </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
   </div>
 </div>
-<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
+</div>
+<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden text-center">
   <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
-  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
-</div>
-<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn for the latest updates on our culture and career opportunities.</p>`
+  <div class="relative z-10 text-[clamp(18px,2.4vw,24px)] text-[#e8f0ff] mb-3.5" style="font-family: 'DM Serif Display', serif;">Thank You, Hyniva Family</div>
+  <div class="relative z-10 text-[15.5px] font-light text-[#c8d9f5]/70 leading-[1.8] max-w-[520px] mx-auto m-0">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
+</div>`
             },
         ]
     },
