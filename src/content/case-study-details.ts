@@ -784,7 +784,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Impact",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The integration transformed authentication from a contact center bottleneck into a strategic advantage. What was once a time-intensive verification process became an invisible layer of trust — accelerating service without compromising control.</p>",
+                    "body": "",
                     "items": [
                         {
                             "value": "~2 min",
@@ -792,14 +792,19 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Average handle time (AHT) reduced by ~2 minutes per call"
                         },
                         {
+                            "value": "↓",
+                            "label": "Reduced IVR Friction",
+                            "desc": "Reduced friction in IVR authentication across all interactions"
+                        },
+                        {
                             "value": "Zero",
                             "label": "KBA Eliminated",
                             "desc": "Eliminated KBA for most complex-service interactions"
                         },
                         {
-                            "value": "↓",
-                            "label": "Reduced IVR Friction",
-                            "desc": "Reduced friction in IVR authentication across all interactions"
+                            "value": "↑",
+                            "label": "Better Customer Experience",
+                            "desc": "Improved customer experience through fewer questions and faster resolution"
                         },
                         {
                             "value": "3×",
@@ -818,7 +823,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "future",
                 "title": "Road Ahead",
                 "type": "text",
-                "content": "<p>By shifting verification upstream and embedding intelligence into the call journey, the firm reduced operational drag, improved service consistency, and elevated agent productivity. Authentication no longer dictated handle time or customer effort.</p>\n        <p>More importantly, the organization now operates on a future-ready security architecture — one that supports growth in high-value transactions, digital servicing, and evolving fraud patterns without reintroducing friction.</p>"
+                "content": "<p>The integration transformed authentication from a contact center bottleneck into a strategic advantage. What was once a time-intensive verification process became an invisible layer of trust — accelerating service without compromising control.</p>\n        <p>By shifting verification upstream and embedding intelligence into the call journey, the firm reduced operational drag, improved service consistency, and elevated agent productivity. Authentication no longer dictated handle time or customer effort.</p>\n        <p>More importantly, the organization now operates on a future-ready security architecture — one that supports growth in high-value transactions, digital servicing, and evolving fraud patterns without reintroducing friction.</p>"
             }
         ]
     },
@@ -864,22 +869,22 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         {
                             "icon": "🐢",
                             "title": "Slow, Manual Workflows",
-                            "text": "Manual processes causing customer dissatisfaction and extended turnaround times."
+                            "text": "Slow, manual workflows causing customer dissatisfaction."
                         },
                         {
                             "icon": "🔀",
-                            "title": "Data Fragmentation",
-                            "text": "Inconsistent data synchronization across disparate financial products and systems."
+                            "title": "Inconsistent Data Synchronization",
+                            "text": "Inconsistent data synchronization across financial products."
                         },
                         {
                             "icon": "🔒",
                             "title": "Rigid Legacy Systems",
-                            "text": "Aging technologies that delayed the launch of new financial services."
+                            "text": "Rigid systems that delayed the launch of new financial services."
                         },
                         {
                             "icon": "💸",
-                            "title": "High Maintenance",
-                            "text": "Elevated costs from managing siloed architectures and legacy infrastructure."
+                            "title": "High Maintenance Costs",
+                            "text": "High maintenance costs from aging technologies and siloed architecture."
                         }
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The challenge was clear: streamline financial workflows, centralize data, and enable rapid innovation — without compromising security or compliance.</p>\n      </div>"
@@ -924,23 +929,23 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     "items": [
                         {
                             "value": "50%",
-                            "label": "Faster Approvals",
-                            "desc": "Automated decision engines cut loan turnaround time in half"
+                            "label": "Faster Loan Approvals",
+                            "desc": "Automated decision engines and streamlined data access cut turnaround time in half"
+                        },
+                        {
+                            "value": "📊",
+                            "label": "Real-Time Operational Visibility",
+                            "desc": "Executive dashboards provide up-to-the-minute insights on loan statuses, account activities, and compliance checks"
                         },
                         {
                             "value": "30%",
-                            "label": "Cost Reduction",
-                            "desc": "Achieved significant reduction in processing costs by retiring legacy forms"
-                        },
-                        {
-                            "value": "Real-Time",
-                            "label": "Visibility",
-                            "desc": "Executive dashboards provide up-to-the-minute operational insights"
+                            "label": "Reduced Operational Overhead",
+                            "desc": "By retiring legacy forms and manual processes, the client achieved a 30% reduction in processing costs"
                         },
                         {
                             "value": "↑",
-                            "label": "Customer CX",
-                            "desc": "Mobile-friendly interfaces boosted onboarding satisfaction scores"
+                            "label": "Improved Customer Experience",
+                            "desc": "Mobile-friendly interfaces and real-time notifications boosted onboarding satisfaction scores"
                         }
                     ]
                 }
@@ -1021,27 +1026,32 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The bank evolved from operating on fragmented data to running on a unified, real-time intelligence layer.</p>",
+                    "body": "",
                     "items": [
                         {
                             "value": "360°",
-                            "label": "Unified View",
-                            "desc": "Consolidated view of customer relationships across all systems"
+                            "label": "Unified Customer Intelligence",
+                            "desc": "A consolidated view of customer relationships, accounts, and transactions across all systems — enabling smarter decisions across business units"
                         },
                         {
                             "value": "50–60%",
-                            "label": "Less Manual Effort",
-                            "desc": "Automated pipelines replaced manual extraction and reconciliation"
+                            "label": "Reduction in Manual Data Effort",
+                            "desc": "Automated pipelines replaced manual extraction and reconciliation — freed up data teams for higher-value analysis"
                         },
                         {
                             "value": "70%",
-                            "label": "Faster Reporting",
-                            "desc": "Near real-time data availability accelerated business responsiveness"
+                            "label": "Faster Reporting & Insights",
+                            "desc": "Near real-time data availability significantly improved reporting speed — accelerated business responsiveness"
+                        },
+                        {
+                            "value": "↑",
+                            "label": "Improved Cross-Sell & Personalization",
+                            "desc": "Deeper visibility into customer behavior and product usage — enabled targeted offerings and better engagement"
                         },
                         {
                             "value": "∞",
-                            "label": "Scalable Foundation",
-                            "desc": "Cloud-native architecture ready for AI and advanced analytics"
+                            "label": "Scalable Data Foundation",
+                            "desc": "Cloud-native architecture built for growth and advanced analytics — ready for AI, ML, and future digital initiatives"
                         }
                     ]
                 }
@@ -1050,7 +1060,13 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>Data is now embedded into everyday decision-making — enabling faster execution, improved customer engagement, and a stronger foundation for digital growth.</p>"
+                "content": "<p>The bank evolved from operating on fragmented data to running on a unified, real-time intelligence layer.</p>\n        <p>Data is now embedded into everyday decision-making — enabling faster execution, improved customer engagement, and a stronger foundation for digital growth.</p>"
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>With a modern data platform in place, the bank is positioned to unlock the next phase of innovation — including AI-driven insights, predictive analytics, and real-time customer decisioning.</p>\n        <p>What started as a data consolidation initiative is now a catalyst for continuous transformation.</p>"
             }
         ]
     },
@@ -1152,7 +1168,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "5×",
-                            "label": "Faster API &amp; Query Execution",
+                            "label": "Faster API & Query Execution",
                             "desc": "API calls and database queries executed nearly 5 times faster than the previous platform"
                         },
                         {
@@ -1238,7 +1254,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "solution",
                 "title": "Hyniva's Solution",
                 "type": "text",
-                "content": "<p>Hyniva developed a bespoke application on the latest .NET Framework, tailored to the client's specific campaign management needs. Our team managed the entire lifecycle, delivering:</p>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Delivery &amp; Documentation</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Functional designs, technical designs, test plans, test cases, release documents, and detailed user manuals for seamless handover and ongoing support.</div>\n          <div class=\"solution-group__bullet\">A robust scoring model integrated into the application to automate campaign scoring.</div>\n          <div class=\"solution-group__bullet\">Comprehensive database architecture with well-optimized stored procedures and scripts to ensure high performance.</div>\n          <div class=\"solution-group__bullet\">Online help and end-user documentation for better usability and support.</div>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Throughout the project, we maintained rigorous quality and process adherence using:</p>\n      </div>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Quality &amp; Process Controls</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Team Foundation Server (TFS) for code tracking and collaboration.</div>\n          <div class=\"solution-group__bullet\">Code quality metrics and unit test coverage to ensure maintainability and reliability.</div>\n          <div class=\"solution-group__bullet\">Earned value metrics for transparent project tracking and delivery assurance.</div>\n        </div>\n      </div>"
+                "content": "<p>Hyniva developed a bespoke application on the latest .NET Framework, tailored to the client's specific campaign management needs. Our team managed the entire lifecycle, delivering:</p>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Delivery & Documentation</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Functional designs, technical designs, test plans, test cases, release documents, and detailed user manuals for seamless handover and ongoing support.</div>\n          <div class=\"solution-group__bullet\">A robust scoring model integrated into the application to automate campaign scoring.</div>\n          <div class=\"solution-group__bullet\">Comprehensive database architecture with well-optimized stored procedures and scripts to ensure high performance.</div>\n          <div class=\"solution-group__bullet\">Online help and end-user documentation for better usability and support.</div>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Throughout the project, we maintained rigorous quality and process adherence using:</p>\n      </div>\n      <div class=\"solution-group\">\n        <div class=\"solution-group__label\">Quality & Process Controls</div>\n        <div class=\"solution-group__bullets\">\n          <div class=\"solution-group__bullet\">Team Foundation Server (TFS) for code tracking and collaboration.</div>\n          <div class=\"solution-group__bullet\">Code quality metrics and unit test coverage to ensure maintainability and reliability.</div>\n          <div class=\"solution-group__bullet\">Earned value metrics for transparent project tracking and delivery assurance.</div>\n        </div>\n      </div>"
             },
             {
                 "id": "benefits",
@@ -1254,7 +1270,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "⚙️",
-                            "label": "Efficiency &amp; Automation",
+                            "label": "Efficiency & Automation",
                             "desc": "Automated scoring reduced manual calculations, saving time and improving accuracy"
                         },
                         {
@@ -1264,7 +1280,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "🔍",
-                            "label": "Quality &amp; Transparency",
+                            "label": "Quality & Transparency",
                             "desc": "Adherence to industry best practices ensured high-quality code, traceability, and reduced long-term maintenance costs"
                         },
                         {
@@ -1315,6 +1331,66 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             }
         ],
         "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>A leading community-focused healthcare and social services provider's STOP program (Specialized Treatment for Optimized Programming) relied on a heavily customized Microsoft Access system to manage critical participant data, incident reporting, and logistics.</p>\n        <p>Over time, the system became a major operational bottleneck — difficult to scale, hard to navigate, and nearly impossible to maintain.</p>\n        <p>Key challenges included:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Deeply complex workflows buried within nested forms and tabs"
+                        },
+                        {
+                            "num": "2",
+                            "title": "Tightly coupled business logic, leading to inconsistent data entry"
+                        },
+                        {
+                            "num": "3",
+                            "title": "Limited accessibility, with a desktop-bound system restricting remote usage"
+                        },
+                        {
+                            "num": "4",
+                            "title": "Fragmented user experience impacting productivity and accuracy"
+                        },
+                        {
+                            "num": "5",
+                            "title": "Urgent modernization needs without disrupting ongoing operations"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "approach",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>We didn't just migrate the system — we reimagined its architecture, usability, and scalability.</p>\n        <p>By reverse-engineering the legacy application and introducing a cloud-native, API-first approach, we transformed a rigid system into a flexible, future-ready platform.</p>\n        <p>Our approach focused on:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "API-First Architecture",
+                            "desc": "Decoupled business logic through a secure API-first architecture, enabling flexibility and future integrations without system lock-in."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Modern Frontend Rebuild",
+                            "desc": "Rebuilt the frontend with a modern, responsive ReactJS framework — replacing a rigid desktop application with a clean, accessible web interface."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Workflow Simplification",
+                            "desc": "Simplified complex, multi-tabbed workflows into intuitive user experiences that improve speed and accuracy across high-frequency operational tasks."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Rapid, Non-Disruptive Delivery",
+                            "desc": "Ensured rapid delivery with minimal disruption to daily operations, completing a full transformation within an aggressive project timeline."
+                        }
+                    ]
+                }
+            },
             {
                 "id": "solutions",
                 "title": "Key Solutions Delivered",
