@@ -1108,7 +1108,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
                         }
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p>\n      </div>\n\n      <div class=\"solution-image\">\n        <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Architecture\"/>\n      </div>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p>\n      </div>\n\n      <div class=\"solution-image\">\n        <img src=\"/images/Case_Studies/Optimized/AWS_doc_manager1.png\" alt=\"AWS Document Management Architecture\"/>\n      </div>"
                 }
             },
             {
@@ -1139,7 +1139,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
                         }
                     ],
-                    "footer": "<div class=\"impact-image\">\n        <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
+                    "footer": "<div class=\"impact-image\">\n        <img src=\"/images/Case_Studies/Optimized/aws_doc2.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
                 }
             },
             {
@@ -1535,30 +1535,30 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Challenge",
                 "type": "feature-grid",
                 "content": {
-                    "body": "<p>A leading credit union aimed to modernize its member engagement strategy to better serve its growing member base. Despite having a strong reputation, their digital touchpoints were fragmented, leading to several operational and experience-related hurdles:</p>",
+                    "body": "<p>A leading, award-winning Credit Union with over half a million members aimed to significantly boost consumer lending across auto loans, personal loans, and credit cards. However, they faced several critical challenges:</p>",
                     "items": [
                         {
                             "icon": "⚠️",
                             "title": "High Member Friction",
-                            "text": "Fragmented digital touchpoints and manual processes created significant hurdles for members seeking financial products."
+                            "text": "Outdated and fragmented digital interfaces led to high application abandon rates and stagnant lending volumes."
                         },
                         {
                             "icon": "📉",
                             "title": "Static Engagement",
-                            "text": "Lack of personalized communication resulted in missed opportunities to engage members with relevant offers."
+                            "text": "Disjointed application experiences across mobile, web, branch, and phone channels caused member confusion and hindered cross-channel loan processing."
                         },
                         {
                             "icon": "⚙️",
                             "title": "Inefficient Lead Management",
-                            "text": "Manual lead distribution and follow-up processes slowed down response times and impacted conversion rates."
+                            "text": "Although the Credit Union used Salesforce for CRM and contact center operations, it was not integrated with digital experiences offered to members."
                         },
                         {
                             "icon": "🔍",
                             "title": "Limited Digital Visibility",
-                            "text": "Members had restricted visibility into their eligibility and application status, leading to uncertainty."
+                            "text": "Returns on investment have consistently fallen short of expectations."
                         }
                     ],
-                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Outdated and fragmented digital interfaces led to high application abandon rates and stagnant lending volumes.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Disjointed application experiences across mobile, web, branch, and phone channels caused member confusion and hindered cross-channel loan processing.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Although the Credit Union used Salesforce for CRM and contact center operations, it was not integrated with the digital experiences offered to members.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>Returns on investment have consistently fallen short of expectations.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>There was minimal engagement from non-members, limiting new customer acquisition through digital channels.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>The loan application process was cumbersome and unintuitive for non-members applying online.</div>\n      </div>"
+                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>There was minimal engagement from non-members, limiting new customer acquisition through digital channels.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>The loan application process was cumbersome and unintuitive for non-members applying online.</div>\n      </div>"
                 }
             },
             {
@@ -1571,80 +1571,36 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         {
                             "num": "1",
                             "title": "FinXServe on Salesforce FSC & Experience Cloud",
-                            "desc": "Implementation of FinXServe tightly integrated with Salesforce Financial Services Cloud and Experience Cloud."
+                            "desc": "Implementation of FinXServe on existing Salesforce platform, tightly integrated with Salesforce Financial Services Cloud and Experience Cloud."
                         },
                         {
                             "num": "2",
                             "title": "Unified Multi-Channel Loan Applications",
-                            "desc": "User-friendly experiences for auto loans, personal loans, and credit cards — accessible via mobile, website, branch, and contact center."
+                            "desc": "User-friendly loan application experiences for auto loans, personal loans, and credit cards — accessible via mobile, website, branch, and contact center."
                         },
                         {
                             "num": "3",
                             "title": "Frontline Staff Empowerment",
-                            "desc": "Empowered frontline staff to assist members using the same digital platform, ensuring seamless support across all channels."
+                            "desc": "Empowered frontline staff to assist members using the same digital platform, ensuring seamless support and service continuity across channels."
                         },
                         {
                             "num": "4",
                             "title": "Modern Core Banking Integration",
-                            "desc": "Deep integration with Modern Core Banking Platforms, enabling real-time processing and data synchronization."
+                            "desc": "Well integrated with a Modern Core Banking Platform, enabling real-time processing and data synchronization."
                         },
                         {
                             "num": "5",
                             "title": "Configuration-Driven Approach",
-                            "desc": "A configuration- and workflow-driven approach that significantly reduced implementation time, risk, and cost compared to custom development."
+                            "desc": "A configuration- and workflow-driven approach (instead of custom development), significantly reducing implementation time, risk, and cost."
                         }
                     ]
                 }
             },
             {
                 "id": "impact",
-                "title": "Impact",
-                "type": "impact-strip",
-                "content": {
-                    "body": "<p>The transformation delivered immediate and measurable improvements across member satisfaction and business performance:</p>",
-                    "items": [
-                        {
-                            "value": "✓",
-                            "label": "Modern Experience",
-                            "desc": "Consistent digital and physical lending experience"
-                        },
-                        {
-                            "value": "< 2 min",
-                            "label": "Instant Offers",
-                            "desc": "Loan offers delivered to members in under 2 minutes"
-                        },
-                        {
-                            "value": "🔗",
-                            "label": "Channel Continuity",
-                            "desc": "Resume applications seamlessly through any preferred channel"
-                        },
-                        {
-                            "value": "↓",
-                            "label": "Lower Abandonment",
-                            "desc": "Improved UX significantly reduced application drop-offs"
-                        },
-                        {
-                            "value": "↑",
-                            "label": "Higher Engagement",
-                            "desc": "Increased reach among both members and non-members"
-                        },
-                        {
-                            "value": "👥",
-                            "label": "Staff Empowered",
-                            "desc": "Staff tools to assist members more efficiently across channels"
-                        },
-                        {
-                            "value": "🏆",
-                            "label": "First of Its Kind",
-                            "desc": "First fully member-facing lending on Salesforce Experience Cloud"
-                        },
-                        {
-                            "value": "ROI",
-                            "label": "Salesforce ROI",
-                            "desc": "Measurable performance gains strengthened platform investment"
-                        }
-                    ]
-                }
+                "title": "Benefits",
+                "type": "text",
+                "content": "<div class=\"impact-highlights\">\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">✓</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Modern Consistent Experience</div>\n            <div class=\"impact-card__desc\">Transformed lending operations with a modern, consistent experience across digital and physical channels</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">&lt; 2 min</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Instant Loan Offers</div>\n            <div class=\"impact-card__desc\">Loan offers delivered to members in under 2 minutes, a significant improvement from previous turnaround time of several hours</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">🔗</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">True Cross-Channel Continuity</div>\n            <div class=\"impact-card__desc\">Applicants may initiate applications online via mobile, in-branch, or by phone, and subsequently resume the process through any preferred channel</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↓</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Reduced Abandonment</div>\n            <div class=\"impact-card__desc\">Improved user experience has significantly reduced application abandonment</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↑</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Increased Engagement</div>\n            <div class=\"impact-card__desc\">Increased engagement from both members and non-members, expanding reach</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">👥</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Staff Empowered</div>\n            <div class=\"impact-card__desc\">Staff empowered with tools to assist members more efficiently across all channels</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">🏆</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">First of Its Kind</div>\n            <div class=\"impact-card__desc\">This marks the first fully member-facing lending experience developed on Salesforce Experience Cloud</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">ROI</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Strengthened Salesforce ROI</div>\n            <div class=\"impact-card__desc\">Faster deployment and measurable performance gains strengthened ROI on Salesforce investment</div>\n          </div>\n        </div>\n      </div>"
             },
             {
                 "id": "outcome",
