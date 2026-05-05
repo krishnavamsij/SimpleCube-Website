@@ -64,19 +64,19 @@ export default function BlogDetailPage() {
                                     className="flex items-center gap-3 group"
                                 >
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_10px_#1e90ff] animate-pulse group-hover:scale-110 transition-transform" />
-                                    <span className="text-[11px] font-bold text-[#63c2ff] uppercase tracking-[0.4em] group-hover:text-white transition-colors">
+                                    <span className="font-display text-[11px] font-bold text-[#63c2ff] uppercase tracking-[0.4em] group-hover:text-white transition-colors">
                                         BLOG
                                     </span>
                                 </Link>
                             </motion.div>
 
-                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-medium">
+                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-medium font-display">
                                 <div className="flex items-center gap-2">
                                     <Clock className="w-4 h-4 text-[#1e90ff]" />
                                     {post.date}
                                 </div>
                                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#63c2ff] border border-[#1e90ff]/20">
-                                    <Cloud className="w-3 h-3" />
+                                    <Tag className="w-3 h-3" />
                                     {post.tag}
                                 </div>
                             </motion.div>
@@ -148,7 +148,8 @@ export default function BlogDetailPage() {
 
             <Footer />
 
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .blog-content li {
                     position: relative;
                     padding-left: 20px;
@@ -218,6 +219,143 @@ export default function BlogDetailPage() {
                     margin-bottom: 0 !important;
                     font-size: 15px;
                 }
+                /* ─── Premium Trend Cards (Specific to AWS/Cloud Trends) ─── */
+                .trend-cards {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    margin: 32px 0;
+                }
+                .trend-card {
+                    border: 1px solid #eef2f6;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    background: white;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+                }
+                .trend-card__header {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 20px 24px;
+                    background: #0a0f1e;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .trend-card__header::before {
+                    content: "";
+                    position: absolute; inset: 0;
+                    background-image: 
+                        linear-gradient(rgba(30,144,255,0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(30,144,255,0.1) 1px, transparent 1px);
+                    background-size: 30px 30px;
+                    opacity: 0.4;
+                }
+                .trend-card__icon {
+                    position: relative; z-index: 1;
+                    width: 36px; height: 36px;
+                    border-radius: 10px;
+                    background: rgba(30,144,255,0.2);
+                    display: flex; align-items: center; justify-content: center;
+                    flex-shrink: 0;
+                    color: #63c2ff;
+                }
+                .trend-card__title {
+                    position: relative; z-index: 1;
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 19px;
+                    color: #e8f0ff;
+                    line-height: 1.3;
+                }
+                .trend-card__body {
+                    background: white;
+                }
+                .trend-card__row {
+                    padding: 20px 24px;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .trend-card__row:last-child { border-bottom: none; }
+                .trend-card__row-label {
+                    font-family: var(--font-display), sans-serif;
+                    font-size: 10px;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                    display: block;
+                }
+                .trend-card__row-label--trend   { color: #94a3b8; }
+                .trend-card__row-label--hyniva  { color: #1e90ff; }
+                .trend-card__row-text {
+                    font-size: 15px;
+                    color: #4b5563;
+                    line-height: 1.7;
+                }
+                /* ─── Premium CTA Banner ─── */
+                .cta-banner {
+                    margin-top: 60px;
+                    background: #0a0f1e;
+                    border-radius: 20px;
+                    padding: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 32px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .cta-banner::before {
+                    content: "";
+                    position: absolute; inset: 0;
+                    background-image: 
+                        linear-gradient(rgba(30,144,255,0.08) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(30,144,255,0.08) 1px, transparent 1px);
+                    background-size: 40px 40px;
+                }
+                .cta-banner__content { position: relative; z-index: 1; }
+                .cta-banner__kicker {
+                    font-family: var(--font-display), sans-serif;
+                    display: block;
+                    font-size: 10px;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
+                    color: #63c2ff;
+                    margin-bottom: 12px;
+                    font-weight: 700;
+                }
+                .cta-banner__title {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 28px;
+                    color: #e8f0ff;
+                    line-height: 1.2;
+                    margin-bottom: 12px;
+                    font-weight: 400;
+                }
+                .cta-banner__desc {
+                    font-size: 15px;
+                    color: rgba(232, 240, 255, 0.6);
+                    margin-bottom: 0 !important;
+                }
+                .cta-banner__button {
+                    position: relative; z-index: 1;
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 14px 28px;
+                    background: #1e90ff;
+                    color: white;
+                    font-size: 15px;
+                    font-weight: 600;
+                    border-radius: 12px;
+                    text-decoration: none !important;
+                    transition: all 0.3s ease;
+                    white-space: nowrap;
+                    box-shadow: 0 4px 15px rgba(30,144,255,0.3);
+                }
+                .cta-banner__button:hover {
+                    background: #0077e6;
+                    box-shadow: 0 8px 25px rgba(30,144,255,0.5);
+                    transform: translateY(-2px);
+                }
                 .stats {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
@@ -246,10 +384,13 @@ export default function BlogDetailPage() {
                     margin-bottom: 8px;
                 }
                 .stat-card__label {
-                    font-size: 13px;
-                    font-weight: 500;
+                    font-family: var(--font-display), sans-serif;
+                    font-size: 11px;
+                    font-weight: 700;
                     color: #64748b;
                     line-height: 1.4;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
                 }
                 .pullquote {
                     margin: 40px 0;
@@ -268,6 +409,11 @@ export default function BlogDetailPage() {
                 @media (max-width: 768px) {
                     .stats {
                         grid-template-columns: 1fr;
+                    }
+                    .cta-banner {
+                        flex-direction: column;
+                        padding: 32px;
+                        text-align: center;
                     }
                 }
             ` }} />

@@ -1461,70 +1461,79 @@ The organizations that prepare today will lead tomorrow.</p>`
 </ul>`
             },
             {
-                id: "how-hyniva-helps-with-your-salesforce-li",
-                title: "How Hyniva Helps with Your Salesforce Lightning Transition",
-                content: `<p>At <strong><a href="https://www.staging15.hyniva.com/">Hyniva</a></strong>, a leading consulting and technology services firm, we specialize in helping businesses migrate seamlessly from Salesforce Classic to Salesforce Lightning. Whether youÃ¢Â€Â™re a small startup or a large enterprise, we have the expertise to guide you through every step of the transition process.&nbsp;</p>
-
-
-
-<p><strong>1. Assess Your Current Salesforce Setup</strong>&nbsp;</p>
-
-
-
-<p>Hyniva starts by conducting a thorough assessment of your current Salesforce Classic setup. We identify gaps in functionality, performance issues, and opportunities for optimization. This ensures a smooth transition to the Lightning Experience that aligns with your specific business needs.&nbsp;</p>
-
-
-
-<p><strong>2. Customized Migration Plan</strong>&nbsp;</p>
-
-
-
-<p>Our team develops a tailored migration plan to ensure a seamless switch to Salesforce Lightning. We work closely with your teams to minimize disruptions and maximize the benefits of LightningÃ¢Â€Â™s enhanced features.&nbsp;</p>
-
-
-
-<p><strong>3. Training and Support</strong>&nbsp;</p>
-
-
-
-<p>Transitioning to Lightning can be overwhelming, which is why Hyniva provides comprehensive training for your team members. We ensure they understand how to take full advantage of the new interface, features, and workflows. Additionally, we provide ongoing support to address any questions or challenges post-migration.&nbsp;</p>
-
-
-
-<p><strong>4. Optimization for Performance and Efficiency</strong>&nbsp;</p>
-
-
-
-<p>Once the migration is complete, Hyniva helps fine-tune the Lightning Experience to ensure that your team gets the most out of it. This includes optimizing workflows, reports, dashboards, and integrations to enhance overall efficiency and performance.&nbsp;</p>
-
-
-
-<p><strong>5. Future Enhancements</strong>&nbsp;</p>
-
-
-
-<p>Hyniva doesnÃ¢Â€Â™t just stop after migration. We assist businesses with ongoing improvements and enhancements to ensure that their Salesforce platform continues to evolve as new features and functionalities are released. With our expert support, your Salesforce system will remain aligned with your business goals for years to come.&nbsp;</p>`
+                id: "key-differences",
+                title: "Key Differences: Classic vs. Lightning",
+                content: `<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Modern User Interface</strong>
+            <p>Lightning offers a modern, intuitive design with a responsive layout that improves productivity and user adoption compared to the rigid Classic interface.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Enhanced Analytics</strong>
+            <p>The Lightning Report Builder and interactive dashboards provide real-time insights and a more powerful data visualization experience.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Einstein AI Integration</strong>
+            <p>Lightning natively integrates Salesforce Einstein, offering predictive analytics, lead scoring, and smarter decision-making tools not available in Classic.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Mobile Experience</strong>
+            <p>Optimized mobile app provides a seamless experience across devices, enabling a mobile-first approach for sales and service teams.</p>
+        </div>
+    </div>
+</div>`
+            },
+            {
+                id: "hyniva-expertise",
+                title: "How Hyniva Guides Your Transition",
+                content: `<p>At Hyniva, we specialize in helping businesses migrate seamlessly from Salesforce Classic to Salesforce Lightning. We ensure your transition is smooth, optimized, and aligned with your specific business goals.</p>
+<div class="feature-cards">
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Thorough Assessment</strong>
+            <p>We evaluate your current setup to identify gaps and optimization opportunities for the Lightning Experience.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Customized Roadmap</strong>
+            <p>Our team develops a tailored migration plan to minimize disruptions and maximize feature benefits.</p>
+        </div>
+    </div>
+    <div class="feature-card">
+        <div class="feature-card__dot"></div>
+        <div class="feature-card__content">
+            <strong>Training & Support</strong>
+            <p>We provide comprehensive training and ongoing support to ensure your team is fully equipped for the new interface.</p>
+        </div>
+    </div>
+</div>`
             },
             {
                 id: "conclusion",
                 title: "Conclusion",
-                content: `<p>While Salesforce Classic served businesses well for many years, the Lightning Experience offers significant advantages in terms of usability, performance, and future-proofing. By making the switch, businesses can unlock powerful features that will drive growth, improve user experience, and enable smarter decision-making.&nbsp;</p>
-
-
-
-<p>At Hyniva, we are committed to helping businesses make the most of SalesforceÃ¢Â€Â™s capabilities, including guiding them through a smooth and efficient transition to Salesforce Lightning. With our expertise and dedication, your organization will be well-equipped to take full advantage of the next generation of CRM technology.&nbsp;</p>
-
-
-
-<p><strong>Ready to make the switch to Salesforce Lightning?</strong> Contact Hyniva today to learn more about how we can help streamline your migration process and optimize your Salesforce investment.&nbsp;</p>
-
-
-
-<p>Follow us on&nbsp;<strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong>&nbsp;for the latest updates.</p>
-
-
-
-<p>#Hyniva #Salesforce #SalesforceLightning #CRM #BusinessGrowth #DigitalTransformation #AI #SalesforceMigration #TechInnovation #FutureReady #CustomerSuccess #BusinessEfficiency #SalesforceConsulting #UpgradeToLightning&nbsp;</p>`
+                content: `<p>While Salesforce Classic served its purpose, Lightning represents the future of CRM. By making the switch, businesses can unlock powerful features that drive growth and enable smarter decision-making.</p>
+<div class="cta-banner">
+    <div class="cta-banner__content">
+        <span class="cta-banner__kicker">Modernize Your CRM</span>
+        <h3 class="cta-banner__title">Ready to make the switch to Salesforce Lightning?</h3>
+        <p class="cta-banner__desc">Contact Hyniva today to learn how we can streamline your migration and optimize your investment.</p>
+    </div>
+    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
+</div>`
             },
         ]
     },
@@ -1694,8 +1703,14 @@ The organizations that prepare today will lead tomorrow.</p>`
                 title: "From Data Complexity to Competitive Advantage",
                 content: `<p>Salesforce Data Cloud is a fundamental shift in how organizations relate to their data. By unifying disparate sources, enabling real-time analytics, and enforcing data quality, it transforms businesses into agile, data-driven operations capable of responding faster than their competitors.</p>
 <p>With Hyniva's expertise in cloud integration and data management, organizations can navigate the complexity of data transformation without disruption - and emerge with a platform that continuously delivers value as their needs evolve.</p>
-<p>The businesses that will lead in a data-driven world are not necessarily those with the most data.<br>
-They are the ones who can integrate it, trust it, and act on it - faster than anyone else.</p>`
+<div class="cta-banner">
+    <div class="cta-banner__content">
+        <span class="cta-banner__kicker">Scale Your Data</span>
+        <h3 class="cta-banner__title">Ready to transform your data into a competitive advantage?</h3>
+        <p class="cta-banner__desc">Follow us on LinkedIn for the latest insights on data integration and Salesforce Data Cloud innovations.</p>
+    </div>
+    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
+</div>`
             }
         ]
     },
@@ -1770,7 +1785,7 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         ]
     },
     "unlock-the-future-of-crm-with-the-latest-salesforce-innovations": {
-        title: "Unlock the Future of CRM with the Latest <em>Salesforce Innovations.</em>",
+        title: "Unlock the Future of CRM<br>with the Latest <em>Salesforce Innovations.</em>",
         subtitle: "",
         date: "Dec 24, 2024",
         author: "Hyniva",
@@ -1778,7 +1793,7 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         heroImage: "/images/Blogs/Optimized/blog-13.png",
         sections: [
             {
-                id: "transforming-crm",
+                id: "intro",
                 title: "",
                 content: `<p><strong>CRM Is No Longer Just About Tracking — It's About Transforming</strong></p>
 <p>In the fast-paced digital age, Customer Relationship Management is not just about logging interactions. It's about harnessing data, leveraging artificial intelligence, and delivering personalized experiences at scale.</p>
@@ -1790,31 +1805,31 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
                 content: `<p>Salesforce's most recent updates span AI, data unification, workflow automation, and personalized marketing. Each innovation builds on the last — creating a platform that is smarter, faster, and more connected than any previous generation of CRM.</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">1</div>
         <div class="feature-card__content">
             <strong>AI + Data + CRM: The Einstein 1 Platform</strong>
-            <p>The Einstein 1 Platform integrates generative AI and real-time data to deliver personalized, predictive, and actionable insights. It anticipates customer needs, predicts buying behavior, and offers intelligent recommendations — and it grows smarter with every interaction. Businesses can now make faster decisions with the confidence that their CRM is always aligned with the latest customer intelligence.</p>
+            <p>The Einstein 1 Platform integrates generative AI and real-time data to deliver personalized, predictive, and actionable insights. It anticipates customer needs, predicts buying behavior, and offers intelligent recommendations — and it grows smarter with every interaction.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">2</div>
         <div class="feature-card__content">
             <strong>Data Cloud Enhancements: A Unified Customer View</strong>
-            <p>Salesforce's upgraded Data Cloud combines customer data from every touchpoint — email, social media, in-store, and more — into a single, centralized hub. This unified view enables precision segmentation, more targeted campaigns, and a holistic understanding of each customer. The result is sharper business decisions and deeper, more consistent customer relationships.</p>
+            <p>Salesforce's upgraded Data Cloud combines customer data from every touchpoint — email, social media, in-store, and more — into a single, centralized hub. This unified view enables precision segmentation, more targeted campaigns, and a holistic understanding of each customer.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">3</div>
         <div class="feature-card__content">
             <strong>Flow Automation Boost: Smarter, More Efficient Operations</strong>
-            <p>Salesforce's expanded Flow Automation tools bring low-code solutions to complex workflows — empowering sales, marketing, and service teams to automate processes without needing a dedicated developer. From escalating customer issues to streamlining lead qualification, automation eliminates manual effort and frees teams to focus on strategy and customer engagement.</p>
+            <p>Salesforce's expanded Flow Automation tools bring low-code solutions to complex workflows — empowering teams to automate processes without needing a dedicated developer. From escalating customer issues to streamlining lead qualification, automation eliminates manual effort.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">4</div>
         <div class="feature-card__content">
             <strong>Personalization at Scale: Supercharge Your Marketing</strong>
-            <p>Salesforce's enhanced Marketing Cloud enables hyper-personalized campaigns across every channel — email, social media, dynamic web content, and more. By leveraging customer data, preferences, and behaviors, businesses can deliver experiences that feel individual at any volume. Personalization at this scale drives brand loyalty, deepens relationships, and directly accelerates revenue growth.</p>
+            <p>Salesforce's enhanced Marketing Cloud enables hyper-personalized campaigns across every channel — email, social media, dynamic web content, and more. By leveraging customer data and behaviors, businesses can deliver experiences that feel individual at any volume.</p>
         </div>
     </div>
 </div>`
@@ -1838,12 +1853,20 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
                 content: `<p>At Hyniva, we understand how transformative these innovations can be for businesses of all sizes. From implementing new Salesforce features to optimizing existing environments, we are dedicated to helping our clients harness the full potential of Salesforce's latest advancements.</p>
 <p>Our team of experts works with you to integrate the right tools, ensure they align with your business goals, and deliver measurable results from day one — whether you're starting fresh or building on an existing Salesforce investment.</p>
 <p>The future of CRM is already here.<br>
-With Salesforce and Hyniva, your organization is ready for it.</p>`
-            },
+With Salesforce and Hyniva, your organization is ready for it.</p>
+<div class="cta-banner">
+    <div class="cta-banner__content">
+        <span class="cta-banner__kicker">Get in touch</span>
+        <h3 class="cta-banner__title">Ready to unlock the latest Salesforce innovations?</h3>
+        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates and insights.</p>
+    </div>
+    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
+</div>`
+            }
         ]
     },
     "optimizing-salesforce-fsc-future-proofing-your-financial-institution-with-hynivas-expertise": {
-        title: "Start Your Salesforce FSC <em>Optimization Journey.</em>",
+        title: "Start Your Salesforce FSC<br><em>Optimization Journey.</em>",
         subtitle: "",
         date: "Dec 17, 2024",
         author: "Hyniva",
@@ -1862,28 +1885,28 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 content: `<p>Salesforce FSC is tailored for wealth management, retail banking, insurance, and broader financial services — combining Salesforce's CRM capabilities with deep, industry-specific functionality. When deployed and optimized correctly, it delivers four core advantages:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">1</div>
         <div class="feature-card__content">
             <strong>Client Experience</strong>
             <p>A 360-degree view of every client enables tailored communication and stronger, longer-lasting relationships.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">2</div>
         <div class="feature-card__content">
             <strong>Data-Driven Insights</strong>
             <p>AI-powered analytics surface deeper client intelligence, improving the quality of financial advice and service delivery.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">3</div>
         <div class="feature-card__content">
             <strong>Operational Efficiency</strong>
             <p>Automation reduces manual tasks, boosts productivity, and improves collaboration across departments and functions.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">4</div>
         <div class="feature-card__content">
             <strong>Scalability</strong>
             <p>Cloud-based architecture and seamless third-party integration ensure the platform grows alongside your institution.</p>
@@ -1895,43 +1918,13 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 id: "future-proofing",
                 title: "How Optimization Future-Proofs Your Institution",
                 content: `<p>The financial services industry never stands still — and neither can your platform. Here is what a well-optimized Salesforce FSC environment enables your institution to do:</p>
-<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Adapt to Market Changes</strong>
-            <p>Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</p>
-        </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Enhance Client Retention and Acquisition</strong>
-            <p>Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</p>
-        </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Improve Cross-Team Collaboration</strong>
-            <p>A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</p>
-        </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Stay Ahead of Technology Trends</strong>
-            <p>Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</p>
-        </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Strengthen Security and Compliance</strong>
-            <p>Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</p>
-        </div>
-    </div>
-</div>`
+<ul>
+    <li><strong>Adapt to Market Changes:</strong> Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands.</li>
+    <li><strong>Enhance Client Retention and Acquisition:</strong> Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations.</li>
+    <li><strong>Improve Cross-Team Collaboration:</strong> A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling teams to work from shared client data.</li>
+    <li><strong>Stay Ahead of Technology Trends:</strong> Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</li>
+    <li><strong>Strengthen Security and Compliance:</strong> Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant.</li>
+</ul>`
             },
             {
                 id: "optimization-framework",
@@ -1939,42 +1932,42 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 content: `<p>Starting your FSC optimization journey may seem complex — but with the right approach, it is a clear and measurable process. Hyniva guides financial institutions through each stage with structured expertise:</p>
 <div class="feature-cards">
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">1</div>
         <div class="feature-card__content">
             <strong>Comprehensive Needs Assessment</strong>
             <p>We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">2</div>
         <div class="feature-card__content">
             <strong>Optimization Strategy and Roadmap</strong>
-            <p>With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</p>
+            <p>With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure measurable progress.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">3</div>
         <div class="feature-card__content">
             <strong>Leverage AI and Automation</strong>
             <p>We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">4</div>
         <div class="feature-card__content">
             <strong>Tailor Client Engagement Processes</strong>
             <p>We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">5</div>
         <div class="feature-card__content">
             <strong>Continuous Monitoring and Improvement</strong>
             <p>Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</p>
         </div>
     </div>
     <div class="feature-card">
-        <div class="feature-card__dot"></div>
+        <div class="feature-card__dot">6</div>
         <div class="feature-card__content">
             <strong>Training and Change Management</strong>
             <p>A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</p>
@@ -1988,12 +1981,20 @@ With Salesforce and Hyniva, your organization is ready for it.</p>`
                 content: `<p>Optimizing Salesforce Financial Services Cloud is not a technical exercise — it is a strategic imperative. Institutions that invest in FSC optimization will be better positioned to adapt, grow, and lead in a landscape defined by rapid change and rising client expectations.</p>
 <p>With Hyniva's expertise, the path from adoption to optimization is structured, supported, and built for measurable, long-term impact.</p>
 <p>The future of financial services is already unfolding.<br>
-The institutions that prepare their platforms today will define what it looks like tomorrow.</p>`
+The institutions that prepare their platforms today will define what it looks like tomorrow.</p>
+<div class="cta-banner">
+    <div class="cta-banner__content">
+        <span class="cta-banner__kicker">Get in touch</span>
+        <h3 class="cta-banner__title">Ready to start your Salesforce FSC optimization journey?</h3>
+        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates and insights.</p>
+    </div>
+    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
+</div>`
             },
         ]
     },
     "the-future-of-cloud-computing-aws-trends": {
-        title: "The Future of Cloud Computing: <em>AWS Trends.</em>",
+        title: "The Future of Cloud Computing.<br><em>AWS Trends</em> Shaping What's Next.",
         subtitle: "",
         date: "Nov 29, 2024",
         author: "Hyniva",
@@ -2002,77 +2003,134 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Driving Digital Transformation with AWS",
-                content: `<p>Cloud computing continues to redefine how businesses operate, offering unmatched scalability, flexibility, and efficiency. As companies increasingly migrate to the cloud, Amazon Web Services (AWS) remains at the forefront of this digital transformation.</p>
-<p>The future of cloud computing is being shaped by ongoing innovation, and AWS is a key driver of these changes. In this blog, we explore the most exciting trends in cloud computing and how Hyniva is helping businesses leverage AWS technologies to stay ahead of the curve.</p>`
+                title: "",
+                content: `<p>Cloud computing continues to redefine how businesses operate, offering unmatched scalability, flexibility, and efficiency. As companies increasingly migrate to the cloud, Amazon Web Services (AWS) remains at the forefront of this digital transformation — continuously driving innovation and shaping where the industry goes next.</p>
+<p>Here, we explore six of the most significant trends in cloud computing and how Hyniva is helping businesses leverage AWS technologies to stay ahead of the curve.</p>`
             },
             {
                 id: "aws-trends",
-                title: "Six Innovations Shaping the AWS Ecosystem",
-                content: `<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot">1</div>
-        <div class="feature-card__content">
-            <strong>Serverless Computing and Efficiency</strong>
-            <p>AWS Lambda allows businesses to run applications without managing infrastructure. Developers can focus on code while AWS handles scaling and resource allocation, creating highly cost-efficient architectures.</p>
-            <p><em>Hyniva's Role:</em> We help businesses adopt serverless solutions to streamline development, reduce server management overhead, and accelerate application deployment.</p>
+                title: "",
+                content: `<div class="trend-cards">
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M3 9a6 6 0 1112 0A6 6 0 013 9z" stroke="currentColor" stroke-width="1.3"/><path d="M9 6v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="trend-card__title">Serverless Computing: Efficiency and Scalability</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">Serverless computing is gaining momentum with AWS Lambda, allowing businesses to run applications without managing infrastructure. Developers focus solely on writing code while AWS handles scaling and resource allocation.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Role</span>
+                <p class="trend-card__row-text">Hyniva helps businesses adopt serverless solutions by implementing AWS Lambda to streamline development — reducing server management overhead and accelerating deployment.</p>
+            </div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot">2</div>
-        <div class="feature-card__content">
-            <strong>AI and ML: Accelerating Innovation</strong>
-            <p>AI/ML tools like Amazon SageMaker and AWS Comprehend simplify the deployment of sophisticated models for decision-making and personalized customer experiences.</p>
-            <p><em>Hyniva's Expertise:</em> We leverage AWS AI/ML capabilities to build data-driven applications, from predictive analytics to process automation, driving smarter operational decisions.</p>
+
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><rect x="3" y="3" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="trend-card__title">AI and ML: Accelerating Innovation</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">AI and machine learning are essential for improving decision-making and automating processes. AWS offers a wide range of services — including Amazon SageMaker — that simplify model development.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Expertise</span>
+                <p class="trend-card__row-text">Hyniva leverages AWS's AI/ML capabilities to build data-driven applications. From predictive analytics to automation, we help integrate AI into core operations.</p>
+            </div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot">3</div>
-        <div class="feature-card__content">
-            <strong>Edge Computing and Real-Time Processing</strong>
-            <p>AWS IoT Greengrass and AWS Wavelength bring data processing closer to where it is generated, drastically reducing latency and bandwidth costs for IoT and logistics use cases.</p>
-            <p><em>Hyniva's Approach:</em> We deploy edge solutions that allow businesses to respond to operational demands in real-time with minimal delay.</p>
+
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M3 9h12M9 3c-2 2-2 10 0 12M9 3c2 2 2 10 0 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="trend-card__title">Edge Computing: Real-Time Data Processing</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">With the growth of IoT, edge computing is becoming critical. AWS IoT Greengrass allows data to be processed closer to the source, reducing latency and bandwidth costs.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Approach</span>
+                <p class="trend-card__row-text">Hyniva helps businesses deploy edge solutions to process data in real-time — improving performance in IoT, transportation, and logistics.</p>
+            </div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot">4</div>
-        <div class="feature-card__content">
-            <strong>Advanced Cloud Security</strong>
-            <p>AWS provides a comprehensive suite of security tools, including AWS Shield and Amazon Macie, to protect sensitive data and ensure global compliance.</p>
-            <p><em>Hyniva's Focus:</em> We conduct regular security audits and implement best practices to ensure your cloud environment is protected against modern cyber threats.</p>
+
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M9 2l6 2.5v5C15 13.5 12.5 16 9 17c-3.5-1-6-3.5-6-7.5v-5L9 2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 9l1.5 1.5 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="trend-card__title">Cloud Security: Protecting Data</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">As operations move to the cloud, security is a top priority. AWS provides tools like AWS Shield and Amazon Macie to protect data and ensure compliance.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Focus</span>
+                <p class="trend-card__row-text">Hyniva helps businesses secure cloud environments through audits, monitoring, and implementation of security best practices.</p>
+            </div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot">5</div>
-        <div class="feature-card__content">
-            <strong>Sustainability and Green Computing</strong>
-            <p>AWS is committed to net-zero carbon by 2040, transitioning data centers to renewable energy and increasing infrastructure energy efficiency.</p>
-            <p><em>Hyniva's Commitment:</em> We help businesses build sustainable cloud architectures, optimizing workloads to minimize carbon footprints while achieving performance goals.</p>
+
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M9 3C6 3 3.5 5.5 3.5 8.5c0 2 1 3.5 2.5 4.5h6c1.5-1 2.5-2.5 2.5-4.5C14.5 5.5 12 3 9 3z" stroke="currentColor" stroke-width="1.3"/><path d="M9 13v2M7 15h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="trend-card__title">Sustainability: Green Cloud Computing</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">AWS is committed to net-zero carbon by 2040 — transitioning data centers to renewable energy and increasing energy efficiency.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Commitment</span>
+                <p class="trend-card__row-text">Hyniva helps build sustainable cloud architectures by leveraging AWS's green technologies and optimizing workloads to reduce energy consumption.</p>
+            </div>
         </div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot">6</div>
-        <div class="feature-card__content">
-            <strong>Seamless Cloud Migration</strong>
-            <p>Moving to the cloud is a complex journey. AWS Migration Hub and AWS Server Migration Service provide the structural support needed for a smooth transition.</p>
-            <p><em>Hyniva's Expertise:</em> We provide end-to-end migration services, ensuring legacy systems are transitioned to AWS with minimal disruption and maximum cost-effectiveness.</p>
+
+    <div class="trend-card">
+        <div class="trend-card__header">
+            <div class="trend-card__icon">
+                <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><path d="M4 13.5C2.5 13 1.5 11.5 1.5 10a4 4 0 014-4h.5A5 5 0 0116 8a3.5 3.5 0 01-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M10 11l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="trend-card__title">Cloud Migration: A Smooth Transition</div>
+        </div>
+        <div class="trend-card__body">
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--trend">The Trend</span>
+                <p class="trend-card__row-text">Migrating to the cloud is complex. AWS offers tools like Migration Hub to make the process smoother and more efficient.</p>
+            </div>
+            <div class="trend-card__row">
+                <span class="trend-card__row-label trend-card__row-label--hyniva">Hyniva's Expertise</span>
+                <p class="trend-card__row-text">Hyniva provides end-to-end migration services, ensuring businesses move to AWS with minimal disruption and maximum cost-effectiveness.</p>
+            </div>
         </div>
     </div>
 </div>`
             },
             {
                 id: "conclusion",
-                title: "Shape Your Future in the Cloud",
-                content: `<p>The future of cloud computing is being defined by innovation, scalability, and intelligence. AWS continues to lead the way, providing businesses with the tools they need to stay competitive in an increasingly digital world.</p>
-<p>Hyniva helps businesses harness these advancements to drive growth, improve operational efficiency, and ensure security. By embracing emerging trends like AI, edge computing, and sustainable practices, we empower organizations to stay ahead of the curve, no matter where they are on their cloud journey.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Get in touch</span>
-        <h3 class="cta-banner__title">Ready to shape the future of your business with AWS?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest AWS updates and insights.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+                title: "Conclusion",
+                content: `<p>The future of cloud computing is being defined by innovation, scalability, and intelligence — and AWS is at the forefront of these changes. From serverless computing to AI/ML integration, edge computing, and sustainable cloud practices, AWS continues to lead the way.</p>
+<p>Hyniva, with its deep expertise in AWS technologies, is helping businesses harness these advancements to drive growth, improve operational efficiency, and ensure security. By embracing these emerging trends, Hyniva empowers organizations to stay ahead of the curve — no matter where they are on their cloud journey.</p>`
             },
         ]
     },
