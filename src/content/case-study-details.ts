@@ -1363,12 +1363,12 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "The Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>With a flexible foundation, the provider is now equipped to continuously evolve its STOP program with advanced capabilities.</p>",
+                    "body": "<p>With a modern, cloud-based platform in place, the healthcare service provider is now equipped to continuously evolve its STOP program.</p>\n        <p>Future enhancements will focus on:</p>",
                     "items": [
-                        "Deeper Analytics",
-                        "Automated Coordination",
-                        "Provider Integrations",
-                        "Mobile Care Kits"
+                        "Deeper analytics capabilities",
+                        "Improved reporting workflows",
+                        "Further workflow automation",
+                        "Scalable platform integrations"
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>All built on a flexible foundation designed to adapt and scale as the program grows and community needs evolve.</p>\n      </div>"
                 }
