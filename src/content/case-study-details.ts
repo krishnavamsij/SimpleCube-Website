@@ -975,27 +975,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>Hyniva designed and implemented a real-time, cloud-native data platform leveraging AWS serverless technologies to unify disparate data sources into a single foundation.</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "AWS Glue & PySpark",
-                            "desc": "Implemented for large-scale data processing and transformation of fragmented core system data."
-                        },
-                        {
-                            "num": "2",
-                            "title": "AWS Lambda Orchestration",
-                            "desc": "Used to trigger and manage automated workflows across mainframe and modern platforms."
-                        },
-                        {
-                            "num": "3",
-                            "title": "Customer 360 View",
-                            "desc": "Created a centralized data warehouse capturing complete lifecycle insights from account creation to transactions."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Hyniva designed and implemented a real-time, cloud-native data platform to unify disparate data sources into a single, scalable foundation.</p>\n        <p>The engagement began with a comprehensive assessment of existing systems and data flows to define a long-term data strategy.</p>\n        <p>Leveraging AWS serverless technologies, Hyniva built an automated data pipeline architecture:</p>\n        <div class=\"tech-bullets\">\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span><strong>AWS Glue &amp; PySpark</strong> for large-scale data processing and transformation</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span><strong>AWS Lambda</strong> to orchestrate and trigger workflows</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span>Seamless integration across mainframe systems, flat files, and modern platforms</span>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>This enabled the creation of a centralized data warehouse supporting a Customer 360 view, capturing complete lifecycle insights — from account creation to transaction behavior.</p>\n        <p>The platform was designed to be real-time, automated, and future-ready.</p>\n      </div>\n      <div class=\"tech-tags\">\n        <span class=\"tech-tag\">AWS Glue</span>\n        <span class=\"tech-tag\">PySpark</span>\n        <span class=\"tech-tag\">AWS Lambda</span>\n        <span class=\"tech-tag\">AWS Serverless</span>\n        <span class=\"tech-tag\">Data Warehouse</span>\n        <span class=\"tech-tag\">Customer 360</span>\n      </div>"
             },
             {
                 "id": "benefits",
@@ -1020,7 +1001,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Near real-time data availability significantly improved reporting speed — accelerated business responsiveness"
                         },
                         {
-                            "value": "↑",
+                            "value": "⬆",
                             "label": "Improved Cross-Sell & Personalization",
                             "desc": "Deeper visibility into customer behavior and product usage — enabled targeted offerings and better engagement"
                         },

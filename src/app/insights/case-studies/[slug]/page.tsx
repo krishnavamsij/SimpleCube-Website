@@ -692,6 +692,40 @@ export default function CaseStudyDetailPage() {
                     white-space: nowrap;
                 }
 
+                /* ── Tech Bullets Styling ── */
+                .tech-bullets {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    margin-top: 24px;
+                    background: #ECF6FF;
+                    border: 1px solid #ECF6FF;
+                    border-radius: 14px;
+                    padding: 24px;
+                }
+                .tech-bullet {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                }
+                .tech-bullet__dot {
+                    width: 8px;
+                    height: 8px;
+                    background: #1e90ff;
+                    border-radius: 50%;
+                    flex-shrink: 0;
+                    margin-top: 6px;
+                }
+                .tech-bullet span {
+                    font-size: 14px;
+                    color: #374151;
+                    line-height: 1.5;
+                }
+                .tech-bullet strong {
+                    color: #111827;
+                    font-weight: 600;
+                }
+
                 /* ── Solution Image Styling ── */
                 .solution-image {
                     margin-top: 32px;
