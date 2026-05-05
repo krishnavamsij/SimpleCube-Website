@@ -2745,7 +2745,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "generative-ai-why-its-a-game-changer": {
-        title: "Generative AI –<br/><span class=\"text-white italic\">Why It's a Game Changer.</span>",
+        title: "<span class=\"text-white\">Generative AI –<br/><span class=\"italic\">Why It's a Game Changer.</span></span>",
         subtitle: "",
         date: "Mar 27, 2024",
         author: "Hyniva",
@@ -2755,18 +2755,18 @@ The institutions that prepare their platforms today will define what it looks li
             {
                 id: "intro",
                 title: "",
-                content: `<p>Every industry has been proactively interested in Large Language Models (LLMs) and Generative AI in the past few years. GenAI has been receiving unprecedented levels of interest from global tech giants and the public alike in a remarkably short time span. Most organizations today are trying to optimize their processes, operations, and technology using AI capabilities — embarking on a new era of transformation and inquisitiveness.</p>
-<p>We'd like to share our insight on why GenAI could be the next step into the future — one that may disrupt existing jobs, but will generate tremendous growth for any organization that embraces it.</p>`
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">Every industry has been proactively interested in Large Language Models (LLMs) and Generative AI in the past few years. GenAI has been receiving unprecedented levels of interest from global tech giants and the public alike in a remarkably short time span. Most organizations today are trying to optimize their processes, operations, and technology using AI capabilities — embarking on a new era of transformation and inquisitiveness.</p>
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-4">We'd like to share our insight on why GenAI could be the next step into the future — one that may disrupt existing jobs, but will generate tremendous growth for any organization that embraces it.</p>`
             },
             {
                 id: "what-is-genai",
                 title: "What Is GenAI?",
-                content: `<p>GenAI is a type of artificial intelligence capable of producing data objects such as text, pictures, and sound in response to user prompts or descriptions. GenAI models are trained to understand the patterns and structures of their training data and use that as a reference to generate outputs with similar characteristics. The most commonly discussed implementation is the use of Large Language Models (LLMs) — in the form of tools like ChatGPT and Gemini.</p>`
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">GenAI is a type of artificial intelligence capable of producing data objects such as text, pictures, and sound in response to user prompts or descriptions. GenAI models are trained to understand the patterns and structures of their training data and use that as a reference to generate outputs with similar characteristics. The most commonly discussed implementation is the use of Large Language Models (LLMs) — in the form of tools like ChatGPT and Gemini.</p>`
             },
             {
                 id: "applications-of-genai",
                 title: "Applications of GenAI",
-                content: `<p>AI has the potential to reinvent roles across any enterprise — imagine humans working with AI co-pilots that eradicate human errors and dramatically augment the results people achieve. Here is how GenAI will impact core areas:</p>
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">AI has the potential to reinvent roles across any enterprise — imagine humans working with AI co-pilots that eradicate human errors and dramatically augment the results people achieve. Here is how GenAI will impact core areas:</p>
 <div class="mt-8 flex flex-col gap-3">
   <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
     <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
@@ -2808,7 +2808,7 @@ The institutions that prepare their platforms today will define what it looks li
             {
                 id: "the-potential-impact-of-genai-on-jobs",
                 title: "The Potential Impact of GenAI on Jobs",
-                content: `<p>With the ability to generate a wide range of content almost instantaneously, the tech industry has raised legitimate concerns about job disruption. GenAI can already create text, code, images, videos, and audio when given sufficiently clear prompts. Here is where the impact is most visible:</p>
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">With the ability to generate a wide range of content almost instantaneously, the tech industry has raised legitimate concerns about job disruption. GenAI can already create text, code, images, videos, and audio when given sufficiently clear prompts. Here is where the impact is most visible:</p>
 <div class="mt-7 flex flex-col gap-3.5">
   <div class="flex gap-4 items-start bg-[#f7f8fc] border border-[#e4e8f0] rounded-xl p-5">
     <div class="w-1 rounded bg-[#1e6fff] self-stretch min-h-[36px] shrink-0"></div>
@@ -2836,12 +2836,12 @@ The institutions that prepare their platforms today will define what it looks li
   <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
   <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">With the right regulations, AI can become a powerful tool that will assist humans rather than replace them. GenAI is here to stay — and adapting its technology will help us further optimize existing processes, create better digital experiences, and make revolutionary discoveries.</div>
 </div>
-<p class="mt-10">Overall, AI will be nothing short of transformative for the world — with a huge positive impact on productivity and human creativity. The possibilities seem endless. GenAI is here to stay, and those who adapt earliest will be best positioned to lead what comes next.</p>`
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-10">Overall, AI will be nothing short of transformative for the world — with a huge positive impact on productivity and human creativity. The possibilities seem endless. GenAI is here to stay, and those who adapt earliest will be best positioned to lead what comes next.</p>`
             },
         ]
     },
     "perpetually-in-motion-the-digital-factory": {
-        title: "Perpetually in Motion — <em>The Digital Factory.</em>",
+        title: "<span class=\"text-white\">Perpetually in Motion –<br/><span class=\"italic\">The Digital Factory.</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2850,51 +2850,69 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Introduction",
-                content: `<p>Until recently, the Software Development Life Cycle (SDLC) was dominated by the "Waterfall" model—a rigid, linear progression of phases. While it served the industry for decades, its sequential nature offered no room for early issue detection or stakeholder visibility. At Hyniva, we believe the principles of modern manufacturing—scrutiny, agility, and value-driven adjustment—can revolutionize software delivery.</p>
-<p>Our <strong>Digital Factory</strong> is a living, breathing machine that leverages the Agile framework to promote agility, adaptability, and seamless collaboration.</p>
-<img src="/images/Blogs/Content/perpetually-in-motion-the-digital-factory-1.png" alt="Digital Factory Concept" class="w-full h-auto rounded-2xl my-8" />`
+                title: "",
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9]">Up until a few years ago, the Software Development Life Cycle (SDLC) was dominated by the Waterfall model — a pre-defined, linear set of phases executed sequentially. Given its rigid nature, the Waterfall model provided zero room for early issue identification or stakeholder visibility. Documentation was a byproduct of the entire process that delivered little intrinsic value. Although this model succeeded for many years, there was always a craving for something more cost-effective, collaborative, and efficient.</p>
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-4">Conversely, the traditional factory model — whether manufacturing screws, processing materials, or managing manual workflows — has always required constant scrutiny and adjustment of parameters to align with ever-evolving market demands. These are value-driven changes that make the end product superior, more competitive, and better suited to meet the expectations of end consumers.</p>
+<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mt-4">At Hyniva, we firmly believe that the principles driving improvement and efficiency across a century of traditional manufacturing can also be applied to the world of software. Hyniva's Digital Factory is a living, breathing machine that leverages the Agile Development framework to create a powerful process promoting agility, adaptability, and collaboration.</p>`
             },
             {
-                id: "differentiators",
-                title: "Key Differentiators",
-                content: `<div class="mt-8 flex flex-col gap-3">
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">1</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Iterative Delivery</div>
-    </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Unlike rigid production methods, an Agile Digital Factory operates on incremental cycles, providing clear visibility and allowing for prompt issue resolution.</div>
+                id: "contrast",
+                title: "Two Models, One Evolution",
+                content: `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+  <div class="border border-[#e4e8f0] rounded-xl p-6 bg-[#f7f8fc]">
+    <div class="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#8492a6] mb-2.5">Traditional</div>
+    <div class="text-[17px] font-normal text-[#0a0f1e] mb-2.5" style="font-family: 'DM Serif Display', serif;">The Waterfall Model</div>
+    <div class="text-[14.5px] font-light text-[#4a5568] leading-relaxed">A rigid, sequential process with no room for early issue detection, limited stakeholder visibility, and documentation that added minimal value to the final product.</div>
   </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">2</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Early Issue Detection</div>
-    </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We actively promote detection and resolution during every sprint, saving resources and ensuring a higher quality end product.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">3</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Stakeholder Engagement</div>
-    </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Agile methodologies ensure that development remains perfectly aligned with business needs through constant collaboration.</div>
-  </div>
-  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
-    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
-      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">4</div>
-      <div class="text-[15px] font-semibold text-[#0a0f1e]">Streamlined Documentation</div>
-    </div>
-    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We focus on delivering functional, efficient software over extensive manual documentation, maximizing actual value delivery.</div>
+  <div class="bg-[#0a0f1e] border border-transparent rounded-xl p-6 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: linear-gradient(rgba(30,111,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,1) 1px, transparent 1px); background-size: 28px 28px;"></div>
+    <div class="relative z-10 text-[10px] tracking-[2.5px] uppercase font-semibold text-[#6eb3ff] mb-2.5">Hyniva's Approach</div>
+    <div class="relative z-10 text-[17px] font-normal text-[#e8f0ff] mb-2.5" style="font-family: 'DM Serif Display', serif;">The Digital Factory</div>
+    <div class="relative z-10 text-[14.5px] font-light text-[#c8d9f5]/65 leading-relaxed">An Agile-driven, iterative system that continuously adapts — delivering visibility, early issue resolution, and genuine collaboration at every stage.</div>
   </div>
 </div>`
             },
             {
-                id: "conclusion",
-                title: "The Future of Delivery",
-                content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
-  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">Embracing the Digital Factory mindset allows organizations to stay perpetually in motion, responding to market demands with speed and precision.</div>
+                id: "differentiators",
+                title: "Key Differentiators",
+                content: `<p class="text-[16.5px] font-light text-[#4a5568] leading-[1.9] mb-8">Hyniva's Digital Factory is built on four foundational principles that set it apart from conventional software development approaches.</p>
+<div class="flex flex-col gap-3.5">
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 p-[22px] bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[#1e6fff]/10 flex items-center justify-center shrink-0">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z" stroke="#1e6fff" stroke-width="1.2"/><path d="M7.5 5v2.5l2 1.5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e]">Iterative, Incremental Delivery Cycle for Visibility</div>
+    </div>
+    <div class="p-[22px] text-[15px] font-light text-[#4a5568] leading-[1.8]">Unlike rigid legacy production methods, an Agile Digital Factory operates on an iterative and incremental delivery cycle. Each phase provides clear visibility into project progress, allowing for early identification of issues. This approach ensures problems can be addressed promptly — leading to more efficient and error-free software development.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 p-[22px] bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[#1e6fff]/10 flex items-center justify-center shrink-0">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.43 2.9 3.2.47-2.32 2.25.55 3.19L7.5 8.77 4.64 10.3l.55-3.19L2.87 4.87l3.2-.47L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e]">Identify and Resolve Issues Early in the SDLC</div>
+    </div>
+    <div class="p-[22px] text-[15px] font-light text-[#4a5568] leading-[1.8]">The Agile Digital Factory actively promotes early issue detection and resolution during each sprint or phase of the project. Catching problems early saves time and resources, and ensures a higher quality end product — before issues compound later in the cycle.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 p-[22px] bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[#1e6fff]/10 flex items-center justify-center shrink-0">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="5" r="2.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M2.5 13c0-2.485 2.239-5 5-5s5 2.515 5 5" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e]">Actively Engage Business Stakeholders</div>
+    </div>
+    <div class="p-[22px] text-[15px] font-light text-[#4a5568] leading-[1.8]">Agile methodologies emphasize collaboration and close engagement with business stakeholders throughout the entire process. This interaction ensures that the software being developed aligns perfectly with the business's needs, goals, and evolving priorities — not just at the end, but at every step.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 p-[22px] bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-8 h-8 rounded-lg bg-[#1e6fff]/10 flex items-center justify-center shrink-0">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2.5" width="11" height="10" rx="1.5" stroke="#1e6fff" stroke-width="1.2"/><path d="M5 6h5M5 8.5h3" stroke="#1e6fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="text-[14.5px] font-semibold text-[#0a0f1e]">Eliminate the Need for Extensive Documentation</div>
+    </div>
+    <div class="p-[22px] text-[15px] font-light text-[#4a5568] leading-[1.8]">In traditional development, extensive documentation is often required just to manage complexity. The Agile Digital Factory streamlines this by focusing on delivering working software over comprehensive documentation. While documentation remains important, it is kept to a minimum — allowing teams to concentrate on producing functional, efficient software.</div>
+  </div>
 </div>`
             },
         ]
