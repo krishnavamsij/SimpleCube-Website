@@ -2745,7 +2745,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "generative-ai-why-its-a-game-changer": {
-        title: "<span class=\"text-white\">Generative AI –<br/><span class=\"italic\">Why It's a Game Changer.</span></span>",
+        title: "<span class=\"text-white\">Generative AI –<br/><span class=\"text-white italic\">Why It's a Game Changer.</span></span>",
         subtitle: "",
         date: "Mar 27, 2024",
         author: "Hyniva",
@@ -2841,7 +2841,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "perpetually-in-motion-the-digital-factory": {
-        title: "<span class=\"text-white\">Perpetually in Motion –<br/><span class=\"italic\">The Digital Factory.</span></span>",
+        title: "<span class=\"text-white\">Perpetually in Motion –<br/><span class=\"text-white italic\">The Digital Factory.</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2918,7 +2918,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce": {
-        title: "<span class=\"text-white\">Hyniva is a Proud Member<br/>of <span class=\"italic\">GSAC.</span></span>",
+        title: "<span class=\"text-white\">Hyniva is a Proud Member<br/>of <span class=\"text-white italic\">GSAC.</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2967,7 +2967,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "<span class=\"text-white\">Hyniva is Officially a<br/><span class=\"italic\">\"Great Place to Work.\"</span></span>",
+        title: "<span class=\"text-white\">Hyniva is Officially a<br/><span class=\"text-white italic\">\"Great Place to Work.\"</span></span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
