@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send } from "lucide-react";
+import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
 import Link from "next/link";
 
 export default function BlogDetailPage() {
@@ -41,58 +41,57 @@ export default function BlogDetailPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#030B3B]">
+        <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
             <Navbar forceDarkText={false} />
 
             {/* ── Hero Section ── */}
-            <header className="relative pt-32 pb-20 bg-[#030B3B] overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#3B82F6] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3" />
+            <header className="relative pt-32 pb-20 bg-[#0a0f1e] overflow-hidden flex flex-col items-center">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
+                    <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
                 </div>
-                
-                <div className="mx-auto w-full max-w-[1400px] px-6 relative z-10">
-                    <div className="max-w-4xl">
+
+                <div className="mx-auto w-full max-w-[860px] px-6 relative z-10 text-center">
+                    <div className="w-full">
                         <motion.div
                             initial="hidden"
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.div variants={fadeInUp} className="mb-8">
-                                <Link 
+                            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 mb-10">
+                                <Link
                                     href="/insights/blog"
-                                    className="inline-flex items-center text-sm font-bold text-[#3B82F6] hover:text-white transition-colors gap-2"
+                                    className="flex items-center gap-3 group"
                                 >
-                                    <ArrowLeft className="w-4 h-4" />
-                                    BACK TO BLOG
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_10px_#1e90ff] animate-pulse group-hover:scale-110 transition-transform" />
+                                    <span className="text-[11px] font-bold text-[#63c2ff] uppercase tracking-[0.4em] group-hover:text-white transition-colors">
+                                        BLOG
+                                    </span>
                                 </Link>
                             </motion.div>
 
-                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6 text-white/60 mb-8 text-sm font-medium">
+                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-medium">
                                 <div className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-[#3B82F6]" />
+                                    <Clock className="w-4 h-4 text-[#1e90ff]" />
                                     {post.date}
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <User className="w-4 h-4 text-[#3B82F6]" />
-                                    {post.author}
-                                </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20">
-                                    <Tag className="w-3 h-3" />
+                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#63c2ff] border border-[#1e90ff]/20">
+                                    <Cloud className="w-3 h-3" />
                                     {post.tag}
                                 </div>
                             </motion.div>
 
-                            <motion.h1 
+                            <motion.h1
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-7xl font-[900] text-white tracking-tight leading-[1.1] mb-8 font-display"
-                            >
-                                {post.title}
-                            </motion.h1>
+                                className="text-4xl sm:text-5xl lg:text-[52px] font-normal text-[#e8f0ff] tracking-tight leading-[1.18] mb-8"
+                                style={{ fontFamily: "'DM Serif Display', serif" }}
+                                dangerouslySetInnerHTML={{ __html: post.title.replace('Agent-Led Future', '<span class="text-[#00D4AA] italic">Agent-Led Future</span>') }}
+                            />
 
                             {post.subtitle && (
-                                <motion.p 
+                                <motion.p
                                     variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl"
+                                    className="text-xl sm:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl mx-auto"
                                 >
                                     {post.subtitle}
                                 </motion.p>
@@ -100,110 +99,45 @@ export default function BlogDetailPage() {
                         </motion.div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+                    <span className="text-[10px] font-medium text-[#63c2ff] tracking-[0.3em] uppercase">SCROLL</span>
+                    <div className="w-[1px] h-10 bg-gradient-to-b from-[#63c2ff] to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
+                </div>
             </header>
 
-            {/* ── Horizontal Sticky Navigator ── */}
-            {post.sections.length > 1 && (
-                <nav className="sticky top-[64px] lg:top-[70px] z-40 bg-white/80 backdrop-blur-md border-b border-[#030B3B]/10 py-0 shadow-sm transition-all duration-300">
-                    <div className="mx-auto w-full max-w-[1400px] px-6">
-                        <div className="flex items-center lg:justify-center justify-start gap-8 overflow-x-auto no-scrollbar py-4">
-                            {post.sections.map((section) => (
-                                <a
-                                    key={section.id}
-                                    href={`#${section.id}`}
-                                    className={`text-[13px] uppercase tracking-wider font-bold whitespace-nowrap transition-all relative py-2 ${
-                                        activeSection === section.id 
-                                        ? "text-[#3B82F6]" 
-                                        : "text-[#030B3B]/50 hover:text-[#030B3B]"
-                                    }`}
-                                >
-                                    {section.title}
-                                    {activeSection === section.id && (
-                                        <motion.div 
-                                            layoutId="activeTabBlog"
-                                            className="absolute bottom-[-16px] left-0 right-0 h-1 bg-[#3B82F6] rounded-t-full"
-                                        />
-                                    )}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </nav>
-            )}
-
             {/* ── Main Content ── */}
-            <main className="mx-auto w-full max-w-[1400px] px-6 py-24">
-                <div className="flex flex-col lg:flex-row gap-16">
+            <main className="mx-auto w-full max-w-[740px] px-6 py-24">
+                <div className="flex flex-col items-center">
                     {/* Content Column */}
-                    <div className="flex-1 max-w-4xl mx-auto">
-                        <div className="space-y-24">
+                    <div className="w-full">
+                        <div className="space-y-16">
                             {post.sections.map((section, idx) => (
-                                <section 
-                                    key={section.id} 
+                                <section
+                                    key={section.id}
                                     id={section.id}
-                                    className="scroll-mt-40 group"
+                                    className="scroll-mt-40 group w-full"
                                 >
-                                    <div className="flex items-center justify-center gap-4 mb-10">
-                                        <div className="w-12 h-1.5 bg-[#3B82F6] rounded-full" />
-                                        <h2 className="text-3xl font-[800] text-[#030B3B] tracking-tight text-center">{section.title}</h2>
-                                        <div className="w-12 h-1.5 bg-[#3B82F6] rounded-full" />
+                                    <div className="mb-8">
+                                        <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left" style={{ fontFamily: "'DM Serif Display', serif" }}>{section.title}</h2>
                                     </div>
-                                    
-                                    <div 
-                                        className="text-xl leading-relaxed text-slate-600 space-y-8 text-left
-                                        [&_p]:mb-6 
-                                        [&_ul]:list-disc [&_ul]:pl-8 [&_ul]:mb-8 [&_ul]:space-y-4
-                                        [&_ol]:list-decimal [&_ol]:pl-8 [&_ol]:mb-8 [&_ol]:space-y-4
-                                        [&_li]:text-slate-600 [&_li]:pl-2
-                                        [&_strong]:text-[#030B3B] [&_strong]:font-[700]
-                                        [&_a]:text-[#3B82F6] [&_a]:underline [&_a]:font-semibold
-                                        [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-[#030B3B] [&_h3]:mt-12 [&_h3]:mb-6
-                                        [&_img]:w-full [&_img]:h-auto [&_img]:rounded-2xl [&_img]:my-8 [&_img]:shadow-lg [&_img]:border [&_img]:border-slate-100"
+
+                                    <div
+                                        className="font-sans text-[17px] font-light leading-[1.85] text-[#475569] text-left
+                                        [&_p]:mb-8 
+                                        [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2.5
+                                        [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#475569] [&_li]:text-[17px] [&_li]:leading-[1.85]
+                                        [&_li::before]:content-[''] [&_li::before]:w-1.5 [&_li::before]:h-1.5 [&_li::before]:rounded-full [&_li::before]:bg-[#00D4AA] [&_li::before]:flex-shrink-0 [&_li::before]:mt-[11px]
+                                        [&_strong]:text-[#0a0f1e] [&_strong]:font-semibold
+                                        [&_em]:text-[#00D4AA] [&_em]:italic
+                                        [&_a]:text-[#00D4AA] [&_a]:underline [&_a]:font-medium
+                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#0a0f1e] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-serif"
                                         dangerouslySetInnerHTML={{ __html: section.content }}
                                     />
-
-                                    {idx === 0 && post.heroImage && (
-                                        <motion.div 
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            className="mt-16 rounded-[40px] overflow-hidden border border-[#030B3B]/5 shadow-2xl shadow-blue-500/5 group-hover:scale-[1.01] transition-transform duration-500"
-                                        >
-                                            <img 
-                                                src={post.heroImage} 
-                                                alt={post.title}
-                                                className="w-full h-auto object-cover max-h-[600px]"
-                                            />
-                                        </motion.div>
-                                    )}
                                 </section>
                             ))}
                         </div>
-
-                        {/* ── Footer CTA ── */}
-                        <section className="mt-20 sm:mt-32 p-8 sm:p-12 md:p-20 rounded-[32px] sm:rounded-[64px] bg-[#F8FAFC] border border-[#030B3B]/5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-[#3B82F6] rounded-full blur-[80px] sm:blur-[100px] opacity-[0.03] -translate-y-1/2 translate-x-1/3" />
-                            <div className="relative z-10 text-center">
-                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-[#030B3B]">Enjoyed this insight?</h2>
-                                <p className="text-slate-600 text-base sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto font-medium">
-                                    Subscribe to our newsletter to receive the latest perspectives on AI and digital transformation directly in your inbox.
-                                </p>
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                    <Link 
-                                        href="/contact"
-                                        className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-2xl font-bold transition-all shadow-xl shadow-blue-500/20 text-center"
-                                    >
-                                        Get in Touch
-                                    </Link>
-                                    <Link 
-                                        href="/insights/blog"
-                                        className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-white text-[#030B3B] border border-[#030B3B]/10 rounded-2xl font-bold hover:bg-[#030B3B] hover:text-white transition-all text-center"
-                                    >
-                                        Explore More Blogs
-                                    </Link>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
             </main>
@@ -211,8 +145,7 @@ export default function BlogDetailPage() {
             {/* ── Related Articles ── */}
             <RelatedArticles currentSlug={slug} currentTag={post.tag} />
 
-            {/* ── Comment Form ── */}
-            <CommentSection />
+
 
             <Footer />
         </div>
@@ -314,10 +247,10 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
                                     <Clock className="w-3.5 h-3.5" />
                                     {post.date}
                                 </div>
-                                <h5 className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug group-hover:text-[#3B82F6] transition-colors line-clamp-2">
+                                <h5 className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug group-hover:text-[#00D4AA] transition-colors line-clamp-2">
                                     {post.title}
                                 </h5>
-                                <span className="inline-flex items-center gap-1.5 mt-4 text-xs sm:text-sm font-bold text-[#3B82F6] group-hover:gap-3 transition-all">
+                                <span className="inline-flex items-center gap-1.5 mt-4 text-xs sm:text-sm font-bold text-[#00D4AA] group-hover:gap-3 transition-all">
                                     Read more <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
                                 </span>
                             </div>
@@ -329,125 +262,4 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
     );
 }
 
-/* ─────────────────────────── Comment Section Component ─────────────────────────── */
-function CommentSection() {
-    const [formData, setFormData] = useState({ comment: '', name: '', email: '', website: '', saveCookies: false });
-    const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 4000);
-    };
-
-    return (
-        <section className="bg-white border-t border-[#030B3B]/5 py-16 sm:py-20">
-            <div className="mx-auto w-full max-w-[900px] px-6">
-                <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
-                    <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7 text-[#3B82F6]" />
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-[800] text-[#030B3B] tracking-tight">Leave a Reply</h3>
-                </div>
-                <p className="text-slate-500 mb-8 text-sm sm:text-base">Your email address will not be published. Required fields are marked <span className="text-red-500">*</span></p>
-
-                {submitted ? (
-                    <motion.div 
-                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                        className="p-6 sm:p-8 bg-green-50 border border-green-200 rounded-2xl text-center"
-                    >
-                        <p className="text-green-700 font-bold text-base sm:text-lg">Thank you for your comment!</p>
-                        <p className="text-green-600 mt-2 text-sm sm:text-base">Your comment is awaiting moderation.</p>
-                    </motion.div>
-                ) : (
-                    <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-                        {/* Comment */}
-                        <div>
-                            <label htmlFor="comment" className="block text-sm sm:text-base font-bold text-[#030B3B] mb-2">
-                                Comment <span className="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="comment"
-                                name="comment"
-                                rows={6}
-                                required
-                                value={formData.comment}
-                                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                                className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#030B3B]/10 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 outline-none transition-all text-[#030B3B] bg-[#F8FAFC] resize-vertical text-sm sm:text-base"
-                                placeholder="Share your thoughts..."
-                            />
-                        </div>
-
-                        {/* Name + Email row */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-                            <div>
-                                <label htmlFor="author" className="block text-sm sm:text-base font-bold text-[#030B3B] mb-2">
-                                    Name <span className="text-red-500">*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    id="author"
-                                    name="author"
-                                    required
-                                    value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#030B3B]/10 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 outline-none transition-all text-[#030B3B] bg-[#F8FAFC] text-sm sm:text-base"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="block text-sm sm:text-base font-bold text-[#030B3B] mb-2">
-                                    Email <span className="text-red-500">*</span>
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#030B3B]/10 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 outline-none transition-all text-[#030B3B] bg-[#F8FAFC] text-sm sm:text-base"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Website */}
-                        <div>
-                            <label htmlFor="url" className="block text-sm sm:text-base font-bold text-[#030B3B] mb-2">Website</label>
-                            <input
-                                type="url"
-                                id="url"
-                                name="url"
-                                value={formData.website}
-                                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                                className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#030B3B]/10 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 outline-none transition-all text-[#030B3B] bg-[#F8FAFC] text-sm sm:text-base"
-                            />
-                        </div>
-
-                        {/* Save cookies checkbox */}
-                        <div className="flex items-start gap-3 mt-4">
-                            <input
-                                type="checkbox"
-                                id="save-cookies"
-                                checked={formData.saveCookies}
-                                onChange={(e) => setFormData({ ...formData, saveCookies: e.target.checked })}
-                                className="mt-1 w-4 h-4 sm:w-5 sm:h-5 rounded border-[#030B3B]/20 text-[#3B82F6] focus:ring-[#3B82F6]/20 flex-shrink-0 cursor-pointer"
-                            />
-                            <label htmlFor="save-cookies" className="text-xs sm:text-sm text-slate-500 cursor-pointer leading-relaxed">
-                                Save my name, email, and website in this browser for the next time I comment.
-                            </label>
-                        </div>
-
-                        {/* Submit */}
-                        <div className="pt-2">
-                            <button
-                                type="submit"
-                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-xl font-bold transition-all shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 text-sm sm:text-base"
-                            >
-                                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                                Post Comment
-                            </button>
-                        </div>
-                    </form>
-                )}
-            </div>
-        </section>
-    );
-}
