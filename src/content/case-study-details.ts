@@ -2120,39 +2120,15 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>An investment management firm faced significant challenges due to rigid infrastructure, hindering constant availability and recovery:</p>",
-                    "items": [
-                        {
-                            "icon": "🐌",
-                            "title": "Inflexible Architecture",
-                            "text": "Rigid systems made it difficult to manage disaster recovery and rollbacks."
-                        },
-                        {
-                            "icon": "🛑",
-                            "title": "Service Disruptions",
-                            "text": "Frequent maintenance windows disrupted service availability and user experience."
-                        },
-                        {
-                            "icon": "⚠️",
-                            "title": "Vulnerability",
-                            "text": "Lack of robust disaster recovery plans made the system vulnerable to regional outages."
-                        },
-                        {
-                            "icon": "🤝",
-                            "title": "Trust Risks",
-                            "text": "Interruptions during deployment periods compromised customer trust."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>Our client, a prominent investment management firm, faced significant challenges due to their rigid infrastructure and architecture. As an investment company, maintaining constant availability — 24/7, 365 days a year — is not just essential but a cornerstone of their commitment to customer trust and industry excellence. These limitations hindered their ability to effectively manage disaster recovery and perform smooth rollbacks in the event of critical bugs. The inflexible system led to frequent maintenance windows, which disrupted service availability and negatively impacted user experience.</p>\n        <p>Users experienced interruptions during deployment periods, and critical bugs could result in prolonged service outages. The lack of a robust disaster recovery plan made the system vulnerable to regional outages, further compromising service reliability and user satisfaction. The firm needed a solution to enhance system resilience, ensure uninterrupted service, and provide a seamless user experience even during maintenance or emergencies.</p>"
             },
             {
                 "id": "solution",
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva identified Blue-Green Deployment as the ideal strategy to ensure seamless updates and near-zero downtime.</p>",
+                    "body": "<p>Given that the goal was to ensure smooth and seamless updates to software while drastically minimizing disruption and risks, we would need a strong release management strategy. The application userbase was active throughout the day, creating a unique challenge in identifying the best maintenance window for the latest updates. Transaction processing and data streaming were highly crucial during user sessions. Hyniva identified that the Blue-Green Deployment strategy would be the ideal solution to tackle these challenges.</p>\n        <p>In Blue-Green Deployment, there are two identical production environments simultaneously running at any given time. This strategy enables seamless delivery of new features to the application with minimized risks and near-zero downtime for the end user. Also, configuration of two production environments allows easier and safer rollbacks in case of errors. Once the configuration was completed, Hyniva performed a test run to demonstrate the process to the client. The Blue-Green Deployment process involved the following steps:</p>",
                     "items": [
                         {
                             "num": "1",
@@ -2172,47 +2148,53 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         {
                             "num": "4",
                             "title": "Monitor & Review",
-                            "desc": "Close production monitoring with easy rollback capabilities by switching back to Blue if needed."
+                            "desc": "Once the environment switch is completed, the team closely monitored production to ensure smooth user experience and operations. In the event of an issue or disaster recovery scenario, rollback is easily performed by switching traffic back to the Blue environment."
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/Blue_Green.png\" alt=\"Blue-Green Deployment Architecture Diagram\"/>\n        </div>"
                 }
             },
             {
-                "id": "impact",
-                "title": "Impact",
+                "id": "benefits",
+                "title": "Benefits Realized",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>The Blue-Green strategy was a game-changer for the firm's trading platforms and financial services:</p>",
+                    "body": "<p>For our client, the Blue-Green strategy was a game-changer for several reasons. As an investment management firm, ensuring their trading platforms and financial services are always available was crucial for strengthening customer trust and loyalty. Data security was enhanced, and transaction processing was further streamlined. The Blue-Green Deployment strategy provided the following advantages:</p>",
                     "items": [
                         {
                             "value": "24/7",
                             "label": "High Availability",
-                            "desc": "Users accessed applications without interruptions during switchovers."
+                            "desc": "Fully managed and high availability ensured users could access the applications without interruptions. User sessions are not impacted during switchovers."
                         },
                         {
                             "value": "~0",
-                            "label": "Downtime",
-                            "desc": "Automated switch implementation made switch time less than a minute."
+                            "label": "Minimal Downtime",
+                            "desc": "Increase in operational efficiency and stability ensured 24/7, 365-day availability."
                         },
                         {
                             "value": "↓",
-                            "label": "Risk Cut",
-                            "desc": "Extensive testing before deployment drastically reduced potential disruptions."
+                            "label": "Minimized Risk",
+                            "desc": "Business and development teams can now perform extensive testing of new features before deployment to production, drastically cutting down risk and potential disruptions."
                         },
                         {
                             "value": "↩",
-                            "label": "Rollback",
-                            "desc": "Smooth rollback through simply switching back to the stable Blue environment."
+                            "label": "Smooth Rollback",
+                            "desc": "In the event of issues or bugs identified in the new deployment, rollback is smoother through simply switching back to the stable Blue environment."
+                        },
+                        {
+                            "value": "⚡",
+                            "label": "Efficient Updates",
+                            "desc": "Users are given access to the latest updates and features promptly ensuring high satisfaction and enhanced user experience."
                         }
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Our client noticed a nearly zero downtime during deployments due to the implementation of automated approvals with GitHub actions, and the automated switch implementation made the switch between environments less than a minute. The streamlined deployment process also enabled nearly 70% faster deployment times, increasing overall productivity and efficiency. In the event of functional bugs, issues, or disaster recovery scenarios, the seamless rollover feature ensures the client can maintain uninterrupted operations for their users with confidence.</p>\n      </div>"
                 }
             },
             {
-                "id": "future",
-                "title": "Road Ahead",
+                "id": "outcome",
+                "title": "Outcome",
                 "type": "text",
-                "content": "<p>With blue-green deployment now embedded in the release pipeline, the investment management firm operates with confidence at every release cycle. The automated switchover infrastructure is a reusable template for future services — enabling the organization to scale deployments across new regions and products while maintaining the same near-zero downtime guarantee.</p>"
+                "content": "<p>The Blue-Green Deployment strategy significantly enhanced our client's operational efficiency. By adopting this strategy, the firm achieved uninterrupted 24/7 access, drastically reduced deployment downtime by nearly 95%, and accelerated deployment times by 70%. The ability to conduct thorough testing of new features and seamlessly roll back if needed further minimized potential risk factors and enabled a seamless user experience with nearly zero downtime. Our client is now also prepared with robust infrastructure to manage and recover from failures, strengthening the resilience of their disaster recovery plan. This successful implementation not only bolstered the firm's reliability but also strengthened our strategic partnership and further cemented Hyniva as a trusted AWS Partner.</p>"
             }
         ]
     },
@@ -2251,97 +2233,158 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
-                "content": {
-                    "body": "<p>A leading educational institution needed to manage highly regulated workflows while maintaining a consistent user experience:</p>",
-                    "items": [
-                        {
-                            "icon": "⚖️",
-                            "title": "Compliance Needs",
-                            "text": "Managing multi-role workflows with strict Special Education (SPED) audit requirements."
-                        },
-                        {
-                            "icon": "📅",
-                            "title": "Dynamic Scheduling",
-                            "text": "Building a tutoring system with real-time scheduling and fallback logic."
-                        },
-                        {
-                            "icon": "🔌",
-                            "title": "LMS Integration",
-                            "text": "Integrating external LMS platforms for live academic data visibility."
-                        },
-                        {
-                            "icon": "🧩",
-                            "title": "UI Fragmentation",
-                            "text": "Preventing fragmented interfaces across multiple portals (Admin, Student, Parent)."
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<p>A leading educational institution set out to build a multi-portal educational ecosystem serving Administrators, Students, and Parents — but the complexity quickly escalated.</p>\n        <p>The platform needed to manage highly regulated workflows like Special Education (SPED), enable real-time academic tracking, and support dynamic tutor scheduling — all while maintaining a consistent and intuitive user experience.</p>\n        <p>Key challenges included:</p>\n        <div class=\"approach-list\" style=\"margin-top:16px;\">\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">1</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Managing multi-role workflows with strict compliance and audit requirements</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">2</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Building a dynamic tutoring system with real-time scheduling and fallback logic</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">3</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Integrating external LMS platforms for live academic data visibility</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">4</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Preventing UI fragmentation without an established design framework</div>\n            </div>\n          </div>\n          <div class=\"approach-item\">\n            <div class=\"approach-item__num\">5</div>\n            <div class=\"approach-item__content\">\n              <div class=\"approach-item__title\">Ensuring scalability and performance across rapidly expanding feature sets</div>\n            </div>\n          </div>\n        </div>"
             },
             {
-                "id": "solution",
+                "id": "approach",
                 "title": "Hyniva's Approach",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>We took ownership of the frontend architecture and product experience to ensure long-term scalability and maintainability.</p>",
+                    "body": "<p>Instead of simply executing requirements, we took ownership of the frontend architecture and product experience.</p><p>Unlike traditional execution models, we proactively defined architecture, design systems, and delivery workflows — ensuring long-term scalability from day one.</p><p>From day one, we established scalable UI foundations, introduced structured development workflows, and proactively solved for long-term maintainability.</p><p>Our approach focused on:</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Modular Architecture",
-                            "desc": "Defined a modular frontend using ReactJS and MUI for scalability."
+                            "title": "Modular Frontend Architecture",
+                            "desc": "Defined a modular frontend architecture using ReactJS and MUI for scalability and long-term maintainability."
                         },
                         {
                             "num": "2",
                             "title": "Custom Design System",
-                            "desc": "Standardized UI/UX across all portals through a unified custom design system."
+                            "desc": "Standardized UI/UX across all portals through a unified custom design system, eliminating fragmentation from the start."
                         },
                         {
                             "num": "3",
-                            "title": "Agile Delivery",
-                            "desc": "Drove efficient team collaboration through optimized Jira and delivery workflows."
+                            "title": "Agile Delivery Workflows",
+                            "desc": "Drove agile delivery through optimized Jira workflows, enabling structured, efficient team collaboration across releases."
                         },
                         {
                             "num": "4",
-                            "title": "Stability Framework",
-                            "desc": "Introduced automated testing frameworks to ensure zero-regression delivery."
+                            "title": "Automated Testing Frameworks",
+                            "desc": "Introduced automated testing frameworks proactively to ensure long-term stability and zero-regression delivery across all releases."
                         }
                     ],
-                    "footer": "<div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Granular permissions for creation, editing, archiving, and approvals</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Bulk operations for note creation and SEIF signature workflows</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Soft-delete functionality to maintain audit trails and compliance integrity</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Seamless UI handling of multi-step approvals and edge cases</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 2 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">2. Student Success Advocate (SSA) Workspace</strong></p>\n        <p style=\"margin-top:8px;\">We built a centralized workspace enabling SSAs to efficiently manage large volumes of student data.</p>\n      </div>\n\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Real-time integration with platforms like Canvas and Edgenuity</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Intelligent dashboards for course progress, grades, and activity tracking</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Saved filters, pinned responses, and automated workflows to eliminate repetitive tasks and improve efficiency</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 3 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">3. Advanced Tutor Scheduling System (V2)</strong></p>\n        <p style=\"margin-top:8px;\">We developed a highly dynamic scheduling engine tailored for complex academic environments.</p>\n      </div>\n\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Multi-tutor assignment with Primary and Backup logic</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Support for both 1:1 tutoring and large-scale proctoring sessions</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Capacity management allowing monitoring of up to 50 students per session</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Intelligent reassignment for schedule conflicts and availability gaps</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Solution 4 -->\n      <div class=\"cs-section__body\" style=\"margin-top:36px;\">\n        <p><strong style=\"color:var(--text-dark); font-weight:600;\">4. Built-in Quality &amp; Stability Framework</strong></p>\n        <p style=\"margin-top:8px;\">To ensure long-term scalability, we embedded quality into the development lifecycle.</p>\n      </div>\n\n      <div class=\"approach-list\" style=\"margin-top:16px;\">\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Introduced unit testing and automated testing frameworks proactively</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Successfully handled continuous API evolution (v1.0.0 to v9.7.0)</div>\n          </div>\n        </div>\n        <div class=\"approach-item\">\n          <div class=\"approach-item__num\">✦</div>\n          <div class=\"approach-item__content\">\n            <div class=\"approach-item__title\">Ensured consistent performance across releases with zero regression incidents</div>\n          </div>\n        </div>\n      </div>"
                 }
             },
             {
-                "id": "impact",
-                "title": "Impact",
-                "type": "impact-strip",
+                "id": "solutions",
+                "title": "Key Solutions",
+                "type": "text",
+                "content": "<p>Across four core solution areas, we delivered engineering-led capabilities that addressed the institution's most complex operational challenges:</p>"
+            },
+            {
+                "id": "solutions-1",
+                "title": "",
+                "type": "approach-list",
                 "content": {
-                    "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
+                    "body": "<p><strong style=\"color:#111827; font-weight:600;\">1. SPED Compliance &amp; Workflow Automation</strong></p><p style=\"margin-top:8px; margin-bottom:16px;\">We engineered a secure and compliant SPED Notes system designed for complex educational workflows.</p>",
                     "items": [
                         {
-                            "value": "0",
-                            "label": "Defect Rate",
-                            "desc": "Maintained a flawless delivery record with zero-defect releases."
+                            "num": "✦",
+                            "title": "Granular permissions for creation, editing, archiving, and approvals",
+                            "desc": ""
                         },
                         {
-                            "value": "↓",
-                            "label": "Coordination",
-                            "desc": "Reduced client coordination effort significantly via structured workflows."
+                            "num": "✦",
+                            "title": "Bulk operations for note creation and SEIF signature workflows",
+                            "desc": ""
                         },
                         {
-                            "value": "📈",
-                            "label": "Scalability",
-                            "desc": "Enabled expansion to a full-scale multi-portal system without rework."
+                            "num": "✦",
+                            "title": "Soft-delete functionality to maintain audit trails and compliance integrity",
+                            "desc": ""
                         },
                         {
-                            "value": "⚡",
-                            "label": "Productivity",
-                            "desc": "Automated workflows reduced manual administrative effort for staff."
+                            "num": "✦",
+                            "title": "Seamless UI handling of multi-step approvals and edge cases",
+                            "desc": ""
                         }
                     ]
                 }
             },
             {
-                "id": "outcome",
-                "title": "Outcome",
+                "id": "solutions-2",
+                "title": "",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p><strong style=\"color:#111827; font-weight:600;\">2. Student Success Advocate (SSA) Workspace</strong></p><p style=\"margin-top:8px; margin-bottom:16px;\">We built a centralized workspace enabling SSAs to efficiently manage large volumes of student data.</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Real-time integration with platforms like Canvas and Edgenuity",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Intelligent dashboards for course progress, grades, and activity tracking",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Saved filters, pinned responses, and automated workflows to eliminate repetitive tasks and improve efficiency",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "solutions-3",
+                "title": "",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p><strong style=\"color:#111827; font-weight:600;\">3. Advanced Tutor Scheduling System (V2)</strong></p><p style=\"margin-top:8px; margin-bottom:16px;\">We developed a highly dynamic scheduling engine tailored for complex academic environments.</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Multi-tutor assignment with Primary and Backup logic",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Support for both 1:1 tutoring and large-scale proctoring sessions",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Capacity management allowing monitoring of up to 50 students per session",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Intelligent reassignment for schedule conflicts and availability gaps",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "solutions-4",
+                "title": "",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p><strong style=\"color:#111827; font-weight:600;\">4. Built-in Quality &amp; Stability Framework</strong></p><p style=\"margin-top:8px; margin-bottom:16px;\">To ensure long-term scalability, we embedded quality into the development lifecycle.</p>",
+                    "items": [
+                        {
+                            "num": "✦",
+                            "title": "Introduced unit testing and automated testing frameworks proactively",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Successfully handled continuous API evolution (v1.0.0 to v9.7.0)",
+                            "desc": ""
+                        },
+                        {
+                            "num": "✦",
+                            "title": "Ensured consistent performance across releases with zero regression incidents",
+                            "desc": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Business Impact",
                 "type": "outcome-list",
                 "content": {
                     "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
@@ -2358,13 +2401,14 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>These initiatives will further enhance outcomes for educators and students alike, building on the platform architecture already in place.</p>",
+                    "body": "<p>With a strong, scalable foundation in place, the institution is now positioned to rapidly expand its platform capabilities.</p><p>Looking ahead, the platform is evolving toward a more data-driven ecosystem, with planned investments in:</p>",
                     "items": [
                         "AI-driven student insights",
                         "Predictive performance tracking",
                         "Intelligent workflow automation",
                         "Enhanced educator outcomes"
-                    ]
+                    ],
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\"><p>These initiatives will further enhance outcomes for educators and students alike, building on the proven platform architecture already in place.</p></div>"
                 }
             }
         ]

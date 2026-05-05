@@ -160,18 +160,21 @@ const MetricIcon = ({ icon }: { icon: string }) => {
     return <StandardIcon icon={icon} className="mb-5" />;
 };
 
-const SectionHeader = ({ num, tag }: { num?: string, tag?: string, isFirst?: boolean }) => (
-    <div className="relative">
-        <div className="flex items-center gap-5 mb-8">
-            {num && (
-                <div className="w-8 h-8 rounded-full bg-[#1e90ff] flex items-center justify-center text-white font-normal font-sans text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
-                    {num}
-                </div>
-            )}
-            {tag && <span className="text-[#1e90ff] font-normal text-[11px] uppercase tracking-[0.3em] font-sans">{tag}</span>}
+const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst?: boolean, hide?: boolean }) => {
+    if (hide) return null;
+    return (
+        <div className="relative">
+            <div className="flex items-center gap-5 mb-8">
+                {num && (
+                    <div className="w-8 h-8 rounded-full bg-[#1e90ff] flex items-center justify-center text-white font-normal font-sans text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
+                        {num}
+                    </div>
+                )}
+                {tag && <span className="text-[#1e90ff] font-normal text-[11px] uppercase tracking-[0.3em] font-sans">{tag}</span>}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default function CaseStudyDetailPage() {
     const params = useParams();
@@ -189,7 +192,13 @@ export default function CaseStudyDetailPage() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
+                        const sectionId = entry.target.id;
+                        // Map sub-sections to their parent section for navigation
+                        let activeId = sectionId;
+                        if (sectionId.startsWith('solutions-')) {
+                            activeId = 'solutions';
+                        }
+                        setActiveSection(activeId);
                     }
                 });
             },
@@ -217,15 +226,15 @@ export default function CaseStudyDetailPage() {
                 return (
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-5">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="flex gap-7 bg-[#ECF6FF] border border-[#ECF6FF]/80 rounded-[14px] p-8 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 group">
-                                    <div className="text-[36px] font-normal text-[#1e90ff]/20 leading-none shrink-0 w-12 font-display">
+                                <div key={idx} className="flex gap-5 bg-white border border-[#e5e7eb] rounded-[10px] p-[22px_24px] transition-all duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)]">
+                                    <div className="text-[32px] font-normal text-[#1e90ff]/18 leading-none shrink-0 w-9 font-display">
                                         {item.num || '✦'}
                                     </div>
                                     <div className="pt-1">
-                                        <h4 className="text-[17px] font-normal text-[#111827] mb-3 font-sans">{item.title}</h4>
-                                        {item.desc && <p className="cs-content">{item.desc}</p>}
+                                        <h4 className="text-[14px] font-semibold text-[#111827] mb-2 font-sans leading-[1.4]">{item.title}</h4>
+                                        {item.desc && <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65]">{item.desc}</p>}
                                     </div>
                                 </div>
                             ))}
@@ -325,7 +334,7 @@ export default function CaseStudyDetailPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#111827]">
+        <div className="min-h-screen bg-white font-sans text-[#111827]" style={{ scrollBehavior: 'smooth' }}>
             <Navbar forceDarkText={scrolled} />
 
             {/* ── Banner Section (Image 1 Style) ── */}
@@ -430,10 +439,17 @@ export default function CaseStudyDetailPage() {
                 <div className="mx-auto w-full max-w-[1000px] px-8">
                     <div className="max-w-3xl mx-auto">
                         <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
-                            {study.sections.map((section) => (
+                            {study.sections.filter(s => s.title).map((section) => (
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const target = document.querySelector(`#${section.id}`);
+                                        if (target) {
+                                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }
+                                    }}
                                     className={`px-6 py-3 rounded-2xl text-sm font-bold font-sans transition-all duration-300 whitespace-nowrap border ${activeSection === section.id
                                         ? "bg-[#1e90ff] text-white border-[#1e90ff] shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                                         : "bg-white border-[#1e90ff]/20 text-[#1e90ff] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
@@ -454,7 +470,7 @@ export default function CaseStudyDetailPage() {
                         <section
                             key={section.id}
                             id={section.id}
-                            className="scroll-mt-40"
+                            className="scroll-mt-32"
                         >
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
@@ -466,13 +482,15 @@ export default function CaseStudyDetailPage() {
                                     num={(idx + 1).toString().padStart(2, '0')}
                                     tag={section.title || section.id}
                                     isFirst={idx === 0}
+                                    hide={!section.title}
                                 />
 
                                 <div className="mt-8">
                                     {renderSectionContent(section)}
                                 </div>
                             </motion.div>
-                            {idx < study.sections.length - 1 && <div className="h-[1px] w-full bg-slate-200 mt-14 opacity-60" />}
+                            {idx < study.sections.length - 1 && study.sections[idx + 1].title && <div className="h-[1px] w-full bg-slate-200 mt-14 opacity-60" />}
+                            {idx < study.sections.length - 1 && !study.sections[idx + 1].title && <div className="mt-12" />}
                         </section>
                     ))}
                 </div>
