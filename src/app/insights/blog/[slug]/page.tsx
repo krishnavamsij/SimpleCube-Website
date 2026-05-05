@@ -9,7 +9,6 @@ import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
-import { CaseStudyPopup } from "@/components/case-study-popup";
 import Link from "next/link";
 
 export default function BlogDetailPage() {
@@ -125,15 +124,14 @@ export default function BlogDetailPage() {
                                     </div>
 
                                     <div
-                                        className="font-sans text-[17px] font-light leading-[1.85] text-[#475569] text-left
-                                        [&_p]:mb-8 
-                                        [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2.5
-                                        [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#475569] [&_li]:text-[17px] [&_li]:leading-[1.85]
-                                        [&_li::before]:content-[''] [&_li::before]:w-1.5 [&_li::before]:h-1.5 [&_li::before]:rounded-full [&_li::before]:bg-[#00D4AA] [&_li::before]:flex-shrink-0 [&_li::before]:mt-[11px]
-                                        [&_strong]:text-[#0a0f1e] [&_strong]:font-semibold
-                                        [&_em]:text-[#00D4AA] [&_em]:italic
-                                        [&_a]:text-[#00D4AA] [&_a]:underline [&_a]:font-medium
-                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#0a0f1e] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-serif"
+                                        className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
+                                        [&_p]:mb-6 
+                                        [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3
+                                        [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#374151] [&_li]:text-[16px] [&_li]:leading-[1.8]
+                                        [&_strong]:text-[#111827] [&_strong]:font-semibold
+                                        [&_em]:text-[#1e90ff] [&_em]:italic
+                                        [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
+                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-serif"
                                         dangerouslySetInnerHTML={{ __html: section.content }}
                                     />
                                 </section>
@@ -146,10 +144,117 @@ export default function BlogDetailPage() {
             {/* ── Related Articles ── */}
             <RelatedArticles currentSlug={slug} currentTag={post.tag} />
 
-
-
             <Footer />
-            <CaseStudyPopup />
+
+            <style dangerouslySetInnerHTML={{ __html: `
+                .blog-content li {
+                    position: relative;
+                    padding-left: 20px;
+                }
+                .blog-content li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 11px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #1e90ff;
+                    opacity: 0.6;
+                }
+                .feature-cards {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin: 24px 0;
+                }
+                .feature-card {
+                    background: white;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    padding: 20px 24px;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 16px;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+                }
+                .feature-card:hover {
+                    border-color: #1e90ff33;
+                    box-shadow: 0 8px 24px rgba(30,144,255,0.08);
+                    transform: translateX(4px);
+                }
+                .feature-card__dot {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #1e90ff;
+                    flex-shrink: 0;
+                    margin-top: 10px;
+                    opacity: 0.6;
+                }
+                .feature-card__content strong {
+                    display: block;
+                    font-size: 16px;
+                    color: #111827;
+                    margin-bottom: 4px;
+                }
+                .feature-card__content p {
+                    font-size: 15px;
+                    color: #4b5563;
+                    line-height: 1.6;
+                    margin-bottom: 0 !important;
+                }
+                .cta-mini {
+                    background: #f8fafc;
+                    border-left: 4px solid #1e90ff;
+                    padding: 20px 24px;
+                    border-radius: 0 12px 12px 0;
+                    margin-top: 40px;
+                }
+                .cta-mini p {
+                    margin-bottom: 0 !important;
+                    font-size: 15px;
+                }
+                .stats {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 16px;
+                    margin: 32px 0;
+                }
+                .stat-card {
+                    background: #f8fafc;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 12px;
+                    padding: 24px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                }
+                .stat-card:hover {
+                    background: white;
+                    border-color: #1e90ff;
+                    box-shadow: 0 10px 30px -10px rgba(30,144,255,0.2);
+                    transform: translateY(-2px);
+                }
+                .stat-card__number {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 36px;
+                    color: #1e90ff;
+                    line-height: 1;
+                    margin-bottom: 8px;
+                }
+                .stat-card__label {
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #64748b;
+                    line-height: 1.4;
+                }
+                @media (max-width: 768px) {
+                    .stats {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            ` }} />
         </div>
     );
 }
