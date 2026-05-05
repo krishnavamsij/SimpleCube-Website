@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { CaseStudyPopup } from "@/components/case-study-popup";
+import { EyebrowButton } from "@/components/ui/eyebrow-button";
 
 import {
     Zap,
@@ -383,12 +384,9 @@ export default function CaseStudyDetailPage() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="flex items-center justify-center gap-3 mb-10"
+                            className="flex justify-center mb-10"
                         >
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_10px_#1e90ff] animate-pulse" />
-                            <span className="text-[11px] font-bold text-[#63c2ff] uppercase tracking-[0.4em] flex items-center gap-3">
-                                CASE STUDY
-                            </span>
+                            <EyebrowButton>CASE STUDY</EyebrowButton>
                         </motion.div>
 
                         <motion.h1

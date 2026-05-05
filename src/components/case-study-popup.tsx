@@ -4,10 +4,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
+interface FormData {
+    name: string;
+    email: string;
+    organization: string;
+    role: string;
+}
+
+interface FormErrors {
+    name?: string;
+    email?: string;
+    organization?: string;
+    role?: string;
+}
+
 export function CaseStudyPopup() {
     const [isVisible, setIsVisible] = useState(false);
     const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [formData, setFormData] = useState<FormData>({
+        name: '',
+        email: '',
+        organization: '',
+        role: ''
+    });
+    const [formErrors, setFormErrors] = useState<FormErrors>({});
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,9 +55,62 @@ export function CaseStudyPopup() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [hasBeenDismissed, isSubmitted, isVisible]);
 
+    const validateForm = (): boolean => {
+        const errors: FormErrors = {};
+        
+        // Name validation
+        if (!formData.name.trim()) {
+            errors.name = 'Name is required';
+        } else if (formData.name.length < 2) {
+            errors.name = 'Name must be at least 2 characters';
+        } else if (formData.name.length > 50) {
+            errors.name = 'Name must be less than 50 characters';
+        }
+        
+        // Email validation
+        if (!formData.email.trim()) {
+            errors.email = 'Email is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            errors.email = 'Please enter a valid email address';
+        } else if (formData.email.length > 100) {
+            errors.email = 'Email must be less than 100 characters';
+        }
+        
+        // Organization validation
+        if (!formData.organization.trim()) {
+            errors.organization = 'Organization is required';
+        } else if (formData.organization.length < 2) {
+            errors.organization = 'Organization must be at least 2 characters';
+        } else if (formData.organization.length > 100) {
+            errors.organization = 'Organization must be less than 100 characters';
+        }
+        
+        // Role validation (optional but if provided, should be valid)
+        if (formData.role.trim() && formData.role.length < 2) {
+            errors.role = 'Role must be at least 2 characters';
+        } else if (formData.role.length > 50) {
+            errors.role = 'Role must be less than 50 characters';
+        }
+        
+        setFormErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+        // Clear error for this field when user starts typing
+        if (formErrors[name as keyof FormErrors]) {
+            setFormErrors(prev => ({ ...prev, [name]: undefined }));
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        
+        if (!validateForm()) {
+            return;
+        }
         
         try {
             // Send to FormSubmit service silently
@@ -47,12 +121,12 @@ export function CaseStudyPopup() {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    _subject: `New Lead: ${formData.get("name")} is interested in Hyniva Insights`,
+                    _subject: `New Lead: ${formData.name} is interested in Hyniva Insights`,
                     "Inquiry Details": "A visitor has expressed interest in learning more about Hyniva after reading a case study.",
-                    "Prospect Name": formData.get("name"),
-                    "Company": formData.get("organization"),
-                    "Position": formData.get("role"),
-                    "Contact Email": formData.get("email"),
+                    "Prospect Name": formData.name,
+                    "Company": formData.organization,
+                    "Position": formData.role,
+                    "Contact Email": formData.email,
                     "_template": "table"
                 })
             });
@@ -67,34 +141,32 @@ export function CaseStudyPopup() {
     return (
         <AnimatePresence>
             {isVisible && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
-                    animate={{ opacity: 1, scale: 1, y: 0, x: "-50%", translateY: "-50%" }}
-                    exit={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="fixed top-1/2 left-1/2 z-[100] w-[calc(100%-2rem)] max-w-[480px] rounded-[16px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] bg-white overflow-hidden flex flex-col font-sans border border-slate-200"
-                >
+                <>
+                    {/* Backdrop overlay */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[99]"
+                        style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+                    />
+                    
+                    {/* Popup */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
+                        animate={{ opacity: 1, scale: 1, y: 0, x: "-50%", translateY: "-50%" }}
+                        exit={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="fixed top-1/2 left-1/2 z-[100] w-[calc(100%-2rem)] max-w-[480px] rounded-[16px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] bg-white overflow-hidden flex flex-col font-sans border border-slate-200"
+                    >
                     {/* Top Section */}
                     <div className="relative bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20] px-5 pt-5 pb-4">
                         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,#1e90ff33_1px,transparent_1px)] bg-[length:24px_24px]" />
                         
-                        <button 
-                            onClick={() => {
-                                setIsVisible(false);
-                                setHasBeenDismissed(true);
-                            }}
-                            className="absolute top-3 right-3 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors z-10"
-                        >
-                            <X size={14} />
-                        </button>
+                        {/* Remove the X button - users must submit form to continue */}
 
                         <div className="relative z-10">
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className="w-5 h-5 rounded-full bg-[#1e90ff]/20 flex items-center justify-center text-[#63c2ff]">
-                                    <Sparkles size={12} />
-                                </div>
-                                <span className="text-[10px] font-bold text-[#63c2ff] uppercase tracking-widest">Enjoying this content?</span>
-                            </div>
                             <h3 className="text-[22px] font-black text-white leading-[1.15] mb-1.5">
                                 Want to learn more?
                             </h3>
@@ -121,29 +193,93 @@ export function CaseStudyPopup() {
                                 <div className="grid grid-cols-2 gap-2.5">
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-semibold text-slate-900">Full Name *</label>
-                                        <input required name="name" type="text" placeholder="Jane Smith" className="w-full px-3 py-2 rounded-[6px] border border-slate-200 bg-slate-50 text-[12px] outline-none focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff] transition-all" />
+                                        <input 
+                                            name="name" 
+                                            type="text" 
+                                            placeholder="Jane Smith" 
+                                            value={formData.name}
+                                            onChange={handleInputChange}
+                                            maxLength={50}
+                                            className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
+                                                formErrors.name 
+                                                    ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
+                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                            }`} 
+                                        />
+                                        {formErrors.name && (
+                                            <p className="text-[10px] text-red-500 mt-1">{formErrors.name}</p>
+                                        )}
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-semibold text-slate-900">Work Email *</label>
-                                        <input required name="email" type="email" placeholder="jane@company.com" className="w-full px-3 py-2 rounded-[6px] border border-slate-200 bg-slate-50 text-[12px] outline-none focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff] transition-all" />
+                                        <input 
+                                            name="email" 
+                                            type="email" 
+                                            placeholder="jane@company.com" 
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            maxLength={100}
+                                            className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
+                                                formErrors.email 
+                                                    ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
+                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                            }`} 
+                                        />
+                                        {formErrors.email && (
+                                            <p className="text-[10px] text-red-500 mt-1">{formErrors.email}</p>
+                                        )}
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-semibold text-slate-900">Organization *</label>
-                                        <input required name="organization" type="text" placeholder="Your company" className="w-full px-3 py-2 rounded-[6px] border border-slate-200 bg-slate-50 text-[12px] outline-none focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff] transition-all" />
+                                        <input 
+                                            name="organization" 
+                                            type="text" 
+                                            placeholder="Your company" 
+                                            value={formData.organization}
+                                            onChange={handleInputChange}
+                                            maxLength={100}
+                                            className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
+                                                formErrors.organization 
+                                                    ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
+                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                            }`} 
+                                        />
+                                        {formErrors.organization && (
+                                            <p className="text-[10px] text-red-500 mt-1">{formErrors.organization}</p>
+                                        )}
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-semibold text-slate-900">Role</label>
-                                        <input name="role" type="text" placeholder="e.g. CTO, VP Tech" className="w-full px-3 py-2 rounded-[6px] border border-slate-200 bg-slate-50 text-[12px] outline-none focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff] transition-all" />
+                                        <input 
+                                            name="role" 
+                                            type="text" 
+                                            placeholder="e.g. CTO, VP Tech" 
+                                            value={formData.role}
+                                            onChange={handleInputChange}
+                                            maxLength={50}
+                                            className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
+                                                formErrors.role 
+                                                    ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
+                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                            }`} 
+                                        />
+                                        {formErrors.role && (
+                                            <p className="text-[10px] text-red-500 mt-1">{formErrors.role}</p>
+                                        )}
                                     </div>
                                 </div>
 
-                                <button type="submit" className="w-full py-2 rounded-[6px] bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[13px] font-medium transition-colors">
+                                <button 
+                                    type="submit" 
+                                    className="w-full py-2 rounded-[6px] bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[13px] font-medium transition-colors"
+                                >
                                     Get in Touch →
                                 </button>
                             </form>
                         )}
                     </div>
-                </motion.div>
+                    </motion.div>
+                </>
             )}
         </AnimatePresence>
     );

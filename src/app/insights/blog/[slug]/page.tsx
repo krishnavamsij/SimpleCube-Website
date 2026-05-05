@@ -10,6 +10,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
 import Link from "next/link";
+import { EyebrowButton } from "@/components/ui/eyebrow-button";
 
 export default function BlogDetailPage() {
     const params = useParams();
@@ -58,15 +59,12 @@ export default function BlogDetailPage() {
                             animate="visible"
                             variants={staggerContainer}
                         >
-                            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 mb-10">
+                            <motion.div variants={fadeInUp} className="flex justify-center mb-10">
                                 <Link
                                     href="/insights/blog"
-                                    className="flex items-center gap-3 group"
+                                    className="group"
                                 >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_10px_#1e90ff] animate-pulse group-hover:scale-110 transition-transform" />
-                                    <span className="font-display text-[11px] font-bold text-[#63c2ff] uppercase tracking-[0.4em] group-hover:text-white transition-colors">
-                                        BLOG
-                                    </span>
+                                    <EyebrowButton>BLOG</EyebrowButton>
                                 </Link>
                             </motion.div>
 
@@ -143,8 +141,6 @@ export default function BlogDetailPage() {
                 </div>
             </main>
 
-            {/* ── Related Articles ── */}
-            <RelatedArticles currentSlug={slug} currentTag={post.tag} />
 
             <Footer />
 
