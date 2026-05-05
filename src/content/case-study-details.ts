@@ -646,7 +646,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Challenge",
                 "type": "feature-grid",
                 "content": {
-                    "body": "<p>Following the acquisition of a prominent US-based investment firm, a leading asset management company faced a daunting challenge: to migrate the acquired firm's entire digital presence into its existing design and technology ecosystem within 3 months.</p>\n        <p>The client had no access to the backend systems, APIs, or content repositories of the acquired company site. The only reference point was the public-facing website, meaning the entire solution had to be rebuilt from scratch by reverse-engineering existing pages.</p>\n        <p>The client required a complete, production-ready rollout within 12 weeks. Most industry estimates suggested a minimum of 6 to 9 months.</p>\n        <p>Challenges Anticipated / Encountered:</p>",
+                    "body": "<p>Following the acquisition of a prominent US-based investment firm, a leading asset management company faced a daunting challenge: to migrate the acquired firm's entire digital presence into its existing design and technology ecosystem within 3 months.</p>\n        <p>On the surface, this may have appeared as a typical site migration, but beneath, it was anything but.</p>\n        <p>The client had no access to the backend systems, APIs, or content repositories of the acquired company site. The only reference point was the public-facing website, meaning the entire solution had to be rebuilt from scratch by reverse-engineering existing pages.</p>\n        <p>What made this challenge even more intense? The timeline.</p>\n        <p>The client required a complete, production-ready rollout within 12 weeks. However, during early consultations, most vendors declined to take on the project, citing that the scope was too complex with limited access to old system and the timeline too aggressive. The general industry estimate: a minimum of 6 to 9 months. Most called it \"not feasible.\"</p>\n        <p>Challenges Anticipated / Encountered:</p>",
                     "items": [
                         {
                             "icon": "🔌",
@@ -681,17 +681,17 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         {
                             "num": "1",
                             "title": "Accelerated Delivery with SDET-Infused Digital Factory Model",
-                            "desc": "Leveraging our Digital Factory framework, we quickly assembled a specialized 20 member delivery team in a week aligned with the client's business objectives, compliance needs, and UI replication requirements. Software Development Engineers in Test were embedded within each delivery pod from day one, enabling continuous testing, early detection of integration gaps, and automation at scale."
+                            "desc": "Leveraging our Digital Factory framework, we quickly assembled a specialized 20 member delivery team in a week aligned with the client's business objectives, compliance needs, and UI replication requirements. A key differentiator was our SDET-infused digital factory delivery model — Software Development Engineers in Test were embedded within each delivery pod from day one. This seamless integration enabled continuous testing, early detection of integration gaps, and automation at scale, all in parallel with development. By making quality engineering an inherent part of every sprint, we reduced rework, accelerated QA cycles, and improved delivery precision. Sprint-wise go/no-go decisions became data-driven and predictable, ensuring both agility and confidence at every stage."
                         },
                         {
                             "num": "2",
                             "title": "Strategic Infrastructure Enablement",
-                            "desc": "Using Adobe Experience Manager (AEM), we implemented a component-driven architecture to enable parallel tracks for content and development. With no API access, we started with CSV-based data pipelines to simulate dynamic data feeds, ensuring uninterrupted progress."
+                            "desc": "Using Adobe Experience Manager (AEM), we implemented a component-driven architecture to enable parallel tracks for content and development. With no API access, we started with CSV-based data pipelines to simulate dynamic data feeds, ensuring uninterrupted progress. Our team also proactively configured underlying infrastructure such as domain integration, dispatcher setup, and page routing despite limited backend visibility."
                         },
                         {
                             "num": "3",
                             "title": "Proactive Stakeholder Management",
-                            "desc": "Through clear communication channels, daily syncs, and structured feedback loops, we enabled continuous engagement and alignment across teams. Early collaboration with the compliance and legal teams during content extraction ensured compliance and reduced rework."
+                            "desc": "We began with early stakeholder identification and mapping, ensuring the right voices were engaged from the start. Through clear communication channels, daily syncs, and structured feedback loops, we enabled continuous engagement and alignment across teams. Early collaboration with the compliance and legal teams during content extraction ensured compliance, reduced rework, and boosted organizational trust. Despite limited access and client-side constraints, we maintained momentum through risk communication and transparency, adaptive workflows, and involvement in key decisions."
                         }
                     ]
                 }
@@ -726,12 +726,6 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>This case exemplifies Hyniva's ability to thrive in high-pressure, high-constraint environments. Through a resilient delivery structure, SDET-driven quality, and agile stakeholder management, we redefined what's possible in enterprise digital transformation — even when the odds were against it.</p>\n      </div>"
                 }
-            },
-            {
-                "id": "outcome",
-                "title": "Outcome",
-                "type": "text",
-                "content": "<p>This case exemplifies Hyniva's ability to thrive in high-pressure, high-constraint environments. Through a resilient delivery structure, SDET-driven quality, and agile stakeholder management, we redefined what's possible in enterprise digital transformation — even when the odds were against it.</p>"
             }
         ]
     },
