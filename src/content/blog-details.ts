@@ -2858,49 +2858,45 @@ The institutions that prepare their platforms today will define what it looks li
             {
                 id: "differentiators",
                 title: "Key Differentiators",
-                content: `<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Iterative Delivery</strong>
-            <p>Unlike rigid production methods, an Agile Digital Factory operates on incremental cycles, providing clear visibility and allowing for prompt issue resolution.</p>
-        </div>
+                content: `<div class="mt-8 flex flex-col gap-3">
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">1</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Iterative Delivery</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Early Issue Detection</strong>
-            <p>We actively promote detection and resolution during every sprint, saving resources and ensuring a higher quality end product.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Unlike rigid production methods, an Agile Digital Factory operates on incremental cycles, providing clear visibility and allowing for prompt issue resolution.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">2</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Early Issue Detection</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Stakeholder Engagement</strong>
-            <p>Agile methodologies ensure that development remains perfectly aligned with business needs through constant collaboration.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We actively promote detection and resolution during every sprint, saving resources and ensuring a higher quality end product.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">3</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Stakeholder Engagement</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Streamlined Documentation</strong>
-            <p>We focus on delivering functional, efficient software over extensive manual documentation, maximizing actual value delivery.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Agile methodologies ensure that development remains perfectly aligned with business needs through constant collaboration.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">4</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Streamlined Documentation</div>
     </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We focus on delivering functional, efficient software over extensive manual documentation, maximizing actual value delivery.</div>
+  </div>
 </div>`
             },
             {
                 id: "conclusion",
                 title: "The Future of Delivery",
-                content: `<p>Embracing the Digital Factory mindset allows organizations to stay perpetually in motion, responding to market demands with speed and precision.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Modernize Your SDLC</span>
-        <h3 class="cta-banner__title">Ready to build your digital factory?</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates on agile transformation and digital engineering excellence.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+                content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">Embracing the Digital Factory mindset allows organizations to stay perpetually in motion, responding to market demands with speed and precision.</div>
+</div>
+<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn for the latest updates on agile transformation and digital engineering excellence.</p>`
             },
         ]
     },
@@ -2921,20 +2917,16 @@ The institutions that prepare their platforms today will define what it looks li
             {
                 id: "commitment",
                 title: "Our Commitment to San Antonio",
-                content: `<p>The Greater San Antonio Chamber of Commerce aligns with our commitment to community development. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the local business landscape.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Community Growth</span>
-        <h3 class="cta-banner__title">Join us in celebrating this milestone.</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn to stay updated on our community initiatives and local partnerships.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+                content: `<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">The Greater San Antonio Chamber of Commerce aligns with our commitment to community development. We are eager to build lasting relationships, explore new opportunities, and contribute to the success of the local business landscape.</div>
+</div>
+<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn to stay updated on our community initiatives and local partnerships.</p>`
             },
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva Earns <em>Great Place To Work® Certification™.</em>",
+        title: "Hyniva is Officially a<br/><span class=\"text-[#63c2ff] italic\">\"Great Place to Work.\"</span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -2942,63 +2934,57 @@ The institutions that prepare their platforms today will define what it looks li
         heroImage: "/images/Blogs/Optimized/blog-27.png",
         sections: [
             {
-                id: "achievement",
-                title: "A Testament to Our People",
-                content: `<p>We are overjoyed to announce that Hyniva has officially earned the prestigious Great Place To Work® Certification™. This recognition is a testament to our unwavering commitment to fostering a positive company culture where every team member thrives—both personally and professionally.</p>`
+                id: "intro",
+                title: "",
+                content: `<p>At Hyniva, we are overjoyed to announce a significant achievement that speaks volumes about the fantastic community we have built together. Thanks to the incredible Hyniva Family, we have officially earned the prestigious Great Place To Work® Certification™.</p>
+<p>This recognition is a testament to our unwavering commitment to fostering a positive company culture that values each member of our team. It reflects the dedication we have towards creating an environment where everyone not only feels welcome but thrives — both personally and professionally.</p>`
             },
             {
-                id: "core-values",
-                title: "The Values That Define Us",
-                content: `<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Employee-Centric Culture</strong>
-            <p>Our success is built on the belief that when our team is happy and thriving, so is our organization.</p>
-        </div>
+                id: "what-this-means-at-hyniva",
+                title: "What This Means at Hyniva",
+                content: `<p>The certification reflects five core values that define who we are as a team and how we show up for each other every day.</p>
+<div class="mt-8 flex flex-col gap-3">
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">1</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Employee-Centric Culture</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Dedication to Growth</strong>
-            <p>We provide opportunities for continuous learning, skill development, and career advancement at every stage.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Our success is built on the foundation of an employee-centric culture — with a core belief that when our team is happy and thriving, so is our organization.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">2</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Dedication to Growth</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Inclusivity and Diversity</strong>
-            <p>Our workplace is a vibrant melting pot where every background is valued and celebrated.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Hyniva is dedicated to the growth and development of each team member. We provide opportunities for continuous learning, skill development, and career advancement at every stage.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">3</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Inclusivity and Diversity</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Open Communication</strong>
-            <p>We promote transparent channels where every team member's unique perspective is heard and valued.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">We celebrate diversity and strive for inclusivity. Our workplace is a melting pot of talents and ideas, creating a vibrant and dynamic environment where every background is valued.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">4</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Open Communication</div>
     </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Collaborative Spirit</strong>
-            <p>Collaboration is at the heart of our success, permeating every department and initiative.</p>
-        </div>
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Communication is key. At Hyniva, we promote open and transparent communication channels where every team member's unique perspective is heard and genuinely valued.</div>
+  </div>
+  <div class="border border-[#e4e8f0] rounded-xl overflow-hidden">
+    <div class="flex items-center gap-3.5 px-[22px] py-4 bg-[#f7f8fc] border-b border-[#e4e8f0]">
+      <div class="w-[30px] h-[30px] rounded-full bg-[#1e6fff] text-white text-xs font-semibold flex items-center justify-center shrink-0">5</div>
+      <div class="text-[15px] font-semibold text-[#0a0f1e]">Collaborative Spirit</div>
     </div>
-</div>`
-            },
-            {
-                id: "conclusion",
-                title: "Thank You, Hyniva Family",
-                content: `<p>Becoming a "Great Place to Work" is a shared success. We extend our deepest gratitude to every member of the Hyniva Family for their dedication, passion, and hard work.</p>
-<div class="cta-banner">
-    <div class="cta-banner__content">
-        <span class="cta-banner__kicker">Join Our Team</span>
-        <h3 class="cta-banner__title">Follow our journey and what comes next.</h3>
-        <p class="cta-banner__desc">Follow us on LinkedIn for the latest updates on our culture and career opportunities.</p>
-    </div>
-    <a href="https://www.linkedin.com/company/hyniva/" class="cta-banner__button">Connect on LinkedIn →</a>
-</div>`
+    <div class="px-[22px] py-[18px] text-[15px] font-light text-[#4a5568] m-0 leading-[1.8]">Collaboration is at the heart of what we do. Our projects and initiatives thrive on the collaborative spirit that permeates through every department and every team.</div>
+  </div>
+</div>
+<div class="mt-12 bg-[#0a0f1e] rounded-[14px] px-9 py-10 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <div class="relative z-10 text-[clamp(17px,2.2vw,22px)] italic text-[#c8d9f5] leading-[1.55] m-0" style="font-family: 'DM Serif Display', serif;">Becoming a "Great Place to Work" is not just a certification for us — it is a shared success. We extend our deepest gratitude to each and every member of the Hyniva Family. Your dedication, hard work, and passion have contributed to making Hyniva an exceptional workplace.</div>
+</div>
+<p class="mt-10 text-[15.5px] font-light text-[#4a5568] leading-[1.8]">Follow us on LinkedIn for the latest updates on our culture and career opportunities.</p>`
             },
         ]
     },
