@@ -2948,7 +2948,7 @@ The organizations that prepare today will lead tomorrow.</p>`
         ]
     },
     "perpetually-in-motion-the-digital-factory": {
-        title: "Perpetually in Motion –<br/><span class=\"text-[#63c2ff] italic\">The Digital Factory.</span>",
+        title: "Perpetually in Motion –<br/><span class=\"text-white italic\">The Digital Factory.</span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -3028,7 +3028,7 @@ The organizations that prepare today will lead tomorrow.</p>`
         ]
     },
     "hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce": {
-        title: "Hyniva is a Proud Member<br/>of <span class=\"text-[#63c2ff] italic\">GSAC.</span>",
+        title: "Hyniva is a Proud Member<br/>of <span class=\"text-white italic\">GSAC.</span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -3072,7 +3072,7 @@ The organizations that prepare today will lead tomorrow.</p>`
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva is Officially a<br/><span class=\"text-[#63c2ff] italic\">\"Great Place to Work.\"</span>",
+        title: "Hyniva is Officially a<br/><span class=\"text-white italic\">\"Great Place to Work.\"</span>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
