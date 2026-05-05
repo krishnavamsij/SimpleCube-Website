@@ -1500,32 +1500,32 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "member-experience-transformation-at-a-leading-credit-union": {
         "slug": "member-experience-transformation-at-a-leading-credit-union",
-        "eyebrow": "Member Experience & Digital Engagement",
-        "title": "Member Experience Transformation at a Leading <em>Credit Union</em>",
-        "summary": "A complete digital overhaul of the member engagement journey — from personalized pre-qualification to streamlined loan processing — driving significant increases in member satisfaction and loan conversion.",
+        "eyebrow": "FinXServe & Credit Union Digital Lending",
+        "title": "Elevating Digital Member Engagement in<br>\n      <em>Modern Banking Operations</em>",
+        "summary": "Unified lending and engagement journeys across multiple channels to deliver instant loan offers and seamless member experiences at scale.",
         "metrics": [
             {
+                "icon": "⚡",
+                "value": "< 2 min",
+                "label": "Loan Offers",
+                "sub": ""
+            },
+            {
+                "icon": "👥",
+                "value": "500K+",
+                "label": "Members Served",
+                "sub": ""
+            },
+            {
+                "icon": "🔗",
+                "value": "Unified",
+                "label": "Multi-Channel Experience",
+                "sub": ""
+            },
+            {
                 "icon": "📈",
-                "value": "30%",
-                "label": "Increase in Engagement",
-                "sub": ""
-            },
-            {
-                "icon": "🎯",
-                "value": "25%",
-                "label": "Higher Conversion",
-                "sub": ""
-            },
-            {
-                "icon": "👤",
-                "value": "Personalized",
-                "label": "Member Journey",
-                "sub": ""
-            },
-            {
-                "icon": "📱",
-                "value": "Seamless",
-                "label": "Multi-Channel",
+                "value": "Enhanced",
+                "label": "Digital Engagement",
                 "sub": ""
             }
         ],
@@ -1533,32 +1533,17 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "challenge",
                 "title": "Challenge",
-                "type": "feature-grid",
+                "type": "outcome-list",
                 "content": {
                     "body": "<p>A leading, award-winning Credit Union with over half a million members aimed to significantly boost consumer lending across auto loans, personal loans, and credit cards. However, they faced several critical challenges:</p>",
                     "items": [
-                        {
-                            "icon": "⚠️",
-                            "title": "High Member Friction",
-                            "text": "Outdated and fragmented digital interfaces led to high application abandon rates and stagnant lending volumes."
-                        },
-                        {
-                            "icon": "📉",
-                            "title": "Static Engagement",
-                            "text": "Disjointed application experiences across mobile, web, branch, and phone channels caused member confusion and hindered cross-channel loan processing."
-                        },
-                        {
-                            "icon": "⚙️",
-                            "title": "Inefficient Lead Management",
-                            "text": "Although the Credit Union used Salesforce for CRM and contact center operations, it was not integrated with digital experiences offered to members."
-                        },
-                        {
-                            "icon": "🔍",
-                            "title": "Limited Digital Visibility",
-                            "text": "Returns on investment have consistently fallen short of expectations."
-                        }
-                    ],
-                    "footer": "<div class=\"outcome-list\" style=\"margin-top:16px;\">\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>There was minimal engagement from non-members, limiting new customer acquisition through digital channels.</div>\n        <div class=\"outcome-item\"><div class=\"outcome-item__dot\"></div>The loan application process was cumbersome and unintuitive for non-members applying online.</div>\n      </div>"
+                        "Outdated and fragmented digital interfaces led to high application abandon rates and stagnant lending volumes.",
+                        "Disjointed application experiences across mobile, web, branch, and phone channels caused member confusion and hindered cross-channel loan processing.",
+                        "Although the Credit Union used Salesforce for CRM and contact center operations, it was not integrated with the digital experiences offered to members.",
+                        "Returns on investment have consistently fallen short of expectations.",
+                        "There was minimal engagement from non-members, limiting new customer acquisition through digital channels.",
+                        "The loan application process was cumbersome and unintuitive for non-members applying online."
+                    ]
                 }
             },
             {
@@ -1599,14 +1584,52 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "impact",
                 "title": "Benefits",
-                "type": "text",
-                "content": "<div class=\"impact-highlights\">\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">✓</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Modern Consistent Experience</div>\n            <div class=\"impact-card__desc\">Transformed lending operations with a modern, consistent experience across digital and physical channels</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">&lt; 2 min</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Instant Loan Offers</div>\n            <div class=\"impact-card__desc\">Loan offers delivered to members in under 2 minutes, a significant improvement from previous turnaround time of several hours</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">🔗</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">True Cross-Channel Continuity</div>\n            <div class=\"impact-card__desc\">Applicants may initiate applications online via mobile, in-branch, or by phone, and subsequently resume the process through any preferred channel</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↓</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Reduced Abandonment</div>\n            <div class=\"impact-card__desc\">Improved user experience has significantly reduced application abandonment</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↑</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Increased Engagement</div>\n            <div class=\"impact-card__desc\">Increased engagement from both members and non-members, expanding reach</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">👥</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Staff Empowered</div>\n            <div class=\"impact-card__desc\">Staff empowered with tools to assist members more efficiently across all channels</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">🏆</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">First of Its Kind</div>\n            <div class=\"impact-card__desc\">This marks the first fully member-facing lending experience developed on Salesforce Experience Cloud</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">ROI</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Strengthened Salesforce ROI</div>\n            <div class=\"impact-card__desc\">Faster deployment and measurable performance gains strengthened ROI on Salesforce investment</div>\n          </div>\n        </div>\n      </div>"
-            },
-            {
-                "id": "outcome",
-                "title": "Outcome",
-                "type": "text",
-                "content": "<p>By deploying FinXServe on Salesforce Experience Cloud and Financial Services Cloud, the credit union unified fragmented digital touchpoints into a seamless, multi-channel member journey. Loan offers are now delivered in under two minutes, application abandonment has dropped significantly, and engagement has grown across both members and non-members — marking the first fully member-facing lending experience built on Salesforce Experience Cloud.</p>"
+                "type": "impact-strip",
+                "content": {
+                    "body": "",
+                    "items": [
+                        {
+                            "value": "✓",
+                            "label": "Modern Consistent Experience",
+                            "desc": "Transformed lending operations with a modern, consistent experience across digital and physical channels"
+                        },
+                        {
+                            "value": "< 2 min",
+                            "label": "Instant Loan Offers",
+                            "desc": "Loan offers delivered to members in under 2 minutes, a significant improvement from previous turnaround time of several hours"
+                        },
+                        {
+                            "value": "🔗",
+                            "label": "True Cross-Channel Continuity",
+                            "desc": "Applicants may initiate applications online via mobile, in-branch, or by phone, and subsequently resume the process through any preferred channel"
+                        },
+                        {
+                            "value": "↓",
+                            "label": "Reduced Abandonment",
+                            "desc": "Improved user experience has significantly reduced application abandonment"
+                        },
+                        {
+                            "value": "↑",
+                            "label": "Increased Engagement",
+                            "desc": "Increased engagement from both members and non-members, expanding reach"
+                        },
+                        {
+                            "value": "👥",
+                            "label": "Staff Empowered",
+                            "desc": "Staff empowered with tools to assist members more efficiently across all channels"
+                        },
+                        {
+                            "value": "🏆",
+                            "label": "First of Its Kind",
+                            "desc": "This marks the first fully member-facing lending experience developed on Salesforce Experience Cloud"
+                        },
+                        {
+                            "value": "ROI",
+                            "label": "Strengthened Salesforce ROI",
+                            "desc": "Faster deployment and measurable performance gains strengthened ROI on Salesforce investment"
+                        }
+                    ]
+                }
             }
         ]
     },
