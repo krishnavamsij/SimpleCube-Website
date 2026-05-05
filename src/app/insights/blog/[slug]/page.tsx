@@ -119,9 +119,11 @@ export default function BlogDetailPage() {
                                     id={section.id}
                                     className="scroll-mt-40 group w-full"
                                 >
-                                    <div className="mb-8">
-                                        <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left" style={{ fontFamily: "'DM Serif Display', serif" }}>{section.title}</h2>
-                                    </div>
+                                    {section.title && (
+                                        <div className="mb-8">
+                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left" style={{ fontFamily: "'DM Serif Display', serif" }}>{section.title}</h2>
+                                        </div>
+                                    )}
 
                                     <div
                                         className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
