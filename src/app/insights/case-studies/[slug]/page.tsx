@@ -232,8 +232,18 @@ export default function CaseStudyDetailPage() {
                                     <div className="text-[32px] font-normal text-[#1e90ff]/18 leading-none shrink-0 w-9 font-display">
                                         {item.num || '✦'}
                                     </div>
-                                    <div className="pt-1">
+                                    <div className="pt-1 flex-1">
                                         <h4 className="text-[14px] font-semibold text-[#111827] mb-2 font-sans leading-[1.4]">{item.title}</h4>
+                                        {item.bullets && (
+                                            <div className="flex flex-col gap-2">
+                                                {item.bullets.map((bullet: string, bulletIdx: number) => (
+                                                    <div key={bulletIdx} className="flex gap-2.5 items-start">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shrink-0 mt-1.5 opacity-60" />
+                                                        <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65] flex-1">{bullet}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                         {item.desc && <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65]">{item.desc}</p>}
                                     </div>
                                 </div>
@@ -315,6 +325,17 @@ export default function CaseStudyDetailPage() {
                             ))}
                         </div>
                         {content.footer && <div className="cs-content mt-8" dangerouslySetInnerHTML={{ __html: content.footer }} />}
+                    </div>
+                );
+            case 'tech-tags':
+                return (
+                    <div className="cs-content">
+                        {content.body && <div dangerouslySetInnerHTML={{ __html: content.body }} />}
+                        <div className="tech-tags">
+                            {content.items.map((item: any, idx: number) => (
+                                <span key={idx} className="tech-tag">{item}</span>
+                            ))}
+                        </div>
                     </div>
                 );
             case 'text':
@@ -724,19 +745,17 @@ export default function CaseStudyDetailPage() {
                 .tech-tags {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 12px;
-                    margin-top: 32px;
-                    align-items: center;
+                    gap: 8px;
+                    margin-top: 20px;
                 }
                 .tech-tag {
-                    padding: 8px 20px;
-                    background: #f0f6ff;
-                    border: 1px solid #cce2ff;
-                    border-radius: 9999px;
-                    font-size: 15px;
+                    font-size: 11.5px;
                     font-weight: 500;
-                    color: #3b82f6;
-                    white-space: nowrap;
+                    color: #1e90ff;
+                    background: rgba(30,144,255,0.07);
+                    border: 1px solid rgba(30,144,255,0.18);
+                    border-radius: 100px;
+                    padding: 5px 13px;
                 }
 
                 /* ── Tech Bullets Styling ── */

@@ -8,7 +8,7 @@ export interface CaseStudyMetric {
 export interface CaseStudySection {
     id: string;
     title: string;
-    type: 'text' | 'approach-list' | 'feature-grid' | 'impact-strip' | 'outcome-list' | 'future-tags';
+    type: 'text' | 'approach-list' | 'feature-grid' | 'impact-strip' | 'outcome-list' | 'future-tags' | 'tech-tags';
     content: any;
 }
 
@@ -2469,7 +2469,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "🔗",
                 "value": "Improved",
-                "label": "Coordination",
+                "label": "Cross-Module Coordination",
                 "sub": ""
             }
         ],
@@ -2479,27 +2479,27 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Challenge",
                 "type": "feature-grid",
                 "content": {
-                    "body": "<p>A logistics provider faced disconnected systems and a lack of real-time visibility that blocked agility and customer trust:</p>",
+                    "body": "<p>Legacy systems in logistics don't just slow operations — they block agility, transparency, and customer experience. A leading transportation and logistics provider was struggling to keep up with the speed of its own business. Behind the scenes, disconnected systems, outdated tools, and a lack of real-time visibility were creating growing pain points across operations, customer service, and field teams.</p>",
                     "items": [
                         {
                             "icon": "📦",
-                            "title": "No Tracking",
-                            "text": "Dispatch teams relied on manual calls; ETAs were guesswork."
+                            "title": "No Real-Time Shipment Tracking",
+                            "text": "Dispatch teams had to rely on outdated batch updates and manual calls to know where shipments were. ETAs were guesswork. Customers kept calling — and trust was eroding."
                         },
                         {
                             "icon": "📱",
-                            "title": "App Desync",
-                            "text": "Field staff captured updates but core systems didn't reflect them in real-time."
+                            "title": "Mobile Apps Didn't Sync",
+                            "text": "Field staff were capturing updates on mobile — but the core systems didn't reflect them in real-time. Delays, duplicate data entry, and miscommunication became routine."
                         },
                         {
-                            "icon": "💾",
-                            "title": "Legacy ASP",
-                            "text": "Slow performance and high maintenance costs made innovation impossible."
+                            "icon": "🖥️",
+                            "title": "Operations Ran on Legacy ASP Systems",
+                            "text": "Slow performance, limited scalability, and high maintenance costs made innovation impossible. Even simple changes took weeks of development."
                         },
                         {
                             "icon": "🔌",
-                            "title": "System Silos",
-                            "text": "No centralized middleware meant portals and internal systems worked in isolation."
+                            "title": "No Integration Between Tools",
+                            "text": "With no centralized middleware, customer portals, internal dashboards, and operations systems worked in silos — slowing down every team involved."
                         }
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The result? Slower turnarounds. Frustrated customers. Disconnected teams. Lost opportunities.</p>\n      </div>"
@@ -2510,29 +2510,36 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>We re-architected the application into a component-based, cloud-ready solution on the latest .NET platform.</p>",
+                    "body": "<p>The goal was to build a future-ready, mobile-first, and real-time logistics ecosystem. Hyniva applied a cloud-first, API-first, and mobile-ready modernization strategy using Microsoft's technology stack to overhaul the logistics platform.</p><p>Instead of a simple lift-and-shift, the application was re-architected into a component-based, maintainable solution on the latest .NET platform. Migration and modernization were executed in phases aligned to key business modules (Customer Portal, Logistics, Waybills & Challans, Tracking), ensuring enhancements such as mobile access, real-time communication, and performance optimization were seamlessly integrated.</p><p>This hybrid approach balanced risk reduction (via phasing) with business value delivery (new features and performance improvements), resulting in a system that is both modern and future ready.</p>",
                     "items": [
                         {
                             "num": "1",
-                            "title": "Modular Re-Architecture",
-                            "desc": "Built using ASP.NET MVC and Angular with MVVM for flexibility and scalability."
+                            "title": "Cloud-First Migration & Modular Re-Architecture",
+                            "bullets": [
+                                "Re-architected the logistics platform using ASP.NET MVC and ASP.NET Framework, enabling modular, scalable services.",
+                                "Developed component-based, dynamic UIs using Angular with the MVVM design pattern to enable flexibility and maintainability."
+                            ]
                         },
                         {
                             "num": "2",
-                            "title": "Azure Integration",
-                            "desc": "Used Azure Service Bus and SignalR for real-time communication across all systems."
+                            "title": "Real-Time Integration Using Microsoft Azure",
+                            "bullets": [
+                                "Built centralized RESTful middleware APIs for tracking, delivery status, and authentication.",
+                                "Integrated Azure Service Bus to deliver real-time communication across web, mobile, and operations systems.",
+                                "Used Azure SignalR to push live logistics updates to customers and internal users."
+                            ]
                         },
                         {
                             "num": "3",
-                            "title": "Mobility Engineering",
-                            "desc": "Delivered a cross-platform mobile app using Xamarin.Forms for field operations."
-                        },
-                        {
-                            "num": "4",
-                            "title": "Performance Tuning",
-                            "desc": "Optimized SQL Server and used Redis Cache to minimize latency during peak usage."
+                            "title": "Mobility & Performance Engineering",
+                            "bullets": [
+                                "Delivered a unified, cross-platform mobile app using Xamarin.Forms, integrated with backend and middleware systems for seamless field operations.",
+                                "Boosted performance using Redis Cache to minimize latency during peak usage times.",
+                                "Applied SQL Server tuning, advanced indexing, and query optimization to support real-time reporting and dashboard performance."
+                            ]
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"tech-tags\" style=\"margin-top:20px;\">\n        <span class=\"tech-tag\">ASP.NET MVC</span>\n        <span class=\"tech-tag\">Angular</span>\n        <span class=\"tech-tag\">Azure Service Bus</span>\n        <span class=\"tech-tag\">Azure SignalR</span>\n        <span class=\"tech-tag\">Xamarin.Forms</span>\n        <span class=\"tech-tag\">SQL Server</span>\n        <span class=\"tech-tag\">Redis Cache</span>\n        <span class=\"tech-tag\">REST APIs</span>\n      </div>"
                 }
             },
             {
@@ -2540,27 +2547,32 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Business Impact",
                 "type": "impact-strip",
                 "content": {
-                    "body": "<p>We turned a bottlenecked platform into a streamlined digital engine with 360° visibility:</p>",
+                    "body": "<p>We responded with a robust transformation strategy focused on modular architecture, cloud-native integration, and high-performance engineering — turning a bottlenecked platform into a streamlined digital engine.</p>",
                     "items": [
                         {
                             "value": "📍",
-                            "label": "Live Tracking",
-                            "desc": "Real-time shipment status delivered across all portals and apps."
+                            "label": "Real-Time Shipment Tracking",
+                            "desc": "Real-time shipment tracking and status updates delivered across all platforms"
                         },
                         {
                             "value": "100%",
-                            "label": "Mobile Ready",
-                            "desc": "Staff and customers can now act on-the-go with full mobile enablement."
+                            "label": "Mobile-Enabled Operations",
+                            "desc": "Fully mobile-enabled operations, enabling staff and customers to act on-the-go"
                         },
                         {
                             "value": "45%",
-                            "label": "DB Speed",
-                            "desc": "Drastic improvement in database performance and dashboard response."
+                            "label": "Database Performance Improvement",
+                            "desc": "Improvement in database performance, accelerating dashboards and reports"
+                        },
+                        {
+                            "value": "360°",
+                            "label": "End-to-End Visibility",
+                            "desc": "End-to-end visibility across field and back-office systems through middleware integration"
                         },
                         {
                             "value": "↑",
-                            "label": "Satisfaction",
-                            "desc": "Improved customer trust through live notifications and faster service."
+                            "label": "Improved Customer Satisfaction",
+                            "desc": "Driven by live notifications and faster response times"
                         }
                     ]
                 }
@@ -2569,7 +2581,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>The re-architected logistics platform replaced a fragmented, manual operation with a real-time, mobile-first system built for scale. Field teams now operate with live shipment visibility, dispatch teams access centralized data through a unified middleware layer, and customers receive proactive notifications — transforming the logistics operation into a competitive, customer-centric service.</p>"
+                "content": "<p>At Hyniva, we don't just upgrade technology — we transform the way enterprises operate. By leveraging the full Microsoft technology stack, we helped our client move from outdated architecture to a high-performance, real-time digital logistics platform.</p><p>The result? Faster operations, empowered field teams, happier customers, and a future-ready foundation that scales.</p><p>No matter your industry, Hyniva brings proven Microsoft expertise to turn outdated systems into agile, high-performance platforms.</p>"
             }
         ]
     },
