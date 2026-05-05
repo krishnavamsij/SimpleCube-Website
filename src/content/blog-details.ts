@@ -7,6 +7,7 @@ export interface BlogSection {
 export interface BlogDetail {
     title: string;
     subtitle: string;
+    badge?: string;
     date: string;
     author: string;
     tag: string;
@@ -1699,8 +1700,8 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         ]
     },
     "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
-        title: "Celebrating Success as a Great Place to Work for the Second Year!",
-        subtitle: "A Culture of Excellence",
+        title: "Celebrating Success. A Great Place to Work — <em>Two Years Running.</em>",
+        subtitle: "",
         date: "Jan 3, 2025",
         author: "Hyniva",
         tag: "Company",
@@ -1708,67 +1709,64 @@ They are the ones who can integrate it, trust it, and act on it - faster than an
         sections: [
             {
                 id: "intro",
-                title: "Introduction",
-                content: `<p>We are absolutely thrilled to announce that <strong>Hyniva</strong> has once again been recognized as a <strong>Great Place to Work</strong> for the second consecutive year!  This remarkable achievement is a testament to the passion, dedication, and the vibrant culture that the entire <strong>Hyniva Family</strong> brings to the table every single day. It reflects the incredible collaboration and commitment that define our workplace, where everyone is encouraged to grow, succeed, and thrive.&nbsp;</p>`
+                title: "",
+                content: `<p>We are absolutely thrilled to announce that Hyniva has once again been recognized as a Great Place to Work for the second consecutive year. This remarkable achievement is a testament to the passion, dedication, and vibrant culture that every member of the Hyniva family brings to work every single day.</p>
+<p>It reflects the incredible collaboration and commitment that define who we are — a workplace where everyone is encouraged to grow, succeed, and thrive.</p>
+<div class="pullquote">
+  <div class="pullquote__text">"Being named a Great Place to Work for the second year in a row is not just an award — it's a milestone of the collective effort, collaboration, and positive mindset of every individual at Hyniva."</div>
+</div>`
             },
             {
                 id: "a-culture-of-excellence",
                 title: "A Culture of Excellence",
-                content: `<p>At Hyniva, we believe that a thriving company starts with its people. Our strong foundation is built on a culture of teamwork, trust, and innovation. Over the years, weâve seen our employeesâ dedication and hard work play a key role in this journey, helping to create a work environment where every voice matters.&nbsp;</p>
-
-
-
-<p>Being named a Great Place to Work for the second year in a row is not just an awardâitâs a milestone of the collective effort, collaboration, and positive mindset of every individual at Hyniva. Our commitment to providing employees with meaningful work, opportunities for development, and a space where they can be their authentic selves has truly paid off.&nbsp;</p>`
+                content: `<p>At Hyniva, we believe that a thriving company starts with its people. Our foundation is built on a culture of teamwork, trust, and innovation — where every voice matters and every contribution is valued.</p>
+<p>Our commitment to providing employees with meaningful work, genuine opportunities for development, and a space where they can be their authentic selves has truly paid off. This recognition belongs to every person who shows up with purpose and enthusiasm each day.</p>`
             },
             {
-                id: "highlights-from-2024-at-hyniva",
-                title: "Highlights from 2024 at Hyniva",
-                content: `<p>2024 has been an exceptional year for Hyniva, marked by growth, collaboration, and a number of key milestones. We believe in creating an engaging and inclusive environment where everyone feels connected and empowered. Here are a few of the standout moments:&nbsp;</p>
-
-
-
-<ul>
-<li><strong>Team Building Activities</strong>: Hyniva employees participated in several team-building events, including outdoor retreats, and collaborative workshops. These activities helped strengthen relationships, boost morale, and foster a spirit of camaraderie. Employees shared how much they appreciated the opportunity to bond with colleagues outside the office environment, creating a stronger sense of community.&nbsp;</li>
-</ul>
-
-
-
-<ul>
-<li><strong>Certifications and Personal Growth</strong>: Weâre proud of the professional development opportunities we provide to our team. Several employees achieved key certifications this year in fields such as Salesforce, AWS and Scrum Master. Many of them shared how Hyniva supported them by offering flexible hours, study resources, and mentorship throughout the process. This dedication to employee growth continues to fuel our collective success.&nbsp;</li>
-</ul>
-
-
-
-<ul>
-<li><strong>Festival Celebrations</strong>: At Hyniva, we believe in celebrating culture and diversity. This year, employees came together to celebrate a variety of festivals, like Diwali and Christmas. These celebrations were filled with vibrant decorations, delicious food, and engaging activities that brought our team closer together. Everyone was encouraged to participate, and the joy and enthusiasm were truly contagious across the entire company.&nbsp;</li>
-</ul>`
+                id: "highlights-from-2024",
+                title: "Highlights from 2024",
+                content: `<p>2024 has been an exceptional year for Hyniva — marked by growth, collaboration, and a number of standout moments that brought our team closer together.</p>
+<div class="feature-cards">
+  <div class="feature-card">
+    <div class="feature-card__content">
+      <strong>🌿 Team Building Activities</strong>
+      <p>Hyniva employees participated in outdoor retreats and collaborative workshops that strengthened relationships, boosted morale, and fostered a genuine spirit of camaraderie. Employees shared how much they valued the opportunity to connect with colleagues beyond the office — building a stronger sense of community across the organization.</p>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-card__content">
+      <strong>🏆 Certifications and Personal Growth</strong>
+      <p>Several employees achieved key certifications in Salesforce, AWS, and Scrum Master this year. Hyniva supported them every step of the way — through flexible hours, study resources, and dedicated mentorship. This commitment to professional development continues to fuel our collective growth and the quality of work we deliver to clients.</p>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-card__content">
+      <strong>🪔 Festival Celebrations</strong>
+      <p>At Hyniva, we celebrate culture and diversity with genuine enthusiasm. This year, our team came together for Diwali, Christmas, and more — with vibrant decorations, delicious food, and joyful activities that brought everyone closer. The energy and enthusiasm during these celebrations was truly contagious across the entire company.</p>
+    </div>
+  </div>
+</div>`
             },
             {
                 id: "our-vision-moving-forward",
                 title: "Our Vision Moving Forward",
-                content: `<p>The recognition as a Great Place to Work is just the beginning. We are more committed than ever to building on our achievements and creating an even better place for our employees to thrive. As we continue to grow, we will ensure that our workplace remains a space where creativity, collaboration, and personal development are encouraged, and where our employees can truly flourish.&nbsp;</p>
-
-
-
-<p>The future looks incredibly bright for <a href="https://www.staging15.hyniva.com/">Hyniva</a>. With our teamâs passion and the shared desire to make a difference, we know that there are more exciting milestones ahead.&nbsp;</p>`
+                content: `<p>This recognition is just the beginning. We are more committed than ever to building on our achievements and creating an even better environment for our employees to flourish.</p>
+<p>As Hyniva continues to grow, we will ensure our workplace remains a space where creativity, collaboration, and personal development are not just encouraged — they are embedded into everything we do.</p>
+<ul>
+  <li>Continued investment in professional development and certification support</li>
+  <li>Expanding team-building and culture initiatives across the organization</li>
+  <li>Deepening our commitment to inclusion and employee wellbeing</li>
+  <li>Building on the momentum that earned this recognition — two years and counting</li>
+</ul>
+<p>The future looks incredibly bright. With our team's passion and a shared desire to make a difference, we know that the most exciting milestones are still ahead.</p>`
             },
             {
-                id: "thank-you-to-the-hyniva-family",
+                id: "thank-you",
                 title: "Thank You to the Hyniva Family",
-                content: `<p>None of this would be possible without the incredible dedication of every single person at Hyniva. We want to extend a heartfelt thank you to our amazing team for their hard work, commitment, and positivity, which made this achievement possible. Together, we will continue to build on our strengths and keep pushing forward with a shared vision of success and growth.&nbsp;</p>
-
-
-
-<p>Letâs keep up the momentum and continue to shape a workplace that not only excites us but inspires others as well. The journey is far from over, and weâre excited to see where it takes us next! &nbsp;</p>
-
-
-
-<p>For more about our recognition as a <strong>Great Place to Work</strong>, visit: <a href="https://www.greatplacetowork.com/certified-company/7078812" target="_blank" rel="noreferrer noopener">https://www.greatplacetowork.com/certified-company/7078812</a>&nbsp;</p>
-
-
-
-<p>#Hyniva #GreatPlaceToWork #HynivaFamily #Teamwork #CompanyCulture #EmployeeExperience #WorkplaceExcellence #Success #Growth #ThrivingTogether #HynivaPride #CelebratingSuccess&nbsp;</p>`
-            },
+                content: `<p>None of this would be possible without the incredible dedication of every single person at Hyniva. This achievement belongs to you — to the hard work, the positivity, and the commitment you bring each day.</p>
+<p>Together, we will continue to build on our strengths, push forward with a shared vision of success, and shape a workplace that not only excites us but inspires others as well.</p>
+<p>The journey is far from over — and we could not be more excited to see where it takes us next.</p>`
+            }
         ]
     },
     "unlock-the-future-of-crm-with-the-latest-salesforce-innovations": {

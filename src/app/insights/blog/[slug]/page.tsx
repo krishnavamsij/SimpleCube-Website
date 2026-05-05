@@ -108,11 +108,11 @@ export default function BlogDetailPage() {
             </header>
 
             {/* ── Main Content ── */}
-            <main className="mx-auto w-full max-w-[740px] px-6 py-24">
+            <main className="mx-auto w-full max-w-[740px] px-6 pt-8 pb-24">
                 <div className="flex flex-col items-center">
                     {/* Content Column */}
                     <div className="w-full">
-                        <div className="space-y-16">
+                        <div className="space-y-8">
                             {post.sections.map((section, idx) => (
                                 <section
                                     key={section.id}
@@ -248,6 +248,20 @@ export default function BlogDetailPage() {
                     font-weight: 500;
                     color: #64748b;
                     line-height: 1.4;
+                }
+                .pullquote {
+                    margin: 40px 0;
+                    border-left: 4px solid #1e90ff;
+                    padding: 8px 0 8px 32px;
+                    background: #f8fafc;
+                    border-radius: 0 12px 12px 0;
+                }
+                .pullquote__text {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 22px;
+                    line-height: 1.6;
+                    color: #030b3b;
+                    font-style: italic;
                 }
                 @media (max-width: 768px) {
                     .stats {
