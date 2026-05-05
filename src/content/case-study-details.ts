@@ -349,7 +349,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "future",
-                "title": "THE ROAD AHEAD",
+                "title": "Road Ahead",
                 "type": "text",
                 "content": "<p>With a scalable IVR foundation in place, the firm is positioned to continuously expand and refine self-service capabilities with minimal effort. The modular design allows new options to be introduced, reordered, or enhanced quickly, enabling the contact center to adapt to evolving customer needs without additional development complexity.</p>\n        <p>Built-in analytics will guide the next phase of optimization by highlighting usage patterns, drop-offs, and containment opportunities. Based on customer feedback and insights, the firm plans to advance toward an IVR 2.0 roadmap — introducing deeper personalization, expanded workflows, and proactive customer messaging — while maintaining strong authentication and seamless agent escalation.</p>"
             }
@@ -1418,22 +1418,22 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Challenge",
                 "type": "feature-grid",
                 "content": {
-                    "body": "<p>For a growing financial services firm, customer service had become an operational bottleneck, impacting satisfaction and rising costs.</p>",
+                    "body": "<p>For a growing financial services firm, customer service had become a bottleneck.</p>",
                     "items": [
                         {
                             "icon": "😓",
-                            "title": "Manual Overload",
-                            "text": "Agents were drowning in manual case handling, frequently missing SLAs."
+                            "title": "Manual Case Overload",
+                            "text": "Agents were drowning in manual case handling, often missing SLAs."
                         },
                         {
                             "icon": "🔀",
-                            "title": "Fragmented Channels",
-                            "text": "Disconnected experiences across phone and web fueled repeat queries."
+                            "title": "Fragmented Channel Experience",
+                            "text": "Customers had fragmented experiences across phone, email, and digital channels, fueling repeat queries and frustration."
                         },
                         {
                             "icon": "🔭",
-                            "title": "Zero Visibility",
-                            "text": "Leadership lacked real-time visibility into support bottlenecks."
+                            "title": "No Real-Time Visibility",
+                            "text": "Leadership had no real-time visibility into bottlenecks, making improvement impossible."
                         }
                     ],
                     "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The result? Slower service, rising costs, and declining satisfaction in a competitive market where experience is everything.</p>\n      </div>"
@@ -1487,48 +1487,14 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "id": "impact",
                 "title": "Business Impact",
-                "type": "impact-strip",
-                "content": {
-                    "body": "<p>The transformation was immediate and measurable:</p>",
-                    "items": [
-                        {
-                            "value": "50%",
-                            "label": "Less Manual Effort",
-                            "desc": "Agents now focus on problem-solving instead of administration"
-                        },
-                        {
-                            "value": "30%",
-                            "label": "Faster Resolution",
-                            "desc": "Case turnaround time reduced from days to hours"
-                        },
-                        {
-                            "value": "25%",
-                            "label": "Fewer Repeat Queries",
-                            "desc": "Integrated knowledge base resolved queries on first contact"
-                        },
-                        {
-                            "value": "↑",
-                            "label": "CSAT Scores",
-                            "desc": "Proactive service and personalized care boosted loyalty"
-                        },
-                        {
-                            "value": "↑",
-                            "label": "SLA Compliance",
-                            "desc": "Real-time monitoring and routing reduced missed deadlines"
-                        },
-                        {
-                            "value": "📊",
-                            "label": "Leadership Clarity",
-                            "desc": "Dashboards gave decision-makers full control of the service funnel"
-                        }
-                    ]
-                }
+                "type": "text",
+                "content": "<div class=\"cs-section__body\">\n        <p>The transformation was immediate and measurable:</p>\n      </div>\n\n      <div class=\"impact-highlights\">\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">50%</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Less Manual Effort</div>\n            <div class=\"impact-card__desc\">Agents now focus on problem-solving, not admin</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">30%</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Faster Turnaround</div>\n            <div class=\"impact-card__desc\">Customers receive answers in hours, not days</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↑</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Improved SLA Compliance</div>\n            <div class=\"impact-card__desc\">Fewer breaches, more trust</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">25%</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Drop in Repeat Queries</div>\n            <div class=\"impact-card__desc\">Knowledge and self-service resolved issues upfront</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">↑</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">CSAT Scores Climbed</div>\n            <div class=\"impact-card__desc\">Personalized updates and proactive care changed the customer experience</div>\n          </div>\n        </div>\n        <div class=\"impact-card\">\n          <div class=\"impact-card__stat\">📊</div>\n          <div class=\"impact-card__content\">\n            <div class=\"impact-card__label\">Leadership Clarity</div>\n            <div class=\"impact-card__desc\">Real-time dashboards gave decision-makers full control of service funnel</div>\n          </div>\n        </div>\n      </div>"
             },
             {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>By implementing Salesforce Service Cloud as the unified backbone of their service operations, the financial services firm transformed manual, fragmented workflows into an intelligent, omni-channel engine. Agents now resolve cases faster — with complete customer context at their fingertips — driving stronger satisfaction scores, fewer repeat queries, and a support experience that builds lasting loyalty.</p>"
+                "content": "<p>Hyniva didn't just modernize technology — we transformed service delivery into a future-ready advantage. Powered by Salesforce, client now delivers faster resolutions, personalized care, and data-driven decisions that build lasting loyalty. This isn't just customer service reimagined — it's new standard for customer experience in financial services.</p>"
             }
         ]
     },

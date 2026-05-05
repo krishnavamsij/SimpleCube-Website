@@ -140,6 +140,7 @@ const iconMap: Record<string, LucideIcon> = {
     "🗺️": LucideMap,
     "🗺": LucideMap,
     "✦": Sparkles,
+    "😓": Users,
 };
 
 const StandardIcon = ({ icon, className = "" }: { icon: string, className?: string }) => {
@@ -617,6 +618,25 @@ export default function CaseStudyDetailPage() {
                     top: 0;
                 }
 
+                /* ── Salesforce Specific Sub-points Styling ── */
+                .cs-content.salesforce-sub {
+                    font-size: 15px !important;
+                    color: #6b7280 !important;
+                    line-height: 1.5 !important;
+                    position: relative;
+                    padding-left: 12px !important;
+                    margin-top: 4px !important;
+                    font-weight: normal !important;
+                }
+                .cs-content.salesforce-sub::before {
+                    content: '•';
+                    color: #1e90ff !important;
+                    font-weight: bold;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
                 /* ── Approach List Styling ── */
                 .approach-list {
                     display: flex;
@@ -733,6 +753,73 @@ export default function CaseStudyDetailPage() {
                 .tech-bullet strong {
                     color: #111827;
                     font-weight: 600;
+                }
+
+                /* ── Impact Highlights Styling ── */
+                .impact-highlights {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 24px;
+                    margin-top: 32px;
+                }
+                @media (max-width: 1024px) {
+                    .impact-highlights {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+                @media (max-width: 640px) {
+                    .impact-highlights {
+                        grid-template-columns: 1fr;
+                    }
+                }
+                .impact-card {
+                    display: flex;
+                    gap: 16px;
+                    padding: 24px;
+                    background: white;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .impact-card::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 3px;
+                    background: linear-gradient(to bottom, #1e90ff, #63c2ff);
+                    border-radius: 3px 0 0 3px;
+                }
+                .impact-card:hover {
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+                    transform: translateY(-2px);
+                }
+                .impact-card__stat {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #1e90ff;
+                    line-height: 1;
+                    min-width: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .impact-card__content {
+                    flex: 1;
+                }
+                .impact-card__label {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #111827;
+                    margin-bottom: 8px;
+                }
+                .impact-card__desc {
+                    font-size: 14px;
+                    color: #6b7280;
+                    line-height: 1.5;
                 }
 
                 /* ── Outcome List Styling ── */
