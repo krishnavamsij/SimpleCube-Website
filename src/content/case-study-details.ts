@@ -1838,7 +1838,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "outcome",
                 "title": "Outcome",
                 "type": "text",
-                "content": "<p>The modernization of the legacy CRM platform enabled the organization to transition to a scalable, digitally enabled lending ecosystem. By streamlining workflows, improving application quality, and enhancing the borrower experience, the organization was able to increase loan application volumes, improve operational efficiency, and deliver a more responsive lending experience for both customers and internal teams.</p>"
+                "content": "<p>The modernization of the legacy CRM platform enabled the organization to transition to a scalable, digitally enabled lending ecosystem. By streamlining workflows, improving application quality, and enhancing the borrower experience, the organization was able to increase loan application volumes, improve operational efficiency, and deliver a more responsive lending experience for both customers and internal teams.</p>\n        <p>The new platform also provided a future-ready foundation for integrating modern APIs and expanding digital lending capabilities as the business grows.</p>"
             }
         ]
     },
@@ -1857,7 +1857,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "📈",
                 "value": "40%",
-                "label": "Efficiency Gain",
+                "label": "Operational Efficiency Gain",
                 "sub": ""
             },
             {
@@ -1907,7 +1907,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": ""
                         }
                     ],
-                    "footer": "<p>These limitations created inefficiencies across the claims lifecycle — from assignment to settlement.</p>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>These limitations created inefficiencies across the claims lifecycle — from assignment to settlement.</p>\n      </div>"
                 }
             },
             {
@@ -1942,9 +1942,9 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             },
             {
                 "id": "solutions",
-                "title": "Key Solutions Delivered",
+                "title": "Key Solutions",
                 "type": "text",
-                "content": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>\n        <p style=\"margin-top:24px;\"><strong style=\"color:#111827; font-weight:600;\">1. End-to-End Financial Workflow Automation</strong></p>\n        <p style=\"margin-top:8px;\">We streamlined financial operations across invoicing, payments, and payroll.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Advanced invoice generation and carrier mapping</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Fully integrated payment processing module</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Automated adjuster commission calculations</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Payroll system with ACH integration for seamless disbursements</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">2. Secure & Compliant Payment Infrastructure</strong></p>\n        <p style=\"margin-top:8px;\">We enhanced platform security to ensure safe and reliable financial transactions.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Strengthened payment security protocols</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Reduced risks associated with manual financial handling</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved compliance and data protection standards</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">3. Performance Optimization at Scale</strong></p>\n        <p style=\"margin-top:8px;\">We re-engineered the platform to handle increasing workloads efficiently.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Eliminated performance bottlenecks across key workflows</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved system responsiveness and user experience</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Ensured stability under high transaction volumes</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">4. Reporting & Operational Intelligence</strong></p>\n        <p style=\"margin-top:8px;\">We introduced robust reporting capabilities to improve visibility and control.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Configurable reports for financial tracking and claims insights</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Automated reporting workflows for faster decision-making</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Improved transparency across the claims lifecycle</div>\n          </div>\n        </div>\n        <p style=\"margin-top:40px;\"><strong style=\"color:#111827; font-weight:600;\">5. Scalable Architecture for Long-Term Growth</strong></p>\n        <p style=\"margin-top:8px;\">We modernized the platform's foundation to support future expansion.</p>\n        <div class=\"solution-cards\" style=\"margin-top:16px;\">\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Designed a scalable database architecture</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Enabled flexibility for new feature additions and integrations</div>\n          </div>\n          <div class=\"solution-card\">\n            <div class=\"solution-card__sparkle\">✦</div>\n            <div class=\"solution-card__text\">Ensured long-term maintainability and performance</div>\n          </div>\n        </div>"
+                "content": "<p>Across five core solution areas, we delivered a comprehensive digital transformation of the claims operations platform:</p>"
             },
             {
                 "id": "impact",
@@ -1953,19 +1953,13 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "content": {
                     "body": "<p>The transformation delivered significant, measurable outcomes:</p>",
                     "items": [
-                        "<strong style=\"color:var(--text-dark);font-weight:600;\">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
-                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
-                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
-                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
-                        "<strong style=\"color:var(--text-dark);font-weight:600;\">Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
+                        "<strong style=\"color:#111827;font-weight:600;\">80% Reduction in Manual Work</strong> — Automation eliminated repetitive tasks and reduced operational overhead",
+                        "<strong style=\"color:#111827;font-weight:600;\">Faster Claims Processing</strong> — Streamlined workflows improved turnaround time across the lifecycle",
+                        "<strong style=\"color:#111827;font-weight:600;\">Accurate Financial Management</strong> — Enhanced invoicing, payments, and reporting ensured data accuracy",
+                        "<strong style=\"color:#111827;font-weight:600;\">Improved Decision-Making</strong> — Advanced reporting provided better visibility into operations",
+                        "<strong style=\"color:#111827;font-weight:600;\">Enhanced Security & Compliance</strong> — Strengthened safeguards for financial transactions and sensitive data"
                     ]
                 }
-            },
-            {
-                "id": "outcome",
-                "title": "Outcome",
-                "type": "text",
-                "content": "<p>The modernization of the claims operations platform enabled the insurance agency to transition from a fragmented, manual environment to a unified, digitally-driven ecosystem. By automating core financial workflows and optimizing system performance, the organization achieved significant operational efficiency, improved data accuracy, and enhanced its ability to scale while maintaining high standards of security and compliance.</p>"
             },
             {
                 "id": "future",
@@ -2094,8 +2088,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Modern interfaces and responsive design improved usability across departments."
                         },
                         {
-                            "value": "⚡",
-                            "label": "Efficiency",
+                            "value": "40%",
+                            "label": "Operational Efficiency Gain",
                             "desc": "Custom workflows and automation reduced manual effort and turnaround times."
                         },
                         {
