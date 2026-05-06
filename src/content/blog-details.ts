@@ -2826,7 +2826,7 @@ export const blogDetails = {
         ]
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva is Officially a<br><em>\",
+        title: "Hyniva is Officially a<br><em>\"Great Place to Work.\"</em>",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
