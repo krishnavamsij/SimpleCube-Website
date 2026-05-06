@@ -1698,60 +1698,79 @@ export const blogDetails = {
                 id: "how-optimization-future-proofs-your-inst",
                 title: "How Optimization Future-Proofs Your Institution",
                 content: `<p>The financial services industry never stands still — and neither can your platform. Here is what a well-optimized Salesforce FSC environment enables your institution to do:</p>
-      <ul>
-        <li><strong>Adapt to Market Changes:</strong> Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</li>
-        <li><strong>Enhance Client Retention and Acquisition:</strong> Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</li>
-        <li><strong>Improve Cross-Team Collaboration:</strong> A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</li>
-        <li><strong>Stay Ahead of Technology Trends:</strong> Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</li>
-        <li><strong>Strengthen Security and Compliance:</strong> Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</li>
-      </ul>`
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Adapt to Market Changes</strong>
+            <p>Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Enhance Client Retention and Acquisition</strong>
+            <p>Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Improve Cross-Team Collaboration</strong>
+            <p>A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Stay Ahead of Technology Trends</strong>
+            <p>Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Strengthen Security and Compliance</strong>
+            <p>Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "hyniva-s-six-step-fsc-optimization-frame",
                 title: "Hyniva's Six-Step FSC Optimization Framework",
                 content: `<p>Starting your FSC optimization journey may seem complex — but with the right approach, it is a clear and measurable process. Hyniva guides financial institutions through each stage with structured expertise.</p>
 
-      <div class="journey">
-        <div class="journey-step">
-          <div class="journey-step__dot">1</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Comprehensive Needs Assessment</div>
-            <div class="journey-step__desc">We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</div>
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>1. Comprehensive Needs Assessment</strong>
+            <p>We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">2</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Optimization Strategy and Roadmap</div>
-            <div class="journey-step__desc">With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>2. Optimization Strategy and Roadmap</strong>
+            <p>With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">3</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Leverage AI and Automation</div>
-            <div class="journey-step__desc">We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>3. Leverage AI and Automation</strong>
+            <p>We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">4</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Tailor Client Engagement Processes</div>
-            <div class="journey-step__desc">We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>4. Tailor Client Engagement Processes</strong>
+            <p>We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">5</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Continuous Monitoring and Improvement</div>
-            <div class="journey-step__desc">Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>5. Continuous Monitoring and Improvement</strong>
+            <p>Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">6</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Training and Change Management</div>
-            <div class="journey-step__desc">A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>6. Training and Change Management</strong>
+            <p>A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</p>
           </div>
         </div>
       </div>`

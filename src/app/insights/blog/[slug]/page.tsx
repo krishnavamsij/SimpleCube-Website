@@ -350,10 +350,32 @@ export default function BlogDetailPage() {
 
                 /* ─── FEATURE CARDS ─── */
                 .feature-cards { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-                .feature-card { display: flex; gap: 16px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 20px 22px; }
-                .feature-card__dot { width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 7px; }
-                .feature-card strong { font-size: 15px; font-weight: 600; color: #0a0f1e; display: block; margin-bottom: 4px; }
-                .feature-card p { font-size: 14.5px; margin-bottom: 0; }
+                .feature-cards.vertical { display: flex; flex-direction: column; gap: 16px; }
+                .feature-card { background: var(--surface, #f7f8fc); border: 1px solid var(--border, #e4e8f0); border-radius: 12px; padding: 24px 22px; }
+                .feature-card strong { font-size: 11px; font-weight: 500; letter-spacing: 2px; color: var(--blue, #1e6fff); margin-bottom: 8px; display: block; }
+                .feature-card p { font-size: 15px; font-weight: 300; color: var(--sub, #4a5568); line-height: 1.8; margin-bottom: 0; }
+
+                /* ─── BENEFITS GRID ─── */
+                .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+                .benefit-card { background: var(--surface, #f7f8fc); border: 1px solid var(--border, #e4e8f0); border-radius: 12px; padding: 24px 22px; }
+                .benefit-card__label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--blue, #1e6fff); margin-bottom: 8px; }
+                .benefit-card__desc { font-size: 15px; font-weight: 300; color: var(--sub, #4a5568); line-height: 1.8; }
+
+                /* ─── TREND CARDS ─── */
+                .trends { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+                .trend-card { border: 1px solid var(--border, #e4e8f0); border-radius: 14px; overflow: hidden; }
+                .trend-card__header { display: flex; align-items: center; gap: 14px; padding: 20px 24px; background: var(--ink, #0a0f1e); position: relative; overflow: hidden; }
+                .trend-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
+                .trend-card__icon { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 10px; background: rgba(30,111,255,.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .trend-card__icon svg { width: 18px; height: 18px; }
+                .trend-card__title { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
+                .trend-card__body { background: var(--white, #ffffff); }
+                .trend-card__row { padding: 18px 24px; border-bottom: 1px solid var(--border, #e4e8f0); }
+                .trend-card__row:last-child { border-bottom: none; }
+                .trend-card__row-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; color: #ffffff; }
+                .trend-card__row-label--trend { color: #ffffff; }
+                .trend-card__row-label--hyniva { color: var(--blue, #1e6fff); }
+                .trend-card__row-text { font-size: 15px; font-weight: 300; color: var(--sub, #4a5568); line-height: 1.8; }
 
                 /* ─── STAT CARDS ─── */
                 .stat-card { background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px; text-align: center; }
