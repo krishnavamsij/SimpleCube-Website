@@ -2516,8 +2516,7 @@ The institutions that prepare their platforms today will define what it looks li
         ]
     },
     "salesforce-unveils-agentforce-a-game-changer-in-customer-service": {
-        title: "Salesforce Unveils Agentforce: A Game-Changer in Customer Service",
-        subtitle: "Intelligent AI Agents",
+        title: "Salesforce Unveils Agentforce: A <em>Game-Changer</em> in Customer Service",
         date: "Oct 3, 2024",
         author: "Hyniva",
         tag: "AI",
@@ -2525,51 +2524,75 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Introduction",
-                content: `<p>In an era where customer expectations are at an all-time high, businesses are constantly seeking innovative solutions to enhance their service offerings. Salesforce has just launched <strong>Agentforce</strong>, an AI-driven platform poised to transform the landscape of customer service. This cutting-edge technology allows organizations to create intelligent AI agents that can manage a broad spectrum of customer inquiries, ultimately liberating employees to focus on more complex tasks. <strong>Hyniva has a dedicated AI team that is here to help clients harness these powerful tools, ensuring they derive maximum growth and ROI from Agentforce.</strong>&nbsp;</p>`
+                title: "AI-Driven Service — Built for Expectations of Today",
+                content: `<p>In an era where customer expectations are at an all-time high, businesses are constantly seeking innovative solutions to enhance their service offerings. Salesforce has just launched Agentforce — an AI-driven platform poised to transform how organizations deliver customer service at scale.</p>
+<p>This cutting-edge technology enables organizations to create intelligent AI agents capable of managing a broad spectrum of customer inquiries, liberating employees to focus on the complex, high-value work that truly requires a human touch.</p>
+<p>Hyniva has a dedicated AI team ready to help clients harness these powerful tools — ensuring they derive maximum growth and ROI from Agentforce from day one.</p>`
             },
             {
-                id: "intelligent-ai-agents",
-                title: "Intelligent AI Agents",
-                content: `<p>AI agents are designed to understand a variety of inquiriesÃ¢Â€Â”from basic questions about product features to more intricate support requestsÃ¢Â€Â”ensuring that customers receive timely and accurate responses.&nbsp;&nbsp;</p>`
+                id: "pullquote",
+                title: "",
+                content: `<div class="pullquote">
+    <div class="pullquote__text">"Agentforce marks a pivotal moment in evolution of customer service — combining intelligent AI with power of customization and analytics to help businesses exceed customer expectations."</div>
+</div>`
             },
             {
-                id: "insights-through-analytics",
-                title: "Insights Through Analytics",
-                content: `<p>Agentforce also comes equipped with powerful analytics and reporting features. Businesses can track agent performance, customer satisfaction levels, and other key metrics, providing valuable insights that can drive continuous improvement. By understanding how AI agents are performing, organizations can make data-driven decisions to optimize their customer service strategies.&nbsp;</p>`
+                id: "capabilities",
+                title: "What Agentforce Brings to the Table",
+                content: `<p>Agentforce is not a single feature — it is a comprehensive platform built around five interconnected capabilities that work together to elevate the entire customer service experience.</p>
+<div class="capabilities">
+    <div class="cap-card">
+        <div class="cap-card__icon">🤖</div>
+        <div class="cap-card__title">Intelligent AI Agents</div>
+        <div class="cap-card__desc">AI agents understand a wide range of inquiries — from basic product questions to complex support requests — delivering timely, accurate responses at any scale.</div>
+    </div>
+    <div class="cap-card">
+        <div class="cap-card__icon">📊</div>
+        <div class="cap-card__title">Insights Through Analytics</div>
+        <div class="cap-card__desc">Built-in analytics track agent performance, customer satisfaction, and key service metrics — providing the data needed to continuously optimize customer service strategies.</div>
+    </div>
+    <div class="cap-card">
+        <div class="cap-card__icon">🔗</div>
+        <div class="cap-card__title">Seamless Salesforce Integration</div>
+        <div class="cap-card__desc">Agentforce integrates effortlessly with the full Salesforce ecosystem — allowing AI agents to draw on historical interaction data for more personalized, context-aware responses.</div>
+    </div>
+    <div class="cap-card">
+        <div class="cap-card__icon">🎨</div>
+        <div class="cap-card__title">Customization at Your Fingertips</div>
+        <div class="cap-card__desc">Every business has a unique voice. Agentforce allows extensive customization so AI agents reflect each company's brand identity — ensuring interactions remain consistent with company values and messaging.</div>
+    </div>
+</div>`
             },
             {
-                id: "seamless-integration-with-salesforce",
-                title: "Seamless Integration with Salesforce",
-                content: `<p>For businesses already using the <a href="https://www.staging15.hyniva.com/salesforce/">Salesforce</a> ecosystem, Agentforce is a natural extension that enhances existing capabilities. The platform integrates effortlessly with SalesforceÃ¢Â€Â™s robust suite of tools, allowing companies to harness customer data for even more effective service delivery. By leveraging insights from previous interactions, AI agents can provide more personalized responses, further enhancing customer satisfaction.&nbsp;</p>`
+                id: "human-resources",
+                title: "Freeing Up Human Resources for What Matters Most",
+                content: `<p>One of the most significant advantages of Agentforce is what it gives back to the people inside the organization. With AI agents handling routine and repetitive inquiries at volume, customer service representatives can redirect their time and expertise toward resolving complex issues that genuinely require human judgment, empathy, and experience.</p>
+<p>The result is not a smaller team — it is a more capable one. Employees work on problems that matter, while customers receive consistent, high-quality responses regardless of inquiry volume or time of day.</p>`
             },
             {
-                id: "customization-at-your-fingertips",
-                title: "Customization at Your Fingertips",
-                content: `<p>Every business has its unique voice and customer base, and Agentforce recognizes this. The platform allows for extensive customization, enabling companies to tailor their AI agents to reflect their brand identity. This ensures that customer interactions remain consistent with the companyÃ¢Â€Â™s values and messaging, ultimately fostering a stronger connection with clients.&nbsp;</p>`
-            },
-            {
-                id: "freeing-up-human-resources",
-                title: "Freeing Up Human Resources",
-                content: `<p>One of the most significant advantages of Agentforce is its ability to free up human employees from the day-to-day grind of handling repetitive inquiries. With AI agents managing these tasks, customer service representatives can dedicate their time to resolving more complex issues that require a human touch.&nbsp;</p>`
+                id: "hyniva-role",
+                title: "Hyniva's Role in Bringing Agentforce to Life",
+                content: `<p>Deploying Agentforce effectively requires more than activation. It requires a strategy — and Hyniva's dedicated AI team is built to provide exactly that.</p>
+<ul>
+    <li>Assessing each client's existing Salesforce environment for Agentforce readiness</li>
+    <li>Designing AI agent workflows aligned to specific service processes and customer journeys</li>
+    <li>Configuring customization and brand voice across every agent interaction</li>
+    <li>Integrating analytics and reporting to surface actionable performance insights</li>
+    <li>Providing training, change management, and ongoing optimization support</li>
+</ul>
+<p>With Hyniva's expertise, clients can navigate the complexity of this transformative technology — and fully leverage Agentforce's capabilities to increase efficiency, improve responsiveness, and put customer-centric experiences at the center of their operations.</p>`
             },
             {
                 id: "conclusion",
-                title: "Conclusion",
-                content: `<p>Salesforce’s launch of Agentforce marks a pivotal moment in the evolution of customer service. By combining intelligent AI agents with the power of customization and analytics, businesses can not only meet but exceed customer expectations. As organizations continue to adapt to the ever-changing landscape of customer demands, Agentforce stands out as a vital tool for success. <strong>With Hyniva’s AI expertise, clients can navigate this transformative landscape and fully leverage Agentforce’s capabilities to enhance their operations, increasing efficiency, responsiveness and prioritize customer centric experiences. </strong>&nbsp;</p>
-
-
-
-<p>Follow us on <strong><a href="https://www.linkedin.com/company/hyniva/">LinkedIn</a></strong> for the latest updates.</p>
-
-
-
-<p>#Hyniva #Salesforce #Agentforce #CustomerService #AI #Innovation #CustomerExperience #Analytics #Automation #FutureOfWork #ServiceExcellence&nbsp;</p>`
-            },
+                title: "The Future of Customer Service Is Agent-Led",
+                content: `<p>Salesforce's launch of Agentforce signals a clear direction for the future of customer service. Organizations that move early — and move strategically — will build a lasting advantage in how they engage, serve, and retain their customers.</p>
+<p>The technology is here.<br>
+With Hyniva, so is the expertise to make it work.</p>`
+            }
         ]
     },
     "overcoming-business-challenges-with-salesforce": {
-        title: "Overcoming Critical Business <em>Challenges with Salesforce.</em>",
+        title: "Overcoming Business Challenges with <em>Salesforce.</em>",
         subtitle: "",
         date: "Sep 18, 2024",
         author: "Hyniva",
@@ -2578,69 +2601,159 @@ The institutions that prepare their platforms today will define what it looks li
         sections: [
             {
                 id: "intro",
-                title: "Navigating the Modern Market",
-                content: `<p>In today's fast-paced market, organizations face numerous challenges that can hinder growth and efficiency. From customer retention to data management, these obstacles require robust solutions to ensure sustained success.</p>
-<p>Salesforce, a leading CRM platform, provides tools and features that address these critical challenges effectively. Below, we explore six significant business hurdles and how Salesforce helps organizations overcome them.</p>`
+                title: "",
+                content: `<p>In today's fast-paced market, organizations face numerous challenges that can hinder growth and efficiency. From customer retention to data management, these obstacles require robust solutions to ensure sustained success. Salesforce, a leading CRM platform, provides tools and features that address these critical challenges effectively.</p>
+<p>Below, we explore six significant business challenges and how Salesforce can help organizations overcome them.</p>`
             },
             {
                 id: "business-challenges",
                 title: "Six Critical Challenges and Salesforce Solutions",
-                content: `<div class="feature-cards">
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Customer Retention</strong>
-            <p><strong>Challenge:</strong> Difficulty retaining customers due to rising competition and changing expectations.<br>
-            <strong>Solution:</strong> Service Cloud offers personalized service at scale, using AI-driven insights and feedback loops to meet customer needs proactively.</p>
+                content: `<div class="challenges">
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">1</div>
+          <div class="challenge-card__title">Customer Retention</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Data Management</strong>
-            <p><strong>Challenge:</strong> Managing vast amounts of data while ensuring quality and security.<br>
-            <strong>Solution:</strong> A centralized repository with tools for cleansing and deduplication ensures accurate data for informed decision-making and compliance.</p>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Retaining customers is crucial for sustained business growth but can be difficult due to competition and changing customer expectations.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce's Service Cloud offers personalized customer service at scale, integrating support tools to address customer issues proactively. Features like automated case management, customer feedback loops, and AI-driven insights help businesses understand and meet customer needs — leading to increased satisfaction and loyalty.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">75% of customers expect a consistent experience across all channels, yet 50% of companies struggle to deliver personalized interactions — leading to a 20% decline in retention rates. (Salesforce)</span>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Predictive Analytics</strong>
-            <p><strong>Challenge:</strong> Forecasting future trends and customer behaviors accurately.<br>
-            <strong>Solution:</strong> Einstein Analytics leverages machine learning to provide predictive insights for sales forecasting and identifying potential risks.</p>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">2</div>
+          <div class="challenge-card__title">Data Management</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Systems Integration</strong>
-            <p><strong>Challenge:</strong> Complex and costly integration of disparate applications leading to data silos.<br>
-            <strong>Solution:</strong> MuleSoft facilitates seamless integration across the organization, ensuring a unified view of data and enhancing operational efficiency.</p>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Managing vast amounts of data efficiently while ensuring data quality and security is a significant challenge for businesses.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce provides a centralized data repository with tools for data cleansing, deduplication, and segmentation — ensuring accurate, reliable data for informed decision-making. Robust security measures also protect sensitive information and maintain compliance with regulatory standards.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">43% of U.S. consumers are unwilling to share personal data with companies due to rising cyber threats to personal information. (PwC)</span>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Sales Team Training</strong>
-            <p><strong>Challenge:</strong> Keeping sales teams equipped with the latest skills and knowledge.<br>
-            <strong>Solution:</strong> Trailhead offers comprehensive online learning on sales techniques and industry best practices, helping teams stay competitive.</p>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">3</div>
+          <div class="challenge-card__title">Predictive Analytics</div>
         </div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-card__dot"></div>
-        <div class="feature-card__content">
-            <strong>Scalability</strong>
-            <p><strong>Challenge:</strong> Scaling operations without compromising performance or satisfaction.<br>
-            <strong>Solution:</strong> Salesforce's cloud-based architecture allows businesses to expand seamlessly, handling increased data volumes with consistent reliability.</p>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Accurately forecasting future trends and customer behaviors is essential but challenging without advanced analytics tools.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce's Einstein Analytics leverages AI and machine learning to provide predictive insights for sales forecasting, customer segmentation, and risk identification — allowing for proactive decision-making and strategy adjustments.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">62% of companies using predictive analytics report improved decision-making, yet only 28% fully leverage these insights to enhance customer experiences — a significant untapped opportunity. (Deloitte)</span>
+            </div>
+          </div>
         </div>
-    </div>
-</div>`
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">4</div>
+          <div class="challenge-card__title">Systems Integration</div>
+        </div>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Integrating various business systems and applications can be complex and costly, often leading to data silos and operational inefficiencies.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce's MuleSoft platform facilitates seamless integration of different systems, applications, and third-party tools — ensuring a unified view of data across the organization, enhancing efficiency, and enabling faster innovation.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">Organizations frequently face lengthy implementation times for integrating disparate systems, hindering data flow and collaboration — and resulting in missed opportunities and decreased productivity.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">5</div>
+          <div class="challenge-card__title">Sales Team Training</div>
+        </div>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Ensuring that sales teams are well-trained and equipped with the latest skills and knowledge is vital for achieving sales targets.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce offers comprehensive training programs through Trailhead, its online learning platform. These cover various sales techniques, CRM usage, and industry best practices — helping sales teams stay competitive and effective throughout the sales cycle.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">Sales teams often face lengthy sales cycles that prevent representatives from closing deals. Many organizations lack the correct guidance or training tools to reduce cycle length and prevent loss of clientele.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card__header">
+          <div class="challenge-card__num">6</div>
+          <div class="challenge-card__title">Scalability</div>
+        </div>
+        <div class="challenge-card__body">
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__text">Scaling operations to meet growing business demands without compromising performance or customer satisfaction is a major challenge.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__text">Salesforce's cloud-based architecture ensures scalability, allowing businesses to expand seamlessly. The platform handles increased data volumes and user demands, ensuring consistent performance and reliability as the business grows.</div>
+          </div>
+          <div class="challenge-row">
+            <div class="stat-pill">
+              <span class="stat-pill__icon">📊</span>
+              <span class="stat-pill__text">67% of companies experience difficulties scaling operations, resulting in a 30% slowdown in revenue growth — and potential loss of market share and customer satisfaction.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>`
             },
             {
                 id: "conclusion",
-                title: "Drive Sustainable Growth",
-                content: `<p>Salesforce provides a robust suite of tools designed to address common business hurdles. By leveraging these capabilities, businesses can manage data effectively, integrate systems seamlessly, and scale operations smoothly.</p>
-<p>Embracing Salesforce not only helps overcome these challenges but also drives sustainable growth and success in a competitive market.</p>`
+                title: "Conclusion",
+                content: `<p>Salesforce provides a robust suite of tools and solutions designed to address the most common business challenges. By leveraging Salesforce's capabilities, businesses can enhance customer retention, manage data effectively, integrate systems seamlessly, utilize predictive analytics, train sales teams efficiently, and scale operations smoothly.</p>
+<p>Embracing Salesforce not only helps overcome these challenges — it drives sustainable growth and long-term success in a competitive market.</p>`
             },
         ]
     },

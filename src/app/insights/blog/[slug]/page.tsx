@@ -12,6 +12,127 @@ import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, 
 import Link from "next/link";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
 
+/* ─────────────────────────── Related Articles Component ─────────────────────────── */
+function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; currentTag: string }) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+
+    const related = React.useMemo(() => {
+        const allPosts = blogContent.posts.filter(p => {
+            const postSlug = p.href.split('/').pop();
+            return postSlug !== currentSlug;
+        });
+        const sameTag = allPosts.filter(p => p.tag === currentTag);
+        const otherTag = allPosts.filter(p => p.tag !== currentTag);
+        return [...sameTag, ...otherTag].slice(0, 6);
+    }, [currentSlug, currentTag]);
+
+    const checkScroll = () => {
+        if (containerRef.current) {
+            setCanScrollLeft(containerRef.current.scrollLeft > 0);
+            setCanScrollRight(
+                containerRef.current.scrollLeft <
+                containerRef.current.scrollWidth - containerRef.current.clientWidth
+            );
+        }
+    };
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (containerRef.current) {
+            const scrollAmount = 400;
+            containerRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener('scroll', checkScroll);
+            checkScroll();
+            return () => container.removeEventListener('scroll', checkScroll);
+        }
+    }, [related]);
+
+    if (related.length === 0) {
+        return null;
+    }
+
+    return (
+        <section className="bg-[#F8FAFC] border-t border-[#030B3B]/10 py-16 sm:py-20">
+            <div className="mx-auto w-full max-w-[1400px] px-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+                    <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#030B3B] leading-snug">Related Articles</h3>
+                        <p className="text-slate-400 mt-2 font-medium text-sm sm:text-base">Continue exploring insights from the Hyniva team</p>
+                    </div>
+                    <div className="flex gap-3">
+                        <button
+                            onClick={() => scroll('left')}
+                            disabled={!canScrollLeft}
+                            className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                            aria-label="Scroll left"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            disabled={!canScrollRight}
+                            className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                            aria-label="Scroll right"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
+                </div>
+                <div className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory -mx-6 px-6 sm:px-0"
+                    ref={containerRef}
+                >
+                    {related.map((post, idx) => (
+                        <div
+                            key={idx}
+                            className="group flex-shrink-0 w-full sm:w-[calc(33.333%-16px)] bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 snap-start"
+                        >
+                            <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
+                                <img
+                                    src={post.image}
+                                    alt={post.title}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    loading="lazy"
+                                />
+                                <div className="absolute top-4 left-4">
+                                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-white/90 text-[#030B3B] backdrop-blur-sm">
+                                        {post.tag}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="p-5 sm:p-6">
+                                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-3">
+                                    <Clock className="w-3.5 h-3.5" />
+                                    {post.date}
+                                </div>
+                                <h5 className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 mb-4 group-hover:text-[#1e90ff] transition-colors">
+                                    {post.title}
+                                </h5>
+                                <Link
+                                    href={post.href}
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md"
+                                >
+                                    Read More
+                                    <ChevronRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export default function BlogDetailPage() {
     const params = useParams();
     const slug = params?.slug as string;
@@ -141,6 +262,7 @@ export default function BlogDetailPage() {
                 </div>
             </main>
 
+            <RelatedArticles currentSlug={slug} currentTag={post?.tag || ""} />
 
             <Footer />
 
@@ -498,6 +620,67 @@ export default function BlogDetailPage() {
                     color: #4a5568;
                     line-height: 1.7;
                 }
+                /* ─── CAPABILITY CARDS ─── */
+                .capabilities {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    margin-top: 28px;
+                }
+                .cap-card {
+                    background: white;
+                    border: 1px solid #eef2f6;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 24px 22px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .cap-card::after {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0; right: 0;
+                    height: 3px;
+                    background: #1e90ff;
+                    border-radius: 16px 16px 0 0;
+                }
+                .cap-card__icon {
+                    font-size: 24px;
+                    margin-bottom: 12px;
+                    line-height: 1;
+                    flex-shrink: 0;
+                }
+                .cap-card__title {
+                    font-size: 14.5px;
+                    font-weight: 500;
+                    color: #0a0f1e;
+                    margin-bottom: 7px;
+                }
+                .cap-card__desc {
+                    font-size: 14px;
+                    font-weight: 300;
+                    color: #4a5568;
+                    line-height: 1.65;
+                }
+                @media (max-width: 768px) {
+                    .cap-card {
+                        padding: 20px 18px;
+                    }
+                    .cap-card__icon {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
+                    .cap-card__title {
+                        font-size: 13px;
+                        margin-bottom: 6px;
+                    }
+                    .cap-card__desc {
+                        font-size: 13px;
+                        line-height: 1.6;
+                    }
+                }
+                }
                 /* ─── PROBLEMS GRID ─── */
                 .problems {
                     display: flex;
@@ -508,6 +691,39 @@ export default function BlogDetailPage() {
                     border-radius: 12px;
                     overflow: hidden;
                 }
+                /* ─── EVENT CARDS ─── */
+                .event-cards {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-top: 28px;
+                }
+                .event-card {
+                    background: white;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    padding: 20px;
+                    position: relative;
+                }
+                .event-card__date {
+                    font-size: 12px;
+                    color: #6eb3ff;
+                    font-weight: 500;
+                    margin-bottom: 8px;
+                    font-family: var(--font-display), sans-serif;
+                }
+                .event-card__title {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #0a0f1e;
+                    margin-bottom: 8px;
+                    font-family: var(--font-display), sans-serif;
+                }
+                .event-card__desc {
+                    font-size: 14px;
+                    color: #4a5568;
+                    line-height: 1.6;
+                }
                 .problem-row {
                     display: grid;
                     grid-template-columns: 44px 1fr;
@@ -517,9 +733,8 @@ export default function BlogDetailPage() {
                 .problem-row:nth-child(even) { background: #f7f8fc; }
                 .problem-row__num {
                     display: flex;
-                    align-items: flex-start;
+                    align-items: center;
                     justify-content: center;
-                    padding-top: 18px;
                     font-family: 'DM Serif Display', serif;
                     font-size: 15px;
                     color: #1e90ff;
@@ -538,6 +753,64 @@ export default function BlogDetailPage() {
                     font-weight: 300;
                     color: #4a5568;
                     line-height: 1.65;
+                }
+                /* ─── VISION CARDS ─── */
+                .vision {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    margin-top: 28px;
+                }
+                .vision-card {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 20px;
+                    align-items: flex-start;
+                    border: 1px solid #eef2f6;
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
+                .vision-card__index {
+                    background: #0a0f1e;
+                    color: #6eb3ff;
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 18px;
+                    width: 52px;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    padding-top: 22px;
+                    align-self: stretch;
+                }
+                .vision-card__body {
+                    padding: 20px 22px 20px 0;
+                }
+                .vision-card__title {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #0a0f1e;
+                    margin-bottom: 5px;
+                }
+                .vision-card__desc {
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: #4a5568;
+                    line-height: 1.7;
+                }
+                .vision-card__example {
+                    margin-top: 10px;
+                    padding: 10px 14px;
+                    background: #f7f8fc;
+                    border-left: 3px solid #1e90ff;
+                    border-radius: 4px;
+                    font-size: 13.5px;
+                    font-weight: 300;
+                    color: #8492a6;
+                    line-height: 1.6;
+                }
+                .vision-card__example span {
+                    font-weight: 500;
+                    color: #4a5568;
                 }
                 @media (max-width: 768px) {
                     .stats {
@@ -562,120 +835,21 @@ export default function BlogDetailPage() {
                     .problem-row__body {
                         padding: 4px 20px 16px 20px;
                     }
+                    .vision-card {
+                        grid-template-columns: 44px 1fr;
+                    }
+                    .vision-card__index {
+                        padding-top: 16px;
+                        padding-left: 20px;
+                    }
+                    .vision-card__body {
+                        padding: 4px 20px 16px 20px;
+                    }
                 }
             ` }} />
         </div>
     );
 }
 
-/* ─────────────────────────── Related Articles Component ─────────────────────────── */
-function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; currentTag: string }) {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
-
-    // Get related posts: same tag first, then others, excluding current
-    const related = React.useMemo(() => {
-        const allPosts = blogContent.posts.filter(p => {
-            const postSlug = p.href.split('/').pop();
-            return postSlug !== currentSlug;
-        });
-        const sameTag = allPosts.filter(p => p.tag === currentTag);
-        const otherTag = allPosts.filter(p => p.tag !== currentTag);
-        return [...sameTag, ...otherTag].slice(0, 6);
-    }, [currentSlug, currentTag]);
-
-    const updateScrollButtons = () => {
-        if (!scrollRef.current) return;
-        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-        setCanScrollLeft(scrollLeft > 10);
-        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    };
-
-    useEffect(() => {
-        updateScrollButtons();
-        const el = scrollRef.current;
-        if (el) el.addEventListener('scroll', updateScrollButtons);
-        return () => { if (el) el.removeEventListener('scroll', updateScrollButtons); };
-    }, []);
-
-    const scroll = (dir: 'left' | 'right') => {
-        if (!scrollRef.current) return;
-        const amount = window.innerWidth < 640 ? 280 : 340;
-        scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
-    };
-
-    if (related.length === 0) return null;
-
-    return (
-        <section className="bg-[#F8FAFC] border-t border-[#030B3B]/5 py-16 sm:py-20">
-            <div className="mx-auto w-full max-w-[1400px] px-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
-                    <div>
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-[800] text-[#030B3B] tracking-tight">Related Articles</h3>
-                        <p className="text-slate-500 mt-2 font-medium text-sm sm:text-base">Continue exploring insights from the Hyniva team</p>
-                    </div>
-                    <div className="hidden sm:flex items-center gap-3">
-                        <button
-                            onClick={() => scroll('left')}
-                            disabled={!canScrollLeft}
-                            className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                            aria-label="Scroll left"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                            onClick={() => scroll('right')}
-                            disabled={!canScrollRight}
-                            className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                            aria-label="Scroll right"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    ref={scrollRef}
-                    className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0"
-                >
-                    {related.map((post, idx) => (
-                        <Link
-                            key={idx}
-                            href={post.href}
-                            className="group flex-shrink-0 w-[280px] sm:w-[340px] bg-white rounded-2xl border border-[#030B3B]/5 overflow-hidden hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 snap-start hover:-translate-y-1"
-                        >
-                            <div className="relative h-[180px] sm:h-[200px] overflow-hidden">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    loading="lazy"
-                                />
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-white/90 text-[#030B3B] backdrop-blur-sm">
-                                        {post.tag}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="p-5 sm:p-6">
-                                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 mb-3 font-medium">
-                                    <Clock className="w-3.5 h-3.5" />
-                                    {post.date}
-                                </div>
-                                <h5 className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug group-hover:text-[#00D4AA] transition-colors line-clamp-2">
-                                    {post.title}
-                                </h5>
-                                <span className="inline-flex items-center gap-1.5 mt-4 text-xs sm:text-sm font-bold text-[#00D4AA] group-hover:gap-3 transition-all">
-                                    Read more <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
-                                </span>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
 
 
