@@ -8,6 +8,7 @@ import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { CaseStudyPopup } from "@/components/case-study-popup";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
+import { parseCaseStudyTitle, renderParsedTitle } from "@/lib/case-study-utils";
 
 import {
     Zap,
@@ -393,9 +394,10 @@ export default function CaseStudyDetailPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-[#edf5ff] tracking-tight leading-[1.15] mb-8 font-display"
-                            dangerouslySetInnerHTML={{ __html: study.title }}
-                        />
+                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-[#edf5ff] tracking-tight leading-[1.15] mb-8 font-sans"
+                        >
+                            {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-[#edf5ff]")}
+                        </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -434,7 +436,7 @@ export default function CaseStudyDetailPage() {
                                         <MetricIcon icon={metric.icon} />
                                         <div className="text-[32px] lg:text-[42px] font-bold text-white tracking-tight leading-none mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300">{metric.value}</div>
                                         <div className="w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-3 group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
-                                        <div className="text-[12px] font-medium text-[#cde4ffd6] leading-tight max-w-[120px] mx-auto">{metric.label}</div>
+                                        <div className="flex flex-col justify-center text-center min-h-[3rem] max-w-[110px] text-[12px] font-medium text-[#cde4ffd6] leading-tight mx-auto">{metric.label}</div>
                                     </div>
 
                                     {/* Divider */}
