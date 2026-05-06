@@ -95,7 +95,7 @@ export const blogDetails = {
             },
             {
                 id: "the-growing-performance-gap-in-legacy-ex",
-                title: "",
+                title: "The Growing Performance Gap in Legacy Experience Cloud",
                 content: `<p>Aura-based Experience Cloud implementations often struggle as platforms scale. Common challenges include:</p>
       <ul>
         <li>Slower page load times as content and functionality expand</li>
@@ -170,7 +170,7 @@ export const blogDetails = {
         sections: [
             {
                 id: "the-reality-today-fragmented-journeys-an",
-                title: "",
+                title: "The Reality Today: Fragmented Journeys and Overloaded Agents",
                 content: `<p>As customer expectations continue to rise, contact centers are under pressure to deliver faster, more accurate, and low-effort experiences. However, for many financial services organizations, the contact center remains one of the most fragmented parts of the customer journey.</p>
       <p>Customers face long wait times, dropped calls, and slow resolution even for simple requests, while Member Service Representatives (MSRs) manage high volumes with limited automation and minimal real-time support. The challenge is not intent or effort — it is how contact center journeys are designed today.</p>
       <p>In most environments, experience breakdowns stem from a set of systemic gaps:</p>
@@ -1041,12 +1041,36 @@ export const blogDetails = {
                 id: "salesforce-integration-with-marketing-pl",
                 title: "Salesforce Integration with Marketing Platforms",
                 content: `<p>Connecting Salesforce to your core marketing stack unlocks a new level of targeting, coordination, and intelligence across every channel your customers interact with.</p>
-      <ul>
-        <li><strong>Email Marketing:</strong> Platforms like Mailchimp or Pardot can be integrated with Salesforce to enable targeted campaigns. By syncing contact data, marketers can create highly personalized emails based on customer behavior, engagement history, and demographics — crucial for nurturing leads.</li>
-        <li><strong>Social Media:</strong> Tools such as Social Studio or third-party platforms like Hootsuite can integrate with Salesforce to track and engage with leads from social media, feeding interaction data into Salesforce for deeper customer insights.</li>
-        <li><strong>Landing Pages &amp; Web Forms:</strong> Integrating Salesforce with landing page builders like Unbounce or HubSpot automates the transfer of lead information directly into Salesforce, ensuring all captured leads are immediately available for sales follow-up.</li>
-        <li><strong>Advertising Platforms:</strong> Connecting Salesforce to Google Ads or Facebook Ads enables better targeting based on CRM data — syncing customer segments so marketers can create personalized ad campaigns that resonate with their audience.</li>
-      </ul>`
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Email Marketing</strong>
+            <p>Platforms like Mailchimp or Pardot can be integrated with Salesforce to enable targeted campaigns. By syncing contact data, marketers can create highly personalized emails based on customer behavior, engagement history, and demographics — crucial for nurturing leads.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Social Media</strong>
+            <p>Tools such as Social Studio or third-party platforms like Hootsuite can integrate with Salesforce to track and engage with leads from social media, feeding interaction data into Salesforce for deeper customer insights.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Landing Pages &amp; Web Forms</strong>
+            <p>Integrating Salesforce with landing page builders like Unbounce or HubSpot automates the transfer of lead information directly into Salesforce, ensuring all captured leads are immediately available for sales follow-up.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Advertising Platforms</strong>
+            <p>Connecting Salesforce to Google Ads or Facebook Ads enables better targeting based on CRM data — syncing customer segments so marketers can create personalized ad campaigns that resonate with their audience.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "personalized-marketing-campaigns-across-",
@@ -1077,11 +1101,29 @@ export const blogDetails = {
                 title: "Hyniva's Role in Salesforce Marketing Integration",
                 content: `<p>Hyniva plays a crucial role in helping businesses integrate Salesforce with marketing platforms and strategies — providing tailored solutions that bridge the gap between CRM systems and marketing execution.</p>
       <p>Hyniva's platform enables seamless synchronization of customer data across multiple touchpoints, improving data quality and the depth of customer insights available to both teams.</p>
-      <ul>
-        <li><strong>Data Enrichment and Integration:</strong> Hyniva integrates Salesforce with third-party marketing tools to ensure data is updated, clean, and enriched in real time — so both teams always work from the most comprehensive customer profiles available.</li>
-        <li><strong>Advanced Analytics:</strong> Hyniva helps leverage Salesforce data to provide in-depth insights into customer behavior and campaign performance, including predictive analytics to anticipate needs and optimize engagement.</li>
-        <li><strong>Lead Management:</strong> Hyniva sets up advanced lead management processes that ensure every lead generated from marketing campaigns is routed efficiently to sales — with the right level of personalization and context.</li>
-      </ul>`
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Data Enrichment and Integration</strong>
+            <p>Hyniva integrates Salesforce with third-party marketing tools to ensure data is updated, clean, and enriched in real time — so both teams always work from the most comprehensive customer profiles available.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Advanced Analytics</strong>
+            <p>Hyniva helps leverage Salesforce data to provide in-depth insights into customer behavior and campaign performance, including predictive analytics to anticipate needs and optimize engagement.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Lead Management</strong>
+            <p>Hyniva sets up advanced lead management processes that ensure every lead generated from marketing campaigns is routed efficiently to sales — with the right level of personalization and context.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "key-benefits-of-a-unified-integration",
@@ -1177,28 +1219,108 @@ export const blogDetails = {
                 id: "eight-reasons-to-make-the-switch",
                 title: "Eight Reasons to Make the Switch",
                 content: `<p>Beyond the feature comparison, the case for Lightning is strategic. Here is what organizations gain when they move:</p>
-      <ul>
-        <li><strong>Modern UI:</strong> A sleek, customizable dashboard with drag-and-drop components that dramatically improves daily usability and user adoption.</li>
-        <li><strong>Advanced Automation:</strong> Lightning App Builder and process automation tools reduce manual work and accelerate workflows across teams.</li>
-        <li><strong>AI-Powered Decision Making:</strong> Salesforce Einstein delivers predictive analytics, lead scoring, and forecasting — none of which exist in Classic.</li>
-        <li><strong>Faster Performance:</strong> Reduced load times and a more responsive interface translate directly into productivity gains at scale.</li>
-        <li><strong>Mobile-First Operations:</strong> A fully optimized mobile app supports sales and service teams wherever they work.</li>
-        <li><strong>Greater Customization:</strong> Adapt the platform rapidly to changing business needs without extensive development effort.</li>
-        <li><strong>Stronger Collaboration:</strong> Chatter integration and collaborative components keep cross-functional teams aligned within the platform.</li>
-        <li><strong>Future-Proof Investment:</strong> Salesforce is directing all new features, innovations, and security updates exclusively to Lightning.</li>
-      </ul>`
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Modern UI</strong>
+            <p>A sleek, customizable dashboard with drag-and-drop components that dramatically improves daily usability and user adoption.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Advanced Automation</strong>
+            <p>Lightning App Builder and process automation tools reduce manual work and accelerate workflows across teams.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>AI-Powered Decision Making</strong>
+            <p>Salesforce Einstein delivers predictive analytics, lead scoring, and forecasting — none of which exist in Classic.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Faster Performance</strong>
+            <p>Reduced load times and a more responsive interface translate directly into productivity gains at scale.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Mobile-First Operations</strong>
+            <p>A fully optimized mobile app supports sales and service teams wherever they work.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Greater Customization</strong>
+            <p>Adapt the platform rapidly to changing business needs without extensive development effort.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Stronger Collaboration</strong>
+            <p>Chatter integration and collaborative components keep cross-functional teams aligned within the platform.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Future-Proof Investment</strong>
+            <p>Salesforce is directing all new features, innovations, and security updates exclusively to Lightning.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "how-hyniva-manages-your-lightning-transi",
                 title: "How Hyniva Manages Your Lightning Transition",
                 content: `<p>At Hyniva, we specialize in helping businesses migrate from Salesforce Classic to Salesforce Lightning — seamlessly, and with minimal disruption to ongoing operations. Whether you're a growing startup or a large enterprise, our approach is tailored to your environment.</p>
-      <ul>
-        <li><strong>Comprehensive Assessment:</strong> We begin with a thorough evaluation of your current Classic setup — identifying functionality gaps, performance issues, and optimization opportunities before a single line is changed.</li>
-        <li><strong>Customized Migration Plan:</strong> Our team develops a tailored migration roadmap aligned with your business operations, designed to minimize disruption and maximize the benefits of Lightning from day one.</li>
-        <li><strong>Training and Enablement:</strong> We provide comprehensive training for your team to ensure they can take full advantage of the new interface, features, and workflows immediately after go-live.</li>
-        <li><strong>Performance Optimization:</strong> Post-migration, Hyniva fine-tunes your Lightning environment — optimizing workflows, dashboards, reports, and integrations for sustained efficiency.</li>
-        <li><strong>Ongoing Enhancement:</strong> Our support doesn't end at migration. We help your Salesforce platform evolve continuously as new Lightning features and capabilities are released.</li>
-      </ul>`
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Comprehensive Assessment</strong>
+            <p>We begin with a thorough evaluation of your current Classic setup — identifying functionality gaps, performance issues, and optimization opportunities before a single line is changed.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Customized Migration Plan</strong>
+            <p>Our team develops a tailored migration roadmap aligned with your business operations, designed to minimize disruption and maximize the benefits of Lightning from day one.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Training and Enablement</strong>
+            <p>We provide comprehensive training for your team to ensure they can take full advantage of the new interface, features, and workflows immediately after go-live.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Performance Optimization</strong>
+            <p>Post-migration, Hyniva fine-tunes your Lightning environment — optimizing workflows, dashboards, reports, and integrations for sustained efficiency.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Ongoing Enhancement</strong>
+            <p>Our support doesn't end at migration. We help your Salesforce platform evolve continuously as new Lightning features and capabilities are released.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "the-time-to-switch-is-now",
@@ -1229,12 +1351,37 @@ export const blogDetails = {
                 id: "the-growing-data-integration-challenge",
                 title: "The Growing Data Integration Challenge",
                 content: `<p>As businesses grow, so does their data — and so does the complexity of managing it. The most common data integration obstacles organizations encounter today include:</p>
-      <ul>
-        <li><strong>Data Silos:</strong> Different departments or systems store data independently, making it difficult to get a complete view of customers and operations across the organization.</li>
-        <li><strong>Inconsistent Data Quality:</strong> Inaccurate, outdated, or incomplete data leads to poor business decisions, missed opportunities, and eroded customer trust.</li>
-        <li><strong>Lack of Real-Time Insights:</strong> In a fast-moving business environment, waiting for batch processing causes delays that cost competitive advantage.</li>
-        <li><strong>Scalability Constraints:</strong> As organizations expand, data volume and complexity grow — and traditional systems often cannot keep pace.</li>
-      </ul>
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Data Silos</strong>
+            <p>Different departments or systems store data independently, making it difficult to get a complete view of customers and operations across the organization.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Inconsistent Data Quality</strong>
+            <p>Inaccurate, outdated, or incomplete data leads to poor business decisions, missed opportunities, and eroded customer trust.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Lack of Real-Time Insights</strong>
+            <p>In a fast-moving business environment, waiting for batch processing causes delays that cost competitive advantage.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Scalability Constraints</strong>
+            <p>As organizations expand, data volume and complexity grow — and traditional systems often cannot keep pace.</p>
+          </div>
+        </div>
+      </div>
       <p>These are not edge cases. They are structural challenges that affect most enterprises operating at scale — and they demand a structural solution.</p>`
             },
             {
@@ -1242,26 +1389,94 @@ export const blogDetails = {
                 title: "What is Salesforce Data Cloud?",
                 content: `<p>Salesforce Data Cloud is a comprehensive data platform that connects disparate data sources into a unified environment. It centralizes customer and business data, makes it accessible in real time, and maintains data quality and compliance — providing organizations with a single source of truth for better decisions and enhanced customer experiences.</p>
       <p>The platform is built around four core capabilities:</p>
-      <ul>
-        <li><strong>Unified Data Integration:</strong> Pull data from CRM, ERP, marketing platforms, and third-party applications into a single, real-time environment — eliminating silos at the source.</li>
-        <li><strong>Real-Time Analytics:</strong> Analyze data as it arrives, enabling organizations to respond immediately to changes in customer behavior, market conditions, or operational performance.</li>
-        <li><strong>Scalable and Flexible Architecture:</strong> Built to handle large and growing data volumes, the platform scales alongside the business without requiring disruptive infrastructure overhauls.</li>
-        <li><strong>Data Quality and Governance:</strong> Built-in tools monitor accuracy and consistency, while simplifying compliance with regulations such as GDPR and CCPA.</li>
-      </ul>`
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Unified Data Integration</strong>
+            <p>Pull data from CRM, ERP, marketing platforms, and third-party applications into a single, real-time environment — eliminating silos at the source.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Real-Time Analytics</strong>
+            <p>Analyze data as it arrives, enabling organizations to respond immediately to changes in customer behavior, market conditions, or operational performance.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Scalable and Flexible Architecture</strong>
+            <p>Built to handle large and growing data volumes, the platform scales alongside the business without requiring disruptive infrastructure overhauls.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Data Quality and Governance</strong>
+            <p>Built-in tools monitor accuracy and consistency, while simplifying compliance with regulations such as GDPR and CCPA.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "hyniva-s-role-in-maximizing-salesforce-d",
                 title: "Hyniva's Role in Maximizing Salesforce Data Cloud",
                 content: `<p>Hyniva helps businesses unlock the full potential of Salesforce Data Cloud through tailored solutions that integrate, manage, and optimize data — aligned with each organization's specific architecture, industry, and scale.</p>
-      <ul>
-        <li><strong>Customized Data Integration:</strong> Hyniva designs integration strategies that connect legacy systems, third-party applications, and cloud services with Salesforce Data Cloud — ensuring a smooth transition and uninterrupted data flow.</li>
-        <li><strong>Real-Time Insights Enablement:</strong> Hyniva configures real-time data processing environments so businesses can access up-to-the-moment information for faster, more confident decisions — particularly in retail, finance, and healthcare.</li>
-        <li><strong>Unified Customer View:</strong> By integrating data across departments, Hyniva enables a 360-degree view of every customer — enhancing personalized marketing, service delivery, and sales execution.</li>
-        <li><strong>Data Quality Management:</strong> Leveraging Salesforce Data Cloud's governance tools, Hyniva ensures businesses maintain accurate, consistent data they can actually rely on.</li>
-        <li><strong>Scalable Architecture:</strong> Hyniva designs Data Cloud architectures built to grow — supporting global expansion, new market entry, and increasing data complexity without performance degradation.</li>
-        <li><strong>Compliance and Data Governance:</strong> Hyniva implements best practices for regulatory compliance, ensuring sensitive information is protected and governance standards are met across the organization.</li>
-        <li><strong>Training and Ongoing Support:</strong> Hyniva provides comprehensive training and post-deployment support so teams can use Salesforce Data Cloud effectively from day one and resolve issues rapidly.</li>
-      </ul>`
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Customized Data Integration</strong>
+            <p>Hyniva designs integration strategies that connect legacy systems, third-party applications, and cloud services with Salesforce Data Cloud — ensuring a smooth transition and uninterrupted data flow.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Real-Time Insights Enablement</strong>
+            <p>Hyniva configures real-time data processing environments so businesses can access up-to-the-moment information for faster, more confident decisions — particularly in retail, finance, and healthcare.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Unified Customer View</strong>
+            <p>By integrating data across departments, Hyniva enables a 360-degree view of every customer — enhancing personalized marketing, service delivery, and sales execution.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Data Quality Management</strong>
+            <p>Leveraging Salesforce Data Cloud's governance tools, Hyniva ensures businesses maintain accurate, consistent data they can actually rely on.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Scalable Architecture</strong>
+            <p>Hyniva designs Data Cloud architectures built to grow — supporting global expansion, new market entry, and increasing data complexity without performance degradation.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Compliance and Data Governance</strong>
+            <p>Hyniva implements best practices for regulatory compliance, ensuring sensitive information is protected and governance standards are met across the organization.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__dot"></div>
+          <div class="feature-card__content">
+            <strong>Training and Ongoing Support</strong>
+            <p>Hyniva provides comprehensive training and post-deployment support so teams can use Salesforce Data Cloud effectively from day one and resolve issues rapidly.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "measurable-outcomes-for-data-driven-orga",
@@ -1483,60 +1698,79 @@ export const blogDetails = {
                 id: "how-optimization-future-proofs-your-inst",
                 title: "How Optimization Future-Proofs Your Institution",
                 content: `<p>The financial services industry never stands still — and neither can your platform. Here is what a well-optimized Salesforce FSC environment enables your institution to do:</p>
-      <ul>
-        <li><strong>Adapt to Market Changes:</strong> Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</li>
-        <li><strong>Enhance Client Retention and Acquisition:</strong> Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</li>
-        <li><strong>Improve Cross-Team Collaboration:</strong> A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</li>
-        <li><strong>Stay Ahead of Technology Trends:</strong> Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</li>
-        <li><strong>Strengthen Security and Compliance:</strong> Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</li>
-      </ul>`
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Adapt to Market Changes</strong>
+            <p>Customized workflows, automated processes, and AI-driven analytics allow your institution to respond rapidly to regulatory updates, shifting client expectations, and digital-first market demands — without major disruption.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Enhance Client Retention and Acquisition</strong>
+            <p>Deep data insights and proactive engagement strategies help you understand clients better, anticipate their needs, and deliver timely recommendations that drive both loyalty and growth.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Improve Cross-Team Collaboration</strong>
+            <p>A unified FSC environment eliminates the siloed departments that slow financial institutions down — enabling wealth managers, loan officers, and service representatives to work from shared client data and deliver consistent experiences.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Stay Ahead of Technology Trends</strong>
+            <p>Salesforce continuously updates FSC with new AI, automation, and analytics capabilities. A continuously optimized platform ensures your institution always benefits from the latest advancements.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>Strengthen Security and Compliance</strong>
+            <p>Custom security configurations, audit trails, and granular access controls ensure sensitive financial data is protected and your institution remains fully compliant with evolving industry regulations.</p>
+          </div>
+        </div>
+      </div>`
             },
             {
                 id: "hyniva-s-six-step-fsc-optimization-frame",
                 title: "Hyniva's Six-Step FSC Optimization Framework",
                 content: `<p>Starting your FSC optimization journey may seem complex — but with the right approach, it is a clear and measurable process. Hyniva guides financial institutions through each stage with structured expertise.</p>
 
-      <div class="journey">
-        <div class="journey-step">
-          <div class="journey-step__dot">1</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Comprehensive Needs Assessment</div>
-            <div class="journey-step__desc">We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</div>
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>1. Comprehensive Needs Assessment</strong>
+            <p>We begin by evaluating your institution's specific pain points, inefficiencies, and goals across every department. Understanding your unique challenges ensures that FSC customization truly adds value — not just capability.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">2</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Optimization Strategy and Roadmap</div>
-            <div class="journey-step__desc">With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>2. Optimization Strategy and Roadmap</strong>
+            <p>With your needs clearly defined, we develop a tailored optimization strategy — covering workflow customization, automation enhancements, and third-party integrations. Clear objectives and milestones ensure every effort delivers measurable progress.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">3</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Leverage AI and Automation</div>
-            <div class="journey-step__desc">We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>3. Leverage AI and Automation</strong>
+            <p>We configure Einstein Analytics and FSC's automation tools to improve decision-making, surface predictive insights, and eliminate routine manual tasks — freeing your teams for higher-value strategic work.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">4</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Tailor Client Engagement Processes</div>
-            <div class="journey-step__desc">We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>4. Tailor Client Engagement Processes</strong>
+            <p>We customize the platform to enable data-driven, hyper-personalized client communications — ensuring your institution stays proactive and responsive to client needs at every stage of the relationship.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">5</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Continuous Monitoring and Improvement</div>
-            <div class="journey-step__desc">Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>5. Continuous Monitoring and Improvement</strong>
+            <p>Optimization is not a one-time event. We establish performance monitoring, feedback loops, and a cadence of ongoing improvements to ensure your FSC environment keeps pace with your institution's evolving needs.</p>
           </div>
         </div>
-        <div class="journey-step">
-          <div class="journey-step__dot">6</div>
-          <div class="journey-step__content">
-            <div class="journey-step__title">Training and Change Management</div>
-            <div class="journey-step__desc">A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <strong>6. Training and Change Management</strong>
+            <p>A successful optimization requires full team adoption. We provide comprehensive training and a robust change management process to ensure every employee can leverage the platform's capabilities from day one.</p>
           </div>
         </div>
       </div>`
