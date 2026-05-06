@@ -173,7 +173,7 @@ const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst
                         {num}
                     </div>
                 )}
-                {tag && <span className="text-[#1e90ff] font-normal text-[11px] uppercase tracking-[0.3em] font-sans">{tag}</span>}
+                {tag && <span className="text-[#1e90ff] font-semibold text-[13px] uppercase tracking-[0.3em] font-sans">{tag}</span>}
             </div>
         </div>
     );
@@ -232,7 +232,7 @@ export default function CaseStudyDetailPage() {
                         <div className="flex flex-col gap-5">
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-5 bg-white border border-[#e5e7eb] rounded-[10px] p-[22px_24px] transition-all duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)]">
-                                    <div className="text-[32px] font-normal text-[#1e90ff]/18 leading-none shrink-0 w-9 font-display">
+                                    <div className="text-[32px] font-normal text-[#1e90ff]/18 leading-none shrink-0 w-9 font-sans">
                                         {item.num || '✦'}
                                     </div>
                                     <div className="pt-1 flex-1">
@@ -265,7 +265,7 @@ export default function CaseStudyDetailPage() {
                                     <div className="flex flex-col items-center justify-center mb-3">
                                         <StandardIcon icon={item.icon} />
                                     </div>
-                                    <h4 className="text-[13px] font-semibold text-[#111827] mb-[5px] text-center">{item.title}</h4>
+                                    <h4 className="text-[14px] font-semibold text-[#111827] mb-[5px] text-center font-sans">{item.title}</h4>
                                     <p className="text-[13px] font-light leading-[1.6] text-[#374151] text-center">{item.text}</p>
                                 </div>
                             ))}
@@ -286,12 +286,12 @@ export default function CaseStudyDetailPage() {
                                             <StandardIcon icon={item.value} />
                                         </div>
                                     ) : (
-                                        <div className="text-[clamp(20px,2.2vw,28px)] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-display">
+                                        <div className="text-[clamp(20px,2.2vw,28px)] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-sans">
                                             {item.value}
                                         </div>
                                     )}
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[13px] font-semibold text-[#111827] leading-[1.3]">{item.label}</div>
+                                        <div className="text-[14px] font-semibold text-[#111827] leading-[1.3] font-sans">{item.label}</div>
                                         {item.desc && <p className="text-[12.5px] font-light leading-[1.55] text-[#6b7280]">{item.desc}</p>}
                                     </div>
                                 </div>
@@ -394,7 +394,7 @@ export default function CaseStudyDetailPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-white tracking-tight leading-[1.15] mb-8 font-display"
+                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-white tracking-tight leading-[1.15] mb-8 font-sans"
                         >
                             {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
                         </motion.h1>
