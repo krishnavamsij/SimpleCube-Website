@@ -67,7 +67,7 @@ export default function BlogPage() {
                                 </div>
 
                                 <h3 
-                                    className="font-sans text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-8 flex-1"
+                                    className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-8 flex-1"
                                     dangerouslySetInnerHTML={{ __html: post.title }}
                                 />
                                 

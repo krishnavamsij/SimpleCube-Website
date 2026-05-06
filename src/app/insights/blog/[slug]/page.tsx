@@ -189,12 +189,12 @@ export default function BlogDetailPage() {
                                 </Link>
                             </motion.div>
 
-                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-medium font-display">
+                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-[#1e90ff] mb-8 text-sm font-medium font-display">
                                 <div className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-[#1e90ff]" />
+                                    <Clock className="w-4 h-4" />
                                     {post.date}
                                 </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#63c2ff] border border-[#1e90ff]/20">
+                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#1e90ff] border border-[#1e90ff]/20">
                                     <Tag className="w-3 h-3" />
                                     {post.tag}
                                 </div>
@@ -210,7 +210,7 @@ export default function BlogDetailPage() {
                             {post.subtitle && (
                                 <motion.p
                                     variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl mx-auto"
+                                    className="text-xl sm:text-2xl text-white font-medium leading-relaxed max-w-3xl mx-auto"
                                 >
                                     {post.subtitle}
                                 </motion.p>
@@ -221,8 +221,8 @@ export default function BlogDetailPage() {
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-                    <span className="text-[10px] font-medium text-[#63c2ff] tracking-[0.3em] uppercase">SCROLL</span>
-                    <div className="w-[1px] h-10 bg-gradient-to-b from-[#63c2ff] to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
+                    <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
+                    <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
                 </div>
             </header>
 
@@ -240,7 +240,7 @@ export default function BlogDetailPage() {
                                 >
                                     {section.title && (
                                         <div className="mb-8">
-                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left" style={{ fontFamily: "'DM Serif Display', serif" }}>{section.title}</h2>
+                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left font-display">{section.title}</h2>
                                         </div>
                                     )}
 
@@ -252,7 +252,7 @@ export default function BlogDetailPage() {
                                         [&_strong]:text-[#111827] [&_strong]:font-semibold
                                         [&_em]:text-[#1e90ff] [&_em]:italic
                                         [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
-                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-serif"
+                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display"
                                         dangerouslySetInnerHTML={{ __html: section.content }}
                                     />
                                 </section>
@@ -270,8 +270,8 @@ export default function BlogDetailPage() {
                 __html: `
                 /* ─── GLOBAL STANDARDS ─── */
                 p { font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 24px; }
-                h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 3.5vw, 32px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; }
-                em { font-style: normal; color: #6eb3ff; } /* Branding consistency for titles */
+                h2 { font-family: var(--font-display), serif; font-size: clamp(24px, 3.5vw, 32px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; }
+                em { font-style: normal; color: white; } /* Branding consistency for titles */
                 .blog-content em { font-style: normal; color: inherit; } /* No italics in content as requested */
                 strong { font-weight: 600; color: #0a0f1e; }
                 .blog-content ul li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
@@ -280,12 +280,12 @@ export default function BlogDetailPage() {
                 .capabilities { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
                 .cap-card { border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px 28px; background: #f7f8fc; position: relative; overflow: hidden; }
                 .cap-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #1e6fff; border-radius: 4px 0 0 4px; }
-                .cap-card__title { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: #0a0f1e; margin-bottom: 8px; letter-spacing: .1px; }
+                .cap-card__title { font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 600; color: #0a0f1e; margin-bottom: 8px; letter-spacing: .1px; }
                 .cap-card__body { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.75; }
 
                 /* ─── OUTCOME STRIP ─── */
                 .outcomes { margin-top: 48px; background: #f7f8fc; border-radius: 12px; padding: 36px 32px; border: 1px solid #e4e8f0; }
-                .outcomes__title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0a0f1e; margin-bottom: 20px; }
+                .outcomes__title { font-family: var(--font-display), serif; font-size: 18px; color: #0a0f1e; margin-bottom: 20px; }
                 .outcomes__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
                 .outcome-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.6; }
                 .outcome-item__dot { width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 7px; }
@@ -345,7 +345,7 @@ export default function BlogDetailPage() {
                 .stats { margin-top: 48px; background: #0a0f1e; border-radius: 14px; padding: 40px 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; overflow: hidden; }
                 .stats::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 36px 36px; }
                 .stat { position: relative; z-index: 1; text-align: center; }
-                .stat__value { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 3.5vw, 40px); color: #6eb3ff; line-height: 1; margin-bottom: 8px; }
+                .stat__value { font-family: var(--font-display), serif; font-size: clamp(28px, 3.5vw, 40px); color: #6eb3ff; line-height: 1; margin-bottom: 8px; }
                 .stat__label { font-size: 13px; font-weight: 300; color: rgba(200,220,245,.65); line-height: 1.5; }
 
                 /* ─── FEATURE CARDS ─── */
@@ -368,7 +368,7 @@ export default function BlogDetailPage() {
                 .trend-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
                 .trend-card__icon { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 10px; background: rgba(30,111,255,.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
                 .trend-card__icon svg { width: 18px; height: 18px; }
-                .trend-card__title { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
+                .trend-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
                 .trend-card__body { background: var(--white, #ffffff); }
                 .trend-card__row { padding: 18px 24px; border-bottom: 1px solid var(--border, #e4e8f0); }
                 .trend-card__row:last-child { border-bottom: none; }
@@ -379,12 +379,12 @@ export default function BlogDetailPage() {
 
                 /* ─── STAT CARDS ─── */
                 .stat-card { background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px; text-align: center; }
-                .stat-card__number { font-family: 'DM Serif Display', serif; font-size: 32px; color: #1e6fff; margin-bottom: 8px; }
+                .stat-card__number { font-family: var(--font-display), serif; font-size: 32px; color: #1e6fff; margin-bottom: 8px; }
                 .stat-card__label { font-size: 13px; font-weight: 300; color: #4a5568; line-height: 1.5; }
 
                 /* ─── PULLQUOTE ─── */
                 .pullquote { margin: 40px 0; border-left: 4px solid #1e6fff; padding: 8px 32px; }
-                .pullquote__text { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: #0a0f1e; line-height: 1.5; }
+                .pullquote__text { font-family: var(--font-display), serif; font-size: 20px; font-style: italic; color: #0a0f1e; line-height: 1.5; }
 
                 /* ─── TREND CARDS ─── */
                 .trend-cards { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -408,18 +408,42 @@ export default function BlogDetailPage() {
                 .benefit-card__body { font-size: 14px; line-height: 1.7; color: #4a5568; }
 
                 /* ─── PROBLEM ROWS ─── */
-                .problems { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
-                .problem-row { display: flex; gap: 20px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 22px; }
-                .problem-row__num { width: 34px; height: 34px; border-radius: 50%; background: #0a0f1e; color: #fff; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-                .problem-row__title { font-size: 15px; font-weight: 600; color: #0a0f1e; margin-bottom: 4px; }
-                .problem-row__desc { font-size: 14.5px; line-height: 1.7; color: #4a5568; }
+                .problems { display: flex; flex-direction: column; gap: 0; margin-top: 28px; border: 1px solid #e4e8f0; border-radius: 12px; overflow: hidden; }
+                .problem-row { display: grid; grid-template-columns: 44px 1fr; border-bottom: 1px solid #e4e8f0; }
+                .problem-row:last-child { border-bottom: none; }
+                .problem-row:nth-child(even) { background: #f7f8fc; }
+                .problem-row__num { display: flex; align-items: flex-start; justify-content: center; padding-top: 18px; font-family: var(--font-display), serif; font-size: 15px; color: #1e6fff; }
+                .problem-row__body { padding: 16px 20px 16px 4px; }
+                .problem-row__title { font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 500; color: #0a0f1e; margin-bottom: 3px; }
+                .problem-row__desc { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.65; }
 
                 /* ─── STRATEGY CARDS ─── */
-                .strategies { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
-                .strategy-card { display: flex; gap: 24px; align-items: flex-start; border: 1px solid #e4e8f0; border-radius: 14px; padding: 28px; background: #ffffff; }
-                .strategy-card__tag { background: #1e6fff; color: #fff; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
-                .strategy-card__title { font-size: 16px; font-weight: 600; color: #0a0f1e; margin-bottom: 8px; }
-                .strategy-card__desc { font-size: 14.5px; line-height: 1.75; color: #4a5568; }
+                .strategies { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+                .strategy-card { display: flex; gap: 20px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 22px 24px; }
+                .strategy-card__tag { background: #0a0f1e; color: #6eb3ff; font-family: var(--font-sans), sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 6px; padding: 5px 10px; flex-shrink: 0; white-space: nowrap; margin-top: 2px; }
+                .strategy-card__title { font-family: var(--font-sans), sans-serif; font-size: 15px; font-weight: 500; color: #0a0f1e; margin-bottom: 5px; }
+                                .strategy-card__desc { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+
+                /* ─── FEATURE PILLS (Salesforce) ─── */
+                .features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+                .feature-card { background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 22px; border-top: 3px solid #1e6fff; }
+                .feature-card__title { font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 500; color: #0a0f1e; margin-bottom: 7px; }
+                .feature-card__desc { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.65; }
+
+                /* ─── VISION CARDS (Salesforce) ─── */
+                .vision { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+                .vision-card { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: flex-start; border: 1px solid #e4e8f0; border-radius: 12px; overflow: hidden; }
+                .vision-card__index { background: #0a0f1e; color: #6eb3ff; font-family: var(--font-display), serif; font-size: 18px; width: 52px; display: flex; align-items: flex-start; justify-content: center; padding-top: 22px; align-self: stretch; }
+                .vision-card__body { padding: 20px 22px 20px 0; }
+                .vision-card__title { font-family: var(--font-sans), sans-serif; font-size: 15px; font-weight: 500; color: #0a0f1e; margin-bottom: 5px; }
+                .vision-card__desc { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+                .vision-card__example { margin-top: 10px; padding: 10px 14px; background: #f7f8fc; border-left: 3px solid #1e6fff; border-radius: 4px; font-size: 13.5px; font-weight: 300; color: #8492a6; line-height: 1.6; }
+                .vision-card__example span { font-weight: 500; color: #4a5568; }
+
+                @media (max-width: 768px) {
+                    .features { grid-template-columns: 1fr; }
+                    .vision-card { grid-template-columns: 44px 1fr; }
+                }
 
                 /* ─── OTHER COMPONENTS ─── */
                 .cap-list { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
@@ -434,7 +458,7 @@ export default function BlogDetailPage() {
                 .challenge__header { background: #0a0f1e; padding: 20px 28px; display: flex; align-items: center; gap: 16px; position: relative; overflow: hidden; }
                 .challenge__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
                 .challenge__num { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; background: #1e6fff; color: #fff; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-                .challenge__title { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
+                .challenge__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
                 .challenge__body { padding: 24px 28px; background: #ffffff; }
                 .challenge__problem { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 20px; }
                 .solution-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 12px; }
@@ -456,7 +480,7 @@ export default function BlogDetailPage() {
                 .type-card { border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px 22px; background: #f7f8fc; }
                 .type-card--active { border-color: rgba(30,111,255,.35); background: rgba(30,111,255,.04); }
                 .type-card__label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 10px; }
-                .type-card__title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0a0f1e; margin-bottom: 10px; }
+                .type-card__title { font-family: var(--font-display), serif; font-size: 18px; color: #0a0f1e; margin-bottom: 10px; }
                 .type-card__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
                 .process { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
@@ -473,7 +497,7 @@ export default function BlogDetailPage() {
                 .benefit__body { font-size: 14px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
                 .ongoing { margin-top: 48px; border: 1px solid #e4e8f0; border-radius: 14px; padding: 32px 28px; background: #f7f8fc; }
-                .ongoing__title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #0a0f1e; margin-bottom: 18px; }
+                .ongoing__title { font-family: var(--font-display), serif; font-size: 20px; color: #0a0f1e; margin-bottom: 18px; }
                 .ongoing__list { display: flex; flex-direction: column; gap: 10px; }
                 .ongoing__item { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
                 .ongoing__item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
@@ -514,13 +538,13 @@ export default function BlogDetailPage() {
 
                 .quote-block { margin: 48px 0; background: #0a0f1e; border-radius: 16px; padding: 40px 48px; position: relative; overflow: hidden; text-align: center; }
                 .quote-block::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px); background-size: 30px 30px; }
-                .quote-block__mark { font-family: 'DM Serif Display', serif; font-size: 80px; line-height: 1; color: rgba(30,111,255,.2); margin-bottom: -40px; }
-                .quote-block__text { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: clamp(18px, 2.5vw, 22px); color: #e8f0ff; line-height: 1.5; margin-bottom: 20px; font-style: italic; }
+                .quote-block__mark { font-family: var(--font-display), serif; font-size: 80px; line-height: 1; color: rgba(30,111,255,.2); margin-bottom: -40px; }
+                .quote-block__text { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(18px, 2.5vw, 22px); color: #e8f0ff; line-height: 1.5; margin-bottom: 20px; font-style: italic; }
                 .quote-block__author { position: relative; z-index: 1; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6eb3ff; font-weight: 500; }
 
                 .thankyou { margin-top: 48px; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 16px; padding: 40px; text-align: center; }
                 .thankyou__icon { font-size: 32px; margin-bottom: 16px; }
-                .thankyou__title { font-family: 'DM Serif Display', serif; font-size: 24px; color: #0a0f1e; margin-bottom: 12px; }
+                .thankyou__title { font-family: var(--font-display), serif; font-size: 24px; color: #0a0f1e; margin-bottom: 12px; }
                 .thankyou__body { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; max-width: 500px; margin: 0 auto; }
 
                 .soc-benefit-card { display: flex; gap: 16px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
@@ -529,7 +553,7 @@ export default function BlogDetailPage() {
                 .soc-benefit-card__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
                 .gratitude { margin-top: 48px; border-top: 1px solid #e4e8f0; padding-top: 40px; text-align: center; }
-                .gratitude__title { font-family: 'DM Serif Display', serif; font-size: 28px; color: #0a0f1e; margin-bottom: 16px; }
+                .gratitude__title { font-family: var(--font-display), serif; font-size: 28px; color: #0a0f1e; margin-bottom: 16px; }
                 .gratitude__body { font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.9; max-width: 600px; margin: 0 auto; }
 
                 .pillars { margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -557,7 +581,7 @@ export default function BlogDetailPage() {
                 .contrast-card--light { background: #f7f8fc; }
                 .contrast-card--dark { background: #0a0f1e; border-color: #0a0f1e; }
                 .contrast-card__label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 12px; }
-                .contrast-card__title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #0a0f1e; margin-bottom: 12px; }
+                .contrast-card__title { font-family: var(--font-display), serif; font-size: 20px; color: #0a0f1e; margin-bottom: 12px; }
                 .contrast-card--dark .contrast-card__title { color: #e8f0ff; }
                 .contrast-card__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.75; }
                 .contrast-card--dark .contrast-card__body { color: rgba(200,220,245,.65); }
@@ -587,14 +611,20 @@ export default function BlogDetailPage() {
 
 .thankyou--dark { margin-top: 48px; background: #0a0f1e; border-radius: 16px; padding: 48px; text-align: center; position: relative; overflow: hidden; }
 .thankyou--dark::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
-.thankyou--dark__title { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: 24px; color: #e8f0ff; margin-bottom: 14px; }
+.thankyou--dark__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: 24px; color: #e8f0ff; margin-bottom: 14px; }
 .thankyou--dark__body { position: relative; z-index: 1; font-size: 15.5px; font-weight: 300; color: rgba(200,220,245,.7); line-height: 1.8; max-width: 500px; margin: 0 auto; }
-                .thankyou--dark__title { position: relative; z-index: 1; font-family: 'DM Serif Display', serif; font-size: 24px; color: #e8f0ff; margin-bottom: 14px; }
-                .thankyou--dark__body { position: relative; z-index: 1; font-size: 15.5px; font-weight: 300; color: rgba(200,220,245,.7); line-height: 1.8; max-width: 500px; margin: 0 auto; }
-` }} />
+
+                /* ─── CTA ─── */
+                .cta { margin-top: 72px; background: #0a0f1e; border-radius: 16px; padding: 52px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; }
+                .cta::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 36px 36px; }
+                .cta__text { position: relative; z-index: 1; text-align: left; }
+                .cta__kicker { font-family: var(--font-sans), sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #6eb3ff; margin-bottom: 10px; }
+                .cta__heading { font-family: var(--font-display), serif; font-size: clamp(20px, 2.4vw, 27px); color: #eef4ff; line-height: 1.25; margin-bottom: 8px; }
+                .cta__sub { font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+                .cta__btn { position: relative; z-index: 1; display: inline-block; padding: 14px 30px; background: #1e6fff; color: #fff; font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 500; border-radius: 8px; text-decoration: none; transition: all .2s; white-space: nowrap; }
+                .cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); transform: translateY(-2px); }
+                                @media (max-width: 768px) { .cta { padding: 36px 24px; flex-direction: column; text-align: center; } .cta__text { text-align: center; } }
+                ` }} />
         </div>
     );
 }
-
-
-

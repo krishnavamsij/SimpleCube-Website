@@ -2084,11 +2084,20 @@ export const blogDetails = {
                 id: "why-back-office-capabilities-matter",
                 title: "Why Back-Office Capabilities Matter",
                 content: `<p>Back-office capabilities — finance, HR, inventory management, data analytics — are the behind-the-scenes processes that support every core business function. When these systems are efficient, the entire organization benefits:</p>
-      <ul>
-        <li><strong>Streamlined Processes:</strong> Automation reduces manual effort and minimizes the errors that slow operations down.</li>
-        <li><strong>Data-Driven Decisions:</strong> Real-time analytics give decision-makers the information they need, when they need it.</li>
-        <li><strong>Scalability:</strong> Robust back-office systems grow alongside the business — without requiring continuous re-engineering.</li>
-      </ul>`
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <strong>Streamlined Processes</strong>
+          <p>Automation reduces manual effort and minimizes the errors that slow operations down.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Data-Driven Decisions</strong>
+          <p>Real-time analytics give decision-makers the information they need, when they need it.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Scalability</strong>
+          <p>Robust back-office systems grow alongside the business — without requiring continuous re-engineering.</p>
+        </div>
+      </div>`
             },
             {
                 id: "the-problem-with-legacy-infrastructure",
@@ -2180,13 +2189,28 @@ export const blogDetails = {
                 id: "hyniva-s-role-in-aws-cost-optimization",
                 title: "Hyniva's Role in AWS Cost Optimization",
                 content: `<p>Hyniva specializes in helping organizations optimize their AWS infrastructure costs while simultaneously enhancing back-office capabilities. Our approach is hands-on, continuous, and tailored to each client's environment.</p>
-      <ul>
-        <li><strong>Tailored Solutions:</strong> We conduct a thorough analysis of each client's needs and recommend the most appropriate AWS services and configurations — ensuring no spend goes toward features the business doesn't need.</li>
-        <li><strong>Cost Monitoring and Management:</strong> Hyniva implements advanced monitoring tooling and provides real-time spending insights and recommendations, so clients stay within budget while achieving full operational efficiency.</li>
-        <li><strong>Automation and Scalability:</strong> We automate back-office processes through AWS Lambda, Step Functions, and other serverless solutions — reducing operational costs and increasing the platform's responsiveness to business demands.</li>
-        <li><strong>Training and Support:</strong> Hyniva provides training and ongoing support to equip teams with the knowledge to manage and optimize their AWS environments independently and confidently.</li>
-        <li><strong>Continuous Improvement:</strong> We regularly review and refine each client's AWS strategy as business needs evolve and new services emerge — ensuring the platform remains agile, efficient, and cost-effective over the long term.</li>
-      </ul>`
+      <div class="feature-cards vertical">
+        <div class="feature-card">
+          <strong>Tailored Solutions</strong>
+          <p>We conduct a thorough analysis of each client's needs and recommend the most appropriate AWS services and configurations — ensuring no spend goes toward features the business doesn't need.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Cost Monitoring and Management</strong>
+          <p>Hyniva implements advanced monitoring tooling and provides real-time spending insights and recommendations, so clients stay within budget while achieving full operational efficiency.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Automation and Scalability</strong>
+          <p>We automate back-office processes through AWS Lambda, Step Functions, and other serverless solutions — reducing operational costs and increasing the platform's responsiveness to business demands.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Training and Support</strong>
+          <p>Hyniva provides training and ongoing support to equip teams with the knowledge to manage and optimize their AWS environments independently and confidently.</p>
+        </div>
+        <div class="feature-card">
+          <strong>Continuous Improvement</strong>
+          <p>We regularly review and refine each client's AWS strategy as business needs evolve and new services emerge — ensuring the platform remains agile, efficient, and cost-effective over the long term.</p>
+        </div>
+      </div>`
             },
             {
                 id: "every-dollar-invested-should-work-harder",
@@ -2332,26 +2356,22 @@ export const blogDetails = {
                 title: "What Agentforce Brings to the Table",
                 content: `<p>Agentforce is not a single feature — it is a comprehensive platform built around five interconnected capabilities that work together to elevate the entire customer service experience.</p>
 
-      <div class="capabilities">
-        <div class="cap-card">
-          <div class="cap-card__icon">🤖</div>
-          <div class="cap-card__title">Intelligent AI Agents</div>
-          <div class="cap-card__desc">AI agents understand a wide range of inquiries — from basic product questions to complex support requests — delivering timely, accurate responses at any scale.</div>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-card__title">Intelligent AI Agents</div>
+          <div class="feature-card__desc">AI agents understand a wide range of inquiries — from basic product questions to complex support requests — delivering timely, accurate responses at any scale.</div>
         </div>
-        <div class="cap-card">
-          <div class="cap-card__icon">📊</div>
-          <div class="cap-card__title">Insights Through Analytics</div>
-          <div class="cap-card__desc">Built-in analytics track agent performance, customer satisfaction, and key service metrics — providing the data needed to continuously optimize customer service strategies.</div>
+        <div class="feature-card">
+          <div class="feature-card__title">Insights Through Analytics</div>
+          <div class="feature-card__desc">Built-in analytics track agent performance, customer satisfaction, and key service metrics — providing the data needed to continuously optimize customer service strategies.</div>
         </div>
-        <div class="cap-card">
-          <div class="cap-card__icon">🔗</div>
-          <div class="cap-card__title">Seamless Salesforce Integration</div>
-          <div class="cap-card__desc">Agentforce integrates effortlessly with the full Salesforce ecosystem — allowing AI agents to draw on historical interaction data for more personalized, context-aware responses.</div>
+        <div class="feature-card">
+          <div class="feature-card__title">Seamless Salesforce Integration</div>
+          <div class="feature-card__desc">Agentforce integrates effortlessly with the full Salesforce ecosystem — allowing AI agents to draw on historical interaction data for more personalized, context-aware responses.</div>
         </div>
-        <div class="cap-card">
-          <div class="cap-card__icon">🎨</div>
-          <div class="cap-card__title">Customization at Your Fingertips</div>
-          <div class="cap-card__desc">Every business has a unique voice. Agentforce allows extensive customization so AI agents reflect each company's brand identity — ensuring interactions remain consistent with company values and messaging.</div>
+        <div class="feature-card">
+          <div class="feature-card__title">Customization at Your Fingertips</div>
+          <div class="feature-card__desc">Every business has a unique voice. Agentforce allows extensive customization so AI agents reflect each company's brand identity — ensuring interactions remain consistent with company values and messaging.</div>
         </div>
       </div>`
             },

@@ -394,16 +394,16 @@ export default function CaseStudyDetailPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-[#edf5ff] tracking-tight leading-[1.15] mb-8 font-sans"
+                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-white tracking-tight leading-[1.15] mb-8 font-display"
                         >
-                            {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-[#edf5ff]")}
+                            {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
-                            className="text-[14px] md:text-[16px] text-[#bcd6f5b8] font-light leading-relaxed max-w-2xl mx-auto mb-16"
+                            className="text-[14px] md:text-[16px] text-white/90 font-light leading-relaxed max-w-2xl mx-auto mb-16"
                         >
                             {study.summary}
                         </motion.p>
@@ -436,7 +436,7 @@ export default function CaseStudyDetailPage() {
                                         <MetricIcon icon={metric.icon} />
                                         <div className="text-[32px] lg:text-[42px] font-bold text-white tracking-tight leading-none mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300">{metric.value}</div>
                                         <div className="w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-3 group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
-                                        <div className="flex flex-col justify-center text-center min-h-[3rem] max-w-[110px] text-[12px] font-medium text-[#cde4ffd6] leading-tight mx-auto">{metric.label}</div>
+                                        <div className="flex flex-col justify-center text-center min-h-[3rem] max-w-[110px] text-[12px] font-medium text-white leading-tight mx-auto">{metric.label}</div>
                                     </div>
 
                                     {/* Divider */}
@@ -451,8 +451,8 @@ export default function CaseStudyDetailPage() {
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-                    <span className="text-[10px] font-medium text-[#63c2ff5c] tracking-[0.3em] uppercase">SCROLL</span>
-                    <div className="w-[1px] h-10 bg-gradient-to-b from-[#63c2ff70] to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
+                    <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
+                    <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
                 </div>
             </section>
 
@@ -536,8 +536,8 @@ export default function CaseStudyDetailPage() {
                 }
                 .no-scrollbar::-webkit-scrollbar { display: none; }
                 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-                h1 em, .banner h1 em { font-style: italic; color: #00D4AA; font-family: 'Playfair Display', serif; font-weight: 500; text-shadow: 0 0 48px rgba(0,212,170,0.3); }
-                .font-display { font-family: 'Playfair Display', serif; }
+                h1 em, .banner h1 em { font-style: italic; color: #00D4AA; font-family: var(--font-display), serif; font-weight: 500; text-shadow: 0 0 48px rgba(0,212,170,0.3); }
+                .font-display { font-family: var(--font-display), serif; }
                 p { margin-bottom: 1.25rem; }
 
                 /* ── Case Study Unified Body Typography ── */
