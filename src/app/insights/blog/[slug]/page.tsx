@@ -136,7 +136,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
 export default function BlogDetailPage() {
     const params = useParams();
     const slug = params?.slug as string;
-    const post = blogDetails[slug];
+    const post = blogDetails[slug as keyof typeof blogDetails];
 
     const [activeSection, setActiveSection] = useState("");
 

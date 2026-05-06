@@ -182,7 +182,7 @@ const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst
 export default function CaseStudyDetailPage() {
     const params = useParams();
     const slug = params?.slug as string;
-    const study = caseStudyDetails[slug];
+    const study = caseStudyDetails[slug as keyof typeof caseStudyDetails];
 
     const [activeSection, setActiveSection] = useState("");
     const [scrolled, setScrolled] = useState(false);
