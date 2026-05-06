@@ -472,7 +472,7 @@ export default function CaseStudyDetailPage() {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                     }}
-                                    className={`px-4 py-1.5 rounded-full text-[12px] font-medium font-sans transition-all duration-200 whitespace-nowrap border ${activeSection === section.id
+                                    className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeSection === section.id
                                         ? "bg-[#1e90ff] text-white border-[#1e90ff]"
                                         : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
                                         }`}
