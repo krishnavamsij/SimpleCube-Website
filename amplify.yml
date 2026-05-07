@@ -6,7 +6,7 @@ frontend:
         - nvm use 20
         - corepack enable
         - corepack prepare pnpm@latest --activate
-        - pnpm install --frozen-lockfile --ignore-scripts=false
+        - pnpm install --frozen-lockfile
     build:
       commands:
         - pnpm run build
