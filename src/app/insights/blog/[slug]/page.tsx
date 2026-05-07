@@ -173,8 +173,8 @@ export default function BlogDetailPage() {
                     <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
                 </div>
 
-                <div className="mx-auto w-full max-w-[860px] px-6 relative z-10 text-center">
-                    <div className="w-full">
+                <div className="mx-auto w-full max-w-[860px] px-6 sm:px-8 lg:px-12 relative z-10 text-center">
+                    <div className="w-full max-w-[95%] mx-auto">
                         <motion.div
                             initial="hidden"
                             animate="visible"
@@ -202,7 +202,7 @@ export default function BlogDetailPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[52px] font-[900] font-display text-white tracking-tight leading-[1.18] mb-8"
+                                className="text-4xl sm:text-5xl lg:text-[52px] font-[900] font-display text-white tracking-tight leading-[1.2] mb-8 px-8"
                                 style={{ textTransform: 'none' }}
                                 dangerouslySetInnerHTML={{ __html: post.title }}
                             />
@@ -210,7 +210,7 @@ export default function BlogDetailPage() {
                             {post.subtitle && (
                                 <motion.p
                                     variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white font-medium leading-relaxed max-w-3xl mx-auto"
+                                    className="text-xl sm:text-2xl text-white font-medium leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
                                 >
                                     {post.subtitle}
                                 </motion.p>
@@ -227,10 +227,10 @@ export default function BlogDetailPage() {
             </header>
 
             {/* ── Main Content ── */}
-            <main className="mx-auto w-full max-w-[740px] px-6 pt-8 pb-24">
+            <main className="mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12 pt-8 pb-24">
                 <div className="flex flex-col items-center">
                     {/* Content Column */}
-                    <div className="w-full">
+                    <div className="w-full lg:w-[85%]">
                         <div className="space-y-8">
                             {post.sections.map((section, idx) => (
                                 <section
@@ -240,7 +240,7 @@ export default function BlogDetailPage() {
                                 >
                                     {section.title && (
                                         <div className="mb-8">
-                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.3] text-left font-display">{section.title}</h2>
+                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.2] text-left font-display">{section.title}</h2>
                                         </div>
                                     )}
 

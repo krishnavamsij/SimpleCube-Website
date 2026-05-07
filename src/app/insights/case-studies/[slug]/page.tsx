@@ -242,12 +242,12 @@ export default function CaseStudyDetailPage() {
                                                 {item.bullets.map((bullet: string, bulletIdx: number) => (
                                                     <div key={bulletIdx} className="flex gap-2.5 items-start">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shrink-0 mt-1.5 opacity-60" />
-                                                        <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65] flex-1">{bullet}</p>
+                                                        <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65] leading-relaxed flex-1">{bullet}</p>
                                                     </div>
                                                 ))}
                                             </div>
                                         )}
-                                        {item.desc && <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65]">{item.desc}</p>}
+                                        {item.desc && <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65] leading-relaxed">{item.desc}</p>}
                                     </div>
                                 </div>
                             ))}
@@ -458,9 +458,9 @@ export default function CaseStudyDetailPage() {
 
             {/* ── Content Navigator ── */}
             <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 py-6 transition-all duration-500">
-                <div className="mx-auto w-full max-w-[1000px] px-8">
-                    <div className="max-w-3xl mx-auto">
-                        <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
+                <div className="mx-auto w-full max-w-[1400px] px-8">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="flex items-center justify-center gap-4 overflow-x-auto no-scrollbar">
                             {study.sections.filter(s => s.title).map((section) => (
                                 <a
                                     key={section.id}
@@ -486,8 +486,8 @@ export default function CaseStudyDetailPage() {
             </div>
 
             {/* ── Main Content ── */}
-            <main className="mx-auto w-full max-w-[1000px] px-8 py-16">
-                <div className="max-w-3xl mx-auto space-y-14">
+            <main className="mx-auto w-full max-w-6xl px-8 py-16">
+                <div className="w-full lg:w-[85%] mx-auto space-y-14">
                     {study.sections.map((section, idx) => (
                         <section
                             key={section.id}

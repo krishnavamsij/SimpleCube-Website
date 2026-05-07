@@ -7,11 +7,39 @@ import { motion } from "framer-motion";
 import React from "react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { Mail, Phone, Linkedin, MapPin, Send, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ContactPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const nameInputRef = useRef<HTMLInputElement>(null);
+
+    // Auto-scroll to form on page load
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const formSection = document.getElementById('contact-form');
+            if (formSection) {
+                // Calculate offset to account for fixed navbar
+                const navbarHeight = 80; // Approximate navbar height
+                const elementPosition = formSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Auto-focus the name input after scrolling
+                setTimeout(() => {
+                    if (nameInputRef.current) {
+                        nameInputRef.current.focus();
+                    }
+                }, 800); // Wait for smooth scroll to complete
+            }
+        }, 500); // Reduced delay for better UX
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -53,7 +81,7 @@ export default function ContactPage() {
             
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-32 pb-16 overflow-hidden bg-[#030b1e]">
+                <section className="relative pt-32 pb-32 overflow-hidden bg-[#030b1e]">
                     {/* Background layers - Matching homepage aesthetics */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -80,13 +108,13 @@ export default function ContactPage() {
                             
                             <motion.h1 
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-12 font-display"
+                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-20 font-display"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
                             
                             <motion.p 
                                 variants={fadeInUp}
-                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed"
+                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed mb-16"
                             >
                                 {contactContent.hero.description}
                             </motion.p>
@@ -95,8 +123,8 @@ export default function ContactPage() {
                 </section>
 
                 {/* ── Content Section (White Background) ── */}
-                <section className="py-16 bg-white">
-                    <div className="mx-auto max-w-[1400px] px-6">
+                <section className="py-20 bg-white">
+                    <div className="mx-auto max-w-[1400px] px-8 lg:px-12">
                         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
                             
                             {/* Left Column: Details */}
@@ -161,7 +189,7 @@ export default function ContactPage() {
 
                                     {/* Address Cards */}
                                     <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
+                                        <div className="p-10 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 h-full flex flex-col justify-center">
                                             <div className="flex items-center gap-3 mb-4">
                                                 <span className="text-2xl">🇺🇸</span>
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.us.title}</h4>
@@ -172,10 +200,10 @@ export default function ContactPage() {
                                             />
                                         </div>
 
-                                        <div className="p-8 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5">
+                                        <div className="p-10 rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 h-full flex flex-col justify-center">
                                             <div className="flex items-center gap-3 mb-4">
                                                 <span className="text-2xl">🇮🇳</span>
-                                                <h4 className="text((11px)] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
+                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
                                             </div>
                                             <p 
                                                 className="text-[15px] font-medium text-[#030B3B] leading-relaxed"
@@ -193,7 +221,7 @@ export default function ContactPage() {
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={viewportOnce}
-                                    className="p-10 lg:p-14 rounded-[40px] border border-[#030B3B]/5 bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)]"
+                                    className="p-10 lg:p-14 rounded-[40px] border border-[#030B3B]/5 bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)] h-full flex flex-col"
                                 >
                                     <div className="mb-10">
                                         <h3 className="text-3xl font-[900] text-[#030B3B] mb-3 font-display leading-tight">
@@ -219,52 +247,50 @@ export default function ContactPage() {
                                             </button>
                                         </div>
                                     ) : (
-                                        <form onSubmit={handleSubmit} className="space-y-8">
+                                        <form id="contact-form" onSubmit={handleSubmit} className="space-y-8 flex-1 flex flex-col">
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                                <div className="flex flex-col gap-2.5">
+                                                <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
-                                                    <input required name="name" type="text" placeholder="Jane Smith" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
+                                                    <input 
+                                                        ref={nameInputRef}
+                                                        required 
+                                                        name="name" 
+                                                        type="text" 
+                                                        placeholder="Jane Smith" 
+                                                        className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" 
+                                                    />
                                                 </div>
-                                                <div className="flex flex-col gap-2.5">
+                                                <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
                                                     <input required name="organization" type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                                <div className="flex flex-col gap-2.5">
+                                                <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Email *</label>
                                                     <input required name="email" type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                                 </div>
-                                                <div className="flex flex-col gap-2.5">
+                                                <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
                                                     <input name="phone" type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all placeholder:text-slate-400 placeholder:font-medium" />
                                                 </div>
                                             </div>
 
-                                            <div className="flex flex-col gap-2.5">
+                                            <div className="flex flex-col gap-4">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Industry</label>
                                                 <select name="industry" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all appearance-none cursor-pointer">
                                                     <option value="">Select your industry</option>
-                                                    <option>Financial Services</option>
-                                                    <option>Healthcare & Life Sciences</option>
-                                                    <option>Logistics, Transportation & Supply Chain</option>
+                                                    <option>Banking</option>
+                                                    <option>Wealth & Asset Management</option>
                                                     <option>Insurance</option>
+                                                    <option>Transportation & Logistics</option>
                                                     <option>Education</option>
-                                                    <option>Retail & Consumer Goods</option>
-                                                    <option>Manufacturing & Industrial</option>
-                                                    <option>Media & Telecommunications</option>
-                                                    <option>Energy & Utilities</option>
-                                                    <option>Real Estate & Construction</option>
-                                                    <option>Travel, Hospitality & Leisure</option>
-                                                    <option>Professional & Business Services</option>
-                                                    <option>Agriculture & Food Production</option>
-                                                    <option>Public Sector & Government</option>
                                                     <option>Others</option>
                                                 </select>
                                             </div>
 
-                                            <div className="flex flex-col gap-2.5">
+                                            <div className="flex flex-col gap-3">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? *</label>
                                                 <textarea required name="message" rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-[#3B82F6]/20 focus:border-[#3B82F6] outline-none font-bold text-[15px] text-[#030B3B] transition-all resize-none placeholder:text-slate-400 placeholder:font-medium" />
                                             </div>
@@ -272,7 +298,7 @@ export default function ContactPage() {
                                             <button 
                                                 disabled={isSubmitting}
                                                 type="submit" 
-                                                className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+                                                className="w-full py-5 rounded-[20px] bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] disabled:opacity-50 disabled:cursor-not-allowed mt-auto"
                                             >
                                                 {isSubmitting ? "Sending..." : contactContent.form.submitButton}
                                                 {!isSubmitting && <Send className="w-5 h-5" />}
