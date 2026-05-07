@@ -5,10 +5,10 @@
 export const navContent = {
     brand: { name: "Hyniva" },
     products: [
-        { title: "AIRA", href: "/aira", description: "Intelligent automation for financial services with reasoning agents, compliance-by-design and scalable architecture." },
-        { title: "FinXserve", href: "/finxserve", description: "Empowers lenders to launch faster, operate smarter and deliver frictionless experiences." },
-        { title: "Claim Pioneer", href: "/claim-pioneer", description: "Automates end-to-end claim assessment — speed, transparency and precision." },
-        { title: "Hyper", href: "/hyper", description: "Portfolio planner for well-informed investment decisions." },
+        { title: "FinXServe", href: "/finxserve" },
+        { title: "Claim Pioneer", href: "/claim-pioneer" },
+        { title: "AIRA", href: "/aira" },
+        { title: "Hyper", href: "/hyper" },
     ],
     industries: [
         { title: "Banking", href: "/industries/banking" },
@@ -256,19 +256,19 @@ export const productsContent = {
         },
         {
             num: "02",
+            title: "Claim Pioneer",
+            tags: ["Insurance"],
+            description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim's lifecycle, all in one connected workflow.",
+            image: "/images/Product_Images/Claim_pioneer.gif",
+            href: "/claim-pioneer",
+        },
+        {
+            num: "03",
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
             image: "/images/Product_Images/Compressed/AIRA.gif",
             href: "/aira",
-        },
-        {
-            num: "03",
-            title: "Claim Pioneer",
-            tags: ["Insurance"],
-            description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim’s lifecycle, all in one connected workflow.",
-            image: "/images/Product_Images/Claim_pioneer.gif",
-            href: "/claim-pioneer",
         },
         {
             num: "04",

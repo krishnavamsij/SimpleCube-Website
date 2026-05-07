@@ -31,7 +31,7 @@ export function VoiceOfCustomer() {
     const active = testimonials[current];
 
     return (
-        <section className="bg-[#ECF6FF] py-12 sm:py-16 relative overflow-hidden min-h-[750px] flex flex-col justify-center">
+        <section className="bg-[#ECF6FF] py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden min-h-[750px] flex flex-col justify-center">
             
             {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
             <div className="absolute inset-0 pointer-events-none z-0">

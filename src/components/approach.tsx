@@ -14,7 +14,7 @@ export function Approach() {
     const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
     return (
-        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] pt-12 sm:pt-16 pb-12 sm:pb-20">
+        <section ref={ref} className="relative overflow-hidden bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px]">
 
             <motion.div style={{ y: bgY }} className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />

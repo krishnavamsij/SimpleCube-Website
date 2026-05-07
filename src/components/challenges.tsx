@@ -26,7 +26,7 @@ export function Challenges() {
     const { challenges } = challengesContent;
 
     return (
-        <section className="bg-white py-14 sm:py-18">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto max-w-[1400px] px-6">
                 {/* Section header — Accenture-style label above cards */}
                 <motion.div

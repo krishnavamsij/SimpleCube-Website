@@ -21,7 +21,7 @@ export function WhyHyniva() {
     const { topBox, bottomBox } = whyHynivaContent;
 
     return (
-        <section className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <section className="bg-white px-6 py-[30px] sm:py-[40px] lg:py-[50px] lg:px-8">
             <div className="mx-auto max-w-[1200px] flex flex-col gap-4">
                 
                 {/* ── Top Box: Dark Glowing Container ── */}
@@ -30,7 +30,7 @@ export function WhyHyniva() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-10 sm:p-16 lg:p-20"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px]"
                 >
                     <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
@@ -91,7 +91,7 @@ export function WhyHyniva() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-10 sm:p-14 lg:p-16 border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[30px] sm:p-[40px] lg:p-[50px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                         {bottomBox.map((card, idx) => (

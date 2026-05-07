@@ -105,7 +105,7 @@ export function Footer() {
             
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[2] pointer-events-none" />
 
-            <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 pt-16 pb-8 sm:pt-20 sm:pb-12 flex flex-col min-h-screen justify-center">
+            <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 py-[30px] sm:py-[40px] lg:py-[50px] flex flex-col min-h-screen justify-center">
                 
                 {/* ── LET'S TALK CTA SECTION ── */}
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto">

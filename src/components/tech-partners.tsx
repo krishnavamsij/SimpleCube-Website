@@ -48,7 +48,7 @@ const decorHexagons = [
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white py-12 lg:py-16">
+        <section className="relative overflow-hidden bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:pl-10 lg:pr-0">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     

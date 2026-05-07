@@ -34,7 +34,7 @@ export function CaseStudies() {
     }, [emblaApi, onSelect]);
 
     return (
-        <section className="bg-white py-10 sm:py-14 tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
+        <section className="bg-white py-[10px] sm:py-[15px] lg:py-[20px] tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
             <div className="mx-auto w-full">
                 
                 {/* ── Section header ── */}
@@ -61,7 +61,7 @@ export function CaseStudies() {
                 {/* ── Carousel wrapper ── */}
                 <div className="relative w-full">
                     {/* Embla Viewport */}
-                    <div className="overflow-hidden py-4" ref={emblaRef}>
+                    <div className="overflow-hidden" ref={emblaRef}>
                         <div className="flex select-none touch-pan-y" style={{ WebkitTapHighlightColor: "transparent" }}>
                             {studies.map((study, index) => {
                                 const isActive = index === selectedIndex;
@@ -149,9 +149,9 @@ export function CaseStudies() {
                 </div>
 
                 {/* ── Controls ── */}
-                <div className="flex flex-col items-center justify-center mt-2 pb-6">
+                <div className="flex flex-col items-center justify-center mt-0 pb-2">
                     {/* Dots */}
-                    <div className="flex items-center gap-2 mb-6">
+                    <div className="flex items-center gap-2 mb-3">
                         {studies.map((_, index) => (
                             <button
                                 key={index}
@@ -179,7 +179,7 @@ export function CaseStudies() {
                     </div>
 
                     {/* Count */}
-                    <div className="mt-4 text-[11px] font-light text-[#9ca3af] tracking-[2px]">
+                    <div className="mt-2 text-[11px] font-light text-[#9ca3af] tracking-[2px]">
                         <strong className="text-[#00D4AA] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
                     </div>
                 </div>

@@ -121,7 +121,7 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
 
 export function Industries() {
     return (
-        <section className="bg-[#ECF6FF] py-20 min-h-screen flex items-center overflow-hidden">
+        <section className="bg-[#ECF6FF] py-[30px] sm:py-[40px] lg:py-[50px] min-h-screen flex items-center overflow-hidden">
             <div className="mx-auto max-w-[1440px] px-8 w-full">
                 {/* Hero Content Grid - Increased spacing for better flow */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-28">

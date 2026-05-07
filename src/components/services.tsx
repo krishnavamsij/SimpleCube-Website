@@ -15,7 +15,7 @@ export function Services() {
     const services = servicesContent.services;
 
     return (
-        <section className="bg-[#f8fafc] py-20 sm:py-28 text-slate-900">
+        <section className="bg-[#f8fafc] py-[10px] sm:py-[15px] lg:py-[20px] text-slate-900">
             <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div
@@ -92,7 +92,7 @@ export function Services() {
                             >
                                 <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[500px]">
                                     {/* Left: Content */}
-                                    <div className="flex-1 p-10 lg:p-16 flex flex-col justify-center relative z-10">
+                                    <div className="flex-1 p-[30px] sm:p-[40px] lg:p-[50px] flex flex-col justify-center relative z-10">
                                         
                                         {/* Stylized background number */}
                                         <div className="absolute -top-10 -left-6 lg:-top-16 lg:-left-12 text-[180px] lg:text-[250px] font-black leading-none text-[#00D4AA]/5 sm:text-slate-100/80 select-none pointer-events-none z-[-1]">
@@ -135,7 +135,7 @@ export function Services() {
                                         <div className="absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden lg:block"></div>
 
                                         {/* Image container aligned with LHS padding (lg:py-16) */}
-                                        <div className="relative w-full h-full min-h-[300px] flex p-8 lg:py-16 lg:pr-16 lg:pl-4">
+                                        <div className="relative w-full h-full min-h-[300px] flex p-[30px] sm:p-[40px] lg:p-[50px] lg:pr-[50px] lg:pl-[25px]">
                                             <div className="relative w-full h-full min-h-[250px] lg:min-h-full">
                                                 <Image
                                                     src={svc.image}

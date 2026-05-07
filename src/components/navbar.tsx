@@ -21,7 +21,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     }, []);
 
     const dropdownItems: { label: string; items: { title: string; href: string; desc?: string }[] }[] = [
-        { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href, desc: p.description })) },
+        { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
         { label: "Services", items: navContent.services.map(s => ({ title: s.title, href: s.href })) },
         { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
         { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },

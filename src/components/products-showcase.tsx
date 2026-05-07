@@ -52,7 +52,7 @@ const ProductImageContainer = ({ p }: { p: any }) => {
             <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#081236] via-[#081236]/90 to-transparent z-20 pointer-events-none"></div>
 
-            <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-6 lg:p-12 hover:scale-[1.02] transition-transform duration-700 ease-out">
+            <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-[30px] sm:p-[40px] lg:p-[50px] hover:scale-[1.02] transition-transform duration-700 ease-out">
                 {p.image.includes('.mp4') ? (
                     <video 
                         ref={videoRef}
@@ -80,8 +80,8 @@ export function ProductsShowcase() {
     const { label, headline, subheadline, rightCallout, logos, products } = productsContent;
 
     return (
-        <section className="relative bg-[#030B3B] text-white">
-            <div className="mx-auto max-w-[1400px] px-6 pt-12 sm:pt-16">
+        <section className="relative bg-[#030B3B] text-white py-[30px] sm:py-[40px] lg:py-[50px]">
+            <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div
                     variants={scrollReveal}
@@ -168,7 +168,7 @@ export function ProductsShowcase() {
                             >
                                 
                                 {/* Left: Content */}
-                                <div className="flex-1 px-8 py-10 lg:pl-16 lg:pr-10 xl:pl-28 xl:pr-16 flex flex-col justify-center relative z-10 w-full lg:w-1/2">
+                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] py-[30px] sm:py-[40px] lg:py-[50px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-1/2">
                                     <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-8">
                                         {p.title}
                                     </h3>
