@@ -89,7 +89,7 @@ export const productDevelopmentContent = {
     cta: {
         title: "Ready to get started? Contact us!",
         buttonText: "Let's Go!",
-        buttonHref: "mailto:connect@hyniva.com",
+        href: "/contact",
         backgroundImage: "/images/2019/04/contact-classic.jpg",
     },
 };

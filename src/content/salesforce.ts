@@ -39,7 +39,7 @@ export const salesforceContent = {
         backgroundImage: "/images/2024/09/nature-landscape-background-1-scaled-e1726749512428.jpg",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

@@ -77,7 +77,7 @@ export const insuranceContent = {
     cta: {
         title: "Ready to Start Your Digital Transformation? Send Us An Email Today!",
         buttonText: "Let's Go!",
-        buttonHref: "mailto:connect@hyniva.com",
+        href: "/contact",
         backgroundImage: "/images/2019/04/contact-classic.jpg",
     },
 };

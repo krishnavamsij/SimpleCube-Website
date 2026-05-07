@@ -116,7 +116,7 @@ export const microsoftServicesContent = {
     cta: {
         title: "Ready to Get Started? Contact us!",
         buttonText: "Let's Go!",
-        buttonHref: "mailto:connect@hyniva.com",
+        href: "/contact",
         backgroundImage: "/images/2019/04/contact-classic.jpg",
     },
 };

@@ -31,7 +31,7 @@
 
 export const cloudMigrationContent = {
     hero: {
-        title: "Cloud",
+        title: "Cloud Migration",
         subtitle: "Your journey to the cloud starts here. From intelligent cloud architecture to cost-optimized strategies, Hyniva ensures seamless cloud adoption with security, agility, and performance at the core.",
         backgroundImage: "/images/Banner_cards/Cloud_Migration.png",
         contactButton: {

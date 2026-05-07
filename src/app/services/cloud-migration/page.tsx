@@ -100,6 +100,18 @@ function CloudMigrationHero() {
                     >
                         {cloudMigrationContent.hero.subtitle}
                     </motion.p>
+                    <motion.div
+                        variants={fadeInUp}
+                        className="mt-8"
+                    >
+                        <Link
+                            href={cloudMigrationContent.hero.contactButton.href}
+                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 to-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
+                        >
+                            {cloudMigrationContent.hero.contactButton.text}
+                            <ArrowUpRightIcon className="h-4 w-4" />
+                        </Link>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
