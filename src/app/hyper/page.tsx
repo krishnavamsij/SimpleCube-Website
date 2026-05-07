@@ -90,225 +90,401 @@ export default function HyperPage() {
             <Navbar forceDarkText={true} />
             
             {/* Hero Section */}
-            <section className="pt-[150px] pb-16">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <div className="flex flex-wrap -mx-[15px]">
-                        <div className="w-full md:w-1/2 px-[15px] flex flex-col justify-center">
-                            <motion.div 
+             <section className="pt-[120px] pb-[70px] bg-white">
+                <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+
+                    <div className="flex flex-col lg:flex-row items-center gap-10">
+
+                        {/* LEFT CONTENT - 50% */}
+                        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+
+                            <motion.div
                                 initial="hidden"
                                 animate="visible"
                                 variants={staggerContainer}
                             >
-                                <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
-                                    <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                                    HYPER PLATFORM
+
+                                {/* Eyebrow */}
+                                <motion.div
+                                    variants={fadeInUp}
+                                    className="inline-flex items-center gap-2 text-[#345195] bg-[#345195]/10 border border-[#345195]/20 px-4 py-2 rounded-full mb-6 w-fit"
+                                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                                >
+                                    <span className="w-2 h-2 rounded-full bg-[#345195]" />
+                                    <span className="text-[13px] font-semibold tracking-wide uppercase">
+                                        Hyper Platform
+                                    </span>
                                 </motion.div>
-                                <motion.div variants={fadeInUp} className="mb-8">
-                                    <Image 
-                                        src="/images/products/Hyper_FullLogo_Transparent_NoBuffer-2-300x103.png" 
-                                        alt="Hyper" 
-                                        width={300} 
-                                        height={103} 
-                                        className="border border-transparent"
+
+                                {/* Logo */}
+                                <motion.div variants={fadeInUp} className="mb-7">
+                                    <Image
+                                        src="/images/products/Hyper_FullLogo_Transparent_NoBuffer-2-300x103.png"
+                                        alt="Hyper"
+                                        width={260}
+                                        height={90}
+                                        className="w-[220px] sm:w-[260px] h-auto"
                                     />
                                 </motion.div>
-                                <header className="mb-[32px]">
-                                    <motion.h2 variants={fadeInUp} className="text-[35px] font-medium leading-[45px] text-[#222222] mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        Personalized, Scalable Digital Investment Journeys.
+
+                                {/* Heading */}
+                                <header className="mb-6">
+                                    <motion.h2
+                                        variants={fadeInUp}
+                                        className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-5"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif',
+                                            color: '#345195'
+                                        }}
+                                    >
+                                        Personalized, Scalable
+                                        <br />
+                                        Digital Investment Journeys.
                                     </motion.h2>
-                                    <motion.h6 variants={fadeInUp} className="text-[15px] font-medium leading-[25px] text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        A modern portfolio planning platform that empowers advisors and investors with personalized recommendations, compliance-friendly flows, and seamless digital onboarding.
-                                    </motion.h6>
+
+                                    {/* Description */}
+                                    <motion.p
+                                        variants={fadeInUp}
+                                        className="text-[16px] sm:text-[17px] leading-[1.8] text-[#6f6f6f]"
+                                        style={{ fontFamily: 'Poppins, sans-serif' }}
+                                    >
+                                        A modern portfolio planning platform that empowers
+                                        advisors and investors with personalized recommendations,
+                                        compliance-friendly flows, and seamless digital onboarding.
+                                    </motion.p>
                                 </header>
+
+                                {/* Button */}
                                 <motion.div variants={fadeInUp}>
                                     <Link
                                         href="/contact"
-                                        className="inline-block bg-[#00529b] text-white px-[25px] py-[12px] text-[15px] font-medium rounded shadow hover:bg-[#004080] transition-colors"
-                                        style={{ fontFamily: 'Roboto, sans-serif' }}
+                                        className="inline-block bg-[#345195] text-white px-7 py-3 text-[15px] font-semibold rounded-[4px] transition-all duration-300 hover:bg-[#2b437d]"
+                                        style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
                                         Book a Demo
                                     </Link>
                                 </motion.div>
+
                             </motion.div>
                         </div>
-                        <div className="w-full md:w-1/2 px-[15px] mt-10 md:mt-0 flex items-center justify-center">
+
+                        {/* RIGHT IMAGE - 50% */}
+                        <div className="w-full lg:w-1/2 flex items-center justify-center">
+
                             <motion.div
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8 }}
+                                className="w-full bg-white p-2 rounded-[8px] shadow-sm"
                             >
-                                <Image 
-                                    src="/images/products/businessmen-put-placing-wood-block-tower-workplace-business-stock-trading-financial-800x491.jpg" 
-                                    alt="Hyper Platform" 
-                                    width={800} 
-                                    height={491} 
-                                    className="w-full h-auto border border-gray-200 shadow-sm"
+                                <Image
+                                    src="/images/products/businessmen-put-placing-wood-block-tower-workplace-business-stock-trading-financial-800x491.jpg"
+                                    alt="Hyper Platform"
+                                    width={800}
+                                    height={491}
+                                    className="w-full h-auto rounded-[6px] object-cover"
                                     priority
                                 />
                             </motion.div>
+
                         </div>
+
                     </div>
                 </div>
             </section>
 
             {/* Intro Section */}
-            <section className="py-20 bg-[#f8f9fa]">
-                <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
-                    <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-                        <h2 className="text-3xl font-bold text-[#345195] mb-[30px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Introducing Hyper
-                        </h2>
-                        <div className="max-w-[800px] mx-auto text-left">
-                            <p className="text-[15px] text-gray-700 leading-[26px] m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Hyper empowers financial institutions and advisors to deliver investment experiences that are transparent, personalized, and built for today’s digital-first investor. From guided discovery to tailored portfolio suggestions, Hyper accelerates growth, enhances trust, and simplifies decision-making.
-                            </p>
+             <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
+                <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+                    <div className="flex justify-center">
+                        <div className="w-full lg:w-9/12">
+                            <motion.div
+                                variants={scrollReveal}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={viewportOnce}
+                                className="bg-white rounded-[18px] px-6 py-6 sm:px-7 sm:py-7 lg:px-9 lg:py-8 shadow-sm text-left"
+                            >
+                                <h2
+                                    className="text-[36px] font-bold mb-5 leading-tight text-center"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#345195',
+                                        margin: '0 0 20px'
+                                    }}
+                                >
+                                    Introducing Hyper
+                                </h2>
+
+                                <p
+                                    className="text-[16px] sm:text-[18px] leading-[1.7] font-normal"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#6f6f6f',
+                                        textAlign: 'left',
+                                        margin: 0
+                                    }}
+                                >
+                                    Hyper empowers financial institutions and advisors to deliver
+                                    investment experiences that are transparent, personalized, and
+                                    built for today’s digital-first investor. From guided discovery
+                                    to tailored portfolio suggestions, Hyper accelerates growth,
+                                    enhances trust, and simplifies decision-making.
+                                </p>
+                            </motion.div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
             {/* Capabilities That Drive Growth */}
-            <section className="py-20 bg-[#0b1021]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <header className="text-center mb-[32px]">
-                        <h2 className="text-[35px] font-medium leading-[45px] text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
+                <div className="max-w-[1250px] mx-auto px-6">
+
+                    {/* Heading */}
+                    <header className="text-center mb-10">
+                        <h2
+                            className="text-[30px] sm:text-[36px] font-bold text-white"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif'
+                            }}
+                        >
                             Capabilities That Drive Growth
                         </h2>
                     </header>
 
-                    <div className="flex flex-wrap -mx-[15px]">
+                    {/* Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
                         {capabilities.map((cap, idx) => (
-                            <div key={idx} className="w-full md:w-1/4 sm:w-1/2 px-[15px] mb-[64px] last:mb-0 md:last:mb-[64px]">
-                                <div className="flex flex-col items-center">
-                                    <div className="mb-[32px] w-[130px] h-[130px] rounded-full overflow-hidden border border-gray-600 flex items-center justify-center bg-white/5">
-                                        <Image src={cap.img} alt={cap.title} width={80} height={80} className="object-contain" />
-                                    </div>
-                                    <div className="text-center">
-                                        <h3 className="text-[18px] font-medium leading-[28px] text-white mb-2" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                            {cap.title}
-                                        </h3>
-                                        <h6 className="text-[14px] font-normal leading-[24px] text-[#c7c7c7] whitespace-pre-line" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                            {cap.desc}
-                                        </h6>
-                                    </div>
+                            <div
+                                key={idx}
+                                className="overflow-hidden bg-[#040c31] rounded-[6px] transition-all duration-300 hover:-translate-y-1 group"
+                            >
+
+                                {/* Image */}
+                                <div className="overflow-hidden">
+                                    <Image
+                                        src={cap.img}
+                                        alt={cap.title}
+                                        width={322}
+                                        height={246}
+                                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
                                 </div>
+
+                                {/* Content */}
+                                <div className="bg-[#040c31] text-center px-5 py-6 min-h-[220px]">
+
+                                    <h3
+                                        className="text-[17px] font-bold leading-[1.5] text-white mb-3"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif'
+                                        }}
+                                    >
+                                        {cap.title}
+                                    </h3>
+
+                                    <p
+                                        className="text-[14px] leading-[1.8] text-white"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif'
+                                        }}
+                                    >
+                                        {cap.desc}
+                                    </p>
+
+                                </div>
+
                             </div>
                         ))}
+
                     </div>
                 </div>
             </section>
 
             {/* CEO Vision */}
-            <section id="ceo" className="py-20 bg-[#f9f9f9]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <header className="text-center mb-12">
-                        <h2 className="text-[35px] font-medium leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            CEO's Vision
+            <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+                <div className="max-w-[1000px] mx-auto px-6">
+
+                    {/* Heading */}
+                    <header className="text-center mb-8">
+                        <h2
+                            className="text-[28px] sm:text-[32px] font-bold leading-tight"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#345195'
+                            }}
+                        >
+                            CEO’s Vision
                         </h2>
                     </header>
-                    <div className="flex flex-wrap -mx-[15px]">
-                        <div className="hidden md:block md:w-1/6 px-[15px]"></div>
-                        <div className="w-full md:w-2/12 px-[15px] mb-8 md:mb-0 flex justify-center">
-                            <div className="pt-[10px]">
-                                <Image src="/images/products/Sreeram-_Plain-Background-414437.png" alt="Sreeram Jadapolu" width={200} height={200} className="border border-gray-300" />
-                            </div>
+
+                    {/* Content */}
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+
+                        {/* Image */}
+                        <div className="w-[160px] shrink-0">
+                            <Image
+                                src="/images/products/Sreeram-_Plain-Background-414437.png"
+                                alt="Sreeram Jadapolu"
+                                width={160}
+                                height={200}
+                                className="w-full h-auto object-cover"
+                            />
                         </div>
-                        <div className="w-full md:w-1/2 px-[15px]">
-                            <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                “At Hyniva, our vision is to help wealth managers connect more meaningfully with clients by transforming the investment journey into a personalized, data-driven experience. With Hyper, we empower advisors to scale their reach, build trust through consistent recommendations, and deliver transparent insights that grow AUM while reducing acquisition efforts.”
+
+                        {/* Text */}
+                        <div className="flex-1 text-center md:text-left">
+
+                            <p
+                                className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f'
+                                }}
+                            >
+                                “At Hyniva, our vision is to help wealth managers connect more
+                                meaningfully with clients by transforming the investment journey
+                                into a personalized, data-driven experience. With Hyper, we
+                                empower advisors to scale their reach, build trust through
+                                consistent recommendations, and deliver transparent insights
+                                that grow AUM while reducing acquisition efforts.”
                             </p>
-                            <h6 className="text-[16px] font-normal leading-[26px] text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                <strong>Sreeram Jadapolu,</strong><br/>
-                                <strong>Founder & CEO, Hyniva</strong>
+
+                            <h6
+                                className="text-[17px] sm:text-[18px] font-bold mb-1"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#345195'
+                                }}
+                            >
+                                Sreeram Jadapolu,
                             </h6>
+
+                            <p
+                                className="text-[15px] font-normal"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f'
+                                }}
+                            >
+                                Founder & CEO, Hyniva
+                            </p>
+
                         </div>
-                        <div className="hidden md:block md:w-1/6 px-[15px]"></div>
                     </div>
                 </div>
             </section>
 
             {/* Real Business Outcomes */}
-            <section className="py-20 bg-[#0b1021]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <header className="text-center mb-[40px]">
-                        <h2 className="text-[35px] font-medium leading-[45px] text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#020844]">
+                <div className="max-w-[1050px] mx-auto px-6">
+
+                    {/* Heading */}
+                    <header className="text-center mb-8">
+                        <h2
+                            className="text-[28px] sm:text-[32px] font-bold"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#ffffff'
+                            }}
+                        >
                             Real Business Outcomes
                         </h2>
                     </header>
-                    <div className="flex flex-wrap -mx-[15px]">
+
+                    {/* Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
                         {outcomes.map((item, idx) => (
-                            <div key={idx} className="w-full md:w-1/3 px-[15px] mb-[30px]">
-                                <div className="bg-white p-[30px] rounded shadow hover:shadow-lg transition-shadow h-full">
-                                    <div className="mb-[20px] max-w-[80px]">
-                                        <Image src={item.img} alt={item.title} width={512} height={512} className="w-full h-auto" />
+                            <div key={idx}>
+
+                                <div className="bg-white rounded-[6px] p-5 min-h-[230px] transition-all duration-300 hover:-translate-y-1 hover:bg-[#345195] group">
+
+                                    {/* Icon */}
+                                    <div className="mb-4">
+                                        <Image
+                                            src={item.img}
+                                            alt={item.title}
+                                            width={42}
+                                            height={42}
+                                            className="object-contain transition duration-300 group-hover:brightness-0 group-hover:invert"
+                                        />
                                     </div>
-                                    <h6 className="text-[18px] font-medium leading-[26px] text-[#000000] mb-[10px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+
+                                    {/* Title */}
+                                    <h6
+                                        className="text-[16px] font-bold mb-3 leading-[1.5] text-black group-hover:text-white transition-colors duration-300"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif'
+                                        }}
+                                    >
                                         {item.title}
                                     </h6>
-                                    <p className="text-[15px] font-normal leading-[25px] text-[#000000]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+
+                                    {/* Description */}
+                                    <p
+                                        className="text-[14px] leading-[1.8] text-black group-hover:text-white transition-colors duration-300"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif'
+                                        }}
+                                    >
                                         {item.desc}
                                     </p>
+
                                 </div>
+
                             </div>
                         ))}
+
                     </div>
                 </div>
             </section>
 
             {/* CTA Header */}
-            <section className="py-20 bg-[#f8f9fa]">
-                <div className="max-w-[1240px] mx-auto px-[15px] text-center">
-                    <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-                        <h2 className="text-[35px] font-bold leading-[45px] text-[#030B3B] uppercase mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Take control of your growth. Digitally.
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+                <div className="max-w-[1200px] mx-auto px-6 text-center">
+
+                    <motion.div
+                        variants={scrollReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                    >
+
+                        {/* Heading */}
+                        <h2
+                            className="text-[30px] sm:text-[38px] font-bold leading-[1.3] mb-6"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#345195'
+                            }}
+                        >
+                            Take Control Of Your Growth Digitally
                         </h2>
-                        <div className="max-w-[1000px] mx-auto">
-                            <p className="text-[16px] font-normal leading-[26px] text-[#6d6d6d]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                With Hyper, you’re not just getting software — you’re adopting a smart, scalable investment engine built for advisors who want to grow assets, streamline onboarding, and deliver consistent, compliant, personalized advice to every investor. Start your journey now.
+
+                        {/* Description */}
+                        <div className="max-w-[1050px] mx-auto">
+                            <p
+                                className="text-[15px] sm:text-[16px] leading-[1.9]"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f'
+                                }}
+                            >
+                                With Hyper, you’re not just getting software — you’re adopting
+                                a smart, scalable investment engine built for advisors who want
+                                to grow assets, streamline onboarding, and deliver consistent,
+                                compliant, personalized advice to every investor. Start your
+                                journey now.
                             </p>
                         </div>
+
                     </motion.div>
+
                 </div>
             </section>
-
-            {/* Green Card CTA */}
-            <section className="py-20 lg:py-24 bg-white">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
-                    <div className="flex justify-center">
-                        <motion.div 
-                            variants={scrollReveal} 
-                            initial="hidden" 
-                            whileInView="visible" 
-                            viewport={viewportOnce}
-                            className="w-full max-w-[850px] bg-[#578849] p-10 lg:p-16 rounded-[15px] text-center shadow-xl"
-                        >
-                            <h2 className="text-[30px] md:text-[35px] font-bold text-white uppercase mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Ready to level up your investment-flows with Hyper?
-                            </h2>
-                            <p className="text-[17px] font-normal leading-[28px] text-white/90 mb-10 max-w-2xl mx-auto" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Book a demo today to see how Hyper can transform your advisory business, automate client acquisition, and scale AUM growth.
-                            </p>
-                            <div className="flex flex-wrap justify-center gap-6">
-                                <Link
-                                    href="/contact"
-                                    className="bg-white text-[#578849] px-[35px] py-[15px] text-[16px] font-bold rounded shadow-lg transition-all hover:bg-gray-100"
-                                    style={{ fontFamily: 'Roboto, sans-serif' }}
-                                >
-                                    GET STARTED
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="bg-transparent text-white border-2 border-white px-[35px] py-[13px] text-[16px] font-bold rounded transition-colors hover:bg-white hover:text-[#578849]"
-                                    style={{ fontFamily: 'Roboto, sans-serif' }}
-                                >
-                                    CONTACT US
-                                </Link>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
             <Footer />
         </div>
     )

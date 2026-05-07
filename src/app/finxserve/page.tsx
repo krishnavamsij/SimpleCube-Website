@@ -74,6 +74,8 @@ const heroSlides = [
 
 export default function FinxservePage() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -82,8 +84,32 @@ export default function FinxservePage() {
         return () => clearInterval(timer);
     }, []);
 
+    useEffect(() => {
+        const NAVBAR_HEIGHT = 120; // 120px for main navbar only
+
+        const handleScroll = () => {
+            const sections = ['intro', 'capabilities', 'ceo', 'enterprise', 'customer'];
+            const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1;
+
+            // Walk sections in reverse so the last matching one wins
+            // (handles edge case at very bottom of page)
+            let found = '';
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element && scrollPosition >= element.offsetTop) {
+                    found = section;
+                }
+            }
+            setActiveSection(found);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // run once on mount to set initial state
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <main className="min-h-screen bg-white" style={{ scrollPaddingTop: '120px' }}>
+        <main className="min-h-screen bg-white">
             <Navbar />
 
             {/* Hero Banner Section */}
@@ -161,9 +187,10 @@ export default function FinxservePage() {
             </section>
 
             {/* Intro */}
-            <section id="intro" className="py-16 sm:py-20 bg-white">
+            <section id="intro" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
                 <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
-                    <motion.div 
+                    
+                    <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
@@ -172,8 +199,14 @@ export default function FinxservePage() {
                     >
                         <div className="w-full md:w-1/2 text-center md:text-left">
                             <header className="mb-6">
-                                <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    FinXServe — Powering the Future of Digital Banking Experience
+                                <h2
+                                    className="text-[32px] sm:text-[40px] font-bold leading-[1.3]"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#345195'
+                                    }}
+                                >
+                                    FinXServe — Powering The Future Of Digital Banking Experience
                                 </h2>
                             </header>
                             <p className="text-base sm:text-lg font-normal leading-relaxed text-[#666666] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -193,11 +226,11 @@ export default function FinxservePage() {
             </section>
 
             {/* Capabilities (Dark Wrapper Grid) */}
-            <section id="capabilities" className="bg-[#030B49] py-[85px] overflow-hidden">
-                <div className="max-w-[1500px] mx-auto px-4 lg:px-[60px] flex flex-col lg:flex-row gap-[60px]">
+            <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
+                <div className="max-w-[1500px] mx-auto px-4 lg:px-[60px] flex flex-col lg:flex-row gap-[60px]" >
                     {/* LEFT FIXED CONTENT */}
                     <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Capabilities That<br/>Drive Growth
                         </h2>
                         <p className="text-lg leading-relaxed text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -239,47 +272,90 @@ export default function FinxservePage() {
             </section>
 
             {/* CEO Vision */}
-            <section id="ceo" className="py-20 bg-[#f9f9f9]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+            <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+                <div className="max-w-[1000px] mx-auto px-6">
+
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <header className="text-center mb-12">
-                            <h2 className="text-[35px] font-medium leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                CEO's Vision
+
+                        {/* Heading */}
+                        <header className="text-center mb-8">
+                            <h2
+                                className="text-[28px] sm:text-[32px] font-bold leading-tight"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#345195'
+                                }}
+                            >
+                                CEO’s Vision
                             </h2>
                         </header>
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center max-w-[900px] mx-auto">
-                            <div className="w-[180px] sm:w-[200px] shrink-0">
-                                <Image 
-                                    src="/images/products/Sreeram-_Plain-Background-414437.png" 
-                                    alt="Sreeram Jadapolu" 
-                                    width={200} 
-                                    height={200} 
-                                    className="border border-gray-300 rounded-lg shadow-md w-full h-auto" 
+
+                        {/* Content */}
+                        <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+
+                            {/* Image */}
+                            <div className="w-[160px] shrink-0">
+                                <Image
+                                    src="/images/products/Sreeram-_Plain-Background-414437.png"
+                                    alt="Sreeram Jadapolu"
+                                    width={160}
+                                    height={200}
+                                    className="w-full h-auto object-cover"
                                 />
                             </div>
+
+                            {/* Text */}
                             <div className="flex-1 text-center md:text-left">
-                                <p className="text-base sm:text-[17px] font-normal leading-relaxed text-[#666666] mb-6 italic" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    “We envision a future where every Credit Union leads with intelligence and empathy — where technology doesn’t complicate, but connects. FinXServe was built to unify digital banking journeys on Salesforce, transforming complexity into clarity and every interaction into a personalized experience. This is how modern finance grows — seamlessly, securely, and sustainably.”
+
+                                <p
+                                    className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#6f6f6f'
+                                    }}
+                                >
+                                    “We envision a future where every Credit Union leads with intelligence
+                                    and empathy — where technology doesn’t complicate, but connects.
+                                    FinXServe was built to unify digital banking journeys on Salesforce,
+                                    transforming complexity into clarity and every interaction into a
+                                    personalized experience. This is how modern finance grows —
+                                    seamlessly, securely, and sustainably.”
                                 </p>
-                                <h6 className="text-lg font-bold text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    Sreeram Jadapolu
+
+                                <h6
+                                    className="text-[17px] sm:text-[18px] font-bold mb-1"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#345195'
+                                    }}
+                                >
+                                    Sreeram Jadapolu,
                                 </h6>
-                                <p className="text-sm text-gray-500 font-medium">
+
+                                <p
+                                    className="text-[15px] font-normal"
+                                    style={{
+                                        fontFamily: 'Poppins, sans-serif',
+                                        color: '#6f6f6f'
+                                    }}
+                                >
                                     Founder & CEO, Hyniva
                                 </p>
+
                             </div>
                         </div>
+
                     </motion.div>
                 </div>
             </section>
 
             {/* Tangible Business Value */}
-            <section id="enterprise" className="py-20 bg-[#0b1021]">
+            <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
                 <div className="max-w-[1240px] mx-auto px-[15px]">
                     <motion.div
                         variants={scrollReveal}
@@ -288,7 +364,7 @@ export default function FinxservePage() {
                         viewport={viewportOnce}
                     >
                         <header className="mb-10 text-center md:text-left">
-                            <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-white mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-white mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Tangible Business Value
                             </h2>
                             <p className="text-base sm:text-lg font-normal leading-relaxed text-white/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -297,13 +373,49 @@ export default function FinxservePage() {
                         </header>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px] pt-[24px] pb-[2px]">
                             {values.map((item, idx) => (
-                                <div key={idx} className="group rounded-[18px] p-[30px] text-left transition-all duration-350 transform hover:-translate-y-[8px] relative" style={{ background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, rgba(94, 181, 70, 0.52), rgba(87, 136, 73, 0.53), rgba(41, 79, 31, 0.56)) border-box', border: '1px solid transparent' }}>
-                                    <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, #5EB546, #578849, #294F1F) border-box', border: '1px solid transparent' }}></div>
-                                    <div className="mb-[20px] relative z-10 w-[90px]">
-                                        <Image src={item.img} alt={item.title} width={90} height={90} className="w-full h-auto" />
+                                <div
+                                    key={idx}
+                                    className="group rounded-[18px] p-[30px] text-left transition-all duration-300 transform hover:-translate-y-[8px] relative flex flex-col"
+                                    style={{
+                                        background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, rgba(94, 181, 70, 0.52), rgba(87, 136, 73, 0.53), rgba(41, 79, 31, 0.56)) border-box',
+                                        border: '1px solid transparent'
+                                    }}
+                                >
+                                    {/* Hover border overlay */}
+                                    <div
+                                        className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                                        style={{
+                                            background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, #5EB546, #578849, #294F1F) border-box',
+                                            border: '1px solid transparent'
+                                        }}
+                                    />
+
+                                    {/* Image — centered, large, like the reference */}
+                                    <div className="relative z-10 w-full flex items-center justify-center mb-[28px] min-h-[180px]">
+                                        <Image
+                                            src={item.img}
+                                            alt={item.title}
+                                            width={220}
+                                            height={180}
+                                            className="object-contain max-h-[180px] w-auto"
+                                        />
                                     </div>
-                                    <h3 className="text-[20px] font-bold text-white mb-[10px] relative z-10" style={{ fontFamily: 'Roboto, sans-serif' }}>{item.title}</h3>
-                                    <p className="text-[15px] leading-[1.6] text-[#c7c7c7] relative z-10" style={{ fontFamily: 'Roboto, sans-serif' }}>{item.desc}</p>
+
+                                    {/* Title */}
+                                    <h3
+                                        className="text-[18px] font-bold text-white mb-[10px] relative z-10"
+                                        style={{ fontFamily: 'Roboto, sans-serif' }}
+                                    >
+                                        {item.title}
+                                    </h3>
+
+                                    {/* Description */}
+                                    <p
+                                        className="text-[15px] leading-[1.6] text-[#c7c7c7] relative z-10"
+                                        style={{ fontFamily: 'Roboto, sans-serif' }}
+                                    >
+                                        {item.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>
@@ -312,7 +424,7 @@ export default function FinxservePage() {
             </section>
 
             {/* Two Decades */}
-            <section className="py-20 bg-white">
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
                 <div className="max-w-[1240px] mx-auto px-[15px]">
                     <motion.div 
                         variants={scrollReveal}
@@ -328,8 +440,16 @@ export default function FinxservePage() {
                             </div>
                             <div className="w-full md:w-1/2 text-center md:text-left">
                                 <header className="mb-6">
-                                    <h2 className="text-3xl sm:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        Two Decades of Financial & Salesforce Expertise
+                                    <h2
+                                        className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-6"
+                                        style={{
+                                            fontFamily: 'Poppins, sans-serif',
+                                            color: '#345195'
+                                        }}
+                                    >
+                                        Two Decades of Financial &
+                                        <br />
+                                        Salesforce Expertise
                                     </h2>
                                     <p className="text-base sm:text-lg font-normal leading-relaxed text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                         FinXServe was born from Hyniva’s deep legacy in building banking platforms and transforming Credit Unions and Banks on Salesforce. With proven cross-cloud expertise — Financial Services, Experience, Data, Marketing, and Loyalty Clouds — our certified teams architect secure, scalable, and compliant Salesforce ecosystems that power FinXServe’s speed, intelligence, and reliability.
@@ -342,7 +462,7 @@ export default function FinxservePage() {
             </section>
 
             {/* Case Studies */}
-            <section className="py-20 bg-[#f9f9f9]">
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f9f9f9]">
                 <div className="max-w-[1240px] mx-auto px-[15px]">
                     <motion.div
                         variants={scrollReveal}
@@ -351,24 +471,44 @@ export default function FinxservePage() {
                         viewport={viewportOnce}
                     >
                         <header className="mb-[40px]">
-                            <h2 className="text-[35px] font-medium leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h2 className="text-[35px] font-bold leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Case Studies
                             </h2>
                         </header>
                         <div className="flex flex-wrap -mx-[15px]">
                             {caseStudies.map((cs, idx) => (
                                 <div key={idx} className="w-full md:w-1/3 px-[15px] mb-[30px]">
-                                    <div className="bg-white h-full shadow flex flex-col">
-                                        <div className="relative">
+                                    <div className="bg-white h-full shadow-md flex flex-col border border-gray-100 rounded-sm overflow-hidden">
+                                        <div className="relative overflow-hidden">
                                             <Link href={cs.link}>
-                                                <Image src={cs.img} alt={cs.title} width={400} height={250} className="w-full h-auto object-cover" />
+                                                <Image
+                                                    src={cs.img}
+                                                    alt={cs.title}
+                                                    width={400}
+                                                    height={260}
+                                                    className="w-full h-[220px] object-cover transition-transform duration-300 hover:scale-105"
+                                                />
                                             </Link>
                                         </div>
                                         <div className="p-[30px] flex flex-col flex-grow">
-                                            <h5 className="text-[20px] font-medium leading-[30px] text-[#222222] mb-[10px]" style={{ fontFamily: 'Roboto, sans-serif' }}>{cs.title}</h5>
-                                            <p className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[20px] flex-grow" style={{ fontFamily: 'Roboto, sans-serif' }}>{cs.desc}</p>
+                                            <h5
+                                                className="text-[20px] font-bold leading-[28px] text-[#345195] mb-[14px]"
+                                                style={{ fontFamily: 'Roboto, sans-serif' }}
+                                            >
+                                                {cs.title}
+                                            </h5>
+                                            <p
+                                                className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[24px] flex-grow"
+                                                style={{ fontFamily: 'Roboto, sans-serif' }}
+                                            >
+                                                {cs.desc}
+                                            </p>
                                             <div className="mt-auto">
-                                                <Link href={cs.link} className="inline-block bg-[#00529b] text-white px-[20px] py-[10px] text-[14px] font-medium rounded transition-colors hover:bg-[#004080]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                                <Link
+                                                    href={cs.link}
+                                                    className="inline-block bg-[#345195] text-white px-[24px] py-[12px] text-[13px] font-bold rounded transition-colors hover:bg-[#283d71] uppercase tracking-widest"
+                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
+                                                >
                                                     Read More
                                                 </Link>
                                             </div>
@@ -382,7 +522,7 @@ export default function FinxservePage() {
             </section>
 
             {/* Final Section (Reimagined Banking) */}
-            <section id="customer" className="py-20 bg-white">
+            <section id="customer" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
                 <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
                     <motion.div 
                         variants={scrollReveal}
