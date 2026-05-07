@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, Sparkles } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface FormData {
     name: string;
@@ -22,6 +22,9 @@ export function CaseStudyPopup() {
     const [isVisible, setIsVisible] = useState(false);
     const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const initialScrollPosition = useRef(0);
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
@@ -30,22 +33,37 @@ export function CaseStudyPopup() {
     });
     const [formErrors, setFormErrors] = useState<FormErrors>({});
 
+    // Set mounted state when component mounts and capture initial scroll position
     useEffect(() => {
+        setMounted(true);
+        initialScrollPosition.current = window.scrollY;
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+
         const handleScroll = () => {
             if (hasBeenDismissed || isSubmitted) return;
 
-            const scrollPosition = window.scrollY;
-            const heroHeight = window.innerHeight; // Hero banner is ~100vh
-            const docHeight = document.body.scrollHeight;
-            
-            // Calculate how far we've scrolled past the hero banner
-            const scrolledPastHero = scrollPosition - heroHeight;
-            const contentHeightAfterHero = docHeight - heroHeight - window.innerHeight;
+            // Calculate scroll distance from when component mounted
+            const scrollDistance = window.scrollY - initialScrollPosition.current;
 
-            // Only calculate if we're past the hero section
-            if (scrolledPastHero > 0 && contentHeightAfterHero > 0) {
-                const scrollPercent = scrolledPastHero / contentHeightAfterHero;
-                if (scrollPercent >= 0.25 && !isVisible) {
+            // Mark that user has scrolled (at least 50px from initial position)
+            if (scrollDistance > 50) {
+                setHasScrolled(true);
+            }
+
+            // Only check for popup if user has scrolled on this page
+            if (!hasScrolled) return;
+
+            // Check if we've reached the 3rd sub-navigation section
+            const subNavItems = document.querySelectorAll('section[id]');
+            if (subNavItems.length >= 3) {
+                const thirdSection = subNavItems[2]; // 0-indexed, so 2 is the 3rd section
+                const rect = thirdSection.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+                if (isInView && !isVisible) {
                     setIsVisible(true);
                 }
             }
@@ -53,7 +71,7 @@ export function CaseStudyPopup() {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [hasBeenDismissed, isSubmitted, isVisible]);
+    }, [hasBeenDismissed, isSubmitted, isVisible, hasScrolled, mounted]);
 
     const validateForm = (): boolean => {
         const errors: FormErrors = {};
@@ -154,11 +172,11 @@ export function CaseStudyPopup() {
                     
                     {/* Popup */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
-                        animate={{ opacity: 1, scale: 1, y: 0, x: "-50%", translateY: "-50%" }}
-                        exit={{ opacity: 0, scale: 0.95, y: 0, x: "-50%", translateY: "-50%" }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="fixed top-1/2 left-1/2 z-[100] w-[calc(100%-2rem)] max-w-[480px] rounded-[16px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] bg-white overflow-hidden flex flex-col font-sans border border-slate-200"
+                        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] w-[calc(100%-2rem)] max-w-[480px] rounded-[16px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] bg-white overflow-hidden flex flex-col font-sans border border-slate-200"
                     >
                     {/* Top Section */}
                     <div className="relative bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20] px-5 pt-5 pb-4">
