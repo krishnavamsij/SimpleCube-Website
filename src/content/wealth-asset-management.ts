@@ -42,7 +42,7 @@ export const wealthAssetManagementContent = {
         /**
          * Background image path
          */
-        backgroundImage: "/images/2019/04/shop-intro.jpg",
+        backgroundImage: "/images/Banner_cards/Wealth_Asset_Management.png",
         /**
          * Contact button configuration
          */
@@ -52,9 +52,9 @@ export const wealthAssetManagementContent = {
              */
             text: "Contact us!",
             /**
-             * Contact button link (email address)
+             * Contact button link
              */
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

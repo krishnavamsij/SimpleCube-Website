@@ -28,10 +28,10 @@ export const educationContent = {
     hero: {
         title: "Education",
         subtitle: "Revolutionize education with cloud-based learning, virtual classrooms, and automated administration. Hyniva's solutions make learning more accessible, interactive, and efficient—empowering students, educators, and institutions alike.",
-        backgroundImage: "/images/2025/03/Education.jpg",
+        backgroundImage: "/images/Banner_cards/Education.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

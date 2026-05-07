@@ -33,10 +33,10 @@ export const itStrategyContent = {
     hero: {
         title: "IT Strategy",
         subtitle: "Technology isn't just a tool - it's the backbone of business innovation. Hyniva crafts IT strategies that align with your goals, combining agile frameworks, digital transformation roadmaps, and enterprise architecture to drive real impact.",
-        backgroundImage: "/images/2025/03/IT-Strategy.jpg",
+        backgroundImage: "/images/Banner_cards/IT_Strategy.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

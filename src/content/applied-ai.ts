@@ -36,10 +36,10 @@ export const appliedAIContent = {
     hero: {
         title: "Applied AI",
         subtitle: "AI isn't the future-it's the now. From AI-powered chatbots to predictive analytics and document automation, Hyniva helps you harness the power of artificial intelligence to work smarter, faster, and more efficiently than ever before.",
-        backgroundImage: "/images/2019/04/blog-intro.jpg",
+        backgroundImage: "/images/Banner_cards/Applied_AI.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

@@ -33,10 +33,10 @@ export const insuranceContent = {
     hero: {
         title: "Insurance",
         subtitle: "AI is transforming insurance—from smarter underwriting to real-time fraud detection. Hyniva helps insurers automate claims, enhance customer servicing, and optimize risk assessment for a streamlined, future-proof industry.",
-        backgroundImage: "/images/2025/03/Insurance.jpg",
+        backgroundImage: "/images/Banner_cards/Insurance.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

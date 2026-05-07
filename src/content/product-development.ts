@@ -33,10 +33,10 @@ export const productDevelopmentContent = {
     hero: {
         title: "Product Development",
         subtitle: "Big ideas deserve bold execution. At Hyniva, we blend creativity, cutting-edge tech, and strategic expertise to build market-defining products. Whether you're starting from scratch or refining an existing solution, we bring your vision to life.",
-        backgroundImage: "/images/2025/03/Product-development.jpg",
+        backgroundImage: "/images/Banner_cards/Product_development.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {
