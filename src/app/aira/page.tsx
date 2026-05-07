@@ -112,44 +112,93 @@ const impacts = [
 function AiraHero() {
     return (
         <section className="relative h-[515px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
+            
             {/* Background video */}
             <div className="absolute inset-0 z-0">
-                <video 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline 
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="object-cover w-full h-full"
                 >
                     <source src="/images/products/HERO-PAGE-.mp4" type="video/mp4" />
                 </video>
             </div>
 
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 z-[1]" />
+
             {/* Content */}
             <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 lg:px-8 py-12 md:py-0">
-                <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-[650px] md:max-w-[550px] text-center md:text-left mx-auto md:mx-0">
-                    <motion.div variants={fadeInUp} className="mb-8 hidden md:block">
-                        <Image src="/images/products/dummy.png" alt="AIRA" width={200} height={60} className="opacity-0" />
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                    className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0"
+                >
+
+                    {/* Logo */}
+                    <motion.div
+                        variants={fadeInUp}
+                        className="mb-6 flex justify-center md:justify-start"
+                    >
+                        <Image
+                            src="/logos/Artboard.png"
+                            alt="AIRA Logo"
+                            width={260}
+                            height={90}
+                            className="w-[220px] sm:w-[250px] md:w-[280px] h-auto object-contain"
+                            priority
+                        />
                     </motion.div>
+
+                    {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-6 text-3xl sm:text-4xl md:text-5xl leading-tight font-medium"
-                        style={{ fontFamily: "Roboto, sans-serif" }}
+                        className="text-white mb-5 text-3xl sm:text-4xl md:text-5xl leading-tight font-medium"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                        Autonomous Intelligent Reasoning Agent
+                        Autonomous Intelligent
+                        <br />
+                        Reasoning Agent
                     </motion.h1>
-                    <motion.p 
-                        variants={fadeInUp} 
-                        className="text-white mb-8 text-lg sm:text-xl font-normal leading-relaxed max-w-[480px] mx-auto md:mx-0"
-                        style={{ fontFamily: "Roboto, sans-serif" }}
+
+                    {/* Description */}
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-white mb-8 text-[17px] sm:text-[19px] font-normal leading-relaxed max-w-[520px] mx-auto md:mx-0"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                        The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
+                        The enterprise-ready AI platform built for financial institutions —
+                        delivering accuracy, execution, and compliance at scale
                     </motion.p>
-                    <motion.div variants={fadeInUp} className="flex justify-center md:justify-start">
-                        <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontFamily: "Roboto, sans-serif", fontSize: "15px", fontWeight: 600, padding: "12px 25px", borderRadius: "0px", height: "auto" }} className="hover:bg-gray-100 transition-colors uppercase shadow-lg">
-                            <Link href="/contact">Get Started</Link>
+
+                    {/* Button */}
+                    <motion.div
+                        variants={fadeInUp}
+                        className="flex justify-center md:justify-start"
+                    >
+                        <Button
+                            asChild
+                            style={{
+                                backgroundColor: "#ffffff",
+                                color: "#000000",
+                                fontFamily: "Poppins, sans-serif",
+                                fontSize: "15px",
+                                fontWeight: 600,
+                                padding: "12px 26px",
+                                borderRadius: "0px",
+                                height: "auto"
+                            }}
+                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg"
+                        >
+                            <Link href="/contact">
+                                Get Started
+                            </Link>
                         </Button>
                     </motion.div>
+
                 </motion.div>
             </div>
         </section>
@@ -158,23 +207,43 @@ function AiraHero() {
 
 function AiraIntro() {
     return (
-        <section className="bg-white py-[60px] lg:py-[80px]">
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+        <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
+            <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
                 <div className="flex justify-center">
-                    <div className="w-full lg:w-10/12">
-                        <motion.div 
-                            variants={scrollReveal} 
-                            initial="hidden" 
-                            whileInView="visible" 
-                            viewport={viewportOnce} 
-                            className="bg-[#f8f9fa] p-8 sm:p-10 lg:p-16 rounded-[15px] text-center shadow-sm border border-gray-100"
+                    <div className="w-full lg:w-9/12">
+                        <motion.div
+                            variants={scrollReveal}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                            className="bg-white rounded-[18px] px-6 py-6 sm:px-7 sm:py-7 lg:px-9 lg:py-8 shadow-sm text-left"
                         >
-                            <h2 className="text-[#345195] text-2xl sm:text-3xl font-bold mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h2
+                                className="text-[36px] font-bold mb-5 leading-tight"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#345195',
+                                    margin: '0 0 20px'
+                                }}
+                            >
                                 Introducing AIRA
                             </h2>
-                            <h6 className="text-[#666666] text-base sm:text-lg leading-relaxed font-normal m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI platform for financial services that unifies autonomous reasoning, compliance-first design, and OneAPI integration. By combining these capabilities in a single solution, AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to innovate at speed while maintaining trust and regulatory rigor.
-                            </h6>
+
+                            <p
+                                className="text-[16px] sm:text-[18px] leading-[1.7] font-normal"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f',
+                                    textAlign: 'left',
+                                    margin: 0
+                                }}
+                            >
+                                AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI
+                                platform for financial services that unifies autonomous reasoning, compliance-first
+                                design, and OneAPI integration. By combining these capabilities in a single solution,
+                                AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to
+                                innovate at speed while maintaining trust and regulatory rigor.
+                            </p>
                         </motion.div>
                     </div>
                 </div>
@@ -185,7 +254,7 @@ function AiraIntro() {
 
 function AiraDifferentiators() {
     return (
-        <section className="bg-[#f8f9fa] py-[60px] lg:py-[80px]">
+        <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
                     <h2 className="text-[#345195] text-3xl font-bold">
@@ -240,7 +309,7 @@ function AiraDifferentiators() {
 
 function AiraCapabilities() {
     return (
-        <section id="capabilities" className="bg-[#0b1021] py-[60px] lg:py-[80px]">
+        <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
                     <h2 className="text-white text-3xl font-bold mb-[10px]">
@@ -281,68 +350,150 @@ function AiraCapabilities() {
 
 function CeoVision() {
     return (
-        <section id="ceo" className="py-20 bg-[#f9f9f9]">
-            <div className="max-w-[1240px] mx-auto px-[15px]">
-                <header className="text-center mb-12">
-                    <h2 className="text-[35px] font-medium leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                        CEO's Vision
+        <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+            <div className="max-w-[1000px] mx-auto px-6">
+
+                {/* Heading */}
+                <header className="text-center mb-8">
+                    <h2
+                        className="text-[28px] sm:text-[32px] font-bold leading-tight"
+                        style={{
+                            fontFamily: 'Poppins, sans-serif',
+                            color: '#345195'
+                        }}
+                    >
+                        CEO’s Vision
                     </h2>
                 </header>
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center max-w-[900px] mx-auto">
-                    <div className="w-[180px] sm:w-[200px] shrink-0">
-                        <Image 
-                            src="/images/products/Sreeram-_Plain-Background-414437.png" 
-                            alt="Sreeram Jadapolu" 
-                            width={200} 
-                            height={200} 
-                            className="border border-gray-300 rounded-lg shadow-md w-full h-auto" 
+
+                {/* Content */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+
+                    {/* Image */}
+                    <div className="w-[160px] shrink-0">
+                        <Image
+                            src="/images/products/Sreeram-_Plain-Background-414437.png"
+                            alt="Sreeram Jadapolu"
+                            width={160}
+                            height={200}
+                            className="w-full h-auto object-cover"
                         />
                     </div>
+
+                    {/* Text */}
                     <div className="flex-1 text-center md:text-left">
-                        <p className="text-base sm:text-[17px] font-normal leading-relaxed text-[#666666] mb-6 italic" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            “When we built AIRA, our vision was clear: AI that financial institutions can finally trust with mission-critical decisions. AIRA combines reasoning, compliance, and OneAPI-powered integration into a single, scalable platform. It's not just about solving today's challenges — it's about empowering the industry to reimagine what's possible with GenAI for customers, regulators, and institutions alike.”
+
+                        <p
+                            className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#6f6f6f'
+                            }}
+                        >
+                            “When we built AIRA, our vision was clear: AI that financial institutions
+                            can finally trust with mission-critical decisions. AIRA combines
+                            reasoning, compliance, and OneAPI-powered integration into a single,
+                            scalable platform. It’s not just about solving today’s challenges — it’s
+                            about empowering the industry to reimagine what’s possible with GenAI
+                            for customers, regulators, and institutions alike.”
                         </p>
-                        <h6 className="text-lg font-bold text-[#222222]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Sreeram Jadapolu
+
+                        <h6
+                            className="text-[17px] sm:text-[18px] font-bold mb-1"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#345195'
+                            }}
+                        >
+                            Sreeram Jadapolu,
                         </h6>
-                        <p className="text-sm text-gray-500 font-medium">
+
+                        <p
+                            className="text-[15px] font-normal"
+                            style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#6f6f6f'
+                            }}
+                        >
                             Founder & CEO, Hyniva
                         </p>
+
                     </div>
                 </div>
             </div>
         </section>
     )
 }
-
 function EnterpriseImpact() {
     return (
-        <section className="bg-white py-[60px] lg:py-[80px]">
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
-                    <h2 className="text-3xl font-bold text-gray-900">
+        <section id="enterprize" className="bg-[#020844] py-[30px] sm:py-[40px] lg:py-[50px]">
+            <div className="mx-auto w-full max-w-[1050px] px-6">
+
+                {/* Heading */}
+                <motion.div
+                    variants={scrollReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    className="text-center mb-8"
+                >
+                    <h2
+                        className="text-[28px] sm:text-[32px] font-bold"
+                        style={{
+                            fontFamily: 'Poppins, sans-serif',
+                            color: '#ffffff'
+                        }}
+                    >
                         Enterprise Impact
                     </h2>
                 </motion.div>
 
+                {/* Cards */}
                 <motion.div
                     variants={scrollStaggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid gap-[30px] sm:grid-cols-2 lg:grid-cols-3"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
                 >
                     {impacts.map((item, index) => (
                         <motion.div
                             key={index}
                             variants={scrollReveal}
-                            className="bg-white p-6 sm:p-[30px] rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-2"
+                            className="bg-white rounded-[6px] p-5 min-h-[230px] transition-all duration-300 hover:-translate-y-1 hover:bg-[#345195] group border border-white"
                         >
-                            <div className="mb-[20px]">
-                                <Image src={item.img} alt={item.title} width={60} height={60} className="object-contain" />
+
+                            {/* Icon */}
+                            <div className="mb-4">
+                                <Image
+                                    src={item.img}
+                                    alt={item.title}
+                                    width={42}
+                                    height={42}
+                                    className="object-contain transition duration-300 group-hover:brightness-0 group-hover:invert"
+                                />
                             </div>
-                            <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
-                            <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
+
+                            {/* Title */}
+                            <h6
+                                className="text-[16px] font-bold mb-3 leading-[1.5] text-black group-hover:text-white transition-colors duration-300"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif'
+                                }}
+                            >
+                                {item.title}
+                            </h6>
+
+                            {/* Description */}
+                            <p
+                                className="text-[14px] leading-[1.8] m-0 text-black group-hover:text-white transition-colors duration-300"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif'
+                                }}
+                            >
+                                {item.desc}
+                            </p>
+
                         </motion.div>
                     ))}
                 </motion.div>
@@ -353,7 +504,7 @@ function EnterpriseImpact() {
 
 function CustomerCentric() {
     return (
-        <section className="bg-[#f8f9fa] py-[60px] lg:py-[80px]">
+        <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                     <h2 className="text-3xl font-bold text-[#345195] mb-[30px]">
@@ -370,41 +521,6 @@ function CustomerCentric() {
     )
 }
 
-function AiraCta() {
-    return (
-        <motion.section
-            variants={scrollReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            className="bg-white py-[60px] lg:py-[80px]"
-        >
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-                <div className="flex flex-wrap justify-center">
-                    <div className="w-full max-w-[850px]">
-                        <div className="bg-[#ed3137] p-8 sm:p-10 lg:p-16 rounded-[15px] text-center shadow-xl">
-                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-[15px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Reimagine financial services with AIRA
-                            </h2>
-                            <h6 className="text-base sm:text-lg text-white font-normal mb-[40px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                The Autonomous Intelligent Reasoning Agent.
-                            </h6>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[20px]">
-                                <Button asChild style={{ backgroundColor: "#ffffff", color: "#000000", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "none" }} className="hover:bg-gray-100 transition-colors uppercase w-full sm:w-auto">
-                                    <Link href="/contact">Get Started</Link>
-                                </Button>
-                                <Button asChild style={{ backgroundColor: "transparent", color: "#ffffff", fontSize: "14px", fontWeight: 600, padding: "12px 30px", borderRadius: "0px", height: "auto", border: "2px solid #ffffff" }} className="hover:bg-white/10 transition-colors uppercase w-full sm:w-auto">
-                                    <Link href="/contact">Contact Us</Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </motion.section>
-    )
-}
-
 export default function AiraPage() {
     return (
         <main className="min-h-screen">
@@ -416,7 +532,6 @@ export default function AiraPage() {
             <CeoVision />
             <EnterpriseImpact />
             <CustomerCentric />
-            <AiraCta />
             <Footer />
         </main>
     )
