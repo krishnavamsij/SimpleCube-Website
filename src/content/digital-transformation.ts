@@ -36,10 +36,10 @@ export const digitalTransformationContent = {
     hero: {
         title: "Digital Transformation",
         subtitle: "The digital revolution waits for no oneembrace change with Hyniva. Whether modernizing legacy systems, migrating to the cloud, or optimizing workflows, we tailor transformation strategies that future-proof your business.",
-        backgroundImage: "/images/2019/04/blog-intro.jpg",
+        backgroundImage: "/images/Banner_cards/Digital_Transformation.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

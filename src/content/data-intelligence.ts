@@ -36,10 +36,10 @@ export const dataIntelligenceContent = {
     hero: {
         title: "Data Intelligence",
         subtitle: "Turn raw data into powerful insights with Hyniva's cutting-edge analytics solutions. Our AI-driven approach to data warehousing, visualization, and machine learning empowers smarter decisions, sharper strategies, and unstoppable growth.",
-        backgroundImage: "/images/2019/04/blog-intro.jpg",
+        backgroundImage: "/images/Banner_cards/Data_Intelligence.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

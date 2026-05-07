@@ -36,10 +36,10 @@ export const awsCloudServicesContent = {
     hero: {
         title: "Expert AWS Cloud Solutions",
         subtitle: "Unlock AWS potential with Hyniva's cloud migration, DevOps, data management, and governance solutions. Simplify your journey to a secure, efficient cloud.",
-        backgroundImage: "/images/2019/04/blog-intro.jpg",
+        backgroundImage: "/images/Banner_cards/AWS_Cloud.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

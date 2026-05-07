@@ -36,7 +36,7 @@ export const transportationLogisticsContent = {
     hero: {
         title: "Transportation & Logistics",
         subtitle: "Stay ahead of demand with AI-powered logistics solutions that optimize fleets, streamline inventory, and enhance real-time tracking. Hyniva helps you transform supply chain complexities into seamless, data-driven efficiency.",
-        backgroundImage: "/images/2025/03/Transportation-Logistics-1.jpg",
+        backgroundImage: "/images/Banner_cards/Transport_logistics.png",
         contactButton: {
             /**
              * Contact button configuration
@@ -45,7 +45,7 @@ export const transportationLogisticsContent = {
              * - href: Button link
              */
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

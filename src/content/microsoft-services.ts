@@ -36,10 +36,10 @@ export const microsoftServicesContent = {
     hero: {
         title: "Microsoft Services",
         subtitle: "Power business transformation with Microsoft's enterprise ecosystem. At Hyniva, we unlock the full potential of Microsoft technologies-spanning Azure, Dynamics 365, Power Platform, and Microsoft 365-to drive agility, innovation, and growth.",
-        backgroundImage: "/images/2024/09/nature-landscape-background-1-scaled-e1726749512428.jpg",
+        backgroundImage: "/images/Banner_cards/Microsoft_services.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {

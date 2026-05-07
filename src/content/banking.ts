@@ -33,10 +33,10 @@ export const bankingContent = {
     hero: {
         title: "Banking",
         subtitle: "Banking is no longer just a transaction—it's an experience. Hyniva enables banks to modernize operations with AI-driven fraud detection, digital lending, and seamless payment integrations. Secure, smart, and built for the future.",
-        backgroundImage: "/images/2025/02/Banking00.jpg",
+        backgroundImage: "/images/Banner_cards/Banking.png",
         contactButton: {
             text: "Contact us!",
-            href: "mailto:connect@hyniva.com",
+            href: "/contact",
         },
     },
     intro: {
