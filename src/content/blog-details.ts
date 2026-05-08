@@ -375,15 +375,15 @@ export const blogDetails = {
       <div class="stats">
         <div class="stat">
           <div class="stat__value">40%</div>
-          <div class="stat__label">Drop in loan application abandonment rates</div>
+          <div class="stat__label">Drop in loan application<br>abandonment rates</div>
         </div>
         <div class="stat">
           <div class="stat__value">50%</div>
-          <div class="stat__label">Acceleration in processing times</div>
+          <div class="stat__label">Acceleration in processing<br>times</div>
         </div>
         <div class="stat">
-          <div class="stat__value">↑</div>
-          <div class="stat__label">Higher member satisfaction scores and improved compliance</div>
+          <div class="stat__value">increased</div>
+          <div class="stat__label">Higher member satisfaction scores<br>and improved compliance</div>
         </div>
       </div>
 
