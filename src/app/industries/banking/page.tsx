@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRightIcon, Bot, Users, CreditCard, Cloud, Landmark, Lightbulb } from "lucide-react";
+import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { bankingContent } from "@/content/banking";
@@ -15,186 +15,184 @@ import {
     fadeInUp,
 } from "@/lib/animations";
 
-/* ─────────────── Icon Map ─────────────── */
-
 const iconMap: Record<string, React.ElementType> = {
     Bot,
     Users,
     CreditCard,
     Cloud,
-    Landmark,
-    Lightbulb,
+    Smartphone,
+    TrendingUp,
 };
-
-/* ─────────────── Service Card ─────────────── */
-
-function ServiceCard({
-    service,
-    index,
-}: {
-    service: (typeof bankingContent.services)[number];
-    index: number;
-}) {
-    const IconComponent = iconMap[service.icon] || Bot;
-
-    return (
-        <motion.div
-            variants={scrollReveal}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-        >
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-50">
-                <IconComponent className="h-8 w-8 text-red-600" />
-            </div>
-            <h3 className="text-lg font-bold leading-snug mb-3 text-blue-900">
-                {service.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-slate-600 flex-1">
-                {service.description}
-            </p>
-        </motion.div>
-    );
-}
-
-/* ─────────────── Hero Section ─────────────── */
 
 function BankingHero() {
     return (
-        <section className="relative overflow-hidden py-20 pt-32 sm:py-28 sm:pt-36 md:py-32 md:pt-44 lg:py-36 lg:pt-48">
+        <section className="relative overflow-hidden py-24 pt-36 sm:py-32 sm:pt-48 md:py-40 md:pt-56">
             {/* Background layers */}
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${bankingContent.hero.backgroundImage}')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#030b1e]/70" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(52,81,149,0.2)_0%,transparent_65%)]" />
-            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/50 via-[#020918]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/80 via-[#061244]/60 to-[#030b1e]" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="w-full max-w-[95%] mx-auto"
                 >
+                    <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
+                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em] flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                            {bankingContent.hero.badge}
+                        </span>
+                    </motion.div>
+                    
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage leading-[1.2] px-8"
-                    >
-                        {bankingContent.hero.title}
-                    </motion.h1>
+                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.1] mb-8 tracking-tight font-display"
+                        dangerouslySetInnerHTML={{ __html: bankingContent.hero.title }}
+                    />
+                    
                     <motion.p
                         variants={fadeInUp}
-                        className="mt-6 text-lg text-slate-200 sm:text-xl tracking-wide max-w-5xl mx-auto px-8"
-                    >
-                        {bankingContent.hero.subtitle}
-                    </motion.p>
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mt-8 px-8"
-                    >
-                        <Link
-                            href={bankingContent.hero.contactButton.href}
-                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 to-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                        >
-                            {bankingContent.hero.contactButton.text}
-                            <ArrowUpRightIcon className="h-4 w-4" />
-                        </Link>
-                    </motion.div>
+                        className="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto"
+                        dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
+                    />
                 </motion.div>
             </div>
         </section>
     );
 }
 
-/* ─────────────── Intro Section ─────────────── */
-
-function BankingIntro() {
+function AlternatingSections() {
     return (
-        <section className="bg-white py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-white">
+            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
+                {bankingContent.alternatingSections.map((section, index) => (
+                    <motion.div 
+                        key={index}
+                        variants={scrollReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        className={`flex flex-col lg:flex-row gap-16 items-center ${section.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''}`}
+                    >
+                        {/* Image Side */}
+                        <div className="w-full lg:w-1/2">
+                            <div className="aspect-[4/3] rounded-[32px] bg-slate-200 overflow-hidden relative">
+                                {/* Placeholder for actual images later */}
+                            </div>
+                        </div>
+
+                        {/* Content Side */}
+                        <div className="w-full lg:w-1/2">
+                            <h2 className="text-3xl font-extrabold text-[#030B3B] mb-8 uppercase tracking-wide">
+                                {section.title}
+                            </h2>
+                            <div className="space-y-6">
+                                {section.content.map((paragraph, pIndex) => (
+                                    <p key={pIndex} className="text-[17px] text-slate-600 font-medium leading-relaxed">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function BankingOfferings() {
+    return (
+        <section className="py-24 bg-[#f8fafc]">
+            <div className="mx-auto max-w-[1400px] px-6 text-center">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-4xl"
+                    className="max-w-3xl mx-auto mb-16"
                 >
-                    <h3 className="text-xl font-bold leading-snug sm:text-2xl md:text-3xl mb-4 text-blue-900">
-                        {bankingContent.intro.title}
-                    </h3>
-                    <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
-                        {bankingContent.intro.description}
+                    <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
+                        {bankingContent.offerings.title}
+                    </h2>
+                    <p className="text-lg text-slate-600 font-medium">
+                        {bankingContent.offerings.subtitle}
                     </p>
                 </motion.div>
-            </div>
-        </section>
-    );
-}
 
-/* ─────────────── Services Grid ─────────────── */
-
-function ServicesGrid() {
-    const { services } = bankingContent;
-
-    return (
-        <section className="bg-[#f3f3f3] py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
                     variants={scrollStaggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
                 >
-                    {services.map((service, index) => (
-                        <ServiceCard key={service.title} service={service} index={index} />
-                    ))}
+                    {bankingContent.offerings.items.map((item, index) => {
+                        const IconComponent = iconMap[item.icon] || Bot;
+                        return (
+                            <motion.div
+                                key={index}
+                                variants={scrollReveal}
+                                className="bg-white rounded-[24px] p-8 border border-slate-200 hover:border-[#1e90ff]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                            >
+                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/10 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300">
+                                    <IconComponent className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-[19px] font-bold text-[#030B3B] mb-4">
+                                    {item.title}
+                                </h3>
+                                <p className="text-[15px] text-slate-600 font-medium leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>
     );
 }
 
-/* ─────────────── Delivery Enablers ─────────────── */
-
-function DeliveryEnablers() {
-    const { deliveryEnablers } = bankingContent;
-
+function ProvenImpact() {
     return (
-        <section className="bg-white py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-[#030b1e] relative overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+            
+            <div className="mx-auto max-w-[1200px] px-6 text-center relative z-10">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-12"
+                    className="max-w-4xl mx-auto mb-20"
                 >
-                    <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-blue-900">
-                        {deliveryEnablers.title}
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
+                        {bankingContent.impact.title}
                     </h2>
+                    <p className="text-lg text-slate-300 font-medium leading-relaxed">
+                        {bankingContent.impact.subtitle}
+                    </p>
                 </motion.div>
+
                 <motion.div
                     variants={scrollStaggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 items-center"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-8"
                 >
-                    {deliveryEnablers.logos.map((logo, index) => (
-                        <motion.div
-                            key={logo.name}
-                            variants={scrollReveal}
-                            className="flex items-center justify-center"
-                        >
-                            <Image
-                                src={logo.src}
-                                alt={logo.name}
-                                width={100}
-                                height={50}
-                                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                            />
+                    {bankingContent.impact.stats.map((stat, index) => (
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
+                            <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display">
+                                {stat.value}
+                            </div>
+                            <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                                {stat.label}
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -203,19 +201,91 @@ function DeliveryEnablers() {
     );
 }
 
-/* ─────────────── Page ─────────────── */
+function CaseStudies() {
+    return (
+        <section className="py-24 bg-white">
+            <div className="mx-auto max-w-[1400px] px-6">
+                <motion.div
+                    variants={scrollReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    className="mb-16"
+                >
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
+                        {bankingContent.caseStudies.title}
+                    </h2>
+                    <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
+                        {bankingContent.caseStudies.subtitle}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    variants={scrollStaggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
+                    {bankingContent.caseStudies.studies.map((study, index) => (
+                        <motion.div
+                            key={index}
+                            variants={scrollReveal}
+                            className="group flex flex-col rounded-[24px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+                        >
+                            {/* Image */}
+                            <div className="h-[200px] relative overflow-hidden bg-slate-100">
+                                {study.image && (
+                                    <Image
+                                        src={study.image}
+                                        alt={study.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                )}
+                            </div>
+
+                            {/* Content */}
+                            <div className="p-8 flex flex-col flex-1">
+                                <div className="mb-4">
+                                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${study.badge === 'Article' ? 'bg-orange-100 text-orange-600' : 'bg-red-100 text-red-600'}`}>
+                                        {study.badge}
+                                    </span>
+                                </div>
+                                <h3 className="text-[19px] font-bold text-[#030B3B] leading-snug mb-4">
+                                    {study.title}
+                                </h3>
+                                <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
+                                    {study.description}
+                                </p>
+                                
+                                <Link
+                                    href={study.href}
+                                    className="flex items-center gap-2 text-[13px] font-bold text-[#1e90ff] uppercase tracking-wider group-hover:gap-3 transition-all"
+                                >
+                                    Read More <ArrowRightIcon className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
+}
 
 export default function BankingPage() {
     return (
-        <>
+        <div className="min-h-screen font-sans text-[#030B3B]">
             <Navbar />
             <main>
                 <BankingHero />
-                <BankingIntro />
-                <ServicesGrid />
-                <DeliveryEnablers />
+                <AlternatingSections />
+                <BankingOfferings />
+                <ProvenImpact />
+                <CaseStudies />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
