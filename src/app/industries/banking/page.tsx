@@ -43,9 +43,9 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-10 md:space-y-12"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-8"
                 >
-                    <motion.div variants={fadeInUp} className="flex justify-center">
+                    <motion.div variants={fadeInUp} className="flex justify-center mb-4 md:mb-6">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {bankingContent.hero.badge}
@@ -63,7 +63,7 @@ function BankingHero() {
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-2"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-4 md:pt-6"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -241,56 +241,33 @@ function CaseStudies() {
                     className="grid grid-cols-1 md:grid-cols-3 gap-8"
                 >
                     {bankingContent.caseStudies.studies.map((study, index) => {
-                        // Title Color Highlighting split logic
-                        const parts = study.title.split("<br />");
-                        const firstLine = parts[0] || "";
-                        const secondLine = parts[1] || "";
-                        
                         return (
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="group flex flex-col rounded-[32px] bg-[#ECF5FF] p-6 border border-[#030B3B]/5 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(30,144,255,0.08)] hover:-translate-y-1 h-full"
+                                className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full"
                             >
-                                {/* Rounded Image container */}
-                                <div className="h-[230px] w-full relative rounded-[24px] overflow-hidden bg-white mb-6">
+                                {/* Card Image */}
+                                <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
                                     {study.image && (
                                         <Image
                                             src={study.image}
-                                            alt={study.title.replace("<br />", " ")}
+                                            alt={study.title.replace(/<[^>]*>/g, "")}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-103"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
                                     )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
                                 </div>
 
                                 {/* Content */}
-                                <div className="flex flex-col flex-1">
-                                    <h3 className="text-[19px] font-extrabold leading-snug mb-4 font-display">
-                                        {study.titleHighlightIndex === 1 ? (
-                                            <>
-                                                <span className="text-[#1e90ff]">{firstLine}</span>
-                                                {secondLine && (
-                                                    <>
-                                                        <br />
-                                                        <span className="text-[#030B3B]">{secondLine}</span>
-                                                    </>
-                                                )}
-                                            </>
-                                        ) : (
-                                            <>
-                                                <span className="text-[#030B3B]">{firstLine}</span>
-                                                {secondLine && (
-                                                    <>
-                                                        <br />
-                                                        <span className="text-[#1e90ff]">{secondLine}</span>
-                                                    </>
-                                                )}
-                                            </>
-                                        )}
-                                    </h3>
+                                <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
+                                    <h3 
+                                        className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
+                                        dangerouslySetInnerHTML={{ __html: study.title }}
+                                    />
                                     
-                                    <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
+                                    <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
                                         {study.description}
                                     </p>
                                     

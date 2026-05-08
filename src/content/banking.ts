@@ -86,25 +86,22 @@ export const bankingContent = {
         subtitle: "Real-world implementations that demonstrate how we have enabled banks to transform experiences, accelerate lending and modernize operations at scale.",
         studies: [
             {
-                title: "Autonomous Lending Experience<br />with FinXServe & Agentforce",
-                titleHighlightIndex: 1, // Highlighting first half
+                title: "<span class='text-[#3B82F6]'>Autonomous Lending Experience</span> with FinXServe & Agentforce",
                 description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
                 href: "/insights/case-studies/autonomous-lending-experiences",
                 image: "/images/Case_Study/1.png"
             },
             {
-                title: "Faster Loan Processing<br />with Agentforce Document Intelligence",
-                titleHighlightIndex: 1, // Highlighting first half
+                title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce Document Intelligence",
                 description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
                 href: "/insights/case-studies/instant-loan-processing",
                 image: "/images/Case_Study/4.png"
             },
             {
-                title: "Modernizing Contact Centers with<br />Intelligent IVR Self-Service",
-                titleHighlightIndex: 2, // Highlighting second half
-                description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
-                href: "/insights/case-studies/intelligent-ivr-self-service",
-                image: "/images/Case_Study/2.png"
+                title: "<span class='text-[#3B82F6]'>Core Banking Transformation</span> on Microsoft",
+                description: "50% faster loan approvals and 30% lower costs with Microsoft-led modernization.",
+                href: "/insights/case-studies/core-banking-transformation",
+                image: "/images/Case_Studies/Optimized/cs-8.png"
             }
         ]
     }
