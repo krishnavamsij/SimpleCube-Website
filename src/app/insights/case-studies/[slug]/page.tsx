@@ -396,7 +396,23 @@ export default function CaseStudyDetailPage() {
                             transition={{ duration: 0.7, delay: 0.15 }}
                             className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-white tracking-tight leading-[1.15] mb-8 font-sans"
                         >
-                            {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
+                            {(() => {
+                                // Hard-coded title mapping for problematic studies
+                                const hardCodedTitles: Record<string, string> = {
+                                    'scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation': 'Optimizing Loan Routing and Pre-Qualification with Intelligent Automation',
+                                    'modernizing-a-legacy-platform': 'Modernizing Legacy CRM to Modern Lending Platform',
+                                    'transforming-insurance-claims-operations-with-a-scalable-digital-platform': 'Transforming Insurance Claims Operations with a Scalable Digital Platform'
+                                };
+                                
+                                // Use hard-coded title if it's one of the problematic studies
+                                const displayTitle = hardCodedTitles[study.slug as keyof typeof hardCodedTitles] || study.title;
+                                
+                                console.log('Hard-coded title mapping used for:', study.slug, 'Title:', displayTitle);
+                                
+                                return (
+                                    <span className="font-sans font-semibold" dangerouslySetInnerHTML={{ __html: displayTitle }} />
+                                );
+                            })()}
                         </motion.h1>
 
                         <motion.p

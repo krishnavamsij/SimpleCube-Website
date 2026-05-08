@@ -9,231 +9,300 @@ import React, { useEffect, useRef } from "react";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 
 export function Footer() {
-    const { label, headline, sub, cta } = ctaContent;
-    const { sections, offices, linkedin, email } = footerContent;
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { label, headline, sub, cta } = ctaContent;
+  const { sections, offices, linkedin, email } = footerContent;
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    // Particle animation logic from previously existing CtaBanner
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-        const section = canvas.parentElement;
-        if (!section) return;
+  // Particle animation logic from previously existing CtaBanner
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const section = canvas.parentElement;
+    if (!section) return;
 
-        let animationFrameId: number;
+    let animationFrameId: number;
 
-        function resize() {
-            canvas!.width = section!.offsetWidth;
-            canvas!.height = section!.offsetHeight;
+    function resize() {
+      canvas!.width = section!.offsetWidth;
+      canvas!.height = section!.offsetHeight;
+    }
+    resize();
+
+    const TEAL = "rgba(0,212,170,";
+    const CYAN = "rgba(0,168,255,";
+    const TEAL2 = "rgba(0,212,212,";
+
+    const COLS = 48;
+    const particles: any[] = [];
+
+    function initParticles() {
+      particles.length = 0;
+      const colW = canvas!.width / COLS;
+      for (let c = 0; c < COLS; c++) {
+        const count = Math.floor(Math.random() * 6) + 2;
+        for (let i = 0; i < count; i++) {
+          const color =
+            Math.random() > 0.5 ? TEAL : Math.random() > 0.5 ? CYAN : TEAL2;
+          particles.push({
+            x: colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.6,
+            y: canvas!.height + Math.random() * canvas!.height,
+            vy: -(0.3 + Math.random() * 0.7),
+            r: Math.random() * 1.8 + 0.5,
+            opacity: Math.random() * 0.5 + 0.1,
+            color,
+            fadeY: canvas!.height * (0.15 + Math.random() * 0.45),
+          });
         }
-        resize();
+      }
+    }
+    initParticles();
 
-        const TEAL = 'rgba(0,212,170,';
-        const CYAN = 'rgba(0,168,255,';
-        const TEAL2 = 'rgba(0,212,212,';
+    const handleResize = () => {
+      resize();
+      initParticles();
+    };
+    window.addEventListener("resize", handleResize);
 
-        const COLS = 48;
-        const particles: any[] = [];
+    let last = 0;
+    function loop(ts: number) {
+      const dt = ts - last;
+      last = ts;
 
-        function initParticles() {
-            particles.length = 0;
-            const colW = canvas!.width / COLS;
-            for (let c = 0; c < COLS; c++) {
-                const count = Math.floor(Math.random() * 6) + 2;
-                for (let i = 0; i < count; i++) {
-                    const color = Math.random() > 0.5 ? TEAL : (Math.random() > 0.5 ? CYAN : TEAL2);
-                    particles.push({
-                        x: colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.6,
-                        y: canvas!.height + Math.random() * canvas!.height,
-                        vy: -(0.3 + Math.random() * 0.7),
-                        r: Math.random() * 1.8 + 0.5,
-                        opacity: Math.random() * 0.5 + 0.1,
-                        color,
-                        fadeY: canvas!.height * (0.15 + Math.random() * 0.45),
-                    });
-                }
-            }
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      const w = canvas!.width;
+      const h = canvas!.height;
+
+      for (const p of particles) {
+        p.y += p.vy;
+        if (p.y < -10) {
+          p.y = h + Math.random() * 60;
         }
-        initParticles();
+        const heightFade = Math.max(
+          0,
+          Math.min(1, (p.y - p.fadeY) / (h * 0.25)),
+        );
+        const alpha = p.opacity * heightFade;
+        if (alpha < 0.005) continue;
+        ctx!.beginPath();
+        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx!.fillStyle = p.color + alpha + ")";
+        ctx!.fill();
+      }
 
-        const handleResize = () => {
-            resize();
-            initParticles();
-        };
-        window.addEventListener("resize", handleResize);
+      animationFrameId = requestAnimationFrame(loop);
+    }
+    animationFrameId = requestAnimationFrame(loop);
 
-        let last = 0;
-        function loop(ts: number) {
-            const dt = ts - last;
-            last = ts;
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
-            ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-            const w = canvas!.width;
-            const h = canvas!.height;
+  return (
+    <footer className="relative overflow-hidden w-full bg-[#030B3B] text-white">
+      {/* Background glowing ellipses */}
+      <div
+        className="absolute w-[800px] h-[800px] pointer-events-none z-[1] bottom-[0px] left-[-200px]"
+        style={{
+          background:
+            "radial-gradient(ellipse, rgba(0,212,170,0.1) 0%, transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute w-[600px] h-[600px] pointer-events-none z-[1] top-[20%] right-[-100px]"
+        style={{
+          background:
+            "radial-gradient(ellipse, rgba(0,168,255,0.08) 0%, transparent 65%)",
+        }}
+      />
 
-            for (const p of particles) {
-                p.y += p.vy;
-                if (p.y < -10) {
-                    p.y = h + Math.random() * 60;
-                }
-                const heightFade = Math.max(0, Math.min(1, (p.y - p.fadeY) / (h * 0.25)));
-                const alpha = p.opacity * heightFade;
-                if (alpha < 0.005) continue;
-                ctx!.beginPath();
-                ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx!.fillStyle = p.color + alpha + ')';
-                ctx!.fill();
-            }
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
+      />
 
-            animationFrameId = requestAnimationFrame(loop);
-        }
-        animationFrameId = requestAnimationFrame(loop);
+      <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 py-[30px] sm:py-[40px] lg:py-[50px] flex flex-col min-h-screen justify-center">
+        {/* ── LET'S TALK CTA SECTION ── */}
+        <motion.div
+          variants={scrollReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto"
+        >
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+            {label}
+          </div>
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
+          <h2 className="font-extrabold text-white text-[32px] sm:text-4xl lg:text-[44px] leading-[1.08] tracking-tight mb-5">
+            {headline.split("simplify").map((part, i, arr) => (
+              <React.Fragment key={i}>
+                <span className="text-white">{part}</span>
+                {i < arr.length - 1 && (
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#00A8FF]">
+                    simplify
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </h2>
 
-    return (
-        <footer className="relative overflow-hidden w-full bg-[#030B3B] text-white">
-            {/* Background glowing ellipses */}
-            <div className="absolute w-[800px] h-[800px] pointer-events-none z-[1] bottom-[0px] left-[-200px]" style={{ background: "radial-gradient(ellipse, rgba(0,212,170,0.1) 0%, transparent 65%)" }} />
-            <div className="absolute w-[600px] h-[600px] pointer-events-none z-[1] top-[20%] right-[-100px]" style={{ background: "radial-gradient(ellipse, rgba(0,168,255,0.08) 0%, transparent 65%)" }} />
-            
-            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[2] pointer-events-none" />
+          <p className="text-[18px] sm:text-[20px] font-medium text-[#E5E7EB] opacity-100 leading-[1.6] max-w-[640px] mb-8">
+            {sub.split("\n").map((line, i) => (
+              <span key={i} className="block">
+                {line}
+              </span>
+            ))}
+          </p>
 
-            <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 py-[30px] sm:py-[40px] lg:py-[50px] flex flex-col min-h-screen justify-center">
-                
-                {/* ── LET'S TALK CTA SECTION ── */}
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto">
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
-                        {label}
-                    </div>
+          <Link
+            href={cta.href}
+            className="group inline-flex items-center justify-center gap-2.5 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
+          >
+            {cta.label}
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </motion.div>
 
-                    <h2 className="font-extrabold text-[#ffffff] text-[32px] sm:text-4xl lg:text-[44px] leading-[1.08] tracking-tight mb-5 w-full max-w-none lg:whitespace-nowrap">
-                        {headline.split("simplify").map((part, i, arr) => (
-                            <React.Fragment key={i}>
-                                {part}
-                                {i < arr.length - 1 && <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#00A8FF]">simplify</em>}
-                            </React.Fragment>
-                        ))}
-                    </h2>
+        {/* ── SEPARATOR LINE FROM LOGO TO COMPANY ── */}
+        <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
 
-                    <p className="text-[18px] sm:text-[20px] font-medium text-white/60 leading-[1.6] max-w-[640px] mb-8">
-                        {sub.split('\n').map((line, i) => (
-                            <span key={i} className="block">{line}</span>
-                        ))}
-                    </p>
+        {/* ── FOOTER LINKS & BRAND ── */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8 pb-4 mt-auto">
+          {/* Brand */}
+          <div className="w-full lg:max-w-sm">
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/images/Hyniva_partial_colour_1.svg"
+                alt="Hyniva"
+                width={240}
+                height={68}
+                className="h-16 sm:h-20 w-auto"
+              />
+            </Link>
 
-                    <Link
-                        href={cta.href}
-                        className="group inline-flex items-center justify-center gap-2.5 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
-                    >
-                        {cta.label}
-                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </Link>
-                </motion.div>
-
-                {/* ── SEPARATOR LINE FROM LOGO TO COMPANY ── */}
-                <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
-
-                {/* ── FOOTER LINKS & BRAND ── */}
-                <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8 pb-4 mt-auto">
-                    {/* Brand */}
-                    <div className="w-full lg:max-w-sm">
-                        <Link href="/" className="inline-flex items-center">
-                            <Image
-                                src="/images/Hyniva_partial_colour_1.svg"
-                                alt="Hyniva"
-                                width={240}
-                                height={68}
-                                className="h-16 sm:h-20 w-auto"
-                            />
-                        </Link>
-
-                        {/* Offices */}
-                        <div className="mt-8 space-y-4">
-                            {offices.map((office) => (
-                                <div key={office.country} className="flex items-start gap-3">
-                                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00D4AA]" />
-                                    <span className="text-sm">
-                                        <strong className="text-white">{office.country}</strong>
-                                        <br />
-                                        <span className="whitespace-pre-line leading-relaxed text-white/70">
-                                            {office.address}
-                                        </span>
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Social */}
-                        <div className="mt-8 flex gap-3">
-                            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white">
-                                <Linkedin className="h-4 w-4" />
-                            </a>
-                            <a href={`mailto:${email}`} className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white">
-                                <Mail className="h-4 w-4" />
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Link columns area */}
-                    <div className="flex flex-col gap-8 lg:w-auto lg:ml-auto">
-                        <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
-                            {sections.map((section) => (
-                                <div key={section.title} className="min-w-[120px]">
-                                    <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
-                                        {section.title}
-                                    </h5>
-                                    <ul className="space-y-3">
-                                        {section.links.map((link) => (
-                                            <li key={link.title}>
-                                                <Link
-                                                    href={link.href}
-                                                    className="text-sm text-white/60 transition-colors hover:text-white hover:font-medium"
-                                                >
-                                                    {link.title}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
-                        <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full">
-                            <div>
-                                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
-                                    Proud Member
-                                </h4>
-                                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                                    <Image src="/images/Footer/Greater_San_Antonio_Member_logo.png" alt="Greater San Antonio Chamber" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
-                                    <Image src="/images/Footer/North-SA-Chamber.png" alt="North San Antonio Chamber Member" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
-                                </div>
-                            </div>
-                            <div className="ml-0 sm:ml-4">
-                                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
-                                    Certified By
-                                </h4>
-                                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                                    <Image src="/images/Footer/SOC.png" alt="SOC" width={100} height={100} className="h-16 sm:h-20 w-auto object-contain" />
-                                    <Image src="/images/Footer/Certification_Badge_without_Background.png" alt="AICPA SOC Certification Badge" width={100} height={100} className="h-20 sm:h-24 w-auto object-contain" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            {/* Offices */}
+            <div className="mt-8 space-y-4">
+              {offices.map((office) => (
+                <div key={office.country} className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00D4AA]" />
+                  <span className="text-sm">
+                    <strong className="text-white">{office.country}</strong>
+                    <br />
+                    <span className="whitespace-pre-line leading-relaxed text-white/70">
+                      {office.address}
+                    </span>
+                  </span>
                 </div>
-
+              ))}
             </div>
-        </footer>
-    );
+
+            {/* Social */}
+            <div className="mt-8 flex gap-3">
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={`mailto:${email}`}
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Link columns area */}
+          <div className="flex flex-col gap-8 lg:w-auto lg:ml-auto">
+            <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
+              {sections.map((section) => (
+                <div key={section.title} className="min-w-[120px]">
+                  <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+                    {section.title}
+                  </h5>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.title}>
+                        <Link
+                          href={link.href}
+                          className="text-sm text-white/60 transition-colors hover:text-white hover:font-medium"
+                        >
+                          {link.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
+            <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full">
+              <div>
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+                  Proud Member
+                </h4>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                  <Image
+                    src="/images/Footer/Greater_San_Antonio_Member_logo.png"
+                    alt="Greater San Antonio Chamber"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
+                  />
+                  <Image
+                    src="/images/Footer/North-SA-Chamber.png"
+                    alt="North San Antonio Chamber Member"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div className="ml-0 sm:ml-4">
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+                  Certified By
+                </h4>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                  <Image
+                    src="/images/Footer/SOC.png"
+                    alt="SOC"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
+                  />
+                  <Image
+                    src="/images/Footer/Certification_Badge_without_Background.png"
+                    alt="AICPA SOC Certification Badge"
+                    width={100}
+                    height={100}
+                    className="h-20 sm:h-24 w-auto object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

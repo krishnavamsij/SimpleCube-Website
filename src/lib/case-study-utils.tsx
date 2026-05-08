@@ -28,9 +28,54 @@ export function parseCaseStudyTitle(slugOrHref: string): ParsedTitle {
     );
     
     if (!study || !study.title) {
-        return { parts: [{ text: '', highlighted: false }] };
+        // Manual fallback for specific studies that aren't matching properly
+        const knownSlugs = [
+            'scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation',
+            'modernizing-a-legacy-platform',
+            'transforming-insurance-claims-operations-with-a-scalable-digital-platform'
+        ];
+        
+        // Check if this is one of the problematic studies
+        if (knownSlugs.includes(slugOrHref)) {
+            // Manual search in case studies array for matching title
+            const fallbackStudy = caseStudiesContent.studies.find(s => {
+                const slugWords = s.href.split('-');
+                const studyWords = s.title.split(' ');
+                // Check if all slug words are contained in the study title
+                const isMatch = slugWords.every(word => studyWords.includes(word));
+                if (isMatch && fallbackStudy?.title) {
+                    // Use the title from the found study
+                    return { parts: [{ text: fallbackStudy.title, highlighted: false }] };
+                }
+            });
+            if (fallbackStudy) return fallbackStudy;
+        }
+        
+        // If still no match, try to find by partial slug match
+        const partialMatch = caseStudiesContent.studies.find(s => {
+            const studySlugWords = s.href.split('-');
+            const currentSlugWords = slugOrHref.split('-');
+            // Check if current slug contains all words from study slug
+            const partialMatchCount = currentSlugWords.filter(word => studySlugWords.includes(word)).length;
+            const requiredMatchCount = studySlugWords.length;
+            
+            // If we have a good partial match (at least 50% of words), use it
+            if (partialMatchCount >= requiredMatchCount * 0.5) {
+                const matchingStudy = caseStudiesContent.studies.find(s => s.href.includes(slugOrHref));
+                if (matchingStudy?.title) {
+                    return { parts: [{ text: matchingStudy.title, highlighted: false }] };
+                }
+            }
+        });
+        if (partialMatch) return partialMatch;
+        
+        // If still no match, return empty
+        const fallbackTitle = slugOrHref.split('-').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+        return { parts: [{ text: fallbackTitle, highlighted: false }] };
     }
-
+    
     const parts: Array<{ text: string; highlighted: boolean; color?: string }> = [];
     
     // Parse the HTML title to extract text and highlight information
@@ -65,6 +110,7 @@ export function parseCaseStudyTitle(slugOrHref: string): ParsedTitle {
         
         // Add the highlighted text
         const highlightedText = match[2].replace(/<[^>]*>/g, '').trim(); // Remove any nested HTML
+        
         if (highlightedText) {
             parts.push({
                 text: highlightedText,

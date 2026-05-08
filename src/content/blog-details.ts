@@ -2588,96 +2588,50 @@ export const blogDetails = {
             {
                 id: "intro",
                 title: "",
-                content: `<p>Artificial Intelligence is changing at a rapid pace, and businesses across all industries are trying to identify the best AI solution to boost their growth. The finance industry is also ever evolving, with new challenges emerging every day. With the massive adoption of digital experiences by large to medium-sized banks and credit unions, AI has been taking center stage in revolutionizing loan processing, fraud detection, and operations.</p>
-      <p>Here are four key use cases and the impact AI has delivered in each.</p>
-    </div>
-
-    <!-- USE CASE CARDS -->
-    <div class="use-cases">
-
-      <!-- 1. Automated Customer Service -->
-      <div class="use-case">
-        <div class="use-case__header">
-          <div class="use-case__icon">
-            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2C5.134 2 2 4.91 2 8.5c0 1.48.518 2.845 1.382 3.94L2.5 15.5l3.27-.87A7.17 7.17 0 009 15c3.866 0 7-2.91 7-6.5S12.866 2 9 2z" stroke="#6eb3ff" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 9h6M6 6.5h4" stroke="#6eb3ff" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </div>
-          <div class="use-case__title">Automated Customer Service</div>
+                content: `<p>Artificial Intelligence is changing at a rapid pace, and businesses across all industries are trying to identify best AI solution to boost their growth. The finance industry is also ever evolving, with new challenges emerging every day. With the massive adoption of digital experiences by large to medium-sized banks and credit unions, AI has been taking center stage in revolutionizing loan processing, fraud detection, and operations.</p>
+      <p>Here are four key use cases and the impact AI has delivered in each.</p>`
+            },
+            {
+                id: "key-use-cases",
+                title: "Key Use Cases",
+                content: `<div class="tool-cards">
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <div class="tool-card__num">1</div>
+          <div class="tool-card__title">Automated Customer Service</div>
         </div>
-        <div class="use-case__body">
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--challenge">Challenge</div>
-            <div class="use-case__row-text">Financial institutions are struggling to meet the demand of an increasing influx of customer inquiries and issues. This has caused growing frustration among customers due to increased wait times for support calls.</div>
-          </div>
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--solution">Solution</div>
-            <div class="use-case__row-text">Implementing an AI chatbot proved to be an effective solution. By integrating AI-powered chat, institutions provided instant, 24/7 support for common inquiries — reducing call volumes, decreasing wait times, and freeing back-office teams to focus on more complex cases. The result: enhanced customer satisfaction and measurably improved operational efficiency.</div>
-          </div>
+        <div class="tool-card__body">
+          Financial institutions are struggling to meet the demand of an increasing influx of customer inquiries and issues. This has caused growing frustration among customers due to increased wait times for support calls. Implementing an AI chatbot proved to be an effective solution. By integrating AI-powered chat, institutions provided instant, 24/7 support for common inquiries — reducing call volumes, decreasing wait times, and freeing back-office teams to focus on more complex cases. The result: enhanced customer satisfaction and measurably improved operational efficiency.
         </div>
       </div>
-
-      <!-- 2. Advanced Fraud Detection -->
-      <div class="use-case">
-        <div class="use-case__header">
-          <div class="use-case__icon">
-            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2l6 2.5v5C15 13 12.5 16 9 17 5.5 16 3 13 3 9.5v-5L9 2z" stroke="#6eb3ff" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 9l1.5 1.5 3-3" stroke="#6eb3ff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="use-case__title">Advanced Fraud Detection</div>
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <div class="tool-card__num">2</div>
+          <div class="tool-card__title">Advanced Fraud Detection</div>
         </div>
-        <div class="use-case__body">
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--challenge">Challenge</div>
-            <div class="use-case__row-text">Fraudulent actors have been growing and it has become harder for certain community banks and CDFIs to detect their activities — a result of legacy digital infrastructure and a lack of tools capable of identifying potential anomalies.</div>
-          </div>
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--solution">Solution</div>
-            <div class="use-case__row-text">AI-driven fraud detection algorithms integrated into digital banking platforms have significantly boosted institutions' ability to identify unusual interactions, patterns, and anomalies in real time. By continuously analyzing user interactions and transaction data using advanced machine learning, these systems provide a robust defense mechanism — improving reliability and bolstering trust in digital banking environments.</div>
-          </div>
+        <div class="tool-card__body">
+          Fraudulent actors have been growing and it has become harder for certain community banks and CDFIs to detect their activities — a result of legacy digital infrastructure and a lack of tools capable of identifying potential anomalies. AI-driven fraud detection algorithms integrated into digital banking platforms have significantly boosted institutions' ability to identify unusual interactions, patterns, and anomalies in real time. By continuously analyzing user interactions and transaction data using advanced machine learning, these systems provide a robust defense mechanism — improving reliability and bolstering trust in digital banking environments.
         </div>
       </div>
-
-      <!-- 3. Personalized Financial Advice -->
-      <div class="use-case">
-        <div class="use-case__header">
-          <div class="use-case__icon">
-            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="6" r="3" stroke="#6eb3ff" stroke-width="1.3"/><path d="M3.5 15.5c0-3.038 2.462-5.5 5.5-5.5s5.5 2.462 5.5 5.5" stroke="#6eb3ff" stroke-width="1.3" stroke-linecap="round"/><path d="M12 8.5l1 1 2-2" stroke="#6eb3ff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="use-case__title">Personalized Financial Advice</div>
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <div class="tool-card__num">3</div>
+          <div class="tool-card__title">Personalized Financial Advice</div>
         </div>
-        <div class="use-case__body">
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--challenge">Challenge</div>
-            <div class="use-case__row-text">CDFIs are facing the challenge of catering to a growing customer base that actively seeks out personalized financial advice. Due to a lack of in-house expertise, a significant portion of their customers are moving to other institutions.</div>
-          </div>
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--solution">Solution</div>
-            <div class="use-case__row-text">Real-time market and portfolio analysis powered by AI tools delivers tailored feedback and financial advice directly to users — eliminating the need for extensive in-house advisory teams. This streamlines operational efficiency, allows CDFIs to focus resources on their core community mission, boosts customer loyalty, and encourages greater engagement with the institution's financial services.</div>
-          </div>
+        <div class="tool-card__body">
+          CDFIs are facing the challenge of catering to a growing customer base that actively seeks out personalized financial advice. Due to a lack of in-house expertise, a significant portion of their customers are moving to other institutions. Real-time market and portfolio analysis powered by AI tools delivers tailored feedback and financial advice directly to users — eliminating the need for extensive in-house advisory teams. This streamlines operational efficiency, allows CDFIs to focus resources on their core community mission, boosts customer loyalty, and encourages greater engagement with the institution's financial services.
         </div>
       </div>
-
-      <!-- 4. Streamlined Loan Processing -->
-      <div class="use-case">
-        <div class="use-case__header">
-          <div class="use-case__icon">
-            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="2.5" width="12" height="13" rx="1.5" stroke="#6eb3ff" stroke-width="1.3"/><path d="M6 6.5h6M6 9.5h6M6 12.5h4" stroke="#6eb3ff" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </div>
-          <div class="use-case__title">Streamlined Loan Processing</div>
+      <div class="tool-card">
+        <div class="tool-card__header">
+          <div class="tool-card__num">4</div>
+          <div class="tool-card__title">Streamlined Loan Processing</div>
         </div>
-        <div class="use-case__body">
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--challenge">Challenge</div>
-            <div class="use-case__row-text">In today's fast-paced digital world, customers expect quick responses and decisions from banks. Financial institutions heavily reliant on paper loan applications or legacy digital platforms face the challenge of delayed loan processing.</div>
-          </div>
-          <div class="use-case__row">
-            <div class="use-case__row-label use-case__row-label--solution">Solution</div>
-            <div class="use-case__row-text">AI-driven loan processing significantly cuts down approval times. Through advanced data analysis and machine learning, AI algorithms quickly assess creditworthiness, analyze financial documents, and evaluate risk factors with high accuracy — drastically reducing manual intervention, minimizing human error, and speeding up decision-making. Faster approvals and fewer errors translate directly into higher customer satisfaction.</div>
-          </div>
+        <div class="tool-card__body">
+          In today's fast-paced digital world, customers expect quick responses and decisions from banks. Financial institutions heavily reliant on paper loan applications or legacy digital platforms face the challenge of delayed loan processing. AI-driven loan processing significantly cuts down approval times. Through advanced data analysis and machine learning, AI algorithms quickly assess creditworthiness, analyze financial documents, and evaluate risk factors with high accuracy — drastically reducing manual intervention, minimizing human error, and speeding up decision-making. Faster approvals and fewer errors translate directly into higher customer satisfaction.
         </div>
       </div>
-
-    </div>
-
-    <div class="prose">`
+    </div>`
             },
             {
                 id: "the-road-ahead",

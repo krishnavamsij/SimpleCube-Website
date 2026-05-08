@@ -173,8 +173,8 @@ export default function BlogDetailPage() {
                     <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
                 </div>
 
-                <div className="mx-auto w-full max-w-[860px] px-6 sm:px-8 lg:px-12 relative z-10 text-center">
-                    <div className="w-full max-w-[95%] mx-auto">
+                <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 text-center">
+                    <div className="w-full max-w-7xl mx-auto">
                         <motion.div
                             initial="hidden"
                             animate="visible"
@@ -246,13 +246,35 @@ export default function BlogDetailPage() {
 
                                     <div
                                         className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
-                                        [&_p]:mb-6 
+                                        [&_div]:mb-6 
                                         [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3
                                         [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#374151] [&_li]:text-[16px] [&_li]:leading-[1.8]
                                         [&_strong]:text-[#111827] [&_strong]:font-semibold
                                         [&_em]:text-[#1e90ff] [&_em]:italic
                                         [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
-                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display"
+                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display
+                                        [&_svg]:w-9 [&_svg]:h-9
+                                        [&_.use-cases]:mt-12 [&_.use-cases]:flex [&_.use-cases]:flex-col [&_.use-cases]:gap-7
+                                        [&_.use-case]:border [&_.use-case]:border-[#e4e8f0] [&_.use-case]:rounded-[14px] [&_.use-case]:overflow-hidden [&_.use-case]:shadow-sm
+                                        [&_.use-case__header]:flex [&_.use-case__header]:items-center [&_.use-case__header]:gap-3.5 [&_.use-case__header]:p-5 [&_.use-case__header]:bg-[#0a0f1e] [&_.use-case__header]:relative [&_.use-case__header]:overflow-hidden
+                                        [&_.use-case__header::before]:absolute [&_.use-case__header::before]:inset-0 [&_.use-case__header::before]:bg-gradient-to-br [&_.use-case__header::before]:from-transparent [&_.use-case__header::before]:to-transparent [&_.use-case__header::before]:bg-[size:28px_28px] [&_.use-case__header::before]:bg-[linear-gradient(rgba(30,111,255,0.07)_1px,_transparent_1px),_linear-gradient(90deg,rgba(30,111,255,0.07)_1px,_transparent_1px)]
+                                        [&_.use-case__icon]:relative [&_.use-case__icon]:z-10 [&_.use-case__icon]:w-9 [&_.use-case__icon]:h-9 [&_.use-case__icon]:rounded-[10px] [&_.use-case__icon]:bg-[rgba(30,111,255,0.25)] [&_.use-case__icon]:flex [&_.use-case__icon]:items-center [&_.use-case__icon]:justify-center [&_.use-case__icon]:flex-shrink-0
+                                        [&_.use-case__icon_svg]:w-4.5 [&_.use-case__icon_svg]:h-4.5
+                                        [&_.use-case__title]:relative [&_.use-case__title]:z-10 [&_.use-case__title]:font-serif [&_.use-case__title]:text-[clamp(15px,1.8vw,19px)] [&_.use-case__title]:font-normal [&_.use-case__title]:text-[#e8f0ff] [&_.use-case__title]:leading-[1.3]
+                                        [&_.use-case__body]:bg-white
+                                        [&_.use-case__row]:p-5 [&_.use-case__row]:border-b [&_.use-case__row]:border-[#e4e8f0]
+                                        [&_.use-case__row:last-child]:border-b-0
+                                        [&_.use-case__row-label]:text-[10px] [&_.use-case__row-label]:tracking-[2.5px] [&_.use-case__row-label]:uppercase [&_.use-case__row-label]:font-semibold [&_.use-case__row-label]:mb-2
+                                        [&_.use-case__row-label--challenge]:text-[#8492a6]
+                                        [&_.use-case__row-label--solution]:text-[#1e6fff]
+                                        [&_.use-case__row-text]:text-[15px] [&_.use-case__row-text]:font-light [&_.use-case__row-text]:text-[#4a5568] [&_.use-case__row-text]:leading-[1.8]
+                                        [&_.tool-cards]:mt-12 [&_.tool-cards]:flex [&_.tool-cards]:flex-col [&_.tool-cards]:gap-7
+                                        [&_.tool-card]:border [&_.tool-card]:border-[#e4e8f0] [&_.tool-card]:rounded-[14px] [&_.tool-card]:overflow-hidden [&_.tool-card]:shadow-sm
+                                        [&_.tool-card__header]:flex [&_.tool-card__header]:items-center [&_.tool-card__header]:gap-3.5 [&_.tool-card__header]:p-5 [&_.tool-card__header]:bg-[#0a0f1e] [&_.tool-card__header]:relative [&_.tool-card__header]:overflow-hidden
+                                        [&_.tool-card__header::before]:absolute [&_.tool-card__header::before]:inset-0 [&_.tool-card__header::before]:bg-gradient-to-br [&_.tool-card__header::before]:from-transparent [&_.tool-card__header::before]:to-transparent [&_.tool-card__header::before]:bg-[size:28px_28px] [&_.tool-card__header::before]:bg-[linear-gradient(rgba(30,111,255,0.07)_1px,_transparent_1px),_linear-gradient(90deg,rgba(30,111,255,0.07)_1px,_transparent_1px)]
+                                        [&_.tool-card__num]:relative [&_.tool-card__num]:z-10 [&_.tool-card__num]:w-9 [&_.tool-card__num]:h-9 [&_.tool-card__num]:rounded-[10px] [&_.tool-card__num]:bg-[rgba(30,111,255,0.25)] [&_.tool-card__num]:flex [&_.tool-card__num]:items-center [&_.tool-card__num]:justify-center [&_.tool-card__num]:flex-shrink-0 [&_.tool-card__num]:font-serif [&_.tool-card__num]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__num]:font-normal [&_.tool-card__num]:text-[#e8f0ff] [&_.tool-card__num]:leading-[1.3]
+                                        [&_.tool-card__title]:relative [&_.tool-card__title]:z-10 [&_.tool-card__title]:font-serif [&_.tool-card__title]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__title]:font-normal [&_.tool-card__title]:text-[#e8f0ff] [&_.tool-card__title]:leading-[1.3]
+                                        [&_.tool-card__body]:bg-white [&_.tool-card__body]:p-5 [&_.tool-card__body]:text-[15px] [&_.tool-card__body]:font-light [&_.tool-card__body]:text-[#4a5568] [&_.tool-card__body]:leading-[1.8]"
                                         dangerouslySetInnerHTML={{ __html: section.content }}
                                     />
                                 </section>

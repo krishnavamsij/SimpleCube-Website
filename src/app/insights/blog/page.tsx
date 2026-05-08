@@ -5,10 +5,33 @@ import { Footer } from "@/components/footer";
 import { blogContent } from "@/content/blog";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/animations";
 
 export default function BlogPage() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('All');
+
+    // Extract unique categories from blog posts
+    const categories = useMemo(() => {
+        const cats = new Set(['All']);
+        blogContent.posts.forEach(post => {
+            if (post.tag) cats.add(post.tag);
+        });
+        return Array.from(cats);
+    }, []);
+
+    // Filter blog posts based on search query and category
+    const filteredPosts = useMemo(() => {
+        return blogContent.posts.filter(post => {
+            const title = post.title.replace(/<[^>]*>/g, ''); // Remove HTML tags for search
+            const matchesSearch = searchQuery === '' || title.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesCategory = selectedCategory === 'All' || post.tag === selectedCategory;
+            
+            return matchesSearch && matchesCategory;
+        });
+    }, [searchQuery, selectedCategory]);
+
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B]">
             <Navbar forceDarkText={true} />
@@ -21,23 +44,75 @@ export default function BlogPage() {
                     variants={staggerContainer}
                     className="mb-20"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         BLOG
                     </motion.div>
-                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-12 font-display" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
-                    <motion.p 
-                        variants={fadeInUp} 
-                        className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
-                    >
-                        Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce,<br className="hidden sm:block" />
-                        AWS, Microsoft, and the future of enterprise transformation.
-                    </motion.p>
+                    
+                    {/* Header Container with Search/Filter */}
+                    <div className="flex flex-col lg:flex-row justify-between items-end gap-8">
+                        {/* Title Side */}
+                        <div className="lg:w-2/3">
+                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-6 font-display" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
+                            <motion.p 
+                                variants={fadeInUp} 
+                                className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
+                            >
+                                Insights, perspectives, and expertise from Hyniva team on AI, Salesforce,<br className="hidden sm:block" />
+                                AWS, Microsoft, and future of enterprise transformation.
+                            </motion.p>
+                        </div>
+
+                        {/* Filter Side */}
+                        <div className="flex gap-4 w-full lg:w-[400px]">
+                            {/* Search Bar */}
+                            <div className="relative">
+                                <input
+                                    type="text"
+                                    placeholder="Search blogs by title..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full px-4 py-3 pr-12 text-base font-medium text-[#030B3B] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
+                                />
+                                {/* <svg 
+                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-2a2 2 0 00-2 2v12a2 2 0 002 2h-4l-4 4m0 0l-4-4m4-4H3" />
+                                </svg> */}
+                            </div>
+
+                            {/* Category Dropdown */}
+                            <div className="relative">
+                                <select
+                                    value={selectedCategory}
+                                    onChange={(e) => setSelectedCategory(e.target.value)}
+                                    className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-6 py-3 pr-12 text-base font-medium text-[#030B3B] focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent cursor-pointer transition-all duration-200"
+                                >
+                                    {categories.map(category => (
+                                        <option key={category} value={category}>
+                                            {category}
+                                        </option>
+                                    ))}
+                                </select>
+                                {/* <svg 
+                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 10l5 5L19 15l-5-5M12 19l-7-7-7 7" />
+                                </svg> */}
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
 
                 {/* ── Card Grid ── */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {blogContent.posts.map((post, idx) => (
+                    {filteredPosts.map((post, idx) => (
                         <motion.div
                             key={idx}
                             variants={scrollReveal}
