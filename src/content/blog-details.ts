@@ -379,10 +379,10 @@ export const blogDetails = {
         </div>
         <div class="stat">
           <div class="stat__value">50%</div>
-          <div class="stat__label">Acceleration in processing<br>times</div>
+          <div class="stat__label">Acceleration in<br>processing times</div>
         </div>
         <div class="stat">
-          <div class="stat__value">increased</div>
+          <div class="stat__value">Increased</div>
           <div class="stat__label">Higher member satisfaction scores<br>and improved compliance</div>
         </div>
       </div>
