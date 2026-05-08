@@ -8,6 +8,7 @@ import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { CaseStudyPopup } from "@/components/CaseStudyPopup";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
+import { CaseStudyHero } from "@/components/case-study-hero";
 import { parseCaseStudyTitle, renderParsedTitle } from "@/lib/case-study-utils";
 import { useScrollTabSync } from "@/hooks/useScrollTabSync";
 
@@ -342,106 +343,18 @@ export default function CaseStudyDetailPage() {
         <div className="min-h-screen bg-white font-sans text-[#111827]" style={{ scrollBehavior: 'smooth' }}>
             <Navbar forceDarkText={scrolled} />
 
-            {/* ── Banner Section (Image 1 Style) ── */}
-            <section className="relative h-screen min-h-[720px] flex flex-col items-center justify-center overflow-hidden">
-                {/* Reference-accurate Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20]" />
-                <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle,#1e90ff1a_1px,transparent_1px)] bg-[length:38px_38px]" />
-
-                {/* Background Blobs */}
-                <div className="absolute w-[650px] h-[650px] -left-40 -top-40 rounded-full bg-[radial-gradient(circle,rgba(10,70,180,0.15)_0%,transparent_65%)] blur-[80px] pointer-events-none" />
-                <div className="absolute w-[600px] h-[600px] -right-32 -bottom-40 rounded-full bg-[radial-gradient(circle,rgba(30,144,255,0.12)_0%,transparent_62%)] blur-[80px] pointer-events-none" />
-
-
-
-                {/* Corner Brackets */}
-                <div className="absolute top-6 left-6 w-5 h-5 border-t border-l border-[#1e90ff48] z-20" />
-                <div className="absolute top-6 right-6 w-5 h-5 border-t border-r border-[#1e90ff48] z-20" />
-                <div className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-[#1e90ff48] z-20" />
-                <div className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-[#1e90ff48] z-20" />
-
-                <div className="relative z-10 w-full max-w-[1000px] px-8 mx-auto text-center pt-20">
-                    <div className="max-w-4xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="flex justify-center mb-10"
-                        >
-                            <EyebrowButton>CASE STUDY</EyebrowButton>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.15 }}
-                            className="text-[28px] md:text-[38px] lg:text-[52px] font-black text-white tracking-tight leading-[1.15] mb-8 font-sans"
-                        >
-                            {renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3 }}
-                            className="text-[14px] md:text-[16px] text-white/90 font-light leading-relaxed max-w-2xl mx-auto mb-16"
-                        >
-                            {study.summary}
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-0 max-w-5xl mx-auto relative pt-12"
-                        >
-                            {/* Top Shimmer Line */}
-                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-[#1e90ff20]">
-                                <div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1e90ff] to-transparent opacity-40"
-                                    style={{
-                                        width: '30%',
-                                        left: '-30%',
-                                        animation: 'shimmerSweep 4s linear infinite'
-                                    }}
-                                />
-                            </div>
-
-
-                            {study.metrics.map((metric, idx) => (
-                                <div key={idx} className="relative py-10 px-4 group cursor-default hover:bg-[#1e90ff0d] transition-all duration-300 rounded-b-xl overflow-hidden">
-                                    {/* Hover glow wash */}
-                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(30,144,255,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                                    <div className="flex flex-col items-center relative z-10">
-                                        <MetricIcon icon={metric.icon} />
-                                        <div className="text-[32px] lg:text-[42px] font-bold text-white tracking-tight leading-none mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300">{metric.value}</div>
-                                        <div className="w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-3 group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
-                                        <div className="flex flex-col justify-center text-center min-h-[3rem] max-w-[110px] text-[12px] font-medium text-white leading-tight mx-auto">{metric.label}</div>
-                                    </div>
-
-                                    {/* Divider */}
-                                    {idx < study.metrics.length - 1 && (
-                                        <div className="absolute right-0 top-[20%] bottom-[20%] w-[1px] bg-gradient-to-b from-transparent via-[#1e90ff48] to-transparent md:block hidden" />
-                                    )}
-                                </div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-                    <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
-                    <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
-                </div>
-            </section>
+            {/* ── Standardized Hero Section ── */}
+            <CaseStudyHero
+                title={renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
+                summary={study.summary}
+                metrics={study.metrics}
+            />
 
             {/* ── Content Navigator ── */}
             <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 py-6 transition-all duration-500">
                 <div className="mx-auto w-full max-w-[1400px] px-8">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="flex items-center justify-center gap-4 overflow-x-auto no-scrollbar">
+                    <div className="w-full lg:w-[85%] mx-auto">
+                        <div className="flex items-center justify-start gap-4 overflow-x-auto no-scrollbar pl-[52px]">
                             {study.sections.filter(s => s.title).map((section) => (
                                 <a
                                     key={section.id}
@@ -453,9 +366,9 @@ export default function CaseStudyDetailPage() {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                     }}
-                                    className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeTabIndex === sectionIds.indexOf(section.id)
+                                    className={`px-5 py-2 rounded-lg text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeTabIndex === sectionIds.indexOf(section.id)
                                         ? "bg-[#1e90ff] text-white border-[#1e90ff]"
-                                        : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
+                                        : "bg-transparent border-transparent text-[#6b7280] hover:text-[#1e90ff]"
                                         }`}
                                 >
                                     {section.title || section.id}

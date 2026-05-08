@@ -25,13 +25,13 @@ export default function CaseStudiesPage() {
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         CASE STUDIES
                     </motion.div>
-                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-12 font-display">
+                    <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-12 font-display cs-line-clamp-2">
                         Real <span className="text-[#00D4AA]">Results.</span><br />
                         Proven <span className="text-[#00D4AA]">Impact.</span>
                     </motion.h1>
                     <motion.p 
                         variants={fadeInUp} 
-                        className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
+                        className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl cs-line-clamp-2"
                     >
                         Discover how Hyniva enables enterprises to modernize<br className="hidden sm:block" />
                         operations and deliver measurable business impact.
