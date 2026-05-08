@@ -130,7 +130,7 @@ function BankingOfferings() {
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {bankingContent.offerings.title}
                     </h2>
-                    <p className="text-lg text-slate-700 font-medium">
+                    <p className="text-lg text-slate-700 font-medium md:whitespace-nowrap">
                         {bankingContent.offerings.subtitle}
                     </p>
                 </motion.div>
