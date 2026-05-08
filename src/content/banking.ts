@@ -5,7 +5,7 @@ export const bankingContent = {
         badge: "BANKING",
         title: "Redefining banking through<br />connected, intelligent experiences",
         subtitle: "We help financial institutions deliver real-time, seamless<br />and context-aware journeys across every interaction.",
-        backgroundImage: "/images/Banner_cards/Banking.png",
+        backgroundImage: "/images/Industries_Section/Banking_Subpage/herobanner.png",
     },
     alternatingSections: [
         {
@@ -15,7 +15,7 @@ export const bankingContent = {
                 "Many institutions continue to operate with fragmented data, disconnected platforms, and limited readiness for real-time decisioning. The result is slower innovation, inconsistent customer journeys, and increasing operational complexity."
             ],
             imagePosition: "left",
-            imagePlaceholder: true, 
+            image: "/images/Industries_Section/Banking_Subpage/TheShift.png", 
         },
         {
             title: "WHAT MODERN BANKING DEMANDS",
@@ -24,7 +24,7 @@ export const bankingContent = {
                 "At the same time, institutions must balance this with the need for security, compliance, and operational efficiency, ensuring that every experience is both seamless and trusted."
             ],
             imagePosition: "right",
-            imagePlaceholder: true,
+            image: "/images/Industries_Section/Banking_Subpage/WHATMODERNBANKINGDEMANDS.png",
         },
         {
             title: "OUR APPROACH",
@@ -32,7 +32,7 @@ export const bankingContent = {
                 "We enable banks to move beyond fragmented transformation by aligning experience, data, and platform capabilities into a connected execution model. Instead of addressing these areas in isolation, we bring them together to ensure that every initiative contributes to a unified and measurable outcome. This approach reduces complexity, accelerates execution, and enables consistent experience delivery across the organization."
             ],
             imagePosition: "left",
-            imagePlaceholder: true,
+            image: "/images/Industries_Section/Banking_Subpage/Ourapproach.png",
         }
     ],
     offerings: {

@@ -51,9 +51,12 @@ function BankingHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl"
-                        dangerouslySetInnerHTML={{ __html: bankingContent.hero.title }}
-                    />
+                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl flex flex-col gap-1 sm:gap-2 items-center"
+                    >
+                        {bankingContent.hero.title.split(/<br\s*\/?>/).map((part, pIdx) => (
+                            <span key={pIdx} className="block lg:whitespace-nowrap" dangerouslySetInnerHTML={{ __html: part }} />
+                        ))}
+                    </motion.h1>
                     
                     <motion.p
                         variants={fadeInUp}
@@ -81,8 +84,12 @@ function AlternatingSections() {
                     >
                         {/* Image Side */}
                         <div className="w-full lg:w-1/2">
-                            <div className="aspect-[4/3] rounded-[32px] bg-slate-200 overflow-hidden relative">
-                                {/* Placeholder for actual images later */}
+                            <div className="aspect-[4/3] rounded-[32px] bg-slate-100 overflow-hidden relative shadow-md">
+                                <img 
+                                    src={section.image} 
+                                    alt={section.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                />
                             </div>
                         </div>
 

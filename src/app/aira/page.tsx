@@ -111,7 +111,7 @@ const impacts = [
 
 function AiraHero() {
     return (
-        <section className="relative h-[515px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
+        <section className="relative h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
             
             {/* Background video */}
             <div className="absolute inset-0 z-0">
@@ -127,10 +127,10 @@ function AiraHero() {
             </div>
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/20 z-[1]" />
+            <div className="absolute inset-0 bg-black/40 z-[1]" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-8 py-12 md:py-0">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -141,14 +141,14 @@ function AiraHero() {
                     {/* Logo */}
                     <motion.div
                         variants={fadeInUp}
-                        className="mb-6 flex justify-center md:justify-start"
+                        className="mb-4 sm:mb-6 flex justify-center md:justify-start"
                     >
                         <Image
                             src="/logos/Artboard.png"
                             alt="AIRA Logo"
                             width={260}
                             height={90}
-                            className="w-[220px] sm:w-[250px] md:w-[280px] h-auto object-contain"
+                            className="w-[180px] sm:w-[220px] md:w-[280px] h-auto object-contain"
                             priority
                         />
                     </motion.div>
@@ -156,7 +156,7 @@ function AiraHero() {
                     {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-5 text-3xl sm:text-4xl md:text-5xl leading-tight font-medium"
+                        className="text-white mb-4 sm:mb-5 text-2xl sm:text-3xl md:text-5xl leading-tight font-medium"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         Autonomous Intelligent
@@ -167,7 +167,7 @@ function AiraHero() {
                     {/* Description */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-white mb-8 text-[17px] sm:text-[19px] font-normal leading-relaxed max-w-[520px] mx-auto md:mx-0"
+                        className="text-white mb-6 sm:mb-8 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[400px] sm:max-w-[520px] mx-auto md:mx-0"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions —
@@ -185,13 +185,13 @@ function AiraHero() {
                                 backgroundColor: "#ffffff",
                                 color: "#000000",
                                 fontFamily: "Poppins, sans-serif",
-                                fontSize: "15px",
+                                fontSize: "14px",
                                 fontWeight: 600,
-                                padding: "12px 26px",
+                                padding: "10px 22px",
                                 borderRadius: "0px",
                                 height: "auto"
                             }}
-                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg"
+                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-sm sm:text-base"
                         >
                             <Link href="/contact">
                                 Get Started

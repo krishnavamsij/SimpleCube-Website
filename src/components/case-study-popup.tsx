@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, Sparkles } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface FormData {
     name: string;
@@ -22,9 +22,7 @@ export function CaseStudyPopup() {
     const [isVisible, setIsVisible] = useState(false);
     const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [hasScrolled, setHasScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const initialScrollPosition = useRef(0);
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
@@ -33,45 +31,58 @@ export function CaseStudyPopup() {
     });
     const [formErrors, setFormErrors] = useState<FormErrors>({});
 
-    // Set mounted state when component mounts and capture initial scroll position
     useEffect(() => {
         setMounted(true);
-        initialScrollPosition.current = window.scrollY;
     }, []);
 
+    // Listen for custom events from navigation hook
     useEffect(() => {
-        if (!mounted) return;
-
-        const handleScroll = () => {
-            if (hasBeenDismissed || isSubmitted) return;
-
-            // Calculate scroll distance from when component mounted
-            const scrollDistance = window.scrollY - initialScrollPosition.current;
-
-            // Mark that user has scrolled (at least 50px from initial position)
-            if (scrollDistance > 50) {
-                setHasScrolled(true);
-            }
-
-            // Only check for popup if user has scrolled on this page
-            if (!hasScrolled) return;
-
-            // Check if we've reached the 3rd sub-navigation section
-            const subNavItems = document.querySelectorAll('section[id]');
-            if (subNavItems.length >= 3) {
-                const thirdSection = subNavItems[2]; // 0-indexed, so 2 is the 3rd section
-                const rect = thirdSection.getBoundingClientRect();
-                const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-
-                if (isInView && !isVisible) {
-                    setIsVisible(true);
-                }
+        console.log('🔧 Popup component mounting, setting up event listeners...');
+        
+        const handleThirdSectionReached = (event: CustomEvent) => {
+            console.log('🎯 thirdSectionReached event received:', event);
+            if (!isVisible && !hasBeenDismissed && !isSubmitted) {
+                console.log('✅ Third section reached - showing popup');
+                setIsVisible(true);
+            } else {
+                console.log('❌ Popup conditions not met for thirdSectionReached');
             }
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [hasBeenDismissed, isSubmitted, isVisible, hasScrolled, mounted]);
+        const handleThirdTabClicked = (event: CustomEvent) => {
+            console.log('🎯 thirdTabClicked event received:', event);
+            if (!isVisible && !hasBeenDismissed && !isSubmitted) {
+                console.log('✅ Third tab clicked - showing popup');
+                setIsVisible(true);
+            } else {
+                console.log('❌ Popup conditions not met for thirdTabClicked');
+            }
+        };
+
+        // Test if CustomEvent is available
+        console.log('🔧 CustomEvent available:', typeof CustomEvent);
+
+        // Add event listeners for custom events with proper typing
+        window.addEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
+        window.addEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
+
+        console.log('🔧 Event listeners added. Total listeners should be:', 2);
+
+        // Test event dispatching
+        (window as any).testDispatch = () => {
+            console.log('🧪 Testing event dispatch...');
+            const event = new CustomEvent('thirdSectionReached', { bubbles: true });
+            console.log('🧪 Event created:', event);
+            const dispatched = window.dispatchEvent(event);
+            console.log('🧪 Event dispatched:', dispatched);
+        };
+
+        return () => {
+            console.log('🔧 Cleaning up event listeners...');
+            window.removeEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
+            window.removeEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
+        };
+    }, [isVisible, hasBeenDismissed, isSubmitted]);
 
     const validateForm = (): boolean => {
         const errors: FormErrors = {};

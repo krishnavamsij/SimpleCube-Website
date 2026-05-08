@@ -6,9 +6,11 @@ import { caseStudyDetails, CaseStudyMetric, CaseStudySection } from "@/content/c
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { CaseStudyPopup } from "@/components/case-study-popup";
+import { CaseStudyPopup } from "@/components/CaseStudyPopup";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
+import { CaseStudyHero } from "@/components/case-study-hero";
 import { parseCaseStudyTitle, renderParsedTitle } from "@/lib/case-study-utils";
+import { useScrollTabSync } from "@/hooks/useScrollTabSync";
 
 import {
     Zap,
@@ -184,38 +186,18 @@ export default function CaseStudyDetailPage() {
     const slug = params?.slug as string;
     const study = caseStudyDetails[slug as keyof typeof caseStudyDetails];
 
-    const [activeSection, setActiveSection] = useState("");
+    // Extract section IDs for the new hook
+    const sectionIds = study.sections.map(section => section.id);
+    const { activeTabIndex, scrollToTab, hasTriggeredThirdSection } = useScrollTabSync({
+        sectionIds,
+    });
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 100);
         window.addEventListener("scroll", handleScroll);
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
-                        // Map sub-sections to their parent section for navigation
-                        let activeId = sectionId;
-                        if (sectionId.startsWith('solutions-')) {
-                            activeId = 'solutions';
-                        }
-                        setActiveSection(activeId);
-                    }
-                });
-            },
-            { threshold: 0.2, rootMargin: "-100px 0px -40% 0px" }
-        );
-
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach((section) => observer.observe(section));
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            sections.forEach((section) => observer.unobserve(section));
-        };
-    }, [study]);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     if (!study) {
         return notFound();
@@ -471,12 +453,18 @@ export default function CaseStudyDetailPage() {
                     <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
                 </div>
             </section>
+            {/* ── Standardized Hero Section ── */}
+            <CaseStudyHero
+                title={renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
+                summary={study.summary}
+                metrics={study.metrics}
+            />
 
             {/* ── Content Navigator ── */}
             <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 py-6 transition-all duration-500">
                 <div className="mx-auto w-full max-w-[1400px] px-8">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="flex items-center justify-center gap-4 overflow-x-auto no-scrollbar">
+                    <div className="w-full lg:w-[85%] mx-auto">
+                        <div className="flex items-center justify-start gap-4 overflow-x-auto no-scrollbar pl-[52px]">
                             {study.sections.filter(s => s.title).map((section) => (
                                 <a
                                     key={section.id}
@@ -488,9 +476,9 @@ export default function CaseStudyDetailPage() {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                     }}
-                                    className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeSection === section.id
+                                    className={`px-5 py-2 rounded-lg text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeTabIndex === sectionIds.indexOf(section.id)
                                         ? "bg-[#1e90ff] text-white border-[#1e90ff]"
-                                        : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
+                                        : "bg-transparent border-transparent text-[#6b7280] hover:text-[#1e90ff]"
                                         }`}
                                 >
                                     {section.title || section.id}
@@ -535,7 +523,7 @@ export default function CaseStudyDetailPage() {
             </main>
 
             <Footer />
-            <CaseStudyPopup />
+            <CaseStudyPopup isTriggered={hasTriggeredThirdSection} />
 
             <style jsx global>{`
                 @keyframes shimmerSweep {
