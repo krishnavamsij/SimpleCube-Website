@@ -23,7 +23,7 @@ export function Services() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-16 grid gap-12 lg:grid-cols-[1fr_1.2fr]"
+                    className="mb-8 grid gap-12 lg:grid-cols-[1fr_1.2fr]"
                 >
                     {/* Left Side: Eyebrow and Heading */}
                     <div>
@@ -78,7 +78,7 @@ export function Services() {
                 </motion.div>
 
                 {/* ── Stacking Cards ── */}
-                <div className="relative mt-20 flex flex-col gap-6 lg:gap-8 pb-[10vh]">
+                <div className="relative mt-8 flex flex-col gap-6 lg:gap-8 pb-[10vh]">
                     {services.map((svc, i) => {
                         return (
                             <div
