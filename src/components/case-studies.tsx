@@ -149,19 +149,7 @@ export function CaseStudies() {
                 </div>
 
                 {/* ── Controls ── */}
-                <div className="flex flex-col items-center justify-center mt-0 pb-2">
-                    {/* Dots */}
-                    <div className="flex items-center gap-2 mb-3">
-                        {studies.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? "w-6 bg-[#1e90ff]" : "w-1.5 bg-slate-200 hover:bg-slate-300"}`}
-                                onClick={() => scrollTo(index)}
-                                aria-label={`Go to slide ${index + 1}`}
-                            />
-                        ))}
-                    </div>
-
+                <div className="flex flex-col items-center justify-center mt-6 sm:mt-8 pb-2">
                     {/* Nav arrows */}
                     <div className="flex items-center gap-3">
                         <button
