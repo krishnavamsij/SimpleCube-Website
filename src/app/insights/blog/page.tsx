@@ -33,10 +33,10 @@ export default function BlogPage() {
     }, [searchQuery, selectedCategory]);
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#030B3B]">
+        <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
             <Navbar forceDarkText={true} />
             
-            <main className="pt-32 pb-24 mx-auto w-full max-w-[1400px] px-6">
+            <main className="pt-28 sm:pt-32 pb-16 sm:pb-24 mx-auto w-full max-w-[1400px] px-4 sm:px-6">
                 {/* ── Page Header ── */}
                 <motion.div 
                     initial="hidden"
@@ -50,7 +50,7 @@ export default function BlogPage() {
                     </motion.div>
                     
                     {/* Header Container with Search/Filter */}
-                    <div className="flex flex-col lg:flex-row justify-between items-end gap-8">
+                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title Side */}
                         <div className="lg:w-2/3">
                             <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-6 font-display" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
@@ -64,9 +64,9 @@ export default function BlogPage() {
                         </div>
 
                         {/* Filter Side */}
-                        <div className="flex gap-4 w-full lg:w-[400px]">
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full lg:w-[400px]">
                             {/* Search Bar */}
-                            <div className="relative">
+                            <div className="relative w-full min-w-0">
                                 <input
                                     type="text"
                                     placeholder="Search blogs by title..."
@@ -85,7 +85,7 @@ export default function BlogPage() {
                             </div>
 
                             {/* Category Dropdown */}
-                            <div className="relative">
+                            <div className="relative w-full min-w-0">
                                 <select
                                     value={selectedCategory}
                                     onChange={(e) => setSelectedCategory(e.target.value)}
