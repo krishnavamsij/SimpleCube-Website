@@ -43,9 +43,9 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-8 sm:space-y-10 md:space-y-12"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10"
                 >
-                    <motion.div variants={fadeInUp} className="flex justify-center mb-6 sm:mb-8 md:mb-10">
+                    <motion.div variants={fadeInUp} className="flex justify-center">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {bankingContent.hero.badge}
@@ -63,7 +63,7 @@ function BankingHero() {
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-6 sm:pt-8 md:pt-10"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
                     />
                 </motion.div>
