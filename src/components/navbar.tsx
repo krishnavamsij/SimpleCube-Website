@@ -163,7 +163,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         exit={{ opacity: 0, height: 0 }}
                         className="border-t border-slate-100 bg-white lg:hidden overflow-hidden rounded-b-[2rem]"
                     >
-                        <div className="divide-y divide-slate-100 px-6 py-3">
+                        <div className="max-h-[70vh] overflow-y-auto divide-y divide-slate-100 px-6 py-3">
                             {dropdownItems.map((group) => (
                                 <div key={group.label} className="py-3">
                                     <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
