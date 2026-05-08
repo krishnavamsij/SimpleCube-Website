@@ -15,7 +15,7 @@ export function Services() {
     const services = servicesContent.services;
 
     return (
-        <section className="bg-[#f8fafc] py-[10px] sm:py-[15px] lg:py-[20px] text-slate-900">
+        <section className="bg-[#f8fafc] py-[30px] sm:py-[40px] lg:py-[50px] text-slate-900">
             <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div

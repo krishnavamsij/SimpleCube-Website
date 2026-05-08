@@ -34,7 +34,7 @@ export function CaseStudies() {
     }, [emblaApi, onSelect]);
 
     return (
-        <section className="bg-white py-[10px] sm:py-[15px] lg:py-[20px] tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
             <div className="mx-auto w-full">
                 
                 {/* ── Section header ── */}
