@@ -5,7 +5,7 @@ export const contactContent = {
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
     body: {
-        title: "Let's build something <span class='text-[#3B82F6]'>exceptional together.</span>",
+        title: "Let's build something <br /><span class='text-[#3B82F6] whitespace-nowrap'>exceptional together.</span>",
         description: "At Hyniva, we set ourselves apart by prioritizing enduring relationships — transcending the conventional role of a software company to become your strategic partner.",
         contactInfo: {
             email: "connect@hyniva.com",
