@@ -119,8 +119,8 @@ export function ProductsShowcase() {
                 </motion.div>
 
                 {/* ── Logo Ribbon Footprint ── */}
-                <div className="mt-8 lg:mt-12 pt-6 border-t border-white/10 w-full mb-8 lg:mb-12 relative">
-                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-6 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <div className="mt-8 lg:mt-12 pt-6 border-t border-white/10 w-full mb-12 lg:mb-16 relative">
+                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-8 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
                                 {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
@@ -169,12 +169,12 @@ export function ProductsShowcase() {
                                 
                                 {/* Left: Content */}
                                 <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[30px] sm:pt-[50px] sm:pb-[40px] lg:pt-[10vh] lg:pb-[50px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
-                                    <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-8">
+                                    <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
                                         {p.title}
                                     </h3>
                                     
                                     {/* Capsule Tags with Icons */}
-                                    <div className="flex flex-wrap gap-3 mb-10">
+                                    <div className="flex flex-wrap gap-3 mb-12 lg:mb-14">
                                         {p.tags.map((tag) => (
                                             <div
                                                 key={tag}
@@ -186,7 +186,7 @@ export function ProductsShowcase() {
                                         ))}
                                     </div>
 
-                                    <p className="text-lg sm:text-xl lg:text-[22px] text-slate-300 leading-relaxed max-w-xl mb-12">
+                                    <p className="text-lg sm:text-xl lg:text-[22px] text-slate-300 leading-relaxed max-w-xl mb-14 lg:mb-16">
                                         {p.description}
                                     </p>
                                     

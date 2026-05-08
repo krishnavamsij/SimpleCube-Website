@@ -78,7 +78,7 @@ export function Services() {
                 </motion.div>
 
                 {/* ── Stacking Cards ── */}
-                <div className="relative mt-8 flex flex-col gap-6 lg:gap-8 pb-[10vh]">
+                <div className="relative mt-8 flex flex-col gap-6 lg:gap-8 pb-[16vh] lg:pb-[20vh]">
                     {services.map((svc, i) => {
                         return (
                             <div
