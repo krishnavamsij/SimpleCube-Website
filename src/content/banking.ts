@@ -15,7 +15,6 @@ export const bankingContent = {
                 "Many institutions continue to operate with fragmented data, disconnected platforms, and limited readiness for real-time decisioning. The result is slower innovation, inconsistent customer journeys, and increasing operational complexity."
             ],
             imagePosition: "left",
-            // Placeholder for real image
             imagePlaceholder: true, 
         },
         {
@@ -61,12 +60,12 @@ export const bankingContent = {
                 description: "We help financial institutions modernize infrastructure through secure and scalable cloud transformation strategies that improve agility, operational efficiency, and resilience."
             },
             {
-                icon: "Smartphone", // Changed to Smartphone for digital lending
+                icon: "Smartphone",
                 title: "Digital Lending",
                 description: "We streamline digital lending journeys across pre-qualification, onboarding, documentation, and approval workflows to accelerate decisioning and reduce friction across the lifecycle."
             },
             {
-                icon: "TrendingUp", // Changed to TrendingUp for cross sell
+                icon: "TrendingUp",
                 title: "Cross Sell Initiatives",
                 description: "We enable data-driven cross-sell strategies and integrated engagement models that improve customer retention, increase product adoption, and strengthen long-term relationships."
             }
@@ -85,29 +84,24 @@ export const bankingContent = {
     caseStudies: {
         title: "CASE STUDIES",
         subtitle: "Real-world implementations that demonstrate how we have enabled banks to transform experiences, accelerate lending, and modernize operations at scale.",
-        // Referencing the case studies mentioned (legacy modernization, zero-access migration, empowering credit unions)
-        // These will correspond to case study items in site-content.ts or can be mapped directly here.
         studies: [
             {
-                badge: "Case Study",
-                title: "Enterprise CRM Modernization on Microsoft Cloud",
-                description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime, improving agent productivity and operational efficiency.",
-                href: "/insights/case-studies/empowering-enterprises-through-microsoft-powered-modernization",
-                image: "/images/Case_Study/5.png"
+                title: "Autonomous Lending Experience with FinXServe & Agentforce",
+                description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+                href: "/insights/case-studies/autonomous-lending-experiences",
+                image: "/images/Case_Study/1.png"
             },
             {
-                badge: "Case Study",
-                title: "Rapid Reverse-Engineered Website Migration",
-                description: "Delivered a full digital migration in 2 months with zero downtime—without backend access, using agile execution and 100% QA.",
-                href: "/insights/case-studies/a-race-against-time-that-others-refused-to-run",
-                image: "/images/Case_Study/6.png"
+                title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
+                description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+                href: "/insights/case-studies/intelligent-ivr-self-service",
+                image: "/images/Case_Study/2.png"
             },
             {
-                badge: "Article",
-                title: "Empowering Credit Unions to Thrive in a Digital Era",
-                description: "Credit unions have long been trusted for their personalized financial services, but the evolving digital landscape presents significant challenges.",
-                href: "/insights/blog/empowering-credit-unions",
-                image: "/images/Blogs/Optimized/blog-5.jpeg" // using a sample blog image for the article
+                title: "Autonomous Freight Operations with GenAI",
+                description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
+                href: "/insights/case-studies/autonomous-freight-operations",
+                image: "/images/Case_Study/3.png"
             }
         ]
     }

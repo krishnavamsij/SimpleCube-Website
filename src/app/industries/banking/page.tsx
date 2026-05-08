@@ -26,13 +26,13 @@ const iconMap: Record<string, React.ElementType> = {
 
 function BankingHero() {
     return (
-        <section className="relative overflow-hidden py-24 pt-36 sm:py-32 sm:pt-48 md:py-40 md:pt-56">
+        <section className="relative overflow-hidden py-32 pt-44 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-[85vh]">
             {/* Background layers */}
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${bankingContent.hero.backgroundImage}')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/80 via-[#061244]/60 to-[#030b1e]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/85 via-[#061244]/65 to-[#030b1e]" />
 
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
@@ -40,9 +40,10 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
+                    className="flex flex-col items-center justify-center space-y-10 md:space-y-12"
                 >
-                    <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
-                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em] flex items-center gap-2">
+                    <motion.div variants={fadeInUp} className="flex justify-center">
+                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {bankingContent.hero.badge}
                         </span>
@@ -50,13 +51,13 @@ function BankingHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.1] mb-8 tracking-tight font-display"
+                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.title }}
                     />
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-2"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -107,7 +108,7 @@ function AlternatingSections() {
 
 function BankingOfferings() {
     return (
-        <section className="py-24 bg-[#f8fafc]">
+        <section className="py-24 bg-[#ECF6FF]">
             <div className="mx-auto max-w-[1400px] px-6 text-center">
                 <motion.div
                     variants={scrollReveal}
@@ -119,7 +120,7 @@ function BankingOfferings() {
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {bankingContent.offerings.title}
                     </h2>
-                    <p className="text-lg text-slate-600 font-medium">
+                    <p className="text-lg text-slate-700 font-medium">
                         {bankingContent.offerings.subtitle}
                     </p>
                 </motion.div>
@@ -137,7 +138,7 @@ function BankingOfferings() {
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="bg-white rounded-[24px] p-8 border border-slate-200 hover:border-[#1e90ff]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                                className="bg-white rounded-[24px] p-8 border border-[#030B3B]/10 hover:border-[#1e90ff]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group"
                             >
                                 <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/10 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300">
                                     <IconComponent className="w-6 h-6" />
@@ -159,8 +160,9 @@ function BankingOfferings() {
 
 function ProvenImpact() {
     return (
-        <section className="py-24 bg-[#030b1e] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <section className="py-24 bg-[#0A102E] relative overflow-hidden">
+            {/* Top Glow matching Why Hyniva */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
             
             <div className="mx-auto max-w-[1200px] px-6 text-center relative z-10">
                 <motion.div
@@ -234,7 +236,7 @@ function CaseStudies() {
                             className="group flex flex-col rounded-[24px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
                         >
                             {/* Image */}
-                            <div className="h-[200px] relative overflow-hidden bg-slate-100">
+                            <div className="h-[240px] relative overflow-hidden bg-slate-100">
                                 {study.image && (
                                     <Image
                                         src={study.image}
@@ -247,11 +249,6 @@ function CaseStudies() {
 
                             {/* Content */}
                             <div className="p-8 flex flex-col flex-1">
-                                <div className="mb-4">
-                                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${study.badge === 'Article' ? 'bg-orange-100 text-orange-600' : 'bg-red-100 text-red-600'}`}>
-                                        {study.badge}
-                                    </span>
-                                </div>
                                 <h3 className="text-[19px] font-bold text-[#030B3B] leading-snug mb-4">
                                     {study.title}
                                 </h3>
