@@ -86,22 +86,25 @@ export const bankingContent = {
         subtitle: "Real-world implementations that demonstrate how we have enabled banks to transform experiences, accelerate lending, and modernize operations at scale.",
         studies: [
             {
-                title: "Autonomous Lending Experience with FinXServe & Agentforce",
+                title: "Autonomous Lending Experience<br />with FinXServe & Agentforce",
+                titleHighlightIndex: 1, // Highlighting first half
                 description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
                 href: "/insights/case-studies/autonomous-lending-experiences",
                 image: "/images/Case_Study/1.png"
             },
             {
-                title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
+                title: "Faster Loan Processing<br />with Agentforce Document Intelligence",
+                titleHighlightIndex: 1, // Highlighting first half
+                description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
+                href: "/insights/case-studies/instant-loan-processing",
+                image: "/images/Case_Study/4.png"
+            },
+            {
+                title: "Modernizing Contact Centers with<br />Intelligent IVR Self-Service",
+                titleHighlightIndex: 2, // Highlighting second half
                 description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
                 href: "/insights/case-studies/intelligent-ivr-self-service",
                 image: "/images/Case_Study/2.png"
-            },
-            {
-                title: "Autonomous Freight Operations with GenAI",
-                description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
-                href: "/insights/case-studies/autonomous-freight-operations",
-                image: "/images/Case_Study/3.png"
             }
         ]
     }

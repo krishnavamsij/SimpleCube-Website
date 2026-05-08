@@ -229,42 +229,74 @@ function CaseStudies() {
                     viewport={viewportOnce}
                     className="grid grid-cols-1 md:grid-cols-3 gap-8"
                 >
-                    {bankingContent.caseStudies.studies.map((study, index) => (
-                        <motion.div
-                            key={index}
-                            variants={scrollReveal}
-                            className="group flex flex-col rounded-[24px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
-                        >
-                            {/* Image */}
-                            <div className="h-[240px] relative overflow-hidden bg-slate-100">
-                                {study.image && (
-                                    <Image
-                                        src={study.image}
-                                        alt={study.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                )}
-                            </div>
+                    {bankingContent.caseStudies.studies.map((study, index) => {
+                        // Title Color Highlighting split logic
+                        const parts = study.title.split("<br />");
+                        const firstLine = parts[0] || "";
+                        const secondLine = parts[1] || "";
+                        
+                        return (
+                            <motion.div
+                                key={index}
+                                variants={scrollReveal}
+                                className="group flex flex-col rounded-[32px] bg-[#ECF5FF] p-6 border border-[#030B3B]/5 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(30,144,255,0.08)] hover:-translate-y-1 h-full"
+                            >
+                                {/* Rounded Image container */}
+                                <div className="h-[230px] w-full relative rounded-[24px] overflow-hidden bg-white mb-6">
+                                    {study.image && (
+                                        <Image
+                                            src={study.image}
+                                            alt={study.title.replace("<br />", " ")}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-103"
+                                        />
+                                    )}
+                                </div>
 
-                            {/* Content */}
-                            <div className="p-8 flex flex-col flex-1">
-                                <h3 className="text-[19px] font-bold text-[#030B3B] leading-snug mb-4">
-                                    {study.title}
-                                </h3>
-                                <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
-                                    {study.description}
-                                </p>
-                                
-                                <Link
-                                    href={study.href}
-                                    className="flex items-center gap-2 text-[13px] font-bold text-[#1e90ff] uppercase tracking-wider group-hover:gap-3 transition-all"
-                                >
-                                    Read More <ArrowRightIcon className="w-4 h-4" />
-                                </Link>
-                            </div>
-                        </motion.div>
-                    ))}
+                                {/* Content */}
+                                <div className="flex flex-col flex-1">
+                                    <h3 className="text-[19px] font-extrabold leading-snug mb-4 font-display">
+                                        {study.titleHighlightIndex === 1 ? (
+                                            <>
+                                                <span className="text-[#1e90ff]">{firstLine}</span>
+                                                {secondLine && (
+                                                    <>
+                                                        <br />
+                                                        <span className="text-[#030B3B]">{secondLine}</span>
+                                                    </>
+                                                )}
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span className="text-[#030B3B]">{firstLine}</span>
+                                                {secondLine && (
+                                                    <>
+                                                        <br />
+                                                        <span className="text-[#1e90ff]">{secondLine}</span>
+                                                    </>
+                                                )}
+                                            </>
+                                        )}
+                                    </h3>
+                                    
+                                    <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
+                                        {study.description}
+                                    </p>
+                                    
+                                    {/* White Pill button at bottom */}
+                                    <Link
+                                        href={study.href}
+                                        className="bg-white rounded-[20px] py-4 px-6 flex justify-between items-center border border-white shadow-sm hover:shadow-md transition-all group"
+                                    >
+                                        <span className="text-[14px] font-extrabold text-[#1e90ff]">
+                                            Read Case Study
+                                        </span>
+                                        <ArrowRightIcon className="w-5 h-5 text-[#1e90ff] transition-transform duration-300 group-hover:translate-x-1" />
+                                    </Link>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>
