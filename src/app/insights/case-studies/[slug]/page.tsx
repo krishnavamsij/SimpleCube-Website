@@ -6,9 +6,10 @@ import { caseStudyDetails, CaseStudyMetric, CaseStudySection } from "@/content/c
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { CaseStudyPopup } from "@/components/case-study-popup";
+import { CaseStudyPopup } from "@/components/CaseStudyPopup";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
 import { parseCaseStudyTitle, renderParsedTitle } from "@/lib/case-study-utils";
+import { useScrollTabSync } from "@/hooks/useScrollTabSync";
 
 import {
     Zap,
@@ -184,38 +185,18 @@ export default function CaseStudyDetailPage() {
     const slug = params?.slug as string;
     const study = caseStudyDetails[slug as keyof typeof caseStudyDetails];
 
-    const [activeSection, setActiveSection] = useState("");
+    // Extract section IDs for the new hook
+    const sectionIds = study.sections.map(section => section.id);
+    const { activeTabIndex, scrollToTab, hasTriggeredThirdSection } = useScrollTabSync({
+        sectionIds,
+    });
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 100);
         window.addEventListener("scroll", handleScroll);
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
-                        // Map sub-sections to their parent section for navigation
-                        let activeId = sectionId;
-                        if (sectionId.startsWith('solutions-')) {
-                            activeId = 'solutions';
-                        }
-                        setActiveSection(activeId);
-                    }
-                });
-            },
-            { threshold: 0.2, rootMargin: "-100px 0px -40% 0px" }
-        );
-
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach((section) => observer.observe(section));
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            sections.forEach((section) => observer.unobserve(section));
-        };
-    }, [study]);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     if (!study) {
         return notFound();
@@ -472,7 +453,7 @@ export default function CaseStudyDetailPage() {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                     }}
-                                    className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeSection === section.id
+                                    className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeTabIndex === sectionIds.indexOf(section.id)
                                         ? "bg-[#1e90ff] text-white border-[#1e90ff]"
                                         : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
                                         }`}
@@ -519,7 +500,7 @@ export default function CaseStudyDetailPage() {
             </main>
 
             <Footer />
-            <CaseStudyPopup />
+            <CaseStudyPopup isTriggered={hasTriggeredThirdSection} />
 
             <style jsx global>{`
                 @keyframes shimmerSweep {
