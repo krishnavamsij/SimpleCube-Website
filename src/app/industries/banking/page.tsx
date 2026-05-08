@@ -30,9 +30,12 @@ function BankingHero() {
             {/* Background layers */}
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${bankingContent.hero.backgroundImage}')` }}
+                style={{ 
+                    backgroundImage: `url('${bankingContent.hero.backgroundImage}')`,
+                    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+                }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/85 via-[#061244]/65 to-[#030b1e]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/95 via-[#040c2c]/85 to-[#02040a]" />
 
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
