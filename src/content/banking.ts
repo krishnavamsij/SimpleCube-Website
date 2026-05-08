@@ -75,10 +75,10 @@ export const bankingContent = {
         title: "What we have delivered in banking ",
         subtitle: "Our experience spans lending, onboarding, customer engagement and platform modernization across banking ecosystems. By combining deep domain expertise with strong product engineering and execution capabilities, we help financial institutions accelerate transformation, reduce operational complexity and deliver more connected customer experiences at scale.",
         stats: [
-            { value: "220+", label: "Applications Delivered" },
-            { value: "$500K+", label: "Annual Client Savings" },
-            { value: "30+", label: "Enterprise Clients" },
-            { value: "50+", label: "Cloud & AI Experts" }
+            { value: "24/7", label: "Intelligent Banking<br />Operations" },
+            { value: "~2 Mins", label: "Loan Application<br />Processing" },
+            { value: "99.6%", label: "Autonomous Data<br />Extraction Accuracy" },
+            { value: "70%", label: "Reduction In<br />Manual Reviews" }
         ]
     },
     caseStudies: {
