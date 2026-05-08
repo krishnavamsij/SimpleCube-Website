@@ -42,7 +42,7 @@ export const bankingContent = {
             {
                 icon: "Bot",
                 title: "AI-Powered CX",
-                description: "We enable intelligent and personalized banking experiences through AI-driven engagement, conversational interfaces and advanced fraud detection capabilities that improve responsiveness and customer trust."
+                description: "We enable intelligent, personalized banking experiences through AI-driven engagement, conversational experiences and advanced fraud detection that improve responsiveness and customer trust."
             },
             {
                 icon: "Users",
