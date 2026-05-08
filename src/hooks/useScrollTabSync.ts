@@ -26,6 +26,8 @@ export function useScrollTabSync({
   const [hasTriggeredThirdSection, setHasTriggeredThirdSection] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionRefsMap = useRef<Map<string, Element>>(new Map());
+  const hasUserInteractedRef = useRef(false);
+  const trackScrollAfterMsRef = useRef(0);
   
   // Get current pathname to detect page changes
   const pathname = usePathname();
@@ -39,8 +41,29 @@ export function useScrollTabSync({
     console.log('🔄 Page changed - resetting popup state');
     setHasTriggeredThirdSection(false);
     setActiveTabIndex(0);
+    hasUserInteractedRef.current = false;
+    // Ignore carried scroll momentum immediately after client-side navigation.
+    trackScrollAfterMsRef.current = performance.now() + 700;
     sessionIdRef.current = generateSessionId();
   }, [pathname]);
+
+  // Mark intent only after explicit manual scrolling to prevent load-time auto triggers.
+  useEffect(() => {
+    const markInteracted = () => {
+      if (performance.now() < trackScrollAfterMsRef.current) {
+        return;
+      }
+      hasUserInteractedRef.current = true;
+    };
+
+    window.addEventListener('wheel', markInteracted, { passive: true });
+    window.addEventListener('touchmove', markInteracted, { passive: true });
+
+    return () => {
+      window.removeEventListener('wheel', markInteracted);
+      window.removeEventListener('touchmove', markInteracted);
+    };
+  }, []);
 
   // Create or update intersection observer
   useEffect(() => {
@@ -80,14 +103,18 @@ export function useScrollTabSync({
           onActiveTabChange?.(newTabIndex);
 
           // ✅ FIXED: Only trigger popup on third section if not already triggered THIS SESSION
-          if (newTabIndex === 2 && !hasTriggeredThirdSection) {
+          if (
+            newTabIndex === 2 &&
+            !hasTriggeredThirdSection &&
+            hasUserInteractedRef.current
+          ) {
             console.log('✨ Third section reached - triggering popup');
             setHasTriggeredThirdSection(true);
             onThirdSectionReached?.();
             
             // Dispatch custom event
             window.dispatchEvent(new CustomEvent('thirdSectionReached', { 
-              detail: { sectionId, sessionId: sessionIdRef.current } 
+              detail: { sectionId, sessionId: sessionIdRef.current, source: 'scroll' } 
             }));
           }
         }

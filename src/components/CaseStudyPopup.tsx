@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation"; // For Next.js App Router
 
 interface FormData {
@@ -21,8 +21,6 @@ interface FormErrors {
 
 interface CaseStudyPopupProps {
   onThirdSectionReached?: () => void;
-  isTriggered?: boolean;
-  resetTrigger?: () => void;
 }
 
 /**
@@ -30,9 +28,7 @@ interface CaseStudyPopupProps {
  * Properly resets state when navigating between case study pages
  */
 export function CaseStudyPopup({ 
-  onThirdSectionReached, 
-  isTriggered = false,
-  resetTrigger 
+  onThirdSectionReached
 }: CaseStudyPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
@@ -89,17 +85,11 @@ export function CaseStudyPopup({
     window.addEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
     window.addEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
 
-    // Also handle prop-based trigger
-    if (isTriggered && !isVisible && !hasBeenDismissed && !isSubmitted) {
-      console.log('💡 Prop-based trigger activated');
-      setIsVisible(true);
-    }
-
     return () => {
       window.removeEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
       window.removeEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
     };
-  }, [mounted, isTriggered, hasBeenDismissed, isSubmitted, onThirdSectionReached]);
+  }, [mounted, hasBeenDismissed, isSubmitted, onThirdSectionReached]);
 
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
@@ -180,12 +170,6 @@ export function CaseStudyPopup({
     setTimeout(() => setIsVisible(false), 3000);
   };
 
-  const handleDismiss = useCallback(() => {
-    console.log('❌ Popup dismissed by user');
-    setHasBeenDismissed(true);
-    setIsVisible(false);
-  }, []);
-
   return (
     <AnimatePresence>
       {isVisible && (
@@ -197,8 +181,7 @@ export function CaseStudyPopup({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[99]"
-            onClick={handleDismiss}
-            style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+            style={{ pointerEvents: 'none' }}
           />
 
           {/* Popup */}

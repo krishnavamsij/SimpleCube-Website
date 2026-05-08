@@ -178,7 +178,7 @@ export function CaseStudyPopup() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[99]"
-                        style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+                        style={{ pointerEvents: 'none' }}
                     />
                     
                     {/* Popup */}

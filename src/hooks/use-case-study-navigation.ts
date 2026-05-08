@@ -29,18 +29,19 @@ export function useCaseStudyNavigation(sections: any[]) {
                         
                         setActiveSection(activeId);
                         
-                        // Check if this is the 3rd section and trigger popup
-                        const sectionElements = Array.from(document.querySelectorAll("section[id]"));
-                        const thirdSectionIndex = 2; // 0-indexed, so 2 is 3rd section
+                        // Check if this is 3rd section or if there are fewer sections, trigger on the last section
+                        const allSectionElements = Array.from(document.querySelectorAll("section[id]"));
+                        const triggerSectionIndex = Math.min(2, allSectionElements.length - 1); // 3rd section or last available
                         
-                        console.log('🔍 Checking third section conditions:');
-                        console.log('  - Section elements found:', sectionElements.length);
-                        console.log('  - Third section element exists:', !!sectionElements[thirdSectionIndex]);
-                        console.log('  - Entry target matches third section:', entry.target === sectionElements[thirdSectionIndex]);
+                        console.log('🔍 Checking popup trigger conditions:');
+                        console.log('  - Section elements found:', allSectionElements.length);
+                        console.log('  - Trigger section index:', triggerSectionIndex);
+                        console.log('  - Trigger section element exists:', !!allSectionElements[triggerSectionIndex]);
+                        console.log('  - Entry target matches trigger section:', entry.target === allSectionElements[triggerSectionIndex]);
                         console.log('  - Popup already triggered:', popupTriggered);
                         
-                        if (sectionElements[thirdSectionIndex] && 
-                            entry.target === sectionElements[thirdSectionIndex] && 
+                        if (allSectionElements[triggerSectionIndex] && 
+                            entry.target === allSectionElements[triggerSectionIndex] && 
                             !popupTriggered) {
                             
                             console.log('✅ Third section reached by scroll, triggering popup');
@@ -54,8 +55,8 @@ export function useCaseStudyNavigation(sections: any[]) {
                             console.log('📥 Event dispatched successfully:', dispatched);
                         } else {
                             console.log('❌ Third section conditions not met');
-                            console.log('  - Section exists:', !!sectionElements[thirdSectionIndex]);
-                            console.log('  - Target matches:', entry.target === sectionElements[thirdSectionIndex]);
+                            console.log('  - Section exists:', !!allSectionElements[triggerSectionIndex]);
+                            console.log('  - Target matches:', entry.target === allSectionElements[triggerSectionIndex]);
                             console.log('  - Popup already triggered:', popupTriggered);
                         }
                     }
@@ -63,7 +64,7 @@ export function useCaseStudyNavigation(sections: any[]) {
             },
             { 
                 threshold: 0.3, 
-                rootMargin: "-100px 0px -40% 0px" 
+                rootMargin: "0px 0px -40% 0px" 
             }
         );
 
@@ -94,11 +95,12 @@ export function useCaseStudyNavigation(sections: any[]) {
                 const href = navLink.getAttribute('href');
                 if (href) {
                     const navLinks = document.querySelectorAll('a[href^="#"]');
-                    const thirdNavLink = navLinks[2]; // 0-indexed, so 2 is 3rd nav link
+                    const triggerNavLinkIndex = Math.min(2, navLinks.length - 1); // 3rd nav link or last available
+                    const triggerNavLink = navLinks[triggerNavLinkIndex];
 
-                    // Only trigger popup if specifically clicking 3rd navigation tab
-                    if (navLink === thirdNavLink && !popupTriggered) {
-                        console.log('✅ Third nav tab clicked, triggering popup');
+                    // Only trigger popup if clicking 3rd navigation tab (Impact) specifically
+                    if (navLink === triggerNavLink && !popupTriggered) {
+                        console.log('✅ Impact nav tab clicked, triggering popup');
                         setPopupTriggered(true);
                         
                         // Dispatch custom event for popup component

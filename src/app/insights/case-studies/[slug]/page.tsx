@@ -188,7 +188,7 @@ export default function CaseStudyDetailPage() {
 
     // Extract section IDs for the new hook
     const sectionIds = study.sections.map(section => section.id);
-    const { activeTabIndex, scrollToTab, hasTriggeredThirdSection } = useScrollTabSync({
+    const { activeTabIndex, scrollToTab } = useScrollTabSync({
         sectionIds,
     });
     const [scrolled, setScrolled] = useState(false);
@@ -465,12 +465,17 @@ export default function CaseStudyDetailPage() {
                 <div className="mx-auto w-full max-w-[1400px] px-8">
                     <div className="w-full lg:w-[85%] mx-auto">
                         <div className="flex items-center justify-start gap-4 overflow-x-auto no-scrollbar pl-[52px]">
-                            {study.sections.filter(s => s.title).map((section) => (
+                            {study.sections.filter(s => s.title).map((section, filteredIdx) => (
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
                                     onClick={(e) => {
                                         e.preventDefault();
+                                        if (filteredIdx === 2) {
+                                            window.dispatchEvent(new CustomEvent('thirdTabClicked', {
+                                                detail: { source: 'tab-click', sectionId: section.id }
+                                            }));
+                                        }
                                         const target = document.querySelector(`#${section.id}`);
                                         if (target) {
                                             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -523,7 +528,7 @@ export default function CaseStudyDetailPage() {
             </main>
 
             <Footer />
-            <CaseStudyPopup isTriggered={hasTriggeredThirdSection} />
+            <CaseStudyPopup />
 
             <style jsx global>{`
                 @keyframes shimmerSweep {
