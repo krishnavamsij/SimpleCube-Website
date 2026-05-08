@@ -91,7 +91,7 @@ export default function HyperPage() {
             
             {/* Hero Section */}
              <section className="pt-[120px] pb-[70px] bg-white">
-                <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
                     <div className="flex flex-col lg:flex-row items-center gap-10">
 
@@ -104,17 +104,7 @@ export default function HyperPage() {
                                 variants={staggerContainer}
                             >
 
-                                {/* Eyebrow */}
-                                <motion.div
-                                    variants={fadeInUp}
-                                    className="inline-flex items-center gap-2 text-[#345195] bg-[#345195]/10 border border-[#345195]/20 px-4 py-2 rounded-full mb-6 w-fit"
-                                    style={{ fontFamily: 'Poppins, sans-serif' }}
-                                >
-                                    <span className="w-2 h-2 rounded-full bg-[#345195]" />
-                                    <span className="text-[13px] font-semibold tracking-wide uppercase">
-                                        Hyper Platform
-                                    </span>
-                                </motion.div>
+                                {/* Eyebrow - Removed */}
 
                                 {/* Logo */}
                                 <motion.div variants={fadeInUp} className="mb-7">
@@ -145,7 +135,7 @@ export default function HyperPage() {
                                     {/* Description */}
                                     <motion.p
                                         variants={fadeInUp}
-                                        className="text-[16px] sm:text-[17px] leading-[1.8] text-[#6f6f6f]"
+                                        className="text-[18px] sm:text-[20px] leading-[1.8] text-[#6f6f6f]"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
                                         A modern portfolio planning platform that empowers
@@ -175,7 +165,7 @@ export default function HyperPage() {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8 }}
-                                className="w-full bg-white p-2 rounded-[8px] shadow-sm"
+                                className="w-full"
                             >
                                 <Image
                                     src="/images/products/businessmen-put-placing-wood-block-tower-workplace-business-stock-trading-financial-800x491.jpg"
@@ -195,7 +185,7 @@ export default function HyperPage() {
 
             {/* Intro Section */}
              <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-                <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+                <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
                     <div className="flex justify-center">
                         <div className="w-full lg:w-9/12">
                             <motion.div
@@ -217,7 +207,7 @@ export default function HyperPage() {
                                 </h2>
 
                                 <p
-                                    className="text-[16px] sm:text-[18px] leading-[1.7] font-normal"
+                                    className="text-[18px] sm:text-[20px] leading-[1.7] font-normal"
                                     style={{
                                         fontFamily: 'Poppins, sans-serif',
                                         color: '#6f6f6f',
@@ -227,7 +217,7 @@ export default function HyperPage() {
                                 >
                                     Hyper empowers financial institutions and advisors to deliver
                                     investment experiences that are transparent, personalized, and
-                                    built for today’s digital-first investor. From guided discovery
+                                    built for today's digital-first investor. From guided discovery
                                     to tailored portfolio suggestions, Hyper accelerates growth,
                                     enhances trust, and simplifies decision-making.
                                 </p>
@@ -338,7 +328,7 @@ export default function HyperPage() {
                         <div className="flex-1 text-center md:text-left">
 
                             <p
-                                className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                                className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif',
                                     color: '#6f6f6f'
@@ -444,7 +434,7 @@ export default function HyperPage() {
 
             {/* CTA Header */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
-                <div className="max-w-[1200px] mx-auto px-6 text-center">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
 
                     <motion.div
                         variants={scrollReveal}
@@ -467,7 +457,7 @@ export default function HyperPage() {
                         {/* Description */}
                         <div className="max-w-[1050px] mx-auto">
                             <p
-                                className="text-[15px] sm:text-[16px] leading-[1.9]"
+                                className="text-[17px] sm:text-[19px] leading-[1.9]"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif',
                                     color: '#6f6f6f'

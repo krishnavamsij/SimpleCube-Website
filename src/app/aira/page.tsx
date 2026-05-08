@@ -127,10 +127,10 @@ function AiraHero() {
             </div>
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40 z-[1]" />
+            <div className="absolute inset-0 bg-black/20 z-[1]" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 lg:px-8 py-12 md:py-0">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-8 py-12 md:py-0">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -208,7 +208,7 @@ function AiraHero() {
 function AiraIntro() {
     return (
         <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
                 <div className="flex justify-center">
                     <div className="w-full lg:w-9/12">
                         <motion.div
@@ -255,7 +255,7 @@ function AiraIntro() {
 function AiraDifferentiators() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
                     <h2 className="text-[#345195] text-3xl font-bold">
                         What Makes AIRA Different
@@ -310,7 +310,7 @@ function AiraDifferentiators() {
 function AiraCapabilities() {
     return (
         <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
                     <h2 className="text-white text-3xl font-bold mb-[10px]">
                         Key Capabilities
@@ -384,7 +384,7 @@ function CeoVision() {
                     <div className="flex-1 text-center md:text-left">
 
                         <p
-                            className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                            className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                             style={{
                                 fontFamily: 'Poppins, sans-serif',
                                 color: '#6f6f6f'
@@ -505,7 +505,7 @@ function EnterpriseImpact() {
 function CustomerCentric() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
+            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8 text-center">
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                     <h2 className="text-3xl font-bold text-[#345195] mb-[30px]">
                         Customer-Centric by Design

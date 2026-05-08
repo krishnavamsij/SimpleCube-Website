@@ -59,15 +59,15 @@ const heroSlides = [
     {
         image: '/images/products/Third-largestCreditUnion.png',
         text: 'Large mutual fund company achieved better ROI<br/>using Our Salesforce accelerators',
-        width: 220,
-        height: 250,
+        width: 280,
+        height: 310,
         dot: '/images/products/first-1.png'
     },
     {
         image: '/images/products/LargeMutualFund.png',
         text: 'Third-largest credit union leveraged our Salesforce<br/>expertise to achieve digital transformation goals',
-        width: 220,
-        height: 250,
+        width: 280,
+        height: 310,
         dot: '/images/products/second-1.png'
     }
 ]
@@ -114,7 +114,7 @@ export default function FinxservePage() {
 
             {/* Hero Banner Section */}
             <section className="relative pt-[120px] pb-16 bg-[#030b49] overflow-hidden">
-                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center min-h-[400px] gap-12">
                         <div className="w-full md:w-1/2 z-10 relative text-center md:text-left">
                             <Image 
@@ -153,30 +153,33 @@ export default function FinxservePage() {
                         <div className="hidden md:block absolute right-0 top-[15%] w-[45%] h-[80%] z-0 overflow-hidden">
                             <div className="relative w-full h-full flex items-center justify-center">
                                 {heroSlides.map((slide, index) => (
-                                    <div 
-                                        key={index} 
+                                    <div
+                                        key={index}
                                         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                                     >
-                                        <Image 
-                                            src={slide.image} 
-                                            alt={`Slide ${index + 1}`} 
-                                            width={slide.width} 
-                                            height={slide.height} 
-                                            className="absolute top-[20px] mt-8 object-contain" 
-                                            style={{ maxHeight: '70%' }}
-                                        />
-                                        <div className="absolute bottom-[20%] text-center px-4 w-full flex flex-col items-center">
-                                            <p 
-                                                className="text-[14px] font-normal leading-[21px] text-white mb-4" 
-                                                style={{ fontFamily: 'Roboto, sans-serif' }}
-                                                dangerouslySetInnerHTML={{ __html: slide.text }}
+                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-6 pb-8">
+                                            <Image
+                                                src={slide.image}
+                                                alt={`Slide ${index + 1}`}
+                                                width={slide.width}
+                                                height={slide.height}
+                                                className="object-contain"
+                                                style={{ maxHeight: '74%' }}
                                             />
-                                            <Image 
-                                                src={slide.dot} 
-                                                alt="Slide indicator" 
-                                                width={32} 
-                                                height={13} 
-                                            />
+                                            <div className="mt-6 w-full max-w-[500px] text-center">
+                                                <p
+                                                    className="text-[17px] sm:text-[19px] font-medium leading-[1.75] tracking-tight text-white/95 mb-4"
+                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
+                                                    dangerouslySetInnerHTML={{ __html: slide.text }}
+                                                />
+                                                <Image
+                                                    src={slide.dot}
+                                                    alt="Slide indicator"
+                                                    width={32}
+                                                    height={13}
+                                                    className="mx-auto"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -188,7 +191,7 @@ export default function FinxservePage() {
 
             {/* Intro */}
             <section id="intro" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     
                     <motion.div
                         variants={scrollReveal}
@@ -227,7 +230,7 @@ export default function FinxservePage() {
 
             {/* Capabilities (Dark Wrapper Grid) */}
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
-                <div className="max-w-[1500px] mx-auto px-4 lg:px-[60px] flex flex-col lg:flex-row gap-[60px]" >
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-[60px]" >
                     {/* LEFT FIXED CONTENT */}
                     <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
                         <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -313,7 +316,7 @@ export default function FinxservePage() {
                             <div className="flex-1 text-center md:text-left">
 
                                 <p
-                                    className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                                    className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                                     style={{
                                         fontFamily: 'Poppins, sans-serif',
                                         color: '#6f6f6f'
@@ -356,7 +359,7 @@ export default function FinxservePage() {
 
             {/* Tangible Business Value */}
             <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -425,7 +428,7 @@ export default function FinxservePage() {
 
             {/* Two Decades */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <motion.div 
                         variants={scrollReveal}
                         initial="hidden"
@@ -463,7 +466,7 @@ export default function FinxservePage() {
 
             {/* Case Studies */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f9f9f9]">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -523,7 +526,7 @@ export default function FinxservePage() {
 
             {/* Final Section (Reimagined Banking) */}
             <section id="customer" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <motion.div 
                         variants={scrollReveal}
                         initial="hidden"

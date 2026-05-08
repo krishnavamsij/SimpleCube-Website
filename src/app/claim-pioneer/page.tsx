@@ -81,9 +81,9 @@ export default function ClaimPioneerPage() {
             
             {/* Hero Section */}
             <section className="pt-[150px] pb-16">
-                <div className="max-w-[1240px] mx-auto px-[15px]">
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
 
-                    <div className="flex flex-wrap items-center">
+                    <div className="flex flex-wrap items-center lg:items-start">
 
                         {/* Left Content */}
                         <div className="w-full lg:w-1/2 px-4 flex flex-col justify-center">
@@ -93,25 +93,14 @@ export default function ClaimPioneerPage() {
                                 variants={staggerContainer}
                             >
 
-                                {/* Eyebrow */}
-                                <motion.div
-                                    variants={fadeInUp}
-                                    className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit whitespace-nowrap"
-                                >
-                                    <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                                    <span className="text-[#3B82F6] font-medium">
-                                        CLAIM PIONEER
-                                    </span>
-                                </motion.div>
-
                                 {/* Logo (bigger) */}
-                                <motion.div variants={fadeInUp} className="mb-8">
-                                    <div className="w-[300px] max-w-full">
+                                <motion.div variants={fadeInUp} className="mb-10">
+                                    <div className="w-[360px] max-w-full">
                                         <Image
                                             src="/images/products/Claim-Pioneer-e1764916989437-300x137.jpeg"
                                             alt="Claim Pioneer"
-                                            width={300}
-                                            height={137}
+                                            width={360}
+                                            height={164}
                                             className="w-full h-auto object-contain"
                                         />
                                     </div>
@@ -129,7 +118,7 @@ export default function ClaimPioneerPage() {
 
                                     <motion.h6
                                         variants={fadeInUp}
-                                        className="text-[15px] font-medium leading-[25px] text-[#666666]"
+                                        className="text-[17px] sm:text-[19px] font-medium leading-[1.75] text-[#666666]"
                                         style={{ fontFamily: 'Roboto, sans-serif' }}
                                     >
                                         Transforming every step of the claims journey with automation to boost speed, accuracy, and customer satisfaction.
@@ -176,13 +165,13 @@ export default function ClaimPioneerPage() {
 
             {/* Reimagining Claims */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8f9fa]">
-                <div className="mx-auto w-full max-w-[1000px] px-6 text-center">
+                <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
                     <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                         <h2 className="text-3xl font-bold text-[#345195] mb-[30px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Reimagining Claims with Intelligent Automation
                         </h2>
-                        <div className="max-w-[800px] mx-auto text-left">
-                            <p className="text-[15px] text-gray-700 leading-[26px] m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <div className="max-w-[1000px] mx-auto text-center">
+                            <p className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 The future of claims is fast, automated, and intelligence driven. Traditional manual assignment and follow-ups create delays, biased routing, and customer frustration. Claim Pioneer brings automation and real-time visibility to every step of the claim's lifecycle, from intake to closure. With built-in AI assignment, live tracking, and end-to-end workflow automation, agencies can scale operations, reduce overhead, and consistently deliver high-quality claim outcomes.
                             </p>
                         </div>
@@ -203,7 +192,7 @@ export default function ClaimPioneerPage() {
                         {capabilities.map((cap, idx) => (
                             <div key={idx} className="w-full md:w-1/3 px-[15px] mb-[64px] last:mb-0 md:last:mb-[64px]">
                                 <div className="flex flex-col items-center">
-                                    <div className="mb-[32px] w-full border border-gray-600 rounded">
+                                    <div className="mb-[32px] w-full rounded overflow-hidden">
                                         <Image src={cap.img} alt={cap.title} width={450} height={250} className="w-full h-auto rounded" />
                                     </div>
                                     <div className="text-center">
@@ -263,7 +252,7 @@ export default function ClaimPioneerPage() {
                             <div className="flex-1 text-center md:text-left">
 
                                 <p
-                                    className="text-[15px] sm:text-[16px] leading-[1.7] font-normal mb-4"
+                                    className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                                     style={{
                                         fontFamily: 'Poppins, sans-serif',
                                         color: '#6f6f6f'
@@ -306,14 +295,14 @@ export default function ClaimPioneerPage() {
 
             {/* End-to-End Claim Assessment Workflow */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="mx-auto w-full max-w-[1000px] px-6">
+                <div className="mx-auto w-full max-w-[1400px] px-6">
                     <header className="text-center mb-8">
                         <h2 className="text-[28px] sm:text-[32px] font-bold text-[#345196]" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             End-to-End Claim Assessment Workflow
                         </h2>
                     </header>
-                    <div className="flex justify-center border border-gray-200">
-                        <Image src="/images/products/Artboard-1@2x-scaled-1440x900.png" alt="Workflow" width={1440} height={900} className="w-full h-auto" />
+                    <div className="flex justify-center">
+                        <Image src="/images/products/Artboard-1@2x-scaled-1440x900.png" alt="Workflow" width={1440} height={900} className="w-full h-auto shadow-none" />
                     </div>
                 </div>
             </section>
@@ -376,14 +365,14 @@ export default function ClaimPioneerPage() {
 
             {/* Transforming Every Step */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8f9fa]">
-                <div className="mx-auto w-full max-w-[1000px] px-6 text-center">
+                <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
                     <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                         <h2 className="text-3xl font-bold text-[#345195] mb-[30px]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Transforming Every Step of the Claims Journey
                         </h2>
-                        <div className="max-w-[800px] mx-auto text-left">
-                            <p className="text-[15px] text-gray-700 leading-[26px] m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Claim Pioneer simplifies the complex world of claims by combining automation, mobility, intelligence, and transparency into one powerful platform. Whether you’re managing everyday claims or responding to catastrophic events, the platform ensures faster outcomes, lower operational costs, and a dramatically better experience for everyone involved.
+                        <div className="max-w-[1000px] mx-auto text-center">
+                            <p className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                Claim Pioneer simplifies the complex world of claims by combining automation, mobility, intelligence, and transparency into one powerful platform. Whether you're managing everyday claims or responding to catastrophic events, the platform ensures faster outcomes, lower operational costs, and a dramatically better experience for everyone involved.
                             </p>
                         </div>
                     </motion.div>
