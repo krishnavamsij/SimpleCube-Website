@@ -114,13 +114,13 @@ export default function ContactPage() {
                             
                             <motion.h1 
                                 variants={fadeInUp}
-                                className="text-5xl sm:text-6xl lg:text-[80px] font-[900] text-white tracking-tight leading-[1.05] mb-10 font-display"
+                                className="text-4xl sm:text-5xl lg:text-[70px] font-[900] text-white tracking-tight leading-[1.05] mb-10 font-display"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
                             
                             <motion.p 
                                 variants={fadeInUp}
-                                className="mx-auto max-w-3xl text-xl sm:text-2xl text-slate-300 font-medium leading-relaxed mb-0"
+                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed mb-0"
                             >
                                 {contactContent.hero.description}
                             </motion.p>
