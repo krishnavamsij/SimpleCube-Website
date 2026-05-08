@@ -35,7 +35,7 @@ function BankingHero() {
                     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
                 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/70 via-[#040c2c]/50 to-[#02040a]/85" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/70 to-[#02040a]/90" />
 
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
