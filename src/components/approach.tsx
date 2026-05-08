@@ -45,7 +45,7 @@ export function Approach() {
                     {/* Right: Punch Stat (Top Aligned to Label) */}
                     <div className="flex flex-col items-end text-right flex-shrink-0 mt-2 lg:mt-2">
                         <div className="text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
-                            40<span className="text-[#00D4AA] text-[52px]">%</span>
+                            40<span className="text-white text-[52px]">%</span>
                         </div>
                         <div className="text-[14px] font-bold mt-3 leading-[1.3] text-white/70 eyebrow">
                             faster delivery<br />vs. traditional model

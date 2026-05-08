@@ -59,7 +59,7 @@ export function WhyHyniva() {
                                                 {stat.value.replace('+', '')}
                                             </span>
                                             {stat.value.includes('+') && (
-                                                <span className="text-2xl sm:text-3xl font-black text-[#00D4AA] leading-none">+</span>
+                                                <span className="text-2xl sm:text-3xl font-black text-white leading-none">+</span>
                                             )}
                                         </div>
                                         <span className="text-[14px] sm:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">

@@ -87,7 +87,7 @@ export function HeroCarousel() {
                                             <span className="text-3xl sm:text-4xl font-[900] text-white leading-none font-display">
                                                 {stat.value.replace('%', '')}
                                             </span>
-                                            <span className="text-2xl sm:text-3xl font-black text-[#00D4AA] leading-none">%</span>
+                                            <span className="text-2xl sm:text-3xl font-black text-white leading-none">%</span>
                                         </div>
                                         <span className="text-[14px] sm:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">
                                             {stat.label}

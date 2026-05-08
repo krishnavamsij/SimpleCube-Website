@@ -64,7 +64,7 @@ export function Services() {
                                         <div className="flex items-baseline gap-0.5">
                                             <span className="text-3xl sm:text-4xl font-extrabold text-slate-900">{valNum}</span>
                                             {hasPlus && (
-                                                <span className="text-[#00D4AA] text-3xl sm:text-4xl font-extrabold">+</span>
+                                                <span className="text-slate-900 text-3xl sm:text-4xl font-extrabold">+</span>
                                             )}
                                         </div>
                                         <p className="mt-2 text-sm text-slate-500 font-medium leading-snug pr-4 whitespace-pre-line">
