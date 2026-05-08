@@ -80,7 +80,7 @@ export function ProductsShowcase() {
     const { label, headline, subheadline, rightCallout, logos, products } = productsContent;
 
     return (
-        <section className="relative bg-[#030B3B] text-white py-[30px] sm:py-[40px] lg:py-[50px]">
+        <section className="relative bg-[#030B3B] text-white pt-[30px] pb-[20px] sm:pt-[40px] sm:pb-[30px] lg:pt-[50px] lg:pb-[30px]">
             <div className="mx-auto max-w-[1400px] px-6">
                 {/* ── Section header ── */}
                 <motion.div
@@ -88,7 +88,7 @@ export function ProductsShowcase() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-16 lg:mb-24"
+                    className="mb-8 lg:mb-12"
                 >
                     <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
@@ -119,8 +119,8 @@ export function ProductsShowcase() {
                 </motion.div>
 
                 {/* ── Logo Ribbon Footprint ── */}
-                <div className="mt-16 lg:mt-20 pt-10 border-t border-white/10 w-full mb-16 lg:mb-32 relative">
-                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-10 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <div className="mt-8 lg:mt-12 pt-6 border-t border-white/10 w-full mb-8 lg:mb-12 relative">
+                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-6 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
                                 {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
@@ -141,7 +141,7 @@ export function ProductsShowcase() {
             {/* ── Stacked Products Sticky Layout ── */}
             {/* Using native CSS sticky sequentially so each card overlaps the previous one precisely as requested. */}
             <div className="mx-auto max-w-[1400px] px-6">
-                <div className="relative w-full overflow-visible pb-10 lg:pb-24 mt-10 lg:mt-0">
+                <div className="relative w-full overflow-visible pb-6 lg:pb-12 mt-10 lg:mt-0">
                     {products.map((p, i) => (
                         <div 
                             key={p.num} 
@@ -168,7 +168,7 @@ export function ProductsShowcase() {
                             >
                                 
                                 {/* Left: Content */}
-                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] py-[30px] sm:py-[40px] lg:py-[50px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-1/2">
+                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[30px] sm:pt-[50px] sm:pb-[40px] lg:pt-[10vh] lg:pb-[50px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
                                     <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-8">
                                         {p.title}
                                     </h3>
