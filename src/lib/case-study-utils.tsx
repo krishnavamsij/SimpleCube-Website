@@ -38,17 +38,16 @@ export function parseCaseStudyTitle(slugOrHref: string): ParsedTitle {
         // Check if this is one of the problematic studies
         if (knownSlugs.includes(slugOrHref)) {
             // Manual search in case studies array for matching title
-            const fallbackStudy = caseStudiesContent.studies.find(s => {
+            // Manual search in case studies array for matching title
+            const matchingStudy = caseStudiesContent.studies.find(s => {
                 const slugWords = s.href.split('-');
-                const studyWords = s.title.split(' ');
+                const studyWords = s.title.toLowerCase().split(' ');
                 // Check if all slug words are contained in the study title
-                const isMatch = slugWords.every(word => studyWords.includes(word));
-                if (isMatch && fallbackStudy?.title) {
-                    // Use the title from the found study
-                    return { parts: [{ text: fallbackStudy.title, highlighted: false }] };
-                }
+                return slugWords.every(word => studyWords.includes(word.toLowerCase()));
             });
-            if (fallbackStudy) return fallbackStudy;
+            if (matchingStudy && matchingStudy.title) {
+                return { parts: [{ text: matchingStudy.title, highlighted: false }] };
+            }
         }
         
         // If still no match, try to find by partial slug match
@@ -60,14 +59,11 @@ export function parseCaseStudyTitle(slugOrHref: string): ParsedTitle {
             const requiredMatchCount = studySlugWords.length;
             
             // If we have a good partial match (at least 50% of words), use it
-            if (partialMatchCount >= requiredMatchCount * 0.5) {
-                const matchingStudy = caseStudiesContent.studies.find(s => s.href.includes(slugOrHref));
-                if (matchingStudy?.title) {
-                    return { parts: [{ text: matchingStudy.title, highlighted: false }] };
-                }
-            }
+            return partialMatchCount >= requiredMatchCount * 0.5;
         });
-        if (partialMatch) return partialMatch;
+        if (partialMatch && partialMatch.title) {
+            return { parts: [{ text: partialMatch.title, highlighted: false }] };
+        }
         
         // If still no match, return empty
         const fallbackTitle = slugOrHref.split('-').map(word => 
