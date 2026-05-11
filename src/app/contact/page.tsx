@@ -102,7 +102,7 @@ export default function ContactPage() {
             
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-32 pb-32 overflow-hidden bg-[#030b1e]">
+                <section className="relative pt-32 pb-32 min-h-[100vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
                     {/* Background layers - Matching homepage aesthetics */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -135,13 +135,13 @@ export default function ContactPage() {
                             
                             <motion.h1 
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-20 font-display"
+                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-8 font-display"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
                             
                             <motion.p 
                                 variants={fadeInUp}
-                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed mb-16"
+                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed mb-8"
                             >
                                 {contactContent.hero.description}
                             </motion.p>
