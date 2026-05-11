@@ -628,7 +628,7 @@ export default function CareersPage() {
       <Navbar />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-[#0a0f1e] overflow-hidden pt-32 pb-24 px-6 flex flex-col items-center">
+        <section className="relative min-h-screen bg-[#0a0f1e] overflow-hidden pt-32 pb-32 px-6 flex items-center justify-center">
           {/* Background Elements */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
@@ -639,20 +639,19 @@ export default function CareersPage() {
             backgroundSize: '40px 40px'
           }} />
 
-          {/* Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto text-center">
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center mb-6">
               <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                 <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                 Careers
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white mb-6 font-display">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
               Join the meet where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
             </h1>
 
-            <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-2xl mx-auto mb-16">
+            <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-3xl mx-auto mb-14">
               Be part of a team that solves complex problems, builds intelligent systems and drives real transformation across industries.
             </p>
 
@@ -663,8 +662,8 @@ export default function CareersPage() {
                 { icon: Shield, label: "Innovation-Driven Work" },
                 { icon: Users, label: "People-First Culture" }
               ].map((pill, i) => (
-                <div key={i} className="flex items-center gap-2.5 bg-white/5 border border-white/10 backdrop-blur-md rounded-full px-5 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 transition-all duration-300">
-                  <pill.icon className="w-4 h-4 text-[#1e90ff]" />
+                <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-all duration-300">
+                  <pill.icon className="w-5 h-5 text-[#1e90ff]" />
                   {pill.label}
                 </div>
               ))}
