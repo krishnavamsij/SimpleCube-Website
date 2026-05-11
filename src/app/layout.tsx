@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -62,21 +62,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha384-8763676C9EF3823BF0FAD41BF2D911CE1A20CCD9D57FBA097A3D99DE5D38682631E3E95043934230CA0F2589760E9078"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
       <body
         className={`${inter.variable} ${bricolage.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
