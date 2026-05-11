@@ -245,7 +245,7 @@ export default function BlogDetailPage() {
                                         </div>
                                     )}
 
-{mounted ? (
+                                    {mounted ? (
                                         <div
                                             className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
                                             [&_div]:mb-6 
@@ -292,7 +292,7 @@ export default function BlogDetailPage() {
                 __html: `
                 /* ─── GLOBAL STANDARDS ─── */
                 p { font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 24px; }
-h2 { font-family: var(--font-display), serif; font-size: clamp(26px, 4vw, 36px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; font-weight: 700; }
+                h2 { font-family: var(--font-display), serif; font-size: clamp(26px, 4vw, 36px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; font-weight: 700; }
                 em { font-style: normal; color: white !important; } /* Branding consistency for titles */
                 .blog-content em { font-style: normal; color: inherit; } /* No italics in content as requested */
                 strong { font-weight: 600; color: #0a0f1e; }
