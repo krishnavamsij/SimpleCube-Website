@@ -152,6 +152,8 @@ export function CaseStudyPopup({
         },
         body: JSON.stringify({
           _subject: `New Lead: ${formData.name} is interested in Hyniva Insights`,
+          _replyto: formData.email,
+          _captcha: "false",
           "Inquiry Details": "A visitor has expressed interest in learning more about Hyniva after reading a case study.",
           "Prospect Name": formData.name,
           "Company": formData.organization,

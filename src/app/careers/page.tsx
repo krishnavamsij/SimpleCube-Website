@@ -414,7 +414,7 @@ export default function CareersPage() {
     if (!formData.experience) newErrors.experience = "Please select total experience";
     if (!formData.relevantExp) newErrors.relevantExp = "Please select relevant experience";
     if (!formData.currentCTC.trim()) newErrors.currentCTC = "Current CTC is required";
-    if (!formData.expectedCTC.trim()) newErrors.expectedCTC = "Expected CTC is required";
+    if (!formData.expectedCTC.trim()) newErrors.expectedCTC = "Expected CTC is optional";
     if (!formData.noticePeriod) newErrors.noticePeriod = "Please select your notice period";
     if (!formData.skills.trim()) newErrors.skills = "Please mention your key skills";
     if (!formData.coverNote.trim()) newErrors.coverNote = "Please tell us why you want to join Hyniva";
@@ -652,7 +652,7 @@ export default function CareersPage() {
               Join the meet where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
             </h1>
 
-            <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-2xl mx-auto mb-10">
+            <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-2xl mx-auto mb-16">
               Be part of a team that solves complex problems, builds intelligent systems and drives real transformation across industries.
             </p>
 
@@ -1211,7 +1211,7 @@ export default function CareersPage() {
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
-                          Expected CTC *
+                          Expected CTC
                         </label>
                         <input
                           type="text"
@@ -1222,7 +1222,6 @@ export default function CareersPage() {
                           placeholder="e.g. 18,00,000"
                           className={`w-full h-11 px-4 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 transition-all duration-200 ${errors.expectedCTC ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#1e6fff]'
                             }`}
-                          required
                         />
                       </div>
                     </div>
@@ -1332,7 +1331,7 @@ export default function CareersPage() {
                   {/* Resume Upload */}
                   <div className="space-y-3 pt-2">
                     <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
-                      Resume Upload
+                      Resume Upload *
                     </div>
                     <div className={`border-2 border-dashed rounded-xl p-6 text-center transition-all bg-white ${errors.resume ? 'border-red-300 bg-red-50/20' : 'border-gray-200 hover:border-[#1e6fff] hover:bg-gray-50/50'
                       }`}>
