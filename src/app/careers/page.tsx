@@ -414,7 +414,7 @@ export default function CareersPage() {
     if (!formData.experience) newErrors.experience = "Please select total experience";
     if (!formData.relevantExp) newErrors.relevantExp = "Please select relevant experience";
     if (!formData.currentCTC.trim()) newErrors.currentCTC = "Current CTC is required";
-    if (!formData.expectedCTC.trim()) newErrors.expectedCTC = "Expected CTC is optional";
+    // Expected CTC is optional - no validation needed
     if (!formData.noticePeriod) newErrors.noticePeriod = "Please select your notice period";
     if (!formData.skills.trim()) newErrors.skills = "Please mention your key skills";
     if (!formData.coverNote.trim()) newErrors.coverNote = "Please tell us why you want to join Hyniva";
