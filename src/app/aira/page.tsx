@@ -111,7 +111,7 @@ const impacts = [
 
 function AiraHero() {
     return (
-        <section className="relative h-[500px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
+        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center pt-20 md:pt-0">
             
             {/* Background video */}
             <div className="absolute inset-0 z-0">
@@ -148,7 +148,7 @@ function AiraHero() {
                             alt="AIRA Logo"
                             width={260}
                             height={90}
-                            className="w-[90px] sm:w-[220px] md:w-[280px] h-auto object-contain"
+                            className="w-[160px] sm:w-[220px] md:w-[280px] h-auto object-contain"
                             priority
                         />
                     </motion.div>
@@ -156,7 +156,7 @@ function AiraHero() {
                     {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-3 sm:mb-5 text-[18px] sm:text-3xl md:text-5xl leading-[1.3] font-semibold"
+                        className="text-white mb-4 sm:mb-5 text-[28px] sm:text-3xl md:text-5xl leading-[1.2] font-bold"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         Autonomous Intelligent
@@ -167,7 +167,7 @@ function AiraHero() {
                     {/* Description */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-white mb-6 sm:mb-8 text-[13px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[520px] mx-auto md:mx-0"
+                        className="text-white mb-8 sm:mb-8 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[320px] sm:max-w-[520px] mx-auto md:mx-0 opacity-90"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions —
