@@ -6,9 +6,10 @@ interface EyebrowButtonProps {
     onClick?: () => void;
     className?: string;
     children?: React.ReactNode;
+    html?: string;
 }
 
-export function EyebrowButton({ href, onClick, className = "", children = "CONTACT US" }: EyebrowButtonProps) {
+export function EyebrowButton({ href, onClick, className = "", children = "CONTACT US", html }: EyebrowButtonProps) {
     const baseClassName = `
         eyebrow
         text-[#1e90ff] 

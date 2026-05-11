@@ -61,12 +61,7 @@ export const caseStudiesContent = {
             description: "Enabled real-time Customer 360 insights with a unified, automated data platform.",
             href: "/insights/case-studies/enterprise-data-intelligence",
         },
-        {
-            title: "AWS-Powered <span class='text-[#3B82F6]'>Document Platform Transformation</span>",
-            image: "/images/Case_Studies/Optimized/cs-10.png",
-            description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
-            href: "/insights/case-studies/aws-document-platform",
-        },
+
         {
             title: "<span class='text-[#3B82F6]'>Data-Driven Campaign Management</span> for Enterprise Marketing",
             image: "/images/Case_Studies/Optimized/cs-11.png",

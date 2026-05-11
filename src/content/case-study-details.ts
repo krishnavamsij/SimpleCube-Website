@@ -31,25 +31,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "🚀",
                 "value": "80%",
-                "label": "Faster Time-to-Market",
+                "label": "Faster<br>Time-to-Market",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "70%",
-                "label": "Faster Loan Processing",
+                "label": "Faster<br>Loan Processing",
                 "sub": ""
             },
             {
                 "icon": "💰",
                 "value": "50%",
-                "label": "Lower Cost of Ownership",
+                "label": "Lower Cost<br>of Ownership",
                 "sub": ""
             },
             {
                 "icon": "🕐",
                 "value": "24/7",
-                "label": "Always-On Lending",
+                "label": "Always-On<br>Lending",
                 "sub": ""
             }
         ],
@@ -179,25 +179,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "📉",
                 "value": "70%",
-                "label": "Reduction in Manual Reviews",
+                "label": "Reduction in<br>Manual Reviews",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "< 2 min",
-                "label": "Application Completion",
+                "label": "Application<br>Completion",
                 "sub": ""
             },
             {
                 "icon": "✅",
                 "value": "5-Step",
-                "label": "Automated Verification",
+                "label": "Automated<br>Verification",
                 "sub": ""
             },
             {
                 "icon": "🔄",
                 "value": "Real-Time",
-                "label": "Data Validation",
+                "label": "Data<br>Validation",
                 "sub": ""
             }
         ],
@@ -277,25 +277,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⏱️",
                 "value": "1.5 min",
-                "label": "Reduced Handle Time",
+                "label": "Reduced<br>Handle Time",
                 "sub": ""
             },
             {
                 "icon": "🔀",
                 "value": "65%",
-                "label": "Routing Simplification",
+                "label": "Routing<br>Simplification",
                 "sub": ""
             },
             {
                 "icon": "📞",
                 "value": "30%",
-                "label": "Calls Optimized",
+                "label": "Calls<br>Optimized",
                 "sub": ""
             },
             {
                 "icon": "🔒",
                 "value": "3FA",
-                "label": "Secure Verification",
+                "label": "Secure<br>Verification",
                 "sub": ""
             }
         ],
@@ -364,25 +364,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "🚀",
                 "value": "98%",
-                "label": "Faster Load Creation",
+                "label": "Faster Load<br>Creation",
                 "sub": ""
             },
             {
                 "icon": "💰",
                 "value": "99.5%",
-                "label": "Cost Reduction",
+                "label": "Cost<br>Reduction",
                 "sub": ""
             },
             {
                 "icon": "🎯",
                 "value": "99.6%",
-                "label": "Accuracy",
+                "label": "High<br>Accuracy",
                 "sub": ""
             },
             {
                 "icon": "🕐",
                 "value": "24/7",
-                "label": "Autonomous Processing",
+                "label": "Autonomous<br>Processing",
                 "sub": ""
             }
         ],
@@ -507,25 +507,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⚡",
                 "value": "2×",
-                "label": "Faster Page Loads",
+                "label": "Faster Page<br>Loads",
                 "sub": ""
             },
             {
                 "icon": "🚀",
                 "value": "55%",
-                "label": "Performance Gain",
+                "label": "Performance<br>Gain",
                 "sub": ""
             },
             {
                 "icon": "📱",
                 "value": "100%",
-                "label": "Mobile Responsive",
+                "label": "Mobile<br>Responsive",
                 "sub": ""
             },
             {
                 "icon": "🔍",
                 "value": "25%",
-                "label": "SEO Improvement",
+                "label": "SEO<br>Improvement",
                 "sub": ""
             }
         ],
@@ -590,7 +590,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "25%",
-                            "label": "SEO Improvement",
+                            "label": "SEO<br>Improvement",
                             "desc": "In SEO, accessibility, and long-term maintainability through cleaner markup and modern web standards"
                         },
                         {
@@ -613,30 +613,30 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "aem-migration",
         "eyebrow": "AEM Migration & Digital Transformation",
         "title": "Rapid Reverse-Engineered<br>\n      <em>Website Migration</em>",
-        "summary": "Reverse-engineered and migrated a complete website to Adobe Experience Manager in just\n      2 months — without backend access — ensuring zero downtime and seamless user experience.",
+        "summary": "Reverse-engineered and migrated a complete website<br>to Adobe Experience Manager in just 2 months — without backend access.",
         "metrics": [
             {
                 "icon": "📅",
                 "value": "2 Months",
-                "label": "Full Delivery",
+                "label": "Full<br>Delivery",
                 "sub": ""
             },
             {
                 "icon": "✅",
                 "value": "Zero",
-                "label": "Downtime",
+                "label": "Zero<br>Downtime",
                 "sub": ""
             },
             {
                 "icon": "👥",
                 "value": "20",
-                "label": "Team Deployed",
+                "label": "Team<br>Deployed",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "50%+",
-                "label": "Timeline Reduction",
+                "label": "Timeline<br>Reduction",
                 "sub": ""
             }
         ],
@@ -738,25 +738,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⏱️",
                 "value": "~2 min",
-                "label": "Reduced Handle Time",
+                "label": "Reduced<br>Handle Time",
                 "sub": ""
             },
             {
                 "icon": "🔐",
                 "value": "3×",
-                "label": "Stronger Authentication",
+                "label": "Stronger<br>Authentication",
                 "sub": ""
             },
             {
                 "icon": "🚫",
                 "value": "Zero",
-                "label": "KBA Dependency",
+                "label": "Zero<br>KBA Dependency",
                 "sub": ""
             },
             {
                 "icon": "🎙️",
                 "value": "100%",
-                "label": "Passive Verification",
+                "label": "Passive<br>Verification",
                 "sub": ""
             }
         ],
@@ -836,7 +836,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "💰",
                 "value": "30%",
-                "label": "Cost Reduction",
+                "label": "Cost<br>Reduction",
                 "sub": ""
             },
             {
@@ -937,25 +937,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "🔭",
                 "value": "360°",
-                "label": "Customer View",
+                "label": "Customer<br>View",
                 "sub": ""
             },
             {
                 "icon": "⚙️",
                 "value": "100%",
-                "label": "Automated ETL",
+                "label": "Automated<br>ETL",
                 "sub": ""
             },
             {
                 "icon": "🔗",
                 "value": "Multi-Source",
-                "label": "Data Integration",
+                "label": "Data<br>Integration",
                 "sub": ""
             },
             {
                 "icon": "🎯",
                 "value": "Single",
-                "label": "Source of Truth",
+                "label": "Source<br>of Truth",
                 "sub": ""
             }
         ],
@@ -1012,166 +1012,38 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Outcome",
                 "type": "text",
                 "content": "<p>The bank evolved from operating on fragmented data to running on a unified, real-time intelligence layer.</p>\n        <p>Data is now embedded into everyday decision-making — enabling faster execution, improved customer engagement, and a stronger foundation for digital growth.</p>"
-            },
-            {
-                "id": "future",
-                "title": "The Road Ahead",
-                "type": "text",
-                "content": "<p>With a modern data platform in place, the bank is positioned to unlock the next phase of innovation — including AI-driven insights, predictive analytics, and real-time customer decisioning.</p>\n        <p>What started as a data consolidation initiative is now a catalyst for continuous transformation.</p>"
             }
         ]
     },
-    "aws-document-platform": {
-        "slug": "aws-document-platform",
-        "eyebrow": "AWS Cloud & Document Management",
-        "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
-        "summary": "Replaced a legacy document management system with a serverless AWS architecture,\n      significantly reducing costs while improving performance and scalability.",
-        "metrics": [
-            {
-                "icon": "💰",
-                "value": "$500K+",
-                "label": "Annual Savings",
-                "sub": ""
-            },
-            {
-                "icon": "⚡",
-                "value": "5×",
-                "label": "Performance Gain",
-                "sub": ""
-            },
-            {
-                "icon": "🚀",
-                "value": "10 Hours",
-                "label": "Rapid Migration",
-                "sub": ""
-            },
-            {
-                "icon": "☁️",
-                "value": "Serverless",
-                "label": "Scalable Architecture",
-                "sub": ""
-            }
-        ],
-        "sections": [
-            {
-                "id": "challenge",
-                "title": "Challenge",
-                "type": "text",
-                "content": "<p>Hyniva's client – a global investment firm – was incurring high annual costs due to their reliance on a legacy platform for managing ~125 million customer documents. The overly complex document management platform posed significant technical challenges due to its multi-platform design and inhibited the support team from making efficient enhancements to meet the client's evolving requirements.</p>\n        <p>They needed a leaner, more cost-effective solution and turned to Hyniva for its expertise in AWS.</p>"
-            },
-            {
-                "id": "solution",
-                "title": "Hyniva's Solution",
-                "type": "approach-list",
-                "content": {
-                    "body": "<p>Hyniva quickly designed a creative solution to meet their client's document management goals. By harnessing Hyniva's deep expertise in AWS capabilities, the team built a solution that has improved performance by nearly 5x which dramatically improved customer experience. Instead of waiting for almost a minute, customers are now instantly viewing their documents on the web and on the mobile app. The new document management platform is much more efficient to run, simpler to support, and highly scalable as the client grows their business. Migration is always a risk for any platform replacement, but the Hyniva team carefully managed this and migrated the extensive document repository of ~125 million documents in only 10 hours.</p>\n        <p>Hyniva crafted a tailored document management system entirely on AWS, and the design is summarized below:</p>",
-                    "items": [
-                        {
-                            "num": "1",
-                            "title": "Amazon S3",
-                            "desc": "A scalable storage service deployed to securely store large volumes of documents, handle batch processing, and communicate with API-based events such as upload or download. S3 also fulfilled SEC17a-4 compliance requirements which is critical for any investment management business."
-                        },
-                        {
-                            "num": "2",
-                            "title": "AWS Lambda",
-                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management. Additionally, Lambda handled events triggered from S3 events for batch/upload processes."
-                        },
-                        {
-                            "num": "3",
-                            "title": "DynamoDB",
-                            "desc": "A high-performance NoSQL database that facilitated lightning-fast query execution and stored document metadata and status-related data."
-                        },
-                        {
-                            "num": "4",
-                            "title": "Amazon API Gateway",
-                            "desc": "Streamlined API communication efforts within the system, ensuring seamless data exchange."
-                        },
-                        {
-                            "num": "5",
-                            "title": "Amazon Serverless EMR",
-                            "desc": "Enabled batch uploads of metadata into the global firm's document metadata store. This component takes an input CSV file containing metadata and notification data, processes it in batch to upload metadata, and publishes notifications for successful updates."
-                        },
-                        {
-                            "num": "6",
-                            "title": "AWS CloudFormation",
-                            "desc": "Used to define and provision the infrastructure of the document management system by deploying infrastructure as code."
-                        },
-                        {
-                            "num": "7",
-                            "title": "AWS CloudWatch",
-                            "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
-                        }
-                    ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p>\n      </div>\n\n      <div class=\"solution-image\">\n        <img src=\"/images/Case_Studies/Optimized/AWS_doc_manager1.png\" alt=\"AWS Document Management Architecture\"/>\n      </div>"
-                }
-            },
-            {
-                "id": "impact",
-                "title": "Impact",
-                "type": "impact-strip",
-                "content": {
-                    "body": "<p>The new unified document management platform drastically cut down the costs, resulting in annual savings of over $500,000. API calls and database queries were executed at a remarkable speed – nearly 5 times faster than the previous platform. Batch processing times that once took hours were reduced to a few minutes. This radical improvement meant that documents, accessible via multiple interfaces, were not only easily queried but also instantly available, enhancing overall business productivity and customer experience.</p>",
-                    "items": [
-                        {
-                            "value": "$500K+",
-                            "label": "Annual Cost Savings",
-                            "desc": "Unified platform drastically cut operational costs by over $500,000 annually"
-                        },
-                        {
-                            "value": "5×",
-                            "label": "Faster API & Query Execution",
-                            "desc": "API calls and database queries executed nearly 5 times faster than the previous platform"
-                        },
-                        {
-                            "value": "Minutes",
-                            "label": "Batch Processing Time",
-                            "desc": "Batch processing times reduced from hours to just a few minutes"
-                        },
-                        {
-                            "value": "Instant",
-                            "label": "Document Availability",
-                            "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
-                        }
-                    ],
-                    "footer": "<div class=\"impact-image\">\n        <img src=\"/images/Case_Studies/Optimized/aws_doc2.png\" alt=\"AWS Document Management Impact\"/>\n      </div>"
-                }
-            },
-            {
-                "id": "future",
-                "title": "The Road Ahead",
-                "type": "text",
-                "content": "<p>Hyniva's innovative use of AWS technology for the document management platform not only helped the global investment management firm save over half a million dollars annually, but also significantly enhanced the speed and efficiency of their document management system. The improved user experience and system performance set a new standard in the industry. By leveraging their AWS expertise, Hyniva quickly delivered efficiency to its client.</p>\n        <p>If you're ready to explore how your business can harness the power of AWS to achieve your goals, Hyniva is ready to be your partner in achieving excellence. Let's discuss how we can partner to drive your success!</p>"
-            },
-                    ]
-    },
+
     "hyniva-campaign-management": {
         "slug": "hyniva-campaign-management",
         "eyebrow": "Campaign Management & Marketing Technology",
-        "title": "Data-Driven Campaign Management<br>\n      <em>for Enterprise Marketing</em>",
+        "title": "Data-Driven Campaign Management for <br>Enterprise Marketing</em>",
         "summary": "Built a custom campaign management platform with automated scoring and full lifecycle\n      tracking for scalable marketing operations.",
         "metrics": [
             {
                 "icon": "🏗️",
                 "value": "100%",
-                "label": "Custom Platform",
+                "label": "Custom<br>Platform",
                 "sub": ""
             },
             {
                 "icon": "⚙️",
                 "value": "Automated",
-                "label": "Campaign Scoring",
+                "label": "Campaign<br>Scoring",
                 "sub": ""
             },
             {
                 "icon": "🔄",
                 "value": "Full",
-                "label": "Lifecycle Coverage",
+                "label": "Lifecycle<br>Coverage",
                 "sub": ""
             },
             {
                 "icon": "🚫",
                 "value": "Zero",
-                "label": "Manual Tracking",
+                "label": "Manual<br>Tracking",
                 "sub": ""
             }
         ],
@@ -1248,7 +1120,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "type": "text",
                 "content": "<p>The new campaign management platform empowered the client to manage media campaigns more efficiently, with streamlined processes, real-time scoring insights, and enhanced user support. Hyniva's solution delivered a high-quality, scalable application that aligned perfectly with the client's vision and set the foundation for future feature expansion and business growth.</p>"
             },
-                    ]
+        ]
     },
     "modernizing-case-management-for-a-community-healthcare-provider-stop": {
         "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
@@ -1265,13 +1137,13 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⚡",
                 "value": "Real-Time",
-                "label": "Data Visibility",
+                "label": "Data<br>Visibility",
                 "sub": ""
             },
             {
                 "icon": "📊",
                 "value": "50%",
-                "label": "Faster Reporting",
+                "label": "Faster<br>Reporting",
                 "sub": ""
             },
             {
@@ -1384,25 +1256,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⚙️",
                 "value": "50%",
-                "label": "Less Manual Effort",
+                "label": "Less Manual<br>Effort",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "30%",
-                "label": "Faster Resolution",
+                "label": "Faster<br>Resolution",
                 "sub": ""
             },
             {
                 "icon": "🔁",
                 "value": "25%",
-                "label": "Fewer Repeat Queries",
+                "label": "Fewer Repeat<br>Queries",
                 "sub": ""
             },
             {
                 "icon": "📊",
                 "value": "Real-Time",
-                "label": "Service Visibility",
+                "label": "Service<br>Visibility",
                 "sub": ""
             }
         ],
@@ -1495,31 +1367,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "member-experience-transformation-at-a-leading-credit-union": {
         "slug": "member-experience-transformation-at-a-leading-credit-union",
         "eyebrow": "FinXServe & Credit Union Digital Lending",
-        "title": "Elevating Digital Member Engagement in<br>\n      <em>Modern Banking Operations</em>",
+        "title": "Elevating Digital Member<br>Engagement in <em>Modern Banking Operations</em>",
         "summary": "Unified lending and engagement journeys across multiple channels to deliver instant loan offers and seamless member experiences at scale.",
         "metrics": [
             {
                 "icon": "⚡",
                 "value": "< 2 min",
-                "label": "Loan Offers",
+                "label": "Loan<br>Offers",
                 "sub": ""
             },
             {
                 "icon": "👥",
                 "value": "500K+",
-                "label": "Members Served",
+                "label": "Members<br>Served",
                 "sub": ""
             },
             {
                 "icon": "🔗",
                 "value": "Unified",
-                "label": "Multi-Channel Experience",
+                "label": "Multi-Channel<br>Experience",
                 "sub": ""
             },
             {
                 "icon": "📈",
                 "value": "Enhanced",
-                "label": "Digital Engagement",
+                "label": "Digital<br>Engagement",
                 "sub": ""
             }
         ],
@@ -1764,25 +1636,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "🔄",
                 "value": "100%",
-                "label": "Platform Replacement",
+                "label": "Platform<br>Replacement",
                 "sub": ""
             },
             {
                 "icon": "✨",
                 "value": "Enhanced",
-                "label": "User Experience",
+                "label": "User<br>Experience",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "Faster",
-                "label": "Lending Operations",
+                "label": "Lending<br>Operations",
                 "sub": ""
             },
             {
                 "icon": "📅",
                 "value": "6 Months",
-                "label": "Rapid Delivery",
+                "label": "Rapid<br>Delivery",
                 "sub": ""
             }
         ],
@@ -1851,25 +1723,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "⚡",
                 "value": "60%",
-                "label": "Faster Claims Processing",
+                "label": "Faster Claims<br>Processing",
                 "sub": ""
             },
             {
                 "icon": "📈",
                 "value": "40%",
-                "label": "Operational Efficiency Gain",
+                "label": "Operational<br>Efficiency Gain",
                 "sub": ""
             },
             {
                 "icon": "🔍",
                 "value": "Real-Time",
-                "label": "Claims Tracking",
+                "label": "Real-Time<br>Claims Tracking",
                 "sub": ""
             },
             {
                 "icon": "🏗️",
                 "value": "Scalable",
-                "label": "Digital Platform",
+                "label": "Scalable<br>Digital Platform",
                 "sub": ""
             }
         ],
@@ -1987,25 +1859,25 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "☁️",
                 "value": "Cloud-First",
-                "label": "Enterprise Architecture",
+                "label": "Enterprise<br>Architecture",
                 "sub": ""
             },
             {
                 "icon": "🏗️",
                 "value": "4",
-                "label": "Domains Modernized",
+                "label": "Domains<br>Modernized",
                 "sub": ""
             },
             {
                 "icon": "✅",
                 "value": "Zero",
-                "label": "Downtime Migration",
+                "label": "Zero<br>Downtime Migration",
                 "sub": ""
             },
             {
                 "icon": "⚙️",
                 "value": "6",
-                "label": "Technologies Delivered",
+                "label": "Technologies<br>Delivered",
                 "sub": ""
             }
         ],
@@ -2094,19 +1966,19 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "📉",
                 "value": "95%",
-                "label": "Downtime Reduction",
+                "label": "Downtime<br>Reduction",
                 "sub": ""
             },
             {
                 "icon": "🚀",
                 "value": "70%",
-                "label": "Faster Deployments",
+                "label": "Faster<br>Deployments",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "< 1 Min",
-                "label": "Switch Time",
+                "label": "Switch<br>Time",
                 "sub": ""
             },
             {
@@ -2201,31 +2073,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "education-platform-engineering": {
         "slug": "education-platform-engineering",
         "eyebrow": "Education Platform Engineering",
-        "title": "Engineered a Scalable Multi-Portal Platform for <em>Complex Education Workflows</em>",
+        "title": "Engineered a Scalable Multi-Portal<br>Platform for <em>Complex Education Workflows</em>",
         "summary": "Streamlined complex academic workflows, enabled real-time data visibility, and supported seamless interactions across students, faculty, and administrators.",
         "metrics": [
             {
                 "icon": "⚡",
                 "value": "Real-time",
-                "label": "Data Processing",
+                "label": "Data<br>Processing",
                 "sub": ""
             },
             {
                 "icon": "🔀",
                 "value": "Complex",
-                "label": "Workflow Orchestration",
+                "label": "Workflow<br>Orchestration",
                 "sub": ""
             },
             {
                 "icon": "📈",
                 "value": "Scalable",
-                "label": "Architecture",
+                "label": "Scalable<br>Architecture",
                 "sub": ""
             },
             {
                 "icon": "🏛️",
                 "value": "Multi-portal",
-                "label": "Unified Experience",
+                "label": "Faculty<br>Experience",
                 "sub": ""
             }
         ],
@@ -2445,31 +2317,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "logistics-platform-modernization-with-microsoft": {
         "slug": "logistics-platform-modernization-with-microsoft",
         "eyebrow": "Microsoft & Logistics Platform Modernization",
-        "title": "Logistics Platform <em>Modernization</em>",
+        "title": "Logistics Platform<br><em>Modernization</em>",
         "summary": "Rebuilt legacy logistics systems into a real-time, mobile-enabled platform with end-to-end operational visibility.",
         "metrics": [
             {
                 "icon": "📍",
                 "value": "Real-Time",
-                "label": "Shipment Tracking",
+                "label": "Shipment<br>Tracking",
                 "sub": ""
             },
             {
                 "icon": "📱",
                 "value": "100%",
-                "label": "Mobile Enablement",
+                "label": "Mobile<br>Enablement",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "45%",
-                "label": "Performance Gain",
+                "label": "Performance<br>Gain",
                 "sub": ""
             },
             {
                 "icon": "🔗",
                 "value": "Improved",
-                "label": "Cross-Module Coordination",
+                "label": "Cross-Module<br>Coordination",
                 "sub": ""
             }
         ],
@@ -2587,32 +2459,32 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "aws-cost-optimized-doc-platform": {
         "slug": "aws-cost-optimized-doc-platform",
-        "eyebrow": "AWS Serverless & Document Management",
-        "title": "Cost-Optimized Document <em>Platform on AWS</em>",
+        "eyebrow": "AWS Cloud & Document Management",
+        "title": "Cost-Optimized Document<br><em>Platform on AWS</em>",
         "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs, enhance performance, and support large-scale data operations.",
         "metrics": [
             {
                 "icon": "⚡",
                 "value": "5×",
-                "label": "Faster Queries",
+                "label": "Faster<br>Queries",
                 "sub": ""
             },
             {
                 "icon": "📄",
                 "value": "8M+",
-                "label": "Documents Migrated",
+                "label": "Documents<br>Migrated",
                 "sub": ""
             },
             {
                 "icon": "💰",
                 "value": "$0",
-                "label": "Licensing Cost",
+                "label": "Licensing<br>Cost",
                 "sub": ""
             },
             {
                 "icon": "☁️",
                 "value": "Serverless",
-                "label": "Scalable Architecture",
+                "label": "Scalable<br>Architecture",
                 "sub": ""
             }
         ],
@@ -2670,31 +2542,31 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "ai-customer-support-automation": {
         "slug": "ai-customer-support-automation",
         "eyebrow": "AI Chatbot & Customer Support Automation",
-        "title": "AI-Powered Customer <em>Support Automation</em>",
+        "title": "AI-Powered Customer<br><em>Support Automation</em>",
         "summary": "Implemented an AI chatbot to handle high-volume, repetitive queries, improving response times while reducing dependency on support agents.",
         "metrics": [
             {
                 "icon": "🕐",
                 "value": "24/7",
-                "label": "Instant Support",
+                "label": "24/7<br>Instant Support",
                 "sub": ""
             },
             {
                 "icon": "⚡",
                 "value": "Real-Time",
-                "label": "Query Resolution",
+                "label": "Query<br>Resolution",
                 "sub": ""
             },
             {
                 "icon": "↓",
                 "value": "Reduced",
-                "label": "Processing Time",
+                "label": "Reduced<br>Processing Time",
                 "sub": ""
             },
             {
                 "icon": "🔗",
                 "value": "100%",
-                "label": "Portal Integration",
+                "label": "Portal<br>Integration",
                 "sub": ""
             }
         ],

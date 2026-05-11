@@ -9,7 +9,6 @@ import React, { useState, useEffect } from "react";
 import { CaseStudyPopup } from "@/components/CaseStudyPopup";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
 import { CaseStudyHero } from "@/components/case-study-hero";
-import { parseCaseStudyTitle, renderParsedTitle } from "@/lib/case-study-utils";
 import { useScrollTabSync } from "@/hooks/useScrollTabSync";
 
 import {
@@ -345,16 +344,16 @@ export default function CaseStudyDetailPage() {
 
             {/* ── Standardized Hero Section ── */}
             <CaseStudyHero
-                title={renderParsedTitle(parseCaseStudyTitle(study.slug).parts, "font-black text-white")}
+                title={study.title}
                 summary={study.summary}
                 metrics={study.metrics}
             />
 
             {/* ── Content Navigator ── */}
             <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 py-3 sm:py-4 lg:py-6 transition-all duration-500">
-                <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="w-full lg:w-[85%] mx-auto">
-                        <div className="flex items-center justify-start gap-2 sm:gap-3 lg:gap-4 overflow-x-auto no-scrollbar pl-0 sm:pl-4 lg:pl-[52px]">
+                        <div className="flex items-center justify-start gap-2 sm:gap-3 lg:gap-4 overflow-x-auto no-scrollbar">
                             {study.sections.filter(s => s.title).map((section, filteredIdx) => (
                                 <a
                                     key={section.id}
