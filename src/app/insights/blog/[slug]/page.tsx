@@ -660,7 +660,7 @@ export default function BlogDetailPage() {
                 .challenge-card__body { padding: 24px; background: white; }
                 .challenge-row { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
                 .challenge-row:last-child { margin-bottom: 0; }
-                .challenge-row__label { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; margin-bottom: 8px; display: block; }
+                .challenge-row__label { font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; margin-bottom: 8px; display: block; }
                 .challenge-row__text { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
                 .stat-pill { display: inline-flex; align-items: flex-start; gap: 10px; background: rgba(30,111,255,.05); border: 1px solid rgba(30,111,255,.18); border-radius: 10px; padding: 12px 16px; margin-top: 8px; }
                 .stat-pill__icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
