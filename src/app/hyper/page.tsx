@@ -109,11 +109,11 @@ export default function HyperPage() {
                                 {/* Logo */}
                                 <motion.div variants={fadeInUp} className="mb-7">
                                     <Image
-                                        src="/images/products/Hyper_FullLogo_Transparent_NoBuffer-2-300x103.png"
-                                        alt="Hyper"
+                                        src="/images/Product_Logos/Hyper.png"
+                                        alt="Hyper Logo"
                                         width={260}
                                         height={90}
-                                        className="w-[220px] sm:w-[260px] h-auto"
+                                        className="w-full h-auto max-w-[250px] object-contain"
                                     />
                                 </motion.div>
 

@@ -122,19 +122,11 @@ export default function CaseStudiesPage() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search case studies by title..."
+                  placeholder="Search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full px-4 py-3 pr-12 text-base font-medium text-[#030B3B] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
                 />
-                {/* <svg 
-                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-2a2 2 0 00-2 2v12a2 2 0 002 2h-4l-4 4m0 0l-4-4m4-4H3" />
-                                </svg> */}
               </div>
 
               {/* Category Dropdown */}
@@ -150,14 +142,6 @@ export default function CaseStudiesPage() {
                     </option>
                   ))}
                 </select>
-                {/* <svg 
-                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 10l5 5L19 15l-5-5M12 19l-7-7-7 7" />
-                                </svg> */}
               </div>
             </div>
           </div>

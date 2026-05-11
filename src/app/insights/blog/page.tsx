@@ -69,7 +69,7 @@ export default function BlogPage() {
                             <div className="relative w-full min-w-0">
                                 <input
                                     type="text"
-                                    placeholder="Search blogs by title..."
+                                    placeholder="Search"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="w-full px-4 py-3 pr-12 text-base font-medium text-[#030B3B] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"

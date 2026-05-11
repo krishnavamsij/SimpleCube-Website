@@ -14,7 +14,7 @@ export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const nameInputRef = useRef<HTMLInputElement>(null);
 
-    // Auto-scroll to form on page load
+    // Auto-scroll to form on page load with much slower custom animation
     useEffect(() => {
         const timer = setTimeout(() => {
             const formSection = document.getElementById('contact-form');
@@ -24,19 +24,40 @@ export default function ContactPage() {
                 const elementPosition = formSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
                 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                // Custom slow smooth scroll using requestAnimationFrame
+                const startPosition = window.pageYOffset;
+                const distance = offsetPosition - startPosition;
+                const duration = 1000; // 1.5 seconds for balanced slow scroll (was ~800ms default)
+                let startTime: number | null = null;
                 
-                // Auto-focus the name input after scrolling
-                setTimeout(() => {
-                    if (nameInputRef.current) {
-                        nameInputRef.current.focus();
+                const animationScroll = (currentTime: number) => {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Easing function for smooth deceleration
+                    const easeInOutCubic = progress < 0.5 
+                        ? 4 * progress * progress * progress 
+                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                    
+                    const currentPosition = startPosition + (distance * easeInOutCubic);
+                    window.scrollTo(0, currentPosition);
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animationScroll);
+                    } else {
+                        // Auto-focus the name input after slow scroll completes
+                        setTimeout(() => {
+                            if (nameInputRef.current) {
+                                nameInputRef.current.focus();
+                            }
+                        }, 200);
                     }
-                }, 800); // Wait for smooth scroll to complete
+                };
+                
+                requestAnimationFrame(animationScroll);
             }
-        }, 500); // Reduced delay for better UX
+        }, 500); // Keep initial delay
 
         return () => clearTimeout(timer);
     }, []);
