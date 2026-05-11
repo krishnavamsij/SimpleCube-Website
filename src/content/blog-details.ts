@@ -405,7 +405,7 @@ export const blogDetails = {
         ]
     },
     "empowering-credit-unions-to-thrive-in-a-digital-era": {
-        title: "Empowering Credit Unions to Thrive in a Digital Era",
+        title: "Empowering Credit Unions to Thrive<br>in a Digital Era",
         subtitle: "",
         date: "Apr 14, 2025",
         author: "Hyniva",
@@ -572,7 +572,7 @@ export const blogDetails = {
         ]
     },
     "hyniva-achieves-soc-2-type-ii-compliance-security-first": {
-        title: "Hyniva Receives SOC 2 Type II Compliance",
+        title: "Hyniva Receives SOC 2 Type II<br>Compliance",
         subtitle: "",
         date: "Apr 1, 2025",
         author: "Hyniva",
@@ -2401,7 +2401,7 @@ export const blogDetails = {
         ]
     },
     "overcoming-business-challenges-with-salesforce": {
-        title: "Overcoming Business Challenges with <em>Salesforce.</em>",
+        title: "Overcoming Business Challenges with<br><em>Salesforce.</em>",
         subtitle: "",
         date: "Sep 18, 2024",
         author: "Hyniva",
@@ -2575,7 +2575,7 @@ export const blogDetails = {
         ]
     },
     "ai-empowering-financial-institutions": {
-        title: "AI — Empowering <em>Financial Institutions.</em>",
+        title: "AI — Empowering<br><em>Financial Institutions.</em>",
         subtitle: "",
         date: "Sep 16, 2024",
         author: "Hyniva",
@@ -2639,7 +2639,7 @@ export const blogDetails = {
         ]
     },
     "hyniva-celebrates-the-launch-of-its-new-branch": {
-        title: "Hyniva Celebrates the Launch of <em>Its New Branch.</em>",
+        title: "Hyniva Celebrates the Launch of<br><em>Its New Branch.</em>",
         subtitle: "",
         date: "Aug 27, 2024",
         author: "Hyniva",
@@ -2707,7 +2707,7 @@ export const blogDetails = {
         ]
     },
     "hyniva-achieves-soc-2-certification": {
-        title: "Hyniva Achieves <em>SOC 2 Certification.</em>",
+        title: "Hyniva Achieves<br><em>SOC 2 Certification.</em>",
         subtitle: "",
         date: "Apr 11, 2024",
         author: "Hyniva",
