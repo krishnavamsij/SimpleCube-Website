@@ -199,7 +199,7 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* Capabilities That Drive Growth */}
-      <section className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px]">
+      <section className="bg-[#3b82f6] py-[30px] sm:py-[40px] lg:py-[50px]">
         <div className="mx-auto w-full max-w-[1050px] px-6">
           <header className="text-center mb-8">
             <h2
@@ -352,7 +352,7 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* Business Outcomes */}
-      <section className="bg-[#020844] py-[30px] sm:py-[40px] lg:py-[50px]">
+      <section className="bg-[#3b82f6] py-[30px] sm:py-[40px] lg:py-[50px]">
         <div className="mx-auto w-full max-w-[1050px] px-6">
           {/* Heading */}
           <div className="text-center mb-8">
