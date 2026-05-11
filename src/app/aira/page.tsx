@@ -111,7 +111,7 @@ const impacts = [
 
 function AiraHero() {
     return (
-        <section className="relative h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
+        <section className="relative h-[500px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center">
             
             {/* Background video */}
             <div className="absolute inset-0 z-0">
@@ -141,14 +141,14 @@ function AiraHero() {
                     {/* Logo */}
                     <motion.div
                         variants={fadeInUp}
-                        className="mb-3 sm:mb-6 flex justify-center md:justify-start"
+                        className="mb-2 sm:mb-6 flex justify-center md:justify-start"
                     >
                         <Image
                             src="/logos/Artboard.png"
                             alt="AIRA Logo"
                             width={260}
                             height={90}
-                            className="w-[120px] sm:w-[220px] md:w-[280px] h-auto object-contain"
+                            className="w-[90px] sm:w-[220px] md:w-[280px] h-auto object-contain"
                             priority
                         />
                     </motion.div>
@@ -156,7 +156,7 @@ function AiraHero() {
                     {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-3 sm:mb-5 text-xl sm:text-3xl md:text-5xl leading-tight font-medium"
+                        className="text-white mb-3 sm:mb-5 text-[18px] sm:text-3xl md:text-5xl leading-[1.3] font-semibold"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         Autonomous Intelligent
@@ -167,7 +167,7 @@ function AiraHero() {
                     {/* Description */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-white mb-5 sm:mb-8 text-[14px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[320px] sm:max-w-[520px] mx-auto md:mx-0"
+                        className="text-white mb-6 sm:mb-8 text-[13px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[520px] mx-auto md:mx-0"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions —
