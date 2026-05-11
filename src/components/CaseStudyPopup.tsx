@@ -144,24 +144,58 @@ export function CaseStudyPopup({
     }
 
     try {
-      await fetch("https://formsubmit.co/ajax/d060496e42eb4e0c8ea1f70e4b9e4ff5", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New Lead: ${formData.name} is interested in Hyniva Insights`,
-          _replyto: formData.email,
-          _captcha: "false",
-          "Inquiry Details": "A visitor has expressed interest in learning more about Hyniva after reading a case study.",
-          "Prospect Name": formData.name,
-          "Company": formData.organization,
-          "Position": formData.role,
-          "Contact Email": formData.email,
-          "_template": "table"
-        })
-      });
+      // Create form dynamically like careers form
+      const form = document.createElement("form");
+      form.action = "https://formsubmit.co/hr@hyniva.com";
+      form.method = "POST";
+      form.enctype = "multipart/form-data";
+
+      // Use hidden iframe to prevent redirect
+      const iframeName = "formSubmitFrame_" + Date.now();
+      const iframe = document.createElement("iframe");
+      iframe.name = iframeName;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+
+      form.target = iframeName;
+
+      // Add form fields
+      const addField = (name: string, value: string) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      };
+
+      addField("_subject", `New Lead: ${formData.name} is interested in Hyniva Insights`);
+      addField("_replyto", formData.email);
+      addField("_captcha", "false");
+      addField("Inquiry Details", "A visitor has expressed interest in learning more about Hyniva after reading a case study.");
+      addField("Prospect Name", formData.name);
+      addField("Company", formData.organization);
+      addField("Position", formData.role);
+      addField("Contact Email", formData.email);
+      addField("_template", "table");
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Listen for completion
+      iframe.onload = () => {
+        setTimeout(() => {
+          if (document.body.contains(form)) document.body.removeChild(form);
+          if (document.body.contains(iframe)) document.body.removeChild(iframe);
+        }, 1000);
+      };
+
+      // Fallback timeout
+      setTimeout(() => {
+        if (document.body.contains(iframe)) {
+          if (document.body.contains(form)) document.body.removeChild(form);
+          if (document.body.contains(iframe)) document.body.removeChild(iframe);
+        }
+      }, 5000);
       
       console.log('✅ Form submitted successfully');
     } catch (error) {
