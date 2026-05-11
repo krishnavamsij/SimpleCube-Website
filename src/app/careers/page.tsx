@@ -417,7 +417,7 @@ export default function CareersPage() {
     // Expected CTC is optional - no validation needed
     if (!formData.noticePeriod) newErrors.noticePeriod = "Please select your notice period";
     if (!formData.skills.trim()) newErrors.skills = "Please mention your key skills";
-    if (!formData.coverNote.trim()) newErrors.coverNote = "Please tell us why you want to join Hyniva";
+    // Cover Note is optional - no validation needed
     if (!resumeFile) newErrors.resume = "Please upload your resume";
 
     // Email validation
@@ -1373,7 +1373,6 @@ export default function CareersPage() {
                         maxLength={500}
                         className={`w-full px-4 py-3 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 resize-none transition-all duration-200 ${errors.coverNote ? 'border-red-300 focus:border-red-500' : 'border-gray-200'
                           }`}
-                        required
                       />
                       <div className="absolute bottom-2 right-3 text-[10px] font-medium text-gray-400">
                         {formData.coverNote.length}/500
