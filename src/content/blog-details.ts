@@ -2426,11 +2426,11 @@ export const blogDetails = {
         </div>
         <div class="challenge-card__body">
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Retaining customers is crucial for sustained business growth but can be difficult due to competition and changing customer expectations.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce's Service Cloud offers personalized customer service at scale, integrating support tools to address customer issues proactively. Features like automated case management, customer feedback loops, and AI-driven insights help businesses understand and meet customer needs — leading to increased satisfaction and loyalty.</div>
           </div>
           <div class="challenge-row">
@@ -2449,12 +2449,12 @@ export const blogDetails = {
           <div class="challenge-card__title">Data Management</div>
         </div>
         <div class="challenge-card__body">
-          <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row">
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Managing vast amounts of data efficiently while ensuring data quality and security is a significant challenge for businesses.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce provides a centralized data repository with tools for data cleansing, deduplication, and segmentation — ensuring accurate, reliable data for informed decision-making. Robust security measures also protect sensitive information and maintain compliance with regulatory standards.</div>
           </div>
           <div class="challenge-row">
@@ -2473,12 +2473,12 @@ export const blogDetails = {
           <div class="challenge-card__title">Predictive Analytics</div>
         </div>
         <div class="challenge-card__body">
-          <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row">
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Accurately forecasting future trends and customer behaviors is essential but challenging without advanced analytics tools.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce's Einstein Analytics leverages AI and machine learning to provide predictive insights for sales forecasting, customer segmentation, and risk identification — allowing for proactive decision-making and strategy adjustments.</div>
           </div>
           <div class="challenge-row">
@@ -2497,12 +2497,12 @@ export const blogDetails = {
           <div class="challenge-card__title">Systems Integration</div>
         </div>
         <div class="challenge-card__body">
-          <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row">
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Integrating various business systems and applications can be complex and costly, often leading to data silos and operational inefficiencies.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce's MuleSoft platform facilitates seamless integration of different systems, applications, and third-party tools — ensuring a unified view of data across the organization, enhancing efficiency, and enabling faster innovation.</div>
           </div>
           <div class="challenge-row">
@@ -2521,12 +2521,12 @@ export const blogDetails = {
           <div class="challenge-card__title">Sales Team Training</div>
         </div>
         <div class="challenge-card__body">
-          <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row">
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Ensuring that sales teams are well-trained and equipped with the latest skills and knowledge is vital for achieving sales targets.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce offers comprehensive training programs through Trailhead, its online learning platform. These cover various sales techniques, CRM usage, and industry best practices — helping sales teams stay competitive and effective throughout the sales cycle.</div>
           </div>
           <div class="challenge-row">
@@ -2545,12 +2545,12 @@ export const blogDetails = {
           <div class="challenge-card__title">Scalability</div>
         </div>
         <div class="challenge-card__body">
-          <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--challenge">Challenge</div>
+            <div class="challenge-row">
+            <div class="challenge-row__label">CHALLENGE</div>
             <div class="challenge-row__text">Scaling operations to meet growing business demands without compromising performance or customer satisfaction is a major challenge.</div>
           </div>
           <div class="challenge-row">
-            <div class="challenge-row__label challenge-row__label--solution">Solution</div>
+            <div class="challenge-row__label">SOLUTION</div>
             <div class="challenge-row__text">Salesforce's cloud-based architecture ensures scalability, allowing businesses to expand seamlessly. The platform handles increased data volumes and user demands, ensuring consistent performance and reliability as the business grows.</div>
           </div>
           <div class="challenge-row">
@@ -2718,7 +2718,14 @@ export const blogDetails = {
                 id: "intro",
                 title: "",
                 content: `<p>We at Hyniva are thrilled to share that we are now SOC 2 certified. We would like to extend our heartfelt thanks to everyone at Hyniva for their due diligence, and to our trusted partner Johanson Group, who reviewed our internal controls including policies, procedures, and infrastructure regarding data security and other critical areas of our business.</p>
-      <p>This achievement represents a significant milestone in our journey as a trusted provider of IT and business consulting services. We couldn't be more proud of the dedication and hard work that have gone into securing this certification.</p>`
+      <p>This achievement represents a significant milestone in our journey as a trusted provider of IT and business consulting services. We couldn't be more proud of the dedication and hard work that have gone into securing this certification.</p>
+      
+      <div class="stat-box">
+        <div class="stat-box__icon">📊</div>
+        <div class="stat-box__content">
+          <div class="stat-box__text">75% of customers expect a consistent experience across all channels, yet 50% of companies struggle to deliver personalized interactions — leading to a 20% decline in retention rates. (Salesforce)</div>
+        </div>
+      </div>`
             },
             {
                 id: "what-is-soc-2-certification",
@@ -2781,9 +2788,10 @@ export const blogDetails = {
       <p>While achieving SOC 2 certification is a significant accomplishment, it is not the end of our journey; it is just the beginning. We remain dedicated to continually improving our security practices, staying abreast of evolving threats, and proactively addressing emerging challenges. Our commitment to providing clients with the highest level of service and security remains unwavering.</p>
     </div>
 
-    <div class="gratitude">
-      <div class="gratitude__title">Thank You</div>
-      <div class="gratitude__body">We want to express our sincere gratitude to our clients, partners, and our exceptional team who made this achievement possible. Together, we look forward to a future marked by innovation, excellence, and the highest standards of security.</div>`
+    <div class="thankyou">
+      <div class="thankyou__title">Thank You</div>
+      <div class="thankyou__body">We want to express our sincere gratitude to our clients, partners, and our exceptional team who made this achievement possible. Together, we look forward to a future marked by innovation, excellence, and the highest standards of security.</div>
+    </div>`
             },
         ]
     },

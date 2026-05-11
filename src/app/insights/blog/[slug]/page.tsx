@@ -650,6 +650,28 @@ export default function BlogDetailPage() {
 .thankyou--dark__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: 24px; color: #e8f0ff; margin-bottom: 14px; }
 .thankyou--dark__body { position: relative; z-index: 1; font-size: 15.5px; font-weight: 300; color: rgba(200,220,245,.7); line-height: 1.8; max-width: 500px; margin: 0 auto; }
 
+                /* ─── CHALLENGE CARDS ─── */
+                .challenges { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+                .challenge-card { border: 1px solid #e4e8f0; border-radius: 14px; overflow: hidden; background: white; }
+                .challenge-card__header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: #0a0f1e; position: relative; overflow: hidden; }
+                .challenge-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
+                .challenge-card__num { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; background: #1e6fff; color: #fff; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .challenge-card__title { position: relative; z-index: 1; font-family: var(--font-sans), sans-serif; font-size: clamp(16px, 2vw, 20px); font-weight: 600; color: #e8f0ff; line-height: 1.3; }
+                .challenge-card__body { padding: 24px; background: white; }
+                .challenge-row { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+                .challenge-row:last-child { margin-bottom: 0; }
+                .challenge-row__label { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; margin-bottom: 8px; display: block; }
+                .challenge-row__text { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+                .stat-pill { display: inline-flex; align-items: flex-start; gap: 10px; background: rgba(30,111,255,.05); border: 1px solid rgba(30,111,255,.18); border-radius: 10px; padding: 12px 16px; margin-top: 8px; }
+                .stat-pill__icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+                .stat-pill__text { font-size: 13.5px; font-weight: 300; color: #4a5568; line-height: 1.6; }
+
+                /* ─── STAT BOX FOR SOC 2 BLOG ─── */
+                .stat-box { background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px; margin: 32px 0; display: flex; align-items: flex-start; gap: 16px; }
+                .stat-box__icon { width: 40px; height: 40px; background: rgba(30,111,255,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+                .stat-box__content { flex: 1; }
+                .stat-box__text { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+
                 /* ─── CTA ─── */
                 .cta { margin-top: 72px; background: #0a0f1e; border-radius: 16px; padding: 52px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; }
                 .cta::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 36px 36px; }
