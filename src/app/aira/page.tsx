@@ -111,10 +111,10 @@ const impacts = [
 
 function AiraHero() {
     return (
-        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex items-center pt-20 md:pt-0">
+        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0">
             
-            {/* Background video */}
-            <div className="absolute inset-0 z-0">
+            {/* Background video - hidden on mobile */}
+            <div className="absolute inset-0 z-0 hidden md:block">
                 <video
                     autoPlay
                     muted
@@ -126,16 +126,19 @@ function AiraHero() {
                 </video>
             </div>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40 z-[1]" />
+            {/* Mobile solid background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60 md:bg-black/40 z-[0] md:hidden" />
+
+            {/* Overlay for desktop */}
+            <div className="absolute inset-0 bg-black/40 z-[1] hidden md:block" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0"
+                    className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0 flex-1"
                 >
 
                     {/* Logo */}
@@ -199,6 +202,60 @@ function AiraHero() {
                         </Button>
                     </motion.div>
 
+                </motion.div>
+
+                {/* RHS Animation - Desktop only */}
+                <motion.div
+                    variants={fadeInUp}
+                    className="hidden md:block flex-1 max-w-[500px]"
+                >
+                    <div className="relative">
+                        <motion.div
+                            animate={{
+                                y: [0, -10, 0],
+                            }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="relative"
+                        >
+                            <Image
+                                src="/images/products/aira-hero-animation.png"
+                                alt="AIRA Platform Animation"
+                                width={500}
+                                height={400}
+                                className="w-full h-auto object-contain"
+                            />
+                        </motion.div>
+                    </div>
+                </motion.div>
+
+                {/* Mobile Animation - Appears after text */}
+                <motion.div
+                    variants={fadeInUp}
+                    className="block md:hidden w-full max-w-[400px] mx-auto mt-8"
+                >
+                    <motion.div
+                        animate={{
+                            y: [0, -10, 0],
+                        }}
+                        transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        className="relative"
+                    >
+                        <Image
+                            src="/images/products/aira-hero-animation.png"
+                            alt="AIRA Platform Animation"
+                            width={400}
+                            height={320}
+                            className="w-full h-auto object-contain"
+                        />
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
