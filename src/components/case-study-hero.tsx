@@ -165,7 +165,7 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
 
 export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
     return (
-        <section className="relative z-40 min-h-[100svh] md:h-screen md:min-h-[720px] flex flex-col items-center justify-start md:justify-center overflow-hidden pt-24 sm:pt-28 md:pt-0">
+        <section className="relative z-40 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
             {/* Reference-accurate Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20]" />
             <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle,#1e90ff1a_1px,transparent_1px)] bg-[length:38px_38px]" />
@@ -180,7 +180,7 @@ export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
             <div className="absolute bottom-6 left-6 w-5 h-5 border-b border-l border-[#1e90ff48] z-20" />
             <div className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-[#1e90ff48] z-20" />
 
-            <div className="relative z-10 w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 mx-auto text-center pt-4 md:pt-20">
+            <div className="relative z-10 w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 mx-auto text-center">
                 <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
