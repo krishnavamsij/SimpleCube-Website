@@ -245,7 +245,7 @@ export default function BlogDetailPage() {
                                         [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3
                                         [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#374151] [&_li]:text-[16px] [&_li]:leading-[1.8]
                                         [&_strong]:text-[#111827] [&_strong]:font-semibold
-                                        [&_em]:text-[#1e90ff] [&_em]:italic
+                                        [&_em]:text-[#00D4AA] [&_em]:font-bold [&_em]:not-italic
                                         [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
                                         [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display
                                         [&_svg]:w-9 [&_svg]:h-9
@@ -288,8 +288,8 @@ export default function BlogDetailPage() {
                 /* ─── GLOBAL STANDARDS ─── */
                 p { font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 24px; }
                 h2 { font-family: var(--font-display), serif; font-size: clamp(24px, 3.5vw, 32px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; }
-                em { font-style: normal; color: white; } /* Branding consistency for titles */
-                .blog-content em { font-style: normal; color: inherit; } /* No italics in content as requested */
+                em { font-style: normal; color: #00D4AA; font-weight: 700; } /* Branding consistency for titles */
+                .blog-content em { font-style: normal; color: #00D4AA; font-weight: 700; } /* No italics in content as requested */
                 strong { font-weight: 600; color: #0a0f1e; }
                 .blog-content ul li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
 

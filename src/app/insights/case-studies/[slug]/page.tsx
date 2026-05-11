@@ -64,67 +64,51 @@ import {
     Map as LucideMap,
     Shield,
     Sparkles,
+    CircleDollarSign,
+    Building2,
+    Star,
+    Gem,
+    Banknote,
+    Handshake,
+    Link2,
     type LucideIcon
 } from "lucide-react";
 
 // --- Components ---
 
-const iconMap: Record<string, LucideIcon> = {
+
+const iconMap: Record<string, any> = {
     "🚀": Rocket,
     "⚡": Zap,
-    "💰": DollarSign,
+    "💰": CircleDollarSign,
     "📈": TrendingUp,
     "📉": TrendingDown,
-    "🔄": Activity,
-    "⏱️": Timer,
+    "🔄": RefreshCw,
+    "⏱️": Clock,
     "⏲️": Timer,
     "🎯": Target,
     "👥": Users,
-    "🏗️": Construction,
-    "✨": Rocket,
-    "🌟": Rocket,
-    "💎": Rocket,
-    "💸": DollarSign,
-    "🤝": Users,
-    "🛠️": Construction,
-    "🎨": Layout,
-    "📖": Layout,
-    "🔐": Lock,
-    "🎙️": Mic,
-    "🎙": Mic,
-    "📍": MapPin,
-    "📱": Smartphone,
-    "🔗": Link,
-    "📦": Package,
-    "🔍": Search,
-    "📄": FileText,
-    "🔑": Key,
-    "📋": ClipboardList,
-    "✓": Check,
-    "📅": Clock,
-    "🕐": Clock,
-    "📞": Phone,
-    "🔀": Activity,
-    "🚫": ShieldAlert,
-    "⚠️": ShieldAlert,
-    "⚠": ShieldAlert,
-    "✅": CheckCircle2,
-    "🔌": Zap,
-    "🐢": Clock,
-    "↑": TrendingUp,
-    "↓": TrendingDown,
+    "🏗️": Building2,
+    "✨": Sparkles,
+    "🌟": Star,
+    "💎": Gem,
+    "💸": Banknote,
+    "🤝": Handshake,
     "🔭": Search,
     "☁️": Cloud,
-    "🔁": RefreshCw,
     "👤": User,
     "🤖": Bot,
     "⏳": Hourglass,
     "🖥️": Monitor,
     "🖥": Monitor,
     "🐌": Clock,
+    "🐢": Clock,
+    "↑": TrendingUp,
+    "↓": TrendingDown,
     "🛑": OctagonAlert,
     "🏛️": Building,
     "🧩": Puzzle,
+    "🔗": Link2,
     "↩": Undo2,
     "💾": HardDrive,
     "📜": ScrollText,
@@ -145,16 +129,39 @@ const iconMap: Record<string, LucideIcon> = {
     "🗺": LucideMap,
     "✦": Sparkles,
     "😓": Users,
+    "⚠": ShieldAlert,
+    "⚠️": ShieldAlert,
+    "🚫": ShieldAlert,
+    "✅": CheckCircle2,
+    "🔌": Zap,
+    "✓": Check,
+    "📅": Clock,
+    "🕐": Clock,
+    "📞": Phone,
+    "🔀": Activity,
+    "🔑": Key,
+    "📋": ClipboardList,
+    "📄": FileText,
+    "🔍": Search,
+    "📦": Package,
+    "📱": Smartphone,
+    "📍": MapPin,
+    "🎙️": Mic,
+    "🎙": Mic,
+    "🎨": Layout,
+    "🛠️": Construction,
+    "📖": ScrollText,
+    "🔐": Lock,
 };
 
 const StandardIcon = ({ icon, className = "" }: { icon: string, className?: string }) => {
     const Icon = iconMap[icon];
     return (
-        <div className={`w-9 h-9 rounded-[8px] bg-[rgba(30,144,255,0.08)] border border-[rgba(30,144,255,0.15)] flex items-center justify-center ${className}`}>
+        <div className={`flex items-center justify-center ${className}`}>
             {Icon ? (
-                <Icon className="w-4 h-4 text-[#1e90ff]" />
+                <Icon className="w-9 h-9 text-[#1e90ff] fill-[#1e90ff]/15" strokeWidth={2.5} />
             ) : (
-                <span className="text-base">{icon}</span>
+                <span className="text-3xl">{icon}</span>
             )}
         </div>
     );
@@ -434,7 +441,7 @@ export default function CaseStudyDetailPage() {
                 }
                 .no-scrollbar::-webkit-scrollbar { display: none; }
                 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-                h1 em, .banner h1 em { font-style: italic; color: #00D4AA; font-family: var(--font-display), serif; font-weight: 500; text-shadow: 0 0 48px rgba(0,212,170,0.3); }
+                h1 em, .banner h1 em { font-style: normal; color: #00D4AA; font-family: var(--font-display), serif; font-weight: 700; text-shadow: 0 0 48px rgba(0,212,170,0.3); }
                 .font-display { font-family: var(--font-display), serif; }
                 p { margin-bottom: 1.25rem; }
 
