@@ -141,14 +141,14 @@ function AiraHero() {
                     {/* Logo */}
                     <motion.div
                         variants={fadeInUp}
-                        className="mb-4 sm:mb-6 flex justify-center md:justify-start"
+                        className="mb-3 sm:mb-6 flex justify-center md:justify-start"
                     >
                         <Image
                             src="/logos/Artboard.png"
                             alt="AIRA Logo"
                             width={260}
                             height={90}
-                            className="w-[180px] sm:w-[220px] md:w-[280px] h-auto object-contain"
+                            className="w-[120px] sm:w-[220px] md:w-[280px] h-auto object-contain"
                             priority
                         />
                     </motion.div>
@@ -156,7 +156,7 @@ function AiraHero() {
                     {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-4 sm:mb-5 text-2xl sm:text-3xl md:text-5xl leading-tight font-medium"
+                        className="text-white mb-3 sm:mb-5 text-xl sm:text-3xl md:text-5xl leading-tight font-medium"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         Autonomous Intelligent
@@ -167,7 +167,7 @@ function AiraHero() {
                     {/* Description */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-white mb-6 sm:mb-8 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[400px] sm:max-w-[520px] mx-auto md:mx-0"
+                        className="text-white mb-5 sm:mb-8 text-[14px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[320px] sm:max-w-[520px] mx-auto md:mx-0"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions —
@@ -219,18 +219,18 @@ function AiraIntro() {
                             className="bg-white rounded-[18px] px-6 py-6 sm:px-7 sm:py-7 lg:px-9 lg:py-8 shadow-sm text-left"
                         >
                             <h2
-                                className="text-[36px] font-bold mb-5 leading-tight"
+                                className="text-[24px] sm:text-[36px] font-bold mb-4 leading-tight"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif',
                                     color: '#345195',
-                                    margin: '0 0 20px'
+                                    margin: '0 0 15px'
                                 }}
                             >
                                 Introducing AIRA
                             </h2>
 
                             <p
-                                className="text-[16px] sm:text-[18px] leading-[1.7] font-normal"
+                                className="text-[14px] sm:text-[18px] leading-[1.6] font-normal"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif',
                                     color: '#6f6f6f',
@@ -256,8 +256,8 @@ function AiraDifferentiators() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
-                    <h2 className="text-[#345195] text-3xl font-bold">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
+                    <h2 className="text-[#345195] text-2xl sm:text-3xl font-bold">
                         What Makes AIRA Different
                     </h2>
                 </motion.div>
@@ -311,8 +311,8 @@ function AiraCapabilities() {
     return (
         <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-[50px]">
-                    <h2 className="text-white text-3xl font-bold mb-[10px]">
+                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
+                    <h2 className="text-white text-2xl sm:text-3xl font-bold mb-2 sm:mb-[10px]">
                         Key Capabilities
                     </h2>
                     <h6 className="text-white text-base font-normal">
@@ -356,7 +356,7 @@ function CeoVision() {
                 {/* Heading */}
                 <header className="text-center mb-8">
                     <h2
-                        className="text-[28px] sm:text-[32px] font-bold leading-tight"
+                        className="text-[24px] sm:text-[32px] font-bold leading-tight"
                         style={{
                             fontFamily: 'Poppins, sans-serif',
                             color: '#345195'
@@ -384,7 +384,7 @@ function CeoVision() {
                     <div className="flex-1 text-center md:text-left">
 
                         <p
-                            className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
+                            className="text-[15px] sm:text-[19px] leading-[1.6] font-medium mb-5"
                             style={{
                                 fontFamily: 'Poppins, sans-serif',
                                 color: '#6f6f6f'
@@ -438,7 +438,7 @@ function EnterpriseImpact() {
                     className="text-center mb-8"
                 >
                     <h2
-                        className="text-[28px] sm:text-[32px] font-bold"
+                        className="text-[24px] sm:text-[32px] font-bold"
                         style={{
                             fontFamily: 'Poppins, sans-serif',
                             color: '#ffffff'
