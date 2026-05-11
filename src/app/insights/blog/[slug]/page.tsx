@@ -139,6 +139,11 @@ export default function BlogDetailPage() {
     const post = blogDetails[slug as keyof typeof blogDetails];
 
     const [activeSection, setActiveSection] = useState("");
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -232,6 +237,7 @@ export default function BlogDetailPage() {
                                     key={section.id}
                                     id={section.id}
                                     className="scroll-mt-40 group w-full"
+                                    suppressHydrationWarning
                                 >
                                     {section.title && (
                                         <div className="mb-8">
@@ -239,39 +245,38 @@ export default function BlogDetailPage() {
                                         </div>
                                     )}
 
-                                    <div
-                                        className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
-                                        [&_div]:mb-6 
-                                        [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3
-                                        [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#374151] [&_li]:text-[16px] [&_li]:leading-[1.8]
-                                        [&_strong]:text-[#111827] [&_strong]:font-semibold
-                                        [&_em]:text-[#00D4AA] [&_em]:font-bold [&_em]:not-italic
-                                        [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
-                                        [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display
-                                        [&_svg]:w-9 [&_svg]:h-9
-                                        [&_.use-cases]:mt-12 [&_.use-cases]:flex [&_.use-cases]:flex-col [&_.use-cases]:gap-7
-                                        [&_.use-case]:border [&_.use-case]:border-[#e4e8f0] [&_.use-case]:rounded-[14px] [&_.use-case]:overflow-hidden [&_.use-case]:shadow-sm
-                                        [&_.use-case__header]:flex [&_.use-case__header]:items-center [&_.use-case__header]:gap-3.5 [&_.use-case__header]:p-5 [&_.use-case__header]:bg-[#0a0f1e] [&_.use-case__header]:relative [&_.use-case__header]:overflow-hidden
-                                        [&_.use-case__header::before]:absolute [&_.use-case__header::before]:inset-0 [&_.use-case__header::before]:bg-gradient-to-br [&_.use-case__header::before]:from-transparent [&_.use-case__header::before]:to-transparent [&_.use-case__header::before]:bg-[size:28px_28px] [&_.use-case__header::before]:bg-[linear-gradient(rgba(30,111,255,0.07)_1px,_transparent_1px),_linear-gradient(90deg,rgba(30,111,255,0.07)_1px,_transparent_1px)]
-                                        [&_.use-case__icon]:relative [&_.use-case__icon]:z-10 [&_.use-case__icon]:w-9 [&_.use-case__icon]:h-9 [&_.use-case__icon]:rounded-[10px] [&_.use-case__icon]:bg-[rgba(30,111,255,0.25)] [&_.use-case__icon]:flex [&_.use-case__icon]:items-center [&_.use-case__icon]:justify-center [&_.use-case__icon]:flex-shrink-0
-                                        [&_.use-case__icon_svg]:w-4.5 [&_.use-case__icon_svg]:h-4.5
-                                        [&_.use-case__title]:relative [&_.use-case__title]:z-10 [&_.use-case__title]:font-serif [&_.use-case__title]:text-[clamp(15px,1.8vw,19px)] [&_.use-case__title]:font-normal [&_.use-case__title]:text-[#e8f0ff] [&_.use-case__title]:leading-[1.3]
-                                        [&_.use-case__body]:bg-white
-                                        [&_.use-case__row]:p-5 [&_.use-case__row]:border-b [&_.use-case__row]:border-[#e4e8f0]
-                                        [&_.use-case__row:last-child]:border-b-0
-                                        [&_.use-case__row-label]:text-[10px] [&_.use-case__row-label]:tracking-[2.5px] [&_.use-case__row-label]:uppercase [&_.use-case__row-label]:font-semibold [&_.use-case__row-label]:mb-2
-                                        [&_.use-case__row-label--challenge]:text-[#8492a6]
-                                        [&_.use-case__row-label--solution]:text-[#1e6fff]
-                                        [&_.use-case__row-text]:text-[15px] [&_.use-case__row-text]:font-light [&_.use-case__row-text]:text-[#4a5568] [&_.use-case__row-text]:leading-[1.8]
-                                        [&_.tool-cards]:mt-12 [&_.tool-cards]:flex [&_.tool-cards]:flex-col [&_.tool-cards]:gap-7
-                                        [&_.tool-card]:border [&_.tool-card]:border-[#e4e8f0] [&_.tool-card]:rounded-[14px] [&_.tool-card]:overflow-hidden [&_.tool-card]:shadow-sm
-                                        [&_.tool-card__header]:flex [&_.tool-card__header]:items-center [&_.tool-card__header]:gap-3.5 [&_.tool-card__header]:p-5 [&_.tool-card__header]:bg-[#0a0f1e] [&_.tool-card__header]:relative [&_.tool-card__header]:overflow-hidden
-                                        [&_.tool-card__header::before]:absolute [&_.tool-card__header::before]:inset-0 [&_.tool-card__header::before]:bg-gradient-to-br [&_.tool-card__header::before]:from-transparent [&_.tool-card__header::before]:to-transparent [&_.tool-card__header::before]:bg-[size:28px_28px] [&_.tool-card__header::before]:bg-[linear-gradient(rgba(30,111,255,0.07)_1px,_transparent_1px),_linear-gradient(90deg,rgba(30,111,255,0.07)_1px,_transparent_1px)]
-                                        [&_.tool-card__num]:relative [&_.tool-card__num]:z-10 [&_.tool-card__num]:w-9 [&_.tool-card__num]:h-9 [&_.tool-card__num]:rounded-[10px] [&_.tool-card__num]:bg-[rgba(30,111,255,0.25)] [&_.tool-card__num]:flex [&_.tool-card__num]:items-center [&_.tool-card__num]:justify-center [&_.tool-card__num]:flex-shrink-0 [&_.tool-card__num]:font-serif [&_.tool-card__num]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__num]:font-normal [&_.tool-card__num]:text-[#e8f0ff] [&_.tool-card__num]:leading-[1.3]
-                                        [&_.tool-card__title]:relative [&_.tool-card__title]:z-10 [&_.tool-card__title]:font-serif [&_.tool-card__title]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__title]:font-normal [&_.tool-card__title]:text-[#e8f0ff] [&_.tool-card__title]:leading-[1.3]
-                                        [&_.tool-card__body]:bg-white [&_.tool-card__body]:p-5 [&_.tool-card__body]:text-[15px] [&_.tool-card__body]:font-light [&_.tool-card__body]:text-[#4a5568] [&_.tool-card__body]:leading-[1.8]"
-                                        dangerouslySetInnerHTML={{ __html: section.content }}
-                                    />
+                                    {mounted ? (
+                                        <div
+                                            className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left
+                                            [&_div]:mb-6 
+                                            [&_ul]:list-none [&_ul]:pl-0 [&_ul]:mb-8 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-3
+                                            [&_li]:flex [&_li]:gap-3.5 [&_li]:items-start [&_li]:text-[#374151] [&_li]:text-[16px] [&_li]:leading-[1.8]
+                                            [&_strong]:text-[#111827] [&_strong]:font-semibold
+                                            [&_em]:text-[#1e90ff] [&_em]:italic
+                                            [&_a]:text-[#1e90ff] [&_a]:underline [&_a]:font-medium
+                                            [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#111827] [&_h3]:mt-10 [&_h3]:mb-4 [&_h3]:font-display
+                                            [&_svg]:w-9 [&_svg]:h-9
+                                            [&_.use-cases]:mt-12 [&_.use-cases]:flex [&_.use-cases]:flex-col [&_.use-cases]:gap-7
+                                            [&_.use-case]:border [&_.use-case]:border-[#e4e8f0] [&_.use-case]:rounded-[14px] [&_.use-case]:overflow-hidden [&_.use-case]:shadow-sm
+                                            [&_.use-case__header]:flex [&_.use-case__header]:items-center [&_.use-case__header]:gap-3.5 [&_.use-case__header]:p-5 [&_.use-case__header]:bg-[#0a0f1e] [&_.use-case__header]:relative [&_.use-case__header]:overflow-hidden
+                                            [&_.use-case__title]:relative [&_.use-case__title]:z-10 [&_.use-case__title]:font-serif [&_.use-case__title]:text-[clamp(15px,1.8vw,19px)] [&_.use-case__title]:font-normal [&_.use-case__title]:text-[#e8f0ff] [&_.use-case__title]:leading-[1.3]
+                                            [&_.use-case__body]:bg-white
+                                            [&_.use-case__row]:p-5 [&_.use-case__row]:border-b [&_.use-case__row]:border-[#e4e8f0]
+                                            [&_.use-case__row-label]:text-[10px] [&_.use-case__row-label]:tracking-[2.5px] [&_.use-case__row-label]:uppercase [&_.use-case__row-label]:font-semibold [&_.use-case__row-label]:mb-2
+                                            [&_.use-case__row-label--challenge]:text-[#8492a6]
+                                            [&_.use-case__row-label--solution]:text-[#1e6fff]
+                                            [&_.use-case__row-text]:text-[15px] [&_.use-case__row-text]:font-light [&_.use-case__row-text]:text-[#4a5568] [&_.use-case__row-text]:leading-[1.8]
+                                            [&_.tool-cards]:mt-12 [&_.tool-cards]:flex [&_.tool-cards]:flex-col [&_.tool-cards]:gap-7
+                                            [&_.tool-card]:border [&_.tool-card]:border-[#e4e8f0] [&_.tool-card]:rounded-[14px] [&_.tool-card]:overflow-hidden [&_.tool-card]:shadow-sm
+                                            [&_.tool-card__header]:flex [&_.tool-card__header]:items-center [&_.tool-card__header]:gap-3.5 [&_.tool-card__header]:p-5 [&_.tool-card__header]:bg-[#0a0f1e] [&_.tool-card__header]:relative [&_.tool-card__header]:overflow-hidden
+                                            [&_.tool-card__num]:relative [&_.tool-card__num]:z-10 [&_.tool-card__num]:w-9 [&_.tool-card__num]:h-9 [&_.tool-card__num]:rounded-[10px] [&_.tool-card__num]:bg-[rgba(30,111,255,0.25)] [&_.tool-card__num]:flex [&_.tool-card__num]:items-center [&_.tool-card__num]:justify-center [&_.tool-card__num]:flex-shrink-0 [&_.tool-card__num]:font-serif [&_.tool-card__num]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__num]:font-normal [&_.tool-card__num]:text-[#e8f0ff] [&_.tool-card__num]:leading-[1.3]
+                                            [&_.tool-card__title]:relative [&_.tool-card__title]:z-10 [&_.tool-card__title]:font-serif [&_.tool-card__title]:text-[clamp(15px,1.8vw,19px)] [&_.tool-card__title]:font-normal [&_.tool-card__title]:text-[#e8f0ff] [&_.tool-card__title]:leading-[1.3]
+                                            [&_.tool-card__body]:bg-white [&_.tool-card__body]:p-5 [&_.tool-card__body]:text-[15px] [&_.tool-card__body]:font-light [&_.tool-card__body]:text-[#4a5568] [&_.tool-card__body]:leading-[1.8]"
+                                            dangerouslySetInnerHTML={{ __html: section.content }}
+                                        />
+                                    ) : (
+                                        <div className="min-h-[40px]" />
+                                    )}
                                 </section>
                             ))}
                         </div>
@@ -283,13 +288,13 @@ export default function BlogDetailPage() {
 
             <Footer />
 
-            <style dangerouslySetInnerHTML={{
+            <style suppressHydrationWarning dangerouslySetInnerHTML={{
                 __html: `
                 /* ─── GLOBAL STANDARDS ─── */
                 p { font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 24px; }
-                h2 { font-family: var(--font-display), serif; font-size: clamp(24px, 3.5vw, 32px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; }
-                em { font-style: normal; color: #00D4AA; font-weight: 700; } /* Branding consistency for titles */
-                .blog-content em { font-style: normal; color: #00D4AA; font-weight: 700; } /* No italics in content as requested */
+                h2 { font-family: var(--font-display), serif; font-size: clamp(26px, 4vw, 36px); color: #0a0f1e; margin: 48px 0 24px; line-height: 1.2; font-weight: 700; }
+                em { font-style: normal; color: white !important; } /* Branding consistency for titles */
+                .blog-content em { font-style: normal; color: inherit; } /* No italics in content as requested */
                 strong { font-weight: 600; color: #0a0f1e; }
                 .blog-content ul li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
 
@@ -308,12 +313,14 @@ export default function BlogDetailPage() {
                 .outcome-item__dot { width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 7px; }
 
                 /* ─── PREMIUM FEATURE CARDS ─── */
-                .feature-cards { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
-                .feature-card { background: white; border: 1px solid #eef2f6; border-radius: 12px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 16px; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-                .feature-card:hover { border-color: #1e90ff33; box-shadow: 0 8px 24px rgba(30,144,255,0.08); transform: translateX(4px); }
-                .feature-card__dot { width: 6px; height: 6px; border-radius: 50%; background: #1e90ff; flex-shrink: 0; margin-top: 10px; opacity: 0.6; }
-                .feature-card__content strong { display: block; font-size: 16px; color: #111827; margin-bottom: 4px; }
-                .feature-card__content p { font-size: 15px; color: #4b5563; line-height: 1.6; margin-bottom: 0 !important; }
+                /* ─── PREMIUM FEATURE CARDS ─── */
+                .feature-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+                .feature-cards.vertical { display: flex; flex-direction: column; gap: 16px; }
+                .feature-card { background: white; border: 1px solid #eef2f6; border-radius: 12px; padding: 24px; display: flex; align-items: flex-start; gap: 16px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-top: 3px solid #1e6fff; }
+                .feature-card:hover { border-color: #1e90ff66; box-shadow: 0 12px 32px rgba(30,144,255,0.12); transform: translateY(-2px); }
+                .feature-card__dot { display: none; }
+                .feature-card__content strong { display: block; font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 10px; }
+                .feature-card__content p { font-size: 15.5px; font-weight: 300; color: #4b5563; line-height: 1.75; margin-bottom: 0 !important; }
 
                 /* ─── MINI CTA (LinkedIn) ─── */
                 .cta-mini { background: #f8fafc; border-left: 4px solid #1e90ff; padding: 20px 24px; border-radius: 0 12px 12px 0; margin-top: 40px; }
@@ -365,12 +372,7 @@ export default function BlogDetailPage() {
                 .stat__value { font-family: var(--font-display), serif; font-size: clamp(28px, 3.5vw, 40px); color: #6eb3ff; line-height: 1; margin-bottom: 8px; }
                 .stat__label { font-size: 13px; font-weight: 300; color: rgba(200,220,245,.65); line-height: 1.5; }
 
-                /* ─── FEATURE CARDS ─── */
-                .feature-cards { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-                .feature-cards.vertical { display: flex; flex-direction: column; gap: 16px; }
-                .feature-card { background: var(--surface, #f7f8fc); border: 1px solid var(--border, #e4e8f0); border-radius: 12px; padding: 24px 22px; }
-                .feature-card strong { font-size: 11px; font-weight: 500; letter-spacing: 2px; color: var(--blue, #1e6fff); margin-bottom: 8px; display: block; }
-                .feature-card p { font-size: 15px; font-weight: 300; color: var(--sub, #4a5568); line-height: 1.8; margin-bottom: 0; }
+
 
                 /* ─── BENEFITS GRID ─── */
                 .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
@@ -385,13 +387,13 @@ export default function BlogDetailPage() {
                 .trend-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
                 .trend-card__icon { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 10px; background: rgba(30,111,255,.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
                 .trend-card__icon svg { width: 18px; height: 18px; }
-                .trend-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(15px, 1.8vw, 19px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
+                .trend-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(17px, 2vw, 22px); font-weight: 600; color: #ffffff; line-height: 1.3; }
                 .trend-card__body { background: var(--white, #ffffff); }
                 .trend-card__row { padding: 18px 24px; border-bottom: 1px solid var(--border, #e4e8f0); }
                 .trend-card__row:last-child { border-bottom: none; }
-                .trend-card__row-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; color: #ffffff; }
-                .trend-card__row-label--trend { color: #ffffff; }
-                .trend-card__row-label--hyniva { color: var(--blue, #1e6fff); }
+                .trend-card__row-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+                .trend-card__row-label--trend { color: #1e6fff; font-weight: 700; }
+                .trend-card__row-label--hyniva { color: #1e6fff; font-weight: 700; }
                 .trend-card__row-text { font-size: 15px; font-weight: 300; color: var(--sub, #4a5568); line-height: 1.8; }
 
                 /* ─── STAT CARDS ─── */
@@ -401,27 +403,28 @@ export default function BlogDetailPage() {
 
                 /* ─── PULLQUOTE ─── */
                 .pullquote { margin: 40px 0; border-left: 4px solid #1e6fff; padding: 8px 32px; }
-                .pullquote__text { font-family: var(--font-display), serif; font-size: 20px; font-style: italic; color: #0a0f1e; line-height: 1.5; }
+                .pullquote__text { font-family: var(--font-display), serif; font-size: 20px; font-style: normal; color: #0a0f1e; line-height: 1.5; }
 
-                /* ─── TREND CARDS ─── */
+                /* ─── TREND CARDS (grid variant) ─── */
                 .trend-cards { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-                .trend-card { border: 1px solid #e4e8f0; border-radius: 14px; background: #f7f8fc; padding: 24px; }
-                .trend-card__header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-                .trend-card__icon { width: 34px; height: 34px; background: rgba(30,111,255,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-                .trend-card__title { font-size: 15px; font-weight: 600; color: #0a0f1e; }
-                .trend-card__row { margin-bottom: 16px; }
-                .trend-card__row:last-child { margin-bottom: 0; }
-                .trend-card__row-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; display: block; }
-                .trend-card__row-label--trend { color: #1e6fff; }
-                .trend-card__row-label--hyniva { color: #10b981; }
-                .trend-card__row-text { font-size: 14px; line-height: 1.6; margin-bottom: 0; }
+                .trend-cards .trend-card { border: 1px solid #e4e8f0; border-radius: 14px; background: #f7f8fc; padding: 24px; }
+                .trend-cards .trend-card__header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+                .trend-cards .trend-card__icon { width: 34px; height: 34px; background: rgba(30,111,255,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .trend-cards .trend-card__title { font-size: 15px; font-weight: 600; color: #0a0f1e; }
+                .trend-cards .trend-card__row { margin-bottom: 16px; }
+                .trend-cards .trend-card__row:last-child { margin-bottom: 0; }
+                .trend-cards .trend-card__row-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
+                .trend-cards .trend-card__row-label--trend { color: #1e6fff; }
+                .trend-cards .trend-card__row-label--hyniva { color: #1e6fff; }
+                .trend-cards .trend-card__row-text { font-size: 14px; line-height: 1.6; margin-bottom: 0; }
 
                 /* ─── BENEFIT CARDS (AWS) ─── */
                 .benefit-card { border: 1px solid #e4e8f0; border-radius: 14px; background: #f7f8fc; padding: 24px; }
                 .benefit-card__header { margin-bottom: 16px; }
                 .benefit-card__icon { width: 36px; height: 36px; background: rgba(30,111,255,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-                .benefit-card__title { font-size: 16px; font-weight: 600; color: #0a0f1e; margin-bottom: 4px; }
-                .benefit-card__metric { font-size: 11px; font-weight: 600; color: #1e6fff; text-transform: uppercase; letter-spacing: 1px; }
+                .benefit-card__title { font-size: 18px; font-weight: 700; color: #0a0f1e; margin-bottom: 4px; }
+                .benefit-card__label { font-size: 15px; font-weight: 700; color: #1e6fff; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; display: block; }
+                .benefit-card__metric { font-size: 12px; font-weight: 700; color: #1e6fff; text-transform: uppercase; letter-spacing: 1px; }
                 .benefit-card__body { font-size: 14px; line-height: 1.7; color: #4a5568; }
 
                 /* ─── PROBLEM ROWS ─── */
@@ -437,7 +440,7 @@ export default function BlogDetailPage() {
                 /* ─── STRATEGY CARDS ─── */
                 .strategies { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
                 .strategy-card { display: flex; gap: 20px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 22px 24px; }
-                .strategy-card__tag { background: #0a0f1e; color: #6eb3ff; font-family: var(--font-sans), sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 6px; padding: 5px 10px; flex-shrink: 0; white-space: nowrap; margin-top: 2px; }
+                .strategy-card__tag { background: #0a0f1e; color: #6eb3ff; font-family: var(--font-sans), sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 6px; padding: 6px 12px; flex-shrink: 0; white-space: nowrap; margin-top: 2px; }
                 .strategy-card__title { font-family: var(--font-sans), sans-serif; font-size: 15px; font-weight: 500; color: #0a0f1e; margin-bottom: 5px; }
                                 .strategy-card__desc { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
@@ -478,7 +481,7 @@ export default function BlogDetailPage() {
                 .challenge__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
                 .challenge__body { padding: 24px 28px; background: #ffffff; }
                 .challenge__problem { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; margin-bottom: 20px; }
-                .solution-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 12px; }
+                .solution-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; font-weight: 700; margin-bottom: 12px; display: block; }
                 .challenge__solutions { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
                 .solution-item { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
                 .solution-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
@@ -486,7 +489,7 @@ export default function BlogDetailPage() {
                 .story { background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 10px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
                 .story__icon { width: 32px; height: 32px; background: rgba(30,111,255,.12); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
                 .story__icon svg { width: 15px; height: 15px; }
-                .story__label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 6px; }
+                .story__label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #1e6fff; font-weight: 700; margin-bottom: 8px; display: block; }
                 .story__text { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.75; }
 
                 .criteria { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -496,7 +499,7 @@ export default function BlogDetailPage() {
                 .type-compare { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
                 .type-card { border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px 22px; background: #f7f8fc; }
                 .type-card--active { border-color: rgba(30,111,255,.35); background: rgba(30,111,255,.04); }
-                .type-card__label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 10px; }
+                 .type-card__label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; font-weight: 700; margin-bottom: 10px; display: block; }
                 .type-card__title { font-family: var(--font-display), serif; font-size: 18px; color: #0a0f1e; margin-bottom: 10px; }
                 .type-card__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
@@ -511,6 +514,7 @@ export default function BlogDetailPage() {
                 .benefit { border: 1px solid #e4e8f0; border-radius: 12px; padding: 22px 20px; background: #f7f8fc; }
                 .benefit__title { font-size: 14px; font-weight: 600; color: #0a0f1e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
                 .benefit__title::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; }
+                .benefit__title.no-bullet::before { display: none; }
                 .benefit__body { font-size: 14px; font-weight: 300; color: #4a5568; line-height: 1.7; }
 
                 .ongoing { margin-top: 48px; border: 1px solid #e4e8f0; border-radius: 14px; padding: 32px 28px; background: #f7f8fc; }
@@ -527,11 +531,11 @@ export default function BlogDetailPage() {
                 .block-card__body { padding: 20px 24px; background: #ffffff; }
                 .block-card__body p { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; }
                 .stat-pill { margin-top: 14px; display: inline-flex; align-items: flex-start; gap: 10px; background: rgba(30,111,255,.05); border: 1px solid rgba(30,111,255,.18); border-radius: 10px; padding: 12px 16px; }
-                .stat-pill__label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; white-space: nowrap; padding-top: 2px; }
+                .stat-pill__label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1e6fff; white-space: nowrap; padding-top: 2px; }
                 .stat-pill__text { font-size: 13.5px; font-weight: 300; color: #4a5568; line-height: 1.6; }
                 .solution-card { margin-top: 14px; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 10px; padding: 16px 18px; }
-                .solution-card__label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #1e6fff; font-weight: 600; margin-bottom: 8px; }
-                .solution-card__text { font-size: 14px; font-weight: 300; color: #4a5568; line-height: 1.75; }
+                .solution-card__label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #1e6fff; font-weight: 700; margin-bottom: 10px; display: block; }
+                .solution-card__text { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.75; }
 
                 .tool-cards { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
                 .tool-card { border: 1px solid #e4e8f0; border-radius: 14px; overflow: hidden; }
@@ -541,10 +545,18 @@ export default function BlogDetailPage() {
                 .tool-card__body { padding: 20px 24px; font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; }
 
                 .insight-grid { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
-                .insight-item { display: flex; gap: 16px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 10px; padding: 18px 20px; }
-                .insight-item__dot { width: 8px; height: 8px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 7px; }
-                .insight-item__title { font-size: 14px; font-weight: 600; color: #0a0f1e; margin-bottom: 4px; }
-                .insight-item__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+                .insight-item { display: flex; gap: 16px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 10px; padding: 18px 20px; position: relative; }
+                .insight-item.compact { padding: 10px 20px 8px; }
+                .insight-item.compact .insight-item__body { margin-bottom: 0 !important; line-height: 1.5; }
+                .insight-item div { margin-bottom: 0 !important; }
+                .insight-item__dot { display: none; }
+                .insight-item__title { font-size: 17px; font-weight: 700; color: #0a0f1e; margin-bottom: 4px !important; }
+                .insight-item__body { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.75; }
+
+                /* Large text for specific sections */
+                .large-label { font-size: 1.25rem !important; font-weight: 700 !important; margin-bottom: 12px !important; display: block; }
+                .large-list { font-size: 1.15rem !important; line-height: 1.6 !important; }
+                .large-text { font-size: 1.15rem !important; line-height: 1.6 !important; }
 
                 .highlights { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
                 .highlight-card { display: flex; gap: 18px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 20px 22px; }
@@ -556,8 +568,15 @@ export default function BlogDetailPage() {
                 .quote-block { margin: 48px 0; background: #0a0f1e; border-radius: 16px; padding: 40px 48px; position: relative; overflow: hidden; text-align: center; }
                 .quote-block::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px); background-size: 30px 30px; }
                 .quote-block__mark { font-family: var(--font-display), serif; font-size: 80px; line-height: 1; color: rgba(30,111,255,.2); margin-bottom: -40px; }
-                .quote-block__text { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(18px, 2.5vw, 22px); color: #e8f0ff; line-height: 1.5; margin-bottom: 20px; font-style: italic; }
+                .quote-block__text { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(18px, 2.5vw, 22px); color: #e8f0ff; line-height: 1.5; margin-bottom: 20px; font-style: normal; }
                 .quote-block__author { position: relative; z-index: 1; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6eb3ff; font-weight: 500; }
+                
+                /* ─── MILESTONES (Great Place to Work) ─── */
+                .milestones { margin-top: 32px; display: flex; flex-direction: column; gap: 24px; }
+                .milestone { display: flex; gap: 20px; align-items: flex-start; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 12px; padding: 24px; }
+                .milestone__icon { display: none; }
+                .milestone__title { font-size: 20px; font-weight: 700; color: #0a0f1e; margin-bottom: 8px; }
+                .milestone__desc { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.8; }
 
                 .thankyou { margin-top: 48px; background: #f7f8fc; border: 1px solid #e4e8f0; border-radius: 16px; padding: 40px; text-align: center; }
                 .thankyou__icon { font-size: 32px; margin-bottom: 16px; }
@@ -597,7 +616,7 @@ export default function BlogDetailPage() {
                 .contrast-card { border-radius: 16px; padding: 32px 28px; border: 1px solid #e4e8f0; }
                 .contrast-card--light { background: #f7f8fc; }
                 .contrast-card--dark { background: #0a0f1e; border-color: #0a0f1e; }
-                .contrast-card__label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #1e6fff; font-weight: 500; margin-bottom: 12px; }
+                .contrast-card__label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; font-weight: 700; margin-bottom: 12px; display: block; }
                 .contrast-card__title { font-family: var(--font-display), serif; font-size: 20px; color: #0a0f1e; margin-bottom: 12px; }
                 .contrast-card--dark .contrast-card__title { color: #e8f0ff; }
                 .contrast-card__body { font-size: 14.5px; font-weight: 300; color: #4a5568; line-height: 1.75; }

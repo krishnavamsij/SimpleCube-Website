@@ -286,7 +286,7 @@ export const blogDetails = {
                 id: "from-clicking-forms-to-conversational-le",
                 title: "From Clicking Forms to Conversational Lending",
                 content: `<p>FinXserve, enhanced by Salesforce Agentforce, enables members to apply for loans simply by talking or chatting with an AI-powered assistant.</p>
-      <p>Instead of navigating multiple screens, a member can open their banking app or website and say, <em>"I'd like to apply for a personal loan."</em> From there, the AI agent takes over — asking the right questions, pulling existing member data, pre-filling information, and guiding the borrower through the entire process in a single conversation.</p>
+      <p>Instead of navigating multiple screens, a member can open their banking app or website and say, <strong style="color: #000000; font-weight: 800;">"I'd like to apply for a personal loan."</strong> From there, the AI agent takes over — asking the right questions, pulling existing member data, pre-filling information, and guiding the borrower through the entire process in a single conversation.</p>
       <p>The experience feels less like filling out an application and more like having a guided discussion with a knowledgeable advisor.</p>`
             },
             {
@@ -436,8 +436,8 @@ export const blogDetails = {
         </div>
         <div class="challenge__body">
           <p class="challenge__problem">Credit unions often rely on outdated systems that fail to meet modern member expectations for intuitive mobile apps, real-time transactions, and robust security features. This lack of digital infrastructure hampers growth and member engagement.</p>
-          <div class="solution-label">Hyniva's Solution</div>
-          <div class="challenge__solutions">
+          <div class="large-label">Hyniva's Solution</div>
+          <div class="challenge__solutions large-list">
             <div class="solution-item">Comprehensive digital transformation services, including UI/UX enhancements and API integrations</div>
             <div class="solution-item">Secure, scalable cloud-based banking solutions tailored to credit union needs</div>
             <div class="solution-item">Regulatory compliance support for seamless adoption of new technologies</div>
@@ -447,8 +447,8 @@ export const blogDetails = {
               <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
             </div>
             <div class="story__content">
-              <div class="story__label">Success Story</div>
-              <div class="story__text">A regional credit union struggling with slow online loan applications partnered with Hyniva. By implementing a streamlined digital lending platform, loan processing time was reduced by <strong>40%</strong>, while application completion rates increased by <strong>25%</strong>.</div>
+              <div class="large-label">Success Story</div>
+              <div class="story__text large-text">A regional credit union struggling with slow online loan applications partnered with Hyniva. By implementing a streamlined digital lending platform, loan processing time was reduced by <strong>40%</strong>, while application completion rates increased by <strong>25%</strong>.</div>
             </div>
           </div>
         </div>
@@ -462,8 +462,8 @@ export const blogDetails = {
         </div>
         <div class="challenge__body">
           <p class="challenge__problem">Without specialized project management expertise, many credit unions face delays in rolling out essential features like mobile banking or automated customer support — resulting in lost opportunities and member dissatisfaction.</p>
-          <div class="solution-label">Hyniva's Solution</div>
-          <div class="challenge__solutions">
+          <div class="large-label">Hyniva's Solution</div>
+          <div class="challenge__solutions large-list">
             <div class="solution-item">Agile implementation methodologies for faster go-to-market timelines</div>
             <div class="solution-item">Dedicated project management teams to prioritize high-impact initiatives</div>
             <div class="solution-item">Structured development approaches that maximize ROI</div>
@@ -473,8 +473,8 @@ export const blogDetails = {
               <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
             </div>
             <div class="story__content">
-              <div class="story__label">Success Story</div>
-              <div class="story__text">A mid-sized credit union aimed to launch AI-driven customer support but faced repeated delays. Hyniva restructured the project timeline and implemented a chatbot solution within <strong>8 weeks</strong>, reducing call center inquiries by <strong>30%</strong>.</div>
+              <div class="large-label">Success Story</div>
+              <div class="story__text large-text">A mid-sized credit union aimed to launch AI-driven customer support but faced repeated delays. Hyniva restructured the project timeline and implemented a chatbot solution within <strong>8 weeks</strong>, reducing call center inquiries by <strong>30%</strong>.</div>
             </div>
           </div>
         </div>
@@ -488,8 +488,8 @@ export const blogDetails = {
         </div>
         <div class="challenge__body">
           <p class="challenge__problem">Fragmented data and outdated marketing strategies often prevent credit unions from personalizing communication effectively, leading to reduced member retention.</p>
-          <div class="solution-label">Hyniva's Solution</div>
-          <div class="challenge__solutions">
+          <div class="large-label">Hyniva's Solution</div>
+          <div class="challenge__solutions large-list">
             <div class="solution-item">AI-driven analytics for member segmentation and targeted communication</div>
             <div class="solution-item">Omnichannel marketing strategies that enhance engagement across platforms</div>
             <div class="solution-item">CRM solutions designed to improve customer interactions and loyalty</div>
@@ -499,8 +499,8 @@ export const blogDetails = {
               <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
             </div>
             <div class="story__content">
-              <div class="story__label">Success Story</div>
-              <div class="story__text">A credit union experiencing declining engagement saw a <strong>50% increase</strong> in email open rates and a <strong>20% rise</strong> in new product sign-ups after Hyniva implemented a data-driven email marketing campaign.</div>
+              <div class="large-label">Success Story</div>
+              <div class="story__text large-text">A credit union experiencing declining engagement saw a <strong>50% increase</strong> in email open rates and a <strong>20% rise</strong> in new product sign-ups after Hyniva implemented a data-driven email marketing campaign.</div>
             </div>
           </div>
         </div>
@@ -514,8 +514,8 @@ export const blogDetails = {
         </div>
         <div class="challenge__body">
           <p class="challenge__problem">The rise of cyber threats and evolving regulatory requirements demand constant updates to security protocols — a task many credit unions struggle to manage internally.</p>
-          <div class="solution-label">Hyniva's Solution</div>
-          <div class="challenge__solutions">
+          <div class="large-label">Hyniva's Solution</div>
+          <div class="challenge__solutions large-list">
             <div class="solution-item">Advanced cybersecurity solutions with real-time threat monitoring</div>
             <div class="solution-item">Regular security audits and employee training programs</div>
             <div class="solution-item">Compliance support aligned with industry standards like NCUA and FFIEC</div>
@@ -525,8 +525,8 @@ export const blogDetails = {
               <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
             </div>
             <div class="story__content">
-              <div class="story__label">Success Story</div>
-              <div class="story__text">A credit union facing phishing attacks partnered with Hyniva for a security overhaul, resulting in a <strong>60% reduction</strong> in incidents and improved member trust.</div>
+              <div class="large-label">Success Story</div>
+              <div class="story__text large-text">A credit union facing phishing attacks partnered with Hyniva for a security overhaul, resulting in a <strong>60% reduction</strong> in incidents and improved member trust.</div>
             </div>
           </div>
         </div>
@@ -540,8 +540,8 @@ export const blogDetails = {
         </div>
         <div class="challenge__body">
           <p class="challenge__problem">To stand out in a crowded market, credit unions must innovate — but many lack the expertise to develop new financial products or adopt emerging technologies like AI or blockchain.</p>
-          <div class="solution-label">Hyniva's Solution</div>
-          <div class="challenge__solutions">
+          <div class="large-label">Hyniva's Solution</div>
+          <div class="challenge__solutions large-list">
             <div class="solution-item">Strategic consulting to identify growth opportunities</div>
             <div class="solution-item">Fintech partnerships enabling cutting-edge financial solutions</div>
             <div class="solution-item">AI-driven tools that enhance operational efficiency</div>
@@ -551,8 +551,8 @@ export const blogDetails = {
               <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5l1.59 3.22 3.56.52-2.57 2.5.6 3.54L7.5 9.52l-3.18 1.76.6-3.54L2.35 5.24l3.56-.52L7.5 1.5z" stroke="#1e6fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
             </div>
             <div class="story__content">
-              <div class="story__label">Success Story</div>
-              <div class="story__text">A forward-thinking credit union wanted to offer a digital-only savings account but lacked technical expertise. Hyniva developed the product in under <strong>six months</strong>, attracting younger members and boosting deposits by <strong>35%</strong>.</div>
+              <div class="large-label">Success Story</div>
+              <div class="story__text large-text">A forward-thinking credit union wanted to offer a digital-only savings account but lacked technical expertise. Hyniva developed the product in under <strong>six months</strong>, attracting younger members and boosting deposits by <strong>35%</strong>.</div>
             </div>
           </div>
         </div>
@@ -676,19 +676,19 @@ export const blogDetails = {
 
       <div class="benefits">
         <div class="benefit">
-          <div class="benefit__title">Enhanced Security</div>
+          <div class="benefit__title no-bullet">Enhanced Security</div>
           <div class="benefit__body">Assurance that client data is managed with industry-leading security practices at every layer.</div>
         </div>
         <div class="benefit">
-          <div class="benefit__title">Regulatory Compliance</div>
+          <div class="benefit__title no-bullet">Regulatory Compliance</div>
           <div class="benefit__body">Helping clients meet their own compliance requirements with greater confidence and less effort.</div>
         </div>
         <div class="benefit">
-          <div class="benefit__title">Increased Trust</div>
+          <div class="benefit__title no-bullet">Increased Trust</div>
           <div class="benefit__body">Strengthening relationships with existing and prospective clients through demonstrated commitment to data protection.</div>
         </div>
         <div class="benefit">
-          <div class="benefit__title">Operational Excellence</div>
+          <div class="benefit__title no-bullet">Operational Excellence</div>
           <div class="benefit__body">Ensuring the reliability, availability, and integrity of our services throughout every engagement.</div>
         </div>
       </div>
@@ -975,22 +975,19 @@ export const blogDetails = {
 
     <!-- BEHAVIOR INSIGHTS -->
     <div class="insight-grid">
-      <div class="insight-item">
-        <div class="insight-item__dot"></div>
+      <div class="insight-item compact">
         <div class="insight-item__content">
           <div class="insight-item__title">Customer Preferences</div>
           <div class="insight-item__body">Track customer interactions and preferences across various touchpoints to understand what products or services resonate most with them.</div>
         </div>
       </div>
-      <div class="insight-item">
-        <div class="insight-item__dot"></div>
+      <div class="insight-item compact">
         <div class="insight-item__content">
           <div class="insight-item__title">Churn Risk</div>
           <div class="insight-item__body">Identify customers who may be at risk of leaving, allowing businesses to implement proactive retention strategies before it's too late.</div>
         </div>
       </div>
-      <div class="insight-item">
-        <div class="insight-item__dot"></div>
+      <div class="insight-item compact">
         <div class="insight-item__content">
           <div class="insight-item__title">Customer Journey Insights</div>
           <div class="insight-item__body">Gain a deeper understanding of where customers are in their buying journey, which can help refine both marketing and sales efforts.</div>
@@ -1539,21 +1536,21 @@ export const blogDetails = {
 
       <div class="milestones">
         <div class="milestone">
-          <div class="milestone__icon">🌿</div>
+          <div class="milestone__icon"></div>
           <div class="milestone__content">
             <div class="milestone__title">Team Building Activities</div>
             <div class="milestone__desc">Hyniva employees participated in outdoor retreats and collaborative workshops that strengthened relationships, boosted morale, and fostered a genuine spirit of camaraderie. Employees shared how much they valued the opportunity to connect with colleagues beyond the office — building a stronger sense of community across the organization.</div>
           </div>
         </div>
         <div class="milestone">
-          <div class="milestone__icon">🏆</div>
+          <div class="milestone__icon"></div>
           <div class="milestone__content">
             <div class="milestone__title">Certifications and Personal Growth</div>
             <div class="milestone__desc">Several employees achieved key certifications in Salesforce, AWS, and Scrum Master this year. Hyniva supported them every step of the way — through flexible hours, study resources, and dedicated mentorship. This commitment to professional development continues to fuel our collective growth and the quality of work we deliver to clients.</div>
           </div>
         </div>
         <div class="milestone">
-          <div class="milestone__icon">🪔</div>
+          <div class="milestone__icon"></div>
           <div class="milestone__content">
             <div class="milestone__title">Festival Celebrations</div>
             <div class="milestone__desc">At Hyniva, we celebrate culture and diversity with genuine enthusiasm. This year, our team came together for Diwali, Christmas, and more — with vibrant decorations, delicious food, and joyful activities that brought everyone closer. The energy and enthusiasm during these celebrations was truly contagious across the entire company.</div>
