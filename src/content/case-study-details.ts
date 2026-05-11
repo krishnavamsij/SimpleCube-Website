@@ -173,8 +173,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "instant-loan-processing": {
         "slug": "instant-loan-processing",
         "eyebrow": "Agentforce Document Intelligence",
-        "title": "Accelerate Loan Processing with<br>\n      <em>Agentforce-Powered Document Intelligence</em>",
-        "summary": "Built an AI-enabled loan processing engine that automates document extraction, validation,\n      and decision workflows to improve lending efficiency.",
+        "title": "Faster Loan Processing with<br>\n      <em>Agentforce Document Intelligence</em>",
+        "summary": "Loan applications completed in under 2 minutes<br>with AI-driven document intelligence.",
         "metrics": [
             {
                 "icon": "📉",
@@ -271,7 +271,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "intelligent-ivr-self-service": {
         "slug": "intelligent-ivr-self-service",
         "eyebrow": "Contact Center & IVR",
-        "title": "Modernizing Contact Centers with<br>\n      <em>Intelligent IVR Self-Service</em>",
+        "title": "<em>Modernizing Contact Centers with</em><br>\n      Intelligent IVR Self-Service",
         "summary": "Streamlined IVR and routing systems to reduce call complexity, improve response times,\n      and offload routine queries from agents.",
         "metrics": [
             {
@@ -293,7 +293,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "sub": ""
             },
             {
-                "icon": "🔒",
+                "icon": "🛡️",
                 "value": "3FA",
                 "label": "Secure<br>Verification",
                 "sub": ""
@@ -501,7 +501,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "lwr-modernization": {
         "slug": "lwr-modernization",
         "eyebrow": "Salesforce Experience Cloud & LWR",
-        "title": "LWR Modernization for<br>\n      <em>High-Performance Experiences</em>",
+        "title": "<em>LWR Modernization for<br>\n      High-Performance Experiences</em>",
         "summary": "Migrated legacy Experience Cloud to Lightning Web Runtime, delivering faster,\n      mobile-first, and scalable digital experiences.",
         "metrics": [
             {
@@ -612,7 +612,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "aem-migration": {
         "slug": "aem-migration",
         "eyebrow": "AEM Migration & Digital Transformation",
-        "title": "Rapid Reverse-Engineered<br>\n      <em>Website Migration</em>",
+        "title": "<em>Rapid Reverse-Engineered</em><br>\n      Website Migration",
         "summary": "Reverse-engineered and migrated a complete website<br>to Adobe Experience Manager in just 2 months — without backend access.",
         "metrics": [
             {
@@ -742,7 +742,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "sub": ""
             },
             {
-                "icon": "🔐",
+                "icon": "🛡️",
                 "value": "3×",
                 "label": "Stronger<br>Authentication",
                 "sub": ""
@@ -931,7 +931,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "enterprise-data-intelligence": {
         "slug": "enterprise-data-intelligence",
         "eyebrow": "AWS Data Platform & Customer Intelligence",
-        "title": "Turning Enterprise Data into a<br>\n      <em>Strategic Intelligence Engine</em>",
+        "title": "<em>Turning Enterprise Data into a</em><br>\n      Strategic Intelligence Engine",
         "summary": "Built a unified AWS data platform that integrates multiple banking systems to deliver\n      real-time Customer 360 insights and a single source of truth.",
         "metrics": [
             {
@@ -1019,7 +1019,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "hyniva-campaign-management": {
         "slug": "hyniva-campaign-management",
         "eyebrow": "Campaign Management & Marketing Technology",
-        "title": "Data-Driven Campaign Management for <br>Enterprise Marketing</em>",
+        "title": "Data-Driven Campaign Management<br>\n      <em>for Enterprise Marketing</em>",
         "summary": "Built a custom campaign management platform with automated scoring and full lifecycle\n      tracking for scalable marketing operations.",
         "metrics": [
             {
@@ -1125,8 +1125,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "modernizing-case-management-for-a-community-healthcare-provider-stop": {
         "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
         "eyebrow": "Healthcare System Modernization",
-        "title": "Modernizing Case Management for a Community<br>\n      <em>Healthcare Provider</em>",
-        "summary": "Streamlined case intake, tracking, and resolution workflows — enabling real-time visibility, improved coordination across care teams, and more efficient service delivery for community healthcare programs.",
+        "title": "Modernizing Case Management<br>\n      <em>for a Community Healthcare Provider</em>",
+        "summary": "Streamlined case intake, tracking, and resolution workflows —enabling real-time visibility, <br> improved coordination, and more efficient service delivery for community healthcare programs.",
         "metrics": [
             {
                 "icon": "🗂️",
@@ -1250,8 +1250,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "scaling-service-operations-with-salesforce": {
         "slug": "scaling-service-operations-with-salesforce",
         "eyebrow": "Salesforce Service Cloud & CX Transformation",
-        "title": "Intelligent Service Operations<br>\n      <em>on Salesforce</em>",
-        "summary": "Implemented Salesforce Service Cloud to centralize customer support, automate workflows,\n      and improve case resolution speed across multiple service channels.",
+        "title": "Intelligent Service Operations <br>\n      <em>on Salesforce</em>",
+        "summary": "Implemented Salesforce Service Cloud to centralize customer support <br> automate workflows,and improve case resolution speed across multiple service channels.",
         "metrics": [
             {
                 "icon": "⚙️",
@@ -1502,8 +1502,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
         "slug": "loan-routing-automation",
         "eyebrow": "FinTech Lending Automation",
-        "title": "Optimizing Loan Routing and Pre-Qualification with <em>Intelligent Automation</em>",
-        "summary": "An automation-driven solution that evaluated borrower data in real time and routed applications to the right lenders — reducing friction, improving match quality, and accelerating the end-to-end lending journey.",
+        "title": "Optimizing Loan Routing <br>\n      <em>and Pre-Qualification with Intelligent Automation</em>",
+        "summary": "An automation-driven solution evaluated borrower data in real time and routed applications<br>to the right lenders — reducing friction, improving match quality and accelerating the end-to-end lending journey.",
         "metrics": [
             {
                 "icon": "⚡",
@@ -1630,7 +1630,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "modernizing-a-legacy-platform": {
         "slug": "legacy-crm-modernization",
         "eyebrow": "CRM Modernization & Lending Platform",
-        "title": "Legacy CRM to <em>Modern Lending Platform</em>",
+        "title": "<em>Legacy CRM to</em> Modern Lending Platform",
         "summary": "Re-architected an outdated CRM into a modern platform, enabling better usability, streamlined workflows, and integration with external systems.",
         "metrics": [
             {
@@ -1717,7 +1717,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
         "slug": "insurance-claims-platform",
         "eyebrow": "Insurance Claims Transformation",
-        "title": "Transforming Insurance Claims Operations with a <em>Scalable Digital Platform</em>",
+        "title": "Transforming Insurance Claims Operations\n      <em>with a ScalableDigital Platform</em>",
         "summary": "Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.",
         "metrics": [
             {
@@ -1942,7 +1942,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Custom workflows and automation reduced manual effort and turnaround times"
                         },
                         {
-                            "value": "🔒",
+                            "value": "🛡️",
                             "label": "Reliable, Secure Data Migration",
                             "desc": "Business-critical data was migrated with integrity and precision, ensuring uninterrupted service delivery"
                         }
@@ -1960,7 +1960,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "aws-blue-green-deployment": {
         "slug": "aws-blue-green-deployment",
         "eyebrow": "AWS Blue-Green Deployment & DevOps",
-        "title": "Enabling Zero-Downtime <em>Deployments with AWS</em>",
+        "title": "<em>Enabling</em> Zero-Downtime Deployments <em>with</em><br>\n      <em>AWS</em>",
         "summary": "Implemented AWS blue-green deployment to ensure seamless releases, instant rollback capabilities, and uninterrupted system availability.",
         "metrics": [
             {
@@ -2073,7 +2073,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "education-platform-engineering": {
         "slug": "education-platform-engineering",
         "eyebrow": "Education Platform Engineering",
-        "title": "Engineered a Scalable Multi-Portal<br>Platform for <em>Complex Education Workflows</em>",
+        "title": "Scalable Multi-Portal Platform<br>\n      <em>for Complex Education Workflows</em>",
         "summary": "Streamlined complex academic workflows, enabled real-time data visibility, and supported seamless interactions across students, faculty, and administrators.",
         "metrics": [
             {
@@ -2317,7 +2317,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "logistics-platform-modernization-with-microsoft": {
         "slug": "logistics-platform-modernization-with-microsoft",
         "eyebrow": "Microsoft & Logistics Platform Modernization",
-        "title": "Logistics Platform<br><em>Modernization</em>",
+        "title": "<em>Building a Mobile-First,</em><br>\n      Real-Time Logistics Platform",
         "summary": "Rebuilt legacy logistics systems into a real-time, mobile-enabled platform with end-to-end operational visibility.",
         "metrics": [
             {
@@ -2460,7 +2460,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "aws-cost-optimized-doc-platform": {
         "slug": "aws-cost-optimized-doc-platform",
         "eyebrow": "AWS Cloud & Document Management",
-        "title": "Cost-Optimized Document<br><em>Platform on AWS</em>",
+        "title": "<em>Cost-Optimized</em> Document Platform<br>\n      <em>on AWS</em>",
         "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs, enhance performance, and support large-scale data operations.",
         "metrics": [
             {
@@ -2542,7 +2542,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "ai-customer-support-automation": {
         "slug": "ai-customer-support-automation",
         "eyebrow": "AI Chatbot & Customer Support Automation",
-        "title": "AI-Powered Customer<br><em>Support Automation</em>",
+        "title": "AI-Powered Customer Support<br>\n      <em>Automation</em>",
         "summary": "Implemented an AI chatbot to handle high-volume, repetitive queries, improving response times while reducing dependency on support agents.",
         "metrics": [
             {

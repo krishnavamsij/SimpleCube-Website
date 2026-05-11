@@ -71,6 +71,7 @@ interface CaseStudyHeroProps {
     title: string;
     summary: string;
     metrics: CaseStudyMetric[];
+    summaryMaxWidth?: string;
 }
 
 const iconMap: Record<string, any> = {
@@ -163,7 +164,7 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
     );
 };
 
-export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: CaseStudyHeroProps) {
     return (
         <section className="relative z-40 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
             {/* Reference-accurate Background */}
@@ -196,7 +197,7 @@ export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.15 }}
-                        className="text-[32px] sm:text-[34px] md:text-[38px] lg:text-[48px] font-black text-white tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2"
+                        className="text-[32px] sm:text-[34px] md:text-[38px] lg:text-[48px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2"
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
 
@@ -205,7 +206,7 @@ export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        className="text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed max-w-2xl mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2"
+                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-2xl'}`}
                         dangerouslySetInnerHTML={{ __html: summary }}
                     />
 
@@ -277,6 +278,26 @@ export function CaseStudyHero({ title, summary, metrics }: CaseStudyHeroProps) {
                     50%  { transform:scaleY(1); transform-origin:top;    opacity:1; }
                     51%  { transform:scaleY(1); transform-origin:bottom; }
                     100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+                }
+                /* Case study title color overrides - only target h1 title */
+                h1.cs-line-clamp-2 {
+                    color: #10b981 !important; /* Green for regular text */
+                }
+                h1.cs-line-clamp-2 em {
+                    color: #ffffff !important; /* White for emphasized parts */
+                }
+                /* More specific overrides for h1 only */
+                h1.cs-line-clamp-2 em,
+                h1.cs-line-clamp-2 .em,
+                h1.cs-line-clamp-2 [class*="em"] {
+                    color: #ffffff !important; /* White for emphasized parts */
+                }
+                h1.cs-line-clamp-2:not(em):not([class*="em"]) {
+                    color: #10b981 !important; /* Green for regular text */
+                }
+                /* Summary text - remove line clamp to show full text */
+                p.cs-line-clamp-2 {
+                    /* No line clamp - show full text */
                 }
             `}</style>
         </section>
