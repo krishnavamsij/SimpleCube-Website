@@ -146,7 +146,7 @@ export function CaseStudyPopup({
     try {
       // Create form dynamically like careers form
       const form = document.createElement("form");
-      form.action = "https://formsubmit.co/hr@hyniva.com";
+      form.action = "https://formsubmit.co/connect@hyniva.com";
       form.method = "POST";
       form.enctype = "multipart/form-data";
 
