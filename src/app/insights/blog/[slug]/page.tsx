@@ -167,7 +167,7 @@ export default function BlogDetailPage() {
             <Navbar forceDarkText={false} />
 
             {/* ── Hero Section ── */}
-            <header className="relative pt-32 pb-20 bg-[#0a0f1e] overflow-hidden flex flex-col items-center">
+            <header className="relative pt-24 pb-28 bg-[#0a0f1e] overflow-hidden flex flex-col items-center">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
                     <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
@@ -197,7 +197,7 @@ export default function BlogDetailPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[52px] font-[900] font-display text-white tracking-tight leading-[1.2] mb-8 px-8"
+                                className="text-[26px] sm:text-[34px] lg:text-[44px] font-[900] font-display text-white tracking-tight leading-[1.15] mb-6 px-4 sm:px-8 max-w-[1150px] mx-auto cs-line-clamp-2"
                                 style={{ textTransform: 'none' }}
                                 dangerouslySetInnerHTML={{ __html: post.title }}
                             />
@@ -215,7 +215,7 @@ export default function BlogDetailPage() {
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
                     <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
                     <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
                 </div>
