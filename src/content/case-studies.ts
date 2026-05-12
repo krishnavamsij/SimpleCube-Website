@@ -158,7 +158,7 @@ export const caseStudiesContent = {
             title: "Cost-Optimized <span class='text-[#3B82F6]'>Document Platform</span> on AWS",
             image: "/images/Case_Studies/Optimized/cs-22.png",
             description: "Reduced costs to zero licensing while scaling document management on AWS.",
-            href: "/insights/case-studies/aws-cost-optimized-doc-platform",
+            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
             tags: ["AWS", "Data Intelligence", "Product Engineering", "Wealth & Asset Management"],
         },
         {

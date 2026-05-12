@@ -190,19 +190,19 @@ export default function NewsDetailPage() {
                                 {post.bannerBadge ? (
                                     <div className="banner__badge">{post.bannerBadge}</div>
                                 ) : (
-                                    <EyebrowButton href="/insights/news">NEWS</EyebrowButton>
+                                    <EyebrowButton href="/insights/news" className="!text-white !border-white/30 !bg-white/10">NEWS</EyebrowButton>
                                 )}
                             </motion.div>
 
                             {!post.bannerBadge && (
-                                <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white/80 mb-8 text-sm font-medium font-display">
+                                <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-bold font-display">
                                     <div className="flex items-center gap-2">
-                                        <Clock className="w-4 h-4" />
+                                        <Clock className="w-4 h-4 text-[#1e90ff]" />
                                         {post.date}
                                     </div>
                                     {post.tag && (
                                         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20">
-                                            <Tag className="w-3 h-3" />
+                                            <Tag className="w-3 h-3 text-[#1e90ff]" />
                                             {post.tag}
                                         </div>
                                     )}
@@ -211,7 +211,7 @@ export default function NewsDetailPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="hero-title text-[26px] sm:text-[34px] lg:text-[44px] font-[400] font-display text-white tracking-tight leading-[1.15] mb-6 px-4 sm:px-8 max-w-[1150px] mx-auto"
+                                className="hero-title text-[26px] sm:text-[34px] lg:text-[44px] font-[900] font-display text-white tracking-tight leading-[1.15] mb-6 px-4 sm:px-8 max-w-[1150px] mx-auto"
                                 style={{ textTransform: 'none', fontFamily: 'var(--font-display), serif' }}
                                 dangerouslySetInnerHTML={{ __html: post.title }}
                             />
@@ -219,7 +219,7 @@ export default function NewsDetailPage() {
                             {post.subtitle && (
                                 <motion.p
                                     variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white font-medium leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
+                                    className="text-xl sm:text-2xl text-white font-bold leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
                                 >
                                     {post.subtitle}
                                 </motion.p>
@@ -286,7 +286,7 @@ export default function NewsDetailPage() {
                 .blog-content ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
 
                 /* ─── BANNER COMPONENTS ─── */
-                .banner__badge { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: white; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 24px; }
+                .banner__badge { display: inline-block; font-size: 10px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: white; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 24px; }
 
                 /* ─── TRUST CRITERIA ─── */
                 .criteria { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
@@ -351,9 +351,15 @@ export default function NewsDetailPage() {
                 .value-card__title { font-size: 15px; font-weight: 600; color: #0a0f1e; margin-bottom: 5px; }
                 .value-card__body { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.75; }
 
-                /* ─── QUOTE BLOCK ─── */
-                .pullquote { margin-top: 48px; border-left: 3px solid #1e6fff; padding: 8px 0 8px 28px; margin-bottom: 24px; }
-                .pullquote__text { font-family: var(--font-display), serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 400; color: #0a0f1e; line-height: 1.5; font-style: italic; }
+                /* ─── PULLQUOTE ─── */
+                .pullquote { margin: 40px 0; padding: 4px 0 4px 32px; margin-bottom: 32px; border-left: 4px solid #1e90ff; }
+                .pullquote__text { font-family: var(--font-display), serif; font-size: 18px; font-style: normal; color: #0a0f1e; line-height: 1.6; }
+
+                /* ─── IMAGE GRID ─── */
+                .image-grid { display: flex; gap: 24px; margin: 48px 0; width: 100%; }
+                .image-wrapper { flex: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 4/3; }
+                .image-wrapper img { width: 100%; height: 100%; display: block; object-fit: cover; }
+                @media (max-width: 768px) { .image-grid { flex-direction: column; gap: 16px; } .image-wrapper { aspect-ratio: 16/9; } }
 
                 .quote-block { margin-top: 48px; background: #0a0f1e; border-radius: 14px; padding: 40px 36px; position: relative; overflow: hidden; margin-bottom: 24px; }
                 .quote-block::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }

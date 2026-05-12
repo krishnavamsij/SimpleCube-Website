@@ -1041,9 +1041,16 @@ export const blogDetails: Record<string, BlogDetail> = {
           </div>
         </div>
       </div>
+      <div class="image-grid">
+        <div class="image-wrapper">
+          <img src="/images/Blogs/branch-launch-ceo.png" alt="CEO Sreeram Jadapolu's Inspiring Speech" />
+        </div>
+        <div class="image-wrapper">
+          <img src="/images/Blogs/branch-launch-team.png" alt="Hyniva Team Celebration" />
+        </div>
+      </div>
       <div class="pullquote">
-        <div class="pullquote__text" style="font-style: normal;">"He shared his personal journey and the rich history of Hyniva, delivering a message that deeply resonated with our team. His words motivated us all and underscored the spirit and values that drive our organization."</div>
-        <div style="font-size: 13px; color: #1e6fff; margin-top: 12px; font-weight: 500;">— On CEO Sreeram Jadapolu's Inaugural Speech</div>
+        <div class="pullquote__text" style="font-style: normal;">The highlight of the day was our CEO, Sreeram Jadapolu’s inspiring speech. He shared his personal journey and the rich history of Hyniva, delivering a message that deeply resonated with our team. His words motivated us all and underscored the spirit and values that drive our organization.</div>
       </div>
       <div class="thankyou">
         <div class="thankyou__title">Thank You to Our Clients</div>

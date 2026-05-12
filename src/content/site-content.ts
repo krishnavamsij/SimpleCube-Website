@@ -330,7 +330,7 @@ export const caseStudiesContent = {
             title: "AWS-Powered Document\n*Platform Transformation*",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
             image: "/images/Case_Study/7.png",
-            href: "/insights/case-studies/aws-cost-optimized-doc-platform",
+            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         },
         {
             title: "Core Banking Transformation\non *Microsoft*",

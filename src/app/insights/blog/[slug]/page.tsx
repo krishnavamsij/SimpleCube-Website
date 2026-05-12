@@ -187,16 +187,16 @@ export default function BlogDetailPage() {
                             variants={staggerContainer}
                         >
                             <motion.div variants={fadeInUp} className="flex justify-center mb-10">
-                                <EyebrowButton href="/insights/blog">BLOG</EyebrowButton>
+                                <EyebrowButton href="/insights/blog" className="!text-white !border-white/30 !bg-white/10">BLOG</EyebrowButton>
                             </motion.div>
 
-                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-[#1e90ff] mb-8 text-sm font-medium font-display">
+                            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-bold font-display">
                                 <div className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4" />
+                                    <Clock className="w-4 h-4 text-[#1e90ff]" />
                                     {post.date}
                                 </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#1e90ff] border border-[#1e90ff]/20">
-                                    <Tag className="w-3 h-3" />
+                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20">
+                                    <Tag className="w-3 h-3 text-[#1e90ff]" />
                                     {post.tag}
                                 </div>
                             </motion.div>
@@ -211,7 +211,7 @@ export default function BlogDetailPage() {
                             {post.subtitle && (
                                 <motion.p
                                     variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white font-medium leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
+                                    className="text-xl sm:text-2xl text-white font-bold leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
                                 >
                                     {post.subtitle}
                                 </motion.p>
@@ -392,8 +392,14 @@ export default function BlogDetailPage() {
                 .stat-card__label { font-size: 13px; font-weight: 300; color: #4a5568; line-height: 1.5; }
 
                 /* ─── PULLQUOTE ─── */
-                .pullquote { margin: 40px 0; padding: 8px 32px; margin-bottom: 24px; }
-                .pullquote__text { font-family: var(--font-display), serif; font-size: 20px; font-style: normal; color: #0a0f1e; line-height: 1.5; }
+                .pullquote { margin: 40px 0; padding: 4px 0 4px 32px; margin-bottom: 32px; border-left: 4px solid #1e90ff; }
+                .pullquote__text { font-family: var(--font-display), serif; font-size: 18px; font-style: normal; color: #0a0f1e; line-height: 1.6; }
+
+                /* ─── IMAGE GRID ─── */
+                .image-grid { display: flex; gap: 24px; margin: 48px 0; width: 100%; }
+                .image-wrapper { flex: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 4/3; }
+                .image-wrapper img { width: 100%; height: 100%; display: block; object-fit: cover; }
+                @media (max-width: 768px) { .image-grid { flex-direction: column; gap: 16px; } .image-wrapper { aspect-ratio: 16/9; } }
 
                 /* ─── STRATEGY CARDS ─── */
                 .strategies { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; margin-bottom: 24px; }
@@ -591,7 +597,7 @@ export default function BlogDetailPage() {
                 .challenge-row:last-child { margin-bottom: 0; }
                 .challenge-row__label { font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #1e6fff; margin-bottom: 8px; display: block; }
                 .challenge-row__text { font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
-                .stat-pill { display: inline-flex; align-items: flex-start; gap: 10px; background: rgba(30,111,255,.05); border: 1px solid rgba(30,111,255,.18); border-radius: 10px; padding: 12px 16px; margin-top: 8px; }
+                .banner__badge { display: inline-block; font-size: 10px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: white; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 24px; }
                 .stat-pill__icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
                 .stat-pill__text { font-size: 13.5px; font-weight: 300; color: #4a5568; line-height: 1.6; }
 
