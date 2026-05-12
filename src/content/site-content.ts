@@ -297,7 +297,7 @@ export const caseStudiesContent = {
             href: "/insights/case-studies/autonomous-lending-experiences",
         },
         {
-            title: "*Modernizing Contact Centers*\nwith Intelligent IVR Self-Service",
+            title: "Modernizing Contact Centers\nwith *Intelligent IVR Self-Service*",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
             image: "/images/Case_Study/2.png",
             href: "/insights/case-studies/intelligent-ivr-self-service",
@@ -321,7 +321,7 @@ export const caseStudiesContent = {
             href: "/insights/case-studies/microsoft-crm-modernization",
         },
         {
-            title: "*Rapid Reverse-Engineered*\nWebsite Migration",
+            title: "Rapid Reverse-Engineered\n*Website Migration*",
             description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
             image: "/images/Case_Study/6.png",
             href: "/insights/case-studies/aem-migration",
@@ -333,7 +333,7 @@ export const caseStudiesContent = {
             href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         },
         {
-            title: "Core Banking Transformation\n*on Microsoft*",
+            title: "*Core Banking Transformation*\non Microsoft",
             description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
             image: "/images/Case_Study/8.png",
             href: "/insights/case-studies/core-banking-transformation",
