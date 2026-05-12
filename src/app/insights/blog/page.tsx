@@ -10,29 +10,18 @@ import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/an
 
 export default function BlogPage() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('All');
 
-    // Extract unique categories from blog posts
-    const categories = useMemo(() => {
-        const cats = new Set(['All']);
-        blogContent.posts.filter(p => !p.isNews).forEach(post => {
-            if (post.tag) cats.add(post.tag);
-        });
-        return Array.from(cats);
-    }, []);
-
-    // Filter blog posts based on search query and category
+    // Filter blog posts based on search query only
     const filteredPosts = useMemo(() => {
         return blogContent.posts
             .filter(post => !post.isNews) // Only show regular blog posts
             .filter(post => {
                 const title = post.title.replace(/<[^>]*>/g, ''); // Remove HTML tags for search
                 const matchesSearch = searchQuery === '' || title.toLowerCase().includes(searchQuery.toLowerCase());
-                const matchesCategory = selectedCategory === 'All' || post.tag === selectedCategory;
                 
-                return matchesSearch && matchesCategory;
+                return matchesSearch;
             });
-    }, [searchQuery, selectedCategory]);
+    }, [searchQuery]);
 
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
@@ -66,15 +55,15 @@ export default function BlogPage() {
                         </div>
 
                         {/* Filter Side */}
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full lg:w-[400px]">
+                        <div className="w-full lg:w-[300px]">
                             {/* Search Bar */}
-                            <div className="relative w-full min-w-0">
+                            <div className="relative w-full">
                                 <input
                                     type="text"
                                     placeholder="Search"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-4 py-3 pr-12 text-base font-medium text-[#030B3B] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
+                                    className="w-full px-3 py-2 pr-10 text-sm font-medium text-[#030B3B] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
                                 />
                                 {/* <svg 
                                     className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
@@ -83,29 +72,6 @@ export default function BlogPage() {
                                     viewBox="0 0 24 24"
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-2a2 2 0 00-2 2v12a2 2 0 002 2h-4l-4 4m0 0l-4-4m4-4H3" />
-                                </svg> */}
-                            </div>
-
-                            {/* Category Dropdown */}
-                            <div className="relative w-full min-w-0">
-                                <select
-                                    value={selectedCategory}
-                                    onChange={(e) => setSelectedCategory(e.target.value)}
-                                    className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-6 py-3 pr-12 text-base font-medium text-[#030B3B] focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent cursor-pointer transition-all duration-200"
-                                >
-                                    {categories.map(category => (
-                                        <option key={category} value={category}>
-                                            {category}
-                                        </option>
-                                    ))}
-                                </select>
-                                {/* <svg 
-                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 10l5 5L19 15l-5-5M12 19l-7-7-7 7" />
                                 </svg> */}
                             </div>
                         </div>
