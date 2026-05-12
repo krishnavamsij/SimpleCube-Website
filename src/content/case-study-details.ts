@@ -2537,7 +2537,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "title": "AWS CloudWatch",
                             "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
                         }
-                    ]
+                    ],
+                    "footer": "<p>Hyniva also handled the migration of ~125 million documents from their existing platform to DynamoDB, completing the data migration process in just 10 hours.</p><div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/AWS_doc_manager1.png\" alt=\"AWS Document Management Architecture\"/>\n        </div>"
                 }
             },
             {
@@ -2567,7 +2568,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "label": "Document Availability",
                             "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/aws_doc2.png\" alt=\"AWS Document Management Impact\"/>\n        </div>"
                 }
             },
             {
@@ -2649,8 +2651,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "title": "Amazon API Gateway",
                             "desc": "Streamlined digital communication efforts within the system, ensuring seamless data exchange."
                         }
-                    ],
-                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Architecture\"/>\n        </div>"
+                    ]
                 }
             },
             {
