@@ -102,7 +102,7 @@ export default function ContactPage() {
             
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-32 pb-32 min-h-[100vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
+                <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
                     {/* Background layers - Matching homepage aesthetics */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
