@@ -100,8 +100,8 @@ export function CtaBanner() {
             <section 
                 className="relative overflow-hidden w-full max-w-[1400px] mx-auto rounded-[28px] shadow-2xl bg-[#030B3B]"
             >
-                <div className="absolute w-[500px] h-[500px] pointer-events-none z-[1] bottom-[-160px] left-[-80px]" style={{ background: "radial-gradient(ellipse, rgba(0,212,170,0.2) 0%, transparent 65%)" }} />
-                <div className="absolute w-[420px] h-[360px] pointer-events-none z-[1] top-[-100px] right-[-60px]" style={{ background: "radial-gradient(ellipse, rgba(0,168,255,0.13) 0%, transparent 65%)" }} />
+                <div className="absolute w-[600px] h-[600px] pointer-events-none z-[1] bottom-[-200px] left-[-100px]" style={{ background: "radial-gradient(ellipse, rgba(0,212,170,0.25) 0%, transparent 70%)" }} />
+                <div className="absolute w-[500px] h-[450px] pointer-events-none z-[1] top-[-120px] right-[-80px]" style={{ background: "radial-gradient(ellipse, rgba(0,168,255,0.18) 0%, transparent 70%)" }} />
                 
                 <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[2]" />
 
@@ -114,11 +114,11 @@ export function CtaBanner() {
                             {label}
                         </div>
 
-                        <h2 className="font-extrabold text-[#ffffff] text-[32px] sm:text-5xl lg:text-[60px] leading-[1.08] tracking-tight mb-8 w-full max-w-none">
+                        <h2 className="font-extrabold text-[#ffffff] text-[28px] sm:text-4xl lg:text-[50px] leading-[1.08] tracking-tight mb-8 w-full max-w-none">
                             {headline.split("simplify").map((part, i, arr) => (
                                 <React.Fragment key={i}>
                                     {part}
-                                    {i < arr.length - 1 && <span className="text-[#00D4AA]">simplify</span>}
+                                    {i < arr.length - 1 && <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#3B82F6]">simplify</span>}
                                 </React.Fragment>
                             ))}
                         </h2>
@@ -131,7 +131,7 @@ export function CtaBanner() {
 
                         <Link
                             href={cta.href}
-                            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[15px] px-10 py-[18px] transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-2xl bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
+                            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
                         >
                             {cta.label}
                             <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

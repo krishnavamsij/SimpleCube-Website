@@ -52,7 +52,7 @@ export const blogContent: {
             href: "/insights/blog/empowering-credit-unions-to-thrive-in-a-digital-era",
         },
         {
-            title: "Hyniva Receives<br><em>SOC 2 Type II</em> Compliance.",
+            title: "Hyniva Receives<br>SOC 2 Type II Compliance.",
             date: "Apr 1, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-6.png",
@@ -95,7 +95,7 @@ export const blogContent: {
             href: "/insights/blog/overcoming-data-integration-challenges-with-salesforce-data-cloud",
         },
         {
-            title: "Celebrating Success.<br>A Great Place to Work — <em>Two Years Running.</em>",
+            title: "Celebrating Success.<br>A Great Place to Work — Two Years Running.",
             date: "Jan 3, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-12.png",
@@ -166,7 +166,7 @@ export const blogContent: {
             href: "/insights/blog/ai-empowering-financial-institutions",
         },
         {
-            title: "Hyniva Celebrates the Launch<br>of Its <em>New Branch.</em>",
+            title: "Hyniva Celebrates the Launch<br>of Its New Branch.",
             date: "Aug 27, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-22.jpg",
@@ -174,7 +174,7 @@ export const blogContent: {
             isNews: true,
         },
         {
-            title: "Hyniva Achieves<br><em>SOC 2 Certification.</em>",
+            title: "Hyniva Achieves<br>SOC 2 Certification.",
             date: "Apr 11, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-23.jpeg",
@@ -196,7 +196,7 @@ export const blogContent: {
             href: "/insights/blog/perpetually-in-motion-the-digital-factory",
         },
         {
-            title: "Hyniva is a Proud Member<br>of <em>GSAC.</em>",
+            title: "Hyniva is a Proud Member<br>of GSAC.",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-26.png",
@@ -204,7 +204,7 @@ export const blogContent: {
             isNews: true,
         },
         {
-            title: "Hyniva is Officially a<br><em>\"Great Place to Work.\"</em>",
+            title: "Hyniva is Officially a<br>\"Great Place to Work.\"",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-27.png",

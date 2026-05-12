@@ -597,7 +597,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         ]
     },
     "hyniva-achieves-soc-2-type-ii-compliance-security-first": {
-        title: "Hyniva Receives<br><em>SOC 2 Type II</em> Compliance.",
+        title: "Hyniva Receives<br>SOC 2 Type II Compliance.",
         subtitle: "",
         date: "Apr 1, 2025",
         author: "Hyniva",
@@ -927,7 +927,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         ]
     },
     "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
-        title: "Celebrating Success.<br>A Great Place to Work — <em>Two Years Running.</em>",
+        title: "Celebrating Success.<br>A Great Place to Work — Two Years Running.",
         subtitle: "",
         bannerBadge: "Great Place to Work · 2nd Consecutive Year",
         date: "Dec 12, 2024",
@@ -1001,7 +1001,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         }
     },
     "hyniva-celebrates-the-launch-of-its-new-branch": {
-        title: "Hyniva Celebrates the Launch<br>of Its <em>New Branch.</em>",
+        title: "Hyniva Celebrates the Launch<br>of Its New Branch.",
         subtitle: "",
         date: "Aug 27, 2024",
         author: "Hyniva",
@@ -1060,7 +1060,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         }
     },
     "hyniva-achieves-soc-2-certification": {
-        title: "Hyniva Achieves<br><em>SOC 2 Certification.</em>",
+        title: "Hyniva Achieves<br>SOC 2 Certification.",
         subtitle: "",
         date: "Apr 11, 2024",
         author: "Hyniva",
@@ -1127,7 +1127,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         }
     },
     "hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce": {
-        title: "Hyniva is a Proud Member<br>of <em>GSAC.</em>",
+        title: "Hyniva is a Proud Member<br>of GSAC.",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",
@@ -1176,7 +1176,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         }
     },
     "hyniva-is-officially-a-great-place-to-work": {
-        title: "Hyniva is Officially a<br><em>\"Great Place to Work.\"</em>",
+        title: "Hyniva is Officially a<br>\"Great Place to Work.\"",
         subtitle: "",
         date: "Dec 13, 2023",
         author: "Hyniva",

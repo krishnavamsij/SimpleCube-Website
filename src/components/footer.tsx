@@ -105,17 +105,17 @@ export function Footer() {
     <footer className="relative overflow-hidden w-full bg-[#030B3B] text-white">
       {/* Background glowing ellipses */}
       <div
-        className="absolute w-[800px] h-[800px] pointer-events-none z-[1] bottom-[0px] left-[-200px]"
+        className="absolute w-[1000px] h-[1000px] pointer-events-none z-[1] bottom-[-200px] left-[-300px]"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(0,212,170,0.1) 0%, transparent 65%)",
+            "radial-gradient(ellipse, rgba(0,212,170,0.15) 0%, transparent 70%)",
         }}
       />
       <div
-        className="absolute w-[600px] h-[600px] pointer-events-none z-[1] top-[20%] right-[-100px]"
+        className="absolute w-[800px] h-[800px] pointer-events-none z-[1] top-[10%] right-[-150px]"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(0,168,255,0.08) 0%, transparent 65%)",
+            "radial-gradient(ellipse, rgba(0,168,255,0.12) 0%, transparent 70%)",
         }}
       />
 
@@ -139,12 +139,14 @@ export function Footer() {
             {label}
           </div>
 
-          <h2 className="font-extrabold text-white text-[32px] sm:text-5xl lg:text-[60px] leading-[1.08] tracking-tight mb-8">
+          <h2 className="font-extrabold text-white text-[28px] sm:text-4xl lg:text-[50px] leading-[1.08] tracking-tight mb-8">
             {headline.split("simplify").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>
                 {i < arr.length - 1 && (
-                  <span className="text-[#00D4AA]">simplify</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#3B82F6]">
+                    simplify
+                  </span>
                 )}
               </React.Fragment>
             ))}
@@ -160,7 +162,7 @@ export function Footer() {
 
           <Link
             href={cta.href}
-            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[15px] px-10 py-[18px] transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-2xl bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
+            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
           >
             {cta.label}
             <svg
