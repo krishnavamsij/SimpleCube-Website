@@ -73,7 +73,7 @@ export const caseStudiesContent = {
         {
             title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span><br>Platform Transformation",
             image: "/images/Case_Studies/Optimized/cs-10.png",
-            description: "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
+            description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
             href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
             tags: ["AWS", "Data Intelligence", "Product Engineering", "Wealth & Asset Management"],
         },

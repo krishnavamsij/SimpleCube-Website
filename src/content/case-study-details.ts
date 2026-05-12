@@ -2461,7 +2461,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         "eyebrow": "AWS Cloud & Document Management",
         "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
-        "summary": "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
+        "summary": "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
         "metrics": [
             {
                 "icon": "💰",
