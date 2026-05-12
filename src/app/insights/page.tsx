@@ -178,6 +178,14 @@ function InsightsGrid() {
             bgColor: "bg-green-50",
             borderColor: "#00D4AA",
         },
+        {
+            title: "News",
+            description: "Explore the latest news, strategic announcements, technology updates and milestones from Hyniva.",
+            href: "/insights/news",
+            icon: FileText,
+            bgColor: "bg-orange-50",
+            borderColor: "#F97316",
+        },
     ];
 
     return (
@@ -203,7 +211,7 @@ function InsightsGrid() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2"
+                    className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {insights.map((insight) => (
                         <InsightCard key={insight.title} {...insight} />
