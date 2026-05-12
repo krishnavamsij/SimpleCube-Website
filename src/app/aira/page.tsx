@@ -111,7 +111,7 @@ const impacts = [
 
 function AiraHero() {
     return (
-        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0">
+        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0 bg-gradient-to-br from-[#030b1e] via-[#061244] to-[#020918]">
             
             {/* Background video - hidden on mobile */}
             <div className="absolute inset-0 z-0 hidden md:block">
@@ -126,8 +126,8 @@ function AiraHero() {
                 </video>
             </div>
 
-            {/* Mobile solid background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60 md:bg-black/40 z-[0] md:hidden" />
+            {/* Mobile gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-[0] md:hidden" />
 
             {/* Overlay for desktop */}
             <div className="absolute inset-0 bg-black/40 z-[1] hidden md:block" />
@@ -144,22 +144,27 @@ function AiraHero() {
                     {/* Logo */}
                     <motion.div
                         variants={fadeInUp}
-                        className="mb-2 sm:mb-6 flex justify-center md:justify-start"
+                        className="mb-4 sm:mb-6 flex justify-center md:justify-start"
                     >
-                        <Image
-                            src="/logos/Artboard.png"
-                            alt="AIRA Logo"
-                            width={260}
-                            height={90}
-                            className="w-[160px] sm:w-[220px] md:w-[280px] h-auto object-contain"
-                            priority
-                        />
+                        {typeof window !== 'undefined' && (
+                            <Image
+                                src="/logos/Artboard.png"
+                                alt="AIRA Logo"
+                                width={260}
+                                height={90}
+                                className="w-[120px] sm:w-[180px] md:w-[280px] h-auto object-contain"
+                                priority
+                                onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                }}
+                            />
+                        )}
                     </motion.div>
 
                     {/* Heading */}
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-white mb-4 sm:mb-5 text-[28px] sm:text-3xl md:text-5xl leading-[1.2] font-bold"
+                        className="text-white mb-4 sm:mb-5 text-[22px] sm:text-[28px] md:text-5xl leading-[1.2] font-bold text-center md:text-left"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         Autonomous Intelligent
@@ -170,7 +175,7 @@ function AiraHero() {
                     {/* Description */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-white mb-8 sm:mb-8 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-relaxed max-w-[320px] sm:max-w-[520px] mx-auto md:mx-0 opacity-90"
+                        className="text-white mb-6 sm:mb-8 text-[14px] sm:text-[15px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[400px] md:max-w-[520px] mx-auto md:mx-0 opacity-90 text-center md:text-left"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                         The enterprise-ready AI platform built for financial institutions —
@@ -180,7 +185,7 @@ function AiraHero() {
                     {/* Button */}
                     <motion.div
                         variants={fadeInUp}
-                        className="flex justify-center md:justify-start"
+                        className="flex justify-center md:justify-start mt-2"
                     >
                         <Button
                             asChild
@@ -188,13 +193,13 @@ function AiraHero() {
                                 backgroundColor: "#ffffff",
                                 color: "#000000",
                                 fontFamily: "Poppins, sans-serif",
-                                fontSize: "14px",
+                                fontSize: "13px",
                                 fontWeight: 600,
-                                padding: "10px 22px",
+                                padding: "8px 20px",
                                 borderRadius: "0px",
                                 height: "auto"
                             }}
-                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-sm sm:text-base"
+                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-xs sm:text-sm"
                         >
                             <Link href="/contact">
                                 Get Started
@@ -204,59 +209,6 @@ function AiraHero() {
 
                 </motion.div>
 
-                {/* RHS Animation - Desktop only */}
-                <motion.div
-                    variants={fadeInUp}
-                    className="hidden md:block flex-1 max-w-[500px]"
-                >
-                    <div className="relative">
-                        <motion.div
-                            animate={{
-                                y: [0, -10, 0],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            className="relative"
-                        >
-                            <Image
-                                src="/images/products/aira-hero-animation.png"
-                                alt="AIRA Platform Animation"
-                                width={500}
-                                height={400}
-                                className="w-full h-auto object-contain"
-                            />
-                        </motion.div>
-                    </div>
-                </motion.div>
-
-                {/* Mobile Animation - Appears after text */}
-                <motion.div
-                    variants={fadeInUp}
-                    className="block md:hidden w-full max-w-[400px] mx-auto mt-8"
-                >
-                    <motion.div
-                        animate={{
-                            y: [0, -10, 0],
-                        }}
-                        transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                        className="relative"
-                    >
-                        <Image
-                            src="/images/products/aira-hero-animation.png"
-                            alt="AIRA Platform Animation"
-                            width={400}
-                            height={320}
-                            className="w-full h-auto object-contain"
-                        />
-                    </motion.div>
-                </motion.div>
             </div>
         </section>
     )
