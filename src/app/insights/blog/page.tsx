@@ -15,7 +15,7 @@ export default function BlogPage() {
     // Extract unique categories from blog posts
     const categories = useMemo(() => {
         const cats = new Set(['All']);
-        blogContent.posts.forEach(post => {
+        blogContent.posts.filter(p => !p.isNews).forEach(post => {
             if (post.tag) cats.add(post.tag);
         });
         return Array.from(cats);
@@ -23,13 +23,15 @@ export default function BlogPage() {
 
     // Filter blog posts based on search query and category
     const filteredPosts = useMemo(() => {
-        return blogContent.posts.filter(post => {
-            const title = post.title.replace(/<[^>]*>/g, ''); // Remove HTML tags for search
-            const matchesSearch = searchQuery === '' || title.toLowerCase().includes(searchQuery.toLowerCase());
-            const matchesCategory = selectedCategory === 'All' || post.tag === selectedCategory;
-            
-            return matchesSearch && matchesCategory;
-        });
+        return blogContent.posts
+            .filter(post => !post.isNews) // Only show regular blog posts
+            .filter(post => {
+                const title = post.title.replace(/<[^>]*>/g, ''); // Remove HTML tags for search
+                const matchesSearch = searchQuery === '' || title.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchesCategory = selectedCategory === 'All' || post.tag === selectedCategory;
+                
+                return matchesSearch && matchesCategory;
+            });
     }, [searchQuery, selectedCategory]);
 
     return (

@@ -21,7 +21,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
     const related = React.useMemo(() => {
         const allPosts = blogContent.posts.filter(p => {
             const postSlug = p.href.split('/').pop();
-            return postSlug !== currentSlug;
+            return !p.isNews && postSlug !== currentSlug;
         });
         const sameTag = allPosts.filter(p => p.tag === currentTag);
         const otherTag = allPosts.filter(p => p.tag !== currentTag);

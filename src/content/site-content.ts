@@ -31,6 +31,7 @@ export const navContent = {
     insights: [
         { title: "Case Studies", href: "/insights/case-studies" },
         { title: "Blog", href: "/insights/blog" },
+        { title: "News", href: "/insights/news" },
     ],
     about: [
         // UPDATED: Now pointing to local /about page instead of external products.hyniva.com
@@ -317,25 +318,25 @@ export const caseStudiesContent = {
             title: "Enterprise CRM Modernization\non *Microsoft Cloud*",
             description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
             image: "/images/Case_Study/5.png",
-            href: "/insights/case-studies/empowering-enterprises-through-microsoft-powered-modernization",
+            href: "/insights/case-studies/microsoft-crm-modernization",
         },
         {
             title: "Rapid Reverse-Engineered\n*Website Migration*",
             description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
             image: "/images/Case_Study/6.png",
-            href: "/insights/case-studies/a-race-against-time-that-others-refused-to-run",
+            href: "/insights/case-studies/aem-migration",
         },
         {
             title: "AWS-Powered Document\n*Platform Transformation*",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
             image: "/images/Case_Study/7.png",
-            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+            href: "/insights/case-studies/aws-cost-optimized-doc-platform",
         },
         {
             title: "Core Banking Transformation\non *Microsoft*",
             description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
             image: "/images/Case_Study/8.png",
-            href: "/insights/case-studies/transforming-core-banking-operations-with-microsoft-innovation",
+            href: "/insights/case-studies/core-banking-transformation",
         },
     ],
 };
