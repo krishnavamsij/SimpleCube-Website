@@ -338,6 +338,18 @@ export const caseStudiesContent = {
             image: "/images/Case_Study/8.png",
             href: "/insights/case-studies/core-banking-transformation",
         },
+        {
+            title: "Legacy CRM to\n*Modern Lending Platform*",
+            description: "Rebuilt a legacy CRM into a scalable platform enabling faster and efficient lending operations.",
+            image: "/images/Case_Study/9.png",
+            href: "/insights/case-studies/modernizing-a-legacy-platform",
+        },
+        {
+            title: "AWS-Powered Document\n*Platform Transformation*",
+            description: "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
+            image: "/images/Case_Studies/Optimized/cs-10.png",
+            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+        },
     ],
 };
 

@@ -71,6 +71,13 @@ export const caseStudiesContent = {
             tags: ["AWS", "Data Intelligence", "Banking"],
         },
         {
+            title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span><br>Platform Transformation",
+            image: "/images/Case_Studies/Optimized/cs-10.png",
+            description: "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
+            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+            tags: ["AWS", "Data Intelligence", "Product Engineering", "Wealth & Asset Management"],
+        },
+        {
             title: "<span class='text-[#3B82F6]'>Data-Driven Campaign Management</span> for Enterprise Marketing",
             image: "/images/Case_Studies/Optimized/cs-11.png",
             description: "Automated campaign scoring and tracking with a fully data-driven marketing platform.",

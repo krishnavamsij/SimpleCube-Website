@@ -2457,6 +2457,127 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             }
         ]
     },
+    "hyniva-leverages-aws-half-a-million-dollars-savings-annually": {
+        "slug": "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+        "eyebrow": "AWS Cloud & Document Management",
+        "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
+        "summary": "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
+        "metrics": [
+            {
+                "icon": "💰",
+                "value": "$500K+",
+                "label": "Annual<br>Savings",
+                "sub": ""
+            },
+            {
+                "icon": "⚡",
+                "value": "5×",
+                "label": "Performance<br>Gain",
+                "sub": ""
+            },
+            {
+                "icon": "🚀",
+                "value": "10 Hours",
+                "label": "Rapid<br>Migration",
+                "sub": ""
+            },
+            {
+                "icon": "☁️",
+                "value": "Serverless",
+                "label": "Scalable<br>Architecture",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Hyniva's client – a global investment firm – was incurring high annual costs due to their reliance on a legacy platform for managing ~125 million customer documents. The overly complex document management platform posed significant technical challenges due to its multi-platform design and inhibited the support team from making efficient enhancements to meet the client's evolving requirements.</p><p>They needed a leaner, more cost-effective solution and turned to Hyniva for its expertise in AWS.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva quickly designed a creative solution to meet their client's document management goals. By harnessing Hyniva's deep expertise in AWS capabilities, the team built a solution that has improved performance by nearly 5x which dramatically improved customer experience. Instead of waiting for almost a minute, customers are now instantly viewing their documents on the web and on the mobile app. The new document management platform is much more efficient to run, simpler to support, and highly scalable as the client grows their business. Migration is always a risk for any platform replacement, but the Hyniva team carefully managed this and migrated the extensive document repository of ~125 million documents in only 10 hours.</p><p>Hyniva crafted a tailored document management system entirely on AWS, and the design is summarized below:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Amazon S3",
+                            "desc": "A scalable storage service deployed to securely store large volumes of documents, handle batch processing, and communicate with API-based events such as upload or download. S3 also fulfilled SEC17a-4 compliance requirements which is critical for any investment management business."
+                        },
+                        {
+                            "num": "2",
+                            "title": "AWS Lambda",
+                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management. Additionally, Lambda handled events triggered from S3 events for batch/upload processes."
+                        },
+                        {
+                            "num": "3",
+                            "title": "DynamoDB",
+                            "desc": "A high-performance NoSQL database that facilitated lightning-fast query execution and stored document metadata and status-related data."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Amazon API Gateway",
+                            "desc": "Streamlined API communication efforts within the system, ensuring seamless data exchange."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Amazon Serverless EMR",
+                            "desc": "Enabled batch uploads of metadata into the global firm's document metadata store. This component takes an input CSV file containing metadata and notification data, processes it in batch to upload metadata, and publishes notifications for successful updates."
+                        },
+                        {
+                            "num": "6",
+                            "title": "AWS CloudFormation",
+                            "desc": "Used to define and provision the infrastructure of the document management system by deploying infrastructure as code."
+                        },
+                        {
+                            "num": "7",
+                            "title": "AWS CloudWatch",
+                            "desc": "Used to monitor all executions and the overall health of the APIs and resources utilized in the document management system. The technical team identified and resolved errors found in the CloudWatch logging interface."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>The new unified document management platform drastically cut down the costs, resulting in annual savings of over $500,000. API calls and database queries were executed at a remarkable speed – nearly 5 times faster than the previous platform. Batch processing times that once took hours were reduced to a few minutes. This radical improvement meant that documents, accessible via multiple interfaces, were not only easily queried but also instantly available, enhancing overall business productivity and customer experience.</p>",
+                    "items": [
+                        {
+                            "value": "$500K+",
+                            "label": "Annual Cost Savings",
+                            "desc": "Unified platform drastically cut operational costs by over $500,000 annually"
+                        },
+                        {
+                            "value": "5×",
+                            "label": "Faster API & Query Execution",
+                            "desc": "API calls and database queries executed nearly 5 times faster than the previous platform"
+                        },
+                        {
+                            "value": "Minutes",
+                            "label": "Batch Processing Time",
+                            "desc": "Batch processing times reduced from hours to just a few minutes"
+                        },
+                        {
+                            "value": "Instant",
+                            "label": "Document Availability",
+                            "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "The Road Ahead",
+                "type": "text",
+                "content": "<p>Hyniva's innovative use of AWS technology for the document management platform not only helped the global investment management firm save over half a million dollars annually, but also significantly enhanced the speed and efficiency of their document management system. The improved user experience and system performance set a new standard in the industry. By leveraging their AWS expertise, Hyniva quickly delivered efficiency to its client.</p><p>If you're ready to explore how your business can harness the power of AWS to achieve your goals, Hyniva is ready to be your partner in achieving excellence. Let's discuss how we can partner to drive your success!</p>"
+            }
+        ]
+    },
     "aws-cost-optimized-doc-platform": {
         "slug": "aws-cost-optimized-doc-platform",
         "eyebrow": "AWS Cloud & Document Management",
@@ -2528,7 +2649,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "title": "Amazon API Gateway",
                             "desc": "Streamlined digital communication efforts within the system, ensuring seamless data exchange."
                         }
-                    ]
+                    ],
+                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/cs-10.png\" alt=\"AWS Document Management Architecture\"/>\n        </div>"
                 }
             },
             {
