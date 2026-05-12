@@ -578,8 +578,8 @@ export const footerContent = {
             title: "Products",
             links: [
                 { title: "FinXServe", href: "/finxserve" },
-                { title: "AIRA", href: "/aira" },
                 { title: "Claim Pioneer", href: "/claim-pioneer" },
+                { title: "AIRA", href: "/aira" },
                 { title: "Hyper", href: "/hyper" },
             ],
         },
