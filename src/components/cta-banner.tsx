@@ -98,8 +98,7 @@ export function CtaBanner() {
     return (
         <div className="w-full px-6 py-20 pb-20 sm:py-28 lg:px-8">
             <section 
-                className="relative overflow-hidden w-full max-w-[1400px] mx-auto rounded-[28px] shadow-2xl"
-                style={{ background: "linear-gradient(135deg, #030B3B 0%, #0E1D4E 35%, #0a2060 60%, #030B3B 100%)" }}
+                className="relative overflow-hidden w-full max-w-[1400px] mx-auto rounded-[28px] shadow-2xl bg-[#030B3B]"
             >
                 <div className="absolute w-[500px] h-[500px] pointer-events-none z-[1] bottom-[-160px] left-[-80px]" style={{ background: "radial-gradient(ellipse, rgba(0,212,170,0.2) 0%, transparent 65%)" }} />
                 <div className="absolute w-[420px] h-[360px] pointer-events-none z-[1] top-[-100px] right-[-60px]" style={{ background: "radial-gradient(ellipse, rgba(0,168,255,0.13) 0%, transparent 65%)" }} />
@@ -109,21 +108,22 @@ export function CtaBanner() {
                 <div className="relative z-10 flex flex-col items-center text-center px-6 sm:px-16 pt-16 pb-20 sm:pt-20 sm:pb-24">
                     <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-col items-center w-full">
                         
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        {/* Badge */}
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3B82F6] bg-[#0A123A] border border-[#1E3A8A] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_#3B82F6]" />
                             {label}
                         </div>
 
-                        <h2 className="font-extrabold text-[#ffffff] text-[32px] sm:text-5xl lg:text-[50px] leading-[1.08] tracking-tight mb-6 w-full max-w-none lg:whitespace-nowrap">
+                        <h2 className="font-extrabold text-[#ffffff] text-[32px] sm:text-5xl lg:text-[60px] leading-[1.08] tracking-tight mb-8 w-full max-w-none">
                             {headline.split("simplify").map((part, i, arr) => (
                                 <React.Fragment key={i}>
                                     {part}
-                                    {i < arr.length - 1 && <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#00A8FF]">simplify</em>}
+                                    {i < arr.length - 1 && <span className="text-[#00D4AA]">simplify</span>}
                                 </React.Fragment>
                             ))}
                         </h2>
 
-                        <p className="text-[21px] font-medium text-white/60 leading-[1.65] max-w-[640px] mb-12">
+                        <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12">
                             {sub.split('\n').map((line, i) => (
                                 <span key={i} className="block">{line}</span>
                             ))}
@@ -131,10 +131,10 @@ export function CtaBanner() {
 
                         <Link
                             href={cta.href}
-                            className="group inline-flex items-center justify-center gap-2.5 font-bold text-[15px] px-10 py-[18px] transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
+                            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[15px] px-10 py-[18px] transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-2xl bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
                         >
                             {cta.label}
-                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12" />
                                 <polyline points="12 5 19 12 12 19" />
                             </svg>

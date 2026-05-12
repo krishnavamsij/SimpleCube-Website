@@ -27,12 +27,17 @@ export function Testimonials() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="bg-[#FAFBFF] py-20 text-center sm:py-28"
+            className="bg-[#0a0f1e] py-20 text-center sm:py-28 relative overflow-hidden"
         >
-            <div className="mx-auto max-w-[800px] px-6">
-                {/* Quote mark */}
-                <span className="mb-6 block bg-gradient-to-r from-[#1e90ff] to-cyan-500 bg-clip-text text-7xl leading-none font-bold text-transparent opacity-40 sm:text-8xl">
-                    &ldquo;
+            {/* Grid pattern background */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px)]" style={{ backgroundSize: '36px 36px' }} />
+            </div>
+
+            <div className="relative z-10 mx-auto max-w-[800px] px-6">
+                {/* Large quote mark */}
+                <span className="mb-6 block text-6xl leading-none font-bold text-white opacity-20 sm:text-7xl">
+                    "
                 </span>
 
                 <AnimatePresence mode="wait">
@@ -43,11 +48,11 @@ export function Testimonials() {
                         exit={{ opacity: 0, y: -15 }}
                         transition={{ duration: 0.6, ease: EASE_OUT_QUART }}
                     >
-                        <p className="text-xl font-medium leading-relaxed text-slate-800 sm:text-2xl lg:text-3xl">
+                        <p className="text-xl font-medium leading-relaxed text-white italic sm:text-2xl lg:text-3xl">
                             {testimonial.quote}
                         </p>
-                        <p className="mt-8 text-[15px] text-slate-500">
-                            <strong className="text-slate-900 font-bold">{testimonial.author}</strong>
+                        <p className="mt-8 text-[15px] text-blue-300">
+                            <strong className="text-blue-200 font-bold">{testimonial.author}</strong>
                             {" — "}
                             {testimonial.company}
                         </p>
@@ -62,7 +67,7 @@ export function Testimonials() {
                                 key={i}
                                 onClick={() => setCurrent(i)}
                                 className={`h-2 rounded-full transition-all duration-500 ${
-                                    i === current ? "w-8 bg-[#1e90ff]" : "w-2 bg-slate-200 hover:bg-slate-300"
+                                    i === current ? "w-8 bg-white" : "w-2 bg-white/30 hover:bg-white/50"
                                 }`}
                                 aria-label={`Go to testimonial ${i + 1}`}
                             />

@@ -131,27 +131,26 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="flex flex-col items-center text-center w-full mb-5 sm:mb-8 mt-auto"
+          className="flex flex-col items-center text-center w-full mb-8 sm:mb-12 mt-auto"
         >
-          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-10 sm:mb-12">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3B82F6] bg-[#0A123A] border border-[#1E3A8A] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_#3B82F6]" />
             {label}
           </div>
 
-          <h2 className="font-extrabold text-white text-[32px] sm:text-4xl lg:text-[44px] leading-[1.08] tracking-tight mb-5">
+          <h2 className="font-extrabold text-white text-[32px] sm:text-5xl lg:text-[60px] leading-[1.08] tracking-tight mb-8">
             {headline.split("simplify").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>
                 {i < arr.length - 1 && (
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#00A8FF]">
-                    simplify
-                  </span>
+                  <span className="text-[#00D4AA]">simplify</span>
                 )}
               </React.Fragment>
             ))}
           </h2>
 
-          <p className="text-[18px] sm:text-[20px] font-medium text-[#E5E7EB] opacity-100 leading-[1.6] max-w-[640px] mb-8">
+          <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12">
             {sub.split("\n").map((line, i) => (
               <span key={i} className="block">
                 {line}
@@ -161,11 +160,11 @@ export function Footer() {
 
           <Link
             href={cta.href}
-            className="group inline-flex items-center justify-center gap-2.5 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
+            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[15px] px-10 py-[18px] transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-2xl bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
           >
             {cta.label}
             <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
