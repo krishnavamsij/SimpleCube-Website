@@ -189,7 +189,8 @@ export const blogContent = {
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-26.png",
-            href: "/insights/blog/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce",
+            href: "/insights/news/hyniva-is-a-proud-member-of-greater-san-antonio-chamber-of-commerce",
+            isNews: true,
         },
         {
             title: "Hyniva is Officially a \"Great Place to Work\"!",
