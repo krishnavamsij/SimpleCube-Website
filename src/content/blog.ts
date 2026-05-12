@@ -1,4 +1,16 @@
-export const blogContent = {
+interface Post {
+    title: string;
+    date: string;
+    tag: string;
+    image: string;
+    href: string;
+    isNews?: boolean;
+}
+
+export const blogContent: {
+    hero: { title: string; description: string };
+    posts: Post[];
+} = {
     hero: {
         title: "Our Digital <span class='text-[#00D4AA]'>Thoughts.</span>",
         description: "Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce, AWS, Microsoft, and the future of enterprise transformation.",
@@ -40,7 +52,7 @@ export const blogContent = {
             href: "/insights/blog/empowering-credit-unions-to-thrive-in-a-digital-era",
         },
         {
-            title: "Hyniva Receives SOC 2 Type II Compliance",
+            title: "Hyniva Receives<br><em>SOC 2 Type II</em> Compliance.",
             date: "Apr 1, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-6.png",
@@ -83,7 +95,7 @@ export const blogContent = {
             href: "/insights/blog/overcoming-data-integration-challenges-with-salesforce-data-cloud",
         },
         {
-            title: "Celebrating Success as a Great Place to Work for the Second Year!",
+            title: "Celebrating Success.<br>A Great Place to Work — <em>Two Years Running.</em>",
             date: "Jan 3, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-12.png",
@@ -116,8 +128,7 @@ export const blogContent = {
             date: "Nov 15, 2024",
             tag: "AWS",
             image: "/images/Blogs/Optimized/blog-16.png",
-            href: "/insights/news/benefits-of-tailored-aws-infrastructure-how-hyniva-can-help",
-            isNews: true,
+            href: "/insights/blog/benefits-of-tailored-aws-infrastructure-how-hyniva-can-help",
         },
         {
             title: "Optimizing AWS Infrastructure Costs for Back-Office Capabilities",
@@ -155,7 +166,7 @@ export const blogContent = {
             href: "/insights/blog/ai-empowering-financial-institutions",
         },
         {
-            title: "Hyniva Celebrates the Launch of Its New Branch!",
+            title: "Hyniva Celebrates the Launch<br>of Its <em>New Branch.</em>",
             date: "Aug 27, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-22.jpg",
@@ -163,7 +174,7 @@ export const blogContent = {
             isNews: true,
         },
         {
-            title: "Hyniva Achieves SOC 2 Certification. Reinforcing Trust and Compliance",
+            title: "Hyniva Achieves<br><em>SOC 2 Certification.</em>",
             date: "Apr 11, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-23.jpeg",
@@ -185,7 +196,7 @@ export const blogContent = {
             href: "/insights/blog/perpetually-in-motion-the-digital-factory",
         },
         {
-            title: "Hyniva Becomes a Proud Member of GSAC",
+            title: "Hyniva is a Proud Member<br>of <em>GSAC.</em>",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-26.png",
@@ -193,7 +204,7 @@ export const blogContent = {
             isNews: true,
         },
         {
-            title: "Hyniva is Officially a \"Great Place to Work\"!",
+            title: "Hyniva is Officially a<br><em>\"Great Place to Work.\"</em>",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-27.png",
