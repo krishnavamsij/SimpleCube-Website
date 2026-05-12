@@ -628,18 +628,25 @@ export default function CareersPage() {
       <Navbar />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative min-h-screen bg-[#0a0f1e] overflow-hidden pt-32 pb-32 px-6 flex items-center justify-center">
-          {/* Background Elements */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
-            <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
-          </div>
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `radial-gradient(circle, rgba(30,111,255,0.15) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }} />
+        <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
+          {/* Background layers - Matching contact page aesthetics */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+          <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+          
+          {/* Floating Decorative Elements */}
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px]" />
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto text-center">
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `radial-gradient(circle, rgba(30,144,255,0.16) 1px, transparent 1px)`,
+              backgroundSize: '38px 38px'
+            }}
+          />
+
+          <div className="relative z-10 w-full max-w-full mx-auto text-center px-4">
             <div className="flex justify-center mb-6">
               <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                 <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
@@ -648,7 +655,7 @@ export default function CareersPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
-              Join the meet where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
+              Join the team where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
             </h1>
 
             <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-3xl mx-auto mb-14">

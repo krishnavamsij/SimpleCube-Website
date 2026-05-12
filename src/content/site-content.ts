@@ -589,7 +589,7 @@ export const footerContent = {
                 { title: "About Hyniva", href: "/about" },
                 { title: "Case Studies", href: "/insights/case-studies" },
                 { title: "Careers", href: "/careers" },
-                { title: "Privacy Policy", href: "/privacy" },
+                { title: "Privacy Policy", href: "/privacy-policy" },
             ],
         },
     ],
