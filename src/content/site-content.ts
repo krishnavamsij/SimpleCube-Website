@@ -214,7 +214,7 @@ export const servicesContent = {
             num: "03",
             title: "Product Engineering",
             description:
-                "From mobile apps to AI agents — we design, build, test and ship technology products that work in production, not just in demos.",
+                "From mobile apps to AI agents, we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
             image: "/images/Our_Services/Product_Engineering_no_BG.png",
             href: "/services/product-development",
@@ -267,7 +267,7 @@ export const productsContent = {
             num: "03",
             title: "AIRA",
             tags: ["Financial Institutions", "Insurance"],
-            description: "The first enterprise-ready AI platform — combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
+            description: "The first enterprise-ready AI platform combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
             image: "/images/Product_Images/Compressed/AIRA.gif",
             href: "/aira",
         },
