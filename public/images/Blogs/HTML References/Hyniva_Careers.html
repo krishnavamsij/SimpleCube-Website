@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Careers — Join Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --green:   #34d399;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(10,15,30,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(30,111,255,.12);
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav__logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: #e8f0ff;
+  text-decoration: none; letter-spacing: -.3px;
+}
+.nav__logo em { font-style: italic; color: var(--sky); }
+.nav__links { display: flex; align-items: center; gap: 28px; }
+.nav__link { font-size: 13px; font-weight: 400; color: rgba(200,220,245,.6); text-decoration: none; transition: color .2s; }
+.nav__link:hover { color: var(--sky); }
+.nav__cta {
+  font-size: 13px; font-weight: 500; color: #fff;
+  background: var(--blue); padding: 8px 18px;
+  border-radius: 7px; text-decoration: none; transition: background .2s;
+}
+.nav__cta:hover { background: #1a5fe0; }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  padding: 136px 48px 84px;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero__orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+.hero__orb--a { width: 600px; height: 600px; top: -250px; left: -150px; background: rgba(30,111,255,.18); }
+.hero__orb--b { width: 400px; height: 400px; bottom: -100px; right: -60px; background: rgba(30,111,255,.12); }
+.hero__inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; }
+.hero__kicker {
+  display: inline-block; font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--sky); font-weight: 500;
+  margin-bottom: 18px; opacity: 0; animation: up .5s ease forwards .05s;
+}
+.hero__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 5vw, 56px); font-weight: 400;
+  color: #e8f0ff; line-height: 1.15; letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.hero__title em { font-style: italic; color: var(--green); }
+.hero__sub {
+  margin-top: 16px; font-size: 16.5px; font-weight: 300;
+  color: rgba(200,220,245,.6); line-height: 1.7;
+  max-width: 540px; margin-left: auto; margin-right: auto;
+  opacity: 0; animation: up .6s ease forwards .2s;
+}
+.hero__pills {
+  margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: up .6s ease forwards .3s;
+}
+.hero__pill {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(30,111,255,.12); border: 1px solid rgba(30,111,255,.25);
+  border-radius: 100px; padding: 8px 18px;
+  font-size: 13px; font-weight: 400; color: rgba(200,220,245,.8);
+}
+.hero__pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+@keyframes up {
+  from { opacity:0; transform: translateY(14px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body { max-width: 960px; margin: 0 auto; padding: 72px 48px 100px; }
+
+/* filter bar */
+.filter-bar {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.filter-label { font-size: 13px; font-weight: 500; color: var(--muted); margin-right: 4px; }
+.filter-btn {
+  padding: 7px 16px; border: 1px solid var(--border);
+  border-radius: 100px; font-size: 13px; font-weight: 400;
+  color: var(--sub); background: var(--white); cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--blue); color: var(--blue);
+  background: rgba(30,111,255,.06);
+}
+
+/* section heading */
+.section-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px); font-weight: 400;
+  color: var(--ink); margin-bottom: 20px;
+}
+
+/* job cards */
+.jobs { display: flex; flex-direction: column; gap: 16px; margin-bottom: 60px; }
+
+.job-card {
+  border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; transition: border-color .2s, box-shadow .2s;
+}
+.job-card:hover { border-color: rgba(30,111,255,.3); box-shadow: 0 4px 24px rgba(30,111,255,.07); }
+
+.job-card__header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; padding: 24px 28px; cursor: pointer;
+}
+.job-card__left {}
+.job-card__title {
+  font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
+}
+.job-card__meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.job-card__tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 400; color: var(--sub);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px; padding: 4px 11px;
+}
+.job-card__tag svg { width: 11px; height: 11px; }
+.job-card__tag--blue { color: var(--blue); background: rgba(30,111,255,.07); border-color: rgba(30,111,255,.2); }
+
+.job-card__toggle {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background .2s, transform .2s;
+}
+.job-card__toggle svg { width: 14px; height: 14px; transition: transform .3s; }
+.job-card.open .job-card__toggle { background: var(--blue); border-color: var(--blue); }
+.job-card.open .job-card__toggle svg { transform: rotate(180deg); }
+.job-card.open .job-card__toggle svg path { stroke: white; }
+
+.job-card__body {
+  display: none; padding: 0 28px 28px; border-top: 1px solid var(--border);
+}
+.job-card.open .job-card__body { display: block; }
+
+.job-card__body-inner { padding-top: 22px; }
+
+.jb-section { margin-bottom: 20px; }
+.jb-section-title {
+  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+}
+.jb-section p {
+  font-size: 15px; font-weight: 300; color: var(--sub); line-height: 1.8;
+}
+.jb-list {
+  list-style: none; display: flex; flex-direction: column; gap: 7px;
+}
+.jb-list li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 15px; font-weight: 300; color: var(--sub); line-height: 1.7;
+}
+.jb-list li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0; margin-top: 8px;
+}
+
+.apply-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 8px; padding: 12px 26px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  border: none; border-radius: 9px; cursor: pointer;
+  transition: background .2s, box-shadow .2s, transform .15s;
+}
+.apply-btn:hover { background: #1a5fe0; box-shadow: 0 0 24px rgba(30,111,255,.3); transform: translateY(-1px); }
+.apply-btn:active { transform: translateY(0); }
+.apply-btn svg { width: 15px; height: 15px; }
+
+/* ─── OPEN APPLICATION ─── */
+.open-app {
+  background: var(--ink); border-radius: 16px;
+  padding: 48px 44px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+}
+.open-app::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.open-app__text { position: relative; z-index: 1; }
+.open-app__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.open-app__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px); color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.open-app__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.open-app__btn {
+  position: relative; z-index: 1;
+  display: inline-block; padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.open-app__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+/* ─── MODAL OVERLAY ─── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 300;
+  background: rgba(10,15,30,.7); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--white); border-radius: 20px;
+  width: 100%; max-width: 640px; max-height: 90vh;
+  overflow-y: auto; box-shadow: 0 24px 80px rgba(10,15,30,.3);
+  animation: modalIn .25s ease;
+}
+@keyframes modalIn {
+  from { opacity:0; transform: translateY(20px) scale(.98); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+
+.modal__header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--ink); padding: 22px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px;
+}
+.modal__header::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.modal__role-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; position: relative; z-index: 1; }
+.modal__role-name { font-family: 'DM Serif Display', serif; font-size: 20px; color: #e8f0ff; position: relative; z-index: 1; }
+.modal__close {
+  position: relative; z-index: 1;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0; transition: background .2s;
+}
+.modal__close:hover { background: rgba(255,255,255,.2); }
+.modal__close svg { width: 14px; height: 14px; }
+
+.modal__body { padding: 28px; }
+
+/* form fields */
+.mfield-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mfield { margin-bottom: 16px; }
+.mfield label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: var(--text); letter-spacing: .4px; margin-bottom: 6px;
+}
+.mfield input,
+.mfield select,
+.mfield textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px; font-weight: 300; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 11px 14px; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none; -webkit-appearance: none;
+}
+.mfield input::placeholder,
+.mfield textarea::placeholder { color: var(--muted); }
+.mfield input:focus,
+.mfield select:focus,
+.mfield textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(30,111,255,.1);
+  background: var(--white);
+}
+.mfield textarea { resize: vertical; min-height: 80px; }
+.mfield select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238492a6' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 36px; cursor: pointer;
+}
+.mfield .hint { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+
+.mdivider { height: 1px; background: var(--border); margin: 18px 0; }
+.msection-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
+}
+
+/* file upload */
+.file-upload {
+  border: 2px dashed var(--border); border-radius: 10px;
+  padding: 20px; text-align: center; cursor: pointer;
+  transition: border-color .2s, background .2s;
+  position: relative;
+}
+.file-upload:hover { border-color: var(--blue); background: rgba(30,111,255,.03); }
+.file-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+.file-upload__icon { font-size: 24px; margin-bottom: 6px; }
+.file-upload__text { font-size: 13.5px; font-weight: 400; color: var(--sub); }
+.file-upload__sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.file-upload__name { font-size: 13px; font-weight: 500; color: var(--blue); margin-top: 6px; display: none; }
+
+.modal__submit-btn {
+  width: 100%; margin-top: 8px;
+  padding: 14px 24px; background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+  border: none; border-radius: 10px; cursor: pointer;
+  transition: background .2s, box-shadow .2s, transform .15s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.modal__submit-btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.3); transform: translateY(-1px); }
+.modal__submit-btn:active { transform: translateY(0); }
+.modal__submit-btn svg { width: 15px; height: 15px; }
+
+/* success modal state */
+.modal__success {
+  display: none; text-align: center; padding: 40px 20px;
+}
+.modal__success-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(30,111,255,.1); border: 2px solid var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+}
+.modal__success-icon svg { width: 26px; height: 26px; }
+.modal__success-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+.modal__success-body { font-size: 15px; font-weight: 300; color: var(--sub); line-height: 1.7; }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--ink); padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden;
+}
+.footer::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.footer__copy { position: relative; z-index: 1; font-size: 13px; font-weight: 300; color: rgba(200,220,245,.45); }
+.footer__link { position: relative; z-index: 1; font-size: 13px; font-weight: 500; color: var(--sky); text-decoration: none; transition: opacity .2s; }
+.footer__link:hover { opacity: .75; }
+
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav__links { display: none; }
+  .hero { padding: 110px 20px 60px; }
+  .body { padding: 48px 20px 72px; }
+  .job-card__header { padding: 18px 20px; }
+  .job-card__body { padding: 0 20px 22px; }
+  .open-app { padding: 32px 24px; }
+  .mfield-row { grid-template-columns: 1fr; }
+  .modal__body { padding: 20px; }
+  .footer { padding: 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://www.hyniva.com" class="nav__logo">Hyniva</a>
+  <div class="nav__links">
+    <a href="https://www.hyniva.com/hyniva-consulting-services/" class="nav__link">Services</a>
+    <a href="https://www.hyniva.com/industries/" class="nav__link">Industries</a>
+    <a href="https://www.hyniva.com/case-studies/" class="nav__link">Insights</a>
+    <a href="https://www.hyniva.com/pages/about-us/" class="nav__link">About</a>
+    <a href="https://www.hyniva.com/contact-us/" class="nav__cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__orb hero__orb--a"></div>
+  <div class="hero__orb hero__orb--b"></div>
+  <div class="hero__inner">
+    <div class="hero__kicker">Careers</div>
+    <h1 class="hero__title">Where Talent <em>meets Purpose.</em></h1>
+    <p class="hero__sub">Be part of a team that solves complex problems, builds intelligent systems and drives real transformation across industries.</p>
+    <div class="hero__pills">
+      <div class="hero__pill">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 3 3.3.5-2.4 2.3.6 3.3L7 8.7 4 10.1l.6-3.3L2.2 4.5l3.3-.5L7 1z" stroke="#6eb3ff" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        Great Place to Work® Certified
+      </div>
+      <div class="hero__pill">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M7 1.5a2 2 0 10.01 0M7 5v3M5 11h4" stroke="#6eb3ff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="3" r="1.5" stroke="#6eb3ff" stroke-width="1.1"/></svg>
+        Innovation-Driven Work
+      </div>
+      <div class="hero__pill">
+        <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="#6eb3ff" stroke-width="1.1"/><path d="M2 12.5c0-2.485 2.239-4.5 5-4.5s5 2.015 5 4.5" stroke="#6eb3ff" stroke-width="1.1" stroke-linecap="round"/></svg>
+        People-First Culture
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterJobs('all', this)">All Openings</button>
+    <button class="filter-btn" onclick="filterJobs('us', this)">United States</button>
+    <button class="filter-btn" onclick="filterJobs('india', this)">India</button>
+    <button class="filter-btn" onclick="filterJobs('remote', this)">Remote</button>
+  </div>
+
+  <h2 class="section-heading">Current Openings</h2>
+
+  <div class="jobs" id="jobsList">
+
+    <!-- JOB 1 -->
+    <div class="job-card" data-region="us" data-job="Engagement Manager / Business Development Manager">
+      <div class="job-card__header" onclick="toggleJob(this.parentElement)">
+        <div class="job-card__left">
+          <div class="job-card__title">Engagement Manager / Business Development Manager</div>
+          <div class="job-card__meta">
+            <span class="job-card__tag tag-blue">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M5.5 1a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" stroke="#1e6fff" stroke-width="1"/><path d="M5.5 3.5v2l1.5 1" stroke="#1e6fff" stroke-width="1" stroke-linecap="round"/></svg>
+              Full-Time | Permanent
+            </span>
+            <span class="job-card__tag">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M5.5 1.5a3 3 0 00-3 3C2.5 7 5.5 9.5 5.5 9.5S8.5 7 8.5 4.5a3 3 0 00-3-3z" stroke="#8492a6" stroke-width="1"/></svg>
+              Washington, DC / Tysons Corner, VA (Onsite)
+            </span>
+            <span class="job-card__tag">IT Services &amp; Consulting</span>
+            <span class="job-card__tag tag-blue">$130,000 / year</span>
+          </div>
+        </div>
+        <div class="job-card__toggle">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="#8492a6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="job-card__body">
+        <div class="job-card__body-inner">
+          <div class="jb-section">
+            <div class="jb-section-title">About the Role</div>
+            <p>We are seeking a dynamic, client-focused Engagement Manager / Business Development Manager to join our team onsite in the DC/Tysons area. This dual-role position is ideal for a professional who excels at managing client relationships, ensuring delivery excellence, and driving strategic growth through new business development.</p>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Key Responsibilities</div>
+            <ul class="jb-list">
+              <li>Serve as the primary point of contact for key accounts, managing ongoing engagements and identifying upsell and cross-sell opportunities</li>
+              <li>Manage end-to-end client engagement lifecycle — project kickoff, resource alignment, milestone tracking, risk mitigation, and post-deployment support</li>
+              <li>Develop a deep understanding of client needs and continuously propose tailored solutions to solve business challenges</li>
+              <li>Monitor and report on project health, financials, and client satisfaction metrics</li>
+              <li>Contribute to expanding the client base by identifying new opportunities, qualifying leads, and collaborating with delivery and leadership teams to close deals</li>
+            </ul>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Requirements</div>
+            <ul class="jb-list">
+              <li>Mid-Senior level experience in IT services, consulting, or financial services</li>
+              <li>Proven track record in client relationship management and business development</li>
+              <li>Strong communication skills and executive presence</li>
+              <li>Experience in BFSI or Public Sector verticals preferred</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Engagement Manager / Business Development Manager')">
+            Apply Now
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 2 -->
+    <div class="job-card" data-region="us" data-job="IT Sales Executive / Sales Lead">
+      <div class="job-card__header" onclick="toggleJob(this.parentElement)">
+        <div class="job-card__left">
+          <div class="job-card__title">IT Sales Executive / Sales Lead – Banking &amp; Financial Services</div>
+          <div class="job-card__meta">
+            <span class="job-card__tag tag-blue">Full-Time | Permanent</span>
+            <span class="job-card__tag">USA (Remote or Onsite)</span>
+            <span class="job-card__tag">IT | Financial Services</span>
+            <span class="job-card__tag tag-blue">Base + Attractive Bonus</span>
+          </div>
+        </div>
+        <div class="job-card__toggle">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="#8492a6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="job-card__body">
+        <div class="job-card__body-inner">
+          <div class="jb-section">
+            <div class="jb-section-title">About the Role</div>
+            <p>We are looking for a dynamic and results-driven IT Sales Executive / Sales Lead to join our growing business development team focused on the Banking and Financial Services sector in the USA. The ideal candidate will possess a strong track record in IT services sales within the BFSI vertical and demonstrate deep client relationships at the CXO, SVP, and VP levels.</p>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Key Responsibilities</div>
+            <ul class="jb-list">
+              <li>Develop and execute aggressive sales strategies to drive new business acquisition and revenue growth in the Financial Services vertical</li>
+              <li>Build and maintain C-suite relationships with key clients</li>
+              <li>Lead end-to-end sales efforts from prospecting to closure</li>
+              <li>Collaborate with internal stakeholders to deliver solutions that address client needs</li>
+              <li>Drive revenue growth through strategic account management and new logo acquisition</li>
+            </ul>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Requirements</div>
+            <ul class="jb-list">
+              <li>Proven track record in IT services sales, especially within BFSI vertical</li>
+              <li>Deep client relationships at CXO, SVP, and VP levels</li>
+              <li>Strong understanding of technology solutions and consulting services</li>
+              <li>Excellent communication, negotiation, and presentation skills</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('IT Sales Executive / Sales Lead')">
+            Apply Now
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 3 -->
+    <div class="job-card" data-region="us" data-job="Software Developer (JOB ID: 12139)">
+      <div class="job-card__header" onclick="toggleJob(this.parentElement)">
+        <div class="job-card__left">
+          <div class="job-card__title">Software Developer — JOB ID: 12139</div>
+          <div class="job-card__meta">
+            <span class="job-card__tag tag-blue">Full-Time</span>
+            <span class="job-card__tag">San Antonio, TX (Travel may be required)</span>
+            <span class="job-card__tag">60+ months experience</span>
+          </div>
+        </div>
+        <div class="job-card__toggle">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="#8492a6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="job-card__body">
+        <div class="job-card__body-inner">
+          <div class="jb-section">
+            <div class="jb-section-title">About the Role</div>
+            <p>Hyniva LLC, a San Antonio, TX based IT Services Firm, has multiple openings for Software Developer (JOB ID: 12139). Travel and relocation to various unanticipated client locations throughout the United States may be required. Equal Opportunity Employer.</p>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Key Responsibilities</div>
+            <ul class="jb-list">
+              <li>Design, develop, test, and maintain software applications using PHP and Microservices utilizing technologies like REST APIs, Kibana, Jira, and Git</li>
+              <li>Participate in all phases of the Software Development Life Cycle (SDLC)</li>
+              <li>Create and update technical documentation — flowcharts, diagrams, and code comments</li>
+              <li>Ensure software components are reliable and perform as expected; identify and address issues</li>
+              <li>Adhere to data handling and security guidelines to protect confidential information</li>
+              <li>Work in a tight-knit engineering team to integrate software components and meet project goals</li>
+            </ul>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Requirements</div>
+            <ul class="jb-list">
+              <li>Bachelor's degree in CS, Engineering, IT or related field</li>
+              <li>At least 60 months (5 years) of relevant experience</li>
+              <li>Proficiency in PHP, Microservices, REST APIs</li>
+              <li>Experience with Kibana, Jira, Git</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Software Developer (JOB ID: 12139)')">
+            Apply Now
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 4 -->
+    <div class="job-card" data-region="india" data-job="Mendix Lead Developer">
+      <div class="job-card__header" onclick="toggleJob(this.parentElement)">
+        <div class="job-card__left">
+          <div class="job-card__title">Mendix Lead Developer</div>
+          <div class="job-card__meta">
+            <span class="job-card__tag tag-blue">Full-Time</span>
+            <span class="job-card__tag">Bengaluru, India</span>
+            <span class="job-card__tag">Low-Code / No-Code</span>
+          </div>
+        </div>
+        <div class="job-card__toggle">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="#8492a6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="job-card__body">
+        <div class="job-card__body-inner">
+          <div class="jb-section">
+            <div class="jb-section-title">About the Role</div>
+            <p>Lead a team of developers and engineers to build, customize, and deploy applications on the Mendix low-code platform. This role requires both hands-on development capability and leadership skills to mentor junior developers and deliver scalable solutions.</p>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Key Responsibilities</div>
+            <ul class="jb-list">
+              <li>Lead a team of developers and engineers to build, customize, and deploy Mendix applications</li>
+              <li>Collaborate with stakeholders to gather requirements and translate them into technical solutions</li>
+              <li>Oversee the architecture and design of Mendix applications ensuring scalability, performance, and maintainability</li>
+              <li>Provide hands-on development support, code reviews, and mentor junior developers</li>
+              <li>Identify and resolve complex technical issues and optimize Mendix applications for maximum efficiency</li>
+              <li>Stay up to date with the latest Mendix features, updates, and best practices</li>
+            </ul>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Requirements</div>
+            <ul class="jb-list">
+              <li>Proven experience with Mendix platform development</li>
+              <li>Strong leadership and team management skills</li>
+              <li>Experience designing scalable, maintainable low-code architectures</li>
+              <li>Excellent communication and stakeholder management skills</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Mendix Lead Developer')">
+            Apply Now
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 5 -->
+    <div class="job-card" data-region="india" data-job="ReactJS / NodeJS Fresher">
+      <div class="job-card__header" onclick="toggleJob(this.parentElement)">
+        <div class="job-card__left">
+          <div class="job-card__title">ReactJS / NodeJS Developer — Fresher</div>
+          <div class="job-card__meta">
+            <span class="job-card__tag tag-blue">Full-Time</span>
+            <span class="job-card__tag">Bengaluru, India</span>
+            <span class="job-card__tag">Entry Level</span>
+          </div>
+        </div>
+        <div class="job-card__toggle">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="#8492a6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="job-card__body">
+        <div class="job-card__body-inner">
+          <div class="jb-section">
+            <div class="jb-section-title">About the Role</div>
+            <p>We are looking for a passionate and eager ReactJS / NodeJS fresher to join our engineering team in Bengaluru. This is a great opportunity to kickstart your career with a certified Great Place to Work® and be mentored by experienced professionals in a fast-paced environment.</p>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">Requirements</div>
+            <ul class="jb-list">
+              <li>Masters in Computer Applications or Bachelor's Degree in Computer Science Engineering</li>
+              <li>Knowledge of ReactJS and/or NodeJS fundamentals</li>
+              <li>Excellent communication skills and a good team player</li>
+              <li>Eagerness to learn and grow in a collaborative environment</li>
+            </ul>
+          </div>
+          <div class="jb-section">
+            <div class="jb-section-title">How to Apply</div>
+            <p>Send your resume to <strong>hr@hyniva.com</strong> with the subject line: <em>"ReactJS / NodeJS Fresher"</em></p>
+          </div>
+          <button class="apply-btn" onclick="openModal('ReactJS / NodeJS Developer — Fresher')">
+            Apply Now
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /jobs -->
+
+  <!-- OPEN APPLICATION -->
+  <div class="open-app">
+    <div class="open-app__text">
+      <div class="open-app__kicker">Don't see the right role?</div>
+      <div class="open-app__heading">Send us an open application.</div>
+      <div class="open-app__sub">We're always on the lookout for exceptional talent. Share your profile and we'll be in touch.</div>
+    </div>
+    <button class="open-app__btn" onclick="openModal('Open Application')">Apply Now →</button>
+  </div>
+
+</div><!-- /body -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer__copy">© 2025 Hyniva. All Rights Reserved.</span>
+  <a href="https://www.linkedin.com/company/hyniva/" target="_blank" class="footer__link">Follow us on LinkedIn →</a>
+</footer>
+
+<!-- ─── APPLY MODAL ─── -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+
+    <div class="modal__header">
+      <div>
+        <div class="modal__role-label">Applying for</div>
+        <div class="modal__role-name" id="modalRoleName">Role</div>
+      </div>
+      <div class="modal__close" onclick="closeModal()">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+
+    <div class="modal__body">
+
+      <div id="applicationForm">
+
+        <!-- PERSONAL DETAILS -->
+        <div class="msection-label">Personal Information</div>
+        <div class="mfield-row">
+          <div class="mfield">
+            <label for="mFirstName">First Name *</label>
+            <input type="text" id="mFirstName" placeholder="Jane" required/>
+          </div>
+          <div class="mfield">
+            <label for="mLastName">Last Name *</label>
+            <input type="text" id="mLastName" placeholder="Smith" required/>
+          </div>
+        </div>
+        <div class="mfield-row">
+          <div class="mfield">
+            <label for="mEmail">Email Address *</label>
+            <input type="email" id="mEmail" placeholder="jane@email.com" required/>
+          </div>
+          <div class="mfield">
+            <label for="mPhone">Phone Number *</label>
+            <input type="tel" id="mPhone" placeholder="+91 / +1 000 000 0000" required/>
+          </div>
+        </div>
+        <div class="mfield">
+          <label for="mLocation">Current Location *</label>
+          <input type="text" id="mLocation" placeholder="City, State / Country" required/>
+        </div>
+
+        <div class="mdivider"></div>
+
+        <!-- PROFESSIONAL DETAILS -->
+        <div class="msection-label">Professional Details</div>
+        <div class="mfield-row">
+          <div class="mfield">
+            <label for="mExperience">Total Experience *</label>
+            <select id="mExperience" required>
+              <option value="" disabled selected>Select years</option>
+              <option>Fresher (0 years)</option>
+              <option>Less than 1 year</option>
+              <option>1 – 2 years</option>
+              <option>3 – 5 years</option>
+              <option>6 – 8 years</option>
+              <option>9 – 12 years</option>
+              <option>12+ years</option>
+            </select>
+          </div>
+          <div class="mfield">
+            <label for="mRelevantExp">Relevant Experience *</label>
+            <select id="mRelevantExp" required>
+              <option value="" disabled selected>Select years</option>
+              <option>Fresher (0 years)</option>
+              <option>Less than 1 year</option>
+              <option>1 – 2 years</option>
+              <option>3 – 5 years</option>
+              <option>6 – 8 years</option>
+              <option>9 – 12 years</option>
+              <option>12+ years</option>
+            </select>
+          </div>
+        </div>
+        <div class="mfield">
+          <label for="mCurrentCompany">Current / Last Company</label>
+          <input type="text" id="mCurrentCompany" placeholder="Company name"/>
+        </div>
+        <div class="mfield">
+          <label for="mCurrentRole">Current / Last Role</label>
+          <input type="text" id="mCurrentRole" placeholder="e.g. Senior Software Engineer"/>
+        </div>
+        <div class="mfield-row">
+          <div class="mfield">
+            <label for="mCurrentCTC">Current CTC *</label>
+            <input type="text" id="mCurrentCTC" placeholder="e.g. 12 LPA / $90,000" required/>
+            <div class="hint">Annual, in LPA (India) or USD (US)</div>
+          </div>
+          <div class="mfield">
+            <label for="mExpectedCTC">Expected CTC *</label>
+            <input type="text" id="mExpectedCTC" placeholder="e.g. 18 LPA / $120,000" required/>
+            <div class="hint">Annual, in LPA (India) or USD (US)</div>
+          </div>
+        </div>
+        <div class="mfield-row">
+          <div class="mfield">
+            <label for="mNoticePeriod">Notice Period *</label>
+            <select id="mNoticePeriod" required>
+              <option value="" disabled selected>Select</option>
+              <option>Immediately available</option>
+              <option>15 days</option>
+              <option>30 days</option>
+              <option>45 days</option>
+              <option>60 days</option>
+              <option>90 days</option>
+              <option>More than 90 days</option>
+            </select>
+          </div>
+          <div class="mfield">
+            <label for="mWorkMode">Preferred Work Mode</label>
+            <select id="mWorkMode">
+              <option value="" disabled selected>Select</option>
+              <option>Onsite</option>
+              <option>Remote</option>
+              <option>Hybrid</option>
+              <option>Open to all</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mdivider"></div>
+
+        <!-- SKILLS & LINKS -->
+        <div class="msection-label">Skills &amp; Links</div>
+        <div class="mfield">
+          <label for="mSkills">Key Skills *</label>
+          <input type="text" id="mSkills" placeholder="e.g. Salesforce, AWS, React, Python, Mendix..." required/>
+        </div>
+        <div class="mfield">
+          <label for="mLinkedIn">LinkedIn Profile URL</label>
+          <input type="url" id="mLinkedIn" placeholder="https://linkedin.com/in/your-profile"/>
+        </div>
+        <div class="mfield">
+          <label for="mPortfolio">Portfolio / GitHub (optional)</label>
+          <input type="url" id="mPortfolio" placeholder="https://github.com/yourname"/>
+        </div>
+
+        <div class="mdivider"></div>
+
+        <!-- RESUME UPLOAD -->
+        <div class="msection-label">Resume</div>
+        <div class="file-upload" id="fileUpload">
+          <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" onchange="handleFile(this)"/>
+          <div class="file-upload__icon">📄</div>
+          <div class="file-upload__text">Click to upload your resume</div>
+          <div class="file-upload__sub">PDF, DOC, DOCX — max 5MB</div>
+          <div class="file-upload__name" id="fileName"></div>
+        </div>
+
+        <div class="mdivider"></div>
+
+        <!-- COVER NOTE -->
+        <div class="msection-label">Cover Note</div>
+        <div class="mfield">
+          <label for="mCover">Why do you want to join Hyniva? *</label>
+          <textarea id="mCover" placeholder="Tell us what excites you about this role and why you'd be a great fit for Hyniva..." required></textarea>
+        </div>
+
+        <button class="modal__submit-btn" onclick="submitApplication(event)">
+          Submit Application
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+      </div><!-- /applicationForm -->
+
+      <!-- SUCCESS STATE -->
+      <div class="modal__success" id="modalSuccess">
+        <div class="modal__success-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#1e6fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="modal__success-title">Application Submitted!</div>
+        <p class="modal__success-body">Thank you for applying to Hyniva. Your application has been sent to our HR team at <strong>gvnikitha@hyniva.com</strong>. We'll review your profile and get back to you within 5–7 business days.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentJob = '';
+
+  // Toggle job accordion
+  function toggleJob(card) {
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.job-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+
+  // Filter jobs
+  function filterJobs(region, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.job-card').forEach(card => {
+      if (region === 'all') { card.style.display = ''; return; }
+      if (region === 'remote') {
+        const meta = card.querySelector('.job-card__meta').textContent.toLowerCase();
+        card.style.display = meta.includes('remote') ? '' : 'none';
+      } else {
+        card.style.display = card.dataset.region === region ? '' : 'none';
+      }
+    });
+  }
+
+  // Open modal
+  function openModal(jobTitle) {
+    currentJob = jobTitle;
+    document.getElementById('modalRoleName').textContent = jobTitle;
+    document.getElementById('applicationForm').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Click outside modal
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // File upload display
+  function handleFile(input) {
+    const nameEl = document.getElementById('fileName');
+    if (input.files && input.files[0]) {
+      nameEl.textContent = '✓ ' + input.files[0].name;
+      nameEl.style.display = 'block';
+    }
+  }
+
+  // Submit — opens mailto to hr@hyniva.com
+  function submitApplication(e) {
+    e.preventDefault();
+
+    const required = ['mFirstName','mLastName','mEmail','mPhone','mLocation',
+                      'mExperience','mRelevantExp','mCurrentCTC','mExpectedCTC',
+                      'mNoticePeriod','mSkills','mCover'];
+
+    for (const id of required) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.focus();
+        el.style.borderColor = '#e53e3e';
+        el.style.boxShadow = '0 0 0 3px rgba(229,62,62,.15)';
+        setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2000);
+        return;
+      }
+    }
+
+    // Build email body
+    const fn   = document.getElementById('mFirstName').value.trim();
+    const ln   = document.getElementById('mLastName').value.trim();
+    const email= document.getElementById('mEmail').value.trim();
+    const phone= document.getElementById('mPhone').value.trim();
+    const loc  = document.getElementById('mLocation').value.trim();
+    const exp  = document.getElementById('mExperience').value;
+    const rexp = document.getElementById('mRelevantExp').value;
+    const comp = document.getElementById('mCurrentCompany').value.trim();
+    const role = document.getElementById('mCurrentRole').value.trim();
+    const cctc = document.getElementById('mCurrentCTC').value.trim();
+    const ectc = document.getElementById('mExpectedCTC').value.trim();
+    const np   = document.getElementById('mNoticePeriod').value;
+    const wm   = document.getElementById('mWorkMode').value;
+    const sk   = document.getElementById('mSkills').value.trim();
+    const li   = document.getElementById('mLinkedIn').value.trim();
+    const pf   = document.getElementById('mPortfolio').value.trim();
+    const cv   = document.getElementById('mCover').value.trim();
+
+    const subject = encodeURIComponent(`Job Application – ${currentJob} – ${fn} ${ln}`);
+    const body = encodeURIComponent(
+`New Job Application — Hyniva Careers
+=====================================
+
+POSITION APPLIED FOR: ${currentJob}
+
+PERSONAL INFORMATION
+--------------------
+Full Name     : ${fn} ${ln}
+Email         : ${email}
+Phone         : ${phone}
+Location      : ${loc}
+
+PROFESSIONAL DETAILS
+--------------------
+Total Experience    : ${exp}
+Relevant Experience : ${rexp}
+Current Company     : ${comp || 'N/A'}
+Current Role        : ${role || 'N/A'}
+Current CTC         : ${cctc}
+Expected CTC        : ${ectc}
+Notice Period       : ${np}
+Preferred Work Mode : ${wm || 'Not specified'}
+
+SKILLS & LINKS
+--------------
+Key Skills  : ${sk}
+LinkedIn    : ${li || 'N/A'}
+Portfolio   : ${pf || 'N/A'}
+
+COVER NOTE
+----------
+${cv}
+
+=====================================
+Submitted via Hyniva Careers Page
+`);
+
+    window.location.href = `mailto:gvnikitha@hyniva.com?subject=${subject}&body=${body}`;
+
+    // Show success
+    document.getElementById('applicationForm').style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+    document.body.style.overflow = '';
+  }
+</script>
+
+</body>
+</html>

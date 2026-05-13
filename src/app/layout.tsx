@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 import "./globals.css";
 
@@ -66,6 +67,7 @@ export default function RootLayout({
         className={`${inter.variable} ${bricolage.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import React from "react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { Mail, Phone, Linkedin, MapPin, Send, Check } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { event } from "@/lib/gtag";
 
 export default function ContactPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -87,6 +88,11 @@ export default function ContactPage() {
                     "Message": data.message,
                     "_template": "table"
                 })
+            });
+            event({
+                action: 'submit',
+                category: 'Contact',
+                label: 'Contact Us Form'
             });
             setIsSubmitted(true);
         } catch (error) {
