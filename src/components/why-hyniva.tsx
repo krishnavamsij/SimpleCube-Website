@@ -42,7 +42,7 @@ export function WhyHyniva() {
                     <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24 items-center">
                         {/* Left Side: Headline & Stats */}
                         <div>
-                            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-[900] text-[#ffffff] tracking-tight leading-[1.05] mb-12 font-display">
+                            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-12 font-display">
                                 {topBox.headline.split(topBox.highlightedWord).map((part, i, arr) => (
                                     <React.Fragment key={i}>
                                         {part}

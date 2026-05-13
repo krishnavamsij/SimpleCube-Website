@@ -61,7 +61,7 @@ export function TechPartners() {
                                 {techPartnersContent.label}
                             </div>
                             
-                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[46px] leading-[1.12] text-slate-900 mb-5 max-w-xl">
+                            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[56px] leading-[1.1] text-slate-900 mb-5 max-w-xl">
                                 Built on the platforms<br /> 
                                 you already <span className="text-[#00D4AA]">trust</span>
                             </h2>

@@ -32,7 +32,7 @@ export function Approach() {
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             {label}
                         </div>
-                        <h2 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl mb-6 font-display">
+                        <h2 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[56px] mb-6 font-display">
                             {headline}
                         </h2>
                         {/* Left-aligned Callout Content (2 lines) */}
