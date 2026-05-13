@@ -109,106 +109,277 @@ const impacts = [
     },
 ]
 
+// function AiraHero() {
+//     return (
+//         <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0 bg-gradient-to-br from-[#030b1e] via-[#061244] to-[#020918]">
+            
+//             {/* Background video - hidden on mobile */}
+//             <div className="absolute inset-0 z-0 hidden md:block">
+//                 <video
+//                     autoPlay
+//                     muted
+//                     loop
+//                     playsInline
+//                     className="object-cover w-full h-full"
+//                 >
+//                     <source src="/images/products/HERO-PAGE-.mp4" type="video/mp4" />
+//                 </video>
+//             </div>
+
+//             {/* Mobile gradient overlay */}
+//             <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-[0] md:hidden" />
+
+//             {/* Overlay for desktop */}
+//             <div className="absolute inset-0 bg-black/40 z-[1] hidden md:block" />
+
+//             {/* Content */}
+//             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+//                 <motion.div
+//                     variants={staggerContainer}
+//                     initial="hidden"
+//                     animate="visible"
+//                     className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0 flex-1"
+//                 >
+
+//                     {/* Logo */}
+//                     <motion.div
+//                         variants={fadeInUp}
+//                         className="mb-4 sm:mb-6 flex justify-center md:justify-start"
+//                     >
+//                         {typeof window !== 'undefined' && (
+//                             <Image
+//                                 src="/logos/Artboard.png"
+//                                 alt="AIRA Logo"
+//                                 width={260}
+//                                 height={90}
+//                                 className="w-[120px] sm:w-[180px] md:w-[280px] h-auto object-contain"
+//                                 priority
+//                                 onError={(e) => {
+//                                     e.currentTarget.style.display = 'none';
+//                                 }}
+//                             />
+//                         )}
+//                     </motion.div>
+
+//                     {/* Heading */}
+//                     <motion.h1
+//                         variants={fadeInUp}
+//                         className="text-white mb-4 sm:mb-5 text-[22px] sm:text-[28px] md:text-5xl leading-[1.2] font-bold text-center md:text-left"
+//                         style={{ fontFamily: "Poppins, sans-serif" }}
+//                     >
+//                         Autonomous Intelligent
+//                         <br />
+//                         Reasoning Agent
+//                     </motion.h1>
+
+//                     {/* Description */}
+//                     <motion.p
+//                         variants={fadeInUp}
+//                         className="text-white mb-6 sm:mb-8 text-[14px] sm:text-[15px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[400px] md:max-w-[520px] mx-auto md:mx-0 opacity-90 text-center md:text-left"
+//                         style={{ fontFamily: "Poppins, sans-serif" }}
+//                     >
+//                         The enterprise-ready AI platform built for financial institutions —
+//                         delivering accuracy, execution, and compliance at scale
+//                     </motion.p>
+
+//                     {/* Button */}
+//                     <motion.div
+//                         variants={fadeInUp}
+//                         className="flex justify-center md:justify-start mt-2"
+//                     >
+//                         <Button
+//                             asChild
+//                             style={{
+//                                 backgroundColor: "#ffffff",
+//                                 color: "#000000",
+//                                 fontFamily: "Poppins, sans-serif",
+//                                 fontSize: "13px",
+//                                 fontWeight: 600,
+//                                 padding: "8px 20px",
+//                                 borderRadius: "0px",
+//                                 height: "auto"
+//                             }}
+//                             className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-xs sm:text-sm"
+//                         >
+//                             <Link href="/contact">
+//                                 Get Started
+//                             </Link>
+//                         </Button>
+//                     </motion.div>
+
+//                 </motion.div>
+
+//             </div>
+//         </section>
+//     )
+// }
 function AiraHero() {
     return (
-        <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0 bg-gradient-to-br from-[#030b1e] via-[#061244] to-[#020918]">
-            
-            {/* Background video - hidden on mobile */}
-            <div className="absolute inset-0 z-0 hidden md:block">
+        <section className="relative w-full overflow-hidden bg-[#020918]">
+
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0 flex justify-end">
                 <video
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className="object-cover w-full h-full"
+                    className="
+                        w-full
+                        h-full
+                        object-contain
+                        md:object-cover
+                        object-[78%_center]
+                        md:object-center
+                        bg-[#020918]
+                        scale-[1.05]
+                        md:scale-100
+                    "
                 >
-                    <source src="/images/products/HERO-PAGE-.mp4" type="video/mp4" />
+                    <source
+                        src="/images/products/HERO-PAGE-.mp4"
+                        type="video/mp4"
+                    />
                 </video>
+
+                {/* Overlay */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: `linear-gradient(
+                            to right,
+                            rgba(2,9,24,0.97) 0%,
+                            rgba(2,9,24,0.92) 34%,
+                            rgba(2,9,24,0.45) 68%,
+                            rgba(2,9,24,0.08) 100%
+                        )`,
+                    }}
+                />
             </div>
 
-            {/* Mobile gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-[0] md:hidden" />
-
-            {/* Overlay for desktop */}
-            <div className="absolute inset-0 bg-black/40 z-[1] hidden md:block" />
-
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                    className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0 flex-1"
-                >
+            {/* Mobile: auto height with tight padding | Desktop: min-h-screen */}
+            <div className="relative z-10 flex items-center pt-20 pb-8 md:min-h-screen md:pt-0 md:pb-0">
+                <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-8 lg:px-12">
 
-                    {/* Logo */}
                     <motion.div
-                        variants={fadeInUp}
-                        className="mb-4 sm:mb-6 flex justify-center md:justify-start"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                        className="
+                            w-full
+                            md:w-[42%]
+                            flex
+                            flex-col
+                            justify-center
+                            items-start
+                            text-left
+                            relative
+                            z-20
+                            py-0
+                            md:py-16
+                        "
                     >
-                        {typeof window !== 'undefined' && (
+
+                        {/* Logo */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="mb-2 sm:mb-3"
+                        >
                             <Image
                                 src="/logos/Artboard.png"
                                 alt="AIRA Logo"
                                 width={260}
                                 height={90}
-                                className="w-[120px] sm:w-[180px] md:w-[280px] h-auto object-contain"
                                 priority
-                                onError={(e) => {
-                                    e.currentTarget.style.display = 'none';
-                                }}
+                                className="
+                                    w-[58px]
+                                    sm:w-[110px]
+                                    md:w-[220px]
+                                    h-auto
+                                    object-contain
+                                "
                             />
-                        )}
-                    </motion.div>
+                        </motion.div>
 
-                    {/* Heading */}
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="text-white mb-4 sm:mb-5 text-[22px] sm:text-[28px] md:text-5xl leading-[1.2] font-bold text-center md:text-left"
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                    >
-                        Autonomous Intelligent
-                        <br />
-                        Reasoning Agent
-                    </motion.h1>
-
-                    {/* Description */}
-                    <motion.p
-                        variants={fadeInUp}
-                        className="text-white mb-6 sm:mb-8 text-[14px] sm:text-[15px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[400px] md:max-w-[520px] mx-auto md:mx-0 opacity-90 text-center md:text-left"
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                    >
-                        The enterprise-ready AI platform built for financial institutions —
-                        delivering accuracy, execution, and compliance at scale
-                    </motion.p>
-
-                    {/* Button */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="flex justify-center md:justify-start mt-2"
-                    >
-                        <Button
-                            asChild
+                        {/* Heading */}
+                        <motion.h1
+                            variants={fadeInUp}
+                            className="
+                                text-white
+                                font-bold
+                                leading-[1.05]
+                                mb-2
+                                sm:mb-3
+                                w-[56%]
+                                sm:w-[52%]
+                                md:w-full
+                                text-[17px]
+                                sm:text-[25px]
+                                md:text-[52px]
+                            "
                             style={{
-                                backgroundColor: "#ffffff",
-                                color: "#000000",
                                 fontFamily: "Poppins, sans-serif",
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                padding: "8px 20px",
-                                borderRadius: "0px",
-                                height: "auto"
                             }}
-                            className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-xs sm:text-sm"
                         >
-                            <Link href="/contact">
-                                Get Started
-                            </Link>
-                        </Button>
+                            Autonomous Intelligent
+                            <br />
+                            Reasoning Agent
+                        </motion.h1>
+
+                        {/* Paragraph */}
+                        <motion.p
+                            variants={fadeInUp}
+                            className="
+                                text-white/80
+                                leading-relaxed
+                                mb-4
+                                sm:mb-5
+                                w-[54%]
+                                sm:w-[50%]
+                                md:w-full
+                                text-[10px]
+                                sm:text-[14px]
+                                md:text-[18px]
+                            "
+                            style={{
+                                fontFamily: "Poppins, sans-serif",
+                            }}
+                        >
+                            The enterprise-ready AI platform built for financial
+                            institutions — delivering accuracy, execution, and
+                            compliance at scale
+                        </motion.p>
+
+                        {/* Button */}
+                        <motion.div variants={fadeInUp}>
+                            <Button
+                                asChild
+                                className="
+                                    bg-white
+                                    text-black
+                                    hover:bg-gray-100
+                                    uppercase
+                                    rounded-none
+                                    px-3
+                                    py-1.5
+                                    sm:px-6
+                                    sm:py-4
+                                    text-[9px]
+                                    sm:text-[12px]
+                                    font-semibold
+                                    shadow-lg
+                                    w-fit
+                                "
+                            >
+                                <Link href="/contact">
+                                    Get Started
+                                </Link>
+                            </Button>
+                        </motion.div>
+
                     </motion.div>
-
-                </motion.div>
-
+                </div>
             </div>
         </section>
     )
