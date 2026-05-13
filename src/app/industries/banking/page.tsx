@@ -43,7 +43,7 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10"
+                    className="flex flex-col items-center justify-center space-y-8 sm:space-y-12 md:space-y-14"
                 >
                     <motion.div variants={fadeInUp} className="flex justify-center">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
