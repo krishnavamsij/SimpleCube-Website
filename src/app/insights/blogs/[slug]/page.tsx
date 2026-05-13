@@ -187,7 +187,7 @@ export default function BlogsDetailPage() {
                             variants={staggerContainer}
                         >
                             <motion.div variants={fadeInUp} className="flex justify-center mb-10">
-                                <EyebrowButton href="/insights/blogs">BLOGS</EyebrowButton>
+                                <EyebrowButton href="/insights/blogs">BLOG</EyebrowButton>
                             </motion.div>
 
                             <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-bold font-display">
