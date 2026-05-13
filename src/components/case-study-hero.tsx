@@ -295,7 +295,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     color: #ffffff !important; /* White for emphasized parts */
                 }
                 h1.cs-line-clamp-2:not(em):not([class*="em"]) {
-                    color: #1e90ff !important; /* Blue for regular text */
+                    color: #00D4AA !important; /* Blue for regular text */
                 }
                 /* Summary text - remove line clamp to show full text */
                 p.cs-line-clamp-2 {
