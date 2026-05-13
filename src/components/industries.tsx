@@ -152,7 +152,7 @@ export function Industries() {
                         className="lg:col-span-5 lg:col-start-8 pt-4 lg:pt-16"
                     >
                         <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-8">
-                            <p className="text-lg sm:text-xl font-medium leading-relaxed text-slate-600/90">
+                            <p className="text-lg sm:text-xl font-medium leading-relaxed text-slate-600/90 max-w-[460px]">
                                 We know your compliance requirements, your legacy constraints and your competitive pressures — not from research, but from years inside these industries.
                             </p>
                         </div>
