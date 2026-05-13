@@ -72,7 +72,7 @@ export function VoiceOfCustomer() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         Customer Stories
                     </div>
-                    <h2 className="text-4xl font-extrabold tracking-tight text-[#030B3B] sm:text-5xl lg:text-[56px] leading-[1.1] max-w-2xl relative z-10">
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] max-w-2xl relative z-10">
                         {headline.split(" ").map((word, i) => {
                              const pureWord = word.replace(/[.,]/g, "").toLowerCase();
                              const isHighlighted = highlightedWords.some(hw => hw.toLowerCase().includes(pureWord));

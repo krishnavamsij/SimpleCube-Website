@@ -44,7 +44,7 @@ export function CaseStudies() {
                         {label}
                     </div>
                     
-                    <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6">
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6">
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}

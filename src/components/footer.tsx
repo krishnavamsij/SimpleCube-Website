@@ -139,7 +139,7 @@ export function Footer() {
             {label}
           </div>
 
-          <h2 className="font-extrabold text-white text-4xl sm:text-5xl lg:text-[56px] leading-[1.1] tracking-tight mb-8">
+          <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight mb-8">
             {headline.split("simplify").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>

@@ -114,7 +114,7 @@ export function CtaBanner() {
                             {label}
                         </div>
 
-                        <h2 className="font-extrabold text-[#ffffff] text-4xl sm:text-5xl lg:text-[56px] leading-[1.1] tracking-tight mb-8 w-full max-w-none">
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-[#ffffff] leading-[1.1] tracking-tight mb-8 w-full max-w-none">
                             {headline.split("simplify").map((part, i, arr) => (
                                 <React.Fragment key={i}>
                                     {part}

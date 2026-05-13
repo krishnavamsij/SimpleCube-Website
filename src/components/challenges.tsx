@@ -39,7 +39,7 @@ export function Challenges() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         THE ENTERPRISE REALITY
                     </div>
-                    <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-[56px] leading-[1.1]">
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1]">
                         Challenges we solve
                     </h2>
                 </motion.div>
