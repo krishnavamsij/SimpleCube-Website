@@ -134,7 +134,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
     );
 }
 
-export default function BlogDetailPage() {
+export default function BlogsDetailPage() {
     const params = useParams();
     const slug = params?.slug as string;
     const post = blogDetails[slug as keyof typeof blogDetails];
@@ -173,12 +173,12 @@ export default function BlogDetailPage() {
             <Navbar forceDarkText={false} />
 
             {/* ── Hero Section ── */}
-            <header className="relative pt-24 pb-28 bg-[#0a0f1e] overflow-hidden flex flex-col items-center">
-                <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
-                    <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
-                </div>
-
+            <header className="relative pt-24 pb-28 overflow-hidden bg-[#030b1e] flex flex-col items-center">
+                {/* Background layers - Standardized with Contact Us */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+                <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.15)_0%,transparent_65%)]" />
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
+                
                 <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 text-center">
                     <div className="w-full max-w-7xl mx-auto">
                         <motion.div
@@ -187,7 +187,7 @@ export default function BlogDetailPage() {
                             variants={staggerContainer}
                         >
                             <motion.div variants={fadeInUp} className="flex justify-center mb-10">
-                                <EyebrowButton href="/insights/blog" className="!text-white !border-white/30 !bg-white/10">BLOG</EyebrowButton>
+                                <EyebrowButton href="/insights/blogs">BLOG</EyebrowButton>
                             </motion.div>
 
                             <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-bold font-display">
@@ -195,7 +195,7 @@ export default function BlogDetailPage() {
                                     <Clock className="w-4 h-4 text-[#1e90ff]" />
                                     {post.date}
                                 </div>
-                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20">
+                                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#1e90ff] border border-[#1e90ff]/20">
                                     <Tag className="w-3 h-3 text-[#1e90ff]" />
                                     {post.tag}
                                 </div>
@@ -216,11 +216,17 @@ export default function BlogDetailPage() {
                                     {post.subtitle}
                                 </motion.p>
                             )}
+
+                            <motion.div
+                                variants={fadeInUp}
+                                className="mt-12 flex flex-col items-center gap-4 opacity-60"
+                            >
+                                <span className="text-[10px] font-bold text-white tracking-[0.4em] uppercase">SCROLL TO READ</span>
+                                <div className="w-[1px] h-12 bg-gradient-to-b from-[#1e90ff] to-transparent animate-pulse" />
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>
-
-                {/* Scroll Indicator */}
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
                     <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
                     <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />

@@ -8,7 +8,7 @@ import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/animations";
 
-export default function BlogPage() {
+export default function BlogsPage() {
     const [searchQuery, setSearchQuery] = useState('');
 
     // Filter blog posts based on search query only
@@ -35,9 +35,9 @@ export default function BlogPage() {
                     variants={staggerContainer}
                     className="mb-20"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
-                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                        BLOG
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit">
+                        <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                        BLOGS
                     </motion.div>
                     
                     {/* Header Container with Search/Filter */}
@@ -63,7 +63,7 @@ export default function BlogPage() {
                                     placeholder="Search"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-3 py-2 pr-10 text-sm font-medium text-[#030B3B] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
+                                    className="w-full px-3 py-2 pr-10 text-sm font-medium text-[#030B3B] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e90ff] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
                                 />
                                 {/* <svg 
                                     className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
@@ -104,7 +104,7 @@ export default function BlogPage() {
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">{post.date}</span>
                                     <span className="w-1 h-1 rounded-full bg-slate-300" />
-                                    <span className="text-[10px] font-bold text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-2 py-0.5 rounded-full uppercase tracking-widest leading-none flex items-center">
+                                    <span className="text-[10px] font-bold text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-2 py-0.5 rounded-full uppercase tracking-widest leading-none flex items-center">
                                         {post.tag}
                                     </span>
                                 </div>

@@ -173,11 +173,11 @@ export default function NewsDetailPage() {
             <Navbar forceDarkText={false} />
 
             {/* ── Hero Section ── */}
-            <header className="relative pt-24 pb-28 bg-[#0a0f1e] overflow-hidden flex flex-col items-center">
-                <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-[#1e90ff] rounded-full blur-[90px]" />
-                    <div className="absolute bottom-0 right-[-80px] w-[400px] h-[400px] bg-[#1e90ff] rounded-full blur-[90px]" />
-                </div>
+            <header className="relative pt-24 pb-28 overflow-hidden bg-[#030b1e] flex flex-col items-center">
+                {/* Background layers - Standardized with Contact Us */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+                <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.15)_0%,transparent_65%)]" />
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
                 <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 text-center">
                     <div className="w-full max-w-7xl mx-auto">
@@ -190,7 +190,7 @@ export default function NewsDetailPage() {
                                 {post.bannerBadge ? (
                                     <div className="banner__badge">{post.bannerBadge}</div>
                                 ) : (
-                                    <EyebrowButton href="/insights/news" className="!text-white !border-white/30 !bg-white/10">NEWS</EyebrowButton>
+                                    <EyebrowButton href="/insights/news">NEWS</EyebrowButton>
                                 )}
                             </motion.div>
 
@@ -200,12 +200,7 @@ export default function NewsDetailPage() {
                                         <Clock className="w-4 h-4 text-[#1e90ff]" />
                                         {post.date}
                                     </div>
-                                    {post.tag && (
-                                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20">
-                                            <Tag className="w-3 h-3 text-[#1e90ff]" />
-                                            {post.tag}
-                                        </div>
-                                    )}
+                                    {/* Tag removed per user request */}
                                 </motion.div>
                             )}
 
