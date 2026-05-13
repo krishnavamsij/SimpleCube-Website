@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { caseStudiesContent } from "@/content/case-studies";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import {
@@ -17,17 +17,37 @@ export default function CaseStudiesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTag, setSelectedTag] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [expandedCardTags, setExpandedCardTags] = useState<string | null>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
+  // Close dropdowns/popovers when clicking outside
   React.useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
+      const target = event.target;
+
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
       }
+
+      if (!(target instanceof Element) || !target.closest("[data-tag-overflow]")) {
+        setExpandedCardTags(null);
+      }
     }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsDropdownOpen(false);
+        setExpandedCardTags(null);
+      }
+    }
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   // Extract unique tags from case studies
@@ -153,14 +173,17 @@ export default function CaseStudiesPage() {
 
         {/* ── Card Grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredStudies.map((study, idx) => (
+          {filteredStudies.map((study, idx) => {
+            const cardKey = `${study.href}-${idx}`;
+
+            return (
             <motion.div
-              key={idx}
+              key={cardKey}
               variants={scrollReveal}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+              className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
             >
               {/* Card Image */}
               <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
@@ -175,15 +198,57 @@ export default function CaseStudiesPage() {
               <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                 {/* Tags */}
                 {study.tags && study.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {study.tags.map((tag, tagIdx) => (
+                  <div className="flex items-center gap-2 mb-4">
+                    {study.tags.slice(0, 2).map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
+                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full whitespace-nowrap"
                       >
                         {tag}
                       </span>
                     ))}
+                    {study.tags.length > 2 && (
+                      <div
+                        className="relative inline-flex"
+                        data-tag-overflow
+                        onMouseEnter={() => setExpandedCardTags(cardKey)}
+                        onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
+                      >
+                        <button
+                          type="button"
+                          aria-label={`Show ${study.tags.length - 2} more tags`}
+                          aria-expanded={expandedCardTags === cardKey}
+                          onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
+                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                        >
+                          +{study.tags.length - 2}
+                        </button>
+                        {/* Popup */}
+                        <AnimatePresence>
+                          {expandedCardTags === cardKey && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                              transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                              className="absolute bottom-full left-1/2 z-50 mb-2 min-w-max max-w-[260px] -translate-x-1/2 p-1"
+                            >
+                              <div className="absolute left-0 top-full h-2 w-full" />
+                              <div className="relative flex flex-col gap-1.5">
+                                {study.tags.slice(2).map((tag, tagIdx) => (
+                                  <span
+                                    key={tagIdx}
+                                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full whitespace-nowrap shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    )}
                   </div>
                 )}
                 <h3
@@ -197,7 +262,7 @@ export default function CaseStudiesPage() {
                 {/* CTA Button */}
                 <Link
                   href={study.href}
-                  className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                  className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                 >
                   Read Case Study
                   <svg
@@ -216,7 +281,8 @@ export default function CaseStudiesPage() {
                 </Link>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </main>
 
