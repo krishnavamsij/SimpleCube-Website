@@ -26,23 +26,23 @@ export default function NewsPage() {
                     variants={staggerContainer}
                     className="mb-20"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[12px] px-6 py-2 text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-10 w-fit">
-                        <span className="dot h-2 w-2 bg-[#3B82F6] shadow-[#3B82F6]" />
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
+                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         NEWS
                     </motion.div>
                     
                     {/* Header Container */}
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title & Description */}
-                        <div className="max-w-[1100px]">
-                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-8 font-display">
+                        <div className="lg:w-2/3">
+                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-6 font-display">
                                 Highlights that <span className='text-[#00D4AA]'>matter.</span>
                             </motion.h1>
                             <motion.p 
                                 variants={fadeInUp} 
-                                className="text-lg leading-relaxed text-slate-600 sm:text-2xl font-medium max-w-4xl"
+                                className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
                             >
-                                Explore the latest news, strategic announcements, technology updates <br className="hidden md:block" />
+                                Explore the latest news, strategic announcements, technology updates <br className="hidden sm:block" />
                                 and milestones from Hyniva.
                             </motion.p>
                         </div>
