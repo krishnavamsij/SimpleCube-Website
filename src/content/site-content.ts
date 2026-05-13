@@ -171,7 +171,7 @@ export const challengesContent = {
 // ── Approach / Metrics ───────────────────────────────────────────────────────
 export const approachContent = {
     label: "The Hyniva Approach",
-    headline: "The Digital Factory Model",
+    headline: "Digital Factory Model",
     sub: "The developer owns the full lifecycle — from story definition to production support, reducing overhead and increasing accountability at every stage.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
