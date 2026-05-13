@@ -132,23 +132,23 @@ function DigitalTransformationHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="w-full max-w-[95%] mx-auto"
+                    className="max-w-4xl"
                 >
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage leading-[1.2] px-8"
+                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage"
                     >
                         {digitalTransformationContent.hero.title}
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="mt-6 text-lg text-slate-200 sm:text-xl tracking-wide max-w-5xl mx-auto px-8"
+                        className="mt-4 text-lg text-slate-200 sm:text-xl"
                     >
                         {digitalTransformationContent.hero.subtitle}
                     </motion.p>
                     <motion.div
                         variants={fadeInUp}
-                        className="mt-8 px-8"
+                        className="mt-8"
                     >
                         <Link
                             href={digitalTransformationContent.hero.contactButton.href}
