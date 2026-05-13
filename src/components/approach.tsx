@@ -33,7 +33,12 @@ export function Approach() {
                             {label}
                         </div>
                         <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-white mb-6 font-display">
-                            {headline}
+                            {headline.split("Model").map((part, i, arr) => (
+                                <span key={i}>
+                                    {part}
+                                    {i < arr.length - 1 && <span className="text-[#00D4AA]">Model.</span>}
+                                </span>
+                            ))}
                         </h2>
                         {/* Left-aligned Callout Content (2 lines) */}
                         <p className="text-[14px] font-medium leading-[1.7] text-white/70 whitespace-nowrap">

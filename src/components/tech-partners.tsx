@@ -63,7 +63,7 @@ export function TechPartners() {
                             
                             <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900 mb-5 max-w-xl">
                                 Built on the platforms<br /> 
-                                you already <span className="text-[#00D4AA]">trust</span>
+                                you already <span className="text-[#00D4AA]">trust.</span>
                             </h2>
                             
                             <p className="text-[17px] sm:text-lg text-slate-600 font-medium leading-[1.6] mb-10 max-w-xl">

@@ -40,7 +40,7 @@ export function Challenges() {
                         THE ENTERPRISE REALITY
                     </div>
                     <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                        Challenges we solve
+                        Challenges we <span className="text-[#00D4AA]">solve.</span>
                     </h2>
                 </motion.div>
 
