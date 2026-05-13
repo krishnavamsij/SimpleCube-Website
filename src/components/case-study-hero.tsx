@@ -167,9 +167,10 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
 export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: CaseStudyHeroProps) {
     return (
         <section className="relative z-40 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
-            {/* Reference-accurate Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20]" />
-            <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle,#1e90ff1a_1px,transparent_1px)] bg-[length:38px_38px]" />
+            {/* Reference-accurate Background - Standardized with Contact Us */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.15)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
             {/* Background Blobs */}
             <div className="absolute w-[650px] h-[650px] -left-40 -top-40 rounded-full bg-[radial-gradient(circle,rgba(10,70,180,0.15)_0%,transparent_65%)] blur-[80px] pointer-events-none" />
@@ -266,7 +267,8 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                 <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
             </div>
 
-            <style jsx global>{`
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 @keyframes shimmerSweep {
                     0%   { left: -100%; opacity: 0; }
                     20%  { opacity: 1; }
@@ -281,7 +283,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                 }
                 /* Case study title color overrides - only target h1 title */
                 h1.cs-line-clamp-2 {
-                    color: #10b981 !important; /* Green for regular text */
+                    color: #1e90ff !important; /* Blue for regular text */
                 }
                 h1.cs-line-clamp-2 em {
                     color: #ffffff !important; /* White for emphasized parts */
@@ -293,13 +295,14 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     color: #ffffff !important; /* White for emphasized parts */
                 }
                 h1.cs-line-clamp-2:not(em):not([class*="em"]) {
-                    color: #10b981 !important; /* Green for regular text */
+                    color: #1e90ff !important; /* Blue for regular text */
                 }
                 /* Summary text - remove line clamp to show full text */
                 p.cs-line-clamp-2 {
                     /* No line clamp - show full text */
                 }
-            `}</style>
+                `
+            }} />
         </section>
     );
 }

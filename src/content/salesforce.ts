@@ -84,14 +84,14 @@ export const salesforceContent = {
             type: "Article",
             description: "In an increasingly competitive market, businesses are constantly seeking ways to deepen their understanding of customers and enhance engagement.",
             image: "/images/2024/10/Customer-360-1-1.png",
-            link: "/insights/blog/hynivas-vision-for-harnessing-salesforce-customer-360-innovations-for-our-clients",
+            link: "/insights/blogs/hynivas-vision-for-harnessing-salesforce-customer-360-innovations-for-our-clients",
         },
         {
             title: "Overcoming Obstacles with Salesforce",
             type: "Article",
             description: "In today's fast-paced market, organizations face numerous challenges that can hinder growth and efficiency. Learn how Salesforce can be leveraged to overcome these obstacles to maximize ROI.",
             image: "/images/2024/09/Salesforce.png",
-            link: "/insights/blog/overcoming-business-challenges-with-salesforce",
+            link: "/insights/blogs/overcoming-business-challenges-with-salesforce",
         },
         {
             title: "Salesforce Advantage",
@@ -126,14 +126,14 @@ export const salesforceContent = {
             type: "Article",
             description: "Salesforce Agentforce connects fragmented contact center journeys by supporting customers, MSRs, and operations end to end - reducing wait times, manual effort, and resolution delays.",
             image: "/images/2026/01/Firefly_Gemini-Flash_A-hyper-realistic-emotionally-positive-image-of-a-customer-completing-a-customer-ser-792046.png",
-            link: "/insights/blog/modernizing-the-contact-center-with-ai-agents-from-fragmented-interactions-to-connected-journeys",
+            link: "/insights/blogs/modernizing-the-contact-center-with-ai-agents-from-fragmented-interactions-to-connected-journeys",
         },
         {
             title: "Experience Cloud Modernization with LWR",
             type: "Article",
             description: "Financial institutions are adopting LWR to improve performance, scalability, and digital experience delivery on Salesforce Experience Cloud.",
             image: "/images/2026/02/Lwr-modernization.png",
-            link: "/insights/blog/why-financial-institutions-are-modernizing-salesforce-experience-cloud-with-lwr",
+            link: "/insights/blogs/why-financial-institutions-are-modernizing-salesforce-experience-cloud-with-lwr",
         },
         {
             title: "AI Loan Processing",

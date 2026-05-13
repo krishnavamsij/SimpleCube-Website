@@ -20,6 +20,30 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/blogs',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/blogs/:path*',
+        permanent: true,
+      },
+      {
+        source: '/insights/blog',
+        destination: '/insights/blogs',
+        permanent: true,
+      },
+      {
+        source: '/insights/blog/:path*',
+        destination: '/insights/blogs/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       // Product pages - clean URLs
@@ -44,7 +68,6 @@ const nextConfig: NextConfig = {
         source: '/digital-transformation',
         destination: '/services/digital-transformation',
       },
-      // Services pages - clean URLs
       {
         source: '/salesforce',
         destination: '/services/salesforce',
@@ -83,8 +106,16 @@ const nextConfig: NextConfig = {
         destination: '/insights/case-studies',
       },
       {
-        source: '/blog',
-        destination: '/insights/blog',
+        source: '/case-studies/:path*',
+        destination: '/insights/case-studies/:path*',
+      },
+      {
+        source: '/blogs',
+        destination: '/insights/blogs',
+      },
+      {
+        source: '/blogs/:path*',
+        destination: '/insights/blogs/:path*',
       },
     ];
   },

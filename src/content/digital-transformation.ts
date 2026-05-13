@@ -93,14 +93,14 @@ export const digitalTransformationContent = {
             type: "Article",
             description: "Credit unions have long been trusted for their personalized financial services, but the evolving digital landscape presents significant challenges.",
             image: "/images/2025/04/Empowering-Credit-Unions.png",
-            link: "/insights/blog/empowering-credit-unions-to-thrive-in-a-digital-era",
+            link: "/insights/blogs/empowering-credit-unions-to-thrive-in-a-digital-era",
         },
         {
             title: "Accelerating Digital Transformation at Credit Unions",
             type: "Article",
             description: "Credit unions have long been an integral part of financial services, offering members personalized banking experiences, competitive rates, and a strong sense of community.",
             image: "/images/2025/03/Copy-of-Credit-Unions-.png",
-            link: "/insights/blog/accelerating-digital-transformation-at-credit-unions",
+            link: "/insights/blogs/accelerating-digital-transformation-at-credit-unions",
         },
     ],
     deliveryEnablers: {

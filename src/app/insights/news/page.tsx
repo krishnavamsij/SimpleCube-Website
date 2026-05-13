@@ -26,8 +26,8 @@ export default function NewsPage() {
                     variants={staggerContainer}
                     className="mb-20"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8 w-fit">
-                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit">
+                        <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                         NEWS
                     </motion.div>
                     

@@ -30,7 +30,7 @@ export const navContent = {
     ],
     insights: [
         { title: "Case Studies", href: "/insights/case-studies" },
-        { title: "Blog", href: "/insights/blog" },
+        { title: "Blogs", href: "/insights/blogs" },
         { title: "News", href: "/insights/news" },
     ],
     about: [

@@ -7,7 +7,7 @@
  * Structure:
  * - Main insights page (/insights) - Overview of all content types
  * - Case studies (/insights/case-studies) - Detailed customer success stories
- * - Blog (/insights/blog) - Thought leadership and technical articles
+ * - Blogs (/insights/blogs) - Thought leadership and technical articles
  * 
  * Features:
  * - Clean URL structure with rewrites in next.config.ts
@@ -168,23 +168,23 @@ function InsightsGrid() {
             href: "/insights/case-studies",
             icon: FileText,
             bgColor: "bg-blue-50",
-            borderColor: "#345195",
+            borderColor: "#1e90ff",
         },
         {
-            title: "Blog",
+            title: "Blogs",
             description: "Thought leadership, industry trends, and technical insights from our team of experts on Salesforce, AWS, AI, and digital transformation.",
-            href: "/insights/blog",
+            href: "/insights/blogs",
             icon: BookOpen,
-            bgColor: "bg-green-50",
-            borderColor: "#00D4AA",
+            bgColor: "bg-blue-50",
+            borderColor: "#1e90ff",
         },
         {
             title: "News",
             description: "Explore the latest news, strategic announcements, technology updates and milestones from Hyniva.",
             href: "/insights/news",
             icon: FileText,
-            bgColor: "bg-orange-50",
-            borderColor: "#F97316",
+            bgColor: "bg-blue-50",
+            borderColor: "#1e90ff",
         },
     ];
 
@@ -241,7 +241,7 @@ function InsightsGrid() {
  * 
  * Related files:
  * - /insights/case-studies/page.tsx - Case studies listing
- * - /insights/blog/page.tsx - Blog posts listing
+ * - /insights/blogs/page.tsx - Blog posts listing
  * - next.config.ts - URL rewrites for clean paths
  */
 export default function InsightsPage() {
