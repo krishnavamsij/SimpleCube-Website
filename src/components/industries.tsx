@@ -149,7 +149,7 @@ export function Industries() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:col-span-4 lg:col-start-9 pt-4 lg:pt-16"
+                        className="lg:col-span-5 lg:col-start-8 pt-4 lg:pt-16"
                     >
                         <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-8">
                             <p className="text-lg sm:text-xl font-medium leading-relaxed text-slate-600/90">
