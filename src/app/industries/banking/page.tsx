@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp } from "lucide-react";
+import { Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { bankingContent } from "@/content/banking";
@@ -271,15 +271,24 @@ function CaseStudies() {
                                         {study.description}
                                     </p>
                                     
-                                    {/* White Pill button at bottom */}
                                     <Link
                                         href={study.href}
-                                        className="bg-white rounded-[20px] py-4 px-6 flex justify-between items-center border border-white shadow-sm hover:shadow-md transition-all group"
+                                        className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                                     >
-                                        <span className="text-[14px] font-extrabold text-[#1e90ff]">
-                                            Read Case Study
-                                        </span>
-                                        <ArrowRightIcon className="w-5 h-5 text-[#1e90ff] transition-transform duration-300 group-hover:translate-x-1" />
+                                        Read Case Study
+                                        <svg
+                                            className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
                                     </Link>
                                 </div>
                             </motion.div>
