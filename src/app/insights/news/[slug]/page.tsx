@@ -200,12 +200,7 @@ export default function NewsDetailPage() {
                                         <Clock className="w-4 h-4 text-[#1e90ff]" />
                                         {post.date}
                                     </div>
-                                    {post.tag && (
-                                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#1e90ff] border border-[#1e90ff]/20">
-                                            <Tag className="w-3 h-3 text-[#1e90ff]" />
-                                            {post.tag}
-                                        </div>
-                                    )}
+                                    {/* Tag removed per user request */}
                                 </motion.div>
                             )}
 
