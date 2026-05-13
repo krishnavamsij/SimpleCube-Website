@@ -154,11 +154,11 @@ const iconMap: Record<string, any> = {
 const StandardIcon = ({ icon, className = "" }: { icon: string, className?: string }) => {
     const Icon = iconMap[icon];
     return (
-        <div className={`w-12 h-12 rounded-xl bg-[#0a102e] border border-[#1e90ff]/30 flex items-center justify-center shadow-[0_0_20px_rgba(30,144,255,0.15)] transition-all duration-300 hover:border-[#1e90ff]/60 hover:shadow-[0_0_25px_rgba(30,144,255,0.25)] ${className}`}>
+        <div className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-[#0a102e] border border-[#1e90ff]/30 flex items-center justify-center shadow-[0_0_20px_rgba(30,144,255,0.15)] transition-all duration-300 hover:border-[#1e90ff]/60 hover:shadow-[0_0_25px_rgba(30,144,255,0.25)] ${className}`}>
             {Icon ? (
-                <Icon className="w-6 h-6 text-[#1e90ff] fill-[#1e90ff]/20" strokeWidth={2.5} />
+                <Icon className="w-5 sm:w-6 h-5 sm:h-6 text-[#1e90ff] fill-[#1e90ff]/20" strokeWidth={2.5} />
             ) : (
-                <span className="text-xl">{icon}</span>
+                <span className="text-lg sm:text-xl">{icon}</span>
             )}
         </div>
     );
@@ -231,24 +231,24 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         </div>
 
                         {metrics.map((metric, idx) => (
-                            <div key={idx} className="relative py-7 sm:py-8 md:py-10 px-2 sm:px-3 md:px-4 group cursor-default hover:bg-[#1e90ff0d] transition-all duration-300 rounded-b-xl overflow-hidden">
+                            <div key={idx} className="relative py-5 sm:py-7 md:py-8 px-1.5 sm:px-3 md:px-4 group cursor-default hover:bg-[#1e90ff0d] transition-all duration-300 rounded-b-xl overflow-hidden">
                                 {/* Hover glow wash */}
                                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(30,144,255,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                 <div className="flex flex-col items-center relative z-10">
                                     {/* Top Icon - Single Line */}
-                                    <StandardIcon icon={metric.icon} className="mb-3 sm:mb-4 md:mb-5" />
+                                    <StandardIcon icon={metric.icon} className="mb-2 sm:mb-3 md:mb-4" />
                                     
                                     {/* Main Number - Centered - Force 1 line with smaller font */}
-                                    <div className="text-[20px] sm:text-[24px] lg:text-[28px] font-bold text-white tracking-tight leading-none mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 whitespace-nowrap text-center px-1">
+                                    <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-bold text-white tracking-tight leading-none mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 text-center px-2 sm:px-1 overflow-hidden">
                                         {metric.value}
                                     </div>
                                     
                                     {/* Divider */}
-                                    <div className="w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-3 group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
+                                    <div className="w-5 sm:w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-2 sm:mb-3 group-hover:w-9 sm:group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
                                     
                                     {/* Supporting Text - Exactly 2 lines enforced - Force 2 lines without breaking words */}
-                                    <div className="flex flex-col justify-center text-center max-w-[120px] sm:max-w-[110px] text-[11px] lg:text-[11px] font-medium text-white mx-auto cs-force-2-lines-safe" dangerouslySetInnerHTML={{ __html: metric.label }} />
+                                    <div className="flex flex-col justify-center text-center max-w-[100px] sm:max-w-[110px] text-[10px] sm:text-[11px] lg:text-[11px] font-medium text-white mx-auto cs-force-2-lines-safe" dangerouslySetInnerHTML={{ __html: metric.label }} />
                                 </div>
 
                                 {/* Divider */}
