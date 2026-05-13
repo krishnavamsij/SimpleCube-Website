@@ -42,7 +42,7 @@ export function HeroCarousel() {
             {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
                 {/* ── LHS: Text ── */}
-                <div className="flex w-full flex-col justify-center pb-12 pt-32 lg:w-1/2 lg:pb-12 lg:pr-10 lg:pt-28">
+                <div className="flex w-full flex-col justify-center pb-10 pt-28 lg:w-1/2 lg:pb-12 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key="hero-content"
@@ -61,7 +61,7 @@ export function HeroCarousel() {
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-14 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[68px] font-display"
+                                className="mt-10 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[68px] lg:mt-14 font-display"
                             >
                                 Build in <span className="text-[#00D4AA]">weeks,</span><br />
                                 not <span className="text-[#00D4AA]">months.</span>
@@ -70,13 +70,13 @@ export function HeroCarousel() {
                             {/* Subheadline */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-12 w-full text-lg leading-relaxed text-slate-300 sm:text-xl font-medium max-w-xl"
+                                className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl font-medium max-w-xl lg:mt-12"
                             >
                                 We combine deep industry knowledge, proven engineering models and the platforms your business already runs on. So you get outcomes, not overhead.
                             </motion.p>
 
                             {/* Hero Metrics Row */}
-                            <motion.div variants={fadeInUp} className="mt-16 flex flex-wrap gap-14 lg:gap-24">
+                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-10 sm:gap-14 lg:mt-16 lg:gap-24">
                                 {[
                                     { value: "50%", label: "Less Planning\nTime" },
                                     { value: "40%", label: "Quicker\nDelivery" },
@@ -97,7 +97,7 @@ export function HeroCarousel() {
                             </motion.div>
  
                             {/* CTAs */}
-                            <motion.div variants={fadeInUp} className="mt-16 flex flex-wrap gap-4">
+                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4 lg:mt-16">
                                 <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-8 h-14">
                                     <Link href={heroCtas.primary.href}>
                                         {heroCtas.primary.label} <ArrowUpRightIcon className="ml-1 h-4 w-4" />
@@ -114,7 +114,7 @@ export function HeroCarousel() {
                 </div>
 
                 {/* ── RHS: Single High-Fidelity Animation ── */}
-                <div className="hidden w-full lg:flex lg:w-1/2 lg:min-h-screen lg:items-center justify-center relative">
+                <div className="relative mt-2 h-[260px] w-full overflow-visible sm:h-[320px] md:h-[380px] lg:mt-0 lg:flex lg:h-auto lg:min-h-screen lg:w-1/2 lg:items-center lg:justify-center">
                     <HeroPuzzle />
                 </div>
             </div>

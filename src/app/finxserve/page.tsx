@@ -113,7 +113,7 @@ export default function FinxservePage() {
             <Navbar />
 
             {/* Hero Banner Section */}
-            <section className="relative pt-[120px] pb-16 bg-[#030b49] overflow-hidden">
+            <section className="relative pt-[110px] pb-16 bg-[#030b49] overflow-hidden">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center min-h-[400px] gap-12">
                         <div className="w-full md:w-1/2 z-10 relative text-center md:text-left">
@@ -150,25 +150,25 @@ export default function FinxservePage() {
                             </div>
                         </div>
                         {/* Background slider content right side */}
-                        <div className="hidden md:block absolute right-0 top-[15%] w-[45%] h-[80%] z-0 overflow-hidden">
+                        <div className="relative z-0 mt-2 h-[330px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:absolute md:right-0 md:top-[15%] md:mt-0 md:h-[80%] md:w-[45%] md:rounded-none md:border-0 md:bg-transparent">
                             <div className="relative w-full h-full flex items-center justify-center">
                                 {heroSlides.map((slide, index) => (
                                     <div
                                         key={index}
                                         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                                     >
-                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-6 pb-8">
+                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-5 pb-6 md:pt-6 md:pb-8">
                                             <Image
                                                 src={slide.image}
                                                 alt={`Slide ${index + 1}`}
                                                 width={slide.width}
                                                 height={slide.height}
                                                 className="object-contain"
-                                                style={{ maxHeight: '74%' }}
+                                                style={{ maxHeight: '68%' }}
                                             />
-                                            <div className="mt-6 w-full max-w-[500px] text-center">
+                                            <div className="mt-4 w-full max-w-[500px] text-center md:mt-6">
                                                 <p
-                                                    className="text-[17px] sm:text-[19px] font-medium leading-[1.75] tracking-tight text-white/95 mb-4"
+                                                    className="text-[14px] sm:text-[16px] md:text-[19px] font-medium leading-[1.55] md:leading-[1.75] tracking-tight text-white/95 mb-4"
                                                     style={{ fontFamily: 'Roboto, sans-serif' }}
                                                     dangerouslySetInnerHTML={{ __html: slide.text }}
                                                 />

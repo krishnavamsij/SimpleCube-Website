@@ -278,9 +278,9 @@ export function HeroPuzzle() {
     }, []);
 
     return (
-        <div 
-            ref={containerRef} 
-            className="absolute top-0 right-[-4vw] h-screen w-[50vw] pointer-events-none"
+        <div
+            ref={containerRef}
+            className="absolute inset-0 pointer-events-none lg:top-0 lg:right-[-4vw] lg:bottom-auto lg:left-auto lg:h-screen lg:w-[50vw]"
             style={{ zIndex: 1, overflow: 'visible' }}
         >
             {!isLoaded && (
