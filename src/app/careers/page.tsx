@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronDown, Briefcase, X, Upload, Star, Shield, Users, Phone, MapPin } from "lucide-react";
+import { ChevronDown, Briefcase, X, Upload, Star, Shield, Users, MapPin } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
@@ -40,25 +40,265 @@ interface FormData {
   coverNote: string;
 }
 
+interface CountryCode {
+  iso: string;
+  code: string;
+  country: string;
+}
+
+const countryCodeData = [
+  ["AF", "+93", "Afghanistan"],
+  ["AL", "+355", "Albania"],
+  ["DZ", "+213", "Algeria"],
+  ["AS", "+1", "American Samoa"],
+  ["AD", "+376", "Andorra"],
+  ["AO", "+244", "Angola"],
+  ["AI", "+1", "Anguilla"],
+  ["AG", "+1", "Antigua and Barbuda"],
+  ["AR", "+54", "Argentina"],
+  ["AM", "+374", "Armenia"],
+  ["AW", "+297", "Aruba"],
+  ["AU", "+61", "Australia"],
+  ["AT", "+43", "Austria"],
+  ["AZ", "+994", "Azerbaijan"],
+  ["BS", "+1", "Bahamas"],
+  ["BH", "+973", "Bahrain"],
+  ["BD", "+880", "Bangladesh"],
+  ["BB", "+1", "Barbados"],
+  ["BY", "+375", "Belarus"],
+  ["BE", "+32", "Belgium"],
+  ["BZ", "+501", "Belize"],
+  ["BJ", "+229", "Benin"],
+  ["BM", "+1", "Bermuda"],
+  ["BT", "+975", "Bhutan"],
+  ["BO", "+591", "Bolivia"],
+  ["BA", "+387", "Bosnia and Herzegovina"],
+  ["BW", "+267", "Botswana"],
+  ["BR", "+55", "Brazil"],
+  ["BN", "+673", "Brunei"],
+  ["BG", "+359", "Bulgaria"],
+  ["BF", "+226", "Burkina Faso"],
+  ["BI", "+257", "Burundi"],
+  ["KH", "+855", "Cambodia"],
+  ["CM", "+237", "Cameroon"],
+  ["CA", "+1", "Canada"],
+  ["CV", "+238", "Cape Verde"],
+  ["KY", "+1", "Cayman Islands"],
+  ["CF", "+236", "Central African Republic"],
+  ["TD", "+235", "Chad"],
+  ["CL", "+56", "Chile"],
+  ["CN", "+86", "China"],
+  ["CO", "+57", "Colombia"],
+  ["KM", "+269", "Comoros"],
+  ["CG", "+242", "Congo"],
+  ["CD", "+243", "Congo, Democratic Republic"],
+  ["CK", "+682", "Cook Islands"],
+  ["CR", "+506", "Costa Rica"],
+  ["CI", "+225", "Cote d'Ivoire"],
+  ["HR", "+385", "Croatia"],
+  ["CU", "+53", "Cuba"],
+  ["CY", "+357", "Cyprus"],
+  ["CZ", "+420", "Czech Republic"],
+  ["DK", "+45", "Denmark"],
+  ["DJ", "+253", "Djibouti"],
+  ["DM", "+1", "Dominica"],
+  ["DO", "+1", "Dominican Republic"],
+  ["EC", "+593", "Ecuador"],
+  ["EG", "+20", "Egypt"],
+  ["SV", "+503", "El Salvador"],
+  ["GQ", "+240", "Equatorial Guinea"],
+  ["ER", "+291", "Eritrea"],
+  ["EE", "+372", "Estonia"],
+  ["ET", "+251", "Ethiopia"],
+  ["FK", "+500", "Falkland Islands"],
+  ["FO", "+298", "Faroe Islands"],
+  ["FJ", "+679", "Fiji"],
+  ["FI", "+358", "Finland"],
+  ["FR", "+33", "France"],
+  ["GF", "+594", "French Guiana"],
+  ["PF", "+689", "French Polynesia"],
+  ["GA", "+241", "Gabon"],
+  ["GM", "+220", "Gambia"],
+  ["GE", "+995", "Georgia"],
+  ["DE", "+49", "Germany"],
+  ["GH", "+233", "Ghana"],
+  ["GI", "+350", "Gibraltar"],
+  ["GR", "+30", "Greece"],
+  ["GL", "+299", "Greenland"],
+  ["GD", "+1", "Grenada"],
+  ["GP", "+590", "Guadeloupe"],
+  ["GU", "+1", "Guam"],
+  ["GT", "+502", "Guatemala"],
+  ["GN", "+224", "Guinea"],
+  ["GW", "+245", "Guinea-Bissau"],
+  ["GY", "+592", "Guyana"],
+  ["HT", "+509", "Haiti"],
+  ["HN", "+504", "Honduras"],
+  ["HK", "+852", "Hong Kong"],
+  ["HU", "+36", "Hungary"],
+  ["IS", "+354", "Iceland"],
+  ["IN", "+91", "India"],
+  ["ID", "+62", "Indonesia"],
+  ["IR", "+98", "Iran"],
+  ["IQ", "+964", "Iraq"],
+  ["IE", "+353", "Ireland"],
+  ["IL", "+972", "Israel"],
+  ["IT", "+39", "Italy"],
+  ["JM", "+1", "Jamaica"],
+  ["JP", "+81", "Japan"],
+  ["JO", "+962", "Jordan"],
+  ["KZ", "+7", "Kazakhstan"],
+  ["KE", "+254", "Kenya"],
+  ["KI", "+686", "Kiribati"],
+  ["KW", "+965", "Kuwait"],
+  ["KG", "+996", "Kyrgyzstan"],
+  ["LA", "+856", "Laos"],
+  ["LV", "+371", "Latvia"],
+  ["LB", "+961", "Lebanon"],
+  ["LS", "+266", "Lesotho"],
+  ["LR", "+231", "Liberia"],
+  ["LY", "+218", "Libya"],
+  ["LI", "+423", "Liechtenstein"],
+  ["LT", "+370", "Lithuania"],
+  ["LU", "+352", "Luxembourg"],
+  ["MO", "+853", "Macau"],
+  ["MK", "+389", "North Macedonia"],
+  ["MG", "+261", "Madagascar"],
+  ["MW", "+265", "Malawi"],
+  ["MY", "+60", "Malaysia"],
+  ["MV", "+960", "Maldives"],
+  ["ML", "+223", "Mali"],
+  ["MT", "+356", "Malta"],
+  ["MH", "+692", "Marshall Islands"],
+  ["MQ", "+596", "Martinique"],
+  ["MR", "+222", "Mauritania"],
+  ["MU", "+230", "Mauritius"],
+  ["MX", "+52", "Mexico"],
+  ["FM", "+691", "Micronesia"],
+  ["MD", "+373", "Moldova"],
+  ["MC", "+377", "Monaco"],
+  ["MN", "+976", "Mongolia"],
+  ["ME", "+382", "Montenegro"],
+  ["MS", "+1", "Montserrat"],
+  ["MA", "+212", "Morocco"],
+  ["MZ", "+258", "Mozambique"],
+  ["MM", "+95", "Myanmar"],
+  ["NA", "+264", "Namibia"],
+  ["NR", "+674", "Nauru"],
+  ["NP", "+977", "Nepal"],
+  ["NL", "+31", "Netherlands"],
+  ["NC", "+687", "New Caledonia"],
+  ["NZ", "+64", "New Zealand"],
+  ["NI", "+505", "Nicaragua"],
+  ["NE", "+227", "Niger"],
+  ["NG", "+234", "Nigeria"],
+  ["NU", "+683", "Niue"],
+  ["KP", "+850", "North Korea"],
+  ["MP", "+1", "Northern Mariana Islands"],
+  ["NO", "+47", "Norway"],
+  ["OM", "+968", "Oman"],
+  ["PK", "+92", "Pakistan"],
+  ["PW", "+680", "Palau"],
+  ["PS", "+970", "Palestine"],
+  ["PA", "+507", "Panama"],
+  ["PG", "+675", "Papua New Guinea"],
+  ["PY", "+595", "Paraguay"],
+  ["PE", "+51", "Peru"],
+  ["PH", "+63", "Philippines"],
+  ["PL", "+48", "Poland"],
+  ["PT", "+351", "Portugal"],
+  ["PR", "+1", "Puerto Rico"],
+  ["QA", "+974", "Qatar"],
+  ["RE", "+262", "Reunion"],
+  ["RO", "+40", "Romania"],
+  ["RU", "+7", "Russia"],
+  ["RW", "+250", "Rwanda"],
+  ["WS", "+685", "Samoa"],
+  ["SM", "+378", "San Marino"],
+  ["ST", "+239", "Sao Tome and Principe"],
+  ["SA", "+966", "Saudi Arabia"],
+  ["SN", "+221", "Senegal"],
+  ["RS", "+381", "Serbia"],
+  ["SC", "+248", "Seychelles"],
+  ["SL", "+232", "Sierra Leone"],
+  ["SG", "+65", "Singapore"],
+  ["SK", "+421", "Slovakia"],
+  ["SI", "+386", "Slovenia"],
+  ["SB", "+677", "Solomon Islands"],
+  ["SO", "+252", "Somalia"],
+  ["ZA", "+27", "South Africa"],
+  ["KR", "+82", "South Korea"],
+  ["SS", "+211", "South Sudan"],
+  ["ES", "+34", "Spain"],
+  ["LK", "+94", "Sri Lanka"],
+  ["KN", "+1", "Saint Kitts and Nevis"],
+  ["LC", "+1", "Saint Lucia"],
+  ["PM", "+508", "Saint Pierre and Miquelon"],
+  ["VC", "+1", "Saint Vincent and the Grenadines"],
+  ["SD", "+249", "Sudan"],
+  ["SR", "+597", "Suriname"],
+  ["SZ", "+268", "Eswatini"],
+  ["SE", "+46", "Sweden"],
+  ["CH", "+41", "Switzerland"],
+  ["SY", "+963", "Syria"],
+  ["TW", "+886", "Taiwan"],
+  ["TJ", "+992", "Tajikistan"],
+  ["TZ", "+255", "Tanzania"],
+  ["TH", "+66", "Thailand"],
+  ["TL", "+670", "Timor-Leste"],
+  ["TG", "+228", "Togo"],
+  ["TO", "+676", "Tonga"],
+  ["TT", "+1", "Trinidad and Tobago"],
+  ["TN", "+216", "Tunisia"],
+  ["TR", "+90", "Turkey"],
+  ["TM", "+993", "Turkmenistan"],
+  ["TC", "+1", "Turks and Caicos Islands"],
+  ["TV", "+688", "Tuvalu"],
+  ["UG", "+256", "Uganda"],
+  ["UA", "+380", "Ukraine"],
+  ["AE", "+971", "United Arab Emirates"],
+  ["GB", "+44", "United Kingdom"],
+  ["US", "+1", "United States"],
+  ["UY", "+598", "Uruguay"],
+  ["UZ", "+998", "Uzbekistan"],
+  ["VU", "+678", "Vanuatu"],
+  ["VA", "+379", "Vatican City"],
+  ["VE", "+58", "Venezuela"],
+  ["VN", "+84", "Vietnam"],
+  ["VG", "+1", "Virgin Islands, British"],
+  ["VI", "+1", "Virgin Islands, U.S."],
+  ["YE", "+967", "Yemen"],
+  ["ZM", "+260", "Zambia"],
+  ["ZW", "+263", "Zimbabwe"],
+] as const;
+
 // Country codes and location data
-const countryCodes = [
-  { code: '+1', country: 'United States', flag: '🇺🇸' },
-  { code: '+91', country: 'India', flag: '🇮🇳' },
-  { code: '+44', country: 'United Kingdom', flag: '🇬🇧' },
-  { code: '+61', country: 'Australia', flag: '🇦🇺' },
-  { code: '+49', country: 'Germany', flag: '🇩🇪' },
-  { code: '+33', country: 'France', flag: '🇫🇷' },
-  { code: '+81', country: 'Japan', flag: '🇯🇵' },
-  { code: '+86', country: 'China', flag: '🇨🇳' },
-  { code: '+82', country: 'South Korea', flag: '🇰🇷' },
-  { code: '+65', country: 'Singapore', flag: '🇸🇬' },
-  { code: '+971', country: 'UAE', flag: '🇦🇪' },
-  { code: '+966', country: 'Saudi Arabia', flag: '🇸🇦' },
-  { code: '+27', country: 'South Africa', flag: '🇿🇦' },
-  { code: '+55', country: 'Brazil', flag: '🇧🇷' },
-  { code: '+52', country: 'Mexico', flag: '🇲🇽' },
-  { code: '+1', country: 'Canada', flag: '🇨🇦' },
-];
+const countryCodes: CountryCode[] = countryCodeData.map(([iso, code, country]) => ({
+  iso,
+  code,
+  country,
+}));
+
+const getPhoneValidationError = (value: string, country: CountryCode) => {
+  const phoneDigits = value.replace(/\D/g, "");
+
+  if (!value.trim()) return "Phone number is required";
+  if (!phoneDigits) return "Please enter digits only for phone number";
+
+  const countryCodeDigits = country.code.replace(/\D/g, "");
+  const maxNationalDigits = 15 - countryCodeDigits.length;
+
+  if (phoneDigits.length < 4 || phoneDigits.length > maxNationalDigits) {
+    return `Please enter a valid ${country.country} phone number`;
+  }
+
+  if (country.iso === "IN") {
+    if (phoneDigits.length !== 10) return "Indian mobile numbers must be 10 digits";
+    if (phoneDigits.startsWith("0")) return "Please enter 10 digits without leading zero";
+  }
+
+  return "";
+};
 
 const cities = [
   // India
@@ -231,7 +471,9 @@ export default function CareersPage() {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeFileName, setResumeFileName] = useState<string>("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [selectedCountry, setSelectedCountry] = useState(countryCodes[1]); // Default to India
+  const [selectedCountry, setSelectedCountry] = useState(
+    countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]
+  ); // Default to India
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [locationSuggestions, setLocationSuggestions] = useState<string[]>([]);
   const [showLocationSuggestions, setShowLocationSuggestions] = useState(false);
@@ -300,23 +542,14 @@ export default function CareersPage() {
   };
 
   useEffect(() => {
-    // Reset form on component mount and page refresh
-    resetForm();
-
-    const handleBeforeUnload = () => {
-      resetForm();
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      resetForm();
+      document.body.style.overflow = "";
     };
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    let { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
 
     // Proactively block alphabets for CTC fields
     if (name === 'currentCTC' || name === 'expectedCTC') {
@@ -348,16 +581,7 @@ export default function CareersPage() {
         else if (!emailRegex.test(value)) error = "Please enter a valid email address";
         break;
       case 'phone':
-        if (!value.trim()) error = "Phone number is required";
-        else {
-          const phoneDigits = value.replace(/\D/g, '');
-          if (selectedCountry.code === "+91") {
-            if (phoneDigits.length !== 10) error = "Indian mobile numbers must be 10 digits";
-            else if (value.startsWith('0')) error = "Please enter 10 digits without leading zero";
-          } else if (phoneDigits.length < 7 || phoneDigits.length > 15) {
-            error = "Please enter a valid phone number";
-          }
-        }
+        error = getPhoneValidationError(value, selectedCountry);
         break;
       case 'location':
         if (!value.trim()) error = "Location is required";
@@ -428,18 +652,8 @@ export default function CareersPage() {
 
     // Phone validation
     if (formData.phone.trim()) {
-      const phoneDigits = formData.phone.replace(/\D/g, '');
-      if (selectedCountry.code === "+91") {
-        if (phoneDigits.length !== 10) {
-          newErrors.phone = "Indian mobile numbers must be 10 digits";
-        } else if (formData.phone.startsWith('0')) {
-          newErrors.phone = "Please enter 10 digits without leading zero";
-        }
-      } else {
-        if (phoneDigits.length < 7 || phoneDigits.length > 15) {
-          newErrors.phone = "Please enter a valid phone number";
-        }
-      }
+      const phoneError = getPhoneValidationError(formData.phone, selectedCountry);
+      if (phoneError) newErrors.phone = phoneError;
     }
 
     // Experience validation simplified
@@ -500,9 +714,14 @@ export default function CareersPage() {
     setLocationSuggestions([]);
   };
 
-  const handleCountrySelect = (country: typeof countryCodes[0]) => {
+  const handleCountrySelect = (country: CountryCode) => {
     setSelectedCountry(country);
     setShowCountryDropdown(false);
+
+    if (formData.phone.trim()) {
+      const phoneError = getPhoneValidationError(formData.phone, country);
+      setErrors((prev) => ({ ...prev, phone: phoneError }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -879,13 +1098,13 @@ export default function CareersPage() {
                 <div>
                   <div className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#6eb3ff] mb-4">
                     <div className="w-6 h-[1px] bg-[#6eb3ff]/50" />
-                    Don't see the right role?
+                    Don&apos;t see the right role?
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-display">
                     Send us an <span className="text-[#00D4AA]">Open Application</span>
                   </h3>
                   <p className="text-slate-400 max-w-sm text-base font-normal leading-relaxed">
-                    We're always on the lookout for exceptional talent. Share your profile and we'll be in touch.
+                    We&apos;re always on the lookout for exceptional talent. Share your profile and we&apos;ll be in touch.
                   </p>
                 </div>
                 <button
@@ -1028,33 +1247,41 @@ export default function CareersPage() {
                         <label className="block text-xs font-medium text-gray-700 ml-1">
                           Phone Number *
                         </label>
-                        <div className={`flex items-stretch h-11 border rounded-xl bg-white overflow-hidden transition-all duration-200 shadow-sm ${errors.phone ? 'border-red-300 ring-2 ring-red-500/10' : 'border-gray-200 focus-within:border-[#1e6fff] focus-within:ring-2 focus-within:ring-[#1e6fff]/10 hover:border-gray-300'
+                        <div className={`relative flex items-stretch h-11 border rounded-xl bg-white overflow-visible transition-all duration-200 shadow-sm ${errors.phone ? 'border-red-300 ring-2 ring-red-500/10' : 'border-gray-200 focus-within:border-[#1e6fff] focus-within:ring-2 focus-within:ring-[#1e6fff]/10 hover:border-gray-300'
                           }`}>
                           <div className="relative border-r border-slate-100 bg-slate-50/50">
                             <button
                               type="button"
                               onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-                              className="h-full flex items-center gap-2 px-3 hover:bg-slate-100 transition-colors duration-200 outline-none"
+                              className="h-full flex items-center gap-2 px-3 rounded-l-xl hover:bg-slate-100 transition-colors duration-200 outline-none"
                             >
-                              <span className="text-sm">{selectedCountry.flag}</span>
+                              <span
+                                className="h-4 w-5 rounded-[3px] bg-cover bg-center shadow-[inset_0_0_0_1px_rgba(15,23,42,0.12)]"
+                                style={{ backgroundImage: `url(https://flagcdn.com/w40/${selectedCountry.iso.toLowerCase()}.png)` }}
+                                aria-hidden="true"
+                              />
                               <span className="text-xs font-medium text-gray-700">{selectedCountry.code}</span>
                               <ChevronDown className="w-3 h-3 text-gray-400" />
                             </button>
                             {showCountryDropdown && (
-                              <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto py-1.5">
-                                {countryCodes.map((country, index) => (
+                              <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-[80] max-h-72 overflow-y-auto py-1.5">
+                                {countryCodes.map((country) => (
                                   <button
-                                    key={index}
+                                    key={country.iso}
                                     type="button"
                                     onClick={() => handleCountrySelect(country)}
                                     className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-slate-50 transition-colors duration-150 text-left"
                                   >
-                                    <span className="text-base">{country.flag}</span>
+                                    <span
+                                      className="h-4 w-5 shrink-0 rounded-[3px] bg-cover bg-center shadow-[inset_0_0_0_1px_rgba(15,23,42,0.12)]"
+                                      style={{ backgroundImage: `url(https://flagcdn.com/w40/${country.iso.toLowerCase()}.png)` }}
+                                      aria-hidden="true"
+                                    />
                                     <div className="flex-1">
                                       <div className="text-xs font-medium text-gray-900 leading-tight">{country.country}</div>
                                       <div className="text-[10px] text-gray-500">{country.code}</div>
                                     </div>
-                                    {selectedCountry.code === country.code && (
+                                    {selectedCountry.iso === country.iso && (
                                       <div className="w-1.5 h-1.5 rounded-full bg-[#1e6fff]" />
                                     )}
                                   </button>
@@ -1423,7 +1650,7 @@ export default function CareersPage() {
                   </h3>
                   <div className="max-w-xs mx-auto mb-6">
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      Your application has been successfully submitted to our team. We'll be in touch with you shortly.
+                      Your application has been successfully submitted to our team. We&apos;ll be in touch with you shortly.
                     </p>
                   </div>
                   <button
