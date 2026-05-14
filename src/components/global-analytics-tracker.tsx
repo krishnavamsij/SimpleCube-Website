@@ -4,11 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { sendGAEvent } from "@next/third-parties/google";
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-  }
-}
+
 
 export function GlobalAnalyticsTracker() {
   const pathname = usePathname();
@@ -20,8 +16,8 @@ export function GlobalAnalyticsTracker() {
     const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");
     sendGAEvent({ event: "page_view", page_path: url });
     if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "page_view", page_path: url });
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({ event: "page_view", page_path: url });
     }
     // Reset scroll depth on new page
     maxScrollDepth.current = 0;
@@ -44,8 +40,8 @@ export function GlobalAnalyticsTracker() {
         };
         sendGAEvent(eventData);
         if (typeof window !== "undefined") {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push(eventData);
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push(eventData);
         }
       }
 
@@ -61,8 +57,8 @@ export function GlobalAnalyticsTracker() {
           };
           sendGAEvent(eventData);
           if (typeof window !== "undefined") {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push(eventData);
+            (window as any).dataLayer = (window as any).dataLayer || [];
+            (window as any).dataLayer.push(eventData);
           }
         }
       }
@@ -79,8 +75,8 @@ export function GlobalAnalyticsTracker() {
       };
       sendGAEvent(eventData);
       if (typeof window !== "undefined") {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push(eventData);
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push(eventData);
       }
     };
 
@@ -98,10 +94,10 @@ export function GlobalAnalyticsTracker() {
             scroll_depth: threshold,
           };
           sendGAEvent(eventData);
-          if (typeof window !== "undefined") {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push(eventData);
-          }
+      if (typeof window !== "undefined") {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push(eventData);
+      }
         }
       }
     };

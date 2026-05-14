@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque, Geist_Mono } from "next/font/google";
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { GlobalAnalyticsTracker } from '@/components/global-analytics-tracker';
+import { Suspense } from 'react';
 
 import "./globals.css";
 
@@ -69,7 +70,9 @@ export default function RootLayout({
         className={`${inter.variable} ${bricolage.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <GlobalAnalyticsTracker />
+        <Suspense fallback={null}>
+          <GlobalAnalyticsTracker />
+        </Suspense>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
     </html>
