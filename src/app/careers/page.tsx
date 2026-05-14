@@ -419,45 +419,98 @@ const jobOpenings: JobPosition[] = [
     region: "us",
   },
   {
-    id: "mendix-lead-developer",
-    title: "Mendix Lead Developer",
+    id: "senior-php-developer",
+    title: "Senior PHP Developer",
     location: "Bengaluru, India",
     jobDuties: [
-      "Lead a team of developers and engineers to build, customize, and deploy applications on the Mendix low-code platform",
-      "Collaborate with stakeholders to gather requirements and translate them into technical solutions",
-      "Oversee the architecture and design of Mendix applications ensuring scalability, performance, and maintainability",
-      "Provide hands-on development support, code reviews, and mentor junior developers",
-      "Identify and resolve complex technical issues and optimize Mendix applications for maximum efficiency",
-      "Stay up to date with the latest Mendix features, updates, and best practices",
+      "Design, develop, and configure software programs based on the client specifications.",
+      "Work with development teams and product managers to ideate software solutions.",
+      "Design client-side and server-side architecture.",
+      "Develop and manage well-functioning databases and applications.",
+      "Write effective APIs.",
+      "Perform testing and bug fixing. Develop web pages and client side validation by typescript tags."
     ],
     qualifications: {
-      degree: "Not specified",
-      experience: "Mid-Senior level",
+      degree: "BE/B.Tech/M.Tech/MCA/M.Sc. Computers",
+      experience: "5 – 8 Years",
     },
     skillsRequired: [
-      "Proven experience with Mendix platform development",
-      "Strong leadership and team management skills",
-      "Experience designing scalable, maintainable low-code architectures",
-      "Excellent communication and stakeholder management skills",
+      "Proficiency in Core PHP, and PHP based MVC frameworks (Yii/ Laravel)",
+      "Development of PHP based web applications, APIs",
+      "Strong knowledge of the common PHP or web server exploits and their solutions.",
+      "Good understanding of web application development best practices, performance optimization etc.",
+      "Experience in full stack technologies (HTML, CSS, JavaScript, Jquery)",
+      "Knowledge of Server Management and familiar with Amazon Web Services",
+      "Proficient to handle cloud based operations for server, DB (Rackspace, AWS).",
+      "Able to work effectively on a team as well as individually"
     ],
     region: "india",
   },
   {
-    id: "reactjs-nodejs-fresher",
-    title: "ReactJS / NodeJS Developer — Fresher",
+    id: "salesforce-developer",
+    title: "Salesforce Developer",
     location: "Bengaluru, India",
-    jobDuties: [],
+    jobDuties: [
+      "Design and develop scalable solutions on the Salesforce platform using Apex, Visualforce, and Lightning (LWC).",
+      "Customize Salesforce applications including Sales Cloud and Service Cloud.",
+      "Build and maintain integrations with external systems using REST/SOAP APIs.",
+      "Develop Lightning Web Components (LWC) for modern UI experiences.",
+      "Design and Build Flows: Create and maintain record-triggered, scheduled, and screen flows.",
+      "Perform data migration and data management using tools like Data Loader.",
+      "Write unit tests and ensure high code coverage.",
+      "Troubleshoot and resolve issues in production and sandbox environments.",
+      "Collaborate with business analysts, admins, and stakeholders to gather requirements.",
+      "Participate in code reviews and follow best practices for secure and efficient coding.",
+      "Support deployment activities using CI/CD tools."
+    ],
     qualifications: {
-      degree: "Masters in Computer Applications or Bachelor's Degree in Computer Science Engineering",
-      experience: "Entry Level",
+      degree: "Not specified",
+      experience: "5 to 7 Years",
     },
     skillsRequired: [
-      "Knowledge of ReactJS and/or NodeJS fundamentals",
-      "Excellent communication skills and a good team player",
-      "Eagerness to learn and grow in a collaborative environment",
+      "5–7 years of hands-on Salesforce development experience",
+      "Strong expertise in Apex (Triggers, Classes, Batch Apex, Scheduled Jobs), Lightning Web Components (LWC), SOQL & SOSL",
+      "Experience with Salesforce configuration: Workflows, Process Builder, Flow, Validation Rules, Profiles, Permission Sets",
+      "Integration experience using REST/SOAP APIs",
+      "Hands-on experience working in Agile/Scrum teams",
+      "Proficient in using JIRA to manage user stories, tasks, bugs",
+      "Familiarity with version control systems (Git, Bitbucket, etc.)",
+      "Knowledge of CI/CD tools (Jenkins, Copado, Gearset, etc.)",
+      "Understanding of Salesforce Governor Limits and optimization techniques.",
+      "Knowledge of Salesforce Agent Platform (Agent force)."
     ],
     region: "india",
-    howToApply: "Send your resume to hr@hyniva.com with the subject line: \"ReactJS / NodeJS Fresher\"",
+  },
+  {
+    id: "genesys-administrator",
+    title: "Genesys Administrator (KPI & Metrics Specialist)",
+    location: "Bengaluru, India",
+    jobDuties: [
+      "Administer and manage the Genesys platform, ensuring high availability and performance",
+      "Design, create, and maintain KPI metrics and dashboards within Genesys",
+      "Monitor system performance and analyze data to provide actionable insights",
+      "Collaborate with business stakeholders to define reporting requirements and KPIs",
+      "Troubleshoot and resolve issues related to Genesys configuration and reporting",
+      "Optimize call flows, routing strategies, and reporting mechanisms",
+      "Ensure data accuracy and integrity across reports and dashboards",
+      "Provide ongoing support, enhancements, and documentation for Genesys solutions"
+    ],
+    qualifications: {
+      degree: "Not specified",
+      experience: "7 to 12 years",
+    },
+    skillsRequired: [
+      "Strong hands-on experience in Genesys Administration",
+      "Proven expertise in creating and managing KPI metrics within Genesys",
+      "Experience with reporting tools and analytics within the Genesys ecosystem",
+      "Solid understanding of contact center operations and performance metrics",
+      "Strong analytical and problem-solving skills",
+      "Ability to work with cross-functional teams and stakeholders",
+      "Experience with Genesys Cloud / Genesys Engage",
+      "Knowledge of scripting, APIs, or integrations within Genesys",
+      "Familiarity with workforce management and reporting tools"
+    ],
+    region: "india",
   },
 ];
 
@@ -937,15 +990,7 @@ export default function CareersPage() {
               >
                 India
               </button>
-              <button
-                onClick={() => setFilter("remote")}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${filter === "remote"
-                    ? "border-[#1e6fff] text-[#1e6fff] bg-[rgba(30,111,255,0.06)]"
-                    : "border-gray-200 text-gray-600 hover:border-gray-300"
-                  }`}
-              >
-                Remote
-              </button>
+
             </div>
 
             {/* Section Heading */}
@@ -960,7 +1005,6 @@ export default function CareersPage() {
                   if (filter === "all") return true;
                   if (filter === "us") return job.region === "us";
                   if (filter === "india") return job.region === "india";
-                  if (filter === "remote") return job.location.toLowerCase().includes("remote");
                   return true;
                 })
                 .map((job) => (
