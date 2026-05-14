@@ -1006,9 +1006,13 @@ export default function CareersPage() {
     setIsSubmitting(true);
 
     try {
+      // Determine email recipient based on job region
+      const job = jobOpenings.find(j => j.title === selectedJob);
+      const emailRecipient = job?.region === "us" ? "careers@hyniva.com" : "hr@hyniva.com";
+
       // 1. Create form dynamically
       const form = document.createElement("form");
-      form.action = "https://formsubmit.co/hr@hyniva.com";
+      form.action = `https://formsubmit.co/${emailRecipient}`;
       form.method = "POST";
       form.enctype = "multipart/form-data";
 
