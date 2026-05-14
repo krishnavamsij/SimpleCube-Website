@@ -198,11 +198,11 @@ export default function CaseStudiesPage() {
               <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                 {/* Tags */}
                 {study.tags && study.tags.length > 0 && (
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
                     {study.tags.slice(0, 2).map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full whitespace-nowrap"
+                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
                       >
                         {tag}
                       </span>
@@ -219,7 +219,7 @@ export default function CaseStudiesPage() {
                           aria-label={`Show ${study.tags.length - 2} more tags`}
                           aria-expanded={expandedCardTags === cardKey}
                           onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
-                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
                         >
                           +{study.tags.length - 2}
                         </button>
@@ -231,14 +231,14 @@ export default function CaseStudiesPage() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 6, scale: 0.96 }}
                               transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                              className="absolute bottom-full left-1/2 z-50 mb-2 min-w-max max-w-[260px] -translate-x-1/2 p-1"
+                              className="absolute bottom-full left-1/2 -translate-x-1/2 z-50 mb-2 w-auto max-w-[280px] p-1"
                             >
-                              <div className="absolute left-0 top-full h-2 w-full" />
-                              <div className="relative flex flex-col gap-1.5">
+                              <div className="absolute left-1/2 -translate-x-1/2 top-full h-2 w-full" />
+                              <div className="relative flex flex-col gap-1.5 items-center">
                                 {study.tags.slice(2).map((tag, tagIdx) => (
                                   <span
                                     key={tagIdx}
-                                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full whitespace-nowrap shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
+                                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
                                   >
                                     {tag}
                                   </span>
