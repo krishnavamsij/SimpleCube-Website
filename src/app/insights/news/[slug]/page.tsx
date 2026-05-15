@@ -243,20 +243,27 @@ export default function NewsDetailPage() {
                                     className="scroll-mt-40 group w-full"
                                     suppressHydrationWarning
                                 >
-                                    {section.title && (
-                                        <div className="mb-8">
-                                            <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.2] text-left font-display">{section.title}</h2>
-                                        </div>
-                                    )}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, margin: "-100px" }}
+                                        transition={{ duration: 0.6 }}
+                                    >
+                                        {section.title && (
+                                            <div className="mb-8">
+                                                <h2 className="text-2xl sm:text-[26px] font-bold text-[#0a0f1e] leading-[1.2] text-left font-display">{section.title}</h2>
+                                            </div>
+                                        )}
 
-                                    {mounted ? (
-                                        <div
-                                            className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left"
-                                            dangerouslySetInnerHTML={{ __html: section.content }}
-                                        />
-                                    ) : (
-                                        <div className="min-h-[40px]" />
-                                    )}
+                                        {mounted ? (
+                                            <div
+                                                className="blog-content font-sans text-[16px] font-normal leading-[1.8] text-[#374151] text-left"
+                                                dangerouslySetInnerHTML={{ __html: section.content }}
+                                            />
+                                        ) : (
+                                            <div className="min-h-[40px]" />
+                                        )}
+                                    </motion.div>
                                 </section>
                             ))}
                         </div>
@@ -389,6 +396,19 @@ export default function NewsDetailPage() {
                     .milestone { flex-direction: column; gap: 12px; }
                     .cta { padding: 36px 24px; flex-direction: column; text-align: center; }
                     .cta__text { text-align: center; }
+                }
+
+                @keyframes shimmerSweep {
+                    0%   { left: -100%; opacity: 0; }
+                    20%  { opacity: 1; }
+                    80%  { opacity: 1; }
+                    100% { left: 100%; opacity: 0; }
+                }
+                @keyframes scrollLine {
+                    0%   { transform:scaleY(0); transform-origin:top;    opacity:1; }
+                    50%  { transform:scaleY(1); transform-origin:top;    opacity:1; }
+                    51%  { transform:scaleY(1); transform-origin:bottom; }
+                    100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
                 }
                 ` }} />
         </div>
