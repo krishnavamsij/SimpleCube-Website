@@ -501,7 +501,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "lwr-modernization": {
         "slug": "lwr-modernization",
         "eyebrow": "Salesforce Experience Cloud & LWR",
-        "title": "<em>LWR Modernization for<br>\n      High-Performance Experiences</em>",
+        "title": "<span class='text-[#00D4AA] font-display'>LWR Modernization</span> <em>for<br>\n      High-Performance Experiences</em>",
         "summary": "Migrated legacy Experience Cloud to Lightning Web Runtime, delivering faster,\n      mobile-first, and scalable digital experiences.",
         "metrics": [
             {
