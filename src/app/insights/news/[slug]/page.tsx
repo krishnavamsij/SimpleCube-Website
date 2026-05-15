@@ -187,7 +187,7 @@ export default function NewsDetailPage() {
                             variants={staggerContainer}
                         >
                             <motion.div variants={fadeInUp} className="flex justify-center mb-10">
-                                <EyebrowButton href="/insights/news">{post.bannerBadge || "NEWS"}</EyebrowButton>
+                                <EyebrowButton href="/insights/news">NEWS</EyebrowButton>
                             </motion.div>
 
                             {!post.bannerBadge && (
