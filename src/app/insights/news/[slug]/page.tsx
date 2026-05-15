@@ -237,7 +237,6 @@ export default function NewsDetailPage() {
                                     key={section.id}
                                     id={section.id}
                                     className="scroll-mt-40 group w-full"
-                                    suppressHydrationWarning
                                 >
                                     <motion.div
                                         initial={{ opacity: 0, y: 30 }}
@@ -271,7 +270,7 @@ export default function NewsDetailPage() {
 
             <Footer />
 
-            <style suppressHydrationWarning dangerouslySetInnerHTML={{
+            <style dangerouslySetInnerHTML={{
                 __html: `
                 /* ─── GLOBAL STANDARDS (Scoped to Article Content) ─── */
                 .blog-content p { font-size: 16.5px; font-weight: 300; color: #4a5568; line-height: 1.9; margin-bottom: 24px; }
