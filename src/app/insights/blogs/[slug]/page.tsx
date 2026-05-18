@@ -383,10 +383,13 @@ export default function BlogsDetailPage() {
                 .blog-content-wrapper .pullquote__text { font-family: var(--font-display), serif; font-size: 20px; font-style: normal; font-weight: 600; color: #0a0f1e; line-height: 1.6; margin-bottom: 0; }
 
                 /* ─── IMAGE GRID ─── */
-                .blog-content-wrapper .image-grid { display: flex; gap: 24px; margin: 48px 0; width: 100%; }
-                .blog-content-wrapper .image-wrapper { flex: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 4/3; margin-bottom: 0; }
+                .blog-content-wrapper .image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 48px 0; width: 100%; }
+                .blog-content-wrapper .image-wrapper { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 4/3; margin-bottom: 0; width: 100%; }
                 .blog-content-wrapper .image-wrapper img { width: 100%; height: 100%; display: block; object-fit: cover; }
-                @media (max-width: 768px) { .blog-content-wrapper .image-grid { flex-direction: column; gap: 16px; } .blog-content-wrapper .image-wrapper { aspect-ratio: 16/9; } }
+                @media (max-width: 768px) { 
+                    .blog-content-wrapper .image-grid { grid-template-columns: 1fr; gap: 16px; } 
+                    .blog-content-wrapper .image-wrapper { aspect-ratio: 16/9; } 
+                }
 
                 /* ─── STRATEGY CARDS ─── */
                 .blog-content-wrapper .strategies { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; margin-bottom: 24px; }
