@@ -42,8 +42,7 @@ export function Approach() {
                         </h2>
                         {/* Left-aligned Callout Content (2 lines) */}
                         <p className="text-[13px] sm:text-[14px] md:text-[15px] font-medium leading-[1.6] sm:leading-[1.7] text-white/70">
-                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br />
-                            reducing overhead and increasing accountability at every stage.
+                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead and increasing accountability at every stage.
                         </p>
                     </div>
 
