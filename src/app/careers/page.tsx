@@ -1635,6 +1635,9 @@ export default function CareersPage() {
                           <option>9 – 12 years</option>
                           <option>12+ years</option>
                         </select>
+                        {errors.experience && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.experience}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1658,6 +1661,9 @@ export default function CareersPage() {
                           <option>9 – 12 years</option>
                           <option>12+ years</option>
                         </select>
+                        {errors.relevantExp && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.relevantExp}</p>
+                        )}
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
@@ -1704,6 +1710,9 @@ export default function CareersPage() {
                             }`}
                           required
                         />
+                        {errors.currentCTC && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.currentCTC}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1731,7 +1740,8 @@ export default function CareersPage() {
                           value={formData.noticePeriod}
                           onChange={handleInputChange}
                           onBlur={handleBlur}
-                          className="w-full h-11 px-4 border border-gray-200 rounded-xl bg-white outline-none text-sm transition-all duration-200"
+                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm transition-all duration-200 ${errors.noticePeriod ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#1e6fff] hover:border-gray-300'
+                            }`}
                           required
                         >
                           <option value="">Select notice period</option>
@@ -1741,6 +1751,9 @@ export default function CareersPage() {
                           <option>60 days</option>
                           <option>90 days+</option>
                         </select>
+                        {errors.noticePeriod && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.noticePeriod}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1778,10 +1791,13 @@ export default function CareersPage() {
                           onChange={handleInputChange}
                           onBlur={handleBlur}
                           placeholder="e.g. React, Node.js, AWS"
-                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 transition-all duration-200 ${errors.skills ? 'border-red-300 focus:border-red-500' : 'border-gray-200'
+                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 transition-all duration-200 ${errors.skills ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#1e6fff]'
                             }`}
                           required
                         />
+                        {errors.skills && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.skills}</p>
+                        )}
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                         <div className="space-y-1.5">
