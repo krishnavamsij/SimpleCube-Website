@@ -45,6 +45,14 @@ export const blogContent: {
             href: "/insights/blogs/reimagining-loan-applications-voice-and-chat-take-center-stage-with-agentforce",
         },
         {
+            title: "Hyniva at Cypher 2025: Showcasing the Future of<br>Enterprise AI with AIRA.",
+            date: "Sep 19, 2025",
+            tag: "Company",
+            image: "/images/Blogs/Cypher 2025.png",
+            href: "/insights/news/hyniva-at-cypher-2025-showcasing-the-future-of-enterprise-ai-with-aira",
+            isNews: true,
+        },
+        {
             title: "Empowering Credit Unions to Thrive in a Digital Era",
             date: "Apr 14, 2025",
             tag: "Banking",

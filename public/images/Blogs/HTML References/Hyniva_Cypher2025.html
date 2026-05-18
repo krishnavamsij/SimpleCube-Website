@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hyniva at Cypher 2025 — Hyniva</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --ink:     #0a0f1e;
+  --blue:    #1e6fff;
+  --sky:     #6eb3ff;
+  --white:   #ffffff;
+  --surface: #f7f8fc;
+  --muted:   #8492a6;
+  --border:  #e4e8f0;
+  --text:    #1c2535;
+  --sub:     #4a5568;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── BANNER ─── */
+.banner {
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  padding: 72px 48px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.banner::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.06) 1px, transparent 1px);
+  background-size: 60px 60px; pointer-events: none;
+}
+.banner__orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+.banner__orb--a { width: 500px; height: 500px; top: -200px; left: -100px; background: rgba(30,111,255,.18); }
+.banner__orb--b { width: 400px; height: 400px; bottom: 0; right: -80px; background: rgba(30,111,255,.12); }
+.banner__inner {
+  position: relative; z-index: 2;
+  max-width: 860px; width: 100%; text-align: center;
+}
+.banner__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 50px); font-weight: 400;
+  color: #e8f0ff; line-height: 1.18; letter-spacing: -.5px;
+  opacity: 0; animation: up .6s ease forwards .1s;
+}
+.banner__title em { font-style: italic; color: var(--sky); }
+@keyframes up {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── BODY ─── */
+.body { background: var(--white); padding: 64px 48px 100px; }
+.body__inner { max-width: 740px; margin: 0 auto; }
+
+/* ─── PROSE ─── */
+.prose {
+  font-size: 16.5px; font-weight: 300;
+  line-height: 1.9; color: var(--sub);
+}
+.prose p + p { margin-top: 16px; }
+
+.prose h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 26px); font-weight: 400;
+  color: var(--ink); line-height: 1.3; margin: 52px 0 16px;
+}
+
+.prose ul {
+  margin-top: 14px; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.prose ul li {
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 16px; font-weight: 300; color: var(--sub); line-height: 1.7;
+}
+.prose ul li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0; margin-top: 9px;
+}
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider {
+  height: 1px; background: var(--border); margin: 48px 0;
+}
+
+/* ─── DAY CARDS ─── */
+.day-card {
+  border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  margin-top: 32px;
+}
+.day-card__header {
+  background: var(--ink); padding: 18px 24px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative; overflow: hidden;
+}
+.day-card__header::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.day-card__badge {
+  position: relative; z-index: 1;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  font-size: 12px; font-weight: 700; letter-spacing: .3px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.day-card__title {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff;
+}
+.day-card__body {
+  padding: 22px 24px; background: var(--white);
+}
+.day-card__body p {
+  font-size: 15.5px; font-weight: 300; color: var(--sub); line-height: 1.85;
+  margin-bottom: 16px;
+}
+.day-card__body ul {
+  padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.day-card__body ul li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 15px; font-weight: 300; color: var(--sub); line-height: 1.7;
+}
+.day-card__body ul li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0; margin-top: 8px;
+}
+
+/* ─── AIRA BLOCK ─── */
+.aira-block {
+  margin-top: 32px;
+  border: 1px solid rgba(30,111,255,.25);
+  border-radius: 14px; overflow: hidden;
+}
+.aira-block__header {
+  background: var(--ink); padding: 24px 28px;
+  position: relative; overflow: hidden;
+}
+.aira-block__header::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.aira-block__orb {
+  position: absolute; width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(30,111,255,.18); filter: blur(70px);
+  top: -130px; right: -70px; pointer-events: none;
+}
+.aira-block__title {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(17px, 2.2vw, 21px); font-weight: 400;
+  color: #e8f0ff; line-height: 1.3;
+}
+.aira-block__sub {
+  position: relative; z-index: 1;
+  font-size: 14px; font-weight: 300;
+  color: rgba(200,220,245,.65); line-height: 1.65; margin-top: 6px;
+}
+.aira-block__body {
+  padding: 20px 28px; background: var(--white);
+}
+.aira-block__body p {
+  font-size: 15.5px; font-weight: 300; color: var(--sub);
+  line-height: 1.85; margin-bottom: 16px;
+}
+.aira-block__link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14px; font-weight: 500; color: var(--blue);
+  text-decoration: underline; text-underline-offset: 3px;
+  margin-bottom: 18px; transition: opacity .2s;
+}
+.aira-block__link:hover { opacity: .75; }
+.aira-block__link svg { width: 13px; height: 13px; }
+.aira-block__body ul {
+  padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.aira-block__body ul li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 15px; font-weight: 300; color: var(--sub); line-height: 1.7;
+}
+.aira-block__body ul li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0; margin-top: 8px;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 72px; background: var(--ink);
+  border-radius: 16px; padding: 52px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta__text { position: relative; z-index: 1; }
+.cta__kicker { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 2.4vw, 27px); color: #eef4ff; line-height: 1.25; margin-bottom: 8px;
+}
+.cta__sub { font-size: 14px; font-weight: 300; color: rgba(200,220,245,.6); }
+.cta__btn {
+  position: relative; z-index: 1;
+  display: inline-block; padding: 14px 30px;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  border-radius: 8px; text-decoration: none;
+  transition: background .2s, box-shadow .2s; white-space: nowrap;
+}
+.cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); }
+
+@media (max-width: 768px) {
+  .banner { padding: 52px 24px; }
+  .body   { padding: 48px 24px 72px; }
+  .cta    { padding: 36px 24px; }
+  .day-card__header  { padding: 16px 20px; }
+  .day-card__body    { padding: 18px 20px; }
+  .aira-block__header { padding: 20px 22px; }
+  .aira-block__body   { padding: 18px 22px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="banner__orb banner__orb--a"></div>
+  <div class="banner__orb banner__orb--b"></div>
+  <div class="banner__inner">
+    <h1 class="banner__title">
+      Hyniva at Cypher 2025: Showcasing the Future of<br>
+      <em>Enterprise AI with AIRA</em>
+    </h1>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="body">
+  <div class="body__inner">
+
+    <div class="prose">
+
+      <h2>Driving Conversations Around the Future of AI</h2>
+      <p>Hyniva was proud to participate in Cypher 2025, one of India's largest and most influential AI summits organized by Analytics India Magazine (AIM).</p>
+      <p>The event brought together AI leaders, innovators, enterprises, startups, and technology enthusiasts from across the country to discuss the future of artificial intelligence, enterprise transformation, and emerging technologies.</p>
+      <p>For the Hyniva team, Cypher 2025 was more than just an event, it was an opportunity to connect, collaborate, and gain insights into the latest breakthroughs shaping the future of AI and intelligent enterprises.</p>
+
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-card">
+      <div class="day-card__header">
+        <div class="day-card__badge">D1</div>
+        <div class="day-card__title">Day 1 – Connecting with the AI Ecosystem</div>
+      </div>
+      <div class="day-card__body">
+        <p>The summit began with high energy and inspiring conversations around innovation, enterprise AI, and digital transformation. Hyniva engaged with industry leaders, technology experts, and innovators who are actively shaping the next generation of AI-driven solutions.</p>
+        <p>Cypher 2025 created an incredible environment for:</p>
+        <ul>
+          <li>Networking with AI leaders and enterprise innovators</li>
+          <li>Exploring emerging AI and GenAI trends</li>
+          <li>Understanding enterprise AI adoption challenges</li>
+          <li>Discussing scalable and secure AI implementation strategies</li>
+        </ul>
+        <p style="margin-top:16px;">The conversations reinforced a growing industry need for practical, scalable, and enterprise-ready AI solutions.</p>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card">
+      <div class="day-card__header">
+        <div class="day-card__badge">D2</div>
+        <div class="day-card__title">Day 2 – Exploring Enterprise Innovation</div>
+      </div>
+      <div class="day-card__body">
+        <p>As the summit continued, the momentum only grew stronger. Day 2 was filled with meaningful discussions on how AI is transforming enterprises across industries, especially within financial services.</p>
+        <p>The event provided valuable opportunities to:</p>
+        <ul>
+          <li>Exchange ideas with enterprise technology leaders</li>
+          <li>Explore real-world AI use cases</li>
+          <li>Discuss governance, compliance, and scalability in AI</li>
+          <li>Learn how organizations are accelerating AI-driven transformation</li>
+        </ul>
+        <p style="margin-top:16px;">A big highlight throughout the summit was the collaborative spirit fostered by AIM, bringing together some of the brightest minds in the AI ecosystem.</p>
+      </div>
+    </div>
+
+    <!-- AIRA BLOCK -->
+    <div class="prose">
+      <h2>Showcasing AIRA – Autonomous Intelligent Reasoning Agent</h2>
+      <p>One of the key highlights of Hyniva's participation at Cypher 2025 was showcasing AIRA (Autonomous Intelligent Reasoning Agent). Hyniva's flagship AI platform designed to help enterprises integrate AI securely and efficiently into their business ecosystems.</p>
+    </div>
+
+    <div class="aira-block">
+      <div class="aira-block__header">
+        <div class="aira-block__orb"></div>
+        <div class="aira-block__title">AIRA by Hyniva</div>
+        <div class="aira-block__sub">Autonomous Intelligent Reasoning Agent — Learn more about AIRA here</div>
+      </div>
+      <div class="aira-block__body">
+        <a href="https://www.hyniva.com" class="aira-block__link" target="_blank">
+          AIRA by Hyniva
+          <svg viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7.5 2.5l4 4-4 4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p>AIRA is engineered to solve some of the most critical challenges organizations face during AI adoption, including:</p>
+        <ul>
+          <li>Secure AI integration with enterprise systems</li>
+          <li>Compliance and governance requirements</li>
+          <li>Scalable AI deployment across operations</li>
+          <li>Intelligent automation and reasoning capabilities</li>
+          <li>Enterprise-ready architecture for financial services</li>
+        </ul>
+        <p style="margin-top:16px;">As enterprises continue accelerating their AI journeys, solutions like AIRA are becoming essential for balancing innovation with operational security, compliance, and scalability.</p>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card" style="margin-top:32px;">
+      <div class="day-card__header">
+        <div class="day-card__badge">D3</div>
+        <div class="day-card__title">Day 3 – Wrapping Up an Incredible Experience</div>
+      </div>
+      <div class="day-card__body">
+        <p>Day 3 marked the conclusion of an inspiring and impactful experience at Cypher 2025. Hyniva was proud to be part of India's biggest AI summit and contribute to conversations around the future of intelligent enterprises and financial services.</p>
+        <p>The event highlighted how AI is rapidly evolving from experimentation to real-world enterprise implementation, and how organizations are actively looking for trusted partners and scalable AI solutions to support that transformation.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+
+      <h2>Looking Ahead</h2>
+      <p>Cypher 2025 was an incredible platform for learning, networking, and collaboration. The experience strengthened Hyniva's commitment to building innovative AI solutions that help enterprises transform securely and intelligently.</p>
+      <p>We extend our sincere thanks to Analytics India Magazine (AIM) for organizing such an impactful event and bringing together a vibrant community of AI leaders, innovators, and changemakers.</p>
+      <p>Hyniva looks forward to continuing these conversations and driving the future of enterprise AI innovation.</p>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta__text">
+        <div class="cta__kicker">Get in touch</div>
+        <div class="cta__heading">Ready to explore enterprise AI with Hyniva?</div>
+        <div class="cta__sub">Follow us on LinkedIn for the latest updates and insights.</div>
+      </div>
+      <a href="https://www.linkedin.com/company/hyniva/" class="cta__btn">Connect on LinkedIn →</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
