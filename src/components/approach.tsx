@@ -24,15 +24,15 @@ export function Approach() {
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
-                    className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-2"
+                    className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-8 mb-2"
                 >
                     {/* Left: Headline & Callout */}
-                    <div className="flex-1 lg:max-w-2xl">
-                        <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-6">
+                    <div className="flex-1 w-full lg:max-w-2xl">
+                        <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-4 sm:mb-6">
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             {label}
                         </div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-white mb-6 font-display">
+                        <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
                             {headline.split("Model").map((part, i, arr) => (
                                 <span key={i}>
                                     {part}
@@ -41,18 +41,17 @@ export function Approach() {
                             ))}
                         </h2>
                         {/* Left-aligned Callout Content (2 lines) */}
-                        <p className="text-[14px] font-medium leading-[1.7] text-white/70 whitespace-nowrap">
-                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br />
-                            reducing overhead and increasing accountability at every stage.
+                        <p className="text-[13px] sm:text-[14px] md:text-[15px] font-medium leading-[1.6] sm:leading-[1.7] text-white/70">
+                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead and increasing accountability at every stage.
                         </p>
                     </div>
 
                     {/* Right: Punch Stat (Top Aligned to Label) */}
-                    <div className="flex flex-col items-end text-right flex-shrink-0 mt-2 lg:mt-2">
-                        <div className="text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
-                            40<span className="text-white text-[52px]">%</span>
+                    <div className="flex flex-col items-center lg:items-end text-center lg:text-right flex-shrink-0 mt-6 lg:mt-0 w-full lg:w-auto">
+                        <div className="text-[56px] sm:text-[64px] lg:text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
+                            40<span className="text-white text-[40px] sm:text-[48px] lg:text-[52px]">%</span>
                         </div>
-                        <div className="text-[14px] font-bold mt-3 leading-[1.3] text-white/70 eyebrow">
+                        <div className="text-[13px] sm:text-[14px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 eyebrow">
                             faster delivery<br />vs. traditional model
                         </div>
                     </div>

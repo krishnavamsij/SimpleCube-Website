@@ -9,6 +9,8 @@ interface JobPosition {
   id: string;
   title: string;
   location: string;
+  type?: string;
+  description?: string;
   jobDuties: string[];
   qualifications: {
     degree: string;
@@ -727,6 +729,112 @@ const jobOpenings: JobPosition[] = [
     ],
     region: "india",
   },
+  {
+    id: "guidewire-integration-lead-developer",
+    title: "Guidewire Integration Lead Developer",
+    location: "Idaho (USA / Canada) – Remote",
+    type: "Long Term Contract",
+    description: "We are seeking a highly experienced Guidewire Integration Lead Developer with strong expertise in PolicyCenter integrations and rating. The ideal candidate will lead design and development of complex integrations, drive best practices, and ensure high-quality delivery in a Guidewire Cloud environment.",
+    jobDuties: [
+      "Lead the design, development, and implementation of Guidewire PolicyCenter integrations",
+      "Architect and develop real-time and batch integrations using Guidewire Integration frameworks (Gosu, Messaging, Web Services, APIs)",
+      "Work closely with business and technical teams to understand requirements and translate them into scalable solutions",
+      "Drive rating integrations and support configuration (preferred)",
+      "Ensure adherence to Guidewire best practices, coding standards, and performance guidelines",
+      "Lead code reviews, mentor junior developers, and provide technical guidance",
+      "Troubleshoot and resolve production issues, ensuring minimal business impact",
+      "Collaborate with cross-functional teams including QA, DevOps, and business stakeholders"
+    ],
+    qualifications: {
+      degree: "ACE Certification (Mammoth release or later)",
+      experience: "10+ Years",
+    },
+    skillsRequired: [
+      "10+ years of overall IT experience",
+      "Strong hands-on experience in Guidewire PolicyCenter Integration development",
+      "Expertise in Gosu, Integration APIs, Messaging, SOAP/REST Web Services",
+      "Experience with Guidewire Rating (preferred but highly valued)",
+      "Solid understanding of Guidewire data model and integration patterns",
+      "Experience working in Guidewire Cloud environment",
+      "ACE Certification (Mammoth release or later)"
+    ],
+    region: "us",
+    howToApply: "Updated Resume\nVisa / Work Authorization\nCurrent Location\nAvailability\nExpected Rate\nLinkedIn Profile",
+  },
+  {
+    id: "salesforce-data-360-agentforce-consultant",
+    title: "Salesforce Data 360 & AgentForce Consultant",
+    location: "Tyson, VA (OR) San Antonio, TX (USA)",
+    type: "Full-Time",
+    description: "We are seeking an experienced Salesforce Data 360 & AgentForce Consultant with strong expertise in Salesforce ecosystem solutions, AI-driven customer engagement, and omnichannel service platforms. The ideal candidate will have hands-on experience with Salesforce Data Cloud (Data 360), AgentForce, Agent Builder, Prompt Builder, Einstein AI capabilities, and Omni-Channel routing and messaging solutions.",
+    jobDuties: [
+      "Design, configure, and implement Salesforce Data 360 / Data Cloud solutions",
+      "Configure and support AgentForce capabilities within Salesforce environments",
+      "Develop and optimize AI-powered workflows using Agent Builder and Prompt Builder",
+      "Implement and manage Einstein AI features for automation, recommendations, and customer insights",
+      "Configure Omni-Channel routing, messaging, and case assignment workflows",
+      "Support customer engagement across voice, chat, email, SMS, and digital channels",
+      "Integrate Salesforce solutions with enterprise systems and third-party applications",
+      "Collaborate with business and technical teams to gather requirements and define scalable solutions",
+      "Develop and maintain technical documentation and process workflows",
+      "Support system testing, troubleshooting, deployment, and post-production activities",
+      "Participate in Agile ceremonies and continuous improvement initiatives"
+    ],
+    qualifications: {
+      degree: "Salesforce certifications in Administrator, Service Cloud, AI Specialist, or Data Cloud Consultant (Preferred)",
+      experience: "8+ Years",
+    },
+    skillsRequired: [
+      "8+ years of experience working with Salesforce platforms and CRM solutions",
+      "Strong experience with Salesforce Data 360 / Data Cloud implementation and administration",
+      "Hands-on experience with AgentForce platform capabilities",
+      "Experience configuring Agent Builder and Prompt Builder functionalities",
+      "Strong understanding of Salesforce Service Cloud and customer engagement solutions",
+      "Experience with Einstein AI features (recommendations, predictive insights, generated prompts, workflows)",
+      "Experience with Omni-Channel routing and messaging configuration (Chat, Email, SMS)",
+      "Experience with Salesforce APIs, REST/SOAP APIs, and middleware integrations",
+      "Strong understanding of security, permissions, and role-based access controls",
+      "Salesforce certifications (Administrator, Service Cloud, AI Specialist, Data Cloud Consultant preferred)"
+    ],
+    region: "us",
+  },
+  {
+    id: "tosca-automation-engineer",
+    title: "Tosca Automation Engineer",
+    location: "Toronto, Canada (Remote – Ontario / Nova Scotia preferred)",
+    type: "Permanent",
+    description: "We are seeking an experienced Tosca Automation Engineer to design, build, and maintain scalable automation suites across UI, API, and data layers. The role focuses on building reusable automation frameworks, managing test data, and integrating automated test cases into CI/CD pipelines in a fast-paced delivery environment.",
+    jobDuties: [
+      "Design and execute automated test cases including regression, functional, and end-to-end business process testing using Tosca",
+      "Design, develop, and maintain Tosca automation scripts",
+      "Implement and maintain automation frameworks for functional, regression, and integration testing",
+      "Create and manage Tosca workspace, components, test design sheets, modules, classes, RTB, and libraries",
+      "Build automation frameworks from scratch where required",
+      "Develop and maintain test data strategies including Tosca Data Integrity and DB validation",
+      "Perform PDF comparisons and data validation using Tosca tools",
+      "Collaborate with BA, Dev, and QA teams for requirement traceability",
+      "Troubleshoot automation failures and optimize scripts",
+      "Support CI/CD integration using DevOps tools"
+    ],
+    qualifications: {
+      degree: "Tosca Automation Specialist I & II / Test Design Specialist certification (Preferred)",
+      experience: "6–10 Years",
+    },
+    skillsRequired: [
+      "6–10 years of test automation experience",
+      "3+ years of hands-on experience with Tosca framework",
+      "Strong experience in Tosca Data Integrity (DI)",
+      "Experience in test case design, modules, test design sheets, RTB, and libraries",
+      "Strong troubleshooting and debugging skills",
+      "Experience in Agile / BDD environments",
+      "Experience with CI/CD tools like GitLab and Jenkins",
+      "Strong SQL skills",
+      "Insurance domain experience (Preferred)",
+      "Experience working in onshore/offshore models"
+    ],
+    region: "us",
+    howToApply: "Updated Resume\nCurrent Location\nWork Authorization\nAvailability\nExpected Rate\nLinkedIn Profile",
+  },
 ];
 
 export default function CareersPage() {
@@ -1243,7 +1351,7 @@ export default function CareersPage() {
                         <div className="flex flex-wrap gap-3">
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[#1e6fff]/[0.05] text-[#1e6fff]">
                             <Briefcase className="w-3 h-3" />
-                            Full-Time
+                            {job.type || "Full-Time"}
                           </span>
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-gray-50 text-gray-500">
                             <MapPin className="w-3 h-3" />
@@ -1270,7 +1378,7 @@ export default function CareersPage() {
                               About the Role
                             </h4>
                             <p className="text-sm text-slate-700 leading-relaxed">
-                              We are looking for talented professionals to join our team. This role offers excellent growth opportunities and the chance to work on exciting projects.
+                              {job.description || "We are looking for talented professionals to join our team. This role offers excellent growth opportunities and the chance to work on exciting projects."}
                             </p>
                           </div>
 
@@ -1324,12 +1432,32 @@ export default function CareersPage() {
                             <ul className="space-y-2.5">
                               {job.skillsRequired.map((skill, idx) => (
                                 <li key={idx} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 flex-none"></span>
+                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
                                   <span>{skill}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
+
+                          {/* Application Requirements */}
+                          {job.howToApply && (
+                            <div>
+                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                                Application Requirements
+                              </h4>
+                              <p className="text-sm text-slate-700 leading-relaxed mb-3 font-semibold text-slate-800">
+                                Please share suitable profiles with:
+                              </p>
+                              <ul className="space-y-2">
+                                {job.howToApply.split("\n").map((req, idx) => (
+                                  <li key={idx} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
+                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
+                                    <span>{req}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
 
                           <div className="pt-8 mt-4 border-t border-slate-100">
                             <button
@@ -1635,6 +1763,9 @@ export default function CareersPage() {
                           <option>9 – 12 years</option>
                           <option>12+ years</option>
                         </select>
+                        {errors.experience && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.experience}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1658,6 +1789,9 @@ export default function CareersPage() {
                           <option>9 – 12 years</option>
                           <option>12+ years</option>
                         </select>
+                        {errors.relevantExp && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.relevantExp}</p>
+                        )}
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
@@ -1704,6 +1838,9 @@ export default function CareersPage() {
                             }`}
                           required
                         />
+                        {errors.currentCTC && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.currentCTC}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1731,7 +1868,8 @@ export default function CareersPage() {
                           value={formData.noticePeriod}
                           onChange={handleInputChange}
                           onBlur={handleBlur}
-                          className="w-full h-11 px-4 border border-gray-200 rounded-xl bg-white outline-none text-sm transition-all duration-200"
+                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm transition-all duration-200 ${errors.noticePeriod ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#1e6fff] hover:border-gray-300'
+                            }`}
                           required
                         >
                           <option value="">Select notice period</option>
@@ -1741,6 +1879,9 @@ export default function CareersPage() {
                           <option>60 days</option>
                           <option>90 days+</option>
                         </select>
+                        {errors.noticePeriod && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.noticePeriod}</p>
+                        )}
                       </div>
                       <div className="space-y-1.5">
                         <label className="block text-xs font-medium text-gray-700 ml-1">
@@ -1778,10 +1919,13 @@ export default function CareersPage() {
                           onChange={handleInputChange}
                           onBlur={handleBlur}
                           placeholder="e.g. React, Node.js, AWS"
-                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 transition-all duration-200 ${errors.skills ? 'border-red-300 focus:border-red-500' : 'border-gray-200'
+                          className={`w-full h-11 px-4 border rounded-xl bg-white focus:ring-2 focus:ring-[#1e6fff]/10 outline-none text-sm placeholder:text-xs placeholder:text-gray-400 transition-all duration-200 ${errors.skills ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-[#1e6fff]'
                             }`}
                           required
                         />
+                        {errors.skills && (
+                          <p className="mt-1 text-xs text-red-500 ml-1">{errors.skills}</p>
+                        )}
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                         <div className="space-y-1.5">

@@ -90,7 +90,7 @@ export function Services() {
                                     zIndex: i,
                                 }}
                             >
-                                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[500px]">
+                                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[500px] lg:min-h-[500px]">
                                     {/* Left: Content */}
                                     <div className="flex-1 p-[30px] sm:p-[40px] lg:p-[50px] flex flex-col justify-center relative z-10">
                                         
@@ -128,7 +128,7 @@ export function Services() {
                                     </div>
 
                                     {/* Right: Graphic */}
-                                    <div className="flex-1 bg-white relative min-h-[300px] lg:min-h-full border-t lg:border-t-0 flex overflow-hidden z-0 rounded-b-[2rem] lg:rounded-b-none lg:rounded-r-[2rem]">
+                                    <div className="hidden lg:flex flex-1 bg-white relative min-h-[300px] lg:min-h-full border-t lg:border-t-0 overflow-hidden z-0 rounded-b-[2rem] lg:rounded-b-none lg:rounded-r-[2rem]">
                                         <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]"></div>
                                         
                                         {/* Gradient fade on the left edge to merge image with white background */}

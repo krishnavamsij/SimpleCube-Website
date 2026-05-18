@@ -114,7 +114,7 @@ export function HeroCarousel() {
                 </div>
 
                 {/* ── RHS: Single High-Fidelity Animation ── */}
-                <div className="relative mt-2 h-[260px] w-full overflow-visible sm:h-[320px] md:h-[380px] lg:mt-0 lg:flex lg:h-auto lg:min-h-screen lg:w-1/2 lg:items-center lg:justify-center">
+                <div className="relative hidden lg:flex lg:mt-0 lg:h-auto lg:min-h-screen lg:w-1/2 lg:items-center lg:justify-center">
                     <HeroPuzzle />
                 </div>
             </div>

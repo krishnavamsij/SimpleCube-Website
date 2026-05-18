@@ -191,7 +191,7 @@ export default function NewsDetailPage() {
                             </motion.div>
 
                             {!post.bannerBadge && (
-                                <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-bold font-display">
+                                <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-normal">
                                     <div className="flex items-center gap-2">
                                         <Clock className="w-4 h-4 text-[#1e90ff]" />
                                         {post.date}
@@ -206,15 +206,6 @@ export default function NewsDetailPage() {
                                 style={{ textTransform: 'none', fontFamily: 'var(--font-display), serif' }}
                                 dangerouslySetInnerHTML={{ __html: post.title }}
                             />
-
-                            {post.subtitle && (
-                                <motion.p
-                                    variants={fadeInUp}
-                                    className="text-xl sm:text-2xl text-white font-bold leading-relaxed max-w-5xl mx-auto tracking-wide px-8"
-                                >
-                                    {post.subtitle}
-                                </motion.p>
-                            )}
                         </motion.div>
                     </div>
                 </div>
@@ -353,10 +344,13 @@ export default function NewsDetailPage() {
                 .pullquote__text { font-family: var(--font-display), serif; font-size: 18px; font-style: normal; color: #0a0f1e; line-height: 1.6; }
 
                 /* ─── IMAGE GRID ─── */
-                .image-grid { display: flex; gap: 24px; margin: 48px 0; width: 100%; }
-                .image-wrapper { flex: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 4/3; }
+                .image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 48px 0; width: 100%; }
+                .image-wrapper { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #f8fafc; aspect-ratio: 1/1; position: relative; width: 100%; }
                 .image-wrapper img { width: 100%; height: 100%; display: block; object-fit: cover; }
-                @media (max-width: 768px) { .image-grid { flex-direction: column; gap: 16px; } .image-wrapper { aspect-ratio: 16/9; } }
+                @media (max-width: 768px) { 
+                    .image-grid { grid-template-columns: 1fr; gap: 16px; } 
+                    .image-wrapper { aspect-ratio: 4/3; }
+                }
 
                 .quote-block { margin-top: 48px; background: #0a0f1e; border-radius: 14px; padding: 40px 36px; position: relative; overflow: hidden; margin-bottom: 24px; }
                 .quote-block::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
@@ -386,11 +380,43 @@ export default function NewsDetailPage() {
                 .cta__btn { position: relative; z-index: 1; display: inline-block; padding: 14px 30px; background: #1e6fff; color: #fff; font-size: 14px; font-weight: 500; border-radius: 8px; text-decoration: none; transition: all .2s; white-space: nowrap; }
                 .cta__btn:hover { background: #1a5fe0; box-shadow: 0 0 28px rgba(30,111,255,.4); transform: translateY(-2px); }
 
+                /* ─── DAY CARDS ─── */
+                .day-card { border: 1px solid #e4e8f0; border-radius: 14px; overflow: hidden; margin-top: 32px; }
+                .day-card__header { background: #0a0f1e; padding: 18px 24px; display: flex; align-items: center; gap: 14px; position: relative; overflow: hidden; }
+                .day-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
+                .day-card__badge { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; background: #1e6fff; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .day-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff; }
+                .day-card__body { padding: 22px 24px; background: #ffffff; }
+                .day-card__body p { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.85; margin-bottom: 16px; }
+                .day-card__body ul { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+                .day-card__body ul li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+                .day-card__body ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 8px; }
+
+                /* ─── AIRA BLOCK ─── */
+                .aira-block { margin-top: 32px; border: 1px solid rgba(30,111,255,.25); border-radius: 14px; overflow: hidden; }
+                .aira-block__header { background: #0a0f1e; padding: 24px 28px; position: relative; overflow: hidden; }
+                .aira-block__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.08) 1px, transparent 1px); background-size: 24px 24px; }
+                .aira-block__orb { position: absolute; width: 320px; height: 320px; border-radius: 50%; background: rgba(30,111,255,.18); filter: blur(70px); top: -130px; right: -70px; pointer-events: none; }
+                .aira-block__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(17px, 2.2vw, 21px); font-weight: 400; color: #e8f0ff; line-height: 1.3; }
+                .aira-block__sub { position: relative; z-index: 1; font-size: 14px; font-weight: 300; color: rgba(200,220,245,.65); line-height: 1.65; margin-top: 6px; }
+                .aira-block__body { padding: 20px 28px; background: #ffffff; }
+                .aira-block__body p { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.85; margin-bottom: 16px; }
+                .aira-block__link { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 500; color: #1e6fff; text-decoration: underline; text-underline-offset: 3px; margin-bottom: 18px; transition: opacity .2s; }
+                .aira-block__link:hover { opacity: .75; }
+                .aira-block__link svg { width: 13px; height: 13px; }
+                .aira-block__body ul { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+                .aira-block__body ul li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
+                .aira-block__body ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 8px; }
+
                 @media (max-width: 768px) {
                     .type-compare, .benefits, .pillars { grid-template-columns: 1fr; }
                     .milestone { flex-direction: column; gap: 12px; }
                     .cta { padding: 36px 24px; flex-direction: column; text-align: center; }
                     .cta__text { text-align: center; }
+                    .day-card__header { padding: 16px 20px; }
+                    .day-card__body { padding: 18px 20px; }
+                    .aira-block__header { padding: 20px 22px; }
+                    .aira-block__body { padding: 18px 22px; }
                 }
 
                 @keyframes shimmerSweep {
