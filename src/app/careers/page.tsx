@@ -1432,7 +1432,7 @@ export default function CareersPage() {
                             <ul className="space-y-2.5">
                               {job.skillsRequired.map((skill, idx) => (
                                 <li key={idx} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 flex-none"></span>
+                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
                                   <span>{skill}</span>
                                 </li>
                               ))}
