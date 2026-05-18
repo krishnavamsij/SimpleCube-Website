@@ -973,8 +973,7 @@ export default function CareersPage() {
         else if (!/\d/.test(value)) error = "Please enter a valid amount (e.g. 12,00,000)";
         break;
       case 'expectedCTC':
-        if (!value.trim()) error = "Expected CTC is required";
-        else if (!/\d/.test(value)) error = "Please enter a valid amount (e.g. 18,00,000)";
+        if (value.trim() && !/\d/.test(value)) error = "Please enter a valid amount (e.g. 18,00,000)";
         break;
       case 'noticePeriod':
         if (!value) error = "Please select your notice period";
@@ -993,7 +992,7 @@ export default function CareersPage() {
         }
         break;
       case 'coverNote':
-        if (!value.trim()) error = "Please tell us why you want to join Hyniva";
+        // Cover Note is optional - no validation needed
         break;
     }
 
