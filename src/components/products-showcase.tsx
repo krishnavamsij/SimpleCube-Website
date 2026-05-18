@@ -45,7 +45,7 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     }, [isInView, p.image]);
 
     return (
-        <div ref={ref} className="w-full lg:w-1/2 relative flex items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
+        <div ref={ref} className="hidden lg:flex w-full lg:w-1/2 relative items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
             {/* Targeted Soft Edge Fog */}
             <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
