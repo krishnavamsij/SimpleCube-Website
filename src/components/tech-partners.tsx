@@ -123,7 +123,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full lg:w-[52%] flex justify-center overflow-visible">
+                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible pl-0 sm:pl-2 md:pl-4 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}
@@ -133,10 +133,11 @@ export function TechPartners() {
                             className="
                                 relative
                                 w-full
-                                max-w-[760px]
-                                h-[420px]
-                                sm:h-[520px]
-                                md:h-[620px]
+                                max-w-[600px]
+                                sm:max-w-[760px]
+                                h-[350px]
+                                sm:h-[480px]
+                                md:h-[580px]
                                 lg:h-[680px]
                                 overflow-visible
                             "
@@ -156,11 +157,11 @@ export function TechPartners() {
                                 <div
                                     className="
                                         relative
-                                        scale-[0.40]
-                                        sm:scale-[0.55]
-                                        md:scale-[0.68]
-                                        lg:scale-[0.78]
-                                        xl:scale-[0.9]
+                                        scale-[0.32]
+                                        sm:scale-[0.45]
+                                        md:scale-[0.60]
+                                        lg:scale-[0.75]
+                                        xl:scale-[0.85]
                                         origin-center
                                         mx-auto
                                     "
