@@ -94,25 +94,18 @@ export const insuranceContent = {
         subtitle: "Real-world implementations that demonstrate how we have enabled insurers to transform experiences, accelerate claims and modernize operations at scale.",
         studies: [
             {
-                title: "Automated Claims Experience<br />with Agentforce",
+                title: "Transforming Claims Operations<br />with a Scalable Digital Platform",
                 titleHighlightIndex: 1,
-                description: "Built an AI-driven claims journey that automates document processing, decisioning and approvals.",
-                href: "/insights/case-studies/automated-claims",
-                image: "/images/Case_Study/1.png"
+                description: "Unified claims workflows with real-time processing and visibility for faster settlements.",
+                href: "/insights/case-studies/transforming-insurance-claims-operations-with-a-scalable-digital-platform",
+                image: "/images/Case_Studies/Optimized/cs-17.png"
             },
             {
-                title: "Faster Underwriting<br />with Document Intelligence",
+                title: "AI-Powered Customer Support<br />Automation",
                 titleHighlightIndex: 1,
-                description: "Underwriting processes completed in minutes with AI-driven data extraction.",
-                href: "/insights/case-studies/faster-underwriting",
-                image: "/images/Case_Study/4.png"
-            },
-            {
-                title: "Modernizing Customer Service<br />with Intelligent Self-Service",
-                titleHighlightIndex: 2,
-                description: "Transformed legacy support into a Smart Customer Engagement Interaction System.",
-                href: "/insights/case-studies/insurance-self-service",
-                image: "/images/Case_Study/2.png"
+                description: "Deployed an AI chatbot to improve response times and reduce support effort.",
+                href: "/insights/case-studies/ai-customer-support-automation",
+                image: "/images/Case_Studies/23. AI-PoweredCustomerSupportAutomation.png"
             }
         ]
     }
