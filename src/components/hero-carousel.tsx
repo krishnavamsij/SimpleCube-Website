@@ -42,7 +42,7 @@ export function HeroCarousel() {
             {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
                 {/* ── LHS: Text ── */}
-                <div className="flex w-full flex-col justify-center pb-0 pt-24 sm:pb-2 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-28">
+                <div className="flex w-full flex-col justify-center pb-6 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key="hero-content"
