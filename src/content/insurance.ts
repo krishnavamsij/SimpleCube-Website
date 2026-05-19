@@ -5,7 +5,7 @@ export const insuranceContent = {
         badge: "INSURANCE",
         title: "Modern insurance depends on connected<br />and intelligent claims operations",
         subtitle: "Faster decisions, streamlined claims execution, and real-time<br />servicing across the insurance lifecycle.",
-        backgroundImage: "/images/Banner_cards/Insurance.png",
+        backgroundImage: "/images/insurance/hero-banner.png",
     },
     alternatingSections: [
         {
@@ -16,7 +16,7 @@ export const insuranceContent = {
                 "Insurers must translate growing investments in AI, data, and automation into measurable business outcomes while improving responsiveness, operational efficiency, and customer trust across every interaction."
             ],
             imagePosition: "left",
-            image: "/images/Industries_Section/Banking_Subpage/TheShift.png", 
+            image: "/images/insurance/image-1.png", 
         },
         {
             title: "WHAT MODERN INSURANCE DEMANDS",
@@ -26,7 +26,7 @@ export const insuranceContent = {
                 "At the same time, organizations must ensure operational consistency, compliance, and scalability while managing growing volumes and increasingly complex workflows."
             ],
             imagePosition: "right",
-            image: "/images/Industries_Section/Banking_Subpage/WHATMODERNBANKINGDEMANDS.png", 
+            image: "/images/insurance/image-2.png", 
         },
         {
             title: "OUR APPROACH",
@@ -36,7 +36,7 @@ export const insuranceContent = {
                 "This approach helps insurers reduce operational friction, accelerate claims resolution, improve decision accuracy, and deliver more consistent customer experiences across the insurance lifecycle."
             ],
             imagePosition: "left",
-            image: "/images/Industries_Section/Banking_Subpage/Ourapproach.png",
+            image: "/images/insurance/image-3.png",
         }
     ],
     offerings: {
