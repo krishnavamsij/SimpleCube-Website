@@ -80,10 +80,10 @@ export const insuranceContent = {
         title: "WHAT WE HAVE DELIVERED IN INSURANCE",
         subtitle: "Our experience is grounded in building and scaling connected insurance operations that improve claims coordination, servicing efficiency and operational visibility. From intelligent claims assignment and adjuster orchestration to automated workflows and real-time communication, we help insurers modernize execution across the entire claims lifecycle .",
         stats: [
-            { value: "60%", label: "Faster claims processing" },
-            { value: "40%", label: "Improvement in operational efficiency" },
-            { value: "80%", label: "Reduction in manual coordination effort" },
-            { value: "100%", label: "Real-time claims visibility" }
+            { value: "60%", label: "Faster claims<br />processing" },
+            { value: "40%", label: "Improvement in<br />operational efficiency" },
+            { value: "80%", label: "Reduction in manual<br />coordination effort" },
+            { value: "100%", label: "Real-time claims<br />visibility" }
         ]
     },
     caseStudies: {

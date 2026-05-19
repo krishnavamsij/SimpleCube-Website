@@ -209,9 +209,10 @@ function ProvenImpact() {
                             <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display">
                                 {stat.value}
                             </div>
-                            <div className="text-base text-slate-300 font-medium text-center">
-                                {stat.label}
-                            </div>
+                            <div 
+                                className="text-base text-slate-300 font-medium text-center"
+                                dangerouslySetInnerHTML={{ __html: stat.label }}
+                            />
                         </motion.div>
                     ))}
                 </motion.div>
