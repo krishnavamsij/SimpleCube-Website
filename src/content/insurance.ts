@@ -2,18 +2,19 @@ import { LucideIcon, Monitor, Calculator, Shield, Bot, Users, Cloud, RefreshCw, 
 
 export const insuranceContent = {
     hero: {
-        badge: "INSURANCE",
-        title: "Modern insurance depends on connected<br />and intelligent claims operations",
-        subtitle: "Faster decisions, streamlined claims execution, and real-time<br />servicing across the insurance lifecycle.",
+        badge: "BANKING",
+        title: "Redefining insurance operations through<br />AI-driven claims orchestration",
+        subtitle: "Automated claim assignment, intelligent field coordination and<br />real-time servicing across the insurance lifecycle.",
         backgroundImage: "/images/insurance/hero-banner.png",
     },
     alternatingSections: [
         {
             title: "INSURANCE HAS MOVED BEYOND POLICY MANAGEMENT",
             content: [
-                "Insurance companies are under increasing pressure to modernize core systems and scale AI adoption in an environment shaped by rising regulatory complexity, cyber risk, and evolving customer expectations.",
-                "At the same time, fragmented workflows, disconnected claims operations, and limited real-time visibility continue to slow execution and increase operational overhead.",
-                "Insurers must translate growing investments in AI, data, and automation into measurable business outcomes while improving responsiveness, operational efficiency, and customer trust across every interaction."
+                "Insurance organizations are under increasing pressure to modernize operations in an environment shaped by rising customer expectations, catastrophic event volumes, regulatory complexity and growing operational costs.",
+                "Yet many insurers still rely on fragmented workflows, manual claim assignment, disconnected field coordination and limited real-time visibility across claims operations.",
+                "This slows response times, impacts adjuster utilization and creates inconsistent customer experiences during critical moments.",
+                "As insurers accelerate investments in AI, automation and operational intelligence, the focus is shifting toward connected claims ecosystems that enable faster coordination, intelligent decisioning and more responsive servicing across the entire lifecycle."
             ],
             imagePosition: "left",
             image: "/images/insurance/image-1.png", 
@@ -21,68 +22,71 @@ export const insuranceContent = {
         {
             title: "WHAT MODERN INSURANCE DEMANDS",
             content: [
-                "Modern insurance is defined by how efficiently organizations can assess risk, coordinate claims, and deliver responsive customer experiences at scale.",
-                "Insurers expect faster underwriting, intelligent claims routing, seamless servicing, and real-time visibility across the claims lifecycle. Customers increasingly expect transparent communication, quicker resolutions, and frictionless digital experiences throughout the process.",
-                "At the same time, organizations must ensure operational consistency, compliance, and scalability while managing growing volumes and increasingly complex workflows."
+                "Modern insurance is defined by how efficiently organizations can assess risk, coordinate claims and deliver responsive customer experiences at scale.",
+                "Insurers today require intelligent claims routing, automated workflow execution, real-time operational visibility and connected servicing experiences that reduce friction across every stage of the process.",
+                "Customers increasingly expect transparent communication, live status updates, faster resolutions and seamless digital interactions without constant follow-ups.",
+                "At the same time, organizations must improve execution consistency while managing growing claim volumes, distributed field operations and increasingly complex workflows."
             ],
             imagePosition: "right",
             image: "/images/insurance/image-2.png", 
         },
         {
-            title: "OUR APPROACH",
+            title: "OUR APPROACH TO CONNECTED INSURANCE OPERATIONS",
             content: [
-                "We enable insurers to move beyond disconnected workflows by aligning claims operations, servicing platforms, and AI-driven decisioning into a connected execution model.",
-                "Instead of treating underwriting, claims processing, communication, and field operations as isolated functions, we bring them together into a unified operational ecosystem that improves visibility, coordination, and execution speed.",
-                "This approach helps insurers reduce operational friction, accelerate claims resolution, improve decision accuracy, and deliver more consistent customer experiences across the insurance lifecycle."
+                "We help insurers modernize claims operations through AI-driven orchestration, intelligent automation and real-time operational visibility.",
+                "Our approach unifies intake, assignment, field coordination, communication, assessment and settlement into a connected operational ecosystem that improves execution speed and reduces manual effort.",
+                "Claims are automatically routed using intelligent workload balancing based on adjuster availability, schedules, proximity and operational priorities.",
+                "Automated notifications, live tracking and real-time communication enable faster coordination, seamless customer experiences and more efficient claims resolution.",
+                "By combining operational intelligence with connected workflows, we help insurers improve adjuster productivity and scale operations more effectively across both routine and catastrophic event scenarios."
             ],
             imagePosition: "left",
             image: "/images/insurance/image-3.png",
         }
     ],
     offerings: {
-        title: "INSURANCE OFFERINGS",
+        title: "OUR OFFERINGS",
         subtitle: "Our services are designed to address the core operational and transformation priorities shaping modern insurance.",
         items: [
             {
                 icon: "Network",
                 title: "Claims Orchestration",
-                description: "We streamline and automate claims coordination across intake, assignment, assessment, review, and settlement workflows."
+                description: "We streamline and automate claims coordination across intake, assignment, assessment, review and settlement workflows."
             },
             {
                 icon: "Route",
-                title: "Intelligent Claims Routing",
-                description: "We enable real-time assignment and workload balancing to improve adjuster utilization, responsiveness, and operational efficiency."
+                title: "Intelligent Claims Assignment & Routing",
+                description: "We enable automated claim distribution, workload balancing and real-time field coordination based on adjuster availability, schedules and operational priorities."
             },
             {
                 icon: "Smartphone",
                 title: "Digital Claims Servicing",
-                description: "We deliver connected servicing experiences with real-time communication, live status visibility, and seamless customer interactions."
+                description: "We deliver connected servicing experiences with automated notifications, live tracking, seamless scheduling and real-time communication across the claims journey."
             },
             {
                 icon: "BrainCircuit",
                 title: "AI-Driven Risk & Decisioning",
-                description: "We implement intelligent risk assessment and decisioning capabilities that improve underwriting accuracy and operational outcomes."
+                description: "We implement intelligent assessment and decisioning capabilities that improve underwriting accuracy, operational consistency and execution outcomes."
             },
             {
                 icon: "Zap",
                 title: "Claims Workflow Automation",
-                description: "We modernize claims and servicing operations through workflow automation, reducing manual effort and accelerating turnaround time."
+                description: "We modernize claims and servicing operations through workflow automation that reduces manual effort and accelerates turnaround times."
             },
             {
                 icon: "LineChart",
                 title: "Operational Visibility & Analytics",
-                description: "We provide real-time dashboards and operational insights that improve monitoring, performance tracking, and decision-making across claims operations."
+                description: "We provide real-time dashboards and operational insights that improve SLA tracking, operational monitoring, performance visibility and decision-making across claims operations."
             }
         ]
     },
     impact: {
-        title: "PROVEN IN INSURANCE",
-        subtitle: "Our experience is grounded in building and scaling connected insurance operations that improve claims coordination, servicing efficiency, and operational visibility. From intelligent claims assignment and adjuster orchestration to automated workflows and real-time communication, we help insurers modernize execution across the claims lifecycle.",
+        title: "WHAT WE HAVE DELIVERED IN INSURANCE",
+        subtitle: "Our experience is grounded in building and scaling connected insurance operations that improve claims coordination, servicing efficiency and operational visibility. From intelligent claims assignment and adjuster orchestration to automated workflows and real-time communication, we help insurers modernize execution across the entire claims lifecycle .",
         stats: [
-            { value: "60%", label: "Faster Claims Processing" },
-            { value: "40%", label: "Operational Efficiency Gain" },
-            { value: "80%", label: "Reduction in Manual Work" },
-            { value: "100%", label: "Real-Time Claims Visibility" }
+            { value: "60%", label: "Faster claims processing" },
+            { value: "40%", label: "Improvement in operational efficiency" },
+            { value: "80%", label: "Reduction in manual coordination effort" },
+            { value: "100%", label: "Real-time claims visibility" }
         ]
     },
     caseStudies: {
