@@ -5,7 +5,7 @@ export const insuranceContent = {
         badge: "INSURANCE",
         title: "Redefining insurance operations through<br />AI-driven claims orchestration",
         subtitle: "Automated claim assignment, intelligent field coordination and<br />real-time servicing across the insurance lifecycle.",
-        backgroundImage: "/images/insurance/hero-banner.png",
+        backgroundImage: "/images/Industries_Section/Insurance_Subpage/Hero Banner.png",
     },
     alternatingSections: [
         {
@@ -16,7 +16,7 @@ export const insuranceContent = {
                 "As AI and automation adoption accelerates, insurers are shifting toward connected claims ecosystems that enable faster coordination, intelligent decisioning, and more responsive servicing across the claims lifecycle."
             ],
             imagePosition: "left",
-            image: "/images/insurance/image-1.png", 
+            image: "/images/Industries_Section/Insurance_Subpage/INSURANCEHASMOVEDBEYONDPOLICYMANAGEMENT.png", 
         },
         {
             title: "WHAT MODERN INSURANCE DEMANDS",
@@ -27,7 +27,7 @@ export const insuranceContent = {
                 "At the same time, organizations must improve execution consistency while managing growing claim volumes, distributed field operations and increasingly complex workflows."
             ],
             imagePosition: "right",
-            image: "/images/insurance/image-2.png", 
+            image: "/images/Industries_Section/Insurance_Subpage/WHATMODERNINSURANCEDEMANDS.png", 
         },
         {
             title: "OUR APPROACH TO CONNECTED INSURANCE OPERATIONS",
@@ -37,7 +37,7 @@ export const insuranceContent = {
                 "Claims are automatically routed using intelligent workload balancing based on adjuster availability, schedules, proximity, and operational priorities. Automated notifications, live tracking, and real-time communication enable faster coordination, seamless customer experiences, and more efficient claims resolution."
             ],
             imagePosition: "left",
-            image: "/images/insurance/image-3.png",
+            image: "/images/Industries_Section/Insurance_Subpage/OURAPPROACHTOCONNECTED INSURANCEOPERATIONS.png",
         }
     ],
     offerings: {
