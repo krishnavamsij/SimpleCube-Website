@@ -21,7 +21,6 @@ export const insuranceContent = {
         {
             title: "WHAT MODERN INSURANCE DEMANDS",
             content: [
-                "Modern insurance is defined by how efficiently organizations can assess risk, coordinate claims and deliver responsive customer experiences at scale.",
                 "Insurers today require intelligent claims routing, automated workflow execution, real-time operational visibility and connected servicing experiences that reduce friction across every stage of the process.",
                 "Customers increasingly expect transparent communication, live status updates, faster resolutions and seamless digital interactions without constant follow-ups.",
                 "At the same time, organizations must improve execution consistency while managing growing claim volumes, distributed field operations and increasingly complex workflows."
