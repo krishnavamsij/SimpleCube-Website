@@ -51,18 +51,18 @@ export const insuranceContent = {
             },
             {
                 icon: "Route",
-                title: "Intelligent Claims Assignment & Routing",
-                description: "We enable automated claim distribution, workload balancing and real-time field coordination based on adjuster availability, schedules and operational priorities."
+                title: "Intelligent Claims Routing",
+                description: "We enable automated claim distribution, workload balancing, and real-time field coordination based on adjuster availability and operational priorities."
             },
             {
                 icon: "Smartphone",
                 title: "Digital Claims Servicing",
-                description: "We deliver connected servicing experiences with automated notifications, live tracking, seamless scheduling and real-time communication across the claims journey."
+                description: "We deliver connected servicing experiences with automated notifications, live tracking, seamless scheduling and real-time customer communication."
             },
             {
                 icon: "BrainCircuit",
                 title: "AI-Driven Risk & Decisioning",
-                description: "We implement intelligent assessment and decisioning capabilities that improve underwriting accuracy, operational consistency and execution outcomes."
+                description: "We implement intelligent assessment and decisioning capabilities that improve underwriting accuracy, operational efficiency and execution outcomes."
             },
             {
                 icon: "Zap",
@@ -72,7 +72,7 @@ export const insuranceContent = {
             {
                 icon: "LineChart",
                 title: "Operational Visibility & Analytics",
-                description: "We provide real-time dashboards and operational insights that improve SLA tracking, operational monitoring, performance visibility and decision-making across claims operations."
+                description: "We provide real-time dashboards and operational insights that improve SLA tracking, performance visibility and claims decision-making."
             }
         ]
     },
