@@ -2683,3 +2683,176 @@ h1.cs-line-clamp-2 em {
   line-height: 1.75 !important;
   margin-bottom: 0 !important;
 }
+
+/* ─── INNOVATION CARDS (Salesforce Innovations Blog - Full Width Cards) ─── */
+.blog-content-wrapper .innovations {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  margin-top: 32px !important;
+  margin-bottom: 24px !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.blog-content-wrapper .inno-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #ffffff !important;
+  border: 1px solid #f1f5f9 !important;
+  border-radius: 14px !important;
+  padding: 28px 32px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+}
+
+.blog-content-wrapper .inno-card:hover {
+  border-color: #2563EB22 !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.07) !important;
+  transform: translateY(-2px) !important;
+}
+
+.blog-content-wrapper .inno-card__header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 14px !important;
+}
+
+.blog-content-wrapper .inno-card__num {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  box-shadow: none !important;
+}
+
+.blog-content-wrapper .inno-card__title {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-bottom: 0 !important;
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  letter-spacing: -0.01em !important;
+}
+
+.blog-content-wrapper .inno-card__body {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .inno-card__desc {
+  font-size: 15.5px !important;
+  font-weight: 300 !important;
+  color: #475569 !important;
+  line-height: 1.75 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ─── CUSTOM BLOG CTA BANNER ─── */
+.blog-content-wrapper .cta {
+  margin-top: 72px !important;
+  background: #030b1e !important;
+  border-radius: 16px !important;
+  padding: 52px 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 32px !important;
+  flex-wrap: wrap !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(30, 111, 255, 0.1) !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .cta::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px) !important;
+  background-size: 36px 36px !important;
+  pointer-events: none !important;
+}
+
+.blog-content-wrapper .cta__text {
+  position: relative !important;
+  z-index: 1 !important;
+  flex: 1 !important;
+  min-width: 280px !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .cta__kicker {
+  font-size: 11px !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: #6eb3ff !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+  font-family: var(--font-display), system-ui, sans-serif !important;
+}
+
+.blog-content-wrapper .cta__heading {
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  font-size: clamp(20px, 2.4vw, 27px) !important;
+  color: #eef4ff !important;
+  line-height: 1.25 !important;
+  margin-bottom: 8px !important;
+  font-weight: 700 !important;
+}
+
+.blog-content-wrapper .cta__sub {
+  font-size: 14.5px !important;
+  font-weight: 300 !important;
+  color: rgba(200, 220, 245, 0.75) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .cta__btn {
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 30px !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .cta__btn:hover {
+  background: #1d4ed8 !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+@media (max-width: 768px) {
+  .blog-content-wrapper .inno-card {
+    padding: 20px 24px !important;
+  }
+  .blog-content-wrapper .cta {
+    padding: 36px 24px !important;
+  }
+}
