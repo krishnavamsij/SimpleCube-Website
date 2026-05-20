@@ -82,7 +82,7 @@ function InsuranceHero() {
 function AlternatingSections() {
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1400px] px-6 space-y-32">
+            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {insuranceContent.alternatingSections.map((section, index) => (
                     <motion.div 
                         key={index}
