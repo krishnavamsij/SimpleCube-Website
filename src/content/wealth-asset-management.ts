@@ -78,9 +78,9 @@ export const wealthAssetManagementContent = {
         subtitle: "Our experience is grounded in helping wealth and asset management firms modernize investor engagement, improve operational efficiency and connect advisory ecosystems across the investment lifecycle. From advisor workflow optimization and portfolio operations modernization to personalized recommendations and connected servicing experiences, we help firms build scalable and intelligent wealth management operations .",
         stats: [
             { value: "5x higher<br />investment", label: "conversion within<br />6 months" },
-            { value: "Personalized portfolio", label: "recommendations generated<br />in minutes" },
-            { value: "Reduced advisor effort", label: "through automated<br />engagement workflows" },
-            { value: "Accelerated AUM growth", label: "through connected<br />investor experiences" }
+            { value: "Personalized<br />portfolio", label: "recommendations generated<br />in minutes" },
+            { value: "Reduced<br />advisor effort", label: "through automated<br />engagement workflows" },
+            { value: "Accelerated<br />AUM growth", label: "through connected<br />investor experiences" }
         ]
     },
     caseStudies: {
