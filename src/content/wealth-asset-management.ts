@@ -3,7 +3,7 @@ export const wealthAssetManagementContent = {
         badge: "WEALTH & ASSET MANAGEMENT",
         title: "Redefining wealth management through<br />intelligent and personalized investor experiences",
         subtitle: "Connected advisory journeys, real-time portfolio intelligence and<br />AI-driven engagement across the investment lifecycle.",
-        backgroundImage: "/images/Banner_cards/Wealth_Asset_Management.png",
+        backgroundImage: "/images/Industries_Section/Wealth and Asset Management subpage/Herobanner.png",
     },
     alternatingSections: [
         {
@@ -13,7 +13,7 @@ export const wealthAssetManagementContent = {
                 "Yet many firms still operate through disconnected systems and workflows that slow decision-making, reduce advisor efficiency and create inconsistent investor experiences across channels."
             ],
             imagePosition: "left",
-            image: "/images/insurance/image-1.png", 
+            image: "/images/Industries_Section/Wealth and Asset Management subpage/WEALTHMANAGEMENTHASMOVEDBEYONDTRADITIONALADVISORY.png", 
         },
         {
             title: "WHAT MODERN WEALTH MANAGEMENT DEMANDS",
@@ -22,7 +22,7 @@ export const wealthAssetManagementContent = {
                 "Firms must improve advisor productivity, maintain operational transparency and deliver personalized digital experiences while scaling investment operations efficiently."
             ],
             imagePosition: "right",
-            image: "/images/insurance/image-2.png", 
+            image: "/images/Industries_Section/Wealth and Asset Management subpage/WHATMODERNWEALTHMANAGEMENTDEMANDS.png", 
         },
         {
             title: "OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
@@ -31,7 +31,7 @@ export const wealthAssetManagementContent = {
                 "Our approach unifies advisory engagement, portfolio operations, servicing, reporting and compliance into a connected ecosystem that improves efficiency, responsiveness and investor experience continuity."
             ],
             imagePosition: "left",
-            image: "/images/insurance/image-3.png", 
+            image: "/images/Industries_Section/Wealth and Asset Management subpage/OURAPPROACHTOCONNECTEDWEALTHMANAGEMENT.png", 
         }
     ],
     offerings: {
