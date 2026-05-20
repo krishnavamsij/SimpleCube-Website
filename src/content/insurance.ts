@@ -11,8 +11,7 @@ export const insuranceContent = {
         {
             title: "INSURANCE HAS MOVED BEYOND POLICY MANAGEMENT",
             content: [
-                "Insurance organizations are under increasing pressure to modernize operations amid rising customer expectations, catastrophic event volumes, regulatory complexity and growing operational costs.",
-                "Yet many insurers still rely on fragmented workflows, manual claim assignment and disconnected field coordination that slow execution and limit operational visibility.",
+                "Insurance organizations are under increasing pressure to modernize operations amid rising customer expectations, catastrophic event volumes, regulatory complexity and growing operational costs. Yet many insurers still rely on fragmented workflows, manual claim assignment and disconnected field coordination that slow execution and limit operational visibility.",
                 "As AI and automation adoption accelerates, insurers are rethinking how claims operations, servicing and field coordination are managed at scale."
             ],
             imagePosition: "left",
@@ -22,8 +21,7 @@ export const insuranceContent = {
             title: "WHAT MODERN INSURANCE DEMANDS",
             content: [
                 "Modern insurance requires faster claims resolution, intelligent operational visibility and seamless customer servicing across every stage of the claims lifecycle.",
-                "Insurers must improve adjuster utilization, streamline coordination across distributed teams and enable real-time communication while managing growing claim volumes and increasingly complex workflows.",
-                "At the same time, customers expect transparent updates, faster resolutions and frictionless digital experiences during critical moments."
+                "Insurers must improve adjuster utilization, streamline coordination across distributed teams and enable real-time communication while managing growing claim volumes and increasingly complex workflows. At the same time, customers expect transparent updates, faster resolutions and frictionless digital experiences during critical moments."
             ],
             imagePosition: "right",
             image: "/images/Industries_Section/Insurance_Subpage/WHATMODERNINSURANCEDEMANDS.png", 
@@ -31,8 +29,7 @@ export const insuranceContent = {
         {
             title: "OUR APPROACH TO CONNECTED INSURANCE OPERATIONS",
             content: [
-                "We help insurers modernize claims operations through AI-driven orchestration, intelligent automation and connected operational workflows.",
-                "Our approach unifies intake, assignment, field coordination, communication, assessment and settlement into a connected ecosystem that improves execution speed and reduces manual effort across the claims lifecycle.",
+                "We help insurers modernize claims operations through AI-driven orchestration, intelligent automation and connected operational workflows. Our approach unifies intake, assignment, field coordination, communication, assessment and settlement into a connected ecosystem that improves execution speed and reduces manual effort across the claims lifecycle.",
                 "Using intelligent workload balancing, automated routing, live tracking and real-time communication, we help insurers accelerate claims resolution, improve operational efficiency and deliver more responsive customer experiences."
             ],
             imagePosition: "left",
