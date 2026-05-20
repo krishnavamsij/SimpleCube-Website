@@ -281,6 +281,19 @@ const countryCodes: CountryCode[] = countryCodeData.map(([iso, code, country]) =
   country,
 }));
 
+// Helper function to get country code based on job region
+const getCountryCodeByRegion = (region?: string): CountryCode => {
+  const regionMap: Record<string, string> = {
+    "us": "US",      // USA (+1)
+    "canada": "CA",  // Canada (+1)
+    "india": "IN",   // India (+91)
+    "uk": "GB",      // UK (+44)
+  };
+
+  const isoCode = regionMap[region?.toLowerCase() || "us"] || "IN";
+  return countryCodes.find((country) => country.iso === isoCode) || countryCodes[0];
+};
+
 const getPhoneValidationError = (value: string, country: CountryCode) => {
   const phoneDigits = value.replace(/\D/g, "");
 
@@ -879,6 +892,17 @@ export default function CareersPage() {
 
   const openModal = (jobTitle: string) => {
     setSelectedJob(jobTitle);
+    
+    // Find the job and set country code based on region
+    const job = jobOpenings.find(j => j.title === jobTitle);
+    if (job && job.region) {
+      const countryCode = getCountryCodeByRegion(job.region);
+      setSelectedCountry(countryCode);
+    } else {
+      // Default to India for "Open Application" or jobs without region
+      setSelectedCountry(countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]);
+    }
+    
     setModalOpen(true);
     setFormSubmitted(false);
     document.body.style.overflow = "hidden";
@@ -909,6 +933,15 @@ export default function CareersPage() {
     setResumeFileName("");
     setFormSubmitted(false);
     setIsSubmitting(false);
+    
+    // Reset country code based on selected job
+    const job = jobOpenings.find(j => j.title === selectedJob);
+    if (job && job.region) {
+      const countryCode = getCountryCodeByRegion(job.region);
+      setSelectedCountry(countryCode);
+    } else {
+      setSelectedCountry(countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]);
+    }
   };
 
   const closeModal = () => {
