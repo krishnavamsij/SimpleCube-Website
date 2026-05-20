@@ -809,6 +809,67 @@ export default function CaseStudyDetailPage() {
                     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
                     border: 1px solid #e5e7eb;
                 }
+
+                /* ── Comparison Table Styling ── */
+                .comparison-table-wrapper {
+                    margin-top: 32px;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                    border: 1px solid #e5e7eb;
+                }
+                .comparison-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: inherit;
+                }
+                .comparison-table__header {
+                    background: #1B3A5C;
+                    color: #ffffff;
+                    font-size: 15px;
+                    font-weight: 700;
+                    padding: 16px 24px;
+                    text-align: left;
+                    width: 50%;
+                    letter-spacing: 0.02em;
+                }
+                .comparison-table__header--left {
+                    border-right: 1px solid rgba(255,255,255,0.15);
+                }
+                .comparison-table__row--even {
+                    background: #ffffff;
+                }
+                .comparison-table__row--odd {
+                    background: #f0f4f8;
+                }
+                .comparison-table__cell {
+                    padding: 16px 24px;
+                    font-size: 14px;
+                    color: #374151;
+                    line-height: 1.6;
+                    vertical-align: top;
+                    border-bottom: 1px solid #e5e7eb;
+                }
+                .comparison-table__cell:first-child {
+                    border-right: 1px solid #e5e7eb;
+                }
+                .comparison-table__cell--highlight {
+                    font-weight: 600;
+                    color: #111827;
+                }
+                .comparison-table__row:last-child .comparison-table__cell {
+                    border-bottom: none;
+                }
+                @media (max-width: 640px) {
+                    .comparison-table__header {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                    .comparison-table__cell {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                }
             `}</style>
         </div>
     );

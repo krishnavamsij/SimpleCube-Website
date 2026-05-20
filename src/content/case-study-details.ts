@@ -174,7 +174,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "instant-loan-processing",
         "eyebrow": "Agentforce Document Intelligence",
         "title": "Faster Loan Processing with<br>\n      <em>Agentforce Document Intelligence</em>",
-        "summary": "Loan applications completed in under 2 minutes<br>with AI-driven document intelligence.",
+        "summary": "Built an AI-powered lending concierge to deliver instant loan processing,<br>streamlining the entire lending lifecycle from application to approval.",
         "metrics": [
             {
                 "icon": "📉",
@@ -613,7 +613,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "aem-migration",
         "eyebrow": "AEM Migration & Digital Transformation",
         "title": "<em>Rapid Reverse-Engineered</em><br>\n      Website Migration",
-        "summary": "Reverse-engineered and migrated a complete website<br>to Adobe Experience Manager in just 2 months — without backend access.",
+        "summary": "Reverse-engineered and migrated a complete website to Adobe Experience Manager in just 2 months — without backend access — ensuring zero downtime and seamless user experience.",
         "metrics": [
             {
                 "icon": "📅",
@@ -1717,7 +1717,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
         "slug": "insurance-claims-platform",
         "eyebrow": "Insurance Claims Transformation",
-        "title": "Transforming Insurance Claims Operations\n      <em>with a ScalableDigital Platform</em>",
+        "title": "Transforming Insurance Claims Operations\n      <em>with a Scalable Digital Platform</em>",
         "summary": "Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.",
         "metrics": [
             {
@@ -1853,7 +1853,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "microsoft-crm-modernization": {
         "slug": "microsoft-crm-modernization",
         "eyebrow": "Microsoft Dynamics 365 & Cloud Modernization",
-        "title": "Enterprise CRM Modernization <em>on Microsoft Cloud</em>",
+        "title": "Enterprise CRM Modernization<br>\n      <em>on Microsoft Cloud</em>",
         "summary": "Modernized a legacy CRM into a scalable, cloud-native Microsoft ecosystem spanning multiple business domains, ensuring seamless migration with zero downtime.",
         "metrics": [
             {
@@ -2461,7 +2461,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         "eyebrow": "AWS Cloud & Document Management",
         "title": "AWS-Powered Document<br>\n      <em>Platform Transformation</em>",
-        "summary": "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
+        "summary": "Replaced a legacy document management system with a serverless AWS architecture, significantly reducing costs while improving performance and scalability.",
         "metrics": [
             {
                 "icon": "💰",
@@ -2569,7 +2569,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Customers now instantly view documents on web and mobile — down from nearly a minute wait"
                         }
                     ],
-                    "footer": "<div class=\"solution-image\">\n          <img src=\"/images/Case_Studies/Optimized/aws_doc2.png\" alt=\"AWS Document Management Impact\"/>\n        </div>"
+                    "footer": "<div class=\"comparison-table-wrapper\"><table class=\"comparison-table\"><thead><tr><th class=\"comparison-table__header comparison-table__header--left\">Previous Platform</th><th class=\"comparison-table__header comparison-table__header--right\">Hyniva's AWS Solution</th></tr></thead><tbody><tr class=\"comparison-table__row comparison-table__row--even\"><td class=\"comparison-table__cell\">Requires extensive maintenance</td><td class=\"comparison-table__cell comparison-table__cell--highlight\">Cost-Effective, with an estimated annual savings of over $500,000</td></tr><tr class=\"comparison-table__row comparison-table__row--odd\"><td class=\"comparison-table__cell\">Scaling demands substantial modifications</td><td class=\"comparison-table__cell comparison-table__cell--highlight\">Easily scalable based on business growth</td></tr><tr class=\"comparison-table__row comparison-table__row--even\"><td class=\"comparison-table__cell\">Multi-platform structure adds management complexity</td><td class=\"comparison-table__cell comparison-table__cell--highlight\">Simplified management with a Unified Platform</td></tr><tr class=\"comparison-table__row comparison-table__row--odd\"><td class=\"comparison-table__cell\">Slower response times</td><td class=\"comparison-table__cell comparison-table__cell--highlight\">Optimized for high performance, efficient handling of large workloads and delivering quicker responses, achieving nearly 5x improvement.</td></tr></tbody></table></div>"
                 }
             },
             {
