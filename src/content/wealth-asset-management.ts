@@ -25,7 +25,7 @@ export const wealthAssetManagementContent = {
             image: "/images/insurance/image-2.png", 
         },
         {
-            title: "🔷 OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
+            title: "OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
             content: [
                 "We help wealth and asset management firms modernize investor engagement through connected advisory workflows, operational intelligence and AI-driven decisioning.",
                 "Our approach unifies advisory engagement, portfolio operations, servicing, reporting and compliance into a connected ecosystem that improves efficiency, responsiveness and investor experience continuity."
@@ -72,7 +72,7 @@ export const wealthAssetManagementContent = {
     },
     impact: {
         title: "WHAT WE HAVE DELIVERED",
-        subtitle: "We help wealth and asset management firms modernize investor engagement, optimize advisory workflows,<br />streamline portfolio operations and deliver personalized, connected wealth management experiences at scale.",
+        subtitle: "We help wealth and asset management firms modernize investor engagement, optimize advisory workflows,<br className=\"hidden md:block\" /> streamline portfolio operations and deliver personalized, connected wealth management experiences at scale.",
         stats: [
             { value: "5x higher<br />investment", label: "conversion within<br />6 months" },
             { value: "Personalized<br />portfolio", label: "recommendations<br />generated in minutes" },
