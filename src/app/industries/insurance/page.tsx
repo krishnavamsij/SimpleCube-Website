@@ -132,7 +132,7 @@ function InsuranceOfferings() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-3xl mx-auto mb-16"
+                    className="max-w-5xl mx-auto mb-16"
                 >
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {insuranceContent.offerings.title}

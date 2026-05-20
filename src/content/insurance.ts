@@ -56,12 +56,12 @@ export const insuranceContent = {
             {
                 icon: "Smartphone",
                 title: "Digital Claims Servicing",
-                description: "We deliver connected servicing experiences with automated notifications, live tracking, seamless scheduling and real-time customer communication."
+                description: "We deliver connected servicing experiences with automated notifications, live tracking, seamless scheduling and real-time communication."
             },
             {
                 icon: "BrainCircuit",
                 title: "AI-Driven Risk & Decisioning",
-                description: "We implement intelligent assessment and decisioning capabilities that improve underwriting accuracy, operational efficiency and execution outcomes."
+                description: "We implement intelligent assessment and decisioning capabilities that improve underwriting accuracy, operational efficiency and outcomes."
             },
             {
                 icon: "Zap",
@@ -76,8 +76,8 @@ export const insuranceContent = {
         ]
     },
     impact: {
-        title: "WHAT WE HAVE DELIVERED IN INSURANCE",
-        subtitle: "Our experience is grounded in building and scaling connected insurance operations that improve claims coordination, servicing efficiency and operational visibility. From intelligent claims assignment and adjuster orchestration to automated workflows and real-time communication, we help insurers modernize execution across the entire claims lifecycle .",
+        title: "WHAT WE HAVE DELIVERED",
+        subtitle: "Our experience spans connected insurance operations across claims coordination, servicing and operational visibility. We help insurers modernize execution through intelligent claims assignment, automated workflows and real-time communication across the claims lifecycle.",
         stats: [
             { value: "60%", label: "Faster claims<br />processing" },
             { value: "40%", label: "Improvement in<br />operational efficiency" },
