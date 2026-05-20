@@ -45,7 +45,7 @@ export const blogContent: {
             href: "/insights/blogs/reimagining-loan-applications-voice-and-chat-take-center-stage-with-agentforce",
         },
         {
-            title: "Hyniva at Cypher 2025: Showcasing the Future of<br>Enterprise AI with AIRA.",
+            title: "Hyniva Showcases AIRA at<br>Cypher 2025 AI Summit",
             date: "Sep 19, 2025",
             tag: "Company",
             image: "/images/Blogs/Cypher 2025.png",
@@ -103,7 +103,7 @@ export const blogContent: {
             href: "/insights/blogs/overcoming-data-integration-challenges-with-salesforce-data-cloud",
         },
         {
-            title: "Celebrating Success.<br>A Great Place to Work — Two Years Running.",
+            title: "A Great Place to Work — Two Years<br>Running. Celebrating Success.",
             date: "Jan 3, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-12.png",
