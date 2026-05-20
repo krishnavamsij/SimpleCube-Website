@@ -45,19 +45,26 @@ const INDUSTRIES_DATA = [
 ];
 
 function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0], index: number }) {
-    const [isHovered, setIsHovered] = useState(false);
-    // Staggered vertical offset (Cards 2 and 4 shifted down)
+    // Staggered vertical offset (Cards 2 and 4 shifted down) - Desktop only
     const isOffset = index % 2 === 1;
+    const [isActive, setIsActive] = useState(false);
 
     return (
         <Link 
             href={industry.href}
-            className={`group relative h-[340px] w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col block ${isOffset ? "mt-12" : ""}`}
+            className={`group relative h-[280px] lg:h-[340px] w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col block cursor-pointer ${isOffset ? "lg:mt-12" : ""}`}
             style={{ backgroundColor: industry.bgColor }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
+            onClick={(e) => {
+                // On mobile, prevent navigation on first click and show content instead
+                if (!isActive && window.innerWidth < 1024) {
+                    e.preventDefault();
+                    setIsActive(true);
+                }
+            }}
         >
-            {/* Industry Title: STATIC (Always Visible) - Now Integrated with Seamless Background */}
+            {/* Industry Title: STATIC (Always Visible) */}
             <div className="p-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
                 <h3 className="text-[18px] font-[800] text-[#030B3B] leading-[1.2]">
                     {industry.title}
@@ -65,20 +72,20 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
             </div>
 
             <div className="relative flex-1 px-8 pb-8 h-full" style={{ backgroundColor: industry.bgColor }}>
-                {/* Front: Image (Disappears on Hover) */}
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isHovered ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"}`}>
+                {/* Front: Image (Always visible, Disappears on Hover/Active) */}
+                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
                     <div className="relative h-full w-full">
                         {/* Seamless Fog Blend into custom Industry background */}
                         <div 
                             className="absolute inset-0 z-10 opacity-95" 
                             style={{ 
-                                background: `linear-gradient(to t, ${industry.bgColor} 0%, ${industry.bgColor}33 70%, transparent 100%)` 
+                                background: `linear-gradient(to top, ${industry.bgColor} 0%, ${industry.bgColor}33 70%, transparent 100%)` 
                             }} 
                         />
                         <div 
                             className="absolute inset-0 z-10" 
                             style={{ 
-                                background: `linear-gradient(to r, ${industry.bgColor}1A, transparent, ${industry.bgColor}1A)` 
+                                background: `linear-gradient(to right, ${industry.bgColor}1A, transparent, ${industry.bgColor}1A)` 
                             }} 
                         />
                         
@@ -86,34 +93,24 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                             src={industry.image}
                             alt={industry.title}
                             fill
-                            className="object-cover object-bottom opacity-100"
+                            className="object-cover object-bottom"
                         />
                     </div>
                 </div>
 
-                {/* Content: Appears on Hover - Aligned to Image Top Margin */}
-                <AnimatePresence>
-                    {isHovered && (
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="h-full flex flex-col pt-2"
-                        >
-                            <p className="text-[#030B3B]/80 text-[14px] leading-relaxed font-medium">
-                                {industry.description}
-                            </p>
-                            
-                            <div className="mt-auto flex justify-end">
-                                <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] hover:text-[#00D4AA] transition-colors">
-                                    Expand
-                                    <span className="text-lg leading-none mb-0.5">›</span>
-                                </span>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {/* Content: Hidden by default, Appears on Hover/Active */}
+                <div className={`h-full flex flex-col pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                    <p className="text-[#030B3B]/80 text-[14px] sm:text-[15px] leading-relaxed font-medium">
+                        {industry.description}
+                    </p>
+                    
+                    <div className="mt-auto flex justify-end">
+                        <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] group-hover:text-[#00D4AA] transition-colors">
+                            Expand
+                            <span className="text-lg leading-none mb-0.5">›</span>
+                        </span>
+                    </div>
+                </div>
             </div>
         </Link>
     );
