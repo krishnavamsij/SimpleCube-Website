@@ -7,7 +7,7 @@ export const wealthAssetManagementContent = {
     },
     alternatingSections: [
         {
-            title: "WEALTH MANAGEMENT HAS MOVED BEYOND TRADITIONAL ADVISORY",
+            title: "WEALTH MANAGEMENT EXTENDS BEYOND ADVISORY",
             content: [
                 "Wealth and asset management firms are under increasing pressure to deliver personalized investor experiences while managing growing complexity across advisory, servicing, compliance and portfolio operations.",
                 "Yet many firms still operate through disconnected systems and workflows that slow decision-making, reduce advisor efficiency and create inconsistent investor experiences across channels."
