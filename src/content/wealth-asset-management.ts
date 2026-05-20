@@ -88,18 +88,25 @@ export const wealthAssetManagementContent = {
         subtitle: "Real-world implementations that demonstrate how we have enabled firms to modernize advisory experiences, streamline portfolio operations and improve investor engagement at scale.",
         studies: [
             {
-                title: "Accelerating Wealth Management<br />with AI",
+                title: "Modernizing Contact Centers with<br />Intelligent IVR Self-Service",
                 titleHighlightIndex: 1,
-                description: "How a leading firm modernized advisor workflows with AI.",
-                image: "/images/Case_Studies/CaseStudy1.png",
-                href: "/case-studies/1",
+                description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+                image: "/images/Case_Studies/Optimized/cs-3.png",
+                href: "/insights/case-studies/intelligent-ivr-self-service",
             },
             {
-                title: "Streamlining Portfolio Operations<br />for Scalability",
+                title: "Rapid Reverse-Engineered<br />Website Migration",
+                titleHighlightIndex: 1,
+                description: "Delivered a full website migration in 2 months with zero downtime without backend access.",
+                image: "/images/Case_Studies/Optimized/cs-6.png",
+                href: "/insights/case-studies/aem-migration",
+            },
+            {
+                title: "Frictionless Customer Authentication<br />for Secure Banking",
                 titleHighlightIndex: 0,
-                description: "Reducing manual effort and increasing operational efficiency.",
-                image: "/images/Case_Studies/CaseStudy2.png",
-                href: "/case-studies/2",
+                description: "Modernized contact center authentication with Pindrop voice biometrics.",
+                image: "/images/Case_Studies/Optimized/cs-7.png",
+                href: "/insights/case-studies/customer-authentication",
             }
         ]
     }
