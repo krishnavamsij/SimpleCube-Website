@@ -75,7 +75,7 @@ export const wealthAssetManagementContent = {
     },
     impact: {
         title: "WHAT WE HAVE DELIVERED",
-        subtitle: "We help wealth and asset management firms modernize investor engagement, optimize advisory workflows, streamline portfolio operations and deliver personalized, connected wealth management experiences at scale.",
+        subtitle: "We help wealth and asset management firms modernize investor engagement, optimize advisory workflows,<br />streamline portfolio operations and deliver personalized, connected wealth management experiences at scale.",
         stats: [
             { value: "5x higher<br />investment", label: "conversion within<br />6 months" },
             { value: "Personalized<br />portfolio", label: "recommendations<br />generated in minutes" },

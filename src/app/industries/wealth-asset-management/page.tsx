@@ -137,7 +137,7 @@ function WealthOfferings() {
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {wealthAssetManagementContent.offerings.title}
                     </h2>
-                    <p className="text-lg text-slate-700 font-medium">
+                    <p className="text-lg text-slate-700 font-medium md:whitespace-nowrap">
                         {wealthAssetManagementContent.offerings.subtitle}
                     </p>
                 </motion.div>
@@ -192,9 +192,10 @@ function ProvenImpact() {
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
                         {wealthAssetManagementContent.impact.title}
                     </h2>
-                    <p className="text-lg text-slate-300 font-medium leading-relaxed">
-                        {wealthAssetManagementContent.impact.subtitle}
-                    </p>
+                    <p 
+                        className="text-lg text-slate-300 font-medium leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: wealthAssetManagementContent.impact.subtitle }}
+                    />
                 </motion.div>
 
                 <motion.div
