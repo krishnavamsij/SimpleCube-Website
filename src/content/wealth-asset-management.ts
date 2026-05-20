@@ -1,108 +1,91 @@
-/**
- * WEALTH & ASSET MANAGEMENT INDUSTRY CONTENT CONFIGURATION
- * 
- * This file contains all the content data for the wealth management industry page.
- * It defines the hero section, introduction, services, delivery enablers, and CTA.
- * 
- * Structure:
- * - hero: Hero section with title, subtitle, background image, and contact button
- * - intro: Introduction section explaining wealth management transformation
- * - services: Array of wealth management service offerings
- * - deliveryEnablers: Technology partners and platforms used
- * - cta: Call-to-action section for business inquiries
- * 
- * Data Usage:
- * - Used by: /src/app/industries/wealth-asset-management/page.tsx (if implemented)
- * - Hero content for WealthHero component
- * - Services array mapped to ServiceCard components
- * - Delivery enablers displayed as partner logos
- * 
- * Notes:
- * - Background images use local storage paths
- * - Contact button links to email for business inquiries
- * - Services showcase Hyniva's wealth management expertise
- * - Focus on digital transformation and customer experience
- */
-
 export const wealthAssetManagementContent = {
-    /**
-     * Hero section configuration
-     * 
-     * Contains title, subtitle, background image, and contact button data
-     */
     hero: {
-        /**
-         * Hero title
-         */
-        title: "Wealth & Asset Management",
-        /**
-         * Hero subtitle
-         */
-        subtitle: "Reimagine wealth management with AI-driven insights, robo-advisors, and seamless digital experiences. From portfolio management to blockchain integration, Hyniva helps financial firms innovate, adapt, and thrive in a digital-first world.",
-        /**
-         * Background image path
-         */
+        badge: "WEALTH & ASSET MANAGEMENT",
+        title: "Redefining wealth management through<br />intelligent and personalized investor experiences",
+        subtitle: "Connected advisory journeys, real-time portfolio intelligence and<br />AI-driven engagement across the investment lifecycle.",
         backgroundImage: "/images/Banner_cards/Wealth_Asset_Management.png",
-        /**
-         * Contact button configuration
-         */
-        contactButton: {
-            /**
-             * Contact button text
-             */
-            text: "Contact us!",
-            /**
-             * Contact button link
-             */
-            href: "/contact",
-        },
     },
-    intro: {
-        title: "Embark on a new era of wealth and asset management, where the landscape is reshaped by the transformative power of software technology.",
-        description: "From personalized strategies to data-driven insights, the future of financial success begins with innovation. We can help you navigate the challenges of transitioning to the digital future. Let's explore how Hyniva can help you make that digital leap.",
-    },
-    services: [
+    alternatingSections: [
         {
-            icon: "Bot",
-            title: "Robo Advisor",
-            description: "Integrate AI powered robo-adviory features to drastically reduce customer response times and provide personalized investment suggestions to customers.",
+            title: "WEALTH & ASSET MANAGEMENT HAS MOVED BEYOND TRADITIONAL ADVISORY",
+            content: [
+                "Wealth and asset management firms are under increasing pressure to deliver highly personalized investor experiences while managing growing operational complexity across advisory, portfolio management, servicing, compliance and reporting.",
+                "Yet many firms still operate through fragmented systems, disconnected workflows and limited real-time visibility that reduce advisor efficiency and create inconsistent investor experiences across channels.",
+                "As investor expectations continue to evolve, firms are accelerating investments in AI, operational intelligence and digital engagement platforms to deliver more connected, responsive and scalable wealth management experiences."
+            ],
+            imagePosition: "left",
+            image: "/images/insurance/image-1.png", 
         },
         {
-            icon: "TrendingUp",
-            title: "Portfolio Management",
-            description: "We design and develop customized portfolio management systems, leveraging risk assessment tools that enable streamlined customer experiences.",
+            title: "WHAT MODERN WEALTH MANAGEMENT DEMANDS",
+            content: [
+                "Modern wealth management is defined by the ability to deliver connected and continuous investor experiences across every interaction. Clients increasingly expect real-time portfolio visibility, personalized recommendations, proactive engagement and seamless servicing across advisors, investor portals, mobile platforms and digital channels.",
+                "At the same time, firms must improve advisor productivity, strengthen compliance readiness and scale investment operations without increasing operational complexity.",
+                "Delivering this consistently requires connected advisory ecosystems that unify client engagement, portfolio intelligence, operational workflows and data-driven decisioning."
+            ],
+            imagePosition: "right",
+            image: "/images/insurance/image-2.png", 
         },
         {
-            icon: "Users",
-            title: "CRM Systems",
-            description: "We create tailored CRM solutions or enable seamless transitions to 3rd Party systems to enable efficient tracking, management and provide personalized servicing for your customers.",
-        },
-        {
-            icon: "Monitor",
-            title: "Digital Experience",
-            description: "Transition to a full digital experience across Desktop and Mobile solutions to provide a streamlined experience for back-office teams and end customers.",
-        },
-        {
-            icon: "Bitcoin",
-            title: "Crypto Integration",
-            description: "Explore opportunities to integrate blockchain and cryptocurrency technologies securely to provide a unique investment options for customer segments.",
-        },
+            title: "OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
+            content: [
+                "We help wealth and asset management firms modernize investor engagement through connected advisory workflows, operational intelligence and AI-driven decisioning.",
+                "Our approach unifies advisory engagement, portfolio operations, servicing, reporting and compliance workflows into a connected ecosystem that improves responsiveness, operational efficiency and investor experience continuity.",
+                "By combining intelligent automation, portfolio visibility, personalized recommendations and connected servicing experiences, we help firms streamline advisor workflows, improve operational transparency and deliver more scalable and insight-led wealth management operations."
+            ],
+            imagePosition: "left",
+            image: "/images/insurance/image-3.png", 
+        }
     ],
-    deliveryEnablers: {
-        title: "Delivery Enablers",
-        logos: [
-            { name: "AWS", src: "/images/2023/11/aws-logocopy120.png" },
-            { name: "Microsoft", src: "/images/2023/11/microso-copy120.png" },
-            { name: "Salesforce", src: "/images/2023/11/salesforce-logo-copy120.png" },
-            { name: "Jira", src: "/images/2023/11/jiraa-copy120.png" },
-            { name: "GitHub", src: "/images/2023/11/githu-copy120.png" },
-            { name: "Genesys", src: "/images/2023/11/gencopy120.png" },
-        ],
+    offerings: {
+        title: "OUR WEALTH & ASSET MANAGEMENT SERVICES",
+        subtitle: "Our services are designed to address the core operational and experience priorities shaping modern wealth management.",
+        items: [
+            {
+                icon: "Bot",
+                title: "Connected Advisory Experiences",
+                description: "We enable personalized and continuous investor engagement across advisory, digital and servicing channels."
+            },
+            {
+                icon: "Users",
+                title: "CRM & Client Data Modernization",
+                description: "We unify client data and interactions to provide a connected view across advisory, servicing and portfolio operations."
+            },
+            {
+                icon: "Monitor",
+                title: "Portfolio & Workflow Automation",
+                description: "We streamline portfolio management, reporting and operational workflows to improve efficiency and responsiveness."
+            },
+            {
+                icon: "BrainCircuit",
+                title: "AI-Driven Advisory & Insights",
+                description: "We implement intelligent advisory and analytics capabilities that support proactive recommendations and insight-led decision-making."
+            },
+            {
+                icon: "Smartphone",
+                title: "Digital Servicing Platforms",
+                description: "We modernize investor servicing experiences through integrated portals, communication channels and self-service capabilities."
+            },
+            {
+                icon: "TrendingUp",
+                title: "Operational Visibility & Compliance",
+                description: "We provide connected operational visibility, workflow monitoring and compliance-ready processes across investment operations."
+            }
+        ]
     },
-    cta: {
-        title: "Ready to Start Your Digital Transformation? Contact Us!",
-        buttonText: "Let's Go!",
-        href: "/contact",
-        backgroundImage: "/images/2019/04/contact-classic.jpg",
+    impact: {
+        title: "WHAT WE’VE DELIVERED IN WEALTH MANAGEMENT",
+        subtitle: "Our experience is grounded in helping wealth and asset management firms modernize investor engagement, improve operational efficiency and connect advisory ecosystems across the investment lifecycle. From advisor workflow optimization and portfolio operations modernization to personalized recommendations and connected servicing experiences, we help firms build scalable and intelligent wealth management operations .",
+        stats: [
+            { value: "5x", label: "higher investment<br />conversion within 6 months" },
+            { value: "Personalized portfolio", label: "recommendations generated in minutes" },
+            { value: "Reduced advisor effort", label: "through automated engagement workflows" },
+            { value: "Accelerated AUM growth", label: "through connected investor experiences" }
+        ]
     },
+    caseStudies: {
+        title: "CASE STUDIES",
+        subtitle: "Real-world implementations that demonstrate how we have enabled firms to modernize advisory experiences, streamline portfolio operations and improve investor engagement at scale.",
+        studies: [] as any[]
+    }
 };
