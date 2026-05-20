@@ -7,11 +7,10 @@ export const wealthAssetManagementContent = {
     },
     alternatingSections: [
         {
-            title: "WEALTH & ASSET MANAGEMENT HAS MOVED BEYOND TRADITIONAL ADVISORY",
+            title: "WEALTH MANAGEMENT HAS MOVED BEYOND TRADITIONAL ADVISORY",
             content: [
-                "Wealth and asset management firms are under increasing pressure to deliver highly personalized investor experiences while managing growing operational complexity across advisory, portfolio management, servicing, compliance and reporting.",
-                "Yet many firms still operate through fragmented systems, disconnected workflows and limited real-time visibility that reduce advisor efficiency and create inconsistent investor experiences across channels.",
-                "As investor expectations continue to evolve, firms are accelerating investments in AI, operational intelligence and digital engagement platforms to deliver more connected, responsive and scalable wealth management experiences."
+                "Wealth and asset management firms are under increasing pressure to deliver personalized investor experiences while managing growing complexity across advisory, servicing, compliance and portfolio operations.",
+                "Yet many firms still operate through disconnected systems and workflows that slow decision-making, reduce advisor efficiency and create inconsistent investor experiences across channels."
             ],
             imagePosition: "left",
             image: "/images/insurance/image-1.png", 
@@ -19,19 +18,17 @@ export const wealthAssetManagementContent = {
         {
             title: "WHAT MODERN WEALTH MANAGEMENT DEMANDS",
             content: [
-                "Modern wealth management is defined by the ability to deliver connected and continuous investor experiences across every interaction. Clients increasingly expect real-time portfolio visibility, personalized recommendations, proactive engagement and seamless servicing across advisors, investor portals, mobile platforms and digital channels.",
-                "At the same time, firms must improve advisor productivity, strengthen compliance readiness and scale investment operations without increasing operational complexity.",
-                "Delivering this consistently requires connected advisory ecosystems that unify client engagement, portfolio intelligence, operational workflows and data-driven decisioning."
+                "Modern wealth management requires real-time portfolio visibility, proactive engagement and seamless servicing across every investor interaction.",
+                "Firms must improve advisor productivity, maintain operational transparency and deliver personalized digital experiences while scaling investment operations efficiently."
             ],
             imagePosition: "right",
             image: "/images/insurance/image-2.png", 
         },
         {
-            title: "OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
+            title: "🔷 OUR APPROACH TO CONNECTED WEALTH MANAGEMENT",
             content: [
                 "We help wealth and asset management firms modernize investor engagement through connected advisory workflows, operational intelligence and AI-driven decisioning.",
-                "Our approach unifies advisory engagement, portfolio operations, servicing, reporting and compliance workflows into a connected ecosystem that improves responsiveness, operational efficiency and investor experience continuity.",
-                "By combining intelligent automation, portfolio visibility, personalized recommendations and connected servicing experiences, we help firms streamline advisor workflows, improve operational transparency and deliver more scalable and insight-led wealth management operations."
+                "Our approach unifies advisory engagement, portfolio operations, servicing, reporting and compliance into a connected ecosystem that improves efficiency, responsiveness and investor experience continuity."
             ],
             imagePosition: "left",
             image: "/images/insurance/image-3.png", 
