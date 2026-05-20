@@ -35,13 +35,20 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background font-sans text-foreground antialiased font-medium;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display), system-ui, sans-serif;
   }
-  
+
   /* Standardizing all eyebrows to Display font */
   .eyebrow {
     font-family: var(--font-display), system-ui, sans-serif;
@@ -133,10 +140,14 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background font-sans text-foreground antialiased;
   }
-  h1, h2, h3 {
+
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display), system-ui, sans-serif;
   }
 }
@@ -179,27 +190,36 @@ html {
   position: relative;
   overflow: hidden;
 }
+
 .challenge-card__header::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-image:
-    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px);
+    linear-gradient(rgba(30, 111, 255, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 111, 255, .07) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+
 .challenge-card__num {
-  position: relative; z-index: 1;
-  width: 34px; height: 34px;
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #1e6fff;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
+
 .challenge-card__title {
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
   font-family: 'DM Serif Display', serif;
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 400;
@@ -217,7 +237,10 @@ html {
   padding: 20px 24px;
   border-bottom: 1px solid #e2e8f0;
 }
-.challenge-row:last-child { border-bottom: none; }
+
+.challenge-row:last-child {
+  border-bottom: none;
+}
 
 .challenge-row__label {
   font-size: 10px;
@@ -226,9 +249,18 @@ html {
   font-weight: 600;
   margin-bottom: 8px;
 }
-.challenge-row__label--challenge { color: #8492a6; }
-.challenge-row__label--solution  { color: #1e6fff; }
-.challenge-row__label--stat      { color: #f59e0b; }
+
+.challenge-row__label--challenge {
+  color: #8492a6;
+}
+
+.challenge-row__label--solution {
+  color: #1e6fff;
+}
+
+.challenge-row__label--stat {
+  color: #f59e0b;
+}
 
 .challenge-row__text {
   font-size: 15px;
@@ -242,16 +274,18 @@ html {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  background: rgba(245,158,11,.05);
-  border: 1px solid rgba(245,158,11,.2);
+  background: rgba(245, 158, 11, .05);
+  border: 1px solid rgba(245, 158, 11, .2);
   border-radius: 10px;
   padding: 12px 16px;
 }
+
 .stat-pill__icon {
   font-size: 14px;
   flex-shrink: 0;
   padding-top: 1px;
 }
+
 .stat-pill__text {
   font-size: 13.5px;
   font-weight: 300;
@@ -263,8 +297,13 @@ html {
    Marquee animation for trust bar
    ============================================================ */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -285,35 +324,90 @@ html {
    Hero floating background animations
    ============================================================ */
 @keyframes heroFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -40px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
-}
-@keyframes heroFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-25px, 30px) scale(1.08); }
-  66% { transform: translate(35px, -15px) scale(0.92); }
-}
-@keyframes heroFloat3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, -25px) scale(1.1); }
-}
-@keyframes heroStreak {
-  0% { opacity: 0; transform: translateX(-100%) rotate(30deg); }
-  40% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(200%) rotate(30deg); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
 }
 
-.hero-float-1 { animation: heroFloat1 12s ease-in-out infinite; }
-.hero-float-2 { animation: heroFloat2 15s ease-in-out infinite; }
-.hero-float-3 { animation: heroFloat3 10s ease-in-out infinite; }
-.hero-streak { animation: heroStreak 8s ease-in-out infinite; }
-.hero-streak-delay { animation: heroStreak 10s ease-in-out 3s infinite; }
+@keyframes heroFloat2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-25px, 30px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(35px, -15px) scale(0.92);
+  }
+}
+
+@keyframes heroFloat3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-40px, -25px) scale(1.1);
+  }
+}
+
+@keyframes heroStreak {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(30deg);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(200%) rotate(30deg);
+  }
+}
+
+.hero-float-1 {
+  animation: heroFloat1 12s ease-in-out infinite;
+}
+
+.hero-float-2 {
+  animation: heroFloat2 15s ease-in-out infinite;
+}
+
+.hero-float-3 {
+  animation: heroFloat3 10s ease-in-out infinite;
+}
+
+.hero-streak {
+  animation: heroStreak 8s ease-in-out infinite;
+}
+
+.hero-streak-delay {
+  animation: heroStreak 10s ease-in-out 3s infinite;
+}
 
 /* ============================================================
    Iconsmind Icons - Basic styles for About Us values
    ============================================================ */
-[class^="iconsmind-"], [class*=" iconsmind-"] {
+[class^="iconsmind-"],
+[class*=" iconsmind-"] {
   display: inline-block;
   font-style: normal;
   font-weight: normal;
@@ -325,15 +419,41 @@ html {
 }
 
 /* Fallback icons using Unicode symbols for key iconsmind icons */
-.iconsmind-Compass::before { content: "🧭"; }
-.iconsmind-Design::before { content: "🎨"; }
-.iconsmind-Light-Bulb::before { content: "💡"; }
-.iconsmind-Administrator::before { content: "👤"; }
-.iconsmind-People::before { content: "👥"; }
-.iconsmind-Data-Clock::before { content: "⏰"; }
-.iconsmind-Database::before { content: "🗄️"; }
-.iconsmind-Coffee::before { content: "☕"; }
-.iconsmind-Food-Drinks::before { content: "🍽️"; }
+.iconsmind-Compass::before {
+  content: "🧭";
+}
+
+.iconsmind-Design::before {
+  content: "🎨";
+}
+
+.iconsmind-Light-Bulb::before {
+  content: "💡";
+}
+
+.iconsmind-Administrator::before {
+  content: "👤";
+}
+
+.iconsmind-People::before {
+  content: "👥";
+}
+
+.iconsmind-Data-Clock::before {
+  content: "⏰";
+}
+
+.iconsmind-Database::before {
+  content: "🗄️";
+}
+
+.iconsmind-Coffee::before {
+  content: "☕";
+}
+
+.iconsmind-Food-Drinks::before {
+  content: "🍽️";
+}
 
 /* FontAwesome fallback for timeline icons */
 .fas {
@@ -347,9 +467,17 @@ html {
   line-height: 1;
 }
 
-.fas.fa-home::before { content: "🏠"; }
-.fas.fa-user-graduate::before { content: "🎓"; }
-.fas.fa-building::before { content: "🏢"; }
+.fas.fa-home::before {
+  content: "🏠";
+}
+
+.fas.fa-user-graduate::before {
+  content: "🎓";
+}
+
+.fas.fa-building::before {
+  content: "🏢";
+}
 
 /* ============================================================
    WordPress Timeline Styles - Connected Line
@@ -679,7 +807,8 @@ html {
 }
 
 /* Icon positioning */
-.left-main, .right-main {
+.left-main,
+.right-main {
   position: absolute;
   top: 0;
   width: 40px;
@@ -696,7 +825,8 @@ html {
   right: 30px;
 }
 
-.left-line-inner, .rigth-arrow {
+.left-line-inner,
+.rigth-arrow {
   position: relative;
   height: 80px;
   display: flex;
@@ -704,7 +834,12 @@ html {
   justify-content: center;
 }
 
-.icon-box, .icon-box-second, .icon-box-four, .icon-box-six, .icon-box-eight, .icon-box-ten {
+.icon-box,
+.icon-box-second,
+.icon-box-four,
+.icon-box-six,
+.icon-box-eight,
+.icon-box-ten {
   width: 40px;
   height: 40px;
   display: flex;
@@ -715,7 +850,12 @@ html {
   border: 2px solid #345195;
 }
 
-.icon-box img, .icon-box-second img, .icon-box-four img, .icon-box-six img, .icon-box-eight img, .icon-box-ten img {
+.icon-box img,
+.icon-box-second img,
+.icon-box-four img,
+.icon-box-six img,
+.icon-box-eight img,
+.icon-box-ten img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -726,13 +866,33 @@ html {
   padding-top: 20px;
 }
 
-.margint-40 { margin-top: 40px; }
-.margint-60 { margin-top: 60px; }
-.margint-63 { margin-top: 63px; }
-.margint-68 { margin-top: 68px; }
-.margint-78 { margin-top: 78px; }
-.margint-105 { margin-top: 105px; }
-.margint-21 { margin-top: 21px; }
+.margint-40 {
+  margin-top: 40px;
+}
+
+.margint-60 {
+  margin-top: 60px;
+}
+
+.margint-63 {
+  margin-top: 63px;
+}
+
+.margint-68 {
+  margin-top: 68px;
+}
+
+.margint-78 {
+  margin-top: 78px;
+}
+
+.margint-105 {
+  margin-top: 105px;
+}
+
+.margint-21 {
+  margin-top: 21px;
+}
 
 .margin-top {
   margin-top: 40px;
@@ -893,57 +1053,65 @@ html {
 
 /* ─── Premium Feature Cards ─── */
 .feature-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
 }
+
 .feature-card {
-    background: white;
-    border: 1px solid #eef2f6;
-    border-radius: 12px;
-    padding: 20px 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  background: white;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
+
 .feature-card:hover {
-    border-color: #1e90ff33;
-    box-shadow: 0 8px 24px rgba(30,144,255,0.08);
-    transform: translateX(4px);
+  border-color: #1e90ff33;
+  box-shadow: 0 8px 24px rgba(30, 144, 255, 0.08);
+  transform: translateX(4px);
 }
+
 .feature-card__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #1e90ff; /* Hyniva Blue */
-    flex-shrink: 0;
-    margin-top: 10px;
-    opacity: 0.6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1e90ff;
+  /* Hyniva Blue */
+  flex-shrink: 0;
+  margin-top: 10px;
+  opacity: 0.6;
 }
+
 .feature-card__content strong {
-    display: block;
-    font-size: 16px;
-    color: #111827;
-    margin-bottom: 4px;
+  display: block;
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 4px;
 }
+
 .feature-card__content p {
-    font-size: 15px;
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 0 !important;
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 0 !important;
 }
+
 /* ─── Mini CTA (LinkedIn) ─── */
 .cta-mini {
-    background: #f8fafc;
-    border-left: 4px solid #1e90ff;
-    padding: 20px 24px;
-    border-radius: 0 12px 12px 0;
-    margin-top: 40px;
+  background: #f8fafc;
+  border-left: 4px solid #1e90ff;
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  margin-top: 40px;
 }
+
 .cta-mini p {
-    margin-bottom: 0 !important;
-    font-size: 15px;
+  margin-bottom: 0 !important;
+  font-size: 15px;
 }

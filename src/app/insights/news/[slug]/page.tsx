@@ -114,7 +114,7 @@ function RelatedNews({ currentSlug, currentTag }: { currentSlug: string; current
                                     <Clock className="w-3.5 h-3.5" />
                                     {post.date}
                                 </div>
-                                <h5 
+                                <h5
                                     className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 mb-4 group-hover:text-[#1e90ff] transition-colors"
                                     dangerouslySetInnerHTML={{ __html: post.title }}
                                 />

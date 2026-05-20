@@ -315,7 +315,7 @@ export default function BlogsDetailPage() {
       </header>
 
       {/* ── Main Content ── */}
-      <main className="mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12 pt-8 pb-24">
+      <main className="mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-12 pt-8 pb-24">
         <div className="flex flex-col items-center">
           {/* Content Column */}
           <div className="w-full lg:w-[85%]">

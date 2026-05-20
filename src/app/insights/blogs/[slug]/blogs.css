@@ -254,8 +254,8 @@ h1.cs-line-clamp-2 em {
 
 .blog-content-wrapper .outcomes__grid {
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 20px !important;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
   margin-bottom: 0 !important;
 }
 
@@ -271,13 +271,13 @@ h1.cs-line-clamp-2 em {
 }
 
 .blog-content-wrapper .outcome-item__dot {
-  width: 6px !important;
-  height: 6px !important;
+  width: 8px !important;
+  height: 8px !important;
   border-radius: 50% !important;
-  background: #1e90ff !important;
+  background: #2563eb !important;
   flex-shrink: 0 !important;
   margin-top: 8px !important;
-  opacity: 0.6 !important;
+  opacity: 1 !important;
 }
 
 /* ─── PREMIUM FEATURE CARDS ─── */
@@ -598,6 +598,7 @@ h1.cs-line-clamp-2 em {
   line-height: 1.5 !important;
   margin-bottom: 0 !important;
   margin-top: auto !important;
+  max-width: 220px !important;
 }
 
 /* ─── BENEFITS GRID ─── */
@@ -2781,8 +2782,8 @@ h1.cs-line-clamp-2 em {
   position: absolute !important;
   inset: 0 !important;
   background-image:
-    linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px) !important;
+    linear-gradient(rgba(30, 111, 255, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 111, 255, .07) 1px, transparent 1px) !important;
   background-size: 36px 36px !important;
   pointer-events: none !important;
 }
@@ -2852,6 +2853,7 @@ h1.cs-line-clamp-2 em {
   .blog-content-wrapper .inno-card {
     padding: 20px 24px !important;
   }
+
   .blog-content-wrapper .cta {
     padding: 36px 24px !important;
   }
