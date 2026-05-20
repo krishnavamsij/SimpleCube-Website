@@ -38,7 +38,7 @@ export const wealthAssetManagementContent = {
         }
     ],
     offerings: {
-        title: "OUR WEALTH & ASSET MANAGEMENT SERVICES",
+        title: "OUR OFFERINGS",
         subtitle: "Our services are designed to address the core operational and experience priorities shaping modern wealth management.",
         items: [
             {
@@ -59,7 +59,7 @@ export const wealthAssetManagementContent = {
             {
                 icon: "BrainCircuit",
                 title: "AI-Driven Advisory & Insights",
-                description: "We implement intelligent advisory and analytics capabilities that support proactive recommendations and insight-led decision-making."
+                description: "We implement intelligent advisory and analytics capabilities that enable proactive recommendations and insight-led decisions."
             },
             {
                 icon: "Smartphone",
@@ -74,18 +74,18 @@ export const wealthAssetManagementContent = {
         ]
     },
     impact: {
-        title: "WHAT WE’VE DELIVERED IN WEALTH MANAGEMENT",
-        subtitle: "Our experience is grounded in helping wealth and asset management firms modernize investor engagement, improve operational efficiency and connect advisory ecosystems across the investment lifecycle. From advisor workflow optimization and portfolio operations modernization to personalized recommendations and connected servicing experiences, we help firms build scalable and intelligent wealth management operations .",
+        title: "WHAT WE HAVE DELIVERED",
+        subtitle: "We help wealth and asset management firms modernize investor engagement, optimize advisory workflows, streamline portfolio operations and deliver personalized, connected wealth management experiences at scale.",
         stats: [
             { value: "5x higher<br />investment", label: "conversion within<br />6 months" },
-            { value: "Personalized<br />portfolio", label: "recommendations generated<br />in minutes" },
+            { value: "Personalized<br />portfolio", label: "recommendations<br />generated in minutes" },
             { value: "Reduced<br />advisor effort", label: "through automated<br />engagement workflows" },
             { value: "Accelerated<br />AUM growth", label: "through connected<br />investor experiences" }
         ]
     },
     caseStudies: {
         title: "CASE STUDIES",
-        subtitle: "Real-world implementations that demonstrate how we have enabled firms to modernize advisory experiences, streamline portfolio operations and improve investor engagement at scale.",
+        subtitle: "Real-world implementations that demonstrate how we have enabled firms to modernize advisory experiences, streamline portfolio operations and improve investor engagement.",
         studies: [
             {
                 title: "Modernizing Contact Centers with<br />Intelligent IVR Self-Service",
