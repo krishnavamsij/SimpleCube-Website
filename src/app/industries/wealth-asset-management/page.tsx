@@ -206,9 +206,10 @@ function ProvenImpact() {
                 >
                     {wealthAssetManagementContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-center">
-                                {stat.value}
-                            </div>
+                            <div 
+                                className="text-xl md:text-2xl font-extrabold text-white mb-4 font-display text-center"
+                                dangerouslySetInnerHTML={{ __html: stat.value }}
+                            />
                             <div 
                                 className="text-base text-slate-300 font-medium text-center"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}

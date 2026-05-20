@@ -77,15 +77,30 @@ export const wealthAssetManagementContent = {
         title: "WHAT WE’VE DELIVERED IN WEALTH MANAGEMENT",
         subtitle: "Our experience is grounded in helping wealth and asset management firms modernize investor engagement, improve operational efficiency and connect advisory ecosystems across the investment lifecycle. From advisor workflow optimization and portfolio operations modernization to personalized recommendations and connected servicing experiences, we help firms build scalable and intelligent wealth management operations .",
         stats: [
-            { value: "5x", label: "higher investment<br />conversion within 6 months" },
-            { value: "Personalized portfolio", label: "recommendations generated in minutes" },
-            { value: "Reduced advisor effort", label: "through automated engagement workflows" },
-            { value: "Accelerated AUM growth", label: "through connected investor experiences" }
+            { value: "5x higher<br />investment", label: "conversion within<br />6 months" },
+            { value: "Personalized portfolio", label: "recommendations generated<br />in minutes" },
+            { value: "Reduced advisor effort", label: "through automated<br />engagement workflows" },
+            { value: "Accelerated AUM growth", label: "through connected<br />investor experiences" }
         ]
     },
     caseStudies: {
         title: "CASE STUDIES",
         subtitle: "Real-world implementations that demonstrate how we have enabled firms to modernize advisory experiences, streamline portfolio operations and improve investor engagement at scale.",
-        studies: [] as any[]
+        studies: [
+            {
+                title: "Accelerating Wealth Management<br />with AI",
+                titleHighlightIndex: 1,
+                description: "How a leading firm modernized advisor workflows with AI.",
+                image: "/images/Case_Studies/CaseStudy1.png",
+                href: "/case-studies/1",
+            },
+            {
+                title: "Streamlining Portfolio Operations<br />for Scalability",
+                titleHighlightIndex: 0,
+                description: "Reducing manual effort and increasing operational efficiency.",
+                image: "/images/Case_Studies/CaseStudy2.png",
+                href: "/case-studies/2",
+            }
+        ]
     }
 };
