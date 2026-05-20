@@ -870,6 +870,75 @@ export default function CaseStudyDetailPage() {
                         padding: 12px 14px;
                     }
                 }
+
+                /* ── Benefits Table Styling ── */
+                .benefits-table-wrapper {
+                    margin-top: 32px;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+                    border: 1px solid #e5e7eb;
+                }
+                .benefits-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: inherit;
+                }
+
+                .benefits-table__row--even {
+                    background: #ffffff;
+                }
+                .benefits-table__row--odd {
+                    background: #f8fafc;
+                }
+                .benefits-table__cell {
+                    padding: 18px 24px;
+                    font-size: 15px;
+                    color: #475569;
+                    line-height: 1.6;
+                    vertical-align: middle;
+                    border-bottom: 1px solid #e2e8f0;
+                }
+                .benefits-table__cell--num {
+                    width: 80px;
+                    text-align: center;
+                }
+                .benefits-num-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #1B3A5C;
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 14px;
+                    box-shadow: 0 4px 10px rgba(27, 58, 92, 0.2);
+                }
+                .benefits-table__cell--benefit {
+                    width: 35%;
+                    font-weight: 700;
+                    color: #1B3A5C;
+                }
+                .benefits-table__cell--desc {
+                    width: 55%;
+                    font-weight: 300;
+                }
+                .benefits-table__row:last-child .benefits-table__cell {
+                    border-bottom: none;
+                }
+                @media (max-width: 640px) {
+                    .benefits-table__cell {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                    .benefits-num-badge {
+                        width: 26px;
+                        height: 26px;
+                        font-size: 12px;
+                    }
+                }
             `}</style>
         </div>
     );

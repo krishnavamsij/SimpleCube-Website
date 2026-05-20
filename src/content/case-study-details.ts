@@ -2580,6 +2580,88 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             }
         ]
     },
+    "cost-optimized-document-platform-on-aws": {
+        "slug": "cost-optimized-document-platform-on-aws",
+        "eyebrow": "AWS Serverless & Document Management",
+        "title": "Cost-Optimized Document<br>\n      <em>Platform on AWS</em>",
+        "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs, enhance performance, and support large-scale data operations.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "5×",
+                "label": "Faster<br>Queries",
+                "sub": ""
+            },
+            {
+                "icon": "📄",
+                "value": "8M+",
+                "label": "Documents<br>Migrated",
+                "sub": ""
+            },
+            {
+                "icon": "💰",
+                "value": "$0",
+                "label": "Licensing<br>Cost",
+                "sub": ""
+            },
+            {
+                "icon": "☁️",
+                "value": "Serverless",
+                "label": "Scalable<br>Architecture",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>A dynamic player in the investment management realm faced a daunting challenge. Their reliance on Alfresco as a document management tool incurred a staggering annual cost, putting immense strain on their financial resources. The need to transition from this costly solution was imperative, driving our client to seek a cost-effective, efficient alternative.</p>"
+            },
+            {
+                "id": "advantage",
+                "title": "Advantage of AWS Services",
+                "type": "text",
+                "content": "<p>With profound expertise in AWS services, Hyniva identified an opportunity to revolutionize our partner's document management. By harnessing AWS's capabilities, Hyniva conceived a solution that not only cataloged the investment management company's extensive document repository of over 8 million documents, but also substantially augmented the system's performance and responsiveness.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva crafted a tailored document management system on AWS:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Amazon S3",
+                            "desc": "A scalable storage service deployed to securely store the vast document volume while fulfilling SEC17a-4 compliance."
+                        },
+                        {
+                            "num": "2",
+                            "title": "AWS Lambda",
+                            "desc": "With its serverless computing, ensured processing on demand, relieving the burden of server management."
+                        },
+                        {
+                            "num": "3",
+                            "title": "DynamoDB",
+                            "desc": "A high-performance NoSQL database that facilitated lightning-fast queries and metadata storage."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Amazon API Gateway",
+                            "desc": "Streamlined digital communication efforts within the system, ensuring seamless data exchange."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "outcome",
+                "title": "Outcome",
+                "type": "text",
+                "content": "<p>The impact of Hyniva's solution was nothing short of transformative. The new document management system not only eliminated exorbitant annual fees but also redefined user experience. Post-launch, API calls and queries executed at a remarkable speed – 5 times faster than the previous Alfresco system. This radical improvement meant that documents, accessible via multiple filters, were not only easily queried but also instantly available, enhancing productivity and user satisfaction.</p><p>Our client's success became a testament to strategic technology adoption. By embracing AWS services, Hyniva not only saved the company millions but also catapulted their document management system into a new echelon of efficiency and speed. This achievement fortified the partnership between Hyniva and our client, setting an industry benchmark for innovation.</p><p>In the expansive canvas of digital transformation, this collaboration stands tall, illuminating how vision, technology, and expertise converge to craft solutions that redefine possibilities. It exemplifies how businesses can not only survive but thrive in the dynamic digital age, serving as a guiding light for the industry's future endeavors.</p>"
+            }
+        ]
+    },
     "ai-customer-support-automation": {
         "slug": "ai-customer-support-automation",
         "eyebrow": "AI Chatbot & Customer Support Automation",
@@ -2628,7 +2710,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "benefits",
                 "title": "Benefits Realized",
                 "type": "text",
-                "content": "<div class=\"benefits-image\">\n        <img src=\"/images/Case_Studies/Optimized/benefits.png\" alt=\"AI Chatbot Benefits Realized\"/>\n      </div>"
+                "content": "<div class=\"benefits-table-wrapper\">\n        <table class=\"benefits-table\">\n          <tbody>\n            <tr class=\"benefits-table__row benefits-table__row--odd\">\n              <td class=\"benefits-table__cell benefits-table__cell--num\">\n                <span class=\"benefits-num-badge\">1</span>\n              </td>\n              <td class=\"benefits-table__cell benefits-table__cell--benefit\">40% Lower Processing Rates</td>\n              <td class=\"benefits-table__cell benefits-table__cell--desc\">The back-office team was able to boost productivity with quicker response times and seamless e-documentation</td>\n            </tr>\n            <tr class=\"benefits-table__row benefits-table__row--even\">\n              <td class=\"benefits-table__cell benefits-table__cell--num\">\n                <span class=\"benefits-num-badge\">2</span>\n              </td>\n              <td class=\"benefits-table__cell benefits-table__cell--benefit\">20% Increase in Loan Apps</td>\n              <td class=\"benefits-table__cell benefits-table__cell--desc\">Customers were able to save time, submit documents and effectively manage their loan application through the digital experience</td>\n            </tr>\n            <tr class=\"benefits-table__row benefits-table__row--odd\">\n              <td class=\"benefits-table__cell benefits-table__cell--num\">\n                <span class=\"benefits-num-badge\">3</span>\n              </td>\n              <td class=\"benefits-table__cell benefits-table__cell--benefit\">Better Approval Rates</td>\n              <td class=\"benefits-table__cell benefits-table__cell--desc\">The Prequalification engine enabled pre-screening, allowing better application quality and boosting the approval rates</td>\n            </tr>\n            <tr class=\"benefits-table__row benefits-table__row--even\">\n              <td class=\"benefits-table__cell benefits-table__cell--num\">\n                <span class=\"benefits-num-badge\">4</span>\n              </td>\n              <td class=\"benefits-table__cell benefits-table__cell--benefit\">Omni Channel Platform</td>\n              <td class=\"benefits-table__cell benefits-table__cell--desc\">Created a consistent and seamless experience for the back office team across multiple devices</td>\n            </tr>\n            <tr class=\"benefits-table__row benefits-table__row--odd\">\n              <td class=\"benefits-table__cell benefits-table__cell--num\">\n                <span class=\"benefits-num-badge\">5</span>\n              </td>\n              <td class=\"benefits-table__cell benefits-table__cell--benefit\">Positive Member Experience</td>\n              <td class=\"benefits-table__cell benefits-table__cell--desc\">Customers were able to navigate the lending process easily & leveraged pre-qualification for better visibility of their offers</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>"
             },
             {
                 "id": "conclusion",
