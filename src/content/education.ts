@@ -3,7 +3,7 @@ export const educationContent = {
         badge: "EDUCATION",
         title: "Learning now happens<br />beyond the classroom",
         subtitle: "Flexible, connected, and engaging education experiences<br />across digital and in-person learning environments.",
-        backgroundImage: "/images/education subpage/Hero banner.png",
+        backgroundImage: "/images/Industries_Section/education subpage/Hero banner.png",
     },
     alternatingSections: [
         {
@@ -13,7 +13,7 @@ export const educationContent = {
                 "As learning environments become more connected, institutions must deliver seamless education experiences across physical and virtual platforms while managing increasing academic and administrative complexity."
             ],
             imagePosition: "left",
-            image: "/images/education subpage/Education 1.png", 
+            image: "/images/Industries_Section/education subpage/Education 1.png", 
         },
         {
             title: "WHAT MODERN EDUCATION DEMANDS",
@@ -22,7 +22,7 @@ export const educationContent = {
                 "At the same time, institutions need connected systems that simplify academic operations, improve coordination, and make administrative processes more efficient so educators can focus more on delivering quality education."
             ],
             imagePosition: "right",
-            image: "/images/education subpage/education 2.png", 
+            image: "/images/Industries_Section/education subpage/education 2.png", 
         },
         {
             title: "OUR APPROACH",
@@ -32,7 +32,7 @@ export const educationContent = {
                 "This approach enables institutions to support modern learning models, improve academic coordination, and deliver seamless digital and in-person education experiences."
             ],
             imagePosition: "left",
-            image: "/images/education subpage/education 3.png",
+            image: "/images/Industries_Section/education subpage/education 3.png",
         }
     ],
     offerings: {
