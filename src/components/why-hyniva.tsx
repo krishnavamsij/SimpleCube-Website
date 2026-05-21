@@ -51,22 +51,24 @@ export function WhyHyniva() {
                                 ))}
                             </h2>
                             
-                            <div className="grid grid-cols-2 sm:flex sm:gap-12 lg:gap-16 gap-6">
-                                {topBox.stats.map((stat, idx) => (
-                                    <div key={idx} className="flex flex-col">
-                                        <div className="flex items-baseline gap-1 mb-2">
-                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
-                                                {stat.value.replace('+', '')}
+                            <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
+                                <div className="flex gap-6 sm:grid sm:grid-cols-2 lg:flex lg:gap-16 overflow-x-auto pb-2 sm:pb-0">
+                                    {topBox.stats.map((stat, idx) => (
+                                        <div key={idx} className="flex flex-col flex-shrink-0">
+                                            <div className="flex items-baseline gap-1 mb-2">
+                                                <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                                    {stat.value.replace('+', '')}
+                                                </span>
+                                                {stat.value.includes('+') && (
+                                                    <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                                )}
+                                            </div>
+                                            <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
+                                                {stat.label}
                                             </span>
-                                            {stat.value.includes('+') && (
-                                                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
-                                            )}
                                         </div>
-                                        <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">
-                                            {stat.label}
-                                        </span>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
 

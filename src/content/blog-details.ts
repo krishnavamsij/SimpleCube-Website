@@ -254,7 +254,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
-    "title": "Celebrating Success.<br>A Great Place to Work — Two Years Running.",
+    "title": "A Great Place to Work — Two Years<br>Running. Celebrating Success.",
     "subtitle": "A Great Place to Work — Two Years Running.",
     "date": "Jan 3, 2025",
     "author": "Hyniva",
@@ -569,7 +569,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "hyniva-at-cypher-2025-showcasing-the-future-of-enterprise-ai-with-aira": {
-    "title": "Hyniva at Cypher 2025: Showcasing the Future of<br>Enterprise AI with AIRA",
+    "title": "Hyniva Showcases AIRA at<br>Cypher 2025 AI Summit",
     "subtitle": "",
     "date": "Sep 19, 2025",
     "author": "Hyniva",

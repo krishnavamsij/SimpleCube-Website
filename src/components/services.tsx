@@ -8,7 +8,6 @@ import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
 export function Services() {
-    // Because we adjusted the site-content shape, we provide fallbacks just in case
     const label = servicesContent.label;
     const callOutContent = (servicesContent as any).callOutContent || "";
     const metrics = (servicesContent as any).metrics || [];
@@ -52,7 +51,7 @@ export function Services() {
                                 </span>
                             ))}
                         </p>
-                        
+
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                             {metrics.map((metric: any, idx: number) => {
                                 const valStr = String(metric.value);
@@ -77,87 +76,79 @@ export function Services() {
                     </div>
                 </motion.div>
 
-                {/* ── Stacking Cards ── */}
-                <div className="relative mt-8 flex flex-col gap-6 lg:gap-8 pb-2 sm:pb-4 lg:pb-6">
-                    {services.map((svc, i) => {
-                        return (
-                            <div
-                                key={svc.num}
-                                className="sticky pt-4 lg:pt-8 w-full transition-all duration-300"
-                                style={{
-                                    // Slight offset to create a stacking effect
-                                    top: `calc(10vh + ${i * 40}px)`,
-                                    zIndex: i,
-                                }}
-                            >
-                                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[500px] lg:min-h-[500px]">
-                                    {/* Left: Content */}
-                                    <div className="flex-1 p-[30px] sm:p-[40px] lg:p-[50px] flex flex-col justify-center relative z-10">
-                                        
-                                        {/* Stylized background number */}
-                                        <div className="absolute -top-10 -left-6 lg:-top-16 lg:-left-12 text-[180px] lg:text-[250px] font-black leading-none text-[#00D4AA]/5 sm:text-slate-100/80 select-none pointer-events-none z-[-1]">
-                                            {svc.num}
-                                        </div>
-
-                                        <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-6 relative z-10 lg:mt-8">
-                                            {svc.title}
-                                        </h3>
-                                        <p className="text-lg text-slate-600 leading-relaxed max-w-xl mb-10">
-                                            {svc.description}
-                                        </p>
-                                        
-                                        <div className="flex flex-wrap gap-2.5 mb-10">
-                                            {svc.tags.map((tag) => (
-                                                <span
-                                                    key={tag}
-                                                    className="rounded-full bg-slate-50 border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 tracking-wide"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-
-                                        <div className="mt-auto pt-4">
-                                            <Link
-                                                href={svc.href}
-                                                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all"
-                                            >
-                                                Explore service <ArrowRightIcon className="h-4 w-4" />
-                                            </Link>
-                                        </div>
+                {/* ── Sticky Stacking Cards (All Screens - Overlapping) ── */}
+                <div className="relative mt-8 pb-6">
+                    {services.map((svc, i) => (
+                        <div
+                            key={svc.num}
+                            className="sticky relative w-full overflow-hidden mb-0"
+                            style={{
+                                top: "0",
+                                zIndex: i + 1,
+                                paddingBottom: "0",
+                            }}
+                        >
+                            <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[100vh] relative w-full">
+                                {/* Left: Content */}
+                                <div className="flex-1 p-7 sm:p-[40px] lg:p-[50px] flex flex-col justify-start lg:justify-center relative z-10 w-full lg:w-1/2">
+                                    {/* Stylized background number */}
+                                    <div className="absolute -top-8 -left-4 lg:-top-16 lg:-left-12 text-[160px] lg:text-[250px] font-black leading-none text-slate-100/80 select-none pointer-events-none z-[-1]">
+                                        {svc.num}
                                     </div>
 
-                                    {/* Right: Graphic */}
-                                    <div className="hidden lg:flex flex-1 bg-white relative min-h-[300px] lg:min-h-full border-t lg:border-t-0 overflow-hidden z-0 rounded-b-[2rem] lg:rounded-b-none lg:rounded-r-[2rem]">
-                                        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]"></div>
-                                        
-                                        {/* Gradient fade on the left edge to merge image with white background */}
-                                        <div className="absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden lg:block"></div>
+                                    <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-4 lg:mb-6 relative z-10 lg:mt-8">
+                                        {svc.title}
+                                    </h3>
+                                    <p className="text-sm sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-6 lg:mb-10">
+                                        {svc.description}
+                                    </p>
 
-                                        {/* Image container aligned with LHS padding (lg:py-16) */}
-                                        <div className="relative w-full h-full min-h-[300px] flex p-[30px] sm:p-[40px] lg:p-[50px] lg:pr-[50px] lg:pl-[25px]">
-                                            <div className="relative w-full h-full min-h-[250px] lg:min-h-full">
-                                                <Image
-                                                    src={svc.image}
-                                                    alt={svc.title}
-                                                    fill
-                                                    className={`object-contain object-right lg:object-center transition-transform ${
-                                                        i === 1 ? "scale-95 lg:scale-[1.05]" :
-                                                        i === 2 ? "scale-[1.20] lg:scale-[1.20]" :
-                                                        i === 3 ? "scale-125 lg:scale-125" :
-                                                        "scale-150 lg:scale-150"
-                                                    }`}
-                                                />
-                                            </div>
+                                    <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 lg:mb-10">
+                                        {svc.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="rounded-full bg-slate-50 border border-slate-200 px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-slate-600 tracking-wide"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <div>
+                                        <Link
+                                            href={svc.href}
+                                            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all"
+                                        >
+                                            Explore service <ArrowRightIcon className="h-4 w-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                {/* Right: Graphic — desktop only */}
+                                <div className="hidden lg:flex flex-1 bg-white relative min-h-full overflow-hidden z-0 rounded-r-[2rem] w-1/2">
+                                    <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]"></div>
+                                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                                    <div className="relative w-full h-full min-h-[300px] flex p-[50px] pl-[25px]">
+                                        <div className="relative w-full h-full min-h-full">
+                                            <Image
+                                                src={svc.image}
+                                                alt={svc.title}
+                                                fill
+                                                className={`object-contain object-center transition-transform ${
+                                                    i === 1 ? "scale-95 lg:scale-[1.05]" :
+                                                    i === 2 ? "scale-[1.20] lg:scale-[1.20]" :
+                                                    i === 3 ? "scale-125 lg:scale-125" :
+                                                    "scale-150 lg:scale-150"
+                                                }`}
+                                            />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
 }
-

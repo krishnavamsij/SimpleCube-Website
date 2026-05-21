@@ -82,7 +82,7 @@ function WealthHero() {
 function AlternatingSections() {
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1400px] px-6 space-y-32">
+            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {wealthAssetManagementContent.alternatingSections.map((section, index) => (
                     <motion.div 
                         key={index}
@@ -132,12 +132,12 @@ function WealthOfferings() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-3xl mx-auto mb-16"
+                    className="max-w-5xl mx-auto mb-16"
                 >
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {wealthAssetManagementContent.offerings.title}
                     </h2>
-                    <p className="text-lg text-slate-700 font-medium">
+                    <p className="text-lg text-slate-700 font-medium md:whitespace-nowrap">
                         {wealthAssetManagementContent.offerings.subtitle}
                     </p>
                 </motion.div>
@@ -187,14 +187,15 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-4xl mx-auto mb-20"
+                    className="max-w-5xl mx-auto mb-20"
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
                         {wealthAssetManagementContent.impact.title}
                     </h2>
-                    <p className="text-lg text-slate-300 font-medium leading-relaxed">
-                        {wealthAssetManagementContent.impact.subtitle}
-                    </p>
+                    <p 
+                        className="text-lg text-slate-300 font-medium leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: wealthAssetManagementContent.impact.subtitle }}
+                    />
                 </motion.div>
 
                 <motion.div
@@ -206,9 +207,10 @@ function ProvenImpact() {
                 >
                     {wealthAssetManagementContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-center">
-                                {stat.value}
-                            </div>
+                            <div 
+                                className="text-xl md:text-2xl font-extrabold text-white mb-4 font-display text-center"
+                                dangerouslySetInnerHTML={{ __html: stat.value }}
+                            />
                             <div 
                                 className="text-base text-slate-300 font-medium text-center"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}

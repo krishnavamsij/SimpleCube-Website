@@ -93,7 +93,7 @@ export function TechPartners() {
                             </p>
 
                             {/* Partner Logos */}
-                            <div className="flex flex-wrap items-center gap-x-8 sm:gap-x-10 gap-y-7 opacity-95 w-full">
+                            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-x-8 sm:gap-x-10 gap-y-7 opacity-95 w-full">
 
                                 {techPartnersContent.partners.map((partner, index) => {
                                     const img = (
@@ -111,7 +111,7 @@ export function TechPartners() {
                                     );
 
                                     return index === 2
-                                        ? [img, <div key="break" className="basis-full h-0" />]
+                                        ? [img, <div key="break" className="hidden sm:block basis-full h-0" />]
                                         : img;
                                 })}
                             </div>

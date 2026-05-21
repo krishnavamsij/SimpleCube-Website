@@ -42,7 +42,7 @@ export function HeroCarousel() {
             {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
                 {/* ── LHS: Text ── */}
-                <div className="flex w-full flex-col justify-center pb-6 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-28">
+                <div className="flex w-full flex-col justify-center pb-2 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key="hero-content"
@@ -76,20 +76,20 @@ export function HeroCarousel() {
                             </motion.p>
 
                             {/* Hero Metrics Row */}
-                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-10 sm:gap-14 lg:mt-16 lg:gap-24">
+                            <motion.div variants={fadeInUp} className="mt-10 flex flex-row flex-nowrap items-start gap-4 sm:gap-14 lg:mt-16 lg:gap-24">
                                 {[
                                     { value: "50%", label: "Less Planning\nTime" },
                                     { value: "40%", label: "Quicker\nDelivery" },
                                     { value: "30%", label: "Faster\nPOC" }
                                 ].map((stat, idx) => (
-                                    <div key={idx} className="flex flex-col">
-                                        <div className="flex items-baseline gap-1 mb-2">
-                                            <span className="text-3xl sm:text-4xl font-[900] text-white leading-none font-display">
+                                    <div key={idx} className="flex flex-col flex-shrink-0">
+                                        <div className="flex items-baseline gap-0.5 mb-1.5 sm:mb-2">
+                                            <span className="text-xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                 {stat.value.replace('%', '')}
                                             </span>
-                                            <span className="text-2xl sm:text-3xl font-black text-white leading-none">%</span>
+                                            <span className="text-base sm:text-2xl lg:text-3xl font-black text-white leading-none">%</span>
                                         </div>
-                                        <span className="text-[14px] sm:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight">
+                                        <span className="text-[10px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-[1.3]">
                                             {stat.label}
                                         </span>
                                     </div>

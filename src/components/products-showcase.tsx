@@ -120,10 +120,27 @@ export function ProductsShowcase() {
 
                 {/* ── Logo Ribbon Footprint ── */}
                 <div className="mt-8 lg:mt-12 pt-6 border-t border-white/10 w-full mb-12 lg:mb-16 relative">
-                    <div className="flex flex-row items-center justify-start xl:justify-center overflow-x-auto flex-nowrap gap-4 lg:gap-6 xl:gap-4 pb-8 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+
+                    {/* Mobile: seamless auto-scroll marquee — no scrollbar */}
+                    <div className="lg:hidden marquee-fade overflow-hidden pb-2">
+                        <div
+                            className="animate-marquee flex w-max items-center gap-8"
+                            style={{ "--marquee-duration": "28s" } as React.CSSProperties}
+                        >
+                            {[...logos, ...logos].map((logo, i) => (
+                                <div key={i} className="flex-shrink-0 flex items-center justify-center">
+                                    <div className="h-10 relative w-[120px] opacity-95">
+                                        <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Desktop: static centered layout with acquired-by badges */}
+                    <div className="hidden lg:flex flex-row items-center justify-start xl:justify-center flex-nowrap gap-6 xl:gap-4 pb-8 w-full">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-center relative flex-shrink-0">
-                                {/* Adjusted bounds and gaps to guarantee all 7 fit within 1440px without cropping or negative center-overflows */}
                                 <div className="h-12 lg:h-16 relative w-[160px] lg:w-[180px] xl:w-[185px] opacity-95 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
@@ -135,35 +152,33 @@ export function ProductsShowcase() {
                             </div>
                         ))}
                     </div>
+
                 </div>
             </div>
 
-            {/* ── Stacked Products Sticky Layout ── */}
-            {/* Using native CSS sticky sequentially so each card overlaps the previous one precisely as requested. */}
+            {/* ── Stacked Products Sticky Layout (All Screens - Overlapping) ── */}
             <div className="mx-auto max-w-[1400px] px-6">
                 <div className="relative w-full overflow-visible pb-6 lg:pb-12 mt-10 lg:mt-0">
                     {products.map((p, i) => (
                         <div 
                             key={p.num} 
-                            className="sticky w-full"
+                            className="sticky relative w-full overflow-hidden mb-0"
                             style={{
-                                top: "12vh",
+                                top: "0",
                                 zIndex: i * 10,
-                                paddingBottom: i === products.length - 1 ? "0" : "15vh", // Allows scroll padding between stacks
+                                paddingBottom: "0",
                             }}
                         >
                             {/* 
                                 Card Wrapper
                                 - Solid background bg-[#081236], preventing transparency overlap
-                                - Align to right boundary of page layout (lg:ml-auto)
-                                - Starts a bit far from left boundary via (lg:w-[94%])
-                                - Right looks "cut" via rounded-r-none
+                                - Overflow hidden to clip any peeking content
+                                - Proper z-index layering for complete coverage
                             */}
                             <div 
-                                className="bg-[#081236] rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col lg:flex-row min-h-[500px] lg:h-[76vh] relative mr-[-50vw] lg:mr-0"
+                                className="bg-[#081236] rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[100vh] lg:h-[100vh] relative"
                                 style={{
-                                    width: 'calc(100vw - max(24px, calc((100vw - 1400px) / 2)))',
-                                    maxWidth: 'none'
+                                    width: '100%'
                                 }}
                             >
                                 

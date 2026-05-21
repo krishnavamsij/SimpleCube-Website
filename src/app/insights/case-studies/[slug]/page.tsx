@@ -809,6 +809,136 @@ export default function CaseStudyDetailPage() {
                     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
                     border: 1px solid #e5e7eb;
                 }
+
+                /* ── Comparison Table Styling ── */
+                .comparison-table-wrapper {
+                    margin-top: 32px;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                    border: 1px solid #e5e7eb;
+                }
+                .comparison-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: inherit;
+                }
+                .comparison-table__header {
+                    background: #1B3A5C;
+                    color: #ffffff;
+                    font-size: 15px;
+                    font-weight: 700;
+                    padding: 16px 24px;
+                    text-align: left;
+                    width: 50%;
+                    letter-spacing: 0.02em;
+                }
+                .comparison-table__header--left {
+                    border-right: 1px solid rgba(255,255,255,0.15);
+                }
+                .comparison-table__row--even {
+                    background: #ffffff;
+                }
+                .comparison-table__row--odd {
+                    background: #f0f4f8;
+                }
+                .comparison-table__cell {
+                    padding: 16px 24px;
+                    font-size: 14px;
+                    color: #374151;
+                    line-height: 1.6;
+                    vertical-align: top;
+                    border-bottom: 1px solid #e5e7eb;
+                }
+                .comparison-table__cell:first-child {
+                    border-right: 1px solid #e5e7eb;
+                }
+                .comparison-table__cell--highlight {
+                    font-weight: 600;
+                    color: #111827;
+                }
+                .comparison-table__row:last-child .comparison-table__cell {
+                    border-bottom: none;
+                }
+                @media (max-width: 640px) {
+                    .comparison-table__header {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                    .comparison-table__cell {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                }
+
+                /* ── Benefits Table Styling ── */
+                .benefits-table-wrapper {
+                    margin-top: 32px;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+                    border: 1px solid #e5e7eb;
+                }
+                .benefits-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: inherit;
+                }
+
+                .benefits-table__row--even {
+                    background: #ffffff;
+                }
+                .benefits-table__row--odd {
+                    background: #f8fafc;
+                }
+                .benefits-table__cell {
+                    padding: 18px 24px;
+                    font-size: 15px;
+                    color: #475569;
+                    line-height: 1.6;
+                    vertical-align: middle;
+                    border-bottom: 1px solid #e2e8f0;
+                }
+                .benefits-table__cell--num {
+                    width: 80px;
+                    text-align: center;
+                }
+                .benefits-num-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #1B3A5C;
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 14px;
+                    box-shadow: 0 4px 10px rgba(27, 58, 92, 0.2);
+                }
+                .benefits-table__cell--benefit {
+                    width: 35%;
+                    font-weight: 700;
+                    color: #1B3A5C;
+                }
+                .benefits-table__cell--desc {
+                    width: 55%;
+                    font-weight: 300;
+                }
+                .benefits-table__row:last-child .benefits-table__cell {
+                    border-bottom: none;
+                }
+                @media (max-width: 640px) {
+                    .benefits-table__cell {
+                        font-size: 13px;
+                        padding: 12px 14px;
+                    }
+                    .benefits-num-badge {
+                        width: 26px;
+                        height: 26px;
+                        font-size: 12px;
+                    }
+                }
             `}</style>
         </div>
     );
