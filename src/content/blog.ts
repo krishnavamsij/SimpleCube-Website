@@ -17,6 +17,14 @@ export const blogContent: {
     },
     posts: [
         {
+            title: "CU NEXT Podcast: Voices Driving Credit Union Innovation",
+            date: "APR 23, 2026",
+            tag: "Company",
+            image: "/images/News/CU NEXT Podcast Voices Driving.jpeg",
+            href: "/insights/news/cu-next-podcast-voices-driving-credit-union-innovation",
+            isNews: true,
+        },
+        {
             title: "Prepare Your Salesforce Platform for an Agent-Led Future.",
             date: "Feb 19, 2026",
             tag: "Salesforce",
