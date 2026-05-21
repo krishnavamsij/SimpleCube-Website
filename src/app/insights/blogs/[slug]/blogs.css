@@ -396,6 +396,56 @@ h1.cs-line-clamp-2 em {
     font-size: 13.5px !important;
     line-height: 1.6 !important;
   }
+
+  /* Fix stats block horizontal overflow on mobile */
+  .blog-content-wrapper .stats {
+    padding: 28px 20px !important;
+    gap: 2rem !important;
+  }
+
+  .blog-content-wrapper .stat {
+    padding: 0 !important;
+  }
+
+  .blog-content-wrapper .stat__value {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    min-height: 40px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .blog-content-wrapper .stat__label {
+    font-size: 13px !important;
+    max-width: 100% !important;
+    padding: 0 8px !important;
+  }
+
+  /* Fix cap-list items on mobile */
+  .blog-content-wrapper .cap-list {
+    gap: 10px !important;
+  }
+
+  .blog-content-wrapper .cap-item {
+    padding: 16px 18px !important;
+    gap: 12px !important;
+  }
+
+  .blog-content-wrapper .cap-item__icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .blog-content-wrapper .cap-item__icon svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .blog-content-wrapper .cap-item__text {
+    font-size: 14px !important;
+  }
+
+  .blog-content-wrapper .cap-item__text strong {
+    font-size: 14px !important;
+  }
 }
 
 /* ─── COMPARE TABLES ─── */
@@ -1253,54 +1303,75 @@ h1.cs-line-clamp-2 em {
   border: 1px solid #f1f5f9 !important;
   border-radius: 12px !important;
   padding: 20px !important;
-  display: flex !important;
-  gap: 16px !important;
-  align-items: flex-start !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 10px !important;
+  row-gap: 12px !important;
   margin-top: 24px !important;
 }
 
 .blog-content-wrapper .story__icon {
-  width: 32px !important;
-  height: 32px !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 24px !important;
+  height: 24px !important;
   background: rgba(30, 144, 255, 0.1) !important;
-  border-radius: 8px !important;
+  border-radius: 6px !important;
   flex-shrink: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   color: #1e90ff !important;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
+  align-self: center !important;
 }
 
 .blog-content-wrapper .story__icon svg {
-  width: 15px !important;
-  height: 15px !important;
+  width: 13px !important;
+  height: 13px !important;
   stroke: #1e90ff !important;
   fill: none !important;
 }
 
 .blog-content-wrapper .story__content {
-  flex: 1 !important;
-  margin-bottom: 0 !important;
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  display: contents !important;
 }
 
 .blog-content-wrapper .story__label {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
   font-family: var(--font-display), system-ui, sans-serif !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 2.5px !important;
   text-transform: uppercase !important;
   color: #1e90ff !important;
-  margin-bottom: 6px !important;
-  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .blog-content-wrapper .story__text {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
   font-size: 14.5px !important;
   font-weight: 300 !important;
   color: #475569 !important;
   line-height: 1.75 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure paragraph elements inside story__text don't add extra margins */
+.blog-content-wrapper .story__text p {
+  margin-top: 0 !important;
   margin-bottom: 0 !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .blog-content-wrapper .premium-boxes {
@@ -2873,5 +2944,177 @@ h1.cs-line-clamp-2 em {
 
   .blog-content-wrapper .cta {
     padding: 36px 24px !important;
+  }
+
+  /* Fix top text clipping on mobile */
+  .blog-content-wrapper {
+    padding-top: 8px !important;
+  }
+
+  .blog-content-wrapper > p:first-child,
+  .blog-content-wrapper > div:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Ensure proper spacing for journey steps on mobile */
+  .blog-content-wrapper .journey {
+    padding-left: 12px !important;
+  }
+
+  .blog-content-wrapper .journey::before {
+    left: 28px !important;
+  }
+
+  .blog-content-wrapper .journey-step {
+    gap: 16px !important;
+  }
+
+  .blog-content-wrapper .journey-step__num,
+  .blog-content-wrapper .journey-step__dot {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+  }
+
+  /* Responsive heading sizes on mobile */
+  .blog-content-wrapper h2 {
+    font-size: 24px !important;
+    margin-top: 36px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .blog-content-wrapper h3 {
+    font-size: 18px !important;
+    margin-top: 28px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Ensure no horizontal overflow */
+  .blog-content-wrapper,
+  .blog-content-wrapper * {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+  .blog-content-wrapper img,
+  .blog-content-wrapper svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Additional mobile-specific fixes for very small screens (320px - 480px) */
+@media (max-width: 480px) {
+  /* Ensure main content has proper padding on very small screens */
+  main {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Fix stats block on very small screens */
+  .blog-content-wrapper .stats {
+    padding: 24px 16px !important;
+    gap: 1.5rem !important;
+    border-radius: 12px !important;
+  }
+
+  .blog-content-wrapper .stat__value {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .blog-content-wrapper .stat__label {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Adjust hero title for very small screens */
+  .hero-title {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Reduce padding on cards for very small screens */
+  .blog-content-wrapper .cap-item,
+  .blog-content-wrapper .feature-card,
+  .blog-content-wrapper .benefit-card {
+    padding: 14px 16px !important;
+  }
+
+  /* Adjust journey steps for very small screens */
+  .blog-content-wrapper .journey {
+    padding-left: 8px !important;
+  }
+
+  .blog-content-wrapper .journey::before {
+    left: 24px !important;
+  }
+
+  .blog-content-wrapper .journey-step {
+    gap: 12px !important;
+  }
+
+  .blog-content-wrapper .journey-step__num,
+  .blog-content-wrapper .journey-step__dot {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 11px !important;
+  }
+
+  .blog-content-wrapper .journey-step__title {
+    font-size: 15px !important;
+  }
+
+  .blog-content-wrapper .journey-step__desc,
+  .blog-content-wrapper .journey-step__body {
+    font-size: 14px !important;
+  }
+}
+
+/* Prevent floating elements from overlapping content on mobile */
+@media (max-width: 768px) {
+  /* Add safe area for potential floating action buttons */
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0) !important;
+  }
+
+  /* Ensure floating elements don't overlap with headings */
+  .blog-content-wrapper h2:last-of-type {
+    margin-bottom: 32px !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Add z-index management for potential floating elements */
+  [class*="float"],
+  [class*="fixed"],
+  [style*="position: fixed"],
+  [style*="position: absolute"][style*="bottom"] {
+    z-index: 999 !important;
+  }
+
+  /* Ensure content stays below floating elements */
+  .blog-content-wrapper {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+/* Fix for overlapping floating action buttons on mobile */
+@media (max-width: 768px) {
+  /* Stack floating action buttons vertically on mobile */
+  body > div[style*="position: fixed"][style*="bottom"],
+  body > div[style*="position: fixed"][style*="right"] {
+    right: 16px !important;
+  }
+
+  /* Adjust spacing between stacked floating buttons */
+  body > div[style*="position: fixed"][style*="bottom"]:nth-last-child(2) {
+    bottom: 90px !important;
+  }
+
+  body > div[style*="position: fixed"][style*="bottom"]:nth-last-child(3) {
+    bottom: 150px !important;
   }
 }
