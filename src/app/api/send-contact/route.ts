@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-const brevoApiKey = process.env.BREVO_API_KEY;
+import { getBrevoApiKey, BREVO_SMTP_URL } from "@/lib/email-config";
 
 // Verified sender email in Brevo (Outlook)
 const SENDER_EMAIL = "contact@hyniva.com";
@@ -9,6 +8,7 @@ const RECIPIENT_EMAIL = "connect@hyniva.com";
 
 export async function POST(request: Request) {
   try {
+    const brevoApiKey = getBrevoApiKey();
     if (!brevoApiKey) {
       console.error("BREVO_API_KEY is not configured");
       return NextResponse.json(

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-const brevoApiKey = process.env.BREVO_API_KEY;
+import { getBrevoApiKey, BREVO_SMTP_URL } from "@/lib/email-config";
 
 // Verified sender email in Brevo (Outlook)
 const SENDER_EMAIL = "contact@hyniva.com";
@@ -30,6 +29,7 @@ function sanitizeFileName(fileName: string) {
 
 export async function POST(request: Request) {
   try {
+    const brevoApiKey = getBrevoApiKey();
     if (!brevoApiKey) {
       console.error("BREVO_API_KEY is not configured");
       return NextResponse.json(
@@ -178,7 +178,7 @@ export async function POST(request: Request) {
     console.log("📎 Has attachment:", !!attachmentData);
 
     // Send email via Brevo API
-    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    const response = await fetch(BREVO_SMTP_URL, {
       method: "POST",
       headers: {
         "api-key": brevoApiKey,
