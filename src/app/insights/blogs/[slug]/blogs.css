@@ -515,6 +515,80 @@ h1.cs-line-clamp-2 em {
   font-weight: 500 !important;
 }
 
+@media (max-width: 768px) {
+
+  /* Responsive Table Layout Refactor */
+  .blog-content-wrapper .compare {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin-top: 24px !important;
+  }
+
+  .blog-content-wrapper .compare__header {
+    display: none !important;
+  }
+
+  .blog-content-wrapper .compare__row {
+    display: block !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02) !important;
+    overflow: hidden !important;
+  }
+
+  .blog-content-wrapper .compare__row:nth-child(even) {
+    background: #ffffff !important;
+  }
+
+  .blog-content-wrapper .compare__cell {
+    display: block !important;
+    padding: 16px 20px !important;
+    border-right: none !important;
+  }
+
+  .blog-content-wrapper .compare__cell--label {
+    background: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0c152b !important;
+  }
+
+  .blog-content-wrapper .compare__cell:nth-child(2) {
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  .blog-content-wrapper .compare__cell:nth-child(2)::before {
+    content: "Salesforce Classic: " !important;
+    display: block !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #64748b !important;
+    margin-bottom: 4px !important;
+  }
+
+  .blog-content-wrapper .compare__cell:nth-child(3)::before {
+    content: "Salesforce Lightning: " !important;
+    display: block !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #2563eb !important;
+    margin-bottom: 4px !important;
+  }
+
+  .blog-content-wrapper .compare__cell--positive {
+    color: #475569 !important;
+    font-weight: 400 !important;
+  }
+}
+
 /* ─── JOURNEY STEPS (Modern Timeline) ─── */
 .blog-content-wrapper .journey {
   margin-top: 40px !important;
@@ -2527,11 +2601,42 @@ h1.cs-line-clamp-2 em {
   font-family: var(--font-display), system-ui, sans-serif !important;
 }
 
+.blog-content-wrapper .stat-pill {
+  background-color: #f8fafc !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  box-sizing: border-box !important;
+}
+
 .blog-content-wrapper .stat-pill__icon {
   font-size: 16px !important;
   flex-shrink: 0 !important;
   margin-top: 2px !important;
   margin-bottom: 0 !important;
+}
+
+.blog-content-wrapper .stat-pill__label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: #1e90ff !important;
+  background: rgba(30, 144, 255, 0.08) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
 }
 
 .blog-content-wrapper .stat-pill__text {
@@ -2948,11 +3053,17 @@ h1.cs-line-clamp-2 em {
 
   /* Fix top text clipping on mobile */
   .blog-content-wrapper {
-    padding-top: 8px !important;
+    padding-top: 64px !important;
   }
 
-  .blog-content-wrapper > p:first-child,
-  .blog-content-wrapper > div:first-child {
+  /* Smooth scroll spacing for headings to clear fixed navbar */
+  .blog-content-wrapper h2,
+  .blog-content-wrapper h3 {
+    scroll-margin-top: 90px !important;
+  }
+
+  .blog-content-wrapper>p:first-child,
+  .blog-content-wrapper>div:first-child {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
@@ -3007,6 +3118,7 @@ h1.cs-line-clamp-2 em {
 
 /* Additional mobile-specific fixes for very small screens (320px - 480px) */
 @media (max-width: 480px) {
+
   /* Ensure main content has proper padding on very small screens */
   main {
     padding-left: 20px !important;
@@ -3075,6 +3187,7 @@ h1.cs-line-clamp-2 em {
 
 /* Prevent floating elements from overlapping content on mobile */
 @media (max-width: 768px) {
+
   /* Add safe area for potential floating action buttons */
   body {
     padding-bottom: env(safe-area-inset-bottom, 0) !important;
@@ -3103,18 +3216,117 @@ h1.cs-line-clamp-2 em {
 
 /* Fix for overlapping floating action buttons on mobile */
 @media (max-width: 768px) {
+
   /* Stack floating action buttons vertically on mobile */
-  body > div[style*="position: fixed"][style*="bottom"],
-  body > div[style*="position: fixed"][style*="right"] {
+  body>div[style*="position: fixed"][style*="bottom"],
+  body>div[style*="position: fixed"][style*="right"] {
     right: 16px !important;
   }
 
   /* Adjust spacing between stacked floating buttons */
-  body > div[style*="position: fixed"][style*="bottom"]:nth-last-child(2) {
+  body>div[style*="position: fixed"][style*="bottom"]:nth-last-child(2) {
     bottom: 90px !important;
   }
 
-  body > div[style*="position: fixed"][style*="bottom"]:nth-last-child(3) {
+  body>div[style*="position: fixed"][style*="bottom"]:nth-last-child(3) {
     bottom: 150px !important;
+  }
+}
+
+/* ─── GLOBAL MOBILE RESPONSIVENESS FIXES ─── */
+@media (max-width: 768px) {
+
+  /* 1. Global Header & Page Container Spacing */
+  .blog-content-wrapper {
+    padding-top: 80px !important;
+    /* Clear fixed navbar */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .blog-content-wrapper h1,
+  .blog-content-wrapper h2,
+  .blog-content-wrapper h3,
+  .blog-content-wrapper h4,
+  .blog-content-wrapper h5,
+  .blog-content-wrapper h6 {
+    scroll-margin-top: 100px !important;
+  }
+
+  /* 2. Global Typography & Media Wrapping */
+  .blog-content-wrapper h2 {
+    font-size: clamp(24px, 6vw, 30px) !important;
+  }
+
+  .blog-content-wrapper h3 {
+    font-size: clamp(18px, 5vw, 20px) !important;
+  }
+
+  .blog-content-wrapper p,
+  .blog-content-wrapper li,
+  .blog-content-wrapper a,
+  .blog-content-wrapper span,
+  .blog-content-wrapper div {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto;
+  }
+
+  .blog-content-wrapper img,
+  .blog-content-wrapper video,
+  .blog-content-wrapper iframe {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* 3. Shared Component Layout Defenses */
+  /* Multi-column Stats Blocks & Cards */
+  .blog-content-wrapper .capabilities,
+  .blog-content-wrapper .stats,
+  .blog-content-wrapper .cap-card,
+  .blog-content-wrapper .feature-card,
+  .blog-content-wrapper .benefit-card,
+  .blog-content-wrapper .highlight-card,
+  .blog-content-wrapper .diff-card,
+  .blog-content-wrapper [class*="grid"] {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Information Tables */
+  .blog-content-wrapper table,
+  .blog-content-wrapper .compare-table,
+  .blog-content-wrapper .table-container {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Callout & Success Story Blocks - Icon Flex Handling */
+  .blog-content-wrapper .cap-item__icon,
+  .blog-content-wrapper .feature-card__icon,
+  .blog-content-wrapper .stat-box__icon,
+  .blog-content-wrapper .story__icon,
+  .blog-content-wrapper .highlight-card__icon,
+  .blog-content-wrapper .benefit-card__icon,
+  .blog-content-wrapper .diff-card__icon,
+  .blog-content-wrapper svg.icon-pinned {
+    flex-shrink: 0 !important;
+  }
+
+  /* 4. Custom Component Mobile Layout Fixes */
+  .blog-content-wrapper .contrast,
+  .blog-content-wrapper .features,
+  .blog-content-wrapper .benefits {
+    grid-template-columns: 1fr !important;
+  }
+
+  .blog-content-wrapper .strategy-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
   }
 }
