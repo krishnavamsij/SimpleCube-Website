@@ -857,6 +857,8 @@ export default function CareersPage() {
   const [filter, setFilter] = useState<string>("all");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [submitError, setSubmitError] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeFileName, setResumeFileName] = useState<string>("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -933,6 +935,8 @@ export default function CareersPage() {
     setResumeFileName("");
     setFormSubmitted(false);
     setIsSubmitting(false);
+    setUploadProgress(0);
+    setSubmitError("");
     
     // Reset country code based on selected job
     const job = jobOpenings.find(j => j.title === selectedJob);
@@ -1089,8 +1093,36 @@ export default function CareersPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setResumeFile(e.target.files[0]);
-      setResumeFileName(e.target.files[0].name);
+      const file = e.target.files[0];
+      const fileExtension = file.name.split(".").pop()?.toLowerCase();
+      const allowedExtensions = new Set(["pdf", "doc", "docx"]);
+      const maxSize = 5 * 1024 * 1024;
+
+      if (!fileExtension || !allowedExtensions.has(fileExtension)) {
+        setErrors((prev) => ({
+          ...prev,
+          resume: "Only PDF, DOC, and DOCX files are allowed.",
+        }));
+        setResumeFile(null);
+        setResumeFileName("");
+        e.target.value = "";
+        return;
+      }
+
+      if (file.size > maxSize) {
+        setErrors((prev) => ({
+          ...prev,
+          resume: "Resume file must be 5MB or smaller.",
+        }));
+        setResumeFile(null);
+        setResumeFileName("");
+        e.target.value = "";
+        return;
+      }
+
+      setResumeFile(file);
+      setResumeFileName(file.name);
+      setErrors((prev) => ({ ...prev, resume: "" }));
     }
   };
 
@@ -1132,6 +1164,44 @@ export default function CareersPage() {
     }
   };
 
+  const uploadResumeWithProgress = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const formDataToUpload = new FormData();
+      formDataToUpload.append("resume", file);
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "/api/upload-resume");
+
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const progress = Math.round((event.loaded / event.total) * 100);
+          setUploadProgress(progress);
+        }
+      };
+
+      xhr.onload = () => {
+        try {
+          const response = JSON.parse(xhr.responseText) as {
+            url?: string;
+            error?: string;
+          };
+
+          if (xhr.status >= 200 && xhr.status < 300 && response.url) {
+            setUploadProgress(100);
+            resolve(response.url);
+            return;
+          }
+
+          reject(new Error(response.error || "Resume upload failed."));
+        } catch {
+          reject(new Error("Resume upload failed."));
+        }
+      };
+
+      xhr.onerror = () => reject(new Error("Network error while uploading resume."));
+      xhr.send(formDataToUpload);
+    });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -1154,103 +1224,43 @@ export default function CareersPage() {
     }
 
     setIsSubmitting(true);
+    setSubmitError("");
+    setUploadProgress(0);
 
     try {
-      // Determine email recipient based on job region
-      const job = jobOpenings.find(j => j.title === selectedJob);
-      const emailRecipient = job?.region === "us" ? "careers@hyniva.com" : "hr@hyniva.com";
-
-      // 1. Create form dynamically
-      const form = document.createElement("form");
-      form.action = `https://formsubmit.co/${emailRecipient}`;
-      form.method = "POST";
-      form.enctype = "multipart/form-data";
-
-      // Use hidden iframe to prevent redirect
-      const iframeName = "formSubmitFrame_" + Date.now();
-      const iframe = document.createElement("iframe");
-      iframe.name = iframeName;
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
-      form.target = iframeName;
-
-      // 2. Add hidden fields helper
-      const addField = (name: string, value: string) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
-      };
-
-      // Professional Email Configuration
-      addField("_subject", `[Hyniva Careers] New Application: ${selectedJob} - ${formData.firstName} ${formData.lastName}`);
-      addField("_captcha", "false");
-      addField("_template", "table");
-      addField("_replyto", formData.email);
-      addField("_honey", ""); // Spam protection
-
-      // Formal Applicant Data
-      addField("APPLICANT FULL NAME", `${formData.firstName} ${formData.lastName}`);
-      addField("TARGET POSITION", selectedJob);
-      addField("CONTACT EMAIL", formData.email);
-      addField("CONTACT PHONE", `${selectedCountry.code} ${formData.phone}`);
-      addField("CURRENT LOCATION", formData.location);
-      addField("TOTAL EXPERIENCE", formData.experience);
-      addField("RELEVANT EXPERIENCE", formData.relevantExp);
-      addField("CURRENT COMPANY", formData.currentCompany || 'N/A');
-      addField("CURRENT DESIGNATION", formData.currentRole || 'N/A');
-      addField("CURRENT ANNUAL CTC", formData.currentCTC);
-      addField("EXPECTED ANNUAL CTC", formData.expectedCTC);
-      addField("NOTICE PERIOD", formData.noticePeriod);
-      addField("PREFERRED WORK MODE", formData.workMode || 'N/A');
-      addField("KEY SKILLS", formData.skills);
-      addField("LINKEDIN PROFILE", formData.linkedIn || 'N/A');
-      addField("PORTFOLIO / GITHUB", formData.portfolio || 'N/A');
-      addField("COVER NOTE / MESSAGE", formData.coverNote);
-
-      // 3. Attach Resume
-      if (resumeFile) {
-        const fileInput = document.createElement("input");
-        fileInput.type = "file";
-        fileInput.name = "attachment";
-        fileInput.style.display = "none";
-
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(resumeFile);
-        fileInput.files = dataTransfer.files;
-
-        form.appendChild(fileInput);
+      if (!resumeFile) {
+        throw new Error("Please upload your resume.");
       }
 
-      // 4. Submit
-      document.body.appendChild(form);
-      form.submit();
+      // Create FormData for direct submission to Brevo API
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`.trim());
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("role", selectedJob);
+      formDataToSend.append("ctc", formData.currentCTC);
+      formDataToSend.append("skills", formData.skills);
+      formDataToSend.append("location", formData.location);
+      formDataToSend.append("resume", resumeFile);
 
-      // Listen for completion
-      iframe.onload = () => {
-        setTimeout(() => {
-          setFormSubmitted(true);
-          setIsSubmitting(false);
-          if (document.body.contains(form)) document.body.removeChild(form);
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }, 1000);
-      };
+      const response = await fetch("/api/send-careers", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Unable to submit application.");
+      }
 
-      // Fallback timeout
-      setTimeout(() => {
-        if (document.body.contains(iframe)) {
-          setFormSubmitted(true);
-          setIsSubmitting(false);
-          if (document.body.contains(form)) document.body.removeChild(form);
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }
-      }, 5000);
-
+      setFormSubmitted(true);
     } catch (error) {
       console.error("Submit error:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+    } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
     }
   };
 
@@ -2028,6 +2038,11 @@ export default function CareersPage() {
                     {errors.resume && (
                       <p className="mt-2 text-xs text-red-500 text-center font-medium">{errors.resume}</p>
                     )}
+                    {isSubmitting && uploadProgress > 0 && (
+                      <p className="mt-2 text-xs text-[#1e6fff] text-center font-medium">
+                        Uploading resume... {uploadProgress}%
+                      </p>
+                    )}
                   </div>
 
                   {/* Cover Note */}
@@ -2055,6 +2070,11 @@ export default function CareersPage() {
 
                   {/* Submit Button */}
                   <div className="pt-4">
+                    {submitError && (
+                      <p className="mb-3 text-xs text-red-500 text-center font-medium">
+                        {submitError}
+                      </p>
+                    )}
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -2063,7 +2083,7 @@ export default function CareersPage() {
                       {isSubmitting ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Submitting...
+                          Sending...
                         </>
                       ) : (
                         "Submit Application"

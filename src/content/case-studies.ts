@@ -17,7 +17,7 @@ export const caseStudiesContent = {
         {
             title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce Document Intelligence",
             image: "/images/Case_Studies/Optimized/cs-2.png",
-            description: "Loan applications completed in under 2 minutes with AI-driven document intelligence.",
+            description: "Built an AI-powered lending concierge to deliver instant loan processing, streamlining the entire lending lifecycle from application to approval.",
             href: "/insights/case-studies/instant-loan-processing",
             tags: ["Salesforce", "Applied AI", "Product Engineering", "Banking"],
         },
@@ -158,7 +158,7 @@ export const caseStudiesContent = {
             title: "Cost-Optimized <span class='text-[#3B82F6]'>Document Platform</span> on AWS",
             image: "/images/Case_Studies/Optimized/cs-22.png",
             description: "Reduced costs to zero licensing while scaling document management on AWS.",
-            href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
+            href: "/insights/case-studies/cost-optimized-document-platform-on-aws",
             tags: ["AWS", "Data Intelligence", "Product Engineering", "Wealth & Asset Management"],
         },
         {

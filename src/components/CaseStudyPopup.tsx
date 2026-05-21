@@ -33,6 +33,8 @@ export function CaseStudyPopup({
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenDismissed, setHasBeenDismissed] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -51,6 +53,8 @@ export function CaseStudyPopup({
     setIsVisible(false);
     setHasBeenDismissed(false);
     setIsSubmitted(false);
+    setIsSending(false);
+    setSubmitError("");
     setFormData({
       name: '',
       email: '',
@@ -143,67 +147,33 @@ export function CaseStudyPopup({
       return;
     }
 
+    setIsSending(true);
+    setSubmitError("");
+
     try {
-      // Create form dynamically like careers form
-      const form = document.createElement("form");
-      form.action = "https://formsubmit.co/connect@hyniva.com";
-      form.method = "POST";
-      form.enctype = "multipart/form-data";
+      const response = await fetch("/api/send-casestudy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      // Use hidden iframe to prevent redirect
-      const iframeName = "formSubmitFrame_" + Date.now();
-      const iframe = document.createElement("iframe");
-      iframe.name = iframeName;
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Failed to send enquiry.");
+      }
 
-      form.target = iframeName;
-
-      // Add form fields
-      const addField = (name: string, value: string) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
-      };
-
-      addField("_subject", `New Lead: ${formData.name} is interested in Hyniva Insights`);
-      addField("_replyto", formData.email);
-      addField("_captcha", "false");
-      addField("Inquiry Details", "A visitor has expressed interest in learning more about Hyniva after reading a case study.");
-      addField("Prospect Name", formData.name);
-      addField("Company", formData.organization);
-      addField("Position", formData.role);
-      addField("Contact Email", formData.email);
-      addField("_template", "table");
-
-      document.body.appendChild(form);
-      form.submit();
-
-      // Listen for completion
-      iframe.onload = () => {
-        setTimeout(() => {
-          if (document.body.contains(form)) document.body.removeChild(form);
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }, 1000);
-      };
-
-      // Fallback timeout
-      setTimeout(() => {
-        if (document.body.contains(iframe)) {
-          if (document.body.contains(form)) document.body.removeChild(form);
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }
-      }, 5000);
-      
-      console.log('✅ Form submitted successfully');
+      setIsSubmitted(true);
+      setTimeout(() => setIsVisible(false), 3000);
     } catch (error) {
       console.error("Form submission error", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setIsSending(false);
     }
-
-    setIsSubmitted(true);
-    setTimeout(() => setIsVisible(false), 3000);
   };
 
   return (
@@ -340,11 +310,15 @@ export function CaseStudyPopup({
                     </div>
                   </div>
 
+                  {submitError && (
+                    <p className="text-[11px] text-red-500 text-center">{submitError}</p>
+                  )}
                   <button
                     type="submit"
+                    disabled={isSending}
                     className="w-full bg-[#1e90ff] text-white text-[14px] font-semibold py-3 rounded-[8px] hover:bg-[#1e7edd] transition-colors duration-200"
                   >
-                    Get Started
+                    {isSending ? "Sending..." : "Get Started"}
                   </button>
                 </form>
               )}

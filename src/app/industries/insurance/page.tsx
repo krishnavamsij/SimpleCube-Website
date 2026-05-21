@@ -82,7 +82,7 @@ function InsuranceHero() {
 function AlternatingSections() {
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1400px] px-6 space-y-32">
+            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {insuranceContent.alternatingSections.map((section, index) => (
                     <motion.div 
                         key={index}
@@ -132,7 +132,7 @@ function InsuranceOfferings() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-3xl mx-auto mb-16"
+                    className="max-w-5xl mx-auto mb-16"
                 >
                     <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
                         {insuranceContent.offerings.title}
