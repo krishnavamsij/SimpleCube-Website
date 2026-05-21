@@ -323,7 +323,8 @@ function AiraHero() {
                             }}
                         >
                             Autonomous Intelligent
-                            <br />
+                            
+
                             Reasoning Agent
                         </motion.h1>
 
@@ -532,11 +533,17 @@ function CeoVision() {
     return (
         <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
             <div className="max-w-[1000px] mx-auto px-6">
+                <motion.div
+                    variants={scrollReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                >
 
                 {/* Heading */}
                 <header className="text-center mb-8">
                     <h2
-                        className="text-[24px] sm:text-[32px] font-bold leading-tight"
+                        className="text-[28px] sm:text-[32px] font-bold leading-tight"
                         style={{
                             fontFamily: 'Poppins, sans-serif',
                             color: '#345195'
@@ -561,10 +568,10 @@ function CeoVision() {
                     </div>
 
                     {/* Text */}
-                    <div className="flex-1 text-center md:text-left">
+                    <div className="flex-1 text-left">
 
                         <p
-                            className="text-[15px] sm:text-[19px] leading-[1.6] font-medium mb-5"
+                            className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                             style={{
                                 fontFamily: 'Poppins, sans-serif',
                                 color: '#6f6f6f'
@@ -600,6 +607,7 @@ function CeoVision() {
 
                     </div>
                 </div>
+                </motion.div>
             </div>
         </section>
     )

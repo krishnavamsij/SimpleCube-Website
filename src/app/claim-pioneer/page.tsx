@@ -97,7 +97,7 @@ export default function ClaimPioneerPage() {
               >
                 {/* Logo (bigger) */}
                 <motion.div variants={fadeInUp} className="mb-10">
-                  <div className="w-full max-w-[360px]">
+                  <div className="w-full max-w-[360px] -ml-5 lg:ml-0">
                     <Image
                       src="/images/Product_Logos/Claim_pioneer.png"
                       alt="Claim Pioneer Logo"
@@ -148,7 +148,7 @@ export default function ClaimPioneerPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="w-full"
+                className="w-full -translate-x-5 lg:translate-x-0"
               >
                 <Image
                   src="/images/products/image-2.jpeg"
@@ -203,7 +203,7 @@ export default function ClaimPioneerPage() {
         <div className="mx-auto w-full max-w-[1050px] px-6">
           <header className="text-center mb-8">
             <h2
-              className="text-[28px] sm:text-[32px] font-bold text-[#3B82F6]"
+              className="text-[28px] sm:text-[32px] font-bold text-white"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Capabilities That Drive Growth
@@ -286,7 +286,7 @@ export default function ClaimPioneerPage() {
               </div>
 
               {/* Text */}
-              <div className="flex-1 text-center md:text-left">
+              <div className="flex-1 text-left">
                 <p
                   className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
                   style={{
@@ -357,7 +357,7 @@ export default function ClaimPioneerPage() {
           {/* Heading */}
           <div className="text-center mb-8">
             <h2
-              className="text-[28px] sm:text-[32px] font-bold text-[#3B82F6]"
+              className="text-[28px] sm:text-[32px] font-bold text-white"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Business Outcomes
@@ -413,10 +413,11 @@ export default function ClaimPioneerPage() {
             viewport={viewportOnce}
           >
             <h2
-              className="text-3xl font-bold text-[#345195] mb-[30px]"
+              className="text-[26px] sm:text-3xl font-bold text-[#345195] mb-[30px]"
               style={{ fontFamily: "Roboto, sans-serif" }}
             >
-              Transforming Every Step of the Claims Journey
+              <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">Transforming Every Step</span>
+              <span className="block whitespace-nowrap sm:inline sm:whitespace-normal"> of the Claims Journey</span>
             </h2>
             <div className="max-w-[1000px] mx-auto text-left md:text-center">
               <p

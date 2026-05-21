@@ -296,6 +296,12 @@ export default function HyperPage() {
             {/* CEO Vision */}
             <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
                 <div className="max-w-[1000px] mx-auto px-6">
+                    <motion.div
+                        variants={scrollReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                    >
 
                     {/* Heading */}
                     <header className="text-center mb-8">
@@ -325,7 +331,7 @@ export default function HyperPage() {
                         </div>
 
                         {/* Text */}
-                        <div className="flex-1 text-center md:text-left">
+                        <div className="flex-1 text-left">
 
                             <p
                                 className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
@@ -364,6 +370,7 @@ export default function HyperPage() {
 
                         </div>
                     </div>
+                    </motion.div>
                 </div>
             </section>
 

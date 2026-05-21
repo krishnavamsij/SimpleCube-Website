@@ -150,24 +150,24 @@ export default function FinxservePage() {
                             </div>
                         </div>
                         {/* Background slider content right side */}
-                        <div className="relative z-0 mt-2 h-[330px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:absolute md:right-0 md:top-[5%] md:mt-0 md:h-[90%] md:w-[48%] md:rounded-none md:border-0 md:bg-transparent">
+                        <div className="relative z-0 mt-2 h-[350px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] sm:h-[370px] md:absolute md:right-0 md:top-[12%] md:mt-0 md:h-[76%] md:w-[52%] md:rounded-none md:border-0 md:bg-transparent">
                             <div className="relative w-full h-full flex items-center justify-center">
                                 {heroSlides.map((slide, index) => (
                                     <div
                                         key={index}
                                         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                                     >
-                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-5 pb-6 md:pt-2 md:pb-4">
+                                        <div className="flex h-full w-full flex-col items-center justify-center px-3 py-5 sm:px-4 md:pt-2 md:pb-4">
                                             <Image
                                                 src={slide.image}
                                                 alt={`Slide ${index + 1}`}
                                                 width={slide.width}
                                                 height={slide.height}
-                                                className="object-contain w-[220px] sm:w-[280px] md:w-[380px] lg:w-[460px] h-auto"
+                                                className="h-auto max-h-[190px] w-[280px] max-w-full object-contain sm:max-h-[220px] sm:w-[330px] md:max-h-[300px] md:w-[430px] lg:max-h-[360px] lg:w-[540px]"
                                             />
-                                            <div className="mt-4 w-full max-w-[500px] text-center md:mt-6">
+                                            <div className="mt-3 w-full max-w-[500px] text-center md:mt-6">
                                                 <p
-                                                    className="text-[14px] sm:text-[16px] md:text-[19px] font-medium leading-[1.55] md:leading-[1.75] tracking-tight text-white/95 mb-4"
+                                                    className="text-[13px] sm:text-[16px] md:text-[19px] font-medium leading-[1.45] sm:leading-[1.55] md:leading-[1.75] tracking-tight text-white/95 mb-3 md:mb-4"
                                                     style={{ fontFamily: 'Roboto, sans-serif' }}
                                                     dangerouslySetInnerHTML={{ __html: slide.text }}
                                                 />
@@ -231,7 +231,7 @@ export default function FinxservePage() {
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-[60px]" >
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-left">
+                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
                         <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Capabilities That<br/>Drive Growth
                         </h2>
@@ -312,7 +312,7 @@ export default function FinxservePage() {
                             </div>
 
                             {/* Text */}
-                            <div className="flex-1 text-center md:text-left">
+                            <div className="flex-1 text-left">
 
                                 <p
                                     className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"

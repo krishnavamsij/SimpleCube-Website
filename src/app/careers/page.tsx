@@ -48,6 +48,11 @@ interface CountryCode {
   country: string;
 }
 
+const getCountryFlag = (iso: string) =>
+  iso
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)));
+
 const countryCodeData = [
   ["AF", "+93", "Afghanistan"],
   ["AL", "+355", "Albania"],
@@ -281,6 +286,8 @@ const countryCodes: CountryCode[] = countryCodeData.map(([iso, code, country]) =
   country,
 }));
 
+const defaultCountryCode = countryCodes.find((country) => country.iso === "US") ?? countryCodes[0];
+
 // Helper function to get country code based on job region
 const getCountryCodeByRegion = (region?: string): CountryCode => {
   const regionMap: Record<string, string> = {
@@ -291,7 +298,7 @@ const getCountryCodeByRegion = (region?: string): CountryCode => {
   };
 
   const isoCode = regionMap[region?.toLowerCase() || "us"] || "IN";
-  return countryCodes.find((country) => country.iso === isoCode) || countryCodes[0];
+  return countryCodes.find((country) => country.iso === isoCode) || defaultCountryCode;
 };
 
 const getPhoneValidationError = (value: string, country: CountryCode) => {
@@ -862,9 +869,7 @@ export default function CareersPage() {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeFileName, setResumeFileName] = useState<string>("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [selectedCountry, setSelectedCountry] = useState(
-    countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]
-  ); // Default to India
+  const [selectedCountry, setSelectedCountry] = useState(defaultCountryCode);
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [locationSuggestions, setLocationSuggestions] = useState<string[]>([]);
   const [showLocationSuggestions, setShowLocationSuggestions] = useState(false);
@@ -901,8 +906,7 @@ export default function CareersPage() {
       const countryCode = getCountryCodeByRegion(job.region);
       setSelectedCountry(countryCode);
     } else {
-      // Default to India for "Open Application" or jobs without region
-      setSelectedCountry(countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]);
+      setSelectedCountry(defaultCountryCode);
     }
     
     setModalOpen(true);
@@ -944,7 +948,7 @@ export default function CareersPage() {
       const countryCode = getCountryCodeByRegion(job.region);
       setSelectedCountry(countryCode);
     } else {
-      setSelectedCountry(countryCodes.find((country) => country.iso === "IN") ?? countryCodes[0]);
+      setSelectedCountry(defaultCountryCode);
     }
   };
 
@@ -1689,10 +1693,11 @@ export default function CareersPage() {
                               className="h-full flex items-center gap-2 px-3 rounded-l-xl hover:bg-slate-100 transition-colors duration-200 outline-none"
                             >
                               <span
-                                className="h-4 w-5 rounded-[3px] bg-cover bg-center shadow-[inset_0_0_0_1px_rgba(15,23,42,0.12)]"
-                                style={{ backgroundImage: `url(https://flagcdn.com/w40/${selectedCountry.iso.toLowerCase()}.png)` }}
+                                className="flex h-4 w-5 items-center justify-center text-base leading-none"
                                 aria-hidden="true"
-                              />
+                              >
+                                {getCountryFlag(selectedCountry.iso)}
+                              </span>
                               <span className="text-xs font-medium text-gray-700">{selectedCountry.code}</span>
                               <ChevronDown className="w-3 h-3 text-gray-400" />
                             </button>
@@ -1706,10 +1711,11 @@ export default function CareersPage() {
                                     className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-slate-50 transition-colors duration-150 text-left"
                                   >
                                     <span
-                                      className="h-4 w-5 shrink-0 rounded-[3px] bg-cover bg-center shadow-[inset_0_0_0_1px_rgba(15,23,42,0.12)]"
-                                      style={{ backgroundImage: `url(https://flagcdn.com/w40/${country.iso.toLowerCase()}.png)` }}
+                                      className="flex h-4 w-5 shrink-0 items-center justify-center text-base leading-none"
                                       aria-hidden="true"
-                                    />
+                                    >
+                                      {getCountryFlag(country.iso)}
+                                    </span>
                                     <div className="flex-1">
                                       <div className="text-xs font-medium text-gray-900 leading-tight">{country.country}</div>
                                       <div className="text-[10px] text-gray-500">{country.code}</div>
