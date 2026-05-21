@@ -615,52 +615,53 @@ export const blogDetails: Record<string, BlogDetail> = {
       {
         "id": "content",
         "title": "",
-        "content": `<h2>Driving Conversations on Credit Union Innovation</h2>
-      <p>Hyniva is excited to introduce the CU NEXT Podcast, a new leadership series designed to bring together real voices, real experiences, and practical insights from Credit Union executives and technology leaders.</p>
-      <p>Digital transformation in Credit Unions is becoming increasingly complex. With shifting member expectations and rising competition, leadership teams face unique challenges in scaling innovation while maintaining security and trust.</p>
+        "content": `<p>Hyniva is excited to introduce CU NEXT Podcast. A new leadership podcast series created for the Credit Union community.</p>
+      <p>Over the past few years, our team has been in conversations with leaders across the industry and one theme continues to emerge consistently: Digital Transformation in Credit Unions is becoming increasingly complex.</p>
+      <p>Most transformation initiatives do not fail because of technology alone. They struggle because of:</p>
+      <ul>
+        <li>Too many disconnected vendors</li>
+        <li>Fragmented systems and platforms</li>
+        <li>Lack of a unified digital strategy</li>
+        <li>Challenges balancing innovation with trust and compliance</li>
+      </ul>
+      <p>At the same time, the industry itself is evolving rapidly.</p>
+      <p>Credit Unions are navigating changing member expectations, increasing competition from FinTechs and the growing need to attract younger generations such as Gen Z and Gen Alpha through modern digital experiences.</p>
+      <p>This shift is raising important industry-wide questions:</p>
+      <ul>
+        <li>How can Credit Unions grow while competing on digital experience?</li>
+        <li>How can organizations prepare for the next generation of members?</li>
+        <li>How can AI be adopted responsibly and securely?</li>
+        <li>How can the industry move toward cognitive banking without losing trust?</li>
+      </ul>
+      <p>These are not isolated concerns. They are conversations happening across the entire financial services ecosystem.</p>
 
-      <!-- KEY THEMES -->
-      <div class="day-card">
-        <div class="day-card__header">
-          <div class="day-card__badge">01</div>
-          <div class="day-card__title">Navigating Complexity in Modern Banking</div>
-        </div>
-        <div class="day-card__body">
-          <p>Transformation initiatives often face operational hurdles not because of the technology itself, but due to disconnected vendors, fragmented legacy systems, and the lack of a unified digital strategy. Our discussions explore how Credit Unions can break down these silos.</p>
-          <p>Key topics covered in our initial sessions include:</p>
-          <ul>
-            <li>Fostering a unified digital transformation strategy</li>
-            <li>Managing compliance and risk in the era of digital banking</li>
-            <li>Unifying member data to deliver seamless multichannel journeys</li>
-            <li>Preparing for next-generation member expectations (Gen Z and Gen Alpha)</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Why We Started CU NEXT Podcast</h2>
+      <p>To help address these evolving challenges, Hyniva launched CU NEXT Podcast, a platform designed to bring together real voices, real experiences and practical insights from industry leaders.</p>
+      <p>CU NEXT Podcast is a leadership-focused series where CXOs and senior executives share their perspectives on:</p>
+      <ul>
+        <li>Digital transformation in Credit Unions</li>
+        <li>Building trusted and scalable platforms</li>
+        <li>AI adoption in financial services</li>
+        <li>Member experience innovation</li>
+        <li>Cognitive banking and intelligent automation</li>
+        <li>Compliance, governance and trust in modern banking</li>
+      </ul>
+      <p>Unlike traditional presentations or industry panels, CU NEXT Podcast focuses on authentic conversations and practical experiences from leaders who are actively driving transformation within their organizations.</p>
 
-      <!-- AI AND AUTOMATION -->
-      <div class="day-card">
-        <div class="day-card__header">
-          <div class="day-card__badge">02</div>
-          <div class="day-card__title">Adopting Responsible AI & Cognitive Tech</div>
-        </div>
-        <div class="day-card__body">
-          <p>As artificial intelligence shifts from experimentation to enterprise-grade reality, Credit Unions are looking for trusted paths to adopt AI securely. The podcast highlights practical steps for bringing intelligent agentive technologies into banking workflows.</p>
-          <p>Our speakers dive deep into:</p>
-          <ul>
-            <li>Responsible AI adoption and data governance</li>
-            <li>Improving contact center efficiency with AI assistant agents</li>
-            <li>Streamlining member services through chat and voice automation</li>
-            <li>Balancing high-tech innovation with high-touch member trust</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Real Conversations. Real Experiences.</h2>
+      <p>The goal of CU NEXT Podcast is simple:</p>
+      <p>to create meaningful industry conversations that go beyond theory.</p>
+      <p>No slides. No scripted presentations. Just honest discussions about the opportunities, challenges and future of Credit Union innovation.</p>
+      <p>As the financial services industry continues to evolve, shared learning will play a critical role in helping organizations navigate digital transformation successfully.</p>
 
-      <h2>Watch & Listen to CU NEXT Podcast</h2>
-      <p>The podcast focuses on raw, authentic discussions without slides or script constraints. Tune in on your preferred platform below:</p>
+      <h2>Looking Ahead</h2>
+      <p>At Hyniva, we believe the future of banking will be shaped by organizations that can combine innovation, intelligence, trust and member-centric experiences.</p>
+      <p>Through CU NEXT Podcast, we aim to create a space where industry leaders can share insights, inspire new thinking and help shape the future of Credit Unions together.</p>
+      <p>Watch and listen to the full podcast episodes here:</p>
 
       <!-- LISTEN CARDS -->
       <div class="listen-cards">
-        <a href="https://youtube.com/@hynivapodcast1?si=tFndyTtSoFF3VV5o" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://www.youtube.com/@Hyniva" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--yt">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" fill="#FF0000"/>
@@ -676,7 +677,7 @@ export const blogDetails: Record<string, BlogDetail> = {
           </div>
         </a>
 
-        <a href="https://creators.spotify.com/pod/profile/cu-next-podcast/episodes" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--sp">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="10" fill="#1DB954"/>
@@ -694,7 +695,7 @@ export const blogDetails: Record<string, BlogDetail> = {
           </div>
         </a>
 
-        <a href="https://podcasts.apple.com/us/podcast/cu-next/id1896611486" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://podcasts.apple.com" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--ap">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="24" height="24" rx="6" fill="url(#appleGrad)"/>
@@ -719,7 +720,7 @@ export const blogDetails: Record<string, BlogDetail> = {
         </a>
       </div>
 
-      <p style="margin-top:32px;">Stay connected for more conversations, leadership insights, and real-world perspectives from across the Credit Union ecosystem.</p>
+      <p style="margin-top:32px;">Stay connected for more conversations, leadership insights and real-world perspectives from across the Credit Union ecosystem.</p>
     `
       }
     ]
