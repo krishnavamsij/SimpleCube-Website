@@ -273,6 +273,20 @@ export default function NewsDetailPage() {
                 .blog-content ul li { display: flex; gap: 14px; align-items: flex-start; font-size: 16px; font-weight: 300; color: #4a5568; line-height: 1.7; }
                 .blog-content ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 9px; }
 
+                /* ─── LISTEN CARDS ─── */
+                .listen-cards { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+                .listen-card { display: flex; align-items: center; gap: 16px; border: 1px solid #e4e8f0; border-radius: 12px; padding: 18px 22px; background: #f7f8fc; text-decoration: none; transition: border-color .2s, box-shadow .2s; }
+                .listen-card:hover { border-color: rgba(30,111,255,.3); box-shadow: 0 4px 20px rgba(30,111,255,.07); }
+                .listen-card__icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .listen-card__icon--yt { background: rgba(255,0,0,.1); }
+                .listen-card__icon--sp { background: rgba(29,185,84,.1); }
+                .listen-card__icon--ap { background: rgba(150,90,255,.1); }
+                .listen-card__icon svg { width: 22px; height: 22px; }
+                .listen-card__platform { font-size: 13.5px; font-weight: 600; color: #0a0f1e; margin-bottom: 2px; text-align: left; }
+                .listen-card__label { font-size: 13px; font-weight: 300; color: #4a5568; text-align: left; }
+                .listen-card__arrow { margin-left: auto; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: rgba(30,111,255,.08); border: 1px solid rgba(30,111,255,.18); display: flex; align-items: center; justify-content: center; }
+                .listen-card__arrow svg { width: 13px; height: 13px; }
+
                 /* ─── BANNER COMPONENTS ─── */
                 .banner__badge { display: inline-block; font-size: 10px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: white; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 24px; }
 
@@ -382,10 +396,10 @@ export default function NewsDetailPage() {
 
                 /* ─── DAY CARDS ─── */
                 .day-card { border: 1px solid #e4e8f0; border-radius: 14px; overflow: hidden; margin-top: 32px; }
-                .day-card__header { background: #0a0f1e; padding: 18px 24px; display: flex; align-items: center; gap: 14px; position: relative; overflow: hidden; }
-                .day-card__header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(30,111,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,.07) 1px, transparent 1px); background-size: 28px 28px; }
-                .day-card__badge { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; background: #1e6fff; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-                .day-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: #e8f0ff; }
+                .day-card__header { background: #f8fafc; padding: 18px 24px; display: flex; align-items: center; gap: 14px; position: relative; overflow: hidden; border-bottom: 1px solid #e4e8f0; }
+                .day-card__header::before { display: none; }
+                .day-card__badge { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; background: rgba(30,111,255,.12); border: 1.5px solid rgba(30,111,255,.3); color: #1e6fff; font-size: 12px; font-weight: 700; letter-spacing: .3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+                .day-card__title { position: relative; z-index: 1; font-family: var(--font-display), serif; font-size: clamp(16px, 2vw, 20px); font-weight: 600; color: #0a0f1e; }
                 .day-card__body { padding: 22px 24px; background: #ffffff; }
                 .day-card__body p { font-size: 15.5px; font-weight: 300; color: #4a5568; line-height: 1.85; margin-bottom: 16px; }
                 .day-card__body ul { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }

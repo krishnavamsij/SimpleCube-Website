@@ -603,5 +603,125 @@ export const blogDetails: Record<string, BlogDetail> = {
       "btnText": "Connect on LinkedIn",
       "btnHref": "https://www.linkedin.com/company/hyniva/"
     }
+  },
+  "cu-next-podcast-voices-driving-credit-union-innovation": {
+    "title": "CU NEXT Podcast: Voices Driving<br>Credit Union Innovation",
+    "subtitle": "",
+    "date": "Apr 23, 2026",
+    "author": "Hyniva",
+    "tag": "Company",
+    "heroImage": "/images/News/CU NEXT Podcast Voices Driving.jpeg",
+    "sections": [
+      {
+        "id": "content",
+        "title": "",
+        "content": `<h2>Driving Conversations on Credit Union Innovation</h2>
+      <p>Hyniva is excited to introduce the CU NEXT Podcast, a new leadership series designed to bring together real voices, real experiences, and practical insights from Credit Union executives and technology leaders.</p>
+      <p>Digital transformation in Credit Unions is becoming increasingly complex. With shifting member expectations and rising competition, leadership teams face unique challenges in scaling innovation while maintaining security and trust.</p>
+
+      <!-- KEY THEMES -->
+      <div class="day-card">
+        <div class="day-card__header">
+          <div class="day-card__badge">01</div>
+          <div class="day-card__title">Navigating Complexity in Modern Banking</div>
+        </div>
+        <div class="day-card__body">
+          <p>Transformation initiatives often face operational hurdles not because of the technology itself, but due to disconnected vendors, fragmented legacy systems, and the lack of a unified digital strategy. Our discussions explore how Credit Unions can break down these silos.</p>
+          <p>Key topics covered in our initial sessions include:</p>
+          <ul>
+            <li>Fostering a unified digital transformation strategy</li>
+            <li>Managing compliance and risk in the era of digital banking</li>
+            <li>Unifying member data to deliver seamless multichannel journeys</li>
+            <li>Preparing for next-generation member expectations (Gen Z and Gen Alpha)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AI AND AUTOMATION -->
+      <div class="day-card">
+        <div class="day-card__header">
+          <div class="day-card__badge">02</div>
+          <div class="day-card__title">Adopting Responsible AI & Cognitive Tech</div>
+        </div>
+        <div class="day-card__body">
+          <p>As artificial intelligence shifts from experimentation to enterprise-grade reality, Credit Unions are looking for trusted paths to adopt AI securely. The podcast highlights practical steps for bringing intelligent agentive technologies into banking workflows.</p>
+          <p>Our speakers dive deep into:</p>
+          <ul>
+            <li>Responsible AI adoption and data governance</li>
+            <li>Improving contact center efficiency with AI assistant agents</li>
+            <li>Streamlining member services through chat and voice automation</li>
+            <li>Balancing high-tech innovation with high-touch member trust</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Watch & Listen to CU NEXT Podcast</h2>
+      <p>The podcast focuses on raw, authentic discussions without slides or script constraints. Tune in on your preferred platform below:</p>
+
+      <!-- LISTEN CARDS -->
+      <div class="listen-cards">
+        <a href="https://youtube.com/@hynivapodcast1?si=tFndyTtSoFF3VV5o" target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-card__icon listen-card__icon--yt">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" fill="#FF0000"/>
+              <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/>
+            </svg>
+          </div>
+          <div class="listen-card__text">
+            <div class="listen-card__platform">CU NEXT Podcast on YouTube</div>
+            <div class="listen-card__label">Watch full episodes on YouTube</div>
+          </div>
+          <div class="listen-card__arrow">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7.5 2.5l4 4-4 4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a href="https://creators.spotify.com/pod/profile/cu-next-podcast/episodes" target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-card__icon listen-card__icon--sp">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#1DB954"/>
+              <path d="M16.5 16.5c-2.5-1.5-5.5-1.8-9-1 -.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 3.8-.9 7.1-.6 9.9 1.1.4.2.5.7.3 1.1-.2.3-.6.4-.9.3z" fill="white"/>
+              <path d="M17.5 13.5c-3-1.8-7-2.2-10.5-1.2-.5.1-.9-.2-1-.7-.1-.5.2-.9.7-1 4-.1 8.4.4 11.8 2.5.4.3.6.8.3 1.2-.3.5-.8.5-1.3.2z" fill="white"/>
+              <path d="M18.5 10.3c-3.5-2.1-9.5-2.3-12.8-1.3-.6.2-1.1-.2-1.3-.7-.2-.6.2-1.1.7-1.3 3.8-1.1 10.3-.9 14.3 1.5.5.3.7.9.4 1.4-.3.5-.9.7-1.3.4z" fill="white"/>
+            </svg>
+          </div>
+          <div class="listen-card__text">
+            <div class="listen-card__platform">CU NEXT Podcast on Spotify</div>
+            <div class="listen-card__label">Listen on Spotify</div>
+          </div>
+          <div class="listen-card__arrow">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7.5 2.5l4 4-4 4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a href="https://podcasts.apple.com/us/podcast/cu-next/id1896611486" target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-card__icon listen-card__icon--ap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="6" fill="url(#appleGrad)"/>
+              <defs>
+                <linearGradient id="appleGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#F452FF"/>
+                  <stop offset="100%" stop-color="#832BC1"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="10" r="3.5" stroke="white" stroke-width="1.3"/>
+              <path d="M12 13.5V18" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M9.5 16.5h5" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="listen-card__text">
+            <div class="listen-card__platform">CU NEXT Podcast on Apple Podcasts</div>
+            <div class="listen-card__label">Listen on Apple Podcasts</div>
+          </div>
+          <div class="listen-card__arrow">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7.5 2.5l4 4-4 4" stroke="#1e6fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <p style="margin-top:32px;">Stay connected for more conversations, leadership insights, and real-world perspectives from across the Credit Union ecosystem.</p>
+    `
+      }
+    ]
   }
 };
