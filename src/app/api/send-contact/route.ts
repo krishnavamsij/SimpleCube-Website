@@ -1,16 +1,17 @@
 import { NextResponse } from "next/server";
-import { getBrevoApiKey, BREVO_SMTP_URL } from "@/lib/email-config";
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import { AWS_REGION, getSesSourceEmail, SES_RECIPIENT_CONTACT } from "@/lib/email-config";
 
-// Verified sender email in Brevo (Outlook)
-const SENDER_EMAIL = "contact@hyniva.com";
 const SENDER_NAME = "Hyniva Contact Form";
-const RECIPIENT_EMAIL = "connect@hyniva.com";
+const RECIPIENT_EMAIL = SES_RECIPIENT_CONTACT;
+
+const ses = new SESClient({ region: AWS_REGION });
 
 export async function POST(request: Request) {
   try {
-    const brevoApiKey = getBrevoApiKey();
-    if (!brevoApiKey) {
-      console.error("BREVO_API_KEY is not configured");
+    const sourceEmail = getSesSourceEmail();
+    if (!sourceEmail) {
+      console.error("SES_SOURCE_EMAIL is not configured");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 },
@@ -42,63 +43,42 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email via Brevo API
-    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "api-key": brevoApiKey,
-        "Content-Type": "application/json",
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px;">
+        <h2 style="color: #1e90ff;">New Corporate Inquiry</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
+        <p><strong>Organization:</strong> ${organization}</p>
+        <p><strong>Industry:</strong> ${industry}</p>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <h3 style="color: #030B3B; margin-top: 20px;">Message:</h3>
+        <p style="white-space: pre-wrap; color: #030B3B; line-height: 1.6;">
+          ${message}
+        </p>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 12px;">
+          <strong>Sent via:</strong> Hyniva Website Contact Form
+        </p>
+      </div>
+    `;
+
+    const command = new SendEmailCommand({
+      Source: sourceEmail,
+      Destination: {
+        ToAddresses: [RECIPIENT_EMAIL],
       },
-      body: JSON.stringify({
-        sender: {
-          name: SENDER_NAME,
-          email: SENDER_EMAIL,
+      Message: {
+        Subject: { Data: `[Corporate Inquiry] ${name} - ${organization}` },
+        Body: {
+          Html: { Data: htmlContent },
         },
-        to: [
-          {
-            email: RECIPIENT_EMAIL,
-            name: "Hyniva Team",
-          },
-        ],
-        replyTo: {
-          email: email,
-          name: name,
-        },
-        subject: `[Corporate Inquiry] ${name} - ${organization}`,
-        htmlContent: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px;">
-            <h2 style="color: #1e90ff;">New Corporate Inquiry</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
-            <p><strong>Organization:</strong> ${organization}</p>
-            <p><strong>Industry:</strong> ${industry}</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <h3 style="color: #030B3B; margin-top: 20px;">Message:</h3>
-            <p style="white-space: pre-wrap; color: #030B3B; line-height: 1.6;">
-              ${message}
-            </p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">
-              <strong>Sent via:</strong> Hyniva Website Contact Form
-            </p>
-          </div>
-        `,
-      }),
+      },
+      ReplyToAddresses: [email],
     });
 
-    const responseStatus = response.status;
-    const responseData = await response.json();
-
-    if (!response.ok) {
-      console.error("Brevo API error:", responseStatus, responseData);
-      return NextResponse.json(
-        { error: `Email failed: ${responseData.message || "Unknown error"}` },
-        { status: responseStatus },
-      );
-    }
-
-    console.log("Contact email sent successfully via Brevo:", responseData);
+    const response = await ses.send(command);
+    console.log("Contact email sent successfully via SES:", response);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending contact email:", error);

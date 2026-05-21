@@ -59,15 +59,15 @@ const heroSlides = [
     {
         image: '/images/products/Third-largestCreditUnion.png',
         text: 'Large mutual fund company achieved better ROI<br/>using Our Salesforce accelerators',
-        width: 280,
-        height: 310,
+        width: 480,
+        height: 530,
         dot: '/images/products/first-1.png'
     },
     {
         image: '/images/products/LargeMutualFund.png',
         text: 'Third-largest credit union leveraged our Salesforce<br/>expertise to achieve digital transformation goals',
-        width: 280,
-        height: 310,
+        width: 480,
+        height: 530,
         dot: '/images/products/second-1.png'
     }
 ]
@@ -150,21 +150,20 @@ export default function FinxservePage() {
                             </div>
                         </div>
                         {/* Background slider content right side */}
-                        <div className="relative z-0 mt-2 h-[330px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:absolute md:right-0 md:top-[15%] md:mt-0 md:h-[80%] md:w-[45%] md:rounded-none md:border-0 md:bg-transparent">
+                        <div className="relative z-0 mt-2 h-[330px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:absolute md:right-0 md:top-[5%] md:mt-0 md:h-[90%] md:w-[48%] md:rounded-none md:border-0 md:bg-transparent">
                             <div className="relative w-full h-full flex items-center justify-center">
                                 {heroSlides.map((slide, index) => (
                                     <div
                                         key={index}
                                         className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                                     >
-                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-5 pb-6 md:pt-6 md:pb-8">
+                                        <div className="flex h-full w-full flex-col items-center justify-center px-4 pt-5 pb-6 md:pt-2 md:pb-4">
                                             <Image
                                                 src={slide.image}
                                                 alt={`Slide ${index + 1}`}
                                                 width={slide.width}
                                                 height={slide.height}
-                                                className="object-contain"
-                                                style={{ maxHeight: '68%' }}
+                                                className="object-contain w-[220px] sm:w-[280px] md:w-[380px] lg:w-[460px] h-auto"
                                             />
                                             <div className="mt-4 w-full max-w-[500px] text-center md:mt-6">
                                                 <p
@@ -200,7 +199,7 @@ export default function FinxservePage() {
                         viewport={viewportOnce}
                         className="flex flex-col md:flex-row items-center gap-12"
                     >
-                        <div className="w-full md:w-1/2 text-center md:text-left">
+                        <div className="w-full md:w-1/2 text-left">
                             <header className="mb-6">
                                 <h2
                                     className="text-[32px] sm:text-[40px] font-bold leading-[1.3]"
@@ -232,7 +231,7 @@ export default function FinxservePage() {
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-[60px]" >
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
+                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-left">
                         <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Capabilities That<br/>Drive Growth
                         </h2>
@@ -441,7 +440,7 @@ export default function FinxservePage() {
                                     <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
                                 </div>
                             </div>
-                            <div className="w-full md:w-1/2 text-center md:text-left">
+                            <div className="w-full md:w-1/2 text-left">
                                 <header className="mb-6">
                                     <h2
                                         className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-6"
@@ -545,7 +544,7 @@ export default function FinxservePage() {
                                 />
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2 text-center md:text-left">
+                        <div className="w-full md:w-1/2 text-left">
                             <header className="mb-10">
                                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     We didn’t just remove friction from lending — we reimagined how people experience banking.

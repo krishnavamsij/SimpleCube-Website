@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
-import { getBrevoApiKey, BREVO_SMTP_URL } from "@/lib/email-config";
+import { SESClient, SendEmailCommand, SendRawEmailCommand } from "@aws-sdk/client-ses";
+import {
+  AWS_REGION,
+  getSesSourceEmail,
+  SES_RECIPIENT_CAREERS_US,
+  SES_RECIPIENT_CAREERS_NONUS,
+} from "@/lib/email-config";
 
-// Verified sender email in Brevo (Outlook)
 const SENDER_EMAIL = "contact@hyniva.com";
 const SENDER_NAME = "Hyniva Careers";
 
@@ -27,11 +32,63 @@ function sanitizeFileName(fileName: string) {
   return fileName.replace(/[^a-zA-Z0-9.\-_]/g, "_");
 }
 
+function buildRawEmail({
+  source,
+  toAddress,
+  replyTo,
+  subject,
+  htmlBody,
+  attachment,
+}: {
+  source: string;
+  toAddress: string;
+  replyTo: string;
+  subject: string;
+  htmlBody: string;
+  attachment?: { name: string; content: string; mimeType: string };
+}) {
+  const boundary = `Boundary_${Date.now()}`;
+  const headers = [
+    `From: ${source}`,
+    `To: ${toAddress}`,
+    `Subject: ${subject}`,
+    `Reply-To: ${replyTo}`,
+    "MIME-Version: 1.0",
+  ];
+
+  if (attachment) {
+    headers.push(`Content-Type: multipart/mixed; boundary="${boundary}"`);
+    const body = [
+      `--${boundary}`,
+      "Content-Type: text/html; charset=ISO-8859-1",
+      "Content-Transfer-Encoding: 7bit",
+      "",
+      htmlBody,
+      "",
+      `--${boundary}`,
+      `Content-Type: ${attachment.mimeType}; name="${attachment.name}"`,
+      "Content-Transfer-Encoding: base64",
+      `Content-Disposition: attachment; filename="${attachment.name}"`,
+      "",
+      attachment.content,
+      "",
+      `--${boundary}--`,
+    ].join("\r\n");
+
+    return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + body);
+  }
+
+  headers.push("Content-Type: text/html; charset=ISO-8859-1");
+  return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + htmlBody);
+}
+
+const ses = new SESClient({ region: AWS_REGION });
+
 export async function POST(request: Request) {
   try {
-    const brevoApiKey = getBrevoApiKey();
-    if (!brevoApiKey) {
-      console.error("BREVO_API_KEY is not configured");
+    const sourceEmail = getSesSourceEmail();
+    if (!sourceEmail) {
+      console.error("SES_SOURCE_EMAIL is not configured");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 },
@@ -62,8 +119,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate resume file if provided
-    let attachmentData = null;
+    let attachmentData: { name: string; content: string; mimeType: string } | undefined;
     if (resumeFile) {
       if (!(resumeFile instanceof File)) {
         return NextResponse.json(
@@ -100,105 +156,86 @@ export async function POST(request: Request) {
         );
       }
 
-      // Convert file to base64 for Brevo attachment
       const buffer = await resumeFile.arrayBuffer();
       const base64 = Buffer.from(buffer).toString("base64");
       
-      // Determine MIME type
       let mimeType = resumeFile.type || "application/octet-stream";
       if (!mimeType && resumeFile.name.endsWith(".pdf")) {
         mimeType = "application/pdf";
       } else if (!mimeType && (resumeFile.name.endsWith(".doc") || resumeFile.name.endsWith(".docx"))) {
         mimeType = "application/msword";
       }
-      
+
       attachmentData = {
         name: sanitizeFileName(resumeFile.name),
         content: base64,
+        mimeType,
       };
 
       console.log("Resume attachment prepared:", {
         fileName: attachmentData.name,
-        mimeType: mimeType,
+        mimeType: attachmentData.mimeType,
         contentLength: attachmentData.content.length,
       });
     }
 
     const usRole = isUsLocation(location, role);
-    const targetEmail = usRole ? "careers@hyniva.com" : "hr@hyniva.com";
+    const targetEmail = usRole ? SES_RECIPIENT_CAREERS_US : SES_RECIPIENT_CAREERS_NONUS;
     const subject = usRole
       ? `[Job Application - US] ${name} - ${role}`
       : `[Job Application] ${name} - ${role}`;
 
-    // Build Brevo email payload
-    const emailPayload: any = {
-      sender: {
-        name: SENDER_NAME,
-        email: SENDER_EMAIL,
-      },
-      to: [
-        {
-          email: targetEmail,
-          name: usRole ? "Hyniva US Careers" : "Hyniva HR",
-        },
-      ],
-      replyTo: {
-        email: email,
-        name: name,
-      },
-      subject: subject,
-      htmlContent: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px;">
-          <h2 style="color: #1e90ff;">${usRole ? "US Job Application" : "Job Application"}</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-          <p><strong>Applied Role:</strong> ${role}</p>
-          <p><strong>Current CTC:</strong> ${ctc}</p>
-          <p><strong>Skills:</strong> ${skills}</p>
-          <p><strong>Location:</strong> ${location}</p>
-          <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-          <p style="color: #666; font-size: 12px;">
-            <strong>Sent via:</strong> Hyniva Website Careers Form
-          </p>
-        </div>
-      `,
-    };
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px;">
+        <h2 style="color: #1e90ff;">${usRole ? "US Job Application" : "Job Application"}</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Applied Role:</strong> ${role}</p>
+        <p><strong>Current CTC:</strong> ${ctc}</p>
+        <p><strong>Skills:</strong> ${skills}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 12px;">
+          <strong>Sent via:</strong> Hyniva Website Careers Form
+        </p>
+      </div>
+    `;
 
-    // Add attachment if resume was provided
+    let response;
     if (attachmentData) {
-      emailPayload.attachment = [attachmentData];
-      console.log("✅ Attachment added to email payload:", {
-        fileName: attachmentData.name,
-        contentLength: attachmentData.content.length,
-        contentPreview: attachmentData.content.substring(0, 50) + "...",
-      });
-    }
-
-    console.log("📧 Sending email to:", targetEmail);
-    console.log("📎 Has attachment:", !!attachmentData);
-
-    // Send email via Brevo API
-    const response = await fetch(BREVO_SMTP_URL, {
-      method: "POST",
-      headers: {
-        "api-key": brevoApiKey,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(emailPayload),
-    });
-
-    const responseStatus = response.status;
-    const responseData = await response.json();
-
-    if (!response.ok) {
-      console.error("Brevo API error:", responseStatus, responseData);
-      return NextResponse.json(
-        { error: `Email failed: ${responseData.message || "Unknown error"}` },
-        { status: responseStatus },
+      response = await ses.send(
+        new SendRawEmailCommand({
+          RawMessage: {
+            Data: buildRawEmail({
+              source: sourceEmail,
+              toAddress: targetEmail,
+              replyTo: email,
+              subject,
+              htmlBody: htmlContent,
+              attachment: attachmentData,
+            }),
+          },
+        }),
+      );
+    } else {
+      response = await ses.send(
+        new SendEmailCommand({
+          Source: sourceEmail,
+          Destination: {
+            ToAddresses: [targetEmail],
+          },
+          Message: {
+            Subject: { Data: subject },
+            Body: {
+              Html: { Data: htmlContent },
+            },
+          },
+          ReplyToAddresses: [email],
+        }),
       );
     }
 
-    console.log("Email sent successfully via Brevo:", responseData);
+    console.log("Careers email sent successfully via SES:", response);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending careers email:", error);

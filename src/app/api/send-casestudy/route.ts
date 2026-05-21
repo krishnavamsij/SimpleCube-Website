@@ -1,22 +1,24 @@
 import { NextResponse } from "next/server";
-import { getBrevoApiKey, BREVO_SMTP_URL } from "@/lib/email-config";
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import { AWS_REGION, getSesSourceEmail, SES_RECIPIENT_CASESTUDY } from "@/lib/email-config";
 
-// Verified sender email in Brevo (Outlook)
-const SENDER_EMAIL = "contact@hyniva.com";
 const SENDER_NAME = "Hyniva";
+const RECIPIENT_EMAIL = SES_RECIPIENT_CASESTUDY;
+const ses = new SESClient({ region: AWS_REGION });
 
 export async function POST(request: Request) {
   try {
     // Log the client IP for debugging
-    const xForwardedFor = request.headers.get('x-forwarded-for');
-    const xRealIp = request.headers.get('x-real-ip');
-    const cfConnectingIp = request.headers.get('cf-connecting-ip');
-    
-    const clientIp = xForwardedFor ? xForwardedFor.split(',')[0].trim() : 
-                     xRealIp || 
-                     cfConnectingIp || 
-                     'unknown';
-    
+    const xForwardedFor = request.headers.get("x-forwarded-for");
+    const xRealIp = request.headers.get("x-real-ip");
+    const cfConnectingIp = request.headers.get("cf-connecting-ip");
+
+    const clientIp = xForwardedFor
+      ? xForwardedFor.split(",")[0].trim()
+      : xRealIp ||
+        cfConnectingIp ||
+        "unknown";
+
     console.log("=== REQUEST IP INFO ===");
     console.log("Client IP:", clientIp);
     console.log("IP Format: IPv4");
@@ -25,9 +27,9 @@ export async function POST(request: Request) {
     console.log("cf-connecting-ip:", cfConnectingIp);
     console.log("========================");
 
-    const brevoApiKey = getBrevoApiKey();
-    if (!brevoApiKey) {
-      console.error("BREVO_API_KEY is not configured");
+    const sourceEmail = getSesSourceEmail();
+    if (!sourceEmail) {
+      console.error("SES_SOURCE_EMAIL is not configured");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 },
@@ -56,58 +58,37 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email via Brevo API
-    const response = await fetch(BREVO_SMTP_URL, {
-      method: "POST",
-      headers: {
-        "api-key": brevoApiKey,
-        "Content-Type": "application/json",
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px;">
+        <h2 style="color: #1e90ff;">New Case Study Lead</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Organization:</strong> ${organization}</p>
+        <p><strong>Role:</strong> ${role || "N/A"}</p>
+        <p><strong>Message:</strong> A visitor expressed interest after reading a case study.</p>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 12px;">
+          <strong>Sent via:</strong> Hyniva Website Case Study Form
+        </p>
+      </div>
+    `;
+
+    const command = new SendEmailCommand({
+      Source: sourceEmail,
+      Destination: {
+        ToAddresses: [RECIPIENT_EMAIL],
       },
-      body: JSON.stringify({
-        sender: {
-          name: SENDER_NAME,
-          email: SENDER_EMAIL,
+      Message: {
+        Subject: { Data: `[Case Study Lead] ${name} - ${organization}` },
+        Body: {
+          Html: { Data: htmlContent },
         },
-        to: [
-          {
-            email: "connect@hyniva.com",
-            name: "Hyniva Team",
-          },
-        ],
-        replyTo: {
-          email: email,
-          name: name,
-        },
-        subject: `[Case Study Lead] ${name} - ${organization}`,
-        htmlContent: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px;">
-            <h2 style="color: #1e90ff;">New Case Study Lead</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Organization:</strong> ${organization}</p>
-            <p><strong>Role:</strong> ${role || "N/A"}</p>
-            <p><strong>Message:</strong> A visitor expressed interest after reading a case study.</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">
-              <strong>Sent via:</strong> Hyniva Website Case Study Form
-            </p>
-          </div>
-        `,
-      }),
+      },
+      ReplyToAddresses: [email],
     });
 
-    const responseStatus = response.status;
-    const responseData = await response.json();
-
-    if (!response.ok) {
-      console.error("Brevo API error:", responseStatus, responseData);
-      return NextResponse.json(
-        { error: `Email failed: ${responseData.message || "Unknown error"}` },
-        { status: responseStatus },
-      );
-    }
-
-    console.log("Email sent successfully via Brevo:", responseData);
+    const response = await ses.send(command);
+    console.log("Case study email sent successfully via SES:", response);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending case study email:", error);

@@ -516,7 +516,7 @@ function AiraCapabilities() {
                             <div className="w-full h-auto">
                                 <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover" />
                             </div>
-                            <div className="bg-[#040c31] p-6 sm:p-[30px] text-center flex-grow flex flex-col items-center">
+                            <div className="bg-[#040c31] p-6 sm:p-[30px] text-left md:text-center flex-grow flex flex-col items-start md:items-center">
                                 <h5 className="text-lg sm:text-[20px] font-bold text-white mb-[15px] leading-tight">{cap.title}</h5>
                                 <p className="text-white text-[15px] leading-relaxed m-0">{cap.desc}</p>
                             </div>

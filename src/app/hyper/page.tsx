@@ -264,7 +264,7 @@ export default function HyperPage() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="bg-[#040c31] text-center px-5 py-6 min-h-[220px]">
+                                <div className="bg-[#040c31] text-left md:text-center px-5 py-6 min-h-[220px]">
 
                                     <h3
                                         className="text-[17px] font-bold leading-[1.5] text-white mb-3"
@@ -455,7 +455,7 @@ export default function HyperPage() {
                         </h2>
 
                         {/* Description */}
-                        <div className="max-w-[1050px] mx-auto">
+                        <div className="max-w-[1050px] mx-auto text-left md:text-center">
                             <p
                                 className="text-[17px] sm:text-[19px] leading-[1.9]"
                                 style={{

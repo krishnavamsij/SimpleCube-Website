@@ -179,7 +179,7 @@ export default function ClaimPioneerPage() {
             >
               Reimagining Claims with Intelligent Automation
             </h2>
-            <div className="max-w-[1000px] mx-auto text-center">
+            <div className="max-w-[1000px] mx-auto text-left md:text-center">
               <p
                 className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0"
                 style={{ fontFamily: "Roboto, sans-serif" }}
@@ -216,7 +216,7 @@ export default function ClaimPioneerPage() {
                 key={idx}
                 className="w-full md:w-1/3 px-[15px] mb-[64px] last:mb-0 md:last:mb-[64px]"
               >
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-start md:items-center">
                   <div className="mb-[32px] w-full rounded overflow-hidden">
                     <Image
                       src={cap.img}
@@ -226,7 +226,7 @@ export default function ClaimPioneerPage() {
                       className="w-full h-auto rounded"
                     />
                   </div>
-                  <div className="text-center">
+                  <div className="text-left md:text-center">
                     <h3
                       className="text-[20px] font-medium leading-[30px] text-white mb-2"
                       style={{ fontFamily: "Roboto, sans-serif" }}
@@ -418,7 +418,7 @@ export default function ClaimPioneerPage() {
             >
               Transforming Every Step of the Claims Journey
             </h2>
-            <div className="max-w-[1000px] mx-auto text-center">
+            <div className="max-w-[1000px] mx-auto text-left md:text-center">
               <p
                 className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0"
                 style={{ fontFamily: "Roboto, sans-serif" }}

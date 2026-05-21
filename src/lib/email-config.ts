@@ -1,15 +1,17 @@
 /**
  * Centralized email configuration.
- * Resolves BREVO_API_KEY from environment variables.
+ * Resolves SES configuration from environment variables.
  * Logs status on each request to help diagnose deployment issues.
  */
 
-export function getBrevoApiKey(): string | undefined {
-  const key = "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";
-  console.log(`[email-config] BREVO_API_KEY loaded: ${Boolean(key)}`);
-  return key;
-}
+export const AWS_REGION = process.env.AWS_REGION || "us-east-1";
+export const SES_SOURCE_EMAIL = process.env.SES_SOURCE_EMAIL;
+export const SES_RECIPIENT_CONTACT = process.env.SES_RECIPIENT_CONTACT || "connect@hyniva.com";
+export const SES_RECIPIENT_CASESTUDY = process.env.SES_RECIPIENT_CASESTUDY || "connect@hyniva.com";
+export const SES_RECIPIENT_CAREERS_US = process.env.SES_RECIPIENT_CAREERS_US || "careers@hyniva.com";
+export const SES_RECIPIENT_CAREERS_NONUS = process.env.SES_RECIPIENT_CAREERS_NONUS || "hr@hyniva.com";
 
-export const BREVO_SMTP_URL = 'https://api.brevo.com/v3/smtp/email';
-export const SENDER_EMAIL = 'contact@hyniva.com';
-export const SENDER_NAME = 'Hyniva';
+export function getSesSourceEmail(): string | undefined {
+  console.log(`[email-config] SES_SOURCE_EMAIL loaded: ${Boolean(SES_SOURCE_EMAIL)}`);
+  return SES_SOURCE_EMAIL;
+}
