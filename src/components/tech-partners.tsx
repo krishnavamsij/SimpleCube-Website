@@ -52,11 +52,11 @@ const decorHexagons = [
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white py-[40px] sm:py-[50px] lg:py-[70px]">
+        <section className="relative overflow-hidden bg-white py-[24px] sm:py-[50px] lg:py-[70px]">
 
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
 
                     {/* =========================
                        LEFT SIDE CONTENT
@@ -93,19 +93,19 @@ export function TechPartners() {
                             </p>
 
                             {/* Partner Logos */}
-                            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-x-8 sm:gap-x-10 gap-y-7 opacity-95 w-full">
+                            <div className="flex flex-row flex-nowrap items-center justify-between sm:flex-wrap sm:justify-start gap-1.5 xs:gap-3 sm:gap-x-10 sm:gap-y-7 opacity-95 w-full">
 
                                 {techPartnersContent.partners.map((partner, index) => {
                                     const img = (
                                         <div
                                             key={index}
-                                            className="relative h-9 sm:h-11 w-28 sm:w-32 flex-shrink-0"
+                                            className="relative h-6 xs:h-8 sm:h-11 w-[16%] xs:w-[18%] sm:w-32 flex-shrink-0 flex items-center justify-center"
                                         >
                                             <Image
                                                 src={partner.src}
                                                 alt={partner.name}
                                                 fill
-                                                className="object-contain object-left"
+                                                className="object-contain object-center sm:object-left"
                                             />
                                         </div>
                                     );
@@ -123,7 +123,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible pl-0 sm:pl-2 md:pl-4 lg:pl-0">
+                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:-ml-12 xl:-ml-20 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}
@@ -135,7 +135,7 @@ export function TechPartners() {
                                 w-full
                                 max-w-[600px]
                                 sm:max-w-[760px]
-                                h-[350px]
+                                h-[290px]
                                 sm:h-[480px]
                                 md:h-[580px]
                                 lg:h-[680px]

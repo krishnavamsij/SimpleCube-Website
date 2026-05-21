@@ -52,21 +52,21 @@ export function Services() {
                             ))}
                         </p>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-3 gap-4 sm:gap-8">
                             {metrics.map((metric: any, idx: number) => {
                                 const valStr = String(metric.value);
                                 const hasPlus = valStr.includes("+");
                                 const valNum = hasPlus ? valStr.replace('+', '') : valStr;
 
                                 return (
-                                    <div key={idx}>
-                                        <div className="flex items-baseline gap-0.5">
-                                            <span className="text-3xl sm:text-4xl font-extrabold text-slate-900">{valNum}</span>
+                                    <div key={idx} className="flex flex-col items-center text-center sm:items-start sm:text-left">
+                                        <div className="flex items-baseline justify-center sm:justify-start gap-0.5">
+                                            <span className="text-2xl sm:text-4xl font-extrabold text-slate-900">{valNum}</span>
                                             {hasPlus && (
-                                                <span className="text-slate-900 text-3xl sm:text-4xl font-extrabold">+</span>
+                                                <span className="text-slate-900 text-xl sm:text-4xl font-extrabold">+</span>
                                             )}
                                         </div>
-                                        <p className="mt-2 text-sm text-slate-500 font-medium leading-snug pr-4 whitespace-pre-line">
+                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-sm text-slate-500 font-semibold leading-snug whitespace-pre-line max-w-[90px] sm:max-w-none">
                                             {metric.label}
                                         </p>
                                     </div>

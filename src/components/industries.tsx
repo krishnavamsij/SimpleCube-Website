@@ -71,19 +71,19 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                 </h3>
             </div>
 
-            <div className="relative flex-1 px-8 pb-8 h-full" style={{ backgroundColor: industry.bgColor }}>
+            <div className="relative flex-1 w-full overflow-hidden" style={{ backgroundColor: industry.bgColor }}>
                 {/* Front: Image (Always visible, Disappears on Hover/Active) */}
                 <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
                     <div className="relative h-full w-full">
                         {/* Seamless Fog Blend into custom Industry background */}
                         <div 
-                            className="absolute inset-0 z-10 opacity-95" 
+                            className="absolute inset-0 z-10 opacity-95 pointer-events-none" 
                             style={{ 
                                 background: `linear-gradient(to top, ${industry.bgColor} 0%, ${industry.bgColor}33 70%, transparent 100%)` 
                             }} 
                         />
                         <div 
-                            className="absolute inset-0 z-10" 
+                            className="absolute inset-0 z-10 pointer-events-none" 
                             style={{ 
                                 background: `linear-gradient(to right, ${industry.bgColor}1A, transparent, ${industry.bgColor}1A)` 
                             }} 
@@ -93,13 +93,13 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                             src={industry.image}
                             alt={industry.title}
                             fill
-                            className="object-cover object-bottom"
+                            className="object-contain object-bottom p-4"
                         />
                     </div>
                 </div>
 
                 {/* Content: Hidden by default, Appears on Hover/Active */}
-                <div className={`h-full flex flex-col pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                <div className={`absolute inset-0 flex flex-col p-7 pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <p className="text-[#030B3B]/80 text-[14px] sm:text-[15px] leading-relaxed font-medium">
                         {industry.description}
                     </p>

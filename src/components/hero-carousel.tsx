@@ -76,20 +76,23 @@ export function HeroCarousel() {
                             </motion.p>
 
                             {/* Hero Metrics Row */}
-                            <motion.div variants={fadeInUp} className="mt-10 flex flex-row flex-nowrap items-start gap-4 sm:gap-14 lg:mt-16 lg:gap-24">
+                            <motion.div 
+                                variants={fadeInUp} 
+                                className="mt-10 grid grid-cols-3 gap-4 sm:flex sm:flex-row sm:flex-nowrap sm:items-start sm:gap-14 lg:mt-16 lg:gap-24 w-full sm:w-auto px-1 sm:px-0"
+                            >
                                 {[
                                     { value: "50%", label: "Less Planning\nTime" },
                                     { value: "40%", label: "Quicker\nDelivery" },
                                     { value: "30%", label: "Faster\nPOC" }
                                 ].map((stat, idx) => (
-                                    <div key={idx} className="flex flex-col flex-shrink-0">
-                                        <div className="flex items-baseline gap-0.5 mb-1.5 sm:mb-2">
-                                            <span className="text-xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                    <div key={idx} className="flex flex-col items-center text-center sm:items-start sm:text-left w-full sm:w-auto">
+                                        <div className="flex items-baseline justify-center sm:justify-start gap-0.5 mb-2 sm:mb-3">
+                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                 {stat.value.replace('%', '')}
                                             </span>
-                                            <span className="text-base sm:text-2xl lg:text-3xl font-black text-white leading-none">%</span>
+                                            <span className="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-none">%</span>
                                         </div>
-                                        <span className="text-[10px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-[1.3]">
+                                        <span className="text-[11px] sm:text-[14px] lg:text-[15px] text-slate-400 font-semibold whitespace-pre-line leading-[1.4] max-w-[120px] sm:max-w-none">
                                             {stat.label}
                                         </span>
                                     </div>
