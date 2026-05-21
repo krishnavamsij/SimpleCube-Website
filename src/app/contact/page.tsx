@@ -71,24 +71,26 @@ export default function ContactPage() {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            await fetch("https://formsubmit.co/ajax/d060496e42eb4e0c8ea1f70e4b9e4ff5", {
+            const response = await fetch("/api/send-contact", {
                 method: "POST",
                 headers: { 
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    _subject: `Corporate Inquiry: ${data.name} via Hyniva Contact`,
-                    "Inquiry Overview": "This user is interested to know more about Hyniva",
-                    "Contact Name": data.name,
-                    "Organization": data.organization,
-                    "Email Address": data.email,
-                    "Phone": data.phone || "Not Provided",
-                    "Industry": data.industry,
-                    "Message": data.message,
-                    "_template": "table"
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone || "",
+                    organization: data.organization,
+                    industry: data.industry,
+                    message: data.message,
                 })
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to send message");
+            }
+
             event({
                 action: 'submit',
                 category: 'Contact',
@@ -97,6 +99,7 @@ export default function ContactPage() {
             setIsSubmitted(true);
         } catch (error) {
             console.error("Form submission error", error);
+            alert("Failed to send message. Please try again.");
         } finally {
             setIsSubmitting(false);
         }

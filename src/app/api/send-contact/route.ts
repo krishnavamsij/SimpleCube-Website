@@ -4,28 +4,11 @@ const brevoApiKey = process.env.BREVO_API_KEY;
 
 // Verified sender email in Brevo (Outlook)
 const SENDER_EMAIL = "contact@hyniva.com";
-const SENDER_NAME = "Hyniva";
+const SENDER_NAME = "Hyniva Contact Form";
+const RECIPIENT_EMAIL = "connect@hyniva.com";
 
 export async function POST(request: Request) {
   try {
-    // Log the client IP for debugging
-    const xForwardedFor = request.headers.get('x-forwarded-for');
-    const xRealIp = request.headers.get('x-real-ip');
-    const cfConnectingIp = request.headers.get('cf-connecting-ip');
-    
-    const clientIp = xForwardedFor ? xForwardedFor.split(',')[0].trim() : 
-                     xRealIp || 
-                     cfConnectingIp || 
-                     'unknown';
-    
-    console.log("=== REQUEST IP INFO ===");
-    console.log("Client IP:", clientIp);
-    console.log("IP Format: IPv4");
-    console.log("x-forwarded-for:", xForwardedFor);
-    console.log("x-real-ip:", xRealIp);
-    console.log("cf-connecting-ip:", cfConnectingIp);
-    console.log("========================");
-
     if (!brevoApiKey) {
       console.error("BREVO_API_KEY is not configured");
       return NextResponse.json(
@@ -37,13 +20,16 @@ export async function POST(request: Request) {
     const body = await request.json();
     const name = typeof body.name === "string" ? body.name.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim() : "";
+    const phone = typeof body.phone === "string" ? body.phone.trim() : "";
     const organization =
       typeof body.organization === "string" ? body.organization.trim() : "";
-    const role = typeof body.role === "string" ? body.role.trim() : "";
+    const industry =
+      typeof body.industry === "string" ? body.industry.trim() : "";
+    const message = typeof body.message === "string" ? body.message.trim() : "";
 
-    if (!name || !email || !organization) {
+    if (!name || !email || !organization || !industry || !message) {
       return NextResponse.json(
-        { error: "Name, email, and organization are required." },
+        { error: "Please fill all required fields." },
         { status: 400 },
       );
     }
@@ -70,7 +56,7 @@ export async function POST(request: Request) {
         },
         to: [
           {
-            email: "connect@hyniva.com",
+            email: RECIPIENT_EMAIL,
             name: "Hyniva Team",
           },
         ],
@@ -78,18 +64,23 @@ export async function POST(request: Request) {
           email: email,
           name: name,
         },
-        subject: `[Case Study Lead] ${name} - ${organization}`,
+        subject: `[Corporate Inquiry] ${name} - ${organization}`,
         htmlContent: `
           <div style="font-family: Arial, sans-serif; max-width: 600px;">
-            <h2 style="color: #1e90ff;">New Case Study Lead</h2>
+            <h2 style="color: #1e90ff;">New Corporate Inquiry</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
             <p><strong>Organization:</strong> ${organization}</p>
-            <p><strong>Role:</strong> ${role || "N/A"}</p>
-            <p><strong>Message:</strong> A visitor expressed interest after reading a case study.</p>
+            <p><strong>Industry:</strong> ${industry}</p>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+            <h3 style="color: #030B3B; margin-top: 20px;">Message:</h3>
+            <p style="white-space: pre-wrap; color: #030B3B; line-height: 1.6;">
+              ${message}
+            </p>
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
             <p style="color: #666; font-size: 12px;">
-              <strong>Sent via:</strong> Hyniva Website Case Study Form
+              <strong>Sent via:</strong> Hyniva Website Contact Form
             </p>
           </div>
         `,
@@ -107,12 +98,12 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log("Email sent successfully via Brevo:", responseData);
+    console.log("Contact email sent successfully via Brevo:", responseData);
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error sending case study email:", error);
+    console.error("Error sending contact email:", error);
     return NextResponse.json(
-      { error: "We could not send your request right now. Please try again." },
+      { error: "We could not send your message right now. Please try again." },
       { status: 500 },
     );
   }

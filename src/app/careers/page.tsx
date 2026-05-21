@@ -1232,21 +1232,19 @@ export default function CareersPage() {
         throw new Error("Please upload your resume.");
       }
 
-      const resumeUrl = await uploadResumeWithProgress(resumeFile);
-      const payload = {
-        name: `${formData.firstName} ${formData.lastName}`.trim(),
-        email: formData.email,
-        role: selectedJob,
-        ctc: formData.currentCTC,
-        skills: formData.skills,
-        location: formData.location,
-        resume_url: resumeUrl,
-      };
+      // Create FormData for direct submission to Brevo API
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`.trim());
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("role", selectedJob);
+      formDataToSend.append("ctc", formData.currentCTC);
+      formDataToSend.append("skills", formData.skills);
+      formDataToSend.append("location", formData.location);
+      formDataToSend.append("resume", resumeFile);
 
       const response = await fetch("/api/send-careers", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formDataToSend,
       });
       const result = await response.json();
       if (!response.ok || !result.success) {
