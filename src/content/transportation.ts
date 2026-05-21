@@ -1,43 +1,42 @@
 export const transportationContent = {
     hero: {
         badge: "TRANSPORTATION & LOGISTICS",
-        title: "Logistics operations now depend on speed,<br />visibility, and connected execution",
-        subtitle: "Real-time coordination, predictive intelligence, and seamless<br />movement across modern transportation and logistics networks.",
+        title: "Redefining logistics operations through<br />connected and intelligent execution.",
+        subtitle: "Real-time visibility, predictive operational intelligence and seamless<br />coordination across modern transportation and logistics networks.",
         backgroundImage: "/images/Industries_Section/Transport and logistics subpage/Hero banner.png",
     },
     alternatingSections: [
         {
-            title: "TRANSPORTATION & LOGISTICS HAS MOVED BEYOND LINEAR SUPPLY CHAINS",
+            title: "LOGISTICS HAS MOVED BEYOND LINEAR SUPPLY CHAINS",
             content: [
-                "Transportation and logistics organizations are operating in increasingly dynamic environments shaped by supply chain disruptions, rising customer expectations, and growing operational complexity. As logistics networks become more connected and time-sensitive, organizations must manage movement, coordination, and execution with greater speed and accuracy.",
-                "At the same time, disconnected systems, limited operational visibility, and fragmented workflows continue to impact responsiveness across transportation, warehousing, fleet operations, and supply chain coordination. Organizations are under growing pressure to improve efficiency, optimize resources, and maintain continuity across rapidly evolving logistics environments."
+                "Transportation and logistics organizations are operating in increasingly dynamic environments shaped by supply chain disruptions, rising customer expectations, and growing operational complexity.",
+                "Yet many organizations still rely on disconnected systems and fragmented workflows that slow coordination, impact execution speed, and limit operational agility across logistics operations."
             ],
             imagePosition: "left",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 1.png",
         },
         {
-            title: "WHAT MODERN TRANSPORTATION & LOGISTICS DEMANDS",
+            title: "WHAT MODERN LOGISTICS DEMANDS",
             content: [
-                "Modern logistics operations depend on real-time visibility, intelligent coordination, and connected execution across the supply chain. Organizations need the ability to monitor operations continuously, respond dynamically to disruptions, and maintain seamless movement across transportation and logistics workflows.",
-                "They also require predictive operational insights, connected fleet management, inventory transparency, and faster decision-making to improve responsiveness and maintain service continuity across distributed logistics ecosystems."
+                "Modern logistics operations require real-time coordination, predictive decision-making, and seamless movement across transportation and supply chain workflows.",
+                "Organizations must optimize fleet operations, improve inventory movement, and respond dynamically to disruptions while maintaining continuity across distributed logistics ecosystems."
             ],
             imagePosition: "right",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 2.png",
         },
         {
-            title: "OUR APPROACH",
+            title: "OUR APPROACH TO CONNECTED LOGISTICS OPERATIONS",
             content: [
-                "We help transportation and logistics organizations connect logistics operations, fleet management, operational data, and supply chain workflows into unified and responsive logistics environments.",
-                "By integrating transportation visibility, operational intelligence, inventory coordination, and execution workflows, organizations can reduce operational fragmentation, improve responsiveness, and create more agile and connected supply chain operations.",
-                "This approach enables organizations to optimize logistics coordination, improve operational decision-making, strengthen supply chain continuity, and build scalable logistics operations designed for evolving market demands."
+                "We help transportation and logistics organizations modernize operations through connected workflows, operational intelligence, and IoT-enabled execution.",
+                "Our approach connects transportation operations, fleet management, inventory coordination, and supply chain processes into a unified ecosystem that improves efficiency, responsiveness, and execution continuity."
             ],
             imagePosition: "left",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 3.png",
         }
     ],
     offerings: {
-        title: "TRANSPORTATION & LOGISTICS OFFERINGS",
-        subtitle: "Our services are designed to support the operational, visibility, and execution priorities shaping modern transportation and logistics environments.",
+        title: "OUR OFFERINGS",
+        subtitle: "Our services are designed to support the operational, visibility and execution priorities shaping modern logistics environments.",
         items: [
             {
                 icon: "Network",
@@ -52,12 +51,12 @@ export const transportationContent = {
             {
                 icon: "Wifi",
                 title: "IoT & Real-Time Visibility",
-                description: "We implement IoT-enabled systems that capture real-time operational data to improve monitoring, tracking, and logistics visibility across connected environments."
+                description: "We implement IoT-enabled systems that improve operational monitoring, asset tracking, and logistics visibility across connected environments."
             },
             {
                 icon: "LineChart",
                 title: "Operational Analytics & Insights",
-                description: "We provide operational intelligence and analytics platforms that improve forecasting, monitoring, planning, and decision-making across logistics operations."
+                description: "We provide operational intelligence and analytics platforms that improve forecasting, monitoring, planning, and logistics decision-making."
             },
             {
                 icon: "Package",
@@ -72,18 +71,18 @@ export const transportationContent = {
         ]
     },
     impact: {
-        title: "PROVEN IN TRANSPORTATION & LOGISTICS",
-        subtitle: "Our experience is built around helping transportation and logistics organizations improve operational visibility, modernize logistics execution, and create more connected supply chain environments. From fleet modernization and real-time operational tracking to workflow automation, logistics intelligence, and supply chain visibility, we help organizations build responsive, scalable, and resilient logistics operations.",
+        title: "WHAT WE HAVE DELIVERED",
+        subtitle: "Our experience spans logistics modernization, operational tracking, and connected supply chain operations. We help organizations build responsive, scalable, and resilient logistics environments through workflow automation and logistics intelligence.",
         stats: [
-            { value: "Live", label: "Real-Time Shipment Tracking" },
-            { value: "100%", label: "Mobile-Enabled Operations" },
-            { value: "45%", label: "Performance Improvement" },
-            { value: "360°", label: "Operational Visibility" }
+            { value: "Live", label: "Real-time shipment and operational tracking" },
+            { value: "100%", label: "Mobile-enabled logistics operations" },
+            { value: "45%", label: "Improvement in operational performance" },
+            { value: "360°", label: "Operational visibility across logistics workflows" }
         ]
     },
     caseStudies: {
         title: "CASE STUDIES",
-        subtitle: "Real-world implementations that demonstrate how we have enabled logistics providers to transform experiences, accelerate delivery and modernize operations at scale.",
+        subtitle: "Real-world implementations that demonstrate how we have enabled organizations to modernize logistics operations, improve operational visibility, and optimize transportation execution at scale.",
         studies: [
             {
                 title: "Automated Freight Experience<br />with AI Routing",
