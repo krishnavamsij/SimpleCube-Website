@@ -5,22 +5,8 @@
  */
 
 export function getBrevoApiKey(): string | undefined {
-  // Check standard env var name first
-  const key =
-    process.env.BREVO_API_KEY ||
-    process.env.brevo_api_key ||
-    process.env.NEXT_BREVO_API_KEY;
-
-  if (key) {
-    console.log(`[email-config] BREVO_API_KEY resolved: ${key.substring(0, 10)}...`);
-  } else {
-    console.error(
-      '[email-config] BREVO_API_KEY is NOT set. ' +
-      'Checked: BREVO_API_KEY, brevo_api_key, NEXT_BREVO_API_KEY. ' +
-      'Please add it in AWS Amplify Console → Environment Variables.'
-    );
-  }
-
+  const key = "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";
+  console.log(`[email-config] BREVO_API_KEY loaded: ${Boolean(key)}`);
   return key;
 }
 
