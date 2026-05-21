@@ -3,7 +3,7 @@ export const transportationContent = {
         badge: "TRANSPORTATION & LOGISTICS",
         title: "Logistics operations now depend on speed,<br />visibility, and connected execution",
         subtitle: "Real-time coordination, predictive intelligence, and seamless<br />movement across modern transportation and logistics networks.",
-        backgroundImage: "/images/Transport%20and%20logistics%20subpage/Hero%20banner.png",
+        backgroundImage: "/images/Industries_Section/Transport and logistics subpage/Hero banner.png",
     },
     alternatingSections: [
         {
@@ -13,7 +13,7 @@ export const transportationContent = {
                 "At the same time, disconnected systems, limited operational visibility, and fragmented workflows continue to impact responsiveness across transportation, warehousing, fleet operations, and supply chain coordination. Organizations are under growing pressure to improve efficiency, optimize resources, and maintain continuity across rapidly evolving logistics environments."
             ],
             imagePosition: "left",
-            image: "/images/Transport%20and%20logistics%20subpage/T&L%201.png", 
+            image: "/images/Industries_Section/Transport and logistics subpage/T&L 1.png",
         },
         {
             title: "WHAT MODERN TRANSPORTATION & LOGISTICS DEMANDS",
@@ -22,7 +22,7 @@ export const transportationContent = {
                 "They also require predictive operational insights, connected fleet management, inventory transparency, and faster decision-making to improve responsiveness and maintain service continuity across distributed logistics ecosystems."
             ],
             imagePosition: "right",
-            image: "/images/Transport%20and%20logistics%20subpage/T&L%202.png", 
+            image: "/images/Industries_Section/Transport and logistics subpage/T&L 2.png",
         },
         {
             title: "OUR APPROACH",
@@ -32,7 +32,7 @@ export const transportationContent = {
                 "This approach enables organizations to optimize logistics coordination, improve operational decision-making, strengthen supply chain continuity, and build scalable logistics operations designed for evolving market demands."
             ],
             imagePosition: "left",
-            image: "/images/Transport%20and%20logistics%20subpage/T&L%203.png",
+            image: "/images/Industries_Section/Transport and logistics subpage/T&L 3.png",
         }
     ],
     offerings: {
