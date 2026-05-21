@@ -162,7 +162,7 @@ export function ProductsShowcase() {
                     {products.map((p, i) => (
                         <div 
                             key={p.num} 
-                            className="sticky relative w-full overflow-hidden mb-0"
+                            className="sticky relative w-full overflow-hidden rounded-[2rem] lg:rounded-[3.5rem] mb-0"
                             style={{
                                 top: "0",
                                 zIndex: i * 10,
@@ -176,14 +176,14 @@ export function ProductsShowcase() {
                                 - Proper z-index layering for complete coverage
                             */}
                             <div 
-                                className="bg-[#081236] rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[100vh] lg:h-[100vh] relative"
+                                className="bg-[#081236] rounded-[2rem] lg:rounded-[3.5rem] shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[75vh] lg:h-[75vh] relative"
                                 style={{
                                     width: '100%'
                                 }}
                             >
                                 
                                 {/* Left: Content */}
-                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[30px] sm:pt-[50px] sm:pb-[40px] lg:pt-[10vh] lg:pb-[50px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
+                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[20px] sm:pt-[50px] sm:pb-[30px] lg:pt-[10vh] lg:pb-[20px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
                                     <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
                                         {p.title}
                                     </h3>

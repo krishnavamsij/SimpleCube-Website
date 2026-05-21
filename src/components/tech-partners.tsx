@@ -123,7 +123,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:-ml-12 xl:-ml-20 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
+                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:ml-4 xl:ml-12 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}

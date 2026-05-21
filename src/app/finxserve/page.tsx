@@ -235,7 +235,7 @@ export default function FinxservePage() {
                         <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Capabilities That<br/>Drive Growth
                         </h2>
-                        <p className="text-lg leading-relaxed text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        <p className="text-left text-lg leading-relaxed text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
                             Driving faster launches, lower costs, and frictionless journeys across every
                             channel. Built by banking experts.
                         </p>

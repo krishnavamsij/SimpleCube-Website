@@ -81,22 +81,22 @@ export function Services() {
                     {services.map((svc, i) => (
                         <div
                             key={svc.num}
-                            className="sticky relative w-full overflow-hidden mb-0"
+                            className="sticky relative w-full overflow-hidden rounded-[2rem] mb-0"
                             style={{
                                 top: "0",
                                 zIndex: i + 1,
                                 paddingBottom: "0",
                             }}
                         >
-                            <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[100vh] relative w-full">
+                            <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[75vh] relative w-full">
                                 {/* Left: Content */}
-                                <div className="flex-1 p-7 sm:p-[40px] lg:p-[50px] flex flex-col justify-start lg:justify-center relative z-10 w-full lg:w-1/2">
+                                <div className="flex-1 p-7 sm:p-[40px] lg:pt-[50px] lg:pb-[30px] lg:px-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
                                     {/* Stylized background number */}
                                     <div className="absolute -top-8 -left-4 lg:-top-16 lg:-left-12 text-[160px] lg:text-[250px] font-black leading-none text-slate-100/80 select-none pointer-events-none z-[-1]">
                                         {svc.num}
                                     </div>
 
-                                    <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-4 lg:mb-6 relative z-10 lg:mt-8">
+                                    <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-4 lg:mb-6 relative z-10">
                                         {svc.title}
                                     </h3>
                                     <p className="text-sm sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-6 lg:mb-10">
