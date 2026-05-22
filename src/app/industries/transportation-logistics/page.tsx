@@ -70,7 +70,7 @@ function TransportationHero() {
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-2"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-4xl lg:max-w-5xl mx-auto pt-2"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.subtitle }}
                     />
                 </motion.div>
