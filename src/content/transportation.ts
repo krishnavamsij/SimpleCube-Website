@@ -10,7 +10,7 @@ export const transportationContent = {
             title: "LOGISTICS HAS MOVED BEYOND LINEAR SUPPLY CHAINS",
             content: [
                 "Transportation and logistics organizations are operating in increasingly dynamic environments shaped by supply chain disruptions, rising customer expectations, and growing operational complexity.",
-                "Yet many organizations still rely on disconnected systems and fragmented workflows that slow coordination, impact execution speed, and limit operational agility across logistics operations."
+                "Yet many organizations still rely on disconnected systems and fragmented workflows that slow coordination, impact execution speed and limit operational agility across logistics operations."
             ],
             imagePosition: "left",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 1.png",
@@ -18,8 +18,8 @@ export const transportationContent = {
         {
             title: "WHAT MODERN LOGISTICS DEMANDS",
             content: [
-                "Modern logistics operations require real-time coordination, predictive decision-making, and seamless movement across transportation and supply chain workflows.",
-                "Organizations must optimize fleet operations, improve inventory movement, and respond dynamically to disruptions while maintaining continuity across distributed logistics ecosystems."
+                "Modern logistics operations require real-time coordination, predictive decision-making and seamless movement across transportation and supply chain workflows.",
+                "Organizations must optimize fleet operations, improve inventory movement and respond dynamically to disruptions while maintaining continuity across distributed logistics ecosystems."
             ],
             imagePosition: "right",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 2.png",
@@ -27,8 +27,8 @@ export const transportationContent = {
         {
             title: "OUR APPROACH TO CONNECTED LOGISTICS OPERATIONS",
             content: [
-                "We help transportation and logistics organizations modernize operations through connected workflows, operational intelligence, and IoT-enabled execution.",
-                "Our approach connects transportation operations, fleet management, inventory coordination, and supply chain processes into a unified ecosystem that improves efficiency, responsiveness, and execution continuity."
+                "We help transportation and logistics organizations modernize operations through connected workflows, operational intelligence and IoT-enabled execution.",
+                "Our approach connects transportation operations, fleet management, inventory coordination and supply chain processes into a unified ecosystem that improves efficiency, responsiveness and execution continuity."
             ],
             imagePosition: "left",
             image: "/images/Industries_Section/Transport and logistics subpage/T&L 3.png",
