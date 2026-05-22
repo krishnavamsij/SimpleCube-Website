@@ -122,7 +122,9 @@ export function VoiceOfCustomer() {
 
                             {/* Right Side: Profile & Branding (Strictly Right Aligned to Contact Us Margin) */}
                             <div className="relative flex flex-col items-center lg:items-end w-full pt-4">
-                                <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto lg:ml-auto lg:-mr-12">
+                                {/* Wrapper to ensure image and text align perfectly to each other's center and prevent horizontal scrollbar */}
+                                <div className="flex flex-col items-center lg:mr-12">
+                                    <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                                         
                                         {/* ── Radiating Image Glow (Synced with Background) ── */}
                                         {[0, 1].map((i) => (
@@ -151,8 +153,8 @@ export function VoiceOfCustomer() {
                                         </div>
                                     </div>
                                     
-                                    {/* RHS Info — Strictly Right Aligned to margin */}
-                                    <div className="mt-8 text-center lg:text-right flex flex-col items-center lg:items-end w-full">
+                                    {/* RHS Info — Centered to image */}
+                                    <div className="mt-8 text-center flex flex-col items-center">
                                         <div className="space-y-1">
                                             <h4 className="text-2xl sm:text-3xl font-bold text-[#030B3B] leading-tight-tight tracking-tight">{active.author}</h4>
                                             <p className="text-slate-500 font-semibold text-base sm:text-lg">
@@ -167,12 +169,13 @@ export function VoiceOfCustomer() {
                                                     src={active.logo} 
                                                     alt={active.company} 
                                                     fill 
-                                                    className="object-contain object-center lg:object-right"
+                                                    className="object-contain object-center"
                                                 />
                                             </div>
                                         )}
                                     </div>
                                 </div>
+                            </div>
                         </motion.div>
                     </AnimatePresence>
                 </div>

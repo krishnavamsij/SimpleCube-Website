@@ -9,15 +9,15 @@ import Image from "next/image";
    RESPONSIVE HONEYCOMB MATH
 ========================= */
 
-const CONTENT_W = 210;
-const CONTENT_H = 182;
+const CONTENT_W = 240;
+const CONTENT_H = 208;
 
-const DX = 158;
-const DY = 91;
+const DX = 180;
+const DY = 104;
 
 /* Decorative Hexagons */
-const DECOR_W = 190;
-const DECOR_H = 165;
+const DECOR_W = 210;
+const DECOR_H = 182;
 
 /* Main Honeycomb Grid */
 const mainHexagons = [
@@ -123,7 +123,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:ml-4 xl:ml-12 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
+                    <div className="relative w-full lg:w-[52%] flex justify-start lg:justify-center overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:-ml-4 xl:ml-4 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}
@@ -160,14 +160,14 @@ export function TechPartners() {
                                         scale-[0.32]
                                         sm:scale-[0.45]
                                         md:scale-[0.60]
-                                        lg:scale-[0.75]
-                                        xl:scale-[0.85]
+                                        lg:scale-[0.70]
+                                        xl:scale-[0.80]
                                         origin-center
                                         mx-auto
                                     "
                                     style={{
-                                        width: "950px",
-                                        height: "760px",
+                                        width: "1050px",
+                                        height: "820px",
                                     }}
                                 >
 
@@ -207,6 +207,7 @@ export function TechPartners() {
                                                     justify-center
                                                     text-center
                                                     px-4
+                                                    lg:px-6
                                                     py-8
                                                     ${hex.color}
                                                     shadow-2xl
@@ -227,15 +228,15 @@ export function TechPartners() {
 
                                                 <div className="flex flex-col items-center justify-center w-full">
 
-                                                    <h4 className="text-[14px] sm:text-[15px] font-black uppercase tracking-[0.1em] mb-3 text-white leading-tight">
+                                                    <h4 className="text-[13px] sm:text-[14px] lg:text-[15px] font-black uppercase tracking-[0.08em] mb-1.5 lg:mb-2 text-white leading-tight">
                                                         {hex.title}
                                                     </h4>
 
-                                                    <ul className="flex flex-col gap-1 w-full text-center">
+                                                    <ul className="flex flex-col gap-0.5 lg:gap-1 w-full text-center">
                                                         {hex.items.map((item, itemIdx) => (
                                                             <li
                                                                 key={itemIdx}
-                                                                className="text-[13px] sm:text-[14px] font-medium text-white/95 leading-tight"
+                                                                className="text-[13px] sm:text-[14px] lg:text-[14.5px] font-medium text-white/95 leading-tight"
                                                             >
                                                                 {item}
                                                             </li>
