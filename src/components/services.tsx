@@ -101,132 +101,108 @@ export function Services() {
                     </div>
                 </motion.div>
 
-                {/* ── Sticky Stacking Cards ── */}
-                <div className="relative mt-8 pb-6">
-                    {services.map((svc, i) => (
-                        <div
-                            key={svc.num}
-                            className="sticky relative w-full overflow-hidden mb-0 rounded-[2rem]"
-                            style={{
-                                top: `calc(8vh + ${i * 36}px)`,
-                                zIndex: i + 1,
-                            }}
-                        >
+                {/* ── Stacking Cards ── */}
+                <div className="relative mt-16 lg:mt-20 flex flex-col gap-5 lg:gap-8 pb-[8vh]">
+                    {services.map((svc, i) => {
+                        return (
                             <div
-                                className="
-                                    bg-white
-                                    rounded-[2rem]
-                                    border
-                                    border-slate-100
-                                    overflow-hidden
-                                    flex
-                                    flex-col
-                                    lg:flex-row
-                                    min-h-[460px]
-                                    lg:min-h-[650px]
-                                    relative
-                                    w-full
-                                    shadow-[0_8px_30px_rgb(0,0,0,0.04)]
-                                    hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-                                    transition-all
-                                    duration-500
-                                    transform-gpu
-                                "
+                                key={svc.num}
+                                className="lg:sticky w-full"
                                 style={{
-                                    WebkitMaskImage:
-                                        "-webkit-radial-gradient(white, black)",
+                                    top: `calc(90px + ${i * 34}px)`,
+                                    zIndex: 10 + i,
                                 }}
                             >
-                                {/* Left Content */}
-                                <div className="flex-1 p-7 sm:p-[40px] lg:p-[60px] flex flex-col justify-start lg:justify-center relative z-10 w-full lg:w-1/2">
+                                <div className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
 
-                                    {/* Background Number */}
-                                    <div className="absolute -top-8 -left-4 lg:-top-16 lg:-left-12 text-[160px] lg:text-[250px] font-black leading-none text-slate-100/80 select-none pointer-events-none z-[-1]">
-                                        {svc.num}
-                                    </div>
+                                    {/* subtle grid bg */}
+                                    <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:28px_28px]" />
 
-                                    <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-slate-900 mb-4 lg:mb-6 relative z-10 lg:mt-8">
-                                        {svc.title}
-                                    </h3>
+                                    <div className="relative flex flex-col lg:flex-row min-h-[520px]">
 
-                                    <p className="text-sm sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-6 lg:mb-10">
-                                        {svc.description}
-                                    </p>
+                                        {/* LEFT CONTENT */}
+                                        <div className="relative flex flex-1 flex-col justify-center p-7 sm:p-10 lg:p-16 overflow-hidden">
 
-                                    <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 lg:mb-10">
-                                        {svc.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="rounded-full bg-slate-50 border border-slate-200 px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-slate-600 tracking-wide"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
+                                            {/* Huge Number */}
+                                            <div className="pointer-events-none absolute -top-10 left-0 text-[120px] sm:text-[160px] lg:text-[240px] font-black leading-none text-[#00D4AA]/[0.06]">
+                                                {svc.num}
+                                            </div>
 
-                                    <div>
-                                        <Link
-                                            href={svc.href}
-                                            className="
-                                                inline-flex
-                                                items-center
-                                                gap-2
-                                                px-5
-                                                sm:px-6
-                                                py-2.5
-                                                rounded-full
-                                                bg-gradient-to-r
-                                                from-[#3B82F6]
-                                                to-[#2563EB]
-                                                text-white
-                                                font-bold
-                                                text-sm
-                                                shadow-[0_0_15px_rgba(59,130,246,0.5)]
-                                                border
-                                                border-[#3b82f6]/30
-                                                hover:opacity-90
-                                                hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]
-                                                transition-all
-                                            "
-                                        >
-                                            Explore service
-                                            <ArrowRightIcon className="h-4 w-4" />
-                                        </Link>
-                                    </div>
-                                </div>
+                                            {/* Badge */}
+                                            <div className="relative z-10 mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#3b82f6]/20 bg-[#3b82f6]/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[2px] text-[#2563eb]">
+                                                Service {svc.num}
+                                            </div>
 
-                                {/* Right Graphic - Desktop Only */}
-                                <div className="hidden lg:flex flex-1 bg-white relative min-h-full overflow-hidden z-0 w-1/2">
+                                            {/* Title */}
+                                            <h3 className="relative z-10 text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-tight tracking-tight text-slate-900">
+                                                {svc.title}
+                                            </h3>
 
-                                    {/* Background Pattern */}
-                                    <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]" />
+                                            {/* Description */}
+                                            <p className="relative z-10 mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600">
+                                                {svc.description}
+                                            </p>
 
-                                    {/* Left Gradient */}
-                                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                                            {/* Tags */}
+                                            <div className="relative z-10 mt-8 flex flex-wrap gap-2.5">
+                                                {svc.tags.map((tag) => (
+                                                    <span
+                                                        key={tag}
+                                                        className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-[11px] sm:text-xs font-semibold tracking-wide text-slate-600"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
 
-                                    {/* Image Container */}
-                                    <div className="relative w-full h-full min-h-[300px] flex lg:py-20 lg:pr-20 lg:pl-8">
-                                        <div className="relative w-full h-full min-h-full">
-                                            <Image
-                                                src={svc.image}
-                                                alt={svc.title}
-                                                fill
-                                                className={`object-contain object-center transition-transform duration-700 ${
-                                                    i === 1
-                                                        ? "scale-[1.02]"
-                                                        : i === 2
-                                                        ? "scale-[1.15]"
-                                                        : i === 3
-                                                        ? "scale-[1.22]"
-                                                        : "scale-[1.32]"
-                                                }`}
-                                            />
+                                            {/* CTA */}
+                                            <div className="relative z-10 mt-10">
+                                                <Link
+                                                    href={svc.href}
+                                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] px-6 py-3 text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_35px_rgba(37,99,235,0.35)]"
+                                                >
+                                                    Explore service
+                                                    <ArrowRightIcon className="h-4 w-4" />
+                                                </Link>
+                                            </div>
+                                        </div>
+
+                                        {/* RIGHT IMAGE */}
+                                        <div className="relative flex-1 min-h-[280px] lg:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
+
+                                            {/* soft glow */}
+                                            <div className="absolute right-[-20%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#3b82f6]/10 blur-3xl" />
+
+                                            {/* left fade */}
+                                            <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent lg:block z-10" />
+
+                                            <div className="relative flex h-full items-center justify-center p-6 sm:p-8 lg:p-14">
+                                                <div className="relative h-[260px] w-full sm:h-[320px] lg:h-full">
+
+                                                    <Image
+                                                        src={svc.image}
+                                                        alt={svc.title}
+                                                        fill
+                                                        className={`object-contain transition-transform duration-700 group-hover:scale-[1.03]
+                                                        ${
+                                                            i === 1
+                                                                ? "scale-100 lg:scale-105"
+                                                                : i === 2
+                                                                ? "scale-110 lg:scale-[1.15]"
+                                                                : i === 3
+                                                                ? "scale-115 lg:scale-125"
+                                                                : "scale-125 lg:scale-[1.35]"
+                                                        }
+                                                    `}
+                                                    />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
