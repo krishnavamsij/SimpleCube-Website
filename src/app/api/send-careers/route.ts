@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand, SendRawEmailCommand } from "@aws-sdk/client-ses";
 import {
-  AWS_REGION,
+  REGION,
   getSesSourceEmail,
   SES_RECIPIENT_CAREERS_US,
   SES_RECIPIENT_CAREERS_NONUS,
@@ -82,7 +82,7 @@ function buildRawEmail({
   return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + htmlBody);
 }
 
-const ses = new SESClient({ region: AWS_REGION });
+const ses = new SESClient({ region: REGION });
 
 export async function POST(request: Request) {
   try {

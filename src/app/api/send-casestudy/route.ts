@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { AWS_REGION, getSesSourceEmail, SES_RECIPIENT_CASESTUDY } from "@/lib/email-config";
+import { REGION, getSesSourceEmail, SES_RECIPIENT_CASESTUDY } from "@/lib/email-config";
 
 const SENDER_NAME = "Hyniva";
 const RECIPIENT_EMAIL = SES_RECIPIENT_CASESTUDY;
-const ses = new SESClient({ region: AWS_REGION });
+const ses = new SESClient({ region: REGION });
 
 export async function POST(request: Request) {
   try {
