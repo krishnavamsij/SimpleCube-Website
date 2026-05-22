@@ -45,14 +45,9 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     }, [isInView, p.image]);
 
     return (
-        <div ref={ref} className="hidden lg:flex w-full lg:w-1/2 relative items-center lg:items-center justify-center lg:justify-center overflow-visible h-full">
-            {/* Targeted Soft Edge Fog */}
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#081236] via-[#081236]/80 to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#081236] via-[#081236]/90 to-transparent z-20 pointer-events-none"></div>
+        <div ref={ref} className="hidden lg:flex w-full lg:w-[55%] relative items-center justify-center overflow-visible h-full">
 
-            <div className="relative w-full h-[350px] lg:h-[90%] flex items-center justify-center p-[30px] sm:p-[40px] lg:p-[50px] hover:scale-[1.02] transition-transform duration-700 ease-out">
+            <div className="relative w-full h-[350px] lg:h-full flex items-center justify-center p-[30px] sm:p-[40px] lg:py-[20px] lg:pl-[20px] lg:pr-0 hover:scale-[1.02] transition-transform duration-700 ease-out">
                 {p.image.includes('.mp4') ? (
                     <video 
                         ref={videoRef}
@@ -60,16 +55,16 @@ const ProductImageContainer = ({ p }: { p: any }) => {
                         muted 
                         loop 
                         playsInline 
-                        className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                        className="max-w-full max-h-full object-contain"
                     />
                 ) : p.image.includes('.gif') ? (
                     gifSrc ? (
-                        <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
+                        <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain" />
                     ) : (
                         <div className="w-full h-full" /> // Placeholder while reset
                     )
                 ) : (
-                    <Image src={p.image} alt={p.title} fill className="object-contain drop-shadow-2xl" />
+                    <Image src={p.image} alt={p.title} fill className="object-contain" />
                 )}
             </div>
         </div>
@@ -157,12 +152,12 @@ export function ProductsShowcase() {
             </div>
 
             {/* ── Stacked Products Sticky Layout (All Screens - Overlapping) ── */}
-            <div className="mx-auto max-w-[1400px] px-6">
-                <div className="relative w-full overflow-visible pb-6 lg:pb-12 mt-10 lg:mt-0">
+            <div className="w-full pl-6 pr-6 lg:pr-0 lg:pl-[calc(max(1.5rem,(100%-1400px)/2+1.5rem))]">
+                <div className="relative w-full overflow-visible pb-6 lg:pb-4 mt-10 lg:mt-0">
                     {products.map((p, i) => (
                         <div 
                             key={p.num} 
-                            className="sticky relative w-full overflow-hidden rounded-[2rem] lg:rounded-[3.5rem] mb-0"
+                            className={`sticky relative w-full overflow-hidden rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none mb-0 ${i === products.length - 1 ? 'lg:mb-0' : 'lg:mb-[10vh]'}`}
                             style={{
                                 top: "0",
                                 zIndex: i * 10,
@@ -176,14 +171,14 @@ export function ProductsShowcase() {
                                 - Proper z-index layering for complete coverage
                             */}
                             <div 
-                                className="bg-[#081236] rounded-[2rem] lg:rounded-[3.5rem] shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[75vh] lg:h-[75vh] relative"
+                                className="bg-[#081236] rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[75vh] relative"
                                 style={{
                                     width: '100%'
                                 }}
                             >
                                 
                                 {/* Left: Content */}
-                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[20px] sm:pt-[50px] sm:pb-[30px] lg:pt-[10vh] lg:pb-[20px] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-start relative z-10 w-full lg:w-1/2">
+                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[40px] sm:pt-[50px] sm:pb-[50px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-[45%]">
                                     <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
                                         {p.title}
                                     </h3>

@@ -77,9 +77,9 @@ export function Services() {
                                 return (
                                     <div
                                         key={idx}
-                                        className="flex flex-col items-center text-center sm:items-start sm:text-left"
+                                        className="flex flex-col items-start text-left"
                                     >
-                                        <div className="flex items-baseline justify-center sm:justify-start gap-0.5">
+                                        <div className="flex items-baseline justify-start gap-0.5">
                                             <span className="text-2xl sm:text-4xl font-extrabold text-slate-900">
                                                 {valNum}
                                             </span>
@@ -91,7 +91,7 @@ export function Services() {
                                             )}
                                         </div>
 
-                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-sm text-slate-500 font-semibold leading-snug whitespace-pre-line max-w-[90px] sm:max-w-none">
+                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-sm text-slate-500 font-semibold leading-snug whitespace-pre-line max-w-[120px] sm:max-w-none">
                                             {metric.label}
                                         </p>
                                     </div>
