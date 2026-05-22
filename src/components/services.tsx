@@ -183,7 +183,7 @@ export function Services() {
                                                         className={`object-contain transition-transform duration-700 lg:group-hover:scale-[1.03]
                                                         ${
                                                             i === 1
-                                                                ? "lg:scale-105"
+                                                                ? "lg:scale-125"
                                                                 : i === 2
                                                                 ? "lg:scale-[1.15]"
                                                                 : i === 3
