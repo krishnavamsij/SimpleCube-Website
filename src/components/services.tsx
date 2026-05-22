@@ -123,15 +123,12 @@ export function Services() {
                                         {/* LEFT CONTENT */}
                                         <div className="relative flex flex-1 flex-col justify-center p-7 sm:p-10 lg:p-16 overflow-hidden">
 
-                                            {/* Huge Number */}
-                                            <div className="pointer-events-none absolute -top-10 left-0 text-[120px] sm:text-[160px] lg:text-[240px] font-black leading-none text-[#00D4AA]/[0.06]">
+                                            {/* Huge Number - GREY */}
+                                            <div className="pointer-events-none absolute -top-10 left-0 text-[120px] sm:text-[160px] lg:text-[240px] font-black leading-none text-slate-300/30">
                                                 {svc.num}
                                             </div>
 
-                                            {/* Badge */}
-                                            <div className="relative z-10 mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#3b82f6]/20 bg-[#3b82f6]/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[2px] text-[#2563eb]">
-                                                Service {svc.num}
-                                            </div>
+                                            {/* REMOVED EYEBROW BADGE */}
 
                                             {/* Title */}
                                             <h3 className="relative z-10 text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-tight tracking-tight text-slate-900">
