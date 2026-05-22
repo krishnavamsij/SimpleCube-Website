@@ -7,7 +7,6 @@ import {
   SES_RECIPIENT_CAREERS_NONUS,
 } from "@/lib/email-config";
 
-const SENDER_EMAIL = "contact@hyniva.com";
 const SENDER_NAME = "Hyniva Careers";
 
 const ALLOWED_TYPES = new Set([
@@ -82,18 +81,28 @@ function buildRawEmail({
   return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + htmlBody);
 }
 
-const ses = new SESClient({ region: REGION });
+const ses = new SESClient({ 
+  region: REGION,
+  maxAttempts: 3,
+});
 
 export async function POST(request: Request) {
   try {
+    console.log("=== CAREERS EMAIL REQUEST START ===");
+    console.log("Timestamp:", new Date().toISOString());
+    console.log("Region:", REGION);
+    console.log("Sender: ravi@hyniva.com");
+
     const sourceEmail = getSesSourceEmail();
     if (!sourceEmail) {
-      console.error("SES_SOURCE_EMAIL is not configured");
+      console.error("❌ SES_SOURCE_EMAIL is not configured");
       return NextResponse.json(
-        { error: "Email service is not configured." },
+        { error: "Email service is not configured. Please contact support." },
         { status: 500 },
       );
     }
+
+    console.log("✅ Source email configured:", sourceEmail);
 
     const formData = await request.formData();
     const name = formData.get("name") as string;
@@ -104,7 +113,18 @@ export async function POST(request: Request) {
     const location = formData.get("location") as string;
     const resumeFile = formData.get("resume") as File | null;
 
+    console.log("Form data received:", {
+      name: name ? "✅" : "❌",
+      email: email ? "✅" : "❌",
+      role: role ? "✅" : "❌",
+      ctc: ctc ? "✅" : "❌",
+      skills: skills ? "✅" : "❌",
+      location: location ? "✅" : "❌",
+      resume: resumeFile ? "✅" : "❌ (optional)",
+    });
+
     if (!name || !email || !role || !ctc || !skills || !location) {
+      console.warn("❌ Validation failed: Missing required fields");
       return NextResponse.json(
         { error: "Please fill all required application details." },
         { status: 400 },
@@ -113,6 +133,7 @@ export async function POST(request: Request) {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.warn("❌ Invalid email format:", email);
       return NextResponse.json(
         { error: "Please provide a valid email address." },
         { status: 400 },
@@ -120,8 +141,10 @@ export async function POST(request: Request) {
     }
 
     let attachmentData: { name: string; content: string; mimeType: string } | undefined;
+    
     if (resumeFile) {
       if (!(resumeFile instanceof File)) {
+        console.warn("❌ Resume is not a valid File object");
         return NextResponse.json(
           { error: "Please attach a valid resume file." },
           { status: 400 },
@@ -130,12 +153,13 @@ export async function POST(request: Request) {
 
       console.log("Resume file received:", {
         name: resumeFile.name,
-        size: resumeFile.size,
+        size: `${(resumeFile.size / 1024).toFixed(2)} KB`,
         type: resumeFile.type,
       });
 
       const fileExtension = resumeFile.name.split(".").pop()?.toLowerCase();
       if (!fileExtension || !ALLOWED_EXTENSIONS.has(fileExtension)) {
+        console.warn("❌ Invalid file extension:", fileExtension);
         return NextResponse.json(
           { error: "Only PDF, DOC, and DOCX files are allowed." },
           { status: 400 },
@@ -143,6 +167,7 @@ export async function POST(request: Request) {
       }
 
       if (resumeFile.type && !ALLOWED_TYPES.has(resumeFile.type)) {
+        console.warn("❌ Invalid MIME type:", resumeFile.type);
         return NextResponse.json(
           { error: "Only PDF, DOC, and DOCX files are allowed." },
           { status: 400 },
@@ -150,6 +175,7 @@ export async function POST(request: Request) {
       }
 
       if (resumeFile.size > MAX_FILE_SIZE) {
+        console.warn("❌ File size exceeds limit:", resumeFile.size);
         return NextResponse.json(
           { error: "Resume file must be 5MB or smaller." },
           { status: 400 },
@@ -172,10 +198,10 @@ export async function POST(request: Request) {
         mimeType,
       };
 
-      console.log("Resume attachment prepared:", {
+      console.log("✅ Resume attachment prepared:", {
         fileName: attachmentData.name,
         mimeType: attachmentData.mimeType,
-        contentLength: attachmentData.content.length,
+        contentLength: `${(attachmentData.content.length / 1024).toFixed(2)} KB`,
       });
     }
 
@@ -185,62 +211,168 @@ export async function POST(request: Request) {
       ? `[Job Application - US] ${name} - ${role}`
       : `[Job Application] ${name} - ${role}`;
 
+    console.log("Email routing:", {
+      applicantLocation: location,
+      applicantRole: role,
+      isUSRole: usRole,
+      senderEmail: sourceEmail,
+      targetEmail,
+    });
+
     const htmlContent = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px;">
-        <h2 style="color: #1e90ff;">${usRole ? "US Job Application" : "Job Application"}</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Applied Role:</strong> ${role}</p>
-        <p><strong>Current CTC:</strong> ${ctc}</p>
-        <p><strong>Skills:</strong> ${skills}</p>
-        <p><strong>Location:</strong> ${location}</p>
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-        <p style="color: #666; font-size: 12px;">
-          <strong>Sent via:</strong> Hyniva Website Careers Form
-        </p>
+      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; color: #333;">
+        <div style="background: linear-gradient(135deg, #1e90ff 0%, #0d47a1 100%); padding: 30px; border-radius: 10px 10px 0 0; color: white;">
+          <h2 style="margin: 0; font-size: 24px;">🎯 New Job Application</h2>
+          <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Status: ✅ Ready for Review</p>
+        </div>
+
+        <div style="background-color: #f8f9fa; padding: 2px;"></div>
+
+        <div style="background-color: #fff; padding: 30px; border-bottom: 1px solid #e0e0e0;">
+          <h3 style="color: #1e90ff; margin-top: 0; margin-bottom: 20px; font-size: 16px;">Applicant Information</h3>
+          
+          <table style="width: 100%; border-collapse: collapse;">
+            <tbody>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px 0; width: 150px;"><strong>Full Name</strong></td>
+                <td style="padding: 12px 0; color: #1e90ff;">${name}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px 0;"><strong>Email</strong></td>
+                <td style="padding: 12px 0;"><a href="mailto:${email}" style="color: #1e90ff; text-decoration: none;">${email}</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px 0;"><strong>Position Applied</strong></td>
+                <td style="padding: 12px 0;"><strong style="color: #0d47a1;">${role}</strong></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px 0;"><strong>Location</strong></td>
+                <td style="padding: 12px 0;">${location}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 12px 0;"><strong>Current CTC</strong></td>
+                <td style="padding: 12px 0;">${ctc}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; vertical-align: top;"><strong>Skills</strong></td>
+                <td style="padding: 12px 0;">${skills}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background-color: #fff; padding: 20px 30px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #666;">
+            <span>${attachmentData ? "📎 Resume attached" : "ℹ️ No resume attached"}</span>
+            <span>•</span>
+            <span>Submitted via Hyniva Careers Portal</span>
+            <span>•</span>
+            <span>${new Date().toLocaleString()}</span>
+          </div>
+        </div>
+
+        <div style="background-color: #f0f4f8; padding: 20px 30px; border-radius: 0 0 10px 10px; text-align: center; font-size: 12px; color: #999;">
+          <p style="margin: 0;">This is an automated email from Hyniva's careers system. Please reply to ${email} to contact the applicant.</p>
+        </div>
       </div>
     `;
 
+    console.log("Attempting to send email via SES...");
+    
     let response;
-    if (attachmentData) {
-      response = await ses.send(
-        new SendRawEmailCommand({
-          RawMessage: {
-            Data: buildRawEmail({
-              source: sourceEmail,
-              toAddress: targetEmail,
-              replyTo: email,
-              subject,
-              htmlBody: htmlContent,
-              attachment: attachmentData,
-            }),
-          },
-        }),
-      );
-    } else {
-      response = await ses.send(
-        new SendEmailCommand({
-          Source: sourceEmail,
-          Destination: {
-            ToAddresses: [targetEmail],
-          },
-          Message: {
-            Subject: { Data: subject },
-            Body: {
-              Html: { Data: htmlContent },
+    try {
+      if (attachmentData) {
+        response = await ses.send(
+          new SendRawEmailCommand({
+            RawMessage: {
+              Data: buildRawEmail({
+                source: sourceEmail,
+                toAddress: targetEmail,
+                replyTo: email,
+                subject,
+                htmlBody: htmlContent,
+                attachment: attachmentData,
+              }),
             },
+          }),
+        );
+        console.log("✅ Email with attachment sent successfully");
+      } else {
+        response = await ses.send(
+          new SendEmailCommand({
+            Source: sourceEmail,
+            Destination: {
+              ToAddresses: [targetEmail],
+            },
+            Message: {
+              Subject: { Data: subject },
+              Body: {
+                Html: { Data: htmlContent },
+              },
+            },
+            ReplyToAddresses: [email],
+          }),
+        );
+        console.log("✅ Email without attachment sent successfully");
+      }
+
+      console.log("SES Response ID:", response.MessageId);
+      console.log("=== CAREERS EMAIL REQUEST SUCCESS ===\n");
+
+      return NextResponse.json({ 
+        success: true,
+        messageId: response.MessageId 
+      });
+
+    } catch (sesError: any) {
+      console.error("❌ SES Error Details:", {
+        code: sesError.Code,
+        message: sesError.message,
+        type: sesError.Type,
+        statusCode: sesError.$metadata?.httpStatusCode,
+      });
+
+      if (sesError.Code === "AccessDenied") {
+        console.error("⚠️ IAM PERMISSION ERROR:", {
+          user: "gvnikitha@hyniva.com (or current AWS user)",
+          requiredAction: "ses:SendEmail or ses:SendRawEmail",
+          source: sourceEmail,
+          solution: "Add SES permissions to IAM user in AWS console",
+        });
+        
+        return NextResponse.json(
+          { 
+            error: "Email service authentication failed. Please contact support.",
+            code: "SES_AUTH_ERROR"
           },
-          ReplyToAddresses: [email],
-        }),
-      );
+          { status: 403 },
+        );
+      }
+
+      if (sesError.Code === "MessageRejected") {
+        return NextResponse.json(
+          { 
+            error: "Email was rejected. Please verify all details are correct.",
+            code: "SES_REJECTED"
+          },
+          { status: 400 },
+        );
+      }
+
+      throw sesError;
     }
 
-    console.log("Careers email sent successfully via SES:", response);
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Error sending careers email:", error);
+  } catch (error: any) {
+    console.error("=== CAREERS EMAIL REQUEST FAILED ===");
+    console.error("Error Type:", error.constructor.name);
+    console.error("Error Message:", error.message);
+    console.error("Error Stack:", error.stack);
+
     return NextResponse.json(
-      { error: "We could not submit your application right now. Please try again." },
+      { 
+        error: "We could not submit your application right now. Please try again later.",
+        timestamp: new Date().toISOString(),
+      },
       { status: 500 },
     );
   }
