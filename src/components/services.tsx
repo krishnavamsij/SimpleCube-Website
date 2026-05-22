@@ -165,7 +165,7 @@ export function Services() {
                                         </div>
 
                                         {/* RIGHT IMAGE */}
-                                        <div className="relative flex-1 min-h-[280px] lg:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
+                                        <div className="hidden lg:block relative flex-1 min-h-[280px] lg:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
 
                                             {/* soft glow */}
                                             <div className="absolute right-[-20%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#3b82f6]/10 blur-3xl" />
@@ -180,15 +180,15 @@ export function Services() {
                                                         src={svc.image}
                                                         alt={svc.title}
                                                         fill
-                                                        className={`object-contain transition-transform duration-700 group-hover:scale-[1.03]
+                                                        className={`object-contain transition-transform duration-700 lg:group-hover:scale-[1.03]
                                                         ${
                                                             i === 1
-                                                                ? "scale-100 lg:scale-105"
+                                                                ? "lg:scale-105"
                                                                 : i === 2
-                                                                ? "scale-110 lg:scale-[1.15]"
+                                                                ? "lg:scale-[1.15]"
                                                                 : i === 3
-                                                                ? "scale-115 lg:scale-125"
-                                                                : "scale-125 lg:scale-[1.35]"
+                                                                ? "lg:scale-125"
+                                                                : "lg:scale-[1.35]"
                                                         }
                                                     `}
                                                     />
