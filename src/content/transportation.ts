@@ -2,7 +2,7 @@ export const transportationContent = {
     hero: {
         badge: "TRANSPORTATION & LOGISTICS",
         title: "Redefining logistics operations through<br />connected and intelligent execution.",
-        subtitle: "Real-time visibility, predictive operational intelligence and seamless<br />coordination across modern transportation and logistics networks.",
+        subtitle: "Real-time visibility, predictive operational intelligence and<br />seamless coordination across modern transportation and logistics networks.",
         backgroundImage: "/images/Industries_Section/Transport and logistics subpage/Hero banner.png",
     },
     alternatingSections: [
@@ -41,38 +41,38 @@ export const transportationContent = {
             {
                 icon: "Network",
                 title: "Connected Logistics Operations",
-                description: "We create connected logistics environments that improve coordination, execution visibility, and operational responsiveness across transportation and supply chain workflows."
+                description: "We create connected logistics environments that improve coordination, visibility and responsiveness across transportation and supply chain operations."
             },
             {
                 icon: "Truck",
                 title: "Intelligent Fleet Management",
-                description: "We modernize fleet operations through connected scheduling, maintenance tracking, compliance visibility, and operational optimization."
+                description: "We modernize fleet operations through connected scheduling, maintenance tracking, compliance visibility and operational optimization."
             },
             {
                 icon: "Wifi",
                 title: "IoT & Real-Time Visibility",
-                description: "We implement IoT-enabled systems that improve operational monitoring, asset tracking, and logistics visibility across connected environments."
+                description: "We implement IoT-enabled systems that improve operational monitoring, asset tracking and logistics visibility across connected environments."
             },
             {
                 icon: "LineChart",
                 title: "Operational Analytics & Insights",
-                description: "We provide operational intelligence and analytics platforms that improve forecasting, monitoring, planning, and logistics decision-making."
+                description: "We provide operational intelligence and analytics platforms that improve forecasting, monitoring, planning and logistics decision-making."
             },
             {
                 icon: "Package",
                 title: "Inventory & Supply Chain Visibility",
-                description: "We enable end-to-end visibility across inventory movement, transportation timelines, warehousing coordination, and supply chain execution."
+                description: "We enable end-to-end visibility across inventory movement, transportation timelines, warehousing coordination and supply chain execution."
             },
             {
                 icon: "Monitor",
                 title: "Digital Experience Enablement",
-                description: "We build connected digital experiences that improve communication, servicing visibility, and coordination across logistics ecosystems."
+                description: "We build connected digital experiences that improve communication, servicing visibility and coordination across logistics ecosystems."
             }
         ]
     },
     impact: {
         title: "WHAT WE HAVE DELIVERED",
-        subtitle: "Our experience spans logistics modernization, operational tracking, and connected supply chain operations. We help organizations build responsive, scalable, and resilient logistics environments through workflow automation and logistics intelligence.",
+        subtitle: "Our experience spans logistics modernization, operational tracking and connected supply chain operations. We help organizations build responsive, scalable and resilient logistics environments through workflow automation and logistics intelligence.",
         stats: [
             { value: "Live", label: "Real-time shipment and operational tracking" },
             { value: "100%", label: "Mobile-enabled logistics operations" },
@@ -82,28 +82,21 @@ export const transportationContent = {
     },
     caseStudies: {
         title: "CASE STUDIES",
-        subtitle: "Real-world implementations that demonstrate how we have enabled organizations to modernize logistics operations, improve operational visibility, and optimize transportation execution at scale.",
+        subtitle: "Real-world implementations that demonstrate how we help organizations modernize logistics operations and optimize transportation execution at scale.",
         studies: [
             {
-                title: "Automated Freight Experience<br />with AI Routing",
+                title: "Autonomous Freight Operations<br />with GenAI",
                 titleHighlightIndex: 1,
-                description: "Built an AI-driven logistics journey that automates documentation processing, routing and approvals.",
-                href: "/insights/case-studies/automated-freight",
-                image: "/images/Case_Study/1.png"
+                description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
+                href: "/insights/case-studies/autonomous-freight-operations",
+                image: "/images/Case_Studies/Optimized/cs-4.png"
             },
             {
-                title: "Faster Dispatch<br />with Document Intelligence",
-                titleHighlightIndex: 1,
-                description: "Dispatch processes completed in minutes with AI-driven manifest extraction.",
-                href: "/insights/case-studies/faster-dispatch",
-                image: "/images/Case_Study/4.png"
-            },
-            {
-                title: "Modernizing Shipper Service<br />with Intelligent Tracking",
+                title: "Building a Mobile-First,<br />Real-Time Logistics Platform",
                 titleHighlightIndex: 2,
-                description: "Transformed legacy tracking into a Smart Customer Engagement Interaction System.",
-                href: "/insights/case-studies/logistics-self-service",
-                image: "/images/Case_Study/2.png"
+                description: "Real-time tracking and fully mobile operations with Microsoft-powered transformation.",
+                href: "/insights/case-studies/logistics-platform-modernization-with-microsoft",
+                image: "/images/Case_Studies/Optimized/cs-21.png"
             }
         ]
     }
