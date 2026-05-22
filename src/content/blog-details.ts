@@ -610,7 +610,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     "date": "Apr 23, 2026",
     "author": "Hyniva",
     "tag": "Company",
-    "heroImage": "/images/News/CU NEXT Podcast Voices Driving.jpeg",
+    "heroImage": "/images/News/CUNEXT_blog_Image.png",
     "sections": [
       {
         "id": "content",
@@ -661,7 +661,7 @@ export const blogDetails: Record<string, BlogDetail> = {
 
       <!-- LISTEN CARDS -->
       <div class="listen-cards">
-        <a href="https://www.youtube.com/@Hyniva" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://youtube.com/@hynivapodcast1?si=tFndyTtSoFF3VV5o" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--yt">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" fill="#FF0000"/>
@@ -677,7 +677,7 @@ export const blogDetails: Record<string, BlogDetail> = {
           </div>
         </a>
 
-        <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://creators.spotify.com/pod/profile/cu-next-podcast/episodes" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--sp">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="10" fill="#1DB954"/>
@@ -695,7 +695,7 @@ export const blogDetails: Record<string, BlogDetail> = {
           </div>
         </a>
 
-        <a href="https://podcasts.apple.com" target="_blank" rel="noopener noreferrer" class="listen-card">
+        <a href="https://podcasts.apple.com/us/podcast/cu-next/id1896611486" target="_blank" rel="noopener noreferrer" class="listen-card">
           <div class="listen-card__icon listen-card__icon--ap">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="24" height="24" rx="6" fill="url(#appleGrad)"/>

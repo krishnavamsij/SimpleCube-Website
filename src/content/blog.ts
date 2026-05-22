@@ -20,7 +20,7 @@ export const blogContent: {
             title: "CU NEXT Podcast: Voices Driving Credit Union Innovation",
             date: "APR 23, 2026",
             tag: "Company",
-            image: "/images/News/CU NEXT Podcast Voices Driving.jpeg",
+            image: "/images/News/CUNEXT_blog_Image.png",
             href: "/insights/news/cu-next-podcast-voices-driving-credit-union-innovation",
             isNews: true,
         },

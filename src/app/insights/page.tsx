@@ -22,7 +22,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRightIcon, BookOpen, FileText } from "lucide-react";
+import { ArrowUpRightIcon, BookOpen, FileText, PlayCircle } from "lucide-react";
 import {
     scrollReveal,
     scrollStaggerContainer,
@@ -186,6 +186,14 @@ function InsightsGrid() {
             bgColor: "bg-blue-50",
             borderColor: "#1e90ff",
         },
+        {
+            title: "Podcast",
+            description: "Listen and watch Hyniva's leaders and industry experts discuss the future of AI, enterprise platforms, and credit union innovation.",
+            href: "/insights/podcast",
+            icon: PlayCircle,
+            bgColor: "bg-blue-50",
+            borderColor: "#1e90ff",
+        },
     ];
 
     return (
@@ -211,7 +219,7 @@ function InsightsGrid() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4"
                 >
                     {insights.map((insight) => (
                         <InsightCard key={insight.title} {...insight} />

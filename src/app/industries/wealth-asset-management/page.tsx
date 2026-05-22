@@ -61,12 +61,9 @@ function WealthHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl flex flex-col gap-1 sm:gap-2 items-center"
-                    >
-                        {wealthAssetManagementContent.hero.title.split(/<br\s*\/?>/).map((part, pIdx) => (
-                            <span key={pIdx} className="block lg:whitespace-nowrap" dangerouslySetInnerHTML={{ __html: part }} />
-                        ))}
-                    </motion.h1>
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight font-display text-center max-w-5xl mx-auto"
+                        dangerouslySetInnerHTML={{ __html: wealthAssetManagementContent.hero.title.replace(/<br\s*\/?>/g, ' ') }}
+                    />
                     
                     <motion.p
                         variants={fadeInUp}
@@ -126,7 +123,7 @@ function AlternatingSections() {
 function WealthOfferings() {
     return (
         <section className="py-24 bg-[#ECF6FF]">
-            <div className="mx-auto max-w-[1400px] px-6 text-center">
+            <div className="mx-auto max-w-[1400px] px-6 text-left md:text-center">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -181,7 +178,7 @@ function ProvenImpact() {
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
             
-            <div className="mx-auto max-w-[1200px] px-6 text-center relative z-10">
+            <div className="mx-auto max-w-[1200px] px-6 text-left md:text-center relative z-10">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -203,7 +200,7 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
                 >
                     {wealthAssetManagementContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">

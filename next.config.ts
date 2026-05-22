@@ -117,6 +117,10 @@ const nextConfig: NextConfig = {
         source: '/blogs/:path*',
         destination: '/insights/blogs/:path*',
       },
+      {
+        source: '/podcast',
+        destination: '/insights/podcast',
+      },
     ];
   },
 };
