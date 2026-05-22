@@ -28,7 +28,7 @@ export const podcastContent: {
             category: "Credit Union Tech",
             host: "John Mitchell (Hyniva CEO)",
             guest: "Sarah Jenkins (NASA Federal CU VP of Technology)",
-            image: "/images/News/CUNEXT_blog_Image.png",
+            image: "/images/Podcast/CU_Next_Podcast.png",
             videoUrl: "https://www.youtube.com/embed/oROwZ4z7Yow", // Official Hyniva video
             description: "Explore the core technologies and cultural innovations driving the next generation of credit unions, with a focus on member experience optimization and legacy modernization.",
         },
