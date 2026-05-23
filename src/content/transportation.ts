@@ -51,7 +51,7 @@ export const transportationContent = {
             {
                 icon: "Wifi",
                 title: "IoT & Real-Time Tracking",
-                description: "We implement IoT-enabled tracking systems that provide real-time visibility into vehicle movement, shipment status, asset utilization and operational events."
+                description: "We implement IoT-enabled tracking systems that provide real-time visibility into vehicle movement, shipment status and asset utilization."
             },
             {
                 icon: "LineChart",
