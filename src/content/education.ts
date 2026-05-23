@@ -98,6 +98,13 @@ export const educationContent = {
                 description: "Deployed a comprehensive virtual learning environment to improve student access and remote engagement.",
                 href: "/insights/case-studies/virtual-classrooms",
                 image: "/images/Banner_cards/Education.png"
+            },
+            {
+                title: "Scalable Multi-Portal Platform<br />for Complex Education Workflows",
+                titleHighlightIndex: 1,
+                description: "Streamlined academic workflows for real-time visibility and seamless interactions.",
+                href: "/insights/case-studies/education-platform-engineering",
+                image: "/images/Case_Studies/Optimized/cs-20.png"
             }
         ]
     }
