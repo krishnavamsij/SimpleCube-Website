@@ -72,13 +72,13 @@ export const educationContent = {
         ]
     },
     impact: {
-        title: "PROVEN IN EDUCATION",
+        title: "WHAT WE HAVE DELIVERED",
         subtitle: "We help institutions modernize learning environments, simplify academic operations, and create connected digital learning experiences.",
         stats: [
-            { value: "✓", label: "Improved Student<br />Engagement" },
-            { value: "✓", label: "Simplified Academic<br />Operations" },
-            { value: "✓", label: "Connected Learning<br />Experiences" },
-            { value: "✓", label: "Scalable Digital<br />Learning Environments" }
+            { value: "Improved", label: "student engagement<br />through connected learning" },
+            { value: "Simplified", label: "academic and<br />administrative operations" },
+            { value: "Connected", label: "digital and in-person<br />learning experiences" },
+            { value: "Scalable", label: "digital learning<br />environments" }
         ]
     },
     caseStudies: {
