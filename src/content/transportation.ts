@@ -36,37 +36,37 @@ export const transportationContent = {
     ],
     offerings: {
         title: "OUR OFFERINGS",
-        subtitle: "Our services are designed to support the operational, visibility and execution priorities shaping modern logistics environments.",
+        subtitle: "Our services are designed to modernize transportation execution, fleet coordination and real-time logistics operations.",
         items: [
             {
                 icon: "Network",
                 title: "Connected Logistics Operations",
-                description: "We create connected logistics environments that improve coordination, visibility and responsiveness across transportation and supply chain operations."
+                description: "We connect dispatch, transportation, warehousing and delivery workflows to improve coordination and execution across logistics operations."
             },
             {
                 icon: "Truck",
                 title: "Intelligent Fleet Management",
-                description: "We modernize fleet operations through connected scheduling, maintenance tracking, compliance visibility and operational optimization."
+                description: "We modernize fleet operations through live vehicle tracking, route optimization, maintenance monitoring and driver coordination."
             },
             {
                 icon: "Wifi",
-                title: "IoT & Real-Time Visibility",
-                description: "We implement IoT-enabled systems that improve operational monitoring, asset tracking and logistics visibility across connected environments."
+                title: "IoT & Real-Time Tracking",
+                description: "We implement IoT-enabled tracking systems that provide real-time visibility into vehicle movement, shipment status, asset utilization and operational events."
             },
             {
                 icon: "LineChart",
                 title: "Operational Analytics & Insights",
-                description: "We provide operational intelligence and analytics platforms that improve forecasting, monitoring, planning and logistics decision-making."
+                description: "We deliver operational intelligence platforms that improve forecasting, route planning, utilization tracking and logistics decision-making."
             },
             {
                 icon: "Package",
-                title: "Inventory & Supply Chain Visibility",
-                description: "We enable end-to-end visibility across inventory movement, transportation timelines, warehousing coordination and supply chain execution."
+                title: "Inventory & Supply Chain Coordination",
+                description: "We enable real-time inventory movement, warehouse coordination, shipment monitoring and supply chain synchronization."
             },
             {
                 icon: "Monitor",
-                title: "Digital Experience Enablement",
-                description: "We build connected digital experiences that improve communication, servicing visibility and coordination across logistics ecosystems."
+                title: "Digital Logistics Experiences",
+                description: "We build connected portals and mobile experiences that improve shipment visibility, operational communication and service coordination."
             }
         ]
     },
