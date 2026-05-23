@@ -25,7 +25,7 @@ export const educationContent = {
             image: "/images/Industries_Section/education subpage/education 2.png", 
         },
         {
-            title: "OUR APPROACH",
+            title: "OUR APPROACH TO CONNECTED EDUCATION",
             content: [
                 "We help education institutions connect learning platforms, academic operations, communication systems, and digital infrastructure into unified education ecosystems powered by EazySchool.",
                 "By simplifying learning delivery, academic administration, collaboration, and communication through a connected platform experience, institutions can improve accessibility, reduce operational complexity, and create more engaging learning environments for students and educators.",
