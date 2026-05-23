@@ -1,7 +1,7 @@
 export const transportationContent = {
     hero: {
         badge: "TRANSPORTATION & LOGISTICS",
-        title: "Redefining logistics operations through<br />connected and intelligent execution.",
+        title: "Redefining logistics operations<br />through connected and intelligent execution.",
         subtitle: "Real-time visibility, predictive operational intelligence and<br />seamless coordination across modern transportation and logistics networks.",
         backgroundImage: "/images/Industries_Section/Transport and logistics subpage/Hero banner.png",
     },

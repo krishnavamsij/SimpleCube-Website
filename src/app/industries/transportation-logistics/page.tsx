@@ -64,8 +64,8 @@ function TransportationHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight font-display text-center max-w-5xl mx-auto"
-                        dangerouslySetInnerHTML={{ __html: transportationContent.hero.title.replace(/<br\s*\/?>/g, ' ') }}
+                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl mx-auto text-center"
+                        dangerouslySetInnerHTML={{ __html: transportationContent.hero.title }}
                     />
                     
                     <motion.p
