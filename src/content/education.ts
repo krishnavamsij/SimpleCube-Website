@@ -1,8 +1,8 @@
 export const educationContent = {
     hero: {
         badge: "EDUCATION",
-        title: "Learning now happens<br />beyond the classroom",
-        subtitle: "Flexible, connected, and engaging education experiences<br />across digital and in-person learning environments.",
+        title: "Redefining education through<br />connected and digital-first learning experiences",
+        subtitle: "Flexible learning platforms, seamless collaboration and<br />connected academic experiences across modern education environments.",
         backgroundImage: "/images/Industries_Section/education subpage/Hero banner.png",
     },
     alternatingSections: [
@@ -36,38 +36,38 @@ export const educationContent = {
         }
     ],
     offerings: {
-        title: "EDUCATION OFFERINGS",
-        subtitle: "Our services are designed to address the core operational and transformation priorities in the education sector.",
+        title: "OUR OFFERINGS",
+        subtitle: "Our services are designed to support connected learning, academic coordination and modern education delivery.",
         items: [
             {
                 icon: "BookOpen",
                 title: "Learning Management Platforms",
-                description: "Enable seamless access to educational content, assignments, lectures, collaboration tools, and personalized learning experiences across digital learning environments."
+                description: "We enable seamless access to educational content, assignments, assessments and collaboration tools across digital learning environments."
             },
             {
                 icon: "Bot",
-                title: "Automated Administration",
-                description: "Simplify registration, grading, scheduling, reporting, and academic administration workflows to improve efficiency and reduce manual effort."
+                title: "Automated Academic Administration",
+                description: "We simplify registration, grading, scheduling, reporting and academic workflows to reduce manual effort and improve efficiency."
             },
             {
                 icon: "Monitor",
                 title: "Virtual Learning Experiences",
-                description: "Deliver interactive virtual classroom experiences through connected collaboration and communication platforms that improve accessibility, engagement, and learning continuity."
+                description: "We deliver interactive virtual classroom experiences that improve accessibility, engagement and learning continuity."
             },
             {
                 icon: "Cloud",
                 title: "Cloud Transformation",
-                description: "Modernize education infrastructure through scalable cloud environments that improve accessibility, flexibility, digital readiness, and long-term operational efficiency."
+                description: "We modernize education infrastructure through scalable cloud environments that improve flexibility, accessibility and digital readiness."
             },
             {
                 icon: "Users",
                 title: "Digital Collaboration Enablement",
-                description: "Strengthen communication and collaboration between students, educators, administrators, and parents through connected digital experiences."
+                description: "We strengthen communication and collaboration between students, educators, administrators and parents through connected digital experiences."
             },
             {
                 icon: "Network",
-                title: "Academic Visibility & Connected Operations",
-                description: "Improve academic coordination, institutional visibility, and operational efficiency through connected systems and modernized education operations."
+                title: "Connected Academic Operations",
+                description: "We improve academic coordination and operational efficiency through connected systems and modernized education operations."
             }
         ]
     },
