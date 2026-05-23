@@ -204,7 +204,7 @@ function ProvenImpact() {
                 >
                     {educationContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
-                            <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display text-center">
+                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-center">
                                 {stat.value}
                             </div>
                             <div 
