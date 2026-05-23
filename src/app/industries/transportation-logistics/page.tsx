@@ -48,7 +48,7 @@ function TransportationHero() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/80 to-[#02040a]/92" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
