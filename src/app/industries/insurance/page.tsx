@@ -45,7 +45,7 @@ function InsuranceHero() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/80 to-[#02040a]/92" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -61,13 +61,13 @@ function InsuranceHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight font-display text-center max-w-5xl mx-auto"
-                        dangerouslySetInnerHTML={{ __html: insuranceContent.hero.title.replace(/<br\s*\/?>/g, ' ') }}
+                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl mx-auto text-center"
+                        dangerouslySetInnerHTML={{ __html: insuranceContent.hero.title }}
                     />
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto pt-2"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-4xl lg:max-w-5xl mx-auto pt-2"
                         dangerouslySetInnerHTML={{ __html: insuranceContent.hero.subtitle }}
                     />
                 </motion.div>
