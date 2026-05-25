@@ -27,9 +27,8 @@ export const educationContent = {
         {
             title: "OUR APPROACH TO CONNECTED EDUCATION",
             content: [
-                "We help education institutions connect learning platforms, academic operations, communication systems, and digital infrastructure into unified education ecosystems powered by EazySchool.",
-                "By simplifying learning delivery, academic administration, collaboration, and communication through a connected platform experience, institutions can improve accessibility, reduce operational complexity, and create more engaging learning environments for students and educators.",
-                "This approach enables institutions to support modern learning models, improve academic coordination, and deliver seamless digital and in-person education experiences."
+                "We help education institutions modernize learning delivery, academic operations, and digital engagement across connected learning environments.",
+                "Our approach brings together learning platforms, institutional websites and portals, communication systems, and academic workflows into a unified digital experience that improves accessibility, collaboration, and operational efficiency for students, educators, and administrators."
             ],
             imagePosition: "left",
             image: "/images/Industries_Section/education subpage/education 3.png",
@@ -85,20 +84,6 @@ export const educationContent = {
         title: "CASE STUDIES",
         subtitle: "Real-world implementations that demonstrate how we have enabled educational institutions to transform experiences and modernize operations at scale.",
         studies: [
-            {
-                title: "Transforming School Administration<br />with EazySchool Platform",
-                titleHighlightIndex: 1,
-                description: "Unified administrative workflows with real-time processing and visibility for better institutional management.",
-                href: "/insights/case-studies/transforming-school-administration",
-                image: "/images/Banner_cards/Education.png"
-            },
-            {
-                title: "Cloud-Based Virtual Classrooms<br />Implementation",
-                titleHighlightIndex: 1,
-                description: "Deployed a comprehensive virtual learning environment to improve student access and remote engagement.",
-                href: "/insights/case-studies/virtual-classrooms",
-                image: "/images/Banner_cards/Education.png"
-            },
             {
                 title: "Scalable Multi-Portal Platform<br />for Complex Education Workflows",
                 titleHighlightIndex: 1,
