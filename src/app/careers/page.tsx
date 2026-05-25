@@ -1236,7 +1236,7 @@ export default function CareersPage() {
         throw new Error("Please upload your resume.");
       }
 
-      // Create FormData for direct submission to Brevo API
+      // Create FormData for submission to the careers email API
       const formDataToSend = new FormData();
       formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`.trim());
       formDataToSend.append("email", formData.email);
