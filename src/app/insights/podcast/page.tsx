@@ -62,12 +62,12 @@ export default function PodcastPage() {
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
-                    className="mb-20"
+                    className="mb-10"
                 >
                     {/* Eyebrow */}
                     <motion.div
                         variants={fadeInUp}
-                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit"
+                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-3 w-fit"
                     >
                         <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
                         CU TECH PODCAST
@@ -76,7 +76,7 @@ export default function PodcastPage() {
                     {/* Header Content */}
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start gap-2 sm:gap-8">
                         {/* Left Content */}
-                        <div className="lg:w-2/3 flex flex-col gap-3">
+                        <div className="lg:w-2/3 flex flex-col gap-1">
                             {/* Logo */}
                             <motion.div variants={fadeInUp}>
                                 <Image
