@@ -27,7 +27,7 @@ export const podcastContent: {
     episodes: [
         {
             id: "cu-next-podcast",
-            title: "CU Next: Conversations shaping the NEXT era of Credit Unions",
+            title: "Episode #01 - Scale Trust to Grow Relationships",
             date: "13th May 2026",
             duration: "24 minutes",
             category: "Credit Union Tech",

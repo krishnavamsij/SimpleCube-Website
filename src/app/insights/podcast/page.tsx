@@ -82,10 +82,10 @@ export default function PodcastPage() {
                                 <Image
                                     src="/images/Podcast/CU_Next_Podcast_logo.png"
                                     alt="CU NEXT Podcast"
-                                    width={150}
-                                    height={60}
+                                    width={400}
+                                    height={150}
                                     priority
-                                    className="w-auto max-w-[160px] h-auto object-contain"
+                                    className="w-auto max-w-[250px] sm:max-w-[320px] lg:max-w-[380px] h-auto object-contain -ml-2"
                                 />
                             </motion.div>
 
@@ -145,11 +145,7 @@ export default function PodcastPage() {
                                     </div>
                                 </div>
 
-                                {/* Duration */}
-                                <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-black tracking-wider px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/10 shadow-lg">
-                                    <Clock className="w-3 h-3 text-[#00D4AA]" />
-                                    {episode.duration}
-                                </div>
+
                             </div>
 
                             {/* Card Content */}
