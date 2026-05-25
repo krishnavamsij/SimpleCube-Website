@@ -30,9 +30,9 @@ export const navContent = {
     ],
     insights: [
         { title: "Case Studies", href: "/insights/case-studies" },
+        { title: "CU Tech Podcast", href: "/insights/podcast" },
         { title: "Blogs", href: "/insights/blogs" },
         { title: "News", href: "/insights/news" },
-        { title: "Podcast", href: "/insights/podcast" },
     ],
     about: [
         // UPDATED: Now pointing to local /about page instead of external products.hyniva.com

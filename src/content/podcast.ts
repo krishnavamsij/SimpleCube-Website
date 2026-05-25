@@ -16,21 +16,21 @@ export const podcastContent: {
     episodes: PodcastEpisode[];
 } = {
     hero: {
-        title: "Conversations on <span class='text-[#00D4AA]'>Innovation.</span>",
-        description: "Listen and watch Hyniva's leaders and guest industry experts discuss the future of AI, enterprise platforms, cloud, and digital transformation.",
+        title: "CU Next: Conversations shaping the NEXT era of <span class='text-[#00D4AA]'>Credit Unions</span>",
+        description: "Bringing together Credit Union leaders who are driving real transformation to share insights, experiences and strategies shaping the industry’s future.",
     },
     episodes: [
         {
             id: "cu-next-podcast",
-            title: "CU NEXT Podcast: Voices Driving Credit Union Innovation",
-            date: "APR 23, 2026",
-            duration: "45:20",
+            title: "Episode #01 - Scale Trust to Grow Relationships",
+            date: "13th May 2026",
+            duration: "24 minutes",
             category: "Credit Union Tech",
-            host: "John Mitchell (Hyniva CEO)",
-            guest: "Sarah Jenkins (NASA Federal CU VP of Technology)",
+            host: "Joseph Thomas",
+            guest: "Mirada Resnic",
             image: "/images/Podcast/CU_Next_Podcast.png",
             videoUrl: "https://www.youtube.com/embed/oROwZ4z7Yow", // Official Hyniva video
-            description: "Explore the core technologies and cultural innovations driving the next generation of credit unions, with a focus on member experience optimization and legacy modernization.",
+            description: "Episode #01 Scale Trust to Grow Relationships",
         },
         /* Remaining mock episodes commented out for now as requested
         {
