@@ -35,7 +35,7 @@ export const podcastContent: {
             hostRole: "Advisor, Hyniva | Retired PenFed CIO",
             guest: "Mirella Reznic",
             guestRole: "Chief Executive Officer, Farmers Insurance FCU",
-            image: "/images/Podcast/CU_Next_Podcast.png",
+            image: "/images/Podcast/Episode1poster.png",
             videoUrl: "https://www.youtube.com/embed/oROwZ4z7Yow",
             description: "Episode #01 Scale Trust to Grow Relationships",
         },
