@@ -41,7 +41,7 @@ export const educationContent = {
             {
                 icon: "BookOpen",
                 title: "Learning Management Platforms",
-                description: "We enable seamless access to educational content, assignments, assessments and collaboration tools across digital learning environments."
+                description: "We enable seamless access to content, assignments, assessments and collaboration tools across digital learning environments."
             },
             {
                 icon: "Bot",
