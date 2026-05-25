@@ -53,7 +53,7 @@ export default function PodcastPage() {
                 >
                     <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit">
                         <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
-                        PODCAST
+                        CU TECH PODCAST
                     </motion.div>
 
                     {/* Header Container */}
@@ -69,7 +69,7 @@ export default function PodcastPage() {
                                 variants={fadeInUp}
                                 className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
                             >
-                                Explore our technical briefings, industry roundtables, and interviews with credit union leaders and AI pioneers.
+                                {podcastContent.hero.description}
                             </motion.p>
                         </div>
 
@@ -81,13 +81,13 @@ export default function PodcastPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#1e90ff]/10 border border-[#1e90ff]/20 text-[#1e90ff] text-sm font-bold transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                             >
-                                <Image
+                                {/* <Image
                                     src="/images/Podcast/CU_Next_Podcast_logo.png"
-                                    alt="CU Next Podcast Logo"
+                                    alt="CU NEXT"
                                     width={40}
                                     height={40}
                                     className="h-8 w-auto object-contain"
-                                />
+                                /> */}
 
                                 Visit Podcast Channel
                             </a>

@@ -62,13 +62,13 @@ function EducationHero() {
                     
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.15] tracking-tight font-display max-w-6xl mx-auto text-center"
+                        className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center"
                         dangerouslySetInnerHTML={{ __html: educationContent.hero.title }}
                     />
                     
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-4xl lg:max-w-5xl mx-auto pt-2"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center"
                         dangerouslySetInnerHTML={{ __html: educationContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -80,7 +80,7 @@ function EducationHero() {
 function AlternatingSections() {
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1400px] px-6 space-y-32">
+            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {educationContent.alternatingSections.map((section, index) => (
                     <motion.div 
                         key={index}
