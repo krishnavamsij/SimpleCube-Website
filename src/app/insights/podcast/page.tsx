@@ -67,7 +67,7 @@ export default function PodcastPage() {
                     {/* Eyebrow */}
                     <motion.div
                         variants={fadeInUp}
-                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-1 w-fit"
+                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-0 w-fit"
                     >
                         <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
                         CU TECH PODCAST
@@ -78,7 +78,7 @@ export default function PodcastPage() {
                         {/* Left Content */}
                         <div className="lg:w-2/3 flex flex-col gap-0">
                             {/* Logo */}
-                            <motion.div variants={fadeInUp} className="-mt-3">
+                            <motion.div variants={fadeInUp} className="-mt-4 sm:-mt-6">
                                 <Image
                                     src="/images/Podcast/CU_Next_Podcast_logo.png"
                                     alt="CU NEXT Podcast"
