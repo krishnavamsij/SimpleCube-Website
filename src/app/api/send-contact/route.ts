@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { REGION, getSesSourceEmail, SES_RECIPIENT_CONTACT } from "@/lib/email-config";
+import { REGION, getSesCredentials, getSesSourceEmail, SES_RECIPIENT_CONTACT } from "@/lib/email-config";
 
 const SENDER_NAME = "Hyniva Contact Form";
 const RECIPIENT_EMAIL = SES_RECIPIENT_CONTACT;
 
-const ses = new SESClient({ region: REGION });
+const sesCredentials = getSesCredentials();
+const ses = new SESClient({
+  region: REGION,
+  ...(sesCredentials ? { credentials: sesCredentials } : {}),
+});
 
 export async function POST(request: Request) {
   try {
@@ -63,15 +67,30 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    const textContent = [
+      "New Corporate Inquiry",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not Provided"}`,
+      `Organization: ${organization}`,
+      `Industry: ${industry}`,
+      "",
+      "Message:",
+      message,
+      "",
+      "Sent via: Hyniva Website Contact Form",
+    ].join("\n");
+
     const command = new SendEmailCommand({
       Source: sourceEmail,
       Destination: {
         ToAddresses: [RECIPIENT_EMAIL],
       },
       Message: {
-        Subject: { Data: `[Corporate Inquiry] ${name} - ${organization}` },
+        Subject: { Data: `[Corporate Inquiry] ${name} - ${organization}`, Charset: "UTF-8" },
         Body: {
-          Html: { Data: htmlContent },
+          Text: { Data: textContent, Charset: "UTF-8" },
+          Html: { Data: htmlContent, Charset: "UTF-8" },
         },
       },
       ReplyToAddresses: [email],

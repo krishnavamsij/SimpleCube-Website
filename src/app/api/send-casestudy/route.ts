@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { REGION, getSesSourceEmail, SES_RECIPIENT_CASESTUDY } from "@/lib/email-config";
+import {
+  REGION,
+  getSesCredentials,
+  getSesSourceEmail,
+  SES_RECIPIENT_CASESTUDY,
+} from "@/lib/email-config";
 
 const SENDER_NAME = "Hyniva";
 const RECIPIENT_EMAIL = SES_RECIPIENT_CASESTUDY;
-const ses = new SESClient({ region: REGION });
+const sesCredentials = getSesCredentials();
+const ses = new SESClient({
+  region: REGION,
+  ...(sesCredentials ? { credentials: sesCredentials } : {}),
+});
 
 export async function POST(request: Request) {
   try {
@@ -73,15 +82,27 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    const textContent = [
+      "New Case Study Lead",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Organization: ${organization}`,
+      `Role: ${role || "N/A"}`,
+      "Message: A visitor expressed interest after reading a case study.",
+      "",
+      "Sent via: Hyniva Website Case Study Form",
+    ].join("\n");
+
     const command = new SendEmailCommand({
       Source: sourceEmail,
       Destination: {
         ToAddresses: [RECIPIENT_EMAIL],
       },
       Message: {
-        Subject: { Data: `[Case Study Lead] ${name} - ${organization}` },
+        Subject: { Data: `[Case Study Lead] ${name} - ${organization}`, Charset: "UTF-8" },
         Body: {
-          Html: { Data: htmlContent },
+          Text: { Data: textContent, Charset: "UTF-8" },
+          Html: { Data: htmlContent, Charset: "UTF-8" },
         },
       },
       ReplyToAddresses: [email],

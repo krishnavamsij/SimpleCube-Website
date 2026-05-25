@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand, SendRawEmailCommand } from "@aws-sdk/client-ses";
 import {
   REGION,
+  getSesCredentials,
   getSesSourceEmail,
   SES_RECIPIENT_CAREERS_US,
   SES_RECIPIENT_CAREERS_NONUS,
@@ -36,6 +37,7 @@ function buildRawEmail({
   toAddress,
   replyTo,
   subject,
+  textBody,
   htmlBody,
   attachment,
 }: {
@@ -43,10 +45,12 @@ function buildRawEmail({
   toAddress: string;
   replyTo: string;
   subject: string;
+  textBody: string;
   htmlBody: string;
   attachment?: { name: string; content: string; mimeType: string };
 }) {
-  const boundary = `Boundary_${Date.now()}`;
+  const mixedBoundary = `MixedBoundary_${Date.now()}`;
+  const altBoundary = `AltBoundary_${Date.now()}`;
   const headers = [
     `From: ${source}`,
     `To: ${toAddress}`,
@@ -56,34 +60,63 @@ function buildRawEmail({
   ];
 
   if (attachment) {
-    headers.push(`Content-Type: multipart/mixed; boundary="${boundary}"`);
+    headers.push(`Content-Type: multipart/mixed; boundary="${mixedBoundary}"`);
     const body = [
-      `--${boundary}`,
-      "Content-Type: text/html; charset=ISO-8859-1",
+      `--${mixedBoundary}`,
+      `Content-Type: multipart/alternative; boundary="${altBoundary}"`,
+      "",
+      `--${altBoundary}`,
+      "Content-Type: text/plain; charset=UTF-8",
+      "Content-Transfer-Encoding: 7bit",
+      "",
+      textBody,
+      "",
+      `--${altBoundary}`,
+      "Content-Type: text/html; charset=UTF-8",
       "Content-Transfer-Encoding: 7bit",
       "",
       htmlBody,
       "",
-      `--${boundary}`,
+      `--${altBoundary}--`,
+      "",
+      `--${mixedBoundary}`,
       `Content-Type: ${attachment.mimeType}; name="${attachment.name}"`,
       "Content-Transfer-Encoding: base64",
       `Content-Disposition: attachment; filename="${attachment.name}"`,
       "",
       attachment.content,
       "",
-      `--${boundary}--`,
+      `--${mixedBoundary}--`,
     ].join("\r\n");
 
     return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + body);
   }
 
-  headers.push("Content-Type: text/html; charset=ISO-8859-1");
-  return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + htmlBody);
+  headers.push(`Content-Type: multipart/alternative; boundary="${altBoundary}"`);
+  const body = [
+    `--${altBoundary}`,
+    "Content-Type: text/plain; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    textBody,
+    "",
+    `--${altBoundary}`,
+    "Content-Type: text/html; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    htmlBody,
+    "",
+    `--${altBoundary}--`,
+  ].join("\r\n");
+
+  return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + body);
 }
 
+const sesCredentials = getSesCredentials();
 const ses = new SESClient({ 
   region: REGION,
   maxAttempts: 3,
+  ...(sesCredentials ? { credentials: sesCredentials } : {}),
 });
 
 export async function POST(request: Request) {
@@ -222,8 +255,8 @@ export async function POST(request: Request) {
     const htmlContent = `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; color: #333;">
         <div style="background: linear-gradient(135deg, #1e90ff 0%, #0d47a1 100%); padding: 30px; border-radius: 10px 10px 0 0; color: white;">
-          <h2 style="margin: 0; font-size: 24px;">🎯 New Job Application</h2>
-          <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Status: ✅ Ready for Review</p>
+          <h2 style="margin: 0; font-size: 24px;">New Job Application</h2>
+          <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Status: Ready for review</p>
         </div>
 
         <div style="background-color: #f8f9fa; padding: 2px;"></div>
@@ -263,7 +296,7 @@ export async function POST(request: Request) {
 
         <div style="background-color: #fff; padding: 20px 30px;">
           <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #666;">
-            <span>${attachmentData ? "📎 Resume attached" : "ℹ️ No resume attached"}</span>
+            <span>${attachmentData ? "Resume attached" : "No resume attached"}</span>
             <span>•</span>
             <span>Submitted via Hyniva Careers Portal</span>
             <span>•</span>
@@ -276,6 +309,20 @@ export async function POST(request: Request) {
         </div>
       </div>
     `;
+
+    const textContent = [
+      "New Job Application",
+      `Full Name: ${name}`,
+      `Email: ${email}`,
+      `Position Applied: ${role}`,
+      `Location: ${location}`,
+      `Current CTC: ${ctc}`,
+      `Skills: ${skills}`,
+      `${attachmentData ? "Resume: Attached" : "Resume: Not attached"}`,
+      "",
+      `Submitted via Hyniva Careers Portal on ${new Date().toLocaleString()}`,
+      `Reply to the applicant at ${email}`,
+    ].join("\n");
 
     console.log("Attempting to send email via SES...");
     
@@ -290,6 +337,7 @@ export async function POST(request: Request) {
                 toAddress: targetEmail,
                 replyTo: email,
                 subject,
+                textBody: textContent,
                 htmlBody: htmlContent,
                 attachment: attachmentData,
               }),
@@ -305,9 +353,10 @@ export async function POST(request: Request) {
               ToAddresses: [targetEmail],
             },
             Message: {
-              Subject: { Data: subject },
+              Subject: { Data: subject, Charset: "UTF-8" },
               Body: {
-                Html: { Data: htmlContent },
+                Text: { Data: textContent, Charset: "UTF-8" },
+                Html: { Data: htmlContent, Charset: "UTF-8" },
               },
             },
             ReplyToAddresses: [email],

@@ -6,6 +6,22 @@ frontend:
         - nvm use 20
         - npm install -g pnpm@9.15.4
         - pnpm install --frozen-lockfile
+        - rm -f .env.production
+        - |
+          cat > .env.production <<EOF
+          REGION=$REGION
+          AWS_REGION=$AWS_REGION
+          ACCESS_KEY_ID=$ACCESS_KEY_ID
+          SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY
+          AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+          AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+          SES_SOURCE_EMAIL=$SES_SOURCE_EMAIL
+          SENDER_EMAIL=$SENDER_EMAIL
+          SES_RECIPIENT_CONTACT=$SES_RECIPIENT_CONTACT
+          SES_RECIPIENT_CASESTUDY=$SES_RECIPIENT_CASESTUDY
+          SES_RECIPIENT_CAREERS_US=$SES_RECIPIENT_CAREERS_US
+          SES_RECIPIENT_CAREERS_NONUS=$SES_RECIPIENT_CAREERS_NONUS
+          EOF
     build:
       commands:
         - pnpm run build
