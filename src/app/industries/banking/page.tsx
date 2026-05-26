@@ -26,11 +26,11 @@ const iconMap: Record<string, React.ElementType> = {
 
 function BankingHero() {
     return (
-        <section className="relative overflow-hidden py-32 pt-44 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-[85vh]">
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-[85vh]">
             {/* Background layers */}
-            <div 
+            <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ 
+                style={{
                     backgroundImage: `url('${bankingContent.hero.backgroundImage}')`,
                     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
                 }}
@@ -43,7 +43,7 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-8 sm:space-y-12 md:space-y-14"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-12 md:space-y-14"
                 >
                     <motion.div variants={fadeInUp} className="flex justify-center">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
@@ -51,16 +51,16 @@ function BankingHero() {
                             {bankingContent.hero.badge}
                         </span>
                     </motion.div>
-                    
+
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center"
+                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.title }}
                     />
-                    
+
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center"
+                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -74,7 +74,7 @@ function AlternatingSections() {
         <section className="py-24 bg-white">
             <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {bankingContent.alternatingSections.map((section, index) => (
-                    <motion.div 
+                    <motion.div
                         key={index}
                         variants={scrollReveal}
                         initial="hidden"
@@ -85,8 +85,8 @@ function AlternatingSections() {
                         {/* Image Side */}
                         <div className="w-full lg:w-1/2">
                             <div className="aspect-[4/3] rounded-[32px] bg-slate-100 overflow-hidden relative shadow-md">
-                                <img 
-                                    src={section.image} 
+                                <img
+                                    src={section.image}
                                     alt={section.title}
                                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                                 />
@@ -170,14 +170,14 @@ function ProvenImpact() {
         <section className="py-24 bg-[#0A102E] relative overflow-hidden">
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
-            
-            <div className="mx-auto max-w-[1200px] px-6 text-left md:text-center relative z-10">
+
+            <div className="mx-auto max-w-[1200px] px-6 text-left relative z-10">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-5xl mx-auto mb-20"
+                    className="max-w-5xl mb-20 text-left"
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
                         {bankingContent.impact.title}
@@ -195,12 +195,12 @@ function ProvenImpact() {
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
                 >
                     {bankingContent.impact.stats.map((stat, index) => (
-                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
-                            <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display text-center">
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start text-left">
+                            <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display text-left">
                                 {stat.value}
                             </div>
-                            <div 
-                                className="text-[15px] text-slate-300 font-medium tracking-wide leading-relaxed text-center"
+                            <div
+                                className="text-[15px] text-slate-300 font-medium tracking-wide leading-relaxed text-left"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}
                             />
                         </motion.div>
@@ -259,15 +259,15 @@ function CaseStudies() {
 
                                 {/* Content */}
                                 <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
-                                    <h3 
+                                    <h3
                                         className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
                                         dangerouslySetInnerHTML={{ __html: study.title }}
                                     />
-                                    
+
                                     <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
                                         {study.description}
                                     </p>
-                                    
+
                                     <Link
                                         href={study.href}
                                         className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"

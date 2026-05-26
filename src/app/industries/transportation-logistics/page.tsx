@@ -39,9 +39,9 @@ const iconMap: Record<string, React.ElementType> = {
 
 function TransportationHero() {
     return (
-        <section className="relative overflow-hidden py-32 pt-44 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen">
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen">
             {/* Background layers */}
-            <div 
+            <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${transportationContent.hero.backgroundImage}')` }}
             />
@@ -53,7 +53,7 @@ function TransportationHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-10 md:space-y-12"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-10 md:space-y-12"
                 >
                     <motion.div variants={fadeInUp} className="flex justify-center">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
@@ -61,16 +61,16 @@ function TransportationHero() {
                             {transportationContent.hero.badge}
                         </span>
                     </motion.div>
-                    
+
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center"
+                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-left sm:text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.title }}
                     />
-                    
+
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center"
+                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-left sm:text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -84,7 +84,7 @@ function AlternatingSections() {
         <section className="py-24 bg-white">
             <div className="mx-auto max-w-[1200px] px-6 space-y-32">
                 {transportationContent.alternatingSections.map((section, index) => (
-                    <motion.div 
+                    <motion.div
                         key={index}
                         variants={scrollReveal}
                         initial="hidden"
@@ -95,8 +95,8 @@ function AlternatingSections() {
                         {/* Image Side */}
                         <div className="w-full lg:w-1/2">
                             <div className="aspect-[4/3] rounded-[32px] bg-slate-100 overflow-hidden relative shadow-md">
-                                <img 
-                                    src={section.image} 
+                                <img
+                                    src={section.image}
                                     alt={section.title}
                                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                                 />
@@ -180,14 +180,14 @@ function ProvenImpact() {
         <section className="py-24 bg-[#0A102E] relative overflow-hidden">
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
-            
+
             <div className="mx-auto max-w-[1200px] px-6 text-left md:text-center relative z-10">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-4xl mx-auto mb-20"
+                    className="max-w-4xl mx-auto mb-20 text-left md:text-center"
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
                         {transportationContent.impact.title}
@@ -205,11 +205,11 @@ function ProvenImpact() {
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
                 >
                     {transportationContent.impact.stats.map((stat, index) => (
-                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-center">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-center">
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start sm:items-center mx-auto w-fit text-left sm:text-center">
+                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left sm:text-center">
                                 {stat.value}
                             </div>
-                            <div className="text-base text-slate-300 font-medium text-center">
+                            <div className="text-base text-slate-300 font-medium text-left sm:text-center">
                                 {stat.label}
                             </div>
                         </motion.div>
@@ -250,7 +250,7 @@ function CaseStudies() {
                         const parts = study.title.split("<br />");
                         const firstLine = parts[0] || "";
                         const secondLine = parts[1] || "";
-                        
+
                         return (
                             <motion.div
                                 key={index}
@@ -294,11 +294,11 @@ function CaseStudies() {
                                             </>
                                         )}
                                     </h3>
-                                    
+
                                     <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
                                         {study.description}
                                     </p>
-                                    
+
                                     <Link
                                         href={study.href}
                                         className="bg-white rounded-[20px] py-4 px-6 flex justify-between items-center border border-white shadow-sm hover:shadow-md transition-all group"

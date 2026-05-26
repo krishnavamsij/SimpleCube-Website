@@ -3,8 +3,8 @@ import { LucideIcon, Monitor, Calculator, Shield, Bot, Users, Cloud, RefreshCw, 
 export const insuranceContent = {
     hero: {
         badge: "INSURANCE",
-        title: "Redefining insurance operations through<br />AI-driven claims orchestration",
-        subtitle: "Automated claim assignment, intelligent field coordination and<br />real-time servicing across the insurance lifecycle.",
+        title: "Redefining insurance operations through <br />AI-driven claims orchestration",
+        subtitle: "Automated claim assignment, intelligent field coordination and <br />real-time servicing across the insurance lifecycle.",
         backgroundImage: "/images/Industries_Section/Insurance_Subpage/Hero Banner.png",
     },
     alternatingSections: [

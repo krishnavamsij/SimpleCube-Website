@@ -131,7 +131,7 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="flex flex-col items-center text-center w-full mb-8 sm:mb-12 mt-auto"
+          className="flex flex-col items-center w-full mb-8 sm:mb-12 mt-auto"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3B82F6] bg-[#0A123A] border border-[#1E3A8A] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
@@ -139,7 +139,7 @@ export function Footer() {
             {label}
           </div>
 
-          <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight mb-8">
+          <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight mb-8 text-left sm:text-center">
             {headline.split("simplify").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>
@@ -152,7 +152,7 @@ export function Footer() {
             ))}
           </h2>
 
-          <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12">
+          <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12 text-left sm:text-center">
             {sub.split("\n").map((line, i) => (
               <span key={i} className="block">
                 {line}
@@ -236,16 +236,16 @@ export function Footer() {
           <div className="flex flex-col gap-8 lg:w-auto lg:ml-auto">
             <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
               {sections.map((section) => (
-                <div key={section.title} className="min-w-[120px]">
-                  <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+                <div key={section.title} className="min-w-[120px] text-left">
+                  <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white text-left">
                     {section.title}
                   </h5>
                   <ul className="space-y-3">
                     {section.links.map((link) => (
-                      <li key={link.title}>
+                      <li key={link.title} className="text-left">
                         <Link
                           href={link.href}
-                          className="text-sm text-white/60 transition-colors hover:text-white hover:font-medium"
+                          className="text-sm text-white/60 transition-colors hover:text-white hover:font-medium text-left"
                         >
                           {link.title}
                         </Link>
@@ -257,9 +257,9 @@ export function Footer() {
             </div>
 
             {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
-            <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full">
-              <div>
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+            <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full text-left">
+              <div className="text-left">
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60 text-left">
                   Proud Member
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -279,8 +279,8 @@ export function Footer() {
                   />
                 </div>
               </div>
-              <div className="ml-0 sm:ml-4">
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+              <div className="ml-0 sm:ml-4 text-left">
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60 text-left">
                   Certified By
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">

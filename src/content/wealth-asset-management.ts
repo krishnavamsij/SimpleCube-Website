@@ -1,8 +1,8 @@
 export const wealthAssetManagementContent = {
     hero: {
         badge: "WEALTH & ASSET MANAGEMENT",
-        title: "Redefining wealth management through<br />intelligent and personalized investor experiences",
-        subtitle: "Connected advisory journeys, real-time portfolio intelligence and<br />AI-driven engagement across the investment lifecycle.",
+        title: "Redefining wealth management through <br />intelligent and personalized investor experiences",
+        subtitle: "Connected advisory journeys, real-time portfolio intelligence and <br />AI-driven engagement across the investment lifecycle.",
         backgroundImage: "/images/Industries_Section/Wealth and Asset Management subpage/Herobanner.png",
     },
     alternatingSections: [
