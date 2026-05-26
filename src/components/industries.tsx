@@ -48,6 +48,7 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
     // Staggered vertical offset (Cards 2 and 4 shifted down) - Desktop only
     const isOffset = index % 2 === 1;
     const [isActive, setIsActive] = useState(false);
+    const isSpecialCard = industry.title === "Insurance" || industry.title === "Education";
 
     return (
         <Link 
@@ -64,54 +65,91 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                 }
             }}
         >
-            {/* Industry Title: STATIC (Always Visible) */}
-            <div className="p-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
-                <h3 className="text-[18px] font-[800] text-[#030B3B] leading-[1.2]">
-                    {industry.title}
-                </h3>
-            </div>
-
-            <div className="relative flex-1 w-full overflow-hidden" style={{ backgroundColor: industry.bgColor }}>
-                {/* Front: Image (Always visible, Disappears on Hover/Active) */}
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
-                    <div className="relative h-full w-full">
-                        {/* Seamless Fog Blend into custom Industry background */}
-                        <div 
-                            className="absolute inset-0 z-10 opacity-95 pointer-events-none" 
-                            style={{ 
-                                background: `linear-gradient(to top, ${industry.bgColor} 0%, ${industry.bgColor}33 70%, transparent 100%)` 
-                            }} 
-                        />
-                        <div 
-                            className="absolute inset-0 z-10 pointer-events-none" 
-                            style={{ 
-                                background: `linear-gradient(to right, ${industry.bgColor}1A, transparent, ${industry.bgColor}1A)` 
-                            }} 
-                        />
-                        
+            {isSpecialCard ? (
+                <>
+                    {/* Front Image: spans entire card container absolute inset-0 */}
+                    <div className={`absolute inset-0 z-10 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
                         <Image
                             src={industry.image}
                             alt={industry.title}
                             fill
-                            className="object-contain object-bottom p-4"
+                            className="object-cover object-center p-0"
                         />
                     </div>
-                </div>
 
-                {/* Content: Hidden by default, Appears on Hover/Active */}
-                <div className={`absolute inset-0 flex flex-col p-7 pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                    <p className="text-[#030B3B]/80 text-[14px] sm:text-[15px] leading-relaxed font-medium">
-                        {industry.description}
-                    </p>
-                    
-                    <div className="mt-auto flex justify-end">
-                        <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] group-hover:text-[#00D4AA] transition-colors">
-                            Expand
-                            <span className="text-lg leading-none mb-0.5">›</span>
-                        </span>
+                    {/* Industry Title: Overlay at the top */}
+                    <div className="p-7 pb-2 z-30 bg-transparent">
+                        <h3 className="text-[18px] font-[800] text-[#030B3B] leading-[1.2]">
+                            {industry.title}
+                        </h3>
                     </div>
-                </div>
-            </div>
+
+                    {/* Description Content: Overlay on hover */}
+                    <div className={`absolute inset-0 z-20 flex flex-col p-7 pt-24 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                        <p className="text-[#030B3B]/80 text-[14px] sm:text-[15px] leading-relaxed font-medium">
+                            {industry.description}
+                        </p>
+                        
+                        <div className="mt-auto flex justify-end">
+                            <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] group-hover:text-[#00D4AA] transition-colors">
+                                Expand
+                                <span className="text-lg leading-none mb-0.5">›</span>
+                            </span>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    {/* Industry Title: STATIC (Always Visible) */}
+                    <div className="p-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
+                        <h3 className="text-[18px] font-[800] text-[#030B3B] leading-[1.2]">
+                            {industry.title}
+                        </h3>
+                    </div>
+
+                    <div className="relative flex-1 w-full overflow-hidden" style={{ backgroundColor: industry.bgColor }}>
+                        {/* Front: Image (Always visible, Disappears on Hover/Active) */}
+                        <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
+                            <div className="relative h-full w-full">
+                                {/* Seamless Fog Blend into custom Industry background */}
+                                <div 
+                                    className="absolute inset-0 z-10 opacity-95 pointer-events-none" 
+                                    style={{ 
+                                        background: `linear-gradient(to top, ${industry.bgColor} 0%, ${industry.bgColor}33 70%, transparent 100%)` 
+                                    }} 
+                                />
+                                <div 
+                                    className="absolute inset-0 z-10 pointer-events-none" 
+                                    style={{ 
+                                        background: `linear-gradient(to right, ${industry.bgColor}1A, transparent, ${industry.bgColor}1A)` 
+                                    }} 
+                                />
+                                
+                                <Image
+                                    src={industry.image}
+                                    alt={industry.title}
+                                    fill
+                                    className="object-contain object-bottom p-4"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Content: Hidden by default, Appears on Hover/Active */}
+                        <div className={`absolute inset-0 flex flex-col p-7 pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                            <p className="text-[#030B3B]/80 text-[14px] sm:text-[15px] leading-relaxed font-medium">
+                                {industry.description}
+                            </p>
+                            
+                            <div className="mt-auto flex justify-end">
+                                <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] group-hover:text-[#00D4AA] transition-colors">
+                                    Expand
+                                    <span className="text-lg leading-none mb-0.5">›</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
         </Link>
     );
 }

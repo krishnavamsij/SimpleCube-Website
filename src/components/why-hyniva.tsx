@@ -95,16 +95,16 @@ export function WhyHyniva() {
                     viewport={viewportOnce}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[30px] sm:p-[40px] lg:p-[50px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
                         {bottomBox.map((card, idx) => (
-                            <div key={idx} className={`flex flex-col ${idx > 0 ? "pt-8 sm:pt-0 sm:pl-8 lg:pl-8" : ""}`}>
+                            <div key={idx} className="flex flex-col">
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
                                 <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
+                                <p className={`text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line ${idx === 3 ? "lg:max-w-[190px]" : ""}`}>
                                     {card.description}
                                 </p>
                             </div>

@@ -26,7 +26,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 function BankingHero() {
     return (
-        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-[85vh]">
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen">
             {/* Background layers */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -43,7 +43,7 @@ function BankingHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-12 md:space-y-14"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-10 md:space-y-12"
                 >
                     <motion.div variants={fadeInUp} className="flex justify-center">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
