@@ -860,7 +860,7 @@ const jobOpenings: JobPosition[] = [
     title: "Digital Architect",
     location: "Remote within Canada (Occasional travel within Alberta if required)",
     type: "Contract",
-    description: "We are seeking experienced Digital Architects to support large-scale digital transformation, service innovation, modernization, and enterprise architecture initiatives within a public sector environment. The Digital Architect will work closely with cross-functional agile product teams to design and deliver secure, scalable, citizen-centric digital services aligned with enterprise architecture standards and modern software engineering practices.",
+    description: "We are seeking an experienced Digital Architect to support large-scale digital transformation, service innovation, modernization, and enterprise architecture initiatives within a public sector environment. The Digital Architect will work closely with cross-functional agile product teams to design and deliver secure, scalable, citizen-centric digital services aligned with enterprise architecture standards and modern software engineering practices.",
     jobDuties: [
       "Lead solution architecture and technical design for digital service delivery initiatives",
       "Develop scalable, secure, and user-centric architecture solutions aligned with enterprise standards and agile delivery principles",
@@ -911,11 +911,11 @@ const jobOpenings: JobPosition[] = [
     howToApply: "Updated Resume\nCurrent Location\nWork Authorization\nAvailability\nExpected Rate\nLinkedIn Profile",
   },
   {
-    id: "qa-automation-developer",
-    title: "QA Automation Developer",
+    id: "qa-automation-engineer",
+    title: "QA Automation Engineer",
     location: "Remote within Canada (Occasional travel to Edmonton, Alberta if required)",
     type: "Contract",
-    description: "We are seeking experienced QA Automation Developers to support large-scale digital transformation, service innovation, and modernization initiatives within a public sector environment. The QA Automation Developer will work closely with cross-functional agile product teams to ensure high-quality delivery of modern digital services through automation, testing strategy, and quality engineering best practices.",
+    description: "We are seeking experienced QA Automation Engineers to support large-scale digital transformation, service innovation, and modernization initiatives within a public sector environment. The QA Automation Engineer will work closely with cross-functional agile product teams to ensure high-quality delivery of modern digital services through automation, testing strategy, and quality engineering best practices.",
     jobDuties: [
       "Design, develop, and maintain automated test frameworks and automation test suites",
       "Create automation test plans, test cases, and test scenarios for digital applications and services",
