@@ -105,7 +105,9 @@ function MessageBubble({ item, index }: { item: ChatItem; index: number }) {
     >
       <div
         style={{
-          maxWidth: "75%",
+          maxWidth: "90vw",
+          width: "fit-content",
+          minWidth: "40px",
           padding: "11px 15px",
           borderRadius: isUser ? "16px 16px 2px 16px" : "16px 16px 16px 2px",
           backgroundColor: isUser ? COLORS.cyan : COLORS.navyLight,
@@ -115,6 +117,7 @@ function MessageBubble({ item, index }: { item: ChatItem; index: number }) {
           fontWeight: isUser ? 600 : 400,
           boxShadow: `0 2px 8px ${isUser ? "rgba(0,229,255,0.15)" : "rgba(0,0,0,0.1)"}`,
           wordBreak: "break-word",
+          overflowWrap: "anywhere",
         }}
       >
         {item.text}
@@ -372,11 +375,11 @@ export default function HynivaChatbot() {
           className="chat-window"
           style={{
             position: "fixed",
-            bottom: isMobile ? 0 : 100,
-            right: isMobile ? 0 : 24,
+            bottom: isMobile ? 0 : 32,
+            right: isMobile ? 0 : 32,
             zIndex: 9998,
-            width: isMobile ? "100%" : "400px",
-            height: isMobile ? "90vh" : "600px",
+            width: isMobile ? "100vw" : "clamp(320px, 90vw, 400px)",
+            height: isMobile ? "90vh" : "clamp(420px, 80vh, 600px)",
             borderRadius: isMobile ? "20px 20px 0 0" : "16px",
             backgroundColor: COLORS.navy,
             border: isMobile ? "none" : `1px solid ${COLORS.navyLight}`,
@@ -384,17 +387,20 @@ export default function HynivaChatbot() {
             flexDirection: "column",
             boxShadow: "0 12px 48px rgba(0, 0, 0, 0.4)",
             overflow: "hidden",
+            maxWidth: "100vw",
+            maxHeight: "100vh",
           }}
         >
           {/* Header */}
           <div
             style={{
-              padding: isMobile ? "16px 18px" : "14px 16px",
-              borderBottom: `1px solid ${COLORS.navyLight}`,
+              padding: isMobile ? "12px 8px 18px" : "12px 16px",
+              borderTop: `1px solid ${COLORS.navyLight}`,
               display: "flex",
+              gap: isMobile ? "6px" : "10px",
               alignItems: "center",
-              justifyContent: "space-between",
               flexShrink: 0,
+              background: COLORS.navy,
             }}
           >
             <div>
@@ -498,13 +504,14 @@ export default function HynivaChatbot() {
               }}
               style={{
                 flex: 1,
-                padding: "9px 12px",
+                padding: isMobile ? "10px 10px" : "9px 12px",
                 borderRadius: "8px",
                 border: `1px solid ${COLORS.navyLight}`,
                 backgroundColor: COLORS.navyLight,
                 color: COLORS.white,
-                fontSize: "14px",
+                fontSize: isMobile ? "15px" : "14px",
                 transition: "all 0.2s",
+                minWidth: 0,
               }}
             />
             <button
@@ -514,14 +521,14 @@ export default function HynivaChatbot() {
                 background: COLORS.cyan,
                 border: "none",
                 borderRadius: "8px",
-                width: "40px",
-                height: "40px",
+                width: isMobile ? "38px" : "40px",
+                height: isMobile ? "38px" : "40px",
                 cursor: isSending || !input.trim() ? "not-allowed" : "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 color: COLORS.navy,
-                fontSize: "18px",
+                fontSize: isMobile ? "17px" : "18px",
                 transition: "all 0.2s",
                 opacity: isSending || !input.trim() ? 0.5 : 1,
                 flexShrink: 0,
