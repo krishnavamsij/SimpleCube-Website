@@ -64,13 +64,13 @@ function TransportationHero() {
 
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-left sm:text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.title }}
                     />
 
                     <motion.p
                         variants={fadeInUp}
-                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-left sm:text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -202,10 +202,10 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-xs sm:max-w-none mx-auto w-full"
                 >
                     {transportationContent.impact.stats.map((stat, index) => (
-                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start sm:items-center mx-auto w-fit text-left sm:text-center">
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start sm:items-center text-left sm:text-center">
                             <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left sm:text-center">
                                 {stat.value}
                             </div>
