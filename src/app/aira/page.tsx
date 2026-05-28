@@ -372,7 +372,7 @@ function AiraHero() {
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
-                            className="w-[42%] flex flex-col justify-center items-start text-left relative z-20 py-16"
+                            className="w-[50%] flex flex-col justify-center items-start text-left relative z-20 py-16"
                         >
 
                             {/* Logo */}
@@ -393,9 +393,7 @@ function AiraHero() {
                                 className="text-white font-bold leading-[1.05] mb-3 w-full text-[52px]"
                                 style={{ fontFamily: "Poppins, sans-serif" }}
                             >
-                                Autonomous Intelligent
-                                <br />
-                                Reasoning Agent
+                                Autonomous Intelligent <br className="hidden md:block" /> Reasoning Agent
                             </motion.h1>
 
                             {/* Paragraph */}

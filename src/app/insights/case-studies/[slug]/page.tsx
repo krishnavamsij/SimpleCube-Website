@@ -354,7 +354,7 @@ export default function CaseStudyDetailPage() {
                 title={study.title}
                 summary={study.summary}
                 metrics={study.metrics}
-                summaryMaxWidth={slug === 'modernizing-case-management-for-a-community-healthcare-provider-stop' ? 'max-w-4xl' : slug === 'scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation' ? 'max-w-4xl' : undefined}
+                summaryMaxWidth={slug === 'modernizing-case-management-for-a-community-healthcare-provider-stop' ? 'max-w-4xl' : slug === 'scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation' ? 'max-w-4xl' : slug === 'aem-migration' ? 'max-w-4xl' : undefined}
             />
 
             {/* ── Content Navigator ── */}
