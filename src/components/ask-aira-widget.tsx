@@ -236,7 +236,7 @@ export function AskAiraWidget() {
                 <motion.div
                     initial={false}
                     animate={{
-                        x: isMinimized ? "calc(100% - 40px)" : "-2rem",
+                        x: isMinimized ? "calc(100% - 56px)" : "-2rem",
                         opacity: 1,
                     }}
                     transition={{
@@ -281,22 +281,59 @@ export function AskAiraWidget() {
                             position: "relative",
                             zIndex: 1,
                             background: "linear-gradient(90deg, #00b3ff 0%, #0073ff 50%, #0044ff 100%)",
-                            boxShadow: "0 0 18px rgba(0,123,255,0.8), 0 4px 20px rgba(0,123,255,0.6), inset 0 1px 0 rgba(255,255,255,0.3)",
+                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.3)",
                         }}
                         onMouseEnter={e => {
-                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 28px rgba(0,163,255,1), 0 6px 28px rgba(0,123,255,0.9), inset 0 1px 0 rgba(255,255,255,0.3)";
+                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 20px rgba(0,163,255,0.6), 0 4px 16px rgba(0,123,255,0.4), inset 0 1px 0 rgba(255,255,255,0.3)";
                         }}
                         onMouseLeave={e => {
-                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 18px rgba(0,123,255,0.8), 0 4px 20px rgba(0,123,255,0.6), inset 0 1px 0 rgba(255,255,255,0.3)";
+                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.3)";
                         }}
                     >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white animate-pulse shrink-0">
+                        <svg 
+                            width="16" 
+                            height="16" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            className="text-white shrink-0"
+                            style={{
+                                filter: isMinimized ? "drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(0,163,255,0.8))" : "none",
+                                animation: isMinimized ? "starShine 2s ease-in-out infinite" : "none",
+                            }}
+                        >
                             <path d="M10 2C10 2 10.5 8 16 8C10.5 8 10 14 10 14C10 14 9.5 8 4 8C9.5 8 10 2 10 2Z" fill="currentColor" />
                             <path d="M19 12C19 12 19.2 15 22 15C19.2 15 19 18 19 18C19 18 18.8 15 16 15C18.8 15 19 12 19 12Z" fill="currentColor" />
                             <path d="M17 3C17 3 17.15 5.25 19.25 5.25C17.15 5.25 17 7.5 17 7.5C17 7.5 16.85 5.25 14.75 5.25C16.85 5.25 17 3 17 3Z" fill="currentColor" />
                         </svg>
-                        <span className="whitespace-nowrap font-bold">Ask AIRA</span>
-                        <ChevronRight className="w-4 h-4 text-white stroke-[3px] shrink-0" />
+                        <span 
+                            className="whitespace-nowrap font-medium" 
+                            style={{ 
+                                fontSize: "11px",
+                                opacity: isMinimized ? 0 : 1,
+                                transition: "opacity 0.3s ease"
+                            }}
+                        >Ask</span>
+                        <Image 
+                            src="/aira-text.png" 
+                            alt="AIRA" 
+                            width={798} 
+                            height={230} 
+                            style={{ 
+                                height: 14, 
+                                width: "auto", 
+                                objectFit: "contain", 
+                                filter: "brightness(0) invert(1)",
+                                opacity: isMinimized ? 0 : 1,
+                                transition: "opacity 0.3s ease"
+                            }} 
+                        />
+                        <ChevronRight 
+                            className="w-4 h-4 text-white stroke-[3px] shrink-0" 
+                            style={{
+                                opacity: isMinimized ? 0 : 1,
+                                transition: "opacity 0.3s ease"
+                            }}
+                        />
                     </button>
                 </motion.div>
             </div>
@@ -444,6 +481,7 @@ export function AskAiraWidget() {
                 @keyframes airaPanelSlideOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(40px) scale(0.96); } }
                 @keyframes airaMsgIn   { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
                 @keyframes airaTyping  { 0%,60%,100% { transform: translateY(0); opacity: 0.35; } 30% { transform: translateY(-8px); opacity: 1; } }
+                @keyframes starShine   { 0%, 100% { filter: drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(0,163,255,0.8)); opacity: 1; } 50% { filter: drop-shadow(0 0 16px rgba(255,255,255,1)) drop-shadow(0 0 20px rgba(0,163,255,1)); opacity: 0.8; } }
             `}</style>
         </>
     );
