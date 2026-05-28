@@ -54,46 +54,20 @@ function BodyPortal({ children }: { children: React.ReactNode }) {
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
-export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
+export function AiraChatbot({ scrolled = false, fullWidth = false, mobile = false }: { scrolled?: boolean; fullWidth?: boolean; mobile?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [typedPlaceholder, setTypedPlaceholder] = useState("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatInputRef = useRef<HTMLInputElement>(null);
   const isSendingRef = useRef(false);
 
-  const placeholderText = "What are you looking for?";
-
   // Scroll to bottom
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  // Typing animation for pill placeholder
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    let idx = 0;
-    let mounted = true;
-    const tick = () => {
-      if (!mounted) return;
-      if (idx <= placeholderText.length) {
-        setTypedPlaceholder(placeholderText.slice(0, idx++));
-        timer = setTimeout(tick, 70);
-      } else {
-        timer = setTimeout(() => {
-          if (!mounted) return;
-          idx = 0;
-          setTypedPlaceholder("");
-          timer = setTimeout(tick, 300);
-        }, 2000);
-      }
-    };
-    tick();
-    return () => { mounted = false; clearTimeout(timer); };
-  }, [placeholderText]);
 
   // Focus input on open
   useEffect(() => {
@@ -113,7 +87,6 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
     setMessages(prev => [...prev, { text: text.trim(), isUser: true, timestamp: ts }]);
     setInputValue("");
     setIsLoading(true);
-    setIsOpen(true);
     await new Promise(r => setTimeout(r, 700));
     const reply = generateFallbackResponse(text);
     const rts = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -122,76 +95,111 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
     isSendingRef.current = false;
   }, [isLoading]);
 
-  const handleBarSubmit = (e: React.FormEvent) => { e.preventDefault(); sendMessage(inputValue); };
   const handleChatKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(inputValue); }
   };
 
   // Hyniva brand colours
-  const GREEN = "#00c9b1";        // thick border — Hyniva teal
-  const GREEN_LIGHT = "#e6faf8";  // user bubble bg
-  const TEAL = "#00c9b1";         // send button
-  const NAVY = "#030b3b";         // send button text / panel bg
-  const DARK_TEXT = "#1e293b";    // main text inside white panel
+  const GREEN = "#00c9b1";
+  const GREEN_LIGHT = "#e6faf8";
+  const DARK_TEXT = "#1e293b";
+
+  // Pill sizing
+  const pillHeight = mobile ? 34 : scrolled ? 36 : 42;
+  const avatarSize = mobile ? 28 : scrolled ? 30 : 36;
+
+  // Text colours adapt to navbar state
+  const textColor = scrolled ? "#1a2b6b" : "#ffffff";
+  const borderColor = scrolled ? "#c8d4e8" : "rgba(255,255,255,0.40)";
+  const bgColor = scrolled ? "#ffffff" : "rgba(255,255,255,0.10)";
 
   return (
     <>
-      {/* ── PILL BAR ─────────────────────────────────────────────────────── */}
-      <form
-        onSubmit={handleBarSubmit}
-        autoComplete="off"
+      {/* ── ASK AIRA PILL BUTTON ──────────────────────────────────────────── */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
         aria-label="Ask AIRA"
         style={{
-          display: "flex",
+          display: "inline-flex",
           alignItems: "center",
-          background: "#ffffff",
-          border: "1.5px solid #e2e8f0",
+          gap: 0,
+          background: bgColor,
+          border: `2px solid ${borderColor}`,
           borderRadius: 9999,
-          height: scrolled ? 32 : 36,
-          width: scrolled ? 220 : 280,
-          overflow: "hidden",
+          height: pillHeight,
+          padding: 0,
+          paddingRight: mobile ? 12 : 16,
+          cursor: "pointer",
           flexShrink: 0,
-          cursor: "text",
-          boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
-          transition: "height 0.3s ease, width 0.3s ease",
+          boxShadow: scrolled
+            ? "0 2px 10px rgba(0,0,0,0.08)"
+            : "0 2px 14px rgba(0,0,0,0.20)",
+          transition: "all 0.25s ease",
+          overflow: "hidden",
+        }}
+        onMouseEnter={e => {
+          const btn = e.currentTarget as HTMLButtonElement;
+          btn.style.borderColor = GREEN;
+          btn.style.background = scrolled ? "#f0faf9" : "rgba(255,255,255,0.20)";
+        }}
+        onMouseLeave={e => {
+          const btn = e.currentTarget as HTMLButtonElement;
+          btn.style.borderColor = borderColor;
+          btn.style.background = bgColor;
         }}
       >
-        {/* Brand */}
+        {/* ── Circular mascot avatar — left side ── */}
         <div style={{
-          display: "flex", alignItems: "center", gap: 3,
-          padding: scrolled ? "0 5px 0 8px" : "0 6px 0 10px", flexShrink: 0,
-          borderRight: "1.5px solid #e2e8f0", height: "100%",
+          width: avatarSize,
+          height: avatarSize,
+          borderRadius: "50%",
+          flexShrink: 0,
+          marginLeft: mobile ? 3 : 4,
+          marginRight: mobile ? 7 : 10,
+          border: `1.5px solid ${scrolled ? "#c8d4e8" : "rgba(255,255,255,0.35)"}`,
+          backgroundImage: "url('/aira-logo.png')",
+          backgroundSize: "120%", backgroundPosition: "50% 5%",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "#0d1b3e",
+        }} aria-label="AIRA mascot" />
+
+        {/* ── Stacked text: ASK / AIRA ── */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          lineHeight: 1,
+          gap: mobile ? 2 : 3,
         }}>
-          <Image src="/aira-logo.png" alt="AIRA" width={18} height={18}
-            style={{ width: scrolled ? 14 : 16, height: scrolled ? 14 : 16, objectFit: "contain" }} />
-          <span style={{ fontSize: 7, fontWeight: 800, letterSpacing: "1.5px",
-            textTransform: "uppercase", color: "#64748b", lineHeight: 1 }}>
+          <span style={{
+            fontSize: mobile ? 8 : scrolled ? 9 : 10,
+            fontWeight: 700,
+            letterSpacing: "1.8px",
+            textTransform: "uppercase",
+            color: textColor,
+            opacity: 0.75,
+          }}>
             ASK
           </span>
-          <Image src="/AIRA.png" alt="AIRA" width={28} height={11}
-            style={{ height: scrolled ? 9 : 11, width: "auto", objectFit: "contain" }} />
+          {/* AIRA text logo */}
+          <Image
+            src="/aira-text.png"
+            alt="AIRA"
+            width={798}
+            height={230}
+            style={{
+              height: mobile ? 11 : scrolled ? 13 : 15,
+              width: "auto",
+              objectFit: "contain",
+              display: "block",
+              filter: scrolled
+                ? "brightness(0) saturate(100%) invert(14%) sepia(60%) saturate(800%) hue-rotate(200deg)"
+                : "brightness(0) invert(1)",
+            }}
+          />
         </div>
-
-        {/* Input */}
-        <input
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
-          placeholder={typedPlaceholder || placeholderText}
-          aria-label="Ask AIRA a question"
-          style={{
-            flex: 1, minWidth: 0, border: "none", outline: "none",
-            background: "transparent",
-            fontSize: scrolled ? 11 : 12,
-            color: "#1e293b",
-            padding: scrolled ? "0 10px" : "0 12px",
-            height: "100%",
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        />
-      </form>
+      </button>
 
       {/* ── CHAT PANEL via Portal ─────────────────────────────────────────── */}
       {isOpen && (
@@ -218,7 +226,7 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
               animation: "airaFadeIn 0.2s ease",
             }}
           >
-            {/* Panel — white interior, thick green border */}
+            {/* Panel */}
             <div style={{
               position: "relative",
               width: "100%",
@@ -253,7 +261,7 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                 <X size={13} strokeWidth={2.5} />
               </button>
 
-              {/* ── Header — white with bottom divider ── */}
+              {/* ── Header ── */}
               <div style={{
                 display: "flex", alignItems: "center", gap: 10,
                 padding: "14px 52px 14px 20px",
@@ -261,10 +269,17 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                 background: "#ffffff",
                 flexShrink: 0,
               }}>
-                <Image src="/aira-logo.png" alt="AIRA" width={34} height={34}
-                  style={{ width: 34, height: 34, objectFit: "contain", flexShrink: 0 }} />
-                <Image src="/aira-text.png" alt="AIRA" width={64} height={17}
-                  style={{ height: 17, width: "auto", objectFit: "contain", flexShrink: 0 }} />
+                <div style={{
+                  width: 38, height: 38, borderRadius: "50%",
+                  flexShrink: 0,
+                  border: "1.5px solid #e5e7eb",
+                  backgroundImage: "url('/aira-logo.png')",
+                  backgroundSize: "120%", backgroundPosition: "50% 5%",
+                  backgroundRepeat: "no-repeat",
+                  backgroundColor: "#0d1b3e",
+                }} aria-label="AIRA" />
+                <Image src="/aira-text.png" alt="AIRA" width={798} height={230}
+                  style={{ height: 22, width: "auto", objectFit: "contain", flexShrink: 0 }} />
                 <span style={{
                   display: "inline-block", width: 1.5, height: 24,
                   background: "#d1d5db", borderRadius: 1, flexShrink: 0,
@@ -277,7 +292,7 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                 </span>
               </div>
 
-              {/* ── Messages area — white bg ── */}
+              {/* ── Messages area ── */}
               <div
                 aria-live="polite"
                 style={{
@@ -300,9 +315,7 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                     justifyContent: "center", flex: 1, textAlign: "center",
                     padding: "32px 20px", gap: 16,
                   }}>
-                    <Image src="/aira-logo.png" alt="AIRA" width={72} height={72}
-                      style={{ width: 72, height: 72, objectFit: "contain",
-                        animation: "airaWelcomePulse 3s ease-in-out infinite" }} />
+
                     <p style={{ fontSize: 24, fontWeight: 700, color: DARK_TEXT, margin: 0 }}>
                       Hi, I&apos;m AIRA
                     </p>
@@ -343,10 +356,15 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                   }}>
                     {/* Bot avatar */}
                     {!msg.isUser && (
-                      <Image src="/aira-logo.png" alt="AIRA" width={30} height={30}
-                        style={{ width: 30, height: 30, borderRadius: "50%",
-                          objectFit: "cover", flexShrink: 0, marginTop: 2,
-                          border: "1.5px solid #e5e7eb" }} />
+                      <div style={{
+                        width: 32, height: 32, borderRadius: "50%",
+                        flexShrink: 0, marginTop: 2,
+                        border: "1.5px solid #e5e7eb",
+                        backgroundImage: "url('/aira-logo.png')",
+                        backgroundSize: "120%", backgroundPosition: "50% 5%",
+                        backgroundRepeat: "no-repeat",
+                        backgroundColor: "#0d1b3e",
+                      }} aria-label="AIRA" />
                     )}
 
                     <div style={{
@@ -362,8 +380,6 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                         borderBottomLeftRadius: msg.isUser ? 12 : 4,
                         fontSize: 14, lineHeight: 1.6,
                         wordBreak: "break-word", whiteSpace: "pre-line",
-                        // User: small grey pill (like reference)
-                        // Bot: white card with border, full width feel
                         background: msg.isUser ? GREEN_LIGHT : "#ffffff",
                         color: DARK_TEXT,
                         border: msg.isUser
@@ -385,10 +401,15 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                 {/* Typing dots */}
                 {isLoading && (
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <Image src="/aira-logo.png" alt="AIRA" width={30} height={30}
-                      style={{ width: 30, height: 30, borderRadius: "50%",
-                        objectFit: "cover", flexShrink: 0, marginTop: 2,
-                        border: "1.5px solid #e5e7eb" }} />
+                    <div style={{
+                      width: 32, height: 32, borderRadius: "50%",
+                      flexShrink: 0, marginTop: 2,
+                      border: "1.5px solid #e5e7eb",
+                      backgroundImage: "url('/aira-logo.png')",
+                      backgroundSize: "120%", backgroundPosition: "50% 5%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundColor: "#0d1b3e",
+                    }} aria-label="AIRA" />
                     <div style={{
                       display: "flex", alignItems: "center", gap: 6,
                       padding: "13px 18px",
@@ -411,7 +432,7 @@ export function AiraChatbot({ scrolled = false }: { scrolled?: boolean }) {
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* ── Input bar — white with green-tinted border ── */}
+              {/* ── Input bar ── */}
               <div style={{
                 display: "flex", alignItems: "center", gap: 10,
                 margin: "0 16px 16px",
