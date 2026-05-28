@@ -624,18 +624,18 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
             {
                 "icon": "✅",
                 "value": "Zero",
-                "label": "Zero<br>Downtime",
+                "label": "Migration<br>Downtime",
                 "sub": ""
             },
             {
                 "icon": "👥",
                 "value": "20",
-                "label": "Team<br>Deployed",
+                "label": "Member Team<br>Deployed",
                 "sub": ""
             },
             {
                 "icon": "⚡",
-                "value": "50%+",
+                "value": "50%",
                 "label": "Timeline<br>Reduction",
                 "sub": ""
             }
