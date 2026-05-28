@@ -229,14 +229,14 @@ export function AskAiraWidget() {
         <>
             {/* ── Floating pill ── */}
             <div
-                className="fixed bottom-8 right-0 z-[100] flex flex-col items-end"
+                className="fixed bottom-8 right-0 z-[100] flex flex-col items-end aira-widget-container"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <motion.div
                     initial={false}
                     animate={{
-                        x: isMinimized ? "calc(100% - 56px)" : "-2rem",
+                        x: isMinimized ? "calc(100% - 80px)" : "-2rem",
                         opacity: 1,
                     }}
                     transition={{
@@ -251,6 +251,7 @@ export function AskAiraWidget() {
                     <motion.img
                         src="/images/AIRA_MASCOT/NEW_HEAD_AND_HAND.png"
                         alt="AIRA Assistant"
+                        className="aira-mascot"
                         initial={false}
                         animate={{ y: isMinimized ? 20 : 0, opacity: isMinimized ? 0 : 1, scale: isMinimized ? 0.92 : 1 }}
                         transition={{
@@ -261,14 +262,13 @@ export function AskAiraWidget() {
                             delay: isMinimized ? 0 : 0.08,
                         }}
                         style={{
-                            width: 160,
-                            height: 160,
+                            width: "clamp(100px, 160px, 160px)",
+                            height: "clamp(100px, 160px, 160px)",
                             objectFit: "contain",
                             pointerEvents: "none",
-                            marginBottom: -28,
+                            marginBottom: "clamp(-20px, -28px, -28px)",
                             position: "relative",
                             zIndex: 2,
-                            filter: "drop-shadow(0 0 18px rgba(0,163,255,0.7))",
                             display: "block",
                         }}
                     />
@@ -276,12 +276,17 @@ export function AskAiraWidget() {
                     {/* Button — sits behind the mascot hands */}
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="relative flex items-center gap-2 h-9 px-5 rounded-full font-bold text-sm text-white border-none cursor-pointer transition-all duration-300"
+                        className="relative flex items-center justify-between gap-3 rounded-full font-bold text-white border-none cursor-pointer transition-all duration-300 group overflow-visible aira-button"
                         style={{
                             position: "relative",
                             zIndex: 1,
                             background: "linear-gradient(90deg, #00b3ff 0%, #0073ff 50%, #0044ff 100%)",
                             boxShadow: "inset 0 1px 0 rgba(255,255,255,0.3)",
+                            minWidth: isMinimized ? "60px" : "auto",
+                            paddingLeft: isMinimized ? "10px" : "16px",
+                            paddingRight: isMinimized ? "10px" : "16px",
+                            height: "clamp(36px, 44px, 44px)",
+                            fontSize: "clamp(10px, 14px, 14px)",
                         }}
                         onMouseEnter={e => {
                             (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 20px rgba(0,163,255,0.6), 0 4px 16px rgba(0,123,255,0.4), inset 0 1px 0 rgba(255,255,255,0.3)";
@@ -290,48 +295,73 @@ export function AskAiraWidget() {
                             (e.currentTarget as HTMLButtonElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.3)";
                         }}
                     >
-                        <svg 
-                            width="16" 
-                            height="16" 
-                            viewBox="0 0 24 24" 
-                            fill="none" 
-                            className="text-white shrink-0"
+                        {/* Left side: Stars - visible when collapsed */}
+                        <div 
+                            className="flex items-center justify-start shrink-0"
                             style={{
-                                filter: isMinimized ? "drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(0,163,255,0.8))" : "none",
-                                animation: isMinimized ? "starShine 2s ease-in-out infinite" : "none",
+                                width: isMinimized ? "40px" : "auto",
+                                position: isMinimized ? "absolute" : "relative",
+                                left: isMinimized ? "0px" : "auto",
                             }}
                         >
-                            <path d="M10 2C10 2 10.5 8 16 8C10.5 8 10 14 10 14C10 14 9.5 8 4 8C9.5 8 10 2 10 2Z" fill="currentColor" />
-                            <path d="M19 12C19 12 19.2 15 22 15C19.2 15 19 18 19 18C19 18 18.8 15 16 15C18.8 15 19 12 19 12Z" fill="currentColor" />
-                            <path d="M17 3C17 3 17.15 5.25 19.25 5.25C17.15 5.25 17 7.5 17 7.5C17 7.5 16.85 5.25 14.75 5.25C16.85 5.25 17 3 17 3Z" fill="currentColor" />
-                        </svg>
-                        <span 
-                            className="whitespace-nowrap font-medium" 
-                            style={{ 
-                                fontSize: "11px",
-                                opacity: isMinimized ? 0 : 1,
-                                transition: "opacity 0.3s ease"
-                            }}
-                        >Ask</span>
-                        <Image 
-                            src="/aira-text.png" 
-                            alt="AIRA" 
-                            width={798} 
-                            height={230} 
-                            style={{ 
-                                height: 14, 
-                                width: "auto", 
-                                objectFit: "contain", 
-                                filter: "brightness(0) invert(1)",
-                                opacity: isMinimized ? 0 : 1,
-                                transition: "opacity 0.3s ease"
-                            }} 
-                        />
-                        <ChevronRight 
-                            className="w-4 h-4 text-white stroke-[3px] shrink-0" 
+                            <svg 
+                                width={isMinimized ? "24" : "18"} 
+                                height={isMinimized ? "24" : "18"} 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                className="text-white shrink-0 aira-stars"
+                                style={{
+                                    filter: isMinimized ? "drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(0,163,255,0.8))" : "none",
+                                    animation: isMinimized ? "starShine 2s ease-in-out infinite" : "none",
+                                    transition: "all 0.3s ease",
+                                    marginLeft: isMinimized ? "8px" : "0px",
+                                }}
+                            >
+                                <path d="M10 2C10 2 10.5 8 16 8C10.5 8 10 14 10 14C10 14 9.5 8 4 8C9.5 8 10 2 10 2Z" fill="currentColor" />
+                                <path d="M19 12C19 12 19.2 15 22 15C19.2 15 19 18 19 18C19 18 18.8 15 16 15C18.8 15 19 12 19 12Z" fill="currentColor" />
+                                <path d="M17 3C17 3 17.15 5.25 19.25 5.25C17.15 5.25 17 7.5 17 7.5C17 7.5 16.85 5.25 14.75 5.25C16.85 5.25 17 3 17 3Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                        
+                        {/* Center: Ask AIRA text */}
+                        <div 
+                            className="flex items-center gap-2"
                             style={{
                                 opacity: isMinimized ? 0 : 1,
-                                transition: "opacity 0.3s ease"
+                                transition: "opacity 0.3s ease",
+                                pointerEvents: isMinimized ? "none" : "auto",
+                                visibility: isMinimized ? "hidden" : "visible",
+                            }}
+                        >
+                            <span 
+                                className="whitespace-nowrap font-medium" 
+                                style={{ 
+                                    fontSize: "clamp(9px, 11px, 11px)",
+                                }}
+                            >Ask</span>
+                            <Image 
+                                src="/aira-text.png" 
+                                alt="AIRA" 
+                                width={798} 
+                                height={230} 
+                                className="aira-text-image"
+                                style={{ 
+                                    height: "clamp(11px, 14px, 14px)", 
+                                    width: "auto", 
+                                    objectFit: "contain", 
+                                    filter: "brightness(0) invert(1)",
+                                }} 
+                            />
+                        </div>
+                        
+                        {/* Right side: Arrow */}
+                        <ChevronRight 
+                            className="text-white stroke-[3px] shrink-0 aira-arrow" 
+                            size={16}
+                            style={{
+                                opacity: isMinimized ? 0 : 1,
+                                transition: "opacity 0.3s ease",
+                                visibility: isMinimized ? "hidden" : "visible",
                             }}
                         />
                     </button>
@@ -391,13 +421,13 @@ export function AskAiraWidget() {
                             </div>
 
                             {/* Header */}
-                            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 52px 14px 20px", borderBottom: "1.5px solid #e5e7eb", background: "#ffffff", flexShrink: 0 }}>
-                                <div style={{ width: 38, height: 38, borderRadius: "50%", flexShrink: 0, overflow: "hidden", border: "2px solid rgba(0,163,255,0.4)", backgroundColor: "#000814", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
-                                    <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={38} height={38} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }} />
+                            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 52px 14px 20px", borderBottom: "1.5px solid #e5e7eb", background: "#ffffff", flexShrink: 0, flexWrap: "wrap" }}>
+                                <div style={{ width: 38, height: 38, flexShrink: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
+                                    <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={38} height={38} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }} />
                                 </div>
                                 <Image src="/aira-text.png" alt="AIRA" width={798} height={230} style={{ height: 22, width: "auto", objectFit: "contain", flexShrink: 0 }} />
-                                <span style={{ display: "inline-block", width: 1.5, height: 24, background: "#d1d5db", borderRadius: 1, flexShrink: 0 }} />
-                                <span style={{ fontSize: 13, fontWeight: 500, color: "#6b7280", whiteSpace: "nowrap" }}>Your Agentic Assistant</span>
+                                <span style={{ display: "inline-block", width: 1.5, height: 24, background: "#d1d5db", borderRadius: 1, flexShrink: 0 }} className="hide-on-mobile" />
+                                <span style={{ fontSize: 13, fontWeight: 500, color: "#6b7280", whiteSpace: "nowrap" }} className="hide-on-mobile">Your Agentic Assistant</span>
                             </div>
 
                             {/* Messages */}
@@ -417,8 +447,8 @@ export function AskAiraWidget() {
                                 {messages.map((msg, i) => (
                                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, justifyContent: msg.isUser ? "flex-end" : "flex-start", animation: "airaMsgIn 0.22s ease" }}>
                                         {!msg.isUser && (
-                                            <div style={{ width: 32, height: 32, borderRadius: "50%", flexShrink: 0, marginTop: 2, overflow: "hidden", border: "2px solid rgba(0,163,255,0.4)", backgroundColor: "#000814" }} aria-label="AIRA">
-                                                <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }} />
+                                            <div style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
+                                                <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }} />
                                             </div>
                                         )}
                                         <div style={{ display: "flex", flexDirection: "column", gap: 4, maxWidth: msg.isUser ? "40%" : "75%", alignItems: msg.isUser ? "flex-end" : "flex-start" }}>
@@ -432,8 +462,8 @@ export function AskAiraWidget() {
 
                                 {isLoading && (
                                     <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                                        <div style={{ width: 32, height: 32, borderRadius: "50%", flexShrink: 0, marginTop: 2, overflow: "hidden", border: "2px solid rgba(0,163,255,0.4)", backgroundColor: "#000814" }} aria-label="AIRA">
-                                            <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }} />
+                                        <div style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
+                                            <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }} />
                                         </div>
                                         <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "13px 18px", background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: 12, borderBottomLeftRadius: 4, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
                                             {[0, 0.2, 0.4].map((d, i) => (
@@ -482,6 +512,56 @@ export function AskAiraWidget() {
                 @keyframes airaMsgIn   { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
                 @keyframes airaTyping  { 0%,60%,100% { transform: translateY(0); opacity: 0.35; } 30% { transform: translateY(-8px); opacity: 1; } }
                 @keyframes starShine   { 0%, 100% { filter: drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(0,163,255,0.8)); opacity: 1; } 50% { filter: drop-shadow(0 0 16px rgba(255,255,255,1)) drop-shadow(0 0 20px rgba(0,163,255,1)); opacity: 0.8; } }
+                
+                /* Remove glow from AIRA mascot by default, add on hover */
+                .aira-mascot {
+                    filter: none;
+                    transition: filter 0.3s ease;
+                }
+                .aira-widget-container:hover .aira-mascot {
+                    filter: drop-shadow(0 0 18px rgba(0,163,255,0.7));
+                }
+                
+                /* Mobile responsive styles */
+                @media (max-width: 768px) {
+                    .hide-on-mobile {
+                        display: none !important;
+                    }
+                    
+                    .aira-mascot {
+                        width: 100px !important;
+                        height: 100px !important;
+                        margin-bottom: -20px !important;
+                    }
+                    
+                    .aira-button {
+                        height: 36px !important;
+                        font-size: 10px !important;
+                        padding-left: 12px !important;
+                        padding-right: 12px !important;
+                        min-width: 50px !important;
+                        gap: 6px !important;
+                    }
+                    
+                    .aira-stars {
+                        width: 20px !important;
+                        height: 20px !important;
+                        margin-left: 6px !important;
+                    }
+                    
+                    .aira-text-image {
+                        height: 11px !important;
+                    }
+                    
+                    .aira-arrow {
+                        width: 14px !important;
+                        height: 14px !important;
+                    }
+                    
+                    .aira-widget-container {
+                        bottom: 1rem !important;
+                    }
+                }
             `}</style>
         </>
     );
