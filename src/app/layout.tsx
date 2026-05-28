@@ -3,7 +3,6 @@ import { Inter, Bricolage_Grotesque, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { GlobalAnalyticsTracker } from '@/components/global-analytics-tracker';
-import ChatbotWidget from '@/components/chatbot-widget';
 import { Suspense } from 'react';
 
 import "./globals.css";
@@ -90,7 +89,6 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {children}
-        <ChatbotWidget />
         <Suspense fallback={null}>
           <GlobalAnalyticsTracker />
         </Suspense>

@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
-import { AiraChatbot } from "@/components/AiraChatbot";
 
 export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     const [scrolled, setScrolled] = useState(false);
@@ -30,7 +29,6 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             label: "About",
             items: [
                 ...navContent.about.map(a => ({ title: a.title, href: a.href })),
-                { title: "Contact Us", href: "/contact" },
             ],
         },
     ];
@@ -135,14 +133,34 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                 />
 
-                {/* Desktop CTA — AIRA Chatbot pill */}
+                {/* Desktop CTA — Contact Us */}
                 <div className="hidden lg:flex items-center shrink-0">
-                    <AiraChatbot scrolled={scrolled} />
+                    <Link href="/contact">
+                        <button
+                            className={cn(
+                                "relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
+                                scrolled ? "h-8 px-4 text-[11px]" : "h-9 px-5 text-[12px]"
+                            )}
+                            style={{
+                                background: "#2563eb",
+                                boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
+                            }}
+                            onMouseEnter={e => {
+                                (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
+                                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(37,99,235,0.5)";
+                            }}
+                            onMouseLeave={e => {
+                                (e.currentTarget as HTMLButtonElement).style.background = "#2563eb";
+                                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(37,99,235,0.3)";
+                            }}
+                        >
+                            CONTACT US
+                        </button>
+                    </Link>
                 </div>
 
                 {/* Mobile toggle */}
                 <div className="flex items-center gap-2 lg:hidden">
-                    <AiraChatbot scrolled={true} mobile={true} />
                     <button className={cn(
                         "p-2",
                         (scrolled || forceDarkText) ? "text-slate-900" : "text-white"
@@ -180,6 +198,11 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                 </div>
                             ))}
                             <div className="pt-3 pb-6">
+                                <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                                    <Button className="w-full rounded-full bg-[#2563eb] text-white font-black hover:bg-[#1d4ed8] uppercase text-[12px] tracking-wide">
+                                        CONTACT US
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>

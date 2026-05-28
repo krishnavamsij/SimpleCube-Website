@@ -146,6 +146,7 @@ export function AiraChatbot({
 }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -197,6 +198,14 @@ export function AiraChatbot({
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const closeChat = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 420); // matches close animation duration
+  }, []);
 
   const sendMessage = useCallback(
     async (text: string) => {
@@ -262,14 +271,14 @@ export function AiraChatbot({
       if (routeToNavigate) {
         setTimeout(() => {
           router.push(routeToNavigate!);
-          setIsOpen(false);
+          closeChat();
         }, 500);
       }
 
       setIsLoading(false);
       isSendingRef.current = false;
     },
-    [isLoading, router]
+    [isLoading, router, closeChat]
   );
 
   const handleChatKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -343,14 +352,22 @@ export function AiraChatbot({
             border: `1.5px solid ${
               scrolled ? "#c8d4e8" : "rgba(255,255,255,0.35)"
             }`,
-            backgroundImage: "url('/aira-logo.png')",
-            backgroundSize: "120%",
-            backgroundPosition: "50% 5%",
-            backgroundRepeat: "no-repeat",
+            overflow: "hidden",
             backgroundColor: "#0d1b3e",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
           aria-label="AIRA mascot"
-        />
+        >
+          <Image
+            src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
+            alt="AIRA"
+            width={avatarSize}
+            height={avatarSize}
+            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
+          />
+        </div>
 
         {/* Stacked text: ASK / AIRA */}
         <div
@@ -401,7 +418,7 @@ export function AiraChatbot({
             aria-modal="true"
             aria-label="AIRA Chat"
             onClick={(e) => {
-              if (e.target === e.currentTarget) setIsOpen(false);
+              if (e.target === e.currentTarget) closeChat();
             }}
             style={{
               position: "fixed",
@@ -420,7 +437,7 @@ export function AiraChatbot({
               zIndex: 999999,
               padding: "5vh 5vw",
               boxSizing: "border-box",
-              animation: "airaFadeIn 0.2s ease",
+              animation: isClosing ? "airaFadeOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards" : "airaFadeIn 0.3s cubic-bezier(0.32,0.72,0,1)",
             }}
           >
             {/* Panel */}
@@ -438,8 +455,9 @@ export function AiraChatbot({
                 flexDirection: "column",
                 overflow: "hidden",
                 boxShadow: `0 24px 80px rgba(3,11,59,0.35), 0 0 0 1px rgba(0,201,177,0.2)`,
-                animation:
-                  "airaPanelSlide 0.28s cubic-bezier(0.32,0.72,0,1)",
+                animation: isClosing
+                  ? "airaPanelSlideOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards"
+                  : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)",
               }}
             >
               {/* ── Close & Clear buttons ── */}
@@ -486,7 +504,7 @@ export function AiraChatbot({
                 )}
 
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => closeChat()}
                   aria-label="Close"
                   style={{
                     width: 28,
@@ -525,14 +543,22 @@ export function AiraChatbot({
                     borderRadius: "50%",
                     flexShrink: 0,
                     border: "1.5px solid #e5e7eb",
-                    backgroundImage: "url('/aira-logo.png')",
-                    backgroundSize: "120%",
-                    backgroundPosition: "50% 5%",
-                    backgroundRepeat: "no-repeat",
+                    overflow: "hidden",
                     backgroundColor: "#0d1b3e",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                   aria-label="AIRA"
-                />
+                >
+                  <Image
+                    src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
+                    alt="AIRA"
+                    width={38}
+                    height={38}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
+                  />
+                </div>
                 <Image
                   src="/aira-text.png"
                   alt="AIRA"
@@ -679,14 +705,22 @@ export function AiraChatbot({
                           flexShrink: 0,
                           marginTop: 2,
                           border: "1.5px solid #e5e7eb",
-                          backgroundImage: "url('/aira-logo.png')",
-                          backgroundSize: "120%",
-                          backgroundPosition: "50% 5%",
-                          backgroundRepeat: "no-repeat",
+                          overflow: "hidden",
                           backgroundColor: "#0d1b3e",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
                         aria-label="AIRA"
-                      />
+                      >
+                        <Image
+                          src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
+                          alt="AIRA"
+                          width={32}
+                          height={32}
+                          style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
+                        />
+                      </div>
                     )}
 
                     <div
@@ -753,14 +787,22 @@ export function AiraChatbot({
                         flexShrink: 0,
                         marginTop: 2,
                         border: "1.5px solid #e5e7eb",
-                        backgroundImage: "url('/aira-logo.png')",
-                        backgroundSize: "120%",
-                        backgroundPosition: "50% 5%",
-                        backgroundRepeat: "no-repeat",
+                        overflow: "hidden",
                         backgroundColor: "#0d1b3e",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                       aria-label="AIRA"
-                    />
+                    >
+                      <Image
+                        src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
+                        alt="AIRA"
+                        width={32}
+                        height={32}
+                        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
+                      />
+                    </div>
                     <div
                       style={{
                         display: "flex",
@@ -872,9 +914,17 @@ export function AiraChatbot({
           from { opacity: 0; }
           to   { opacity: 1; }
         }
+        @keyframes airaFadeOut {
+          from { opacity: 1; }
+          to   { opacity: 0; }
+        }
         @keyframes airaPanelSlide {
           from { opacity: 0; transform: translateY(40px) scale(0.96); }
           to   { opacity: 1; transform: translateY(0)    scale(1);    }
+        }
+        @keyframes airaPanelSlideOut {
+          from { opacity: 1; transform: translateY(0)    scale(1);    }
+          to   { opacity: 0; transform: translateY(40px) scale(0.96); }
         }
         @keyframes airaWelcomePulse {
           0%,100% { transform: scale(1);    opacity: 0.85; }
