@@ -244,7 +244,7 @@ export const productsContent = {
         { industry: "EDUCATION", name: "EazySchool", src: "/images/Product_Logos/Compressed/EazySchool.png" },
         { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product_Logos/Compressed/Hyper.png" },
         { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product_Logos/Compressed/FinXServe.png" },
-        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product_Logos/Compressed/Claim_Pioneer.png" },
+        { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product_Logos/PNG/ClaimPioneerWhiteNew.png" },
         { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product_Logos/Compressed/AIRA.png" },
     ],
     products: [
