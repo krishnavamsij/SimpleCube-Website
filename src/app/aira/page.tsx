@@ -112,7 +112,7 @@ const impacts = [
 // function AiraHero() {
 //     return (
 //         <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0 bg-gradient-to-br from-[#030b1e] via-[#061244] to-[#020918]">
-            
+
 //             {/* Background video - hidden on mobile */}
 //             <div className="absolute inset-0 z-0 hidden md:block">
 //                 <video
@@ -215,90 +215,29 @@ const impacts = [
 // }
 function AiraHero() {
     return (
-        <section className="relative w-full overflow-hidden bg-[#020918]">
-
-            {/* Background Video */}
-            <div className="absolute inset-0 z-0 flex justify-end">
-                <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="
-                        w-full
-                        h-full
-                        object-contain
-                        md:object-cover
-                        object-[78%_center]
-                        md:object-center
-                        bg-[#020918]
-                        scale-[1.05]
-                        md:scale-100
-                    "
-                >
-                    <source
-                        src="/images/products/HERO-PAGE-.mp4"
-                        type="video/mp4"
-                    />
-                </video>
-
-                {/* Overlay */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background: `linear-gradient(
-                            to right,
-                            rgba(2,9,24,0.97) 0%,
-                            rgba(2,9,24,0.92) 34%,
-                            rgba(2,9,24,0.45) 68%,
-                            rgba(2,9,24,0.08) 100%
-                        )`,
-                    }}
-                />
-            </div>
-
-            {/* Content */}
-            {/* Mobile: auto height with tight padding | Desktop: min-h-screen */}
-            <div className="relative z-10 flex items-center pt-20 pb-8 md:min-h-screen md:pt-0 md:pb-0">
-                <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-8 lg:px-12">
+        <>
+            {/* ─────────────────────────────────────────────────────────────
+                MOBILE HERO
+            ───────────────────────────────────────────────────────────── */}
+            <section className="w-full bg-[#081138] pt-[95px] pb-8 px-4 md:hidden overflow-hidden">
+                <div className="w-full max-w-[100%] mx-auto">
 
                     <motion.div
                         variants={staggerContainer}
                         initial="hidden"
                         animate="visible"
-                        className="
-                            w-full
-                            md:w-[42%]
-                            flex
-                            flex-col
-                            justify-center
-                            items-start
-                            text-left
-                            relative
-                            z-20
-                            py-0
-                            md:py-16
-                        "
+                        className="flex flex-col items-center text-center"
                     >
 
                         {/* Logo */}
-                        <motion.div
-                            variants={fadeInUp}
-                            className="mb-2 sm:mb-3"
-                        >
+                        <motion.div variants={fadeInUp} className="mb-6">
                             <Image
                                 src="/logos/Artboard.png"
                                 alt="AIRA Logo"
-                                width={260}
-                                height={90}
+                                width={180}
+                                height={60}
                                 priority
-                                className="
-                                    w-[58px]
-                                    sm:w-[110px]
-                                    md:w-[220px]
-                                    h-auto
-                                    object-contain
-                                "
+                                className="w-[150px] h-auto object-contain"
                             />
                         </motion.div>
 
@@ -306,25 +245,18 @@ function AiraHero() {
                         <motion.h1
                             variants={fadeInUp}
                             className="
-                                text-white
-                                font-bold
-                                leading-[1.05]
-                                mb-2
-                                sm:mb-3
-                                w-[56%]
-                                sm:w-[52%]
-                                md:w-full
-                                text-[17px]
-                                sm:text-[25px]
-                                md:text-[52px]
-                            "
-                            style={{
-                                fontFamily: "Poppins, sans-serif",
-                            }}
+                    text-white
+                    font-bold
+                    text-[22px]
+                    leading-[1.25]
+                    mb-5
+                    max-w-[310px]
+                    mx-auto
+                "
+                            style={{ fontFamily: "Poppins, sans-serif" }}
                         >
                             Autonomous Intelligent
-                            
-
+                            <br />
                             Reasoning Agent
                         </motion.h1>
 
@@ -332,24 +264,18 @@ function AiraHero() {
                         <motion.p
                             variants={fadeInUp}
                             className="
-                                text-white/80
-                                leading-relaxed
-                                mb-4
-                                sm:mb-5
-                                w-[54%]
-                                sm:w-[50%]
-                                md:w-full
-                                text-[10px]
-                                sm:text-[14px]
-                                md:text-[18px]
-                            "
-                            style={{
-                                fontFamily: "Poppins, sans-serif",
-                            }}
+                    text-white/80
+                    text-[14px]
+                    leading-[1.9]
+                    mb-8
+                    max-w-[320px]
+                    mx-auto
+                "
+                            style={{ fontFamily: "Poppins, sans-serif" }}
                         >
                             The enterprise-ready AI platform built for financial
-                            institutions — delivering accuracy, execution, and
-                            compliance at scale
+                            institutions — delivering accuracy, execution,
+                            and compliance at scale
                         </motion.p>
 
                         {/* Button */}
@@ -357,21 +283,17 @@ function AiraHero() {
                             <Button
                                 asChild
                                 className="
-                                    bg-white
-                                    text-black
-                                    hover:bg-gray-100
-                                    uppercase
-                                    rounded-none
-                                    px-3
-                                    py-1.5
-                                    sm:px-6
-                                    sm:py-4
-                                    text-[9px]
-                                    sm:text-[12px]
-                                    font-semibold
-                                    shadow-lg
-                                    w-fit
-                                "
+                        bg-white
+                        text-black
+                        hover:bg-gray-100
+                        uppercase
+                        rounded-none
+                        px-8
+                        py-3
+                        text-[12px]
+                        font-semibold
+                        shadow-lg
+                    "
                             >
                                 <Link href="/contact">
                                     Get Started
@@ -379,10 +301,143 @@ function AiraHero() {
                             </Button>
                         </motion.div>
 
+                        {/* Video */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="mt-10 w-full flex justify-center"
+                        >
+                            <video
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="
+                        w-full
+                        max-w-[320px]
+                        h-auto
+                        object-contain
+                    "
+                            >
+                                <source
+                                    src="/images/Product_Images/AIRA HERO BANNER GRAPHIC.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </motion.div>
+
                     </motion.div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* ─────────────────────────────────────────────────────────────
+                DESKTOP HERO
+            ───────────────────────────────────────────────────────────── */}
+            <section className="relative w-full overflow-hidden bg-[#020918] hidden md:block">
+
+                {/* Background Video */}
+                <div className="absolute inset-0 z-0 flex justify-end">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover object-center bg-[#020918]"
+                    >
+                        <source
+                            src="/images/products/HERO-PAGE-.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+
+                    {/* Overlay */}
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            background: `linear-gradient(
+                                to right,
+                                rgba(2,9,24,0.97) 0%,
+                                rgba(2,9,24,0.92) 34%,
+                                rgba(2,9,24,0.45) 68%,
+                                rgba(2,9,24,0.08) 100%
+                            )`,
+                        }}
+                    />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex items-center min-h-screen">
+                    <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-12">
+
+                        <motion.div
+                            variants={staggerContainer}
+                            initial="hidden"
+                            animate="visible"
+                            className="w-[42%] flex flex-col justify-center items-start text-left relative z-20 py-16"
+                        >
+
+                            {/* Logo */}
+                            <motion.div variants={fadeInUp} className="mb-3">
+                                <Image
+                                    src="/logos/Artboard.png"
+                                    alt="AIRA Logo"
+                                    width={260}
+                                    height={90}
+                                    priority
+                                    className="w-[220px] h-auto object-contain"
+                                />
+                            </motion.div>
+
+                            {/* Heading */}
+                            <motion.h1
+                                variants={fadeInUp}
+                                className="text-white font-bold leading-[1.05] mb-3 w-full text-[52px]"
+                                style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                                Autonomous Intelligent
+                                <br />
+                                Reasoning Agent
+                            </motion.h1>
+
+                            {/* Paragraph */}
+                            <motion.p
+                                variants={fadeInUp}
+                                className="text-white/80 leading-relaxed mb-5 w-full text-[18px]"
+                                style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                                The enterprise-ready AI platform built for financial
+                                institutions — delivering accuracy, execution, and
+                                compliance at scale
+                            </motion.p>
+
+                            {/* Button */}
+                            <motion.div variants={fadeInUp}>
+                                <Button
+                                    asChild
+                                    className="
+                                        bg-white
+                                        text-black
+                                        hover:bg-gray-100
+                                        uppercase
+                                        rounded-none
+                                        px-6
+                                        py-4
+                                        text-[12px]
+                                        font-semibold
+                                        shadow-lg
+                                        w-fit
+                                    "
+                                >
+                                    <Link href="/contact">
+                                        Get Started
+                                    </Link>
+                                </Button>
+                            </motion.div>
+
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 
@@ -540,73 +595,73 @@ function CeoVision() {
                     viewport={viewportOnce}
                 >
 
-                {/* Heading */}
-                <header className="text-center mb-8">
-                    <h2
-                        className="text-[28px] sm:text-[32px] font-bold leading-tight"
-                        style={{
-                            fontFamily: 'Poppins, sans-serif',
-                            color: '#345195'
-                        }}
-                    >
-                        CEO’s Vision
-                    </h2>
-                </header>
-
-                {/* Content */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
-
-                    {/* Image */}
-                    <div className="w-[160px] shrink-0">
-                        <Image
-                            src="/images/products/Sreeram-_Plain-Background-414437.png"
-                            alt="Sreeram Jadapolu"
-                            width={160}
-                            height={200}
-                            className="w-full h-auto object-cover"
-                        />
-                    </div>
-
-                    {/* Text */}
-                    <div className="flex-1 text-left">
-
-                        <p
-                            className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif',
-                                color: '#6f6f6f'
-                            }}
-                        >
-                            “When we built AIRA, our vision was clear: AI that financial institutions
-                            can finally trust with mission-critical decisions. AIRA combines
-                            reasoning, compliance, and OneAPI-powered integration into a single,
-                            scalable platform. It’s not just about solving today’s challenges — it’s
-                            about empowering the industry to reimagine what’s possible with GenAI
-                            for customers, regulators, and institutions alike.”
-                        </p>
-
-                        <h6
-                            className="text-[17px] sm:text-[18px] font-bold mb-1"
+                    {/* Heading */}
+                    <header className="text-center mb-8">
+                        <h2
+                            className="text-[28px] sm:text-[32px] font-bold leading-tight"
                             style={{
                                 fontFamily: 'Poppins, sans-serif',
                                 color: '#345195'
                             }}
                         >
-                            Sreeram Jadapolu,
-                        </h6>
+                            CEO’s Vision
+                        </h2>
+                    </header>
 
-                        <p
-                            className="text-[15px] font-normal"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif',
-                                color: '#6f6f6f'
-                            }}
-                        >
-                            Founder & CEO, Hyniva
-                        </p>
+                    {/* Content */}
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
 
+                        {/* Image */}
+                        <div className="w-[160px] shrink-0">
+                            <Image
+                                src="/images/products/Sreeram-_Plain-Background-414437.png"
+                                alt="Sreeram Jadapolu"
+                                width={160}
+                                height={200}
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
+
+                        {/* Text */}
+                        <div className="flex-1 text-left">
+
+                            <p
+                                className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f'
+                                }}
+                            >
+                                “When we built AIRA, our vision was clear: AI that financial institutions
+                                can finally trust with mission-critical decisions. AIRA combines
+                                reasoning, compliance, and OneAPI-powered integration into a single,
+                                scalable platform. It’s not just about solving today’s challenges — it’s
+                                about empowering the industry to reimagine what’s possible with GenAI
+                                for customers, regulators, and institutions alike.”
+                            </p>
+
+                            <h6
+                                className="text-[17px] sm:text-[18px] font-bold mb-1"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#345195'
+                                }}
+                            >
+                                Sreeram Jadapolu,
+                            </h6>
+
+                            <p
+                                className="text-[15px] font-normal"
+                                style={{
+                                    fontFamily: 'Poppins, sans-serif',
+                                    color: '#6f6f6f'
+                                }}
+                            >
+                                Founder & CEO, Hyniva
+                            </p>
+
+                        </div>
                     </div>
-                </div>
                 </motion.div>
             </div>
         </section>
