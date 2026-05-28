@@ -142,6 +142,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
 
                 {/* Mobile toggle */}
                 <div className="flex items-center gap-2 lg:hidden">
+                    <AiraChatbot scrolled={true} mobile={true} />
                     <button className={cn(
                         "p-2",
                         (scrolled || forceDarkText) ? "text-slate-900" : "text-white"
@@ -179,9 +180,6 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                 </div>
                             ))}
                             <div className="pt-3 pb-6">
-                                <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] border-0 rounded-full h-12 font-black uppercase">
-                                    <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-                                </Button>
                             </div>
                         </div>
                     </motion.div>
