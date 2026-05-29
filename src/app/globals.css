@@ -1115,3 +1115,28 @@ html {
   margin-bottom: 0 !important;
   font-size: 15px;
 }
+
+/* ============================================================
+   AIRA Chatbot Sparkle Animation
+   ============================================================ */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8) rotate(45deg);
+  }
+}

@@ -12,6 +12,7 @@ export function TrustBar() {
 
     return (
         <motion.section
+            id="trust-bar-section"
             variants={scrollReveal}
             initial="hidden"
             whileInView="visible"
