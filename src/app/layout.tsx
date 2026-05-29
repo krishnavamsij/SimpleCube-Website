@@ -5,7 +5,6 @@ import Script from 'next/script';
 import { GlobalAnalyticsTracker } from '@/components/global-analytics-tracker';
 import { AskAiraWidget } from '@/components/ask-aira-widget';
 import { Suspense } from 'react';
-import { AskAiraWidget } from "@/components/ask-aira-widget";
 
 import "./globals.css";
 
@@ -96,7 +95,6 @@ export default function RootLayout({
         </Suspense>
         <AskAiraWidget />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
-        <AskAiraWidget />
       </body>
     </html>
   );
