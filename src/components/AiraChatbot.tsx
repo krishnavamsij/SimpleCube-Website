@@ -1,13 +1,41 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { createPortal } from "react-dom";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { Send, X, Search } from "lucide-react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+import { createPortal } from "react-dom";
+import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
+
+import {
+  Send,
+  X,
+  RotateCcw,
+  MessageSquare,
+} from "lucide-react";
+
+// ─────────────────────────────────────────────────────────────
+// UUID Generator
+// ─────────────────────────────────────────────────────────────
+function generateSessionId() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+    /[xy]/g,
+    function (c) {
+      const r =
+        crypto.getRandomValues(new Uint8Array(1))[0] % 16;
+      const v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    }
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Types
+// ─────────────────────────────────────────────────────────────
 interface Message {
   text: string;
   isUser: boolean;
@@ -16,63 +44,101 @@ interface Message {
 
 interface ApiResponse {
   message: string;
-  status?: string;
   route?: string;
   target_route?: string;
   detected_intent?: string;
+  confidence?: number;
 }
 
-// ─── URL Detection & Link Rendering ───────────────────────────────────────────
-function isValidUrl(string: string): boolean {
-  try {
-    new URL(string);
-    return true;
-  } catch (_) {
-    return false;
-  }
+const STORAGE_KEYS = {
+  SESSION_ID: "aira_chat_session_id",
+  MESSAGES: "aira_chat_messages",
+  IS_OPEN: "aira_chat_is_open",
+} as const;
+
+// ─────────────────────────────────────────────────────────────
+// Custom navigation event — bridges portal → Router tree
+// ─────────────────────────────────────────────────────────────
+function emitNavigate(url: string) {
+  window.dispatchEvent(
+    new CustomEvent("aira:navigate", { detail: { url } })
+  );
 }
 
+// ─────────────────────────────────────────────────────────────
+// URL parsing & in-app navigation (preserves chat sessionStorage)
+// ─────────────────────────────────────────────────────────────
 interface TextNode {
   type: "text" | "url";
   content: string;
 }
 
+const HYNIVA_HOSTS = new Set(["hyniva.com", "www.hyniva.com"]);
+
+/** Strip trailing sentence punctuation from a matched URL token. */
+function splitUrlAndTrailingPunctuation(raw: string): {
+  href: string;
+  trailing: string;
+} {
+  let href = raw;
+  let trailing = "";
+  const trailingPattern = /[)\]}"'.,;:!?•·»]+$/;
+
+  while (href.length > 0) {
+    const match = href.match(trailingPattern);
+    if (!match) break;
+
+    const chunk = match[0];
+    if (chunk.includes(")")) {
+      const opens = (href.match(/\(/g) || []).length;
+      const closes = (href.match(/\)/g) || []).length;
+      if (closes <= opens) break;
+    }
+
+    trailing = chunk + trailing;
+    href = href.slice(0, -chunk.length);
+  }
+
+  return { href, trailing };
+}
+
 function parseMessageForUrls(text: string): TextNode[] {
-  // Only match proper http/https URLs — no internal route pattern
-  const urlRegex = /https?:\/\/[^\s<>"{}|\\^`\[\]()'"]*/g;
+  const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]]+/gi;
   const parts: TextNode[] = [];
   let lastIndex = 0;
-
   const matches = Array.from(text.matchAll(urlRegex));
 
   matches.forEach((match) => {
-    // Add text before URL
-    if (match.index! > lastIndex) {
+    const raw = match[0];
+    const start = match.index!;
+    if (start > lastIndex) {
       parts.push({
         type: "text",
-        content: text.substring(lastIndex, match.index),
+        content: text.substring(lastIndex, start),
       });
     }
 
-    const urlContent = match[0];
+    const { href, trailing } = splitUrlAndTrailingPunctuation(raw);
+    let isValid = false;
+    try {
+      new URL(href);
+      isValid = true;
+    } catch {
+      isValid = false;
+    }
 
-    // Only add as a URL node if it's a valid URL
-    if (isValidUrl(urlContent)) {
-      parts.push({
-        type: "url",
-        content: urlContent,
-      });
+    if (isValid) {
+      parts.push({ type: "url", content: href });
+      if (trailing) {
+        parts.push({ type: "text", content: trailing });
+      }
     } else {
-      parts.push({
-        type: "text",
-        content: urlContent,
-      });
+      parts.push({ type: "text", content: raw });
     }
 
-    lastIndex = match.index! + match[0].length;
+    lastIndex = start + raw.length;
   });
 
-  // Add remaining text
   if (lastIndex < text.length) {
     parts.push({
       type: "text",
@@ -80,337 +146,756 @@ function parseMessageForUrls(text: string): TextNode[] {
     });
   }
 
-  return parts.length > 0 ? parts : [{ type: "text", content: text }];
+  return parts.length ? parts : [{ type: "text", content: text }];
 }
 
-// ─── Message content renderer ─────────────────────────────────────────────────
-function MessageContent({ text, isUser }: { text: string; isUser: boolean }) {
+/** Resolve a URL to an in-app path for client-side router.push. */
+function toInAppPath(url: string): string | null {
+  const trimmed = url.trim();
+  if (!trimmed) return null;
+
+  if (trimmed.startsWith("/") && !trimmed.startsWith("//")) {
+    return trimmed;
+  }
+
+  try {
+    const parsed = new URL(trimmed, window.location.origin);
+    const path =
+      parsed.pathname + parsed.search + parsed.hash;
+
+    if (parsed.origin === window.location.origin) {
+      return path || "/";
+    }
+
+    const host = parsed.hostname.replace(/^www\./, "");
+    if (HYNIVA_HOSTS.has(parsed.hostname) || host === "hyniva.com") {
+      return path || "/";
+    }
+  } catch {
+    if (trimmed.startsWith("/")) return trimmed;
+  }
+
+  return null;
+}
+
+function navigateFromChat(url: string) {
+  const inAppPath = toInAppPath(url);
+  if (inAppPath) {
+    emitNavigate(inAppPath);
+    return;
+  }
+  window.location.assign(url);
+}
+
+function persistChatSnapshot(
+  messages: Message[],
+  isOpen: boolean,
+  sessionId: string
+) {
+  try {
+    sessionStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify(messages));
+    sessionStorage.setItem(STORAGE_KEYS.IS_OPEN, isOpen ? "1" : "0");
+    if (sessionId) {
+      sessionStorage.setItem(STORAGE_KEYS.SESSION_ID, sessionId);
+    }
+  } catch {
+    // ignore
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// MessageContent — only the URL substring is underlined/clickable
+// ─────────────────────────────────────────────────────────────
+function MessageContent({ text }: { text: string }) {
   const nodes = parseMessageForUrls(text);
+
+  const handleUrlClick = (
+    e: React.MouseEvent | React.KeyboardEvent,
+    url: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigateFromChat(url);
+  };
 
   return (
     <>
       {nodes.map((node, index) => {
         if (node.type === "url") {
           return (
-            <a
+            <span
               key={index}
-              href={node.content}
-              target="_blank"
-              rel="noopener noreferrer"
+              role="link"
+              tabIndex={0}
+              onClick={(e) => handleUrlClick(e, node.content)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleUrlClick(e, node.content);
+                }
+              }}
+              title={node.content}
               style={{
-                color: "#0066cc",
+                color: "#00c9b1",
                 textDecoration: "underline",
+                wordBreak: "break-word",
                 cursor: "pointer",
-                wordBreak: "break-all",
+                fontWeight: 500,
               }}
             >
               {node.content}
-            </a>
+            </span>
           );
         }
-
         return <span key={index}>{node.content}</span>;
       })}
     </>
   );
 }
 
-// ─── Fallback responses ───────────────────────────────────────────────────────
-function generateFallbackResponse(message: string): string {
-  const msg = message.toLowerCase();
-  if (["hi", "hello", "hey"].includes(msg) || msg.startsWith("hi ")) {
-    return "Hi! I'm AIRA — Hyniva's AI assistant. I can help you learn about our products, services, industries we serve, or connect you with our team. What would you like to know?";
-  }
-  return "";
-}
-
-// ─── Portal wrapper ───────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// BodyPortal — renders children into document.body
+// No internal mount state needed — parent isMounted guards this already
+// ─────────────────────────────────────────────────────────────
 function BodyPortal({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) return null;
   return createPortal(children, document.body);
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
-export function AiraChatbot({
-  scrolled = false,
-  fullWidth = false,
-  mobile = false,
+// ─────────────────────────────────────────────────────────────
+// ClearConfirmDialog
+// ─────────────────────────────────────────────────────────────
+function ClearConfirmDialog({
+  onConfirm,
+  onCancel,
 }: {
-  scrolled?: boolean;
-  fullWidth?: boolean;
-  mobile?: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
 }) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 64,
+        left: 0,
+        right: 0,
+        zIndex: 10,
+        display: "flex",
+        justifyContent: "center",
+        padding: "0 24px",
+      }}
+    >
+      <div
+        style={{
+          background: "#fff",
+          border: "1.5px solid #e5e7eb",
+          borderRadius: 12,
+          padding: "16px 20px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
+          width: "100%",
+          maxWidth: 480,
+        }}
+      >
+        <span style={{ fontSize: 13, color: "#374151", flex: 1 }}>
+          Clear all messages? This cannot be undone.
+        </span>
+        <button
+          onClick={onCancel}
+          style={{
+            padding: "6px 14px",
+            borderRadius: 8,
+            border: "1px solid #d1d5db",
+            background: "#fff",
+            fontSize: 13,
+            cursor: "pointer",
+            color: "#374151",
+          }}
+        >
+          Cancel
+        </button>
+        <button
+          onClick={onConfirm}
+          style={{
+            padding: "6px 14px",
+            borderRadius: 8,
+            border: "none",
+            background: "#ef4444",
+            color: "#fff",
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: "pointer",
+          }}
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// TypingIndicator
+// ─────────────────────────────────────────────────────────────
+function TypingIndicator() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 5,
+          background: "#f8fafc",
+          border: "1px solid #e2e8f0",
+          borderRadius: 16,
+          padding: "10px 16px",
+        }}
+      >
+        <span style={{ fontSize: 12, color: "#64748b", marginRight: 6 }}>
+          AIRA is typing
+        </span>
+        {[0, 1, 2].map((i) => (
+          <span
+            key={i}
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              background: "#00c9b1",
+              display: "inline-block",
+              animation: `aira-bounce 1.2s ease-in-out ${i * 0.2}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+      <style>{`
+        @keyframes aira-bounce {
+          0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+          40% { transform: translateY(-5px); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// EmptyState
+// ─────────────────────────────────────────────────────────────
+function EmptyState() {
+  return (
+    <div
+      style={{
+        margin: "auto",
+        textAlign: "center",
+        padding: "40px 24px",
+        maxWidth: 480,
+      }}
+    >
+      <div
+        style={{
+          width: 56,
+          height: 56,
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, #00c9b1 0%, #00a896 100%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "0 auto 16px",
+        }}
+      >
+        <MessageSquare size={26} color="#fff" />
+      </div>
+      <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 8px", color: "#111827" }}>
+        Hi, I'm AIRA
+      </h2>
+      <p style={{ color: "#64748b", fontSize: 14, lineHeight: 1.6, margin: 0 }}>
+        Ask me about Hyniva products, services, blogs, podcasts, careers,
+        industries, or company information.
+      </p>
+      <div
+        style={{
+          marginTop: 24,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          justifyContent: "center",
+        }}
+      >
+        {[
+          "What services does Hyniva offer?",
+          "Show me recent blogs",
+          "Career opportunities",
+          "Contact information",
+        ].map((suggestion) => (
+          <button
+            key={suggestion}
+            style={{
+              padding: "8px 14px",
+              borderRadius: 20,
+              border: "1px solid #e2e8f0",
+              background: "#f8fafc",
+              fontSize: 12,
+              color: "#374151",
+              cursor: "pointer",
+              transition: "all 0.15s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#00c9b1";
+              (e.currentTarget as HTMLButtonElement).style.color = "#00c9b1";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#e2e8f0";
+              (e.currentTarget as HTMLButtonElement).style.color = "#374151";
+            }}
+            data-suggestion={suggestion}
+          >
+            {suggestion}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Main Component
+// ─────────────────────────────────────────────────────────────
+export function AiraChatbot() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const pathname = usePathname(); // used to re-focus when route changes
+
+  // ── Hydration guard ──────────────────────────────────────
+  const [isMounted, setIsMounted] = useState(false);
+
+  // ── UI state ─────────────────────────────────────────────
+  // isOpen defaults to false; corrected from sessionStorage after mount
+  const [isOpen, setIsOpenState] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
 
+  // ── Session ───────────────────────────────────────────────
+  const [sessionId, setSessionId] = useState("");
+  // Ref mirror — always readable inside async callbacks without stale closure
+  const sessionIdRef = useRef<string>("");
+
+  // ── Refs ──────────────────────────────────────────────────
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatInputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const isSendingRef = useRef(false);
+  const messagesAreaRef = useRef<HTMLDivElement>(null);
+  const messagesRef = useRef<Message[]>([]);
+  const isOpenRef = useRef(false);
+  // Prevent the persist effect from writing stale data during a clear
+  const isClearing = useRef(false);
 
-  // Load messages from localStorage on component mount
   useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
+
+  useEffect(() => {
+    isOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  const ensureSessionId = useCallback(() => {
+    if (sessionIdRef.current) return sessionIdRef.current;
+    const sid = generateSessionId();
+    sessionIdRef.current = sid;
+    setSessionId(sid);
     try {
-      const savedMessages = localStorage.getItem("aira_chat_messages");
-      if (savedMessages) {
-        const parsedMessages = JSON.parse(savedMessages);
-        setMessages(parsedMessages);
-      }
-    } catch (error) {
-      console.error("Failed to load chat history:", error);
+      sessionStorage.setItem(STORAGE_KEYS.SESSION_ID, sid);
+    } catch {
+      // ignore
     }
-    setIsMounted(true);
+    return sid;
   }, []);
 
-  // Save messages to localStorage whenever they change
+  // ─────────────────────────────────────────────────────────
+  // Wrapped setIsOpen — keeps sessionStorage in sync so open
+  // state survives Next.js client-side navigations
+  // ─────────────────────────────────────────────────────────
+  const setIsOpen = useCallback((value: boolean) => {
+    setIsOpenState(value);
+    try {
+      sessionStorage.setItem(STORAGE_KEYS.IS_OPEN, value ? "1" : "0");
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // Keep ref in sync so sendMessage always reads the latest session ID
+  // even if the state hasn't flushed yet in an async context
   useEffect(() => {
-    if (isMounted && messages.length > 0) {
-      try {
-        localStorage.setItem("aira_chat_messages", JSON.stringify(messages));
-      } catch (error) {
-        console.error("Failed to save chat history:", error);
+    sessionIdRef.current = sessionId;
+  }, [sessionId]);
+
+  // ─────────────────────────────────────────────────────────
+  // Mount + rehydration in ONE effect so setMessages batches with
+  // setIsMounted before the persist effect runs (avoids writing []
+  // over saved history on refresh / remount).
+  // ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    setIsMounted(true);
+
+    try {
+      // ── Session ID ───────────────────────────────────────
+      let sid = sessionStorage.getItem(STORAGE_KEYS.SESSION_ID);
+      if (!sid) {
+        sid = generateSessionId();
+        sessionStorage.setItem(STORAGE_KEYS.SESSION_ID, sid);
       }
+      sessionIdRef.current = sid;
+      setSessionId(sid);
+
+      // ── Messages (migrate legacy localStorage key from AskAiraWidget) ──
+      let savedMessages = sessionStorage.getItem(STORAGE_KEYS.MESSAGES);
+      if (!savedMessages) {
+        const legacy = localStorage.getItem(STORAGE_KEYS.MESSAGES);
+        if (legacy) {
+          savedMessages = legacy;
+          sessionStorage.setItem(STORAGE_KEYS.MESSAGES, legacy);
+          localStorage.removeItem(STORAGE_KEYS.MESSAGES);
+        }
+      }
+      if (savedMessages) {
+        const parsed = JSON.parse(savedMessages);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setMessages(parsed);
+        }
+      }
+
+      // ── Open state ───────────────────────────────────────
+      const wasOpen = sessionStorage.getItem(STORAGE_KEYS.IS_OPEN);
+      if (wasOpen === "1") {
+        setIsOpenState(true);
+      }
+    } catch (error) {
+      console.error("Session rehydration failed:", error);
+    }
+  }, []);
+
+  // ─────────────────────────────────────────────────────────
+  // Persist messages on change (skipped during clear / empty state)
+  // Never write [] unless executeClear pre-wrote it — prevents the
+  // mount race from wiping sessionStorage before rehydration applies.
+  // ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (!isMounted) return;
+    if (isClearing.current) return;
+    if (messages.length === 0) return;
+    try {
+      sessionStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify(messages));
+    } catch {
+      // ignore
     }
   }, [messages, isMounted]);
 
-  // Scroll to bottom
+  // ─────────────────────────────────────────────────────────
+  // Listen for aira:navigate events from MessageContent (portal)
+  // and from sendMessage — uses router.push for client-side nav
+  // ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const url = (e as CustomEvent<{ url: string }>).detail.url;
+      persistChatSnapshot(
+        messagesRef.current,
+        isOpenRef.current,
+        sessionIdRef.current
+      );
+      router.push(url);
+    };
+    window.addEventListener("aira:navigate", handler);
+    return () => window.removeEventListener("aira:navigate", handler);
+  }, [router]);
+
+  // ─────────────────────────────────────────────────────────
+  // Re-focus input whenever route changes while chat is open
+  // ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (isOpen) {
+      const t = setTimeout(() => inputRef.current?.focus(), 200);
+      return () => clearTimeout(t);
+    }
+  }, [pathname, isOpen]);
+
+  // ─────────────────────────────────────────────────────────
+  // Auto-scroll to latest message
+  // ─────────────────────────────────────────────────────────
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isLoading]);
 
-  // Focus input on open
+  // ─────────────────────────────────────────────────────────
+  // Focus input when chat opens
+  // ─────────────────────────────────────────────────────────
   useEffect(() => {
-    if (isOpen) setTimeout(() => chatInputRef.current?.focus(), 150);
+    if (isOpen) {
+      const t = setTimeout(() => inputRef.current?.focus(), 150);
+      return () => clearTimeout(t);
+    }
   }, [isOpen]);
 
-  // Lock scroll
+  // ─────────────────────────────────────────────────────────
+  // Body scroll lock
+  // ─────────────────────────────────────────────────────────
   useEffect(() => {
+    if (!isMounted) return;
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, isMounted]);
 
+  // ─────────────────────────────────────────────────────────
+  // Escape key closes chat
+  // ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowClearConfirm(false);
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isOpen, setIsOpen]);
+
+  // ─────────────────────────────────────────────────────────
+  // Suggestion chip click handler (bubbled from EmptyState)
+  // ─────────────────────────────────────────────────────────
+  const handleMessagesAreaClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const target = e.target as HTMLElement;
+      const suggestion = target
+        .closest("[data-suggestion]")
+        ?.getAttribute("data-suggestion");
+      if (suggestion) {
+        sendMessage(suggestion);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  // ─────────────────────────────────────────────────────────
+  // Close chat
+  // ─────────────────────────────────────────────────────────
   const closeChat = useCallback(() => {
-    setIsClosing(true);
+    setShowClearConfirm(false);
+    setIsOpen(false);
+  }, [setIsOpen]);
+
+  // ─────────────────────────────────────────────────────────
+  // Execute clear — called after user confirms
+  // FIX: pre-write [] to storage BEFORE setMessages([]) so
+  // the persist effect never re-saves the old message list.
+  // ─────────────────────────────────────────────────────────
+  const executeClear = useCallback(async () => {
+    setShowClearConfirm(false);
+    isClearing.current = true; // block the persist effect
+
+    // Notify backend to close session
+    try {
+      const closingId = sessionIdRef.current;
+      if (closingId) {
+        await fetch("/api/chatbot/session/close", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: closingId }),
+        });
+      }
+    } catch (error) {
+      console.error("Session close failed:", error);
+    }
+
+    // Pre-write empty state FIRST — before React re-renders
+    try {
+      sessionStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify([]));
+      sessionStorage.removeItem(STORAGE_KEYS.SESSION_ID);
+    } catch {
+      // ignore
+    }
+
+    // Reset UI
+    setMessages([]);
+    setInputValue("");
+    isSendingRef.current = false;
+    setIsLoading(false);
+
+    // Fresh session
+    const freshSession = generateSessionId();
+    try {
+      sessionStorage.setItem(STORAGE_KEYS.SESSION_ID, freshSession);
+    } catch {
+      // ignore
+    }
+    sessionIdRef.current = freshSession; // sync immediately
+    setSessionId(freshSession);
+
+    // Release the clearing guard after React has flushed
     setTimeout(() => {
-      setIsOpen(false);
-      setIsClosing(false);
-    }, 420); // matches close animation duration
+      isClearing.current = false;
+      inputRef.current?.focus();
+    }, 50);
   }, []);
 
+  // ─────────────────────────────────────────────────────────
+  // Request clear
+  // ─────────────────────────────────────────────────────────
+  const requestClear = useCallback(() => {
+    if (messages.length === 0) return;
+    setShowClearConfirm(true);
+  }, [messages.length]);
+
+  // ─────────────────────────────────────────────────────────
+  // Send Message
+  // FIX: routeToNavigate uses emitNavigate → router.push
+  // instead of window.location.href (no full reload)
+  // ─────────────────────────────────────────────────────────
   const sendMessage = useCallback(
     async (text: string) => {
-      if (!text.trim() || isLoading || isSendingRef.current) return;
+      const trimmed = text.trim();
+      if (!trimmed) return;
+      if (isSendingRef.current) return;
+
       isSendingRef.current = true;
-      const ts = new Date().toLocaleTimeString([], {
+      setIsLoading(true);
+      setShowClearConfirm(false);
+
+      const timestamp = new Date().toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
       });
+
       setMessages((prev) => [
         ...prev,
-        { text: text.trim(), isUser: true, timestamp: ts },
+        { text: trimmed, isUser: true, timestamp },
       ]);
+
       setInputValue("");
-      setIsLoading(true);
+
+      const activeSessionId = ensureSessionId();
 
       let reply = "";
       let routeToNavigate: string | null = null;
 
-      // Only use fallback for greetings, otherwise call API
-      if (
-        ["hi", "hello", "hey"].includes(text.toLowerCase()) ||
-        text.toLowerCase().startsWith("hi ")
-      ) {
-        reply = generateFallbackResponse(text);
-      } else {
-        try {
-          const apiUrl =
-            process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
-          const res = await fetch(apiUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: text }),
-          });
+      try {
+        const apiUrl =
+          process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
 
-          if (!res.ok) throw new Error("API error");
-          const data: ApiResponse = await res.json();
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: trimmed,
+            session_id: activeSessionId,
+          }),
+        });
 
-          reply = data.message || JSON.stringify(data);
+        if (!response.ok) throw new Error(`API error ${response.status}`);
 
-          if (data.route) {
-            routeToNavigate = data.route;
-          } else if (data.target_route) {
-            routeToNavigate = data.target_route;
-          }
-
-          if (data.status) reply += `\nStatus: ${data.status}`;
-        } catch (err) {
-          reply = "Sorry, I couldn't reach the server.";
-        }
+        const data: ApiResponse = await response.json();
+        reply = data.message || "Sorry, I couldn't understand that.";
+        routeToNavigate = data.route || data.target_route || null;
+      } catch (error) {
+        console.error("Chatbot API error:", error);
+        reply =
+          "Sorry, I couldn't reach the server right now. Please try again.";
       }
 
-      const rts = new Date().toLocaleTimeString([], {
+      const replyTimestamp = new Date().toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
       });
-      setMessages((prev) => [
-        ...prev,
-        { text: reply, isUser: false, timestamp: rts },
-      ]);
 
-      // Navigate to route if provided
-      if (routeToNavigate) {
-        setTimeout(() => {
-          router.push(routeToNavigate!);
-          closeChat();
-        }, 500);
-      }
+      setMessages((prev) => {
+        const next = [
+          ...prev,
+          { text: reply, isUser: false, timestamp: replyTimestamp },
+        ];
+        messagesRef.current = next;
+        persistChatSnapshot(
+          next,
+          isOpenRef.current,
+          sessionIdRef.current
+        );
+        return next;
+      });
 
       setIsLoading(false);
       isSendingRef.current = false;
+
+      // Client-side navigation — preserves chat history in sessionStorage
+      if (routeToNavigate) {
+        setTimeout(() => {
+          navigateFromChat(routeToNavigate!);
+        }, 700);
+      }
     },
-    [isLoading, router, closeChat]
+    [ensureSessionId]
   );
 
-  const handleChatKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  // ─────────────────────────────────────────────────────────
+  // Enter key submits
+  // ─────────────────────────────────────────────────────────
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage(inputValue);
     }
   };
 
-  // Hyniva brand colours
-  const GREEN = "#00c9b1";
-  const GREEN_LIGHT = "#e6faf8";
-  const DARK_TEXT = "#1e293b";
-
-  // Pill sizing
-  const pillHeight = mobile ? 34 : scrolled ? 36 : 42;
-  const avatarSize = mobile ? 28 : scrolled ? 30 : 36;
-
-  // Text colours adapt to navbar state
-  const textColor = scrolled ? "#1a2b6b" : "#ffffff";
-  const borderColor = scrolled ? "#c8d4e8" : "rgba(255,255,255,0.40)";
-  const bgColor = scrolled ? "#ffffff" : "rgba(255,255,255,0.10)";
-
+  // ─────────────────────────────────────────────────────────
+  // Render
+  // ─────────────────────────────────────────────────────────
   return (
     <>
-      {/* ── ASK AIRA PILL BUTTON ──────────────────────────────────────────── */}
+      {/* ── Floating trigger button ── */}
+      {/* Always rendered (not inside isOpen guard) so it's
+          visible on every page even when chat is closed */}
       <button
-        type="button"
+        aria-label="Open AIRA chat"
         onClick={() => setIsOpen(true)}
-        aria-label="Ask AIRA"
         style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 0,
-          background: bgColor,
-          border: `2px solid ${borderColor}`,
-          borderRadius: 9999,
-          height: pillHeight,
-          padding: 0,
-          paddingRight: mobile ? 12 : 16,
+          position: "fixed",
+          bottom: 24,
+          right: 24,
+          zIndex: 9999,
+          border: "none",
+          borderRadius: 999,
+          padding: "14px 22px",
+          background: "#00c9b1",
+          color: "#fff",
+          fontWeight: 700,
+          fontSize: 14,
           cursor: "pointer",
-          flexShrink: 0,
-          boxShadow: scrolled
-            ? "0 2px 10px rgba(0,0,0,0.08)"
-            : "0 2px 14px rgba(0,0,0,0.20)",
-          transition: "all 0.25s ease",
-          overflow: "hidden",
+          boxShadow: "0 8px 30px rgba(0,201,177,0.35)",
+          display: isOpen ? "none" : "flex", // hide when modal is open
+          alignItems: "center",
+          gap: 8,
+          transition: "transform 0.15s, box-shadow 0.15s",
         }}
         onMouseEnter={(e) => {
-          const btn = e.currentTarget as HTMLButtonElement;
-          btn.style.borderColor = GREEN;
-          btn.style.background = scrolled
-            ? "#f0faf9"
-            : "rgba(255,255,255,0.20)";
+          (e.currentTarget as HTMLButtonElement).style.transform =
+            "translateY(-2px)";
+          (e.currentTarget as HTMLButtonElement).style.boxShadow =
+            "0 12px 36px rgba(0,201,177,0.45)";
         }}
         onMouseLeave={(e) => {
-          const btn = e.currentTarget as HTMLButtonElement;
-          btn.style.borderColor = borderColor;
-          btn.style.background = bgColor;
+          (e.currentTarget as HTMLButtonElement).style.transform =
+            "translateY(0)";
+          (e.currentTarget as HTMLButtonElement).style.boxShadow =
+            "0 8px 30px rgba(0,201,177,0.35)";
         }}
       >
-        {/* Circular mascot avatar */}
-        <div
-          style={{
-            width: avatarSize,
-            height: avatarSize,
-            borderRadius: "50%",
-            flexShrink: 0,
-            marginLeft: mobile ? 3 : 4,
-            marginRight: mobile ? 7 : 10,
-            border: `1.5px solid ${
-              scrolled ? "#c8d4e8" : "rgba(255,255,255,0.35)"
-            }`,
-            overflow: "hidden",
-            backgroundColor: "#0d1b3e",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          aria-label="AIRA mascot"
-        >
-          <Image
-            src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
-            alt="AIRA"
-            width={avatarSize}
-            height={avatarSize}
-            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
-          />
-        </div>
-
-        {/* Stacked text: ASK / AIRA */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            lineHeight: 1,
-            gap: mobile ? 2 : 3,
-          }}
-        >
-          <span
-            style={{
-              fontSize: mobile ? 8 : scrolled ? 9 : 10,
-              fontWeight: 700,
-              letterSpacing: "1.8px",
-              textTransform: "uppercase",
-              color: textColor,
-              opacity: 0.75,
-            }}
-          >
-            ASK
-          </span>
-          <Image
-            src="/aira-text.png"
-            alt="AIRA"
-            width={798}
-            height={230}
-            style={{
-              height: mobile ? 11 : scrolled ? 13 : 15,
-              width: "auto",
-              objectFit: "contain",
-              display: "block",
-              filter: scrolled
-                ? "brightness(0) saturate(100%) invert(14%) sepia(60%) saturate(800%) hue-rotate(200deg)"
-                : "brightness(0) invert(1)",
-            }}
-          />
-        </div>
+        <MessageSquare size={18} />
+        Ask AIRA
       </button>
 
-      {/* ── CHAT PANEL via Portal ─────────────────────────────────────────── */}
-      {isOpen && (
+      {/* ── Modal portal — only rendered after mount + isOpen ── */}
+      {isMounted && isOpen && (
         <BodyPortal>
           {/* Backdrop */}
           <div
@@ -422,521 +907,313 @@ export function AiraChatbot({
             }}
             style={{
               position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              width: "100vw",
-              height: "100vh",
+              inset: 0,
               background: "rgba(0,0,0,0.45)",
-              backdropFilter: "blur(6px)",
-              WebkitBackdropFilter: "blur(6px)",
               display: "flex",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
               zIndex: 999999,
-              padding: "5vh 5vw",
-              boxSizing: "border-box",
-              animation: isClosing ? "airaFadeOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards" : "airaFadeIn 0.3s cubic-bezier(0.32,0.72,0,1)",
+              backdropFilter: "blur(2px)",
             }}
           >
-            {/* Panel */}
+            {/* Chat window */}
             <div
               style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                maxWidth: "min(1100px, 90vw)",
-                maxHeight: "min(800px, 80vh)",
-                background: "#ffffff",
-                border: `4px solid ${GREEN}`,
+                width: "90%",
+                maxWidth: 1100,
+                height: "82vh",
+                background: "#fff",
                 borderRadius: 18,
+                border: "2px solid #00c9b1",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                overflow: "hidden",
-                boxShadow: `0 24px 80px rgba(3,11,59,0.35), 0 0 0 1px rgba(0,201,177,0.2)`,
-                animation: isClosing
-                  ? "airaPanelSlideOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards"
-                  : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)",
+                position: "relative",
+                boxShadow: "0 24px 80px rgba(0,0,0,0.18)",
               }}
             >
-              {/* ── Close & Clear buttons ── */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 10,
-                  right: 10,
-                  zIndex: 10,
-                  display: "flex",
-                  gap: 8,
-                }}
-              >
-                {messages.length > 0 && (
-                  <button
-                    onClick={() => {
-                      setMessages([]);
-                      try {
-                        localStorage.removeItem("aira_chat_messages");
-                      } catch (error) {
-                        console.error("Failed to clear chat history:", error);
-                      }
-                    }}
-                    title="Start new session"
-                    aria-label="Clear chat"
-                    style={{
-                      width: 28,
-                      height: 28,
-                      borderRadius: "50%",
-                      border: "1px solid #d1d5db",
-                      background: "#f9fafb",
-                      color: "#6b7280",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                      transition: "background 0.2s, color 0.2s",
-                      fontSize: 12,
-                      fontWeight: "bold",
-                    }}
-                  >
-                    ⟲
-                  </button>
-                )}
-
-                <button
-                  onClick={() => closeChat()}
-                  aria-label="Close"
-                  style={{
-                    width: 28,
-                    height: 28,
-                    borderRadius: "50%",
-                    border: "1px solid #d1d5db",
-                    background: "#f9fafb",
-                    color: "#6b7280",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    transition: "background 0.2s, color 0.2s",
-                  }}
-                >
-                  <X size={13} strokeWidth={2.5} />
-                </button>
-              </div>
-
               {/* ── Header ── */}
               <div
                 style={{
+                  padding: "14px 18px",
+                  borderBottom: "1px solid #e5e7eb",
                   display: "flex",
+                  justifyContent: "space-between",
                   alignItems: "center",
-                  gap: 10,
-                  padding: "14px 52px 14px 20px",
-                  borderBottom: "1.5px solid #e5e7eb",
-                  background: "#ffffff",
                   flexShrink: 0,
+                  background: "#fff",
+                  zIndex: 2,
                 }}
               >
                 <div
-                  style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: "50%",
-                    flexShrink: 0,
-                    border: "1.5px solid #e5e7eb",
-                    overflow: "hidden",
-                    backgroundColor: "#0d1b3e",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                  aria-label="AIRA"
+                  style={{ display: "flex", alignItems: "center", gap: 12 }}
                 >
                   <Image
                     src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
-                    alt="AIRA"
-                    width={38}
-                    height={38}
-                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
+                    alt="AIRA mascot"
+                    width={42}
+                    height={42}
                   />
+                  <div>
+                    <div
+                      style={{
+                        fontSize: 17,
+                        fontWeight: 700,
+                        color: "#111827",
+                      }}
+                    >
+                      AIRA
+                    </div>
+                    <div style={{ fontSize: 12, color: "#64748b" }}>
+                      Your Agentic Assistant
+                    </div>
+                  </div>
                 </div>
-                <Image
-                  src="/aira-text.png"
-                  alt="AIRA"
-                  width={798}
-                  height={230}
-                  style={{
-                    height: 22,
-                    width: "auto",
-                    objectFit: "contain",
-                    flexShrink: 0,
-                  }}
-                />
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: 1.5,
-                    height: 24,
-                    background: "#d1d5db",
-                    borderRadius: 1,
-                    flexShrink: 0,
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: "#6b7280",
-                    whiteSpace: "nowrap",
-                  }}
+
+                <div
+                  style={{ display: "flex", gap: 8, alignItems: "center" }}
                 >
-                  Your Agentic Assistant
-                </span>
+                  {/* Reset / Clear button */}
+                  <button
+                    onClick={requestClear}
+                    title="Clear conversation"
+                    disabled={messages.length === 0}
+                    style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 999,
+                      border: "1px solid #d1d5db",
+                      background: "#fff",
+                      cursor:
+                        messages.length === 0 ? "not-allowed" : "pointer",
+                      opacity: messages.length === 0 ? 0.4 : 1,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "border-color 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (messages.length > 0)
+                        (
+                          e.currentTarget as HTMLButtonElement
+                        ).style.borderColor = "#ef4444";
+                    }}
+                    onMouseLeave={(e) => {
+                      (
+                        e.currentTarget as HTMLButtonElement
+                      ).style.borderColor = "#d1d5db";
+                    }}
+                  >
+                    <RotateCcw
+                      size={15}
+                      color={messages.length === 0 ? "#94a3b8" : "#374151"}
+                    />
+                  </button>
+
+                  {/* Close button */}
+                  <button
+                    onClick={closeChat}
+                    title="Close chat"
+                    style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 999,
+                      border: "1px solid #d1d5db",
+                      background: "#fff",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "border-color 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (
+                        e.currentTarget as HTMLButtonElement
+                      ).style.borderColor = "#374151";
+                    }}
+                    onMouseLeave={(e) => {
+                      (
+                        e.currentTarget as HTMLButtonElement
+                      ).style.borderColor = "#d1d5db";
+                    }}
+                  >
+                    <X size={15} color="#374151" />
+                  </button>
+                </div>
               </div>
+
+              {/* ── Clear confirm dialog ── */}
+              {showClearConfirm && (
+                <ClearConfirmDialog
+                  onConfirm={executeClear}
+                  onCancel={() => setShowClearConfirm(false)}
+                />
+              )}
 
               {/* ── Messages area ── */}
               <div
-                aria-live="polite"
+                ref={messagesAreaRef}
+                onClick={handleMessagesAreaClick}
                 style={{
-                  flex: "1 1 0",
-                  minHeight: 0,
+                  flex: 1,
                   overflowY: "auto",
-                  padding: "24px 28px 16px",
+                  padding: 24,
                   display: "flex",
                   flexDirection: "column",
                   gap: 16,
-                  background: "#ffffff",
-                  scrollbarWidth: "thin",
-                  scrollbarColor: "#d1d5db transparent",
+                  scrollBehavior: "smooth",
                 }}
               >
-                {/* Welcome / empty state */}
-                {messages.length === 0 && !isLoading && (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flex: 1,
-                      textAlign: "center",
-                      padding: "32px 20px",
-                      gap: 16,
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: 24,
-                        fontWeight: 700,
-                        color: DARK_TEXT,
-                        margin: 0,
-                      }}
-                    >
-                      Hi, I&apos;m AIRA
-                    </p>
-                    <p
-                      style={{
-                        fontSize: 15,
-                        color: "#6b7280",
-                        maxWidth: 460,
-                        lineHeight: 1.65,
-                        margin: 0,
-                      }}
-                    >
-                      Ask me anything about Hyniva&apos;s products, services or
-                      how we can help your business.
-                    </p>
-                    {/* Quick-prompt chips */}
-                    <div
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 10,
-                        justifyContent: "center",
-                        marginTop: 8,
-                      }}
-                    >
-                      {[
-                        "Tell me about AIRA",
-                        "What services do you offer?",
-                        "How can I contact Hyniva?",
-                        "What industries do you serve?",
-                      ].map((q) => (
-                        <button
-                          key={q}
-                          onClick={() => sendMessage(q)}
-                          style={{
-                            background: "#f0faf4",
-                            border: `1px solid ${GREEN}`,
-                            borderRadius: 20,
-                            padding: "8px 16px",
-                            fontSize: 13,
-                            color: GREEN,
-                            cursor: "pointer",
-                            fontWeight: 500,
-                            transition: "background 0.2s",
-                          }}
-                        >
-                          {q}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {messages.length === 0 && !isLoading && <EmptyState />}
 
-                {/* Message bubbles */}
-                {messages.map((msg, i) => (
+                {messages.map((msg, index) => (
                   <div
-                    key={i}
+                    key={index}
+                    data-testid={
+                      msg.isUser ? "chat-message-user" : "chat-message-assistant"
+                    }
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: 10,
                       justifyContent: msg.isUser ? "flex-end" : "flex-start",
-                      animation: "airaMsgIn 0.22s ease",
+                      animation: "aira-fade-in 0.2s ease",
                     }}
                   >
-                    {/* Bot avatar */}
-                    {!msg.isUser && (
-                      <div
-                        style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: "50%",
-                          flexShrink: 0,
-                          marginTop: 2,
-                          border: "1.5px solid #e5e7eb",
-                          overflow: "hidden",
-                          backgroundColor: "#0d1b3e",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        aria-label="AIRA"
-                      >
-                        <Image
-                          src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
-                          alt="AIRA"
-                          width={32}
-                          height={32}
-                          style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
-                        />
-                      </div>
-                    )}
-
                     <div
                       style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 4,
-                        maxWidth: msg.isUser ? "40%" : "75%",
-                        alignItems: msg.isUser ? "flex-end" : "flex-start",
+                        maxWidth: "75%",
+                        padding: "11px 15px",
+                        borderRadius: msg.isUser
+                          ? "16px 16px 4px 16px"
+                          : "16px 16px 16px 4px",
+                        background: msg.isUser ? "#dcfce7" : "#f8fafc",
+                        border: msg.isUser
+                          ? "1px solid #bbf7d0"
+                          : "1px solid #e2e8f0",
+                        whiteSpace: "pre-wrap",
+                        lineHeight: 1.6,
+                        fontSize: 14,
+                        color: "#1e293b",
                       }}
                     >
-                      {/* Bubble */}
+                      <MessageContent text={msg.text} />
                       <div
                         style={{
-                          padding: msg.isUser ? "8px 14px" : "12px 16px",
-                          borderRadius: msg.isUser ? 20 : 12,
-                          borderBottomRightRadius: msg.isUser ? 4 : 12,
-                          borderBottomLeftRadius: msg.isUser ? 12 : 4,
-                          fontSize: 14,
-                          lineHeight: 1.6,
-                          wordBreak: "break-word",
-                          whiteSpace: "pre-line",
-                          background: msg.isUser ? GREEN_LIGHT : "#ffffff",
-                          color: DARK_TEXT,
-                          border: msg.isUser
-                            ? `1px solid #9ee8df`
-                            : "1px solid #e5e7eb",
-                          fontWeight: msg.isUser ? 500 : 400,
-                          boxShadow: msg.isUser
-                            ? "none"
-                            : "0 1px 3px rgba(0,0,0,0.06)",
-                        }}
-                      >
-                        <MessageContent text={msg.text} isUser={msg.isUser} />
-                      </div>
-                      {/* Timestamp */}
-                      <span
-                        style={{
+                          marginTop: 6,
                           fontSize: 10,
-                          color: "#9ca3af",
-                          padding: "0 3px",
+                          color: "#94a3b8",
+                          textAlign: msg.isUser ? "right" : "left",
                         }}
                       >
                         {msg.timestamp}
-                      </span>
+                      </div>
                     </div>
                   </div>
                 ))}
 
-                {/* Typing dots */}
                 {isLoading && (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: 10,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 32,
-                        height: 32,
-                        borderRadius: "50%",
-                        flexShrink: 0,
-                        marginTop: 2,
-                        border: "1.5px solid #e5e7eb",
-                        overflow: "hidden",
-                        backgroundColor: "#0d1b3e",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                      aria-label="AIRA"
-                    >
-                      <Image
-                        src="/images/AIRA MASCOT/AIRA NEW MASCOT crop.png"
-                        alt="AIRA"
-                        width={32}
-                        height={32}
-                        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center", mixBlendMode: "screen" }}
-                      />
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 6,
-                        padding: "13px 18px",
-                        background: "#ffffff",
-                        border: "1px solid #e5e7eb",
-                        borderRadius: 12,
-                        borderBottomLeftRadius: 4,
-                        boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-                      }}
-                    >
-                      {[0, 0.2, 0.4].map((d, i) => (
-                        <span
-                          key={i}
-                          style={{
-                            width: 7,
-                            height: 7,
-                            borderRadius: "50%",
-                            background: GREEN,
-                            display: "inline-block",
-                            animation: `airaTyping 1.4s ease-in-out ${d}s infinite`,
-                          }}
-                        />
-                      ))}
-                    </div>
+                  <div data-testid="chat-typing-indicator">
+                    <TypingIndicator />
                   </div>
                 )}
-
                 <div ref={messagesEndRef} />
               </div>
 
               {/* ── Input bar ── */}
               <div
                 style={{
+                  padding: "14px 18px",
+                  borderTop: "1px solid #e5e7eb",
                   display: "flex",
-                  alignItems: "center",
                   gap: 10,
-                  margin: "0 16px 16px",
-                  padding: "11px 14px",
-                  background: "#ffffff",
-                  border: `1.5px solid rgba(0,201,177,0.4)`,
-                  borderRadius: 12,
                   flexShrink: 0,
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                  background: "#fff",
                 }}
               >
-                <Search
-                  size={15}
-                  style={{ color: "#9ca3af", flexShrink: 0 }}
-                />
-                <input
-                  ref={chatInputRef}
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={handleChatKey}
-                  placeholder="Ask for follow up"
-                  aria-label="Ask AIRA"
+                <div
                   style={{
                     flex: 1,
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    fontSize: 14,
-                    color: DARK_TEXT,
-                    caretColor: GREEN,
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => sendMessage(inputValue)}
-                  disabled={!inputValue.trim() || isLoading}
-                  aria-label="Send"
-                  style={{
-                    flexShrink: 0,
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    width: 32,
-                    height: 32,
-                    borderRadius: "50%",
+                    border: "1.5px solid #d1d5db",
+                    borderRadius: 12,
+                    padding: "0 14px",
+                    transition: "border-color 0.15s",
+                  }}
+                  onFocusCapture={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor =
+                      "#00c9b1";
+                  }}
+                  onBlurCapture={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor =
+                      "#d1d5db";
+                  }}
+                >
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Ask AIRA anything…"
+                    disabled={isLoading}
+                    aria-label="Ask AIRA"
+                    style={{
+                      flex: 1,
+                      height: 50,
+                      border: "none",
+                      outline: "none",
+                      fontSize: 14,
+                      color: "#111827",
+                      background: "transparent",
+                    }}
+                  />
+                </div>
+
+                <button
+                  onClick={() => sendMessage(inputValue)}
+                  disabled={!inputValue.trim() || isLoading}
+                  aria-label="Send message"
+                  style={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: 12,
                     border: "none",
                     background:
-                      inputValue.trim() && !isLoading ? GREEN : "#e5e7eb",
-                    color:
-                      inputValue.trim() && !isLoading ? "#ffffff" : "#9ca3af",
+                      inputValue.trim() && !isLoading ? "#00c9b1" : "#e2e8f0",
+                    color: "#fff",
                     cursor:
                       inputValue.trim() && !isLoading
                         ? "pointer"
                         : "not-allowed",
-                    transition: "background 0.2s",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    transition: "background 0.15s, transform 0.1s",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (inputValue.trim() && !isLoading)
+                      (e.currentTarget as HTMLButtonElement).style.transform =
+                        "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.transform =
+                      "scale(1)";
                   }}
                 >
-                  <Send size={14} style={{ transform: "rotate(-45deg)" }} />
+                  <Send size={18} />
                 </button>
               </div>
             </div>
-            {/* /panel */}
           </div>
-          {/* /backdrop */}
         </BodyPortal>
       )}
 
-      {/* ── Keyframes ── */}
+      {/* Global animation keyframes */}
       <style>{`
-        @keyframes airaFadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        @keyframes airaFadeOut {
-          from { opacity: 1; }
-          to   { opacity: 0; }
-        }
-        @keyframes airaPanelSlide {
-          from { opacity: 0; transform: translateY(40px) scale(0.96); }
-          to   { opacity: 1; transform: translateY(0)    scale(1);    }
-        }
-        @keyframes airaPanelSlideOut {
-          from { opacity: 1; transform: translateY(0)    scale(1);    }
-          to   { opacity: 0; transform: translateY(40px) scale(0.96); }
-        }
-        @keyframes airaWelcomePulse {
-          0%,100% { transform: scale(1);    opacity: 0.85; }
-          50%     { transform: scale(1.07); opacity: 1;    }
-        }
-        @keyframes airaMsgIn {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0);   }
-        }
-        @keyframes airaTyping {
-          0%,60%,100% { transform: translateY(0);    opacity: 0.35; }
-          30%         { transform: translateY(-8px); opacity: 1;    }
+        @keyframes aira-fade-in {
+          from { opacity: 0; transform: translateY(6px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </>

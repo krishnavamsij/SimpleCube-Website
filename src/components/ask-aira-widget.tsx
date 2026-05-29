@@ -21,33 +21,124 @@ interface ApiResponse {
     target_route?: string;
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-function isValidUrl(s: string) {
-    try { new URL(s); return true; } catch { return false; }
+// ─── Storage & session (behavior only — no UI) ───────────────────────────────
+const STORAGE_KEYS = {
+    SESSION_ID: "aira_chat_session_id",
+    MESSAGES: "aira_chat_messages",
+    IS_OPEN: "aira_chat_is_open",
+} as const;
+
+const HYNIVA_HOSTS = new Set(["hyniva.com", "www.hyniva.com"]);
+
+function generateSessionId() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+        const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16;
+        const v = c === "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+    });
+}
+
+function emitNavigate(url: string) {
+    window.dispatchEvent(new CustomEvent("aira:navigate", { detail: { url } }));
+}
+
+function splitUrlAndTrailingPunctuation(raw: string) {
+    let href = raw;
+    let trailing = "";
+    const trailingPattern = /[)\]}"'.,;:!?•·»]+$/;
+    while (href.length > 0) {
+        const match = href.match(trailingPattern);
+        if (!match) break;
+        const chunk = match[0];
+        if (chunk.includes(")")) {
+            const opens = (href.match(/\(/g) || []).length;
+            const closes = (href.match(/\)/g) || []).length;
+            if (closes <= opens) break;
+        }
+        trailing = chunk + trailing;
+        href = href.slice(0, -chunk.length);
+    }
+    return { href, trailing };
 }
 
 function parseMessageForUrls(text: string) {
-    const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]()'"]*/g;
+    const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]]+/gi;
     const parts: { type: "text" | "url"; content: string }[] = [];
     let last = 0;
     for (const m of Array.from(text.matchAll(urlRegex))) {
-        if (m.index! > last) parts.push({ type: "text", content: text.slice(last, m.index) });
-        parts.push({ type: isValidUrl(m[0]) ? "url" : "text", content: m[0] });
-        last = m.index! + m[0].length;
+        const raw = m[0];
+        const start = m.index!;
+        if (start > last) parts.push({ type: "text", content: text.slice(last, start) });
+        const { href, trailing } = splitUrlAndTrailingPunctuation(raw);
+        let isValid = false;
+        try { new URL(href); isValid = true; } catch { isValid = false; }
+        if (isValid) {
+            parts.push({ type: "url", content: href });
+            if (trailing) parts.push({ type: "text", content: trailing });
+        } else {
+            parts.push({ type: "text", content: raw });
+        }
+        last = start + raw.length;
     }
     if (last < text.length) parts.push({ type: "text", content: text.slice(last) });
     return parts.length ? parts : [{ type: "text" as const, content: text }];
 }
 
+function toInAppPath(url: string): string | null {
+    const trimmed = url.trim();
+    if (!trimmed) return null;
+    if (trimmed.startsWith("/") && !trimmed.startsWith("//")) return trimmed;
+    try {
+        const parsed = new URL(trimmed, window.location.origin);
+        const path = parsed.pathname + parsed.search + parsed.hash;
+        if (parsed.origin === window.location.origin) return path || "/";
+        const host = parsed.hostname.replace(/^www\./, "");
+        if (HYNIVA_HOSTS.has(parsed.hostname) || host === "hyniva.com") return path || "/";
+    } catch {
+        if (trimmed.startsWith("/")) return trimmed;
+    }
+    return null;
+}
+
+function navigateFromChat(url: string) {
+    const inAppPath = toInAppPath(url);
+    if (inAppPath) emitNavigate(inAppPath);
+    else window.location.assign(url);
+}
+
+/** Wipe legacy persisted chat so a full browser refresh always starts clean. */
+function clearStaleChatStorage() {
+    try {
+        for (const key of Object.values(STORAGE_KEYS)) {
+            sessionStorage.removeItem(key);
+            localStorage.removeItem(key);
+        }
+    } catch { /* ignore */ }
+}
+
 function MessageContent({ text }: { text: string; isUser: boolean }) {
+    const handleUrlClick = (e: React.MouseEvent | React.KeyboardEvent, url: string) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigateFromChat(url);
+    };
+
     return (
         <>
             {parseMessageForUrls(text).map((n, i) =>
                 n.type === "url" ? (
-                    <a key={i} href={n.content} target="_blank" rel="noopener noreferrer"
-                        style={{ color: "#0066cc", textDecoration: "underline", wordBreak: "break-all" }}>
+                    <span
+                        key={i}
+                        role="link"
+                        tabIndex={0}
+                        onClick={(e) => handleUrlClick(e, n.content)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") handleUrlClick(e, n.content);
+                        }}
+                        style={{ color: "#0066cc", textDecoration: "underline", wordBreak: "break-all", cursor: "pointer" }}
+                    >
                         {n.content}
-                    </a>
+                    </span>
                 ) : <span key={i}>{n.content}</span>
             )}
         </>
@@ -88,11 +179,11 @@ export function AskAiraWidget() {
     const [inputValue, setInputValue] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatInputRef = useRef<HTMLInputElement>(null);
     const isSendingRef = useRef(false);
+    const sessionIdRef = useRef("");
 
     // ── Intersection observer for hero / footer + scroll direction ──
     useEffect(() => {
@@ -144,20 +235,20 @@ export function AskAiraWidget() {
         };
     }, []);
 
-    // ── Chat persistence ──
+    // Fresh session on every full page load; in-app navigation keeps React state (layout).
     useEffect(() => {
-        try {
-            const saved = localStorage.getItem("aira_chat_messages");
-            if (saved) setMessages(JSON.parse(saved));
-        } catch { /* ignore */ }
-        setIsMounted(true);
+        clearStaleChatStorage();
+        sessionIdRef.current = generateSessionId();
     }, []);
 
     useEffect(() => {
-        if (isMounted && messages.length > 0) {
-            try { localStorage.setItem("aira_chat_messages", JSON.stringify(messages)); } catch { /* ignore */ }
-        }
-    }, [messages, isMounted]);
+        const handler = (e: Event) => {
+            const url = (e as CustomEvent<{ url: string }>).detail.url;
+            router.push(url);
+        };
+        window.addEventListener("aira:navigate", handler);
+        return () => window.removeEventListener("aira:navigate", handler);
+    }, [router]);
 
     // ── Scroll to bottom ──
     useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
@@ -173,7 +264,31 @@ export function AskAiraWidget() {
 
     const closeChat = useCallback(() => {
         setIsClosing(true);
-        setTimeout(() => { setIsOpen(false); setIsClosing(false); }, 420);
+        setTimeout(() => {
+            setIsOpen(false);
+            setIsClosing(false);
+        }, 420);
+    }, []);
+
+    const openChat = useCallback(() => {
+        setIsOpen(true);
+    }, []);
+
+    const clearChat = useCallback(async () => {
+        const closingId = sessionIdRef.current;
+        try {
+            if (closingId) {
+                await fetch("/api/chatbot/session/close", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ session_id: closingId }),
+                });
+            }
+        } catch { /* ignore */ }
+
+        sessionIdRef.current = generateSessionId();
+        clearStaleChatStorage();
+        setMessages([]);
     }, []);
 
     const sendMessage = useCallback(async (text: string) => {
@@ -190,12 +305,18 @@ export function AskAiraWidget() {
         if (["hi", "hello", "hey"].includes(text.toLowerCase()) || text.toLowerCase().startsWith("hi ")) {
             reply = generateFallbackResponse(text);
         } else {
+            if (!sessionIdRef.current) {
+                sessionIdRef.current = generateSessionId();
+            }
             try {
                 const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
                 const res = await fetch(apiUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: text }),
+                    body: JSON.stringify({
+                        message: text,
+                        session_id: sessionIdRef.current,
+                    }),
                 });
                 if (!res.ok) throw new Error("API error");
                 const data: ApiResponse = await res.json();
@@ -212,12 +333,12 @@ export function AskAiraWidget() {
         setMessages(prev => [...prev, { text: reply, isUser: false, timestamp: rts }]);
 
         if (routeToNavigate) {
-            setTimeout(() => { router.push(routeToNavigate!); closeChat(); }, 500);
+            setTimeout(() => navigateFromChat(routeToNavigate!), 500);
         }
 
         setIsLoading(false);
         isSendingRef.current = false;
-    }, [isLoading, router, closeChat]);
+    }, [isLoading]);
 
     const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(inputValue); }
@@ -275,7 +396,7 @@ export function AskAiraWidget() {
 
                     {/* Button — sits behind the mascot hands */}
                     <button
-                        onClick={() => setIsOpen(true)}
+                        onClick={openChat}
                         className="relative flex items-center justify-between gap-3 rounded-full font-bold text-white border-none cursor-pointer transition-all duration-300 group overflow-visible aira-button"
                         style={{
                             position: "relative",
@@ -407,7 +528,7 @@ export function AskAiraWidget() {
                             <div style={{ position: "absolute", top: 10, right: 10, zIndex: 10, display: "flex", gap: 8 }}>
                                 {messages.length > 0 && (
                                     <button
-                                        onClick={() => { setMessages([]); try { localStorage.removeItem("aira_chat_messages"); } catch { /* ignore */ } }}
+                                        onClick={() => void clearChat()}
                                         title="Start new session" aria-label="Clear chat"
                                         style={{ width: 28, height: 28, borderRadius: "50%", border: "1px solid #d1d5db", background: "#f9fafb", color: "#6b7280", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 12, fontWeight: "bold" }}
                                     >⟲</button>

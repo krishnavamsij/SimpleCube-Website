@@ -11,7 +11,6 @@ import { Industries } from "@/components/industries";
 import { TechPartners } from "@/components/tech-partners";
 import { VoiceOfCustomer } from "@/components/voice-of-customer";
 import { Footer } from "@/components/footer";
-import { AskAiraWidget } from "@/components/ask-aira-widget";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
         <VoiceOfCustomer />
       </main>
       <Footer />
-      <AskAiraWidget />
     </>
   );
 }
