@@ -19,35 +19,127 @@ interface ApiResponse {
     status?: string;
     route?: string;
     target_route?: string;
+    detected_intent?: string;
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-function isValidUrl(s: string) {
-    try { new URL(s); return true; } catch { return false; }
+// ─── Storage & session (behavior only — no UI) ───────────────────────────────
+const STORAGE_KEYS = {
+    SESSION_ID: "aira_chat_session_id",
+    MESSAGES: "aira_chat_messages",
+    IS_OPEN: "aira_chat_is_open",
+} as const;
+
+const HYNIVA_HOSTS = new Set(["hyniva.com", "www.hyniva.com"]);
+
+function generateSessionId() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+        const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16;
+        const v = c === "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+    });
+}
+
+function emitNavigate(url: string) {
+    window.dispatchEvent(new CustomEvent("aira:navigate", { detail: { url } }));
+}
+
+function splitUrlAndTrailingPunctuation(raw: string) {
+    let href = raw;
+    let trailing = "";
+    const trailingPattern = /[)\]}"'.,;:!?•·»]+$/;
+    while (href.length > 0) {
+        const match = href.match(trailingPattern);
+        if (!match) break;
+        const chunk = match[0];
+        if (chunk.includes(")")) {
+            const opens = (href.match(/\(/g) || []).length;
+            const closes = (href.match(/\)/g) || []).length;
+            if (closes <= opens) break;
+        }
+        trailing = chunk + trailing;
+        href = href.slice(0, -chunk.length);
+    }
+    return { href, trailing };
 }
 
 function parseMessageForUrls(text: string) {
-    const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]()'"]*/g;
+    const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]]+/gi;
     const parts: { type: "text" | "url"; content: string }[] = [];
     let last = 0;
     for (const m of Array.from(text.matchAll(urlRegex))) {
-        if (m.index! > last) parts.push({ type: "text", content: text.slice(last, m.index) });
-        parts.push({ type: isValidUrl(m[0]) ? "url" : "text", content: m[0] });
-        last = m.index! + m[0].length;
+        const raw = m[0];
+        const start = m.index!;
+        if (start > last) parts.push({ type: "text", content: text.slice(last, start) });
+        const { href, trailing } = splitUrlAndTrailingPunctuation(raw);
+        let isValid = false;
+        try { new URL(href); isValid = true; } catch { isValid = false; }
+        if (isValid) {
+            parts.push({ type: "url", content: href });
+            if (trailing) parts.push({ type: "text", content: trailing });
+        } else {
+            parts.push({ type: "text", content: raw });
+        }
+        last = start + raw.length;
     }
     if (last < text.length) parts.push({ type: "text", content: text.slice(last) });
     return parts.length ? parts : [{ type: "text" as const, content: text }];
 }
 
+function toInAppPath(url: string): string | null {
+    const trimmed = url.trim();
+    if (!trimmed) return null;
+    if (trimmed.startsWith("/") && !trimmed.startsWith("//")) return trimmed;
+    try {
+        const parsed = new URL(trimmed, window.location.origin);
+        const path = parsed.pathname + parsed.search + parsed.hash;
+        if (parsed.origin === window.location.origin) return path || "/";
+        const host = parsed.hostname.replace(/^www\./, "");
+        if (HYNIVA_HOSTS.has(parsed.hostname) || host === "hyniva.com") return path || "/";
+    } catch {
+        if (trimmed.startsWith("/")) return trimmed;
+    }
+    return null;
+}
+
+function navigateFromChat(url: string) {
+    const inAppPath = toInAppPath(url);
+    if (inAppPath) emitNavigate(inAppPath);
+    else window.location.assign(url);
+}
+
+/** Wipe legacy persisted chat so a full browser refresh always starts clean. */
+function clearStaleChatStorage() {
+    try {
+        for (const key of Object.values(STORAGE_KEYS)) {
+            sessionStorage.removeItem(key);
+            localStorage.removeItem(key);
+        }
+    } catch { /* ignore */ }
+}
+
 function MessageContent({ text }: { text: string; isUser: boolean }) {
+    const handleUrlClick = (e: React.MouseEvent | React.KeyboardEvent, url: string) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigateFromChat(url);
+    };
+
     return (
         <>
             {parseMessageForUrls(text).map((n, i) =>
                 n.type === "url" ? (
-                    <a key={i} href={n.content} target="_blank" rel="noopener noreferrer"
-                        style={{ color: "#0066cc", textDecoration: "underline", wordBreak: "break-all" }}>
+                    <span
+                        key={i}
+                        role="link"
+                        tabIndex={0}
+                        onClick={(e) => handleUrlClick(e, n.content)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") handleUrlClick(e, n.content);
+                        }}
+                        style={{ color: "#0066cc", textDecoration: "underline", wordBreak: "break-all", cursor: "pointer" }}
+                    >
                         {n.content}
-                    </a>
+                    </span>
                 ) : <span key={i}>{n.content}</span>
             )}
         </>
@@ -67,6 +159,79 @@ function BodyPortal({ children }: { children: React.ReactNode }) {
     useEffect(() => { setMounted(true); }, []);
     if (!mounted) return null;
     return createPortal(children, document.body);
+}
+
+function ClearConfirmDialog({
+    onConfirm,
+    onCancel,
+}: {
+    onConfirm: () => void;
+    onCancel: () => void;
+}) {
+    return (
+        <div
+            style={{
+                position: "absolute",
+                top: 64,
+                left: 0,
+                right: 0,
+                zIndex: 10,
+                display: "flex",
+                justifyContent: "center",
+                padding: "0 24px",
+            }}
+        >
+            <div
+                style={{
+                    background: "#fff",
+                    border: "1.5px solid #e5e7eb",
+                    borderRadius: 12,
+                    padding: "16px 20px",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 16,
+                    width: "100%",
+                    maxWidth: 480,
+                }}
+            >
+                <span style={{ fontSize: 13, color: "#374151", flex: 1 }}>
+                    Clear all messages? This cannot be undone.
+                </span>
+                <button
+                    type="button"
+                    onClick={onCancel}
+                    style={{
+                        padding: "6px 14px",
+                        borderRadius: 8,
+                        border: "1px solid #d1d5db",
+                        background: "#fff",
+                        fontSize: 13,
+                        cursor: "pointer",
+                        color: "#374151",
+                    }}
+                >
+                    Cancel
+                </button>
+                <button
+                    type="button"
+                    onClick={onConfirm}
+                    style={{
+                        padding: "6px 14px",
+                        borderRadius: 8,
+                        border: "none",
+                        background: "#ef4444",
+                        color: "#fff",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        cursor: "pointer",
+                    }}
+                >
+                    Clear
+                </button>
+            </div>
+        </div>
+    );
 }
 
 // ─── Brand colours ────────────────────────────────────────────────────────────
@@ -89,11 +254,12 @@ export function AskAiraWidget() {
     const [inputValue, setInputValue] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
+    const [showClearConfirm, setShowClearConfirm] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatInputRef = useRef<HTMLInputElement>(null);
     const isSendingRef = useRef(false);
+    const sessionIdRef = useRef("");
 
     // ── Intersection observer for hero / footer ──
     // Re-runs on every route change so observers point to the new page's DOM.
@@ -170,26 +336,34 @@ export function AskAiraWidget() {
         };
     }, [pathname]); // re-run on every client-side navigation
 
-    // ── Chat persistence ──
+    // Fresh session on every full page load; in-app navigation keeps React state (layout).
     useEffect(() => {
-        try {
-            const saved = localStorage.getItem("aira_chat_messages");
-            if (saved) setMessages(JSON.parse(saved));
-        } catch { /* ignore */ }
-        setIsMounted(true);
+        clearStaleChatStorage();
+        sessionIdRef.current = generateSessionId();
     }, []);
 
     useEffect(() => {
-        if (isMounted && messages.length > 0) {
-            try { localStorage.setItem("aira_chat_messages", JSON.stringify(messages)); } catch { /* ignore */ }
-        }
-    }, [messages, isMounted]);
+        const handler = (e: Event) => {
+            const url = (e as CustomEvent<{ url: string }>).detail.url;
+            router.push(url);
+        };
+        window.addEventListener("aira:navigate", handler);
+        return () => window.removeEventListener("aira:navigate", handler);
+    }, [router]);
 
     // ── Scroll to bottom ──
     useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
     // ── Focus input on open ──
     useEffect(() => { if (isOpen) setTimeout(() => chatInputRef.current?.focus(), 150); }, [isOpen]);
+
+    // Re-focus after in-app navigation (chat stays mounted in layout)
+    useEffect(() => {
+        if (isOpen) {
+            const t = setTimeout(() => chatInputRef.current?.focus(), 200);
+            return () => clearTimeout(t);
+        }
+    }, [pathname, isOpen]);
 
     // ── Lock body scroll ──
     useEffect(() => {
@@ -199,8 +373,39 @@ export function AskAiraWidget() {
 
     const closeChat = useCallback(() => {
         setIsClosing(true);
-        setTimeout(() => { setIsOpen(false); setIsClosing(false); }, 420);
+        setTimeout(() => {
+            setIsOpen(false);
+            setIsClosing(false);
+        }, 420);
     }, []);
+
+    const executeClear = useCallback(async () => {
+        setShowClearConfirm(false);
+
+        const closingId = sessionIdRef.current;
+        try {
+            if (closingId) {
+                await fetch("/api/chatbot/session/close", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ session_id: closingId }),
+                });
+            }
+        } catch { /* ignore */ }
+
+        sessionIdRef.current = generateSessionId();
+        clearStaleChatStorage();
+        setMessages([]);
+        setInputValue("");
+        isSendingRef.current = false;
+        setIsLoading(false);
+        setTimeout(() => chatInputRef.current?.focus(), 50);
+    }, []);
+
+    const requestClear = useCallback(() => {
+        if (messages.length === 0) return;
+        setShowClearConfirm(true);
+    }, [messages.length]);
 
     const sendMessage = useCallback(async (text: string) => {
         if (!text.trim() || isLoading || isSendingRef.current) return;
@@ -216,21 +421,26 @@ export function AskAiraWidget() {
         if (["hi", "hello", "hey"].includes(text.toLowerCase()) || text.toLowerCase().startsWith("hi ")) {
             reply = generateFallbackResponse(text);
         } else {
+            if (!sessionIdRef.current) {
+                sessionIdRef.current = generateSessionId();
+            }
             try {
                 const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
                 const res = await fetch(apiUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: text }),
+                    body: JSON.stringify({
+                        message: text,
+                        session_id: sessionIdRef.current,
+                    }),
                 });
                 if (!res.ok) throw new Error("API error");
                 const data: ApiResponse = await res.json();
-                reply = data.message || JSON.stringify(data);
-                if (data.route) routeToNavigate = data.route;
-                else if (data.target_route) routeToNavigate = data.target_route;
-                if (data.status) reply += `\nStatus: ${data.status}`;
+                reply = data.message || "Sorry, I couldn't understand that.";
+                routeToNavigate = data.route || data.target_route || null;
             } catch {
-                reply = "Sorry, I couldn't reach the server.";
+                reply =
+                    "Sorry, I couldn't reach the server right now. Please try again.";
             }
         }
 
@@ -238,12 +448,12 @@ export function AskAiraWidget() {
         setMessages(prev => [...prev, { text: reply, isUser: false, timestamp: rts }]);
 
         if (routeToNavigate) {
-            setTimeout(() => { router.push(routeToNavigate!); closeChat(); }, 500);
+            setTimeout(() => navigateFromChat(routeToNavigate!), 700);
         }
 
         setIsLoading(false);
         isSendingRef.current = false;
-    }, [isLoading, router, closeChat]);
+    }, [isLoading]);
 
     const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(inputValue); }
@@ -430,11 +640,18 @@ export function AskAiraWidget() {
                                     : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)",
                             }}
                         >
+                            {showClearConfirm && (
+                                <ClearConfirmDialog
+                                    onConfirm={() => void executeClear()}
+                                    onCancel={() => setShowClearConfirm(false)}
+                                />
+                            )}
+
                             {/* Close & Clear */}
                             <div style={{ position: "absolute", top: 10, right: 10, zIndex: 10, display: "flex", gap: 8 }}>
                                 {messages.length > 0 && (
                                     <button
-                                        onClick={() => { setMessages([]); try { localStorage.removeItem("aira_chat_messages"); } catch { /* ignore */ } }}
+                                        onClick={requestClear}
                                         title="Start new session" aria-label="Clear chat"
                                         style={{ width: 28, height: 28, borderRadius: "50%", border: "1px solid #d1d5db", background: "#f9fafb", color: "#6b7280", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 12, fontWeight: "bold" }}
                                     >⟲</button>
@@ -472,7 +689,12 @@ export function AskAiraWidget() {
                                 )}
 
                                 {messages.map((msg, i) => (
-                                    <div key={i} className="aira-message" style={{ display: "flex", alignItems: "flex-start", gap: 10, justifyContent: msg.isUser ? "flex-end" : "flex-start", animation: "airaMsgIn 0.22s ease" }}>
+                                    <div
+                                        key={i}
+                                        className="aira-message"
+                                        data-testid={msg.isUser ? "chat-message-user" : "chat-message-assistant"}
+                                        style={{ display: "flex", alignItems: "flex-start", gap: 10, justifyContent: msg.isUser ? "flex-end" : "flex-start", animation: "airaMsgIn 0.22s ease" }}
+                                    >
                                         {!msg.isUser && (
                                             <div className="aira-bot-avatar" style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
                                                 <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }} />
@@ -488,7 +710,7 @@ export function AskAiraWidget() {
                                 ))}
 
                                 {isLoading && (
-                                    <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                                    <div data-testid="chat-typing-indicator" style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                                         <div style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="AIRA">
                                             <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }} />
                                         </div>
