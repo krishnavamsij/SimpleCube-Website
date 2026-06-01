@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Send, X, Search } from "lucide-react";
+import {
+  normalizeProductLinksInText,
+  normalizeProductRoute,
+} from "@/lib/product-route-normalizer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
@@ -244,12 +248,14 @@ export function AiraChatbot({
           if (!res.ok) throw new Error("API error");
           const data: ApiResponse = await res.json();
 
-          reply = data.message || JSON.stringify(data);
+          reply = normalizeProductLinksInText(
+            data.message || JSON.stringify(data)
+          );
 
           if (data.route) {
-            routeToNavigate = data.route;
+            routeToNavigate = normalizeProductRoute(data.route);
           } else if (data.target_route) {
-            routeToNavigate = data.target_route;
+            routeToNavigate = normalizeProductRoute(data.target_route);
           }
 
           if (data.status) reply += `\nStatus: ${data.status}`;

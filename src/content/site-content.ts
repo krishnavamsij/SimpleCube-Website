@@ -5,10 +5,10 @@
 export const navContent = {
     brand: { name: "Hyniva" },
     products: [
-        { title: "FinXServe", href: "/finxserve" },
-        { title: "Claim Pioneer", href: "/claim-pioneer" },
-        { title: "AIRA", href: "/aira" },
-        { title: "Hyper", href: "/hyper" },
+        { title: "FinXServe", href: "/products/finxserve" },
+        { title: "Claim Pioneer", href: "/products/claim-pioneer" },
+        { title: "AIRA", href: "/products/aira" },
+        { title: "Hyper", href: "/products/hyper" },
     ],
     industries: [
         { title: "Banking", href: "/industries/banking" },
@@ -254,7 +254,7 @@ export const productsContent = {
             tags: ["Financial Institutions"],
             description: "Salesforce-native omnichannel experience orchestration layer that sits above your existing core banking system and underwriting platforms to unify and streamline consumer acquisition for loans, cards and deposits.",
             image: "/images/Product_Images/FINXSERVE.gif",
-            href: "/finxserve",
+            href: "/products/finxserve",
         },
         {
             num: "02",
@@ -262,7 +262,7 @@ export const productsContent = {
             tags: ["Insurance"],
             description: "End-to-end claims automation from intake to closure. AI-driven assignment, mobile-first field execution and real-time visibility into every step of the claim's lifecycle, all in one connected workflow.",
             image: "/images/Product_Images/Claim_pioneer.gif",
-            href: "/claim-pioneer",
+            href: "/products/claim-pioneer",
         },
         {
             num: "03",
@@ -270,7 +270,7 @@ export const productsContent = {
             tags: ["Financial Institutions", "Insurance"],
             description: "The first enterprise-ready AI platform combining autonomous reasoning, compliance-first design and OneAPI integration into one scalable platform institutions can trust for mission-critical decisions.",
             image: "/images/Product_Images/Compressed/AIRA.gif",
-            href: "/aira",
+            href: "/products/aira",
         },
         {
             num: "04",
@@ -278,7 +278,7 @@ export const productsContent = {
             tags: ["Wealth Management"],
             description: "A digital investment journey platform that takes investors from goal discovery to personalized portfolio recommendations helping advisors scale AUM and reduce acquisition costs.",
             image: "/images/Product_Images/Hyper.gif",
-            href: "/hyper",
+            href: "/products/hyper",
 
         },
     ],
@@ -566,10 +566,10 @@ export const footerContent = {
         {
             title: "Products",
             links: [
-                { title: "FinXServe", href: "/finxserve" },
-                { title: "Claim Pioneer", href: "/claim-pioneer" },
-                { title: "AIRA", href: "/aira" },
-                { title: "Hyper", href: "/hyper" },
+                { title: "FinXServe", href: "/products/finxserve" },
+                { title: "Claim Pioneer", href: "/products/claim-pioneer" },
+                { title: "AIRA", href: "/products/aira" },
+                { title: "Hyper", href: "/products/hyper" },
             ],
         },
         {

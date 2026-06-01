@@ -1,6 +1,10 @@
 'use client';
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import {
+  normalizeProductLinksInText,
+  normalizeProductRoute,
+} from "@/lib/product-route-normalizer";
 
 /* ─────────────────────────────────────────────
    HYNIVA BRAND - LANDING PAGE COLORS
@@ -79,8 +83,10 @@ function handleResponse(
   try {
     const p = JSON.parse(raw);
     if (p?.message && typeof p.message === "string") {
-      add(makeItem(p.message));
-      if (p.target_route && p.target_route !== "null") router.push(p.target_route);
+      add(makeItem(normalizeProductLinksInText(p.message)));
+      if (p.target_route && p.target_route !== "null") {
+        router.push(normalizeProductRoute(p.target_route));
+      }
     } else {
       add(makeItem(raw));
     }

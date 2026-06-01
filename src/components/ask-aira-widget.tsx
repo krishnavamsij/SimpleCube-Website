@@ -6,6 +6,10 @@ import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { ChevronRight, Send, X, Search } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+    normalizeProductLinksInText,
+    normalizeProductRoute,
+} from "@/lib/product-route-normalizer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
@@ -88,10 +92,12 @@ function parseMessageForUrls(text: string) {
 function toInAppPath(url: string): string | null {
     const trimmed = url.trim();
     if (!trimmed) return null;
-    if (trimmed.startsWith("/") && !trimmed.startsWith("//")) return trimmed;
+    if (trimmed.startsWith("/") && !trimmed.startsWith("//")) {
+        return normalizeProductRoute(trimmed);
+    }
     try {
         const parsed = new URL(trimmed, window.location.origin);
-        const path = parsed.pathname + parsed.search + parsed.hash;
+        const path = normalizeProductRoute(parsed.pathname + parsed.search + parsed.hash);
         if (parsed.origin === window.location.origin) return path || "/";
         const host = parsed.hostname.replace(/^www\./, "");
         if (HYNIVA_HOSTS.has(parsed.hostname) || host === "hyniva.com") return path || "/";
@@ -436,8 +442,13 @@ export function AskAiraWidget() {
                 });
                 if (!res.ok) throw new Error("API error");
                 const data: ApiResponse = await res.json();
-                reply = data.message || "Sorry, I couldn't understand that.";
+                reply = normalizeProductLinksInText(
+                    data.message || "Sorry, I couldn't understand that.",
+                );
                 routeToNavigate = data.route || data.target_route || null;
+                if (routeToNavigate) {
+                    routeToNavigate = normalizeProductRoute(routeToNavigate);
+                }
             } catch {
                 reply =
                     "Sorry, I couldn't reach the server right now. Please try again.";
