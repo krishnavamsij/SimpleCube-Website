@@ -481,14 +481,14 @@ export default function FinxservePage() {
                             {caseStudies.map((cs, idx) => (
                                 <div key={idx} className="w-full md:w-1/3 px-[15px] mb-[30px]">
                                     <div className="bg-white h-full shadow-md flex flex-col border border-gray-100 rounded-sm overflow-hidden">
-                                        <div className="relative overflow-hidden">
+                                        <div className="relative overflow-hidden bg-gray-50">
                                             <Link href={cs.link}>
                                                 <Image
                                                     src={cs.img}
                                                     alt={cs.title}
                                                     width={400}
                                                     height={260}
-                                                    className="w-full h-[220px] object-cover transition-transform duration-300 hover:scale-105"
+                                                    className="w-full h-[220px] object-contain md:object-cover transition-transform duration-300 hover:scale-105"
                                                 />
                                             </Link>
                                         </div>

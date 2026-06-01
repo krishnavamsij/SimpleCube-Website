@@ -65,7 +65,7 @@ const QUICK_REPLIES = [
   "How do I contact Hyniva?",
   "Show case studies",
 ];
-
+ 
 /* ─────────────────────────────────────────────
    HANDLERS
 ───────────────────────────────────────────── */
