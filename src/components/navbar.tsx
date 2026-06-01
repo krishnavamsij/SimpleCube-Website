@@ -25,12 +25,12 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         { label: "Services", items: navContent.services.map(s => ({ title: s.title, href: s.href })) },
         { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
         { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
-        { label: "About", items: navContent.about.map(a => ({ title: a.title, href: a.href })) },
-    ];
-
-    // Standalone navigation items (not dropdowns)
-    const standaloneItems: { title: string; href: string }[] = [
-        { title: "Contact Us", href: "/contact" },
+        {
+            label: "About",
+            items: [
+                ...navContent.about.map(a => ({ title: a.title, href: a.href })),
+            ],
+        },
     ];
 
     return (
@@ -70,10 +70,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     />
                 </Link>
 
-                {/* Animated Spacer 1 */}
-                <motion.div 
-                    className="flex-1" 
-                    animate={{ width: scrolled ? 16 : "auto" }} 
+                {/* Spacer 1 */}
+                <motion.div
+                    className="flex-1"
+                    animate={{ width: scrolled ? 16 : "auto" }}
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                 />
 
@@ -126,21 +126,37 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     ))}
                 </div>
 
-                {/* Animated Spacer 2 */}
-                <motion.div 
-                    className="flex-1" 
-                    animate={{ width: scrolled ? 16 : "auto" }} 
+                {/* Spacer 2 */}
+                <motion.div
+                    className="flex-1"
+                    animate={{ width: scrolled ? 16 : "auto" }}
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                 />
 
-                {/* Desktop CTA */}
-                <div className="hidden items-center lg:flex shrink-0">
-                    <Button asChild className={cn(
-                        "bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-0 rounded-full font-black uppercase transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(59,130,246,0.4)]",
-                        scrolled ? "px-4 h-8 text-[11px]" : "px-6 h-10 text-[13px]"
-                    )}>
-                        <Link href="/contact">Contact Us</Link>
-                    </Button>
+                {/* Desktop CTA — Contact Us */}
+                <div className="hidden lg:flex items-center shrink-0">
+                    <Link href="/contact">
+                        <button
+                            className={cn(
+                                "relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
+                                scrolled ? "h-8 px-4 text-[11px]" : "h-9 px-5 text-[12px]"
+                            )}
+                            style={{
+                                background: "#2563eb",
+                                boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
+                            }}
+                            onMouseEnter={e => {
+                                (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
+                                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(37,99,235,0.5)";
+                            }}
+                            onMouseLeave={e => {
+                                (e.currentTarget as HTMLButtonElement).style.background = "#2563eb";
+                                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(37,99,235,0.3)";
+                            }}
+                        >
+                            CONTACT US
+                        </button>
+                    </Link>
                 </div>
 
                 {/* Mobile toggle */}
@@ -182,9 +198,11 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                 </div>
                             ))}
                             <div className="pt-3 pb-6">
-                                <Button asChild className="w-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] border-0 rounded-full h-12 font-black uppercase">
-                                    <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-                                </Button>
+                                <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                                    <Button className="w-full rounded-full bg-[#2563eb] text-white font-black hover:bg-[#1d4ed8] uppercase text-[12px] tracking-wide">
+                                        CONTACT US
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>

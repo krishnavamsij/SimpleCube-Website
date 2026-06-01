@@ -102,7 +102,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="relative overflow-hidden w-full bg-[#030B3B] text-white">
+    <footer id="site-footer" className="relative overflow-hidden w-full bg-[#030B3B] text-white">
       {/* Background glowing ellipses */}
       <div
         className="absolute w-[1000px] h-[1000px] pointer-events-none z-[1] bottom-[-200px] left-[-300px]"

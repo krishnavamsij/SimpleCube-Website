@@ -67,7 +67,7 @@ export const industriesListingContent = {
         {
             title: "Lending",
             description: "Our innovation meets efficiency to drive seamless processes, robust risk management, and unparalleled customer experiences in the lending industry.",
-            href: "/finxserve",
+            href: "/products/finxserve",
         },
     ],
     cta: {
