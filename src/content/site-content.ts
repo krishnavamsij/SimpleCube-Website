@@ -239,8 +239,8 @@ export const productsContent = {
     subheadline: "Seven products born from decades of enterprise delivery, proving our domain knowledge extends beyond implementation.",
     rightCallout: "Two of our flagship products were acquired by industry leaders — Fiserv and SavvyMoney. A testament to what enterprise depth produces when it becomes a product.",
     logos: [
-        { industry: "LENDING", name: "iLENDX", src: "/images/Product_Logos/Compressed/iLendX.png", acquiredBy: "Fiserv" },
-        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product_Logos/Compressed/Credit_Snap.png", acquiredBy: "SavvyMoney" },
+        { industry: "LENDING", name: "iLENDX", src: "/images/Product_Logos/Compressed/iLendX.png", acquiredBy: "Fiserv", acquiredByUrl: "https://www.fiserv.com/" },
+        { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product_Logos/Compressed/Credit_Snap.png", acquiredBy: "SavvyMoney", acquiredByUrl: "https://www.savvymoney.com/" },
         { industry: "EDUCATION", name: "EazySchool", src: "/images/Product_Logos/Compressed/EazySchool.png" },
         { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product_Logos/Compressed/Hyper.png" },
         { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product_Logos/Compressed/FinXServe.png" },
