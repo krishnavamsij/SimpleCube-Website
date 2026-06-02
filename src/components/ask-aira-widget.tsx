@@ -474,7 +474,7 @@ export function AskAiraWidget() {
         <>
             {/* ── Floating pill ── */}
             <div
-                className="fixed bottom-8 flex flex-col items-end aira-widget-container"
+                className="fixed aira-widget-container"
                 onMouseEnter={() => {
                     setIsHovered(true);
                 }}
@@ -483,8 +483,13 @@ export function AskAiraWidget() {
                 }}
                 style={{
                     pointerEvents: "auto",
-                    right: "0px",
-                    paddingRight: (isMiddle && !isHovered) ? "0px" : "1rem",
+                    right: "1rem",
+                    bottom: "2rem",
+                    left: "auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-end",
+                    paddingRight: "0px",
                     transition: "padding-right 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
                     zIndex: 9999,
                 }}
@@ -515,7 +520,7 @@ export function AskAiraWidget() {
                             opacity: (isMiddle && !isHovered) ? 0 : 1,
                             scale: (isMiddle && !isHovered) ? 0.5 : 1,
                             y: (isMiddle && !isHovered) ? 30 : 0,
-                            x: "-50%",
+                            x: "-45%",
                         }}
                         transition={{
                             type: "spring",
@@ -527,20 +532,20 @@ export function AskAiraWidget() {
                         style={{
                             position: "absolute",
                             left: "50%",
-                            bottom: (isMiddle && !isHovered) ? "-10px" : "36px",
-                            width: (isMiddle && !isHovered) ? "0px" : "120px",
-                            height: (isMiddle && !isHovered) ? "0px" : "120px",
+                            bottom: (isMiddle && !isHovered) ? "-10px" : "27px",
+                            width: (isMiddle && !isHovered) ? "0px" : "85px",
+                            height: (isMiddle && !isHovered) ? "0px" : "85px",
                             display: "flex",
                             alignItems: "flex-end",
                             justifyContent: "center",
                             pointerEvents: "none",
-                            zIndex: 10,
+                            zIndex: 3,
                             transition: "all 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
                             overflow: "visible",
                         }}
                     >
                         <img
-                            src="/images/AIRA_MASCOT/NEW_HEAD_AND_HAND.png"
+                            src="/images/AIRA_MASCOT/AIRA_New.png"
                             alt="AIRA Assistant"
                             className="aira-mascot-grip"
                             style={{
@@ -562,10 +567,11 @@ export function AskAiraWidget() {
                             zIndex: 2,
                             background: "#2563eb",
                             boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
-                            minWidth: (isMiddle && !isHovered) ? "42px" : "140px",
+                            minWidth: (isMiddle && !isHovered) ? "42px" : "auto",
                             paddingLeft: (isMiddle && !isHovered) ? "11px" : "16px",
-                            paddingRight: (isMiddle && !isHovered) ? "11px" : "12px",
-                            height: "42px",
+                            paddingRight: (isMiddle && !isHovered) ? "11px" : "16px",
+                            height: "32px",
+                            fontSize: "11px",
                             borderRadius: (isMiddle && !isHovered) ? "21px 0 0 21px" : "21px",
                             transition: "all 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
                         }}
@@ -587,7 +593,7 @@ export function AskAiraWidget() {
                                 transition: "all 0.3s ease",
                             }}
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }}>
                                 <path d="M10 2L11.5 7.5L17 9L11.5 10.5L10 16L8.5 10.5L3 9L8.5 7.5L10 2Z" />
                                 <path d="M18 12L18.75 14.25L21 15L18.75 15.75L18 18L17.25 15.75L15 15L17.25 14.25L18 12Z" />
                                 <path d="M17 3L17.5 4.5L19 5L17.5 5.5L17 7L16.5 5.5L15 5L16.5 4.5L17 3Z" />
@@ -604,12 +610,12 @@ export function AskAiraWidget() {
                                 overflow: "hidden",
                                 display: "flex",
                                 alignItems: "center",
-                                gap: "6px", // Added gap between items
-                                marginLeft: (isMiddle && !isHovered) ? "0px" : "12px",
+                                gap: "4px",
+                                marginLeft: (isMiddle && !isHovered) ? "0px" : "8px",
                             }}
                         >
-                            <img src="/aira-text.png" alt="AIRA" style={{ height: "14px", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
-                            <ChevronRight size={18} strokeWidth={3} />
+                            <img src="/aira-text.png" alt="AIRA" style={{ height: "11px", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
+                            <ChevronRight size={14} strokeWidth={3} />
                         </span>
                     </button>
                 </motion.div>
@@ -797,10 +803,11 @@ export function AskAiraWidget() {
                         display: none !important;
                     }
                     
+                    /* Keep mascot same size as desktop */
                     .aira-mascot-expanded {
-                        width: 90px !important;
-                        height: 90px !important;
-                        bottom: 28px !important;
+                        width: 85px !important;
+                        height: 85px !important;
+                        bottom: 27px !important;
                     }
                     
                     .aira-mascot-minimized {
@@ -809,49 +816,25 @@ export function AskAiraWidget() {
                         bottom: -10px !important;
                     }
                     
+                    /* Keep button same size as desktop */
                     .aira-button-expanded {
-                        height: 38px !important;
-                        min-width: 104px !important;
-                        padding-left: 12px !important;
-                        padding-right: 12px !important;
+                        height: 32px !important;
+                        padding-left: 16px !important;
+                        padding-right: 16px !important;
                     }
                     
                     .aira-button-minimized {
-                        height: 38px !important;
-                        min-width: 38px !important;
+                        height: 32px !important;
+                        min-width: 42px !important;
                         padding-left: 11px !important;
                         padding-right: 11px !important;
-                        border-radius: 19px 0 0 19px !important;
+                        border-radius: 21px 0 0 21px !important;
                     }
                     
-                    .aira-button-text {
-                        gap: 4px !important;
-                    }
-                    
-                    .aira-text-expanded {
-                        margin-left: 6px !important;
-                    }
-                    
-                    .aira-text-minimized {
-                        margin-left: 0px !important;
-                    }
-                    
-                    .aira-button img {
-                        height: 11px !important;
-                    }
-                    
-                    .aira-button svg {
-                        width: 14px !important;
-                        height: 14px !important;
-                    }
-                    
+                    /* Position widget in bottom-right corner, fully visible */
                     .aira-widget-container {
                         bottom: 1.5rem !important;
-                        right: 0 !important;
-                    }
-                    
-                    .aira-widget-container:hover {
-                        padding-right: 1rem !important;
+                        right: 1rem !important;
                     }
                     
                     /* Chat panel mobile styles */
