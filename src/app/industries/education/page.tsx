@@ -179,13 +179,13 @@ function ProvenImpact() {
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-            <div className="mx-auto max-w-[1200px] px-6 text-left relative z-10">
+            <div className="mx-auto max-w-[1200px] px-6 text-left md:text-center relative z-10">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-4xl mb-20 text-left"
+                    className="max-w-4xl mx-auto mb-20 text-left md:text-center"
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
                         {educationContent.impact.title}
@@ -203,12 +203,12 @@ function ProvenImpact() {
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
                 >
                     {educationContent.impact.stats.map((stat, index) => (
-                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start text-left">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left">
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start md:items-center text-left md:text-center">
+                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left md:text-center">
                                 {stat.value}
                             </div>
                             <div
-                                className="text-base text-slate-300 font-medium text-left"
+                                className="text-base text-slate-300 font-medium text-left md:text-center"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}
                             />
                         </motion.div>
