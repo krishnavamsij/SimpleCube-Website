@@ -297,11 +297,8 @@ export function AskAiraWidget() {
                 // Top of page or footer is visible — show full capsule immediately.
                 setIsMiddle(false);
             } else {
-                // In middle section — minimize with smooth delay.
-                hideTimer = setTimeout(() => {
-                    setIsMiddle(true);
-                    hideTimer = null;
-                }, 800);
+                // In middle section — minimize immediately with smooth animation.
+                setIsMiddle(true);
             }
         };
 
@@ -503,7 +500,7 @@ export function AskAiraWidget() {
                     flexDirection: "column",
                     alignItems: "flex-end",
                     paddingRight: "0px",
-                    transition: "padding-right 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
+                    transition: "padding-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     zIndex: 9999,
                 }}
             >
@@ -552,15 +549,12 @@ export function AskAiraWidget() {
                         animate={{
                             opacity: (isMiddle && !isHovered) ? 0 : 1,
                             scale: (isMiddle && !isHovered) ? 0.5 : 1,
-                            y: (isMiddle && !isHovered) ? 30 : 0,
+                            y: (isMiddle && !isHovered) ? 20 : 0,
                             x: "-45%",
                         }}
                         transition={{
-                            type: "spring",
-                            stiffness: 200,
-                            damping: 25,
-                            mass: 1,
-                            delay: (isMiddle && !isHovered) ? 0 : 0.15,
+                            duration: 0.3,
+                            ease: [0.34, 1.56, 0.64, 1],
                         }}
                         style={{
                             position: "absolute",
@@ -568,12 +562,12 @@ export function AskAiraWidget() {
                             bottom: (isMiddle && !isHovered) ? "-10px" : "27px",
                             width: (isMiddle && !isHovered) ? "0px" : "85px",
                             height: (isMiddle && !isHovered) ? "0px" : "85px",
+                            visibility: (isMiddle && !isHovered) ? "hidden" : "visible",
                             display: "flex",
                             alignItems: "flex-end",
                             justifyContent: "center",
                             pointerEvents: "none",
                             zIndex: 3,
-                            transition: "all 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
                             overflow: "visible",
                         }}
                     >
@@ -589,7 +583,7 @@ export function AskAiraWidget() {
                                 filter: isHovered 
                                     ? "drop-shadow(0 0 3px rgba(59, 130, 246, 1)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.6)) drop-shadow(0 0 25px rgba(59, 130, 246, 0.4)) drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
                                     : "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
-                                transition: "filter 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
+                                transition: "filter 0.3s ease-out",
                             }}
                         />
                     </motion.div>
@@ -597,7 +591,7 @@ export function AskAiraWidget() {
                     {/* Button — Glowing pill */}
                     <button
                         onClick={() => setIsOpen(true)}
-                        className={`relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all duration-300 group overflow-visible uppercase tracking-wide aira-button ${(isMiddle && !isHovered) ? 'aira-button-minimized' : 'aira-button-expanded'}`}
+                        className={`relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all group overflow-visible uppercase tracking-wide aira-button ${(isMiddle && !isHovered) ? 'aira-button-minimized' : 'aira-button-expanded'}`}
                         style={{
                             position: "relative",
                             zIndex: 2,
@@ -611,7 +605,7 @@ export function AskAiraWidget() {
                             height: "32px",
                             fontSize: "11px",
                             borderRadius: (isMiddle && !isHovered) ? "21px 0 0 21px" : "21px",
-                            transition: "all 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
+                            transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                         }}
                         onMouseEnter={e => {
                             (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
@@ -626,7 +620,7 @@ export function AskAiraWidget() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                transition: "all 0.3s ease",
+                                transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                             }}
                         >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }}>
@@ -641,7 +635,7 @@ export function AskAiraWidget() {
                             className={`aira-button-text ${(isMiddle && !isHovered) ? 'aira-text-minimized' : 'aira-text-expanded'}`}
                             style={{
                                 opacity: (isMiddle && !isHovered) ? 0 : 1,
-                                transition: "opacity 0.5s ease",
+                                transition: "opacity 0.3s ease-out",
                                 width: (isMiddle && !isHovered) ? "0px" : "auto",
                                 overflow: "hidden",
                                 display: "flex",
