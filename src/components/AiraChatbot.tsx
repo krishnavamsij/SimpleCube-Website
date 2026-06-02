@@ -26,6 +26,9 @@ interface ApiResponse {
   detected_intent?: string;
 }
 
+const HYNIVA_ONLY_MESSAGE =
+  "I can't help with that. I can help only with information related to Hyniva.";
+
 // ─── URL Detection & Link Rendering ───────────────────────────────────────────
 function isValidUrl(string: string): boolean {
   try {
@@ -245,20 +248,29 @@ export function AiraChatbot({
             body: JSON.stringify({ message: text }),
           });
 
-          if (!res.ok) throw new Error("API error");
-          const data: ApiResponse = await res.json();
-
-          reply = normalizeProductLinksInText(
-            data.message || JSON.stringify(data)
-          );
-
-          if (data.route) {
-            routeToNavigate = normalizeProductRoute(data.route);
-          } else if (data.target_route) {
-            routeToNavigate = normalizeProductRoute(data.target_route);
+          if (!res.ok) {
+            if (res.status === 403) {
+              reply = HYNIVA_ONLY_MESSAGE;
+            } else {
+              throw new Error("API error");
+            }
           }
 
-          if (data.status) reply += `\nStatus: ${data.status}`;
+          if (!reply) {
+            const data: ApiResponse = await res.json();
+
+            reply = normalizeProductLinksInText(
+              data.message || JSON.stringify(data)
+            );
+
+            if (data.route) {
+              routeToNavigate = normalizeProductRoute(data.route);
+            } else if (data.target_route) {
+              routeToNavigate = normalizeProductRoute(data.target_route);
+            }
+
+            if (data.status) reply += `\nStatus: ${data.status}`;
+          }
         } catch (err) {
           reply = "Sorry, I couldn't reach the server.";
         }

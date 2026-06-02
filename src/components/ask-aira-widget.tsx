@@ -26,6 +26,9 @@ interface ApiResponse {
     detected_intent?: string;
 }
 
+const HYNIVA_ONLY_MESSAGE =
+    "I can't help with that. I can help only with information related to Hyniva.";
+
 // ─── Storage & session (behavior only — no UI) ───────────────────────────────
 const STORAGE_KEYS = {
     SESSION_ID: "aira_chat_session_id",
@@ -440,14 +443,24 @@ export function AskAiraWidget() {
                         session_id: sessionIdRef.current,
                     }),
                 });
-                if (!res.ok) throw new Error("API error");
-                const data: ApiResponse = await res.json();
-                reply = normalizeProductLinksInText(
-                    data.message || "Sorry, I couldn't understand that.",
-                );
-                routeToNavigate = data.route || data.target_route || null;
-                if (routeToNavigate) {
-                    routeToNavigate = normalizeProductRoute(routeToNavigate);
+                if (!res.ok) {
+                    if (res.status === 403) {
+                        reply = HYNIVA_ONLY_MESSAGE;
+                    } else {
+                        throw new Error("API error");
+                    }
+                }
+                if (reply) {
+                    routeToNavigate = null;
+                } else {
+                    const data: ApiResponse = await res.json();
+                    reply = normalizeProductLinksInText(
+                        data.message || "Sorry, I couldn't understand that.",
+                    );
+                    routeToNavigate = data.route || data.target_route || null;
+                    if (routeToNavigate) {
+                        routeToNavigate = normalizeProductRoute(routeToNavigate);
+                    }
                 }
             } catch {
                 reply =

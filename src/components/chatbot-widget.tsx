@@ -42,6 +42,9 @@ interface ChatItem {
   ts: number;
 }
 
+const HYNIVA_ONLY_MESSAGE =
+  "I can't help with that. I can help only with information related to Hyniva.";
+
 /* ─────────────────────────────────────────────
    RESPONSIVE HOOK
 ───────────────────────────────────────────── */
@@ -205,12 +208,22 @@ export default function HynivaChatbot() {
     setIsSending(true);
 
     try {
-      const res = await fetch("https://astra.hyniva.com/v1/agent/hyniva-web-assistant-v1-2026/run", {
+      const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text }),
       });
-      handleResponse(await res.text(), addItem, router);
+      if (res.status === 403) {
+        addItem({
+          id: Math.random().toString(36).slice(2),
+          role: "bot",
+          text: HYNIVA_ONLY_MESSAGE,
+          ts: Date.now(),
+        });
+      } else {
+        handleResponse(await res.text(), addItem, router);
+      }
     } catch {
       addItem({
         id: Math.random().toString(36).slice(2),

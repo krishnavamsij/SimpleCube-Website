@@ -8,6 +8,9 @@ type UpstreamResponse = {
   detected_intent?: string;
 };
 
+const HYNIVA_ONLY_MESSAGE =
+  "I can't help with that. I can help only with information related to Hyniva.";
+
 function getChatbotApiUrl(): string | null {
   return (
     process.env.CHATBOT_API_URL ||
@@ -64,6 +67,16 @@ export async function POST(request: Request) {
     }
 
     if (!upstreamResponse.ok) {
+      if (upstreamResponse.status === 403) {
+        return NextResponse.json(
+          {
+            message: HYNIVA_ONLY_MESSAGE,
+          },
+          // Return a successful response so UI renders this as assistant content.
+          { status: 200 },
+        );
+      }
+
       return NextResponse.json(
         {
           message:
