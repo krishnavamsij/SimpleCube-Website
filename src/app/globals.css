@@ -1140,3 +1140,17 @@ html {
     transform: scale(0.8) rotate(45deg);
   }
 }
+
+/* ============================================================
+   AIRA Glow Pulse Animation
+   ============================================================ */
+@keyframes airaGlowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}

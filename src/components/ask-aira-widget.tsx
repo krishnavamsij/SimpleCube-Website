@@ -297,11 +297,11 @@ export function AskAiraWidget() {
                 // Top of page or footer is visible — show full capsule immediately.
                 setIsMiddle(false);
             } else {
-                // In middle section — minimize with small delay.
+                // In middle section — minimize with smooth delay.
                 hideTimer = setTimeout(() => {
                     setIsMiddle(true);
                     hideTimer = null;
-                }, 150);
+                }, 800);
             }
         };
 
@@ -503,10 +503,30 @@ export function AskAiraWidget() {
                     flexDirection: "column",
                     alignItems: "flex-end",
                     paddingRight: "0px",
-                    transition: "padding-right 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+                    transition: "padding-right 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
                     zIndex: 9999,
                 }}
             >
+                {/* Ambient background glow on hover */}
+                {isHovered && (
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "300px",
+                            height: "300px",
+                            background: "radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%)",
+                            borderRadius: "50%",
+                            filter: "blur(40px)",
+                            zIndex: 0,
+                            pointerEvents: "none",
+                            animation: "airaGlowPulse 2s ease-in-out infinite",
+                        }}
+                    />
+                )}
+
                 <motion.div
                     initial={false}
                     animate={{
@@ -537,10 +557,10 @@ export function AskAiraWidget() {
                         }}
                         transition={{
                             type: "spring",
-                            stiffness: 300,
-                            damping: 30,
-                            mass: 0.8,
-                            delay: (isMiddle && !isHovered) ? 0 : 0.1,
+                            stiffness: 200,
+                            damping: 25,
+                            mass: 1,
+                            delay: (isMiddle && !isHovered) ? 0 : 0.15,
                         }}
                         style={{
                             position: "absolute",
@@ -553,7 +573,7 @@ export function AskAiraWidget() {
                             justifyContent: "center",
                             pointerEvents: "none",
                             zIndex: 3,
-                            transition: "all 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+                            transition: "all 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
                             overflow: "visible",
                         }}
                     >
@@ -566,7 +586,10 @@ export function AskAiraWidget() {
                                 height: "100%",
                                 objectFit: "contain",
                                 objectPosition: "bottom center",
-                                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
+                                filter: isHovered 
+                                    ? "drop-shadow(0 0 3px rgba(59, 130, 246, 1)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.6)) drop-shadow(0 0 25px rgba(59, 130, 246, 0.4)) drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
+                                    : "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
+                                transition: "filter 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
                             }}
                         />
                     </motion.div>
@@ -579,22 +602,22 @@ export function AskAiraWidget() {
                             position: "relative",
                             zIndex: 2,
                             background: "#2563eb",
-                            boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
+                            boxShadow: isHovered 
+                                ? "0 0 2px 1px rgba(59, 130, 246, 1), 0 0 8px 2px rgba(59, 130, 246, 0.8), 0 0 20px 4px rgba(59, 130, 246, 0.5), 0 0 40px 8px rgba(59, 130, 246, 0.3), 0 4px 12px rgba(37,99,235,0.5)"
+                                : "0 2px 8px rgba(37,99,235,0.3)",
                             minWidth: (isMiddle && !isHovered) ? "42px" : "auto",
                             paddingLeft: (isMiddle && !isHovered) ? "11px" : "16px",
                             paddingRight: (isMiddle && !isHovered) ? "11px" : "16px",
                             height: "32px",
                             fontSize: "11px",
                             borderRadius: (isMiddle && !isHovered) ? "21px 0 0 21px" : "21px",
-                            transition: "all 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+                            transition: "all 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
                         }}
                         onMouseEnter={e => {
                             (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
-                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(37,99,235,0.5)";
                         }}
                         onMouseLeave={e => {
                             (e.currentTarget as HTMLButtonElement).style.background = "#2563eb";
-                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(37,99,235,0.3)";
                         }}
                     >
                         {/* Stars Icon - always visible */}
@@ -618,7 +641,7 @@ export function AskAiraWidget() {
                             className={`aira-button-text ${(isMiddle && !isHovered) ? 'aira-text-minimized' : 'aira-text-expanded'}`}
                             style={{
                                 opacity: (isMiddle && !isHovered) ? 0 : 1,
-                                transition: "opacity 0.3s ease",
+                                transition: "opacity 0.5s ease",
                                 width: (isMiddle && !isHovered) ? "0px" : "auto",
                                 overflow: "hidden",
                                 display: "flex",
