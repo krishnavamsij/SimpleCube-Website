@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { ChevronRight, Send, X, Search } from "lucide-react";
+import { ChevronRight, Send, X, Search, Mic, MicOff, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import {
     normalizeProductLinksInText,
@@ -24,6 +24,52 @@ interface ApiResponse {
     route?: string;
     target_route?: string;
     detected_intent?: string;
+}
+
+type SpeechRecognitionResultEventLike = Event & {
+    resultIndex: number;
+    results: {
+        length: number;
+        [index: number]: {
+            isFinal: boolean;
+            0: { transcript: string };
+        };
+    };
+};
+
+type SpeechRecognitionErrorEventLike = Event & {
+    error?:
+        | "aborted"
+        | "audio-capture"
+        | "bad-grammar"
+        | "language-not-supported"
+        | "network"
+        | "no-speech"
+        | "not-allowed"
+        | "phrases-not-supported"
+        | "service-not-allowed"
+        | string;
+};
+
+type SpeechRecognitionLike = {
+    continuous: boolean;
+    interimResults: boolean;
+    lang: string;
+    start: () => void;
+    stop: () => void;
+    abort: () => void;
+    onresult: ((event: SpeechRecognitionResultEventLike) => void) | null;
+    onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
+    onend: (() => void) | null;
+};
+
+type SpeechRecognitionConstructorLike = new () => SpeechRecognitionLike;
+
+declare global {
+    interface Window {
+        SpeechRecognition?: SpeechRecognitionConstructorLike;
+        webkitSpeechRecognition?: SpeechRecognitionConstructorLike;
+    }
 }
 
 const HYNIVA_ONLY_MESSAGE =
@@ -92,6 +138,189 @@ function parseMessageForUrls(text: string) {
     return parts.length ? parts : [{ type: "text" as const, content: text }];
 }
 
+function buildSpeechText(text: string) {
+    return parseMessageForUrls(text)
+        .filter((part) => part.type !== "url")
+        .map((part) => part.content)
+        .join("")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+// Script → BCP-47 language tag mapping
+const SCRIPT_LANGUAGE_MAP: Array<[RegExp, string]> = [
+    [/\p{Script=Devanagari}/u, "hi-IN"],
+    [/\p{Script=Bengali}/u, "bn-IN"],
+    [/\p{Script=Gujarati}/u, "gu-IN"],
+    [/\p{Script=Gurmukhi}/u, "pa-IN"],
+    [/\p{Script=Kannada}/u, "kn-IN"],
+    [/\p{Script=Malayalam}/u, "ml-IN"],
+    [/\p{Script=Tamil}/u, "ta-IN"],
+    [/\p{Script=Telugu}/u, "te-IN"],
+    [/\p{Script=Arabic}/u, "ar"],
+    [/\p{Script=Hebrew}/u, "he-IL"],
+    [/\p{Script=Thai}/u, "th-TH"],
+    [/\p{Script=Han}/u, "zh-CN"],
+    [/\p{Script=Hiragana}|\p{Script=Katakana}/u, "ja-JP"],
+    [/\p{Script=Hangul}/u, "ko-KR"],
+    [/\p{Script=Cyrillic}/u, "ru-RU"],
+    [/\p{Script=Greek}/u, "el-GR"],
+];
+
+/** Returns the BCP-47 language tag for a single character, or "en-US" for Latin/other. */
+function charLanguage(char: string): string {
+    return SCRIPT_LANGUAGE_MAP.find(([pattern]) => pattern.test(char))?.[1] ?? "en-US";
+}
+
+/** Detect the dominant (most-frequent) language in text — used for voice input. */
+function detectSpeechLanguage(text: string): string {
+    return SCRIPT_LANGUAGE_MAP.find(([pattern]) => pattern.test(text))?.[1] ?? "en-US";
+}
+
+/**
+ * Split text into contiguous segments where each segment shares the same
+ * script/language. Adjacent segments of the same language are merged.
+ * Pure whitespace is attached to the preceding segment (or the next one if
+ * it's the very start) so TTS pauses are natural.
+ */
+function splitIntoLanguageSegments(text: string): Array<{ text: string; lang: string }> {
+    if (!text) return [];
+
+    const segments: Array<{ text: string; lang: string }> = [];
+    let currentLang = "";
+    let currentChunk = "";
+
+    for (const char of text) {
+        // Whitespace: carry it along with the current chunk
+        if (/\s/.test(char)) {
+            currentChunk += char;
+            continue;
+        }
+
+        const lang = charLanguage(char);
+
+        if (lang !== currentLang) {
+            if (currentChunk.trim()) {
+                segments.push({ text: currentChunk, lang: currentLang || "en-US" });
+            } else if (currentChunk && segments.length > 0) {
+                // Carry leading/trailing whitespace into previous segment
+                segments[segments.length - 1].text += currentChunk;
+            }
+            currentLang = lang;
+            currentChunk = char;
+        } else {
+            currentChunk += char;
+        }
+    }
+
+    if (currentChunk.trim()) {
+        segments.push({ text: currentChunk, lang: currentLang || "en-US" });
+    } else if (currentChunk && segments.length > 0) {
+        segments[segments.length - 1].text += currentChunk;
+    }
+
+    return segments;
+}
+
+async function getSpeechSynthesisVoices() {
+    if (!("speechSynthesis" in window)) return [];
+
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length > 0) return voices;
+
+    return new Promise<SpeechSynthesisVoice[]>((resolve) => {
+        const timeout = window.setTimeout(() => {
+            window.speechSynthesis.onvoiceschanged = null;
+            resolve(window.speechSynthesis.getVoices());
+        }, 600);
+
+        window.speechSynthesis.onvoiceschanged = () => {
+            window.clearTimeout(timeout);
+            window.speechSynthesis.onvoiceschanged = null;
+            resolve(window.speechSynthesis.getVoices());
+        };
+    });
+}
+
+function getPreferredAiraVoice(language: string, voices: SpeechSynthesisVoice[]) {
+    if (voices.length === 0) return null;
+
+    const normalizedLanguage = language.toLowerCase();
+    const languagePrefix = normalizedLanguage.split("-")[0];
+
+    const sweetFemaleNames = [
+        "samantha",
+        "jenny",
+        "aria",
+        "zira",
+        "susan",
+        "linda",
+        "victoria",
+        "karen",
+        "moira",
+        "tessa",
+        "google us english",
+        "google uk english female",
+        "microsoft aria",
+        "microsoft jenny",
+        "microsoft zira",
+        "microsoft heera",
+        "microsoft kalpana",
+        "microsoft kalpana mobile",
+        "microsoft heera mobile",
+        "chitra",
+        "shruti",
+        "swara",
+        "pallavi",
+        "priya",
+        "neerja",
+        "sunita",
+        "neelam",
+        "ananya",
+        "meera",
+        "lekha",
+        "veena",
+        "female",
+        "woman",
+    ];
+    const maleNames = [
+        "david",
+        "mark",
+        "george",
+        "ravi",
+        "alex",
+        "daniel",
+        "fred",
+        "tom",
+        "male",
+        "man",
+    ];
+
+    const scoreVoice = (voice: SpeechSynthesisVoice) => {
+        const name = voice.name.toLowerCase();
+        const voiceLanguage = voice.lang.toLowerCase();
+        let score = 0;
+
+        if (voiceLanguage === normalizedLanguage) score += 240;
+        else if (voiceLanguage.startsWith(`${languagePrefix}-`)) score += 200;
+        else if (voiceLanguage.startsWith("en-")) score += 20;
+
+        if (sweetFemaleNames.some((femaleName) => name.includes(femaleName))) score += 90;
+        if (maleNames.some((maleName) => name.includes(maleName))) score -= 90;
+        if (voice.default) score += 2;
+
+        return score;
+    };
+
+    const nonMaleVoices = voices.filter((voice) => {
+        const name = voice.name.toLowerCase();
+        return !maleNames.some((maleName) => name.includes(maleName));
+    });
+    const candidates = nonMaleVoices.length > 0 ? nonMaleVoices : voices;
+
+    return candidates.toSorted((a, b) => scoreVoice(b) - scoreVoice(a))[0] || null;
+}
+
 function toInAppPath(url: string): string | null {
     const trimmed = url.trim();
     if (!trimmed) return null;
@@ -114,6 +343,33 @@ function navigateFromChat(url: string) {
     const inAppPath = toInAppPath(url);
     if (inAppPath) emitNavigate(inAppPath);
     else window.location.assign(url);
+}
+
+function getSpeechRecognitionConstructor() {
+    if (typeof window === "undefined") return null;
+    return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function getSpeechRecognitionErrorMessage(error?: string) {
+    switch (error) {
+        case "audio-capture":
+            return "No microphone was found. Please check your input device.";
+        case "language-not-supported":
+            return "Voice input does not support this language here.";
+        case "network":
+            return "Voice input is unavailable right now. Please type your question instead.";
+        case "no-speech":
+            return "I didn't catch that. Tap the mic and try again.";
+        case "not-allowed":
+        case "service-not-allowed":
+            return "Microphone access was blocked.";
+        default:
+            return "Voice input could not start. Please try again.";
+    }
+}
+
+function shouldDisableVoiceInputAfterError(error?: string) {
+    return error === "network" || error === "language-not-supported";
 }
 
 /** Wipe legacy persisted chat so a full browser refresh always starts clean. */
@@ -163,9 +419,16 @@ function generateFallbackResponse(message: string): string {
     return "";
 }
 
+const subscribeToClientMount = () => () => undefined;
+const getClientMountSnapshot = () => true;
+const getServerMountSnapshot = () => false;
+
 function BodyPortal({ children }: { children: React.ReactNode }) {
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => { setMounted(true); }, []);
+    const mounted = useSyncExternalStore(
+        subscribeToClientMount,
+        getClientMountSnapshot,
+        getServerMountSnapshot,
+    );
     if (!mounted) return null;
     return createPortal(children, document.body);
 }
@@ -264,16 +527,23 @@ export function AskAiraWidget() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [showClearConfirm, setShowClearConfirm] = useState(false);
+    const [isListening, setIsListening] = useState(false);
+    const [isVoiceInputUnavailable, setIsVoiceInputUnavailable] = useState(false);
+    const [speechError, setSpeechError] = useState("");
+    const [speakingMessageIndex, setSpeakingMessageIndex] = useState<number | null>(null);
+    const isSpeechSupported = Boolean(getSpeechRecognitionConstructor()) && !isVoiceInputUnavailable;
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatInputRef = useRef<HTMLInputElement>(null);
     const isSendingRef = useRef(false);
     const sessionIdRef = useRef("");
+    const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+    const listeningBaseInputRef = useRef("");
+    const isStoppingVoiceInputRef = useRef(false);
 
     // ── Intersection observer for hero / footer ──
     // Re-runs on every route change so observers point to the new page's DOM.
     useEffect(() => {
-        const heroEl = document.getElementById("hero-section");
         const footerEl = document.getElementById("site-footer");
 
         // By default, the widget is minimized on all pages.
@@ -282,8 +552,8 @@ export function AskAiraWidget() {
         let footerVisible = false;
         let hideTimer: ReturnType<typeof setTimeout> | null = null;
 
-        // Apply initial state immediately
-        setIsMiddle(!isTop);
+        // Apply initial state after the effect subscribes to the page DOM.
+        const initialFrame = requestAnimationFrame(() => setIsMiddle(!isTop));
 
         const update = () => {
             const shouldBeMiddle = !isTop && !footerVisible;
@@ -338,6 +608,7 @@ export function AskAiraWidget() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
             footerObs.disconnect();
+            cancelAnimationFrame(initialFrame);
             if (hideTimer) clearTimeout(hideTimer);
         };
     }, [pathname]); // re-run on every client-side navigation
@@ -346,6 +617,14 @@ export function AskAiraWidget() {
     useEffect(() => {
         clearStaleChatStorage();
         sessionIdRef.current = generateSessionId();
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            isStoppingVoiceInputRef.current = true;
+            recognitionRef.current?.abort();
+            window.speechSynthesis?.cancel();
+        };
     }, []);
 
     useEffect(() => {
@@ -377,13 +656,27 @@ export function AskAiraWidget() {
         return () => { document.body.style.overflow = ""; };
     }, [isOpen]);
 
+    const stopVoiceInput = useCallback(() => {
+        isStoppingVoiceInputRef.current = true;
+        recognitionRef.current?.stop();
+        recognitionRef.current = null;
+        setIsListening(false);
+    }, []);
+
+    const stopReading = useCallback(() => {
+        window.speechSynthesis?.cancel();
+        setSpeakingMessageIndex(null);
+    }, []);
+
     const closeChat = useCallback(() => {
+        stopVoiceInput();
+        stopReading();
         setIsClosing(true);
         setTimeout(() => {
             setIsOpen(false);
             setIsClosing(false);
         }, 420);
-    }, []);
+    }, [stopReading, stopVoiceInput]);
 
     const executeClear = useCallback(async () => {
         setShowClearConfirm(false);
@@ -403,18 +696,140 @@ export function AskAiraWidget() {
         clearStaleChatStorage();
         setMessages([]);
         setInputValue("");
+        stopVoiceInput();
+        stopReading();
+        setSpeechError("");
+        setIsVoiceInputUnavailable(false);
         isSendingRef.current = false;
         setIsLoading(false);
         setTimeout(() => chatInputRef.current?.focus(), 50);
-    }, []);
+    }, [stopReading, stopVoiceInput]);
 
     const requestClear = useCallback(() => {
         if (messages.length === 0) return;
         setShowClearConfirm(true);
     }, [messages.length]);
 
+    const toggleVoiceInput = useCallback(() => {
+        if (isListening) {
+            stopVoiceInput();
+            return;
+        }
+
+        const SpeechRecognitionCtor = getSpeechRecognitionConstructor();
+        if (!SpeechRecognitionCtor || isVoiceInputUnavailable) {
+            setSpeechError("Voice input is not supported in this browser.");
+            return;
+        }
+
+        setSpeechError("");
+        listeningBaseInputRef.current = inputValue.trim() ? `${inputValue.trim()} ` : "";
+        isStoppingVoiceInputRef.current = false;
+
+        const recognition = new SpeechRecognitionCtor();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        // Use the dominant language of existing input so voice recognition
+        // matches what the user is already typing in (falls back to en-US)
+        recognition.lang = detectSpeechLanguage(inputValue.trim()) || "en-US";
+        recognition.onresult = (event) => {
+            let transcript = "";
+
+            for (let index = 0; index < event.results.length; index += 1) {
+                transcript += event.results[index][0].transcript;
+            }
+
+            setInputValue(`${listeningBaseInputRef.current}${transcript}`.trimStart());
+        };
+        recognition.onerror = (event) => {
+            if (event.error !== "aborted" && !isStoppingVoiceInputRef.current) {
+                setSpeechError(getSpeechRecognitionErrorMessage(event.error));
+                if (shouldDisableVoiceInputAfterError(event.error)) {
+                    setIsVoiceInputUnavailable(true);
+                }
+            }
+            setIsListening(false);
+            recognitionRef.current = null;
+        };
+        recognition.onend = () => {
+            isStoppingVoiceInputRef.current = false;
+            setIsListening(false);
+            recognitionRef.current = null;
+            setTimeout(() => chatInputRef.current?.focus(), 50);
+        };
+
+        recognitionRef.current = recognition;
+
+        try {
+            recognition.start();
+            setIsListening(true);
+        } catch {
+            setSpeechError("Voice input could not start. Please try again.");
+            recognitionRef.current = null;
+            setIsListening(false);
+        }
+    }, [inputValue, isListening, isVoiceInputUnavailable, stopVoiceInput]);
+
+    const readMessage = useCallback(async (text: string, index: number) => {
+        if (!("speechSynthesis" in window)) return;
+
+        if (speakingMessageIndex === index) {
+            stopReading();
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const speechText = buildSpeechText(text);
+        if (!speechText) return;
+
+        const voices = await getSpeechSynthesisVoices();
+        // Guard: user may have toggled while voices were loading
+        if (speakingMessageIndex === index) return;
+
+        // Split text into per-language segments for natural mixed-language TTS
+        const segments = splitIntoLanguageSegments(speechText);
+
+        if (segments.length === 0) return;
+
+        setSpeakingMessageIndex(index);
+
+        const speakSegment = (segIndex: number) => {
+            if (segIndex >= segments.length) {
+                setSpeakingMessageIndex(null);
+                return;
+            }
+
+            const segment = segments[segIndex];
+            if (!segment.text.trim()) {
+                speakSegment(segIndex + 1);
+                return;
+            }
+
+            const utterance = new SpeechSynthesisUtterance(segment.text);
+            const preferredVoice = getPreferredAiraVoice(segment.lang, voices);
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+            utterance.lang = preferredVoice?.lang || segment.lang;
+            utterance.rate = 0.84;
+            utterance.pitch = 1.18;
+            utterance.volume = 0.92;
+
+            utterance.onend = () => speakSegment(segIndex + 1);
+            utterance.onerror = () => setSpeakingMessageIndex(null);
+
+            window.speechSynthesis.speak(utterance);
+        };
+
+        speakSegment(0);
+    }, [speakingMessageIndex, stopReading]);
+
     const sendMessage = useCallback(async (text: string) => {
         if (!text.trim() || isLoading || isSendingRef.current) return;
+        stopVoiceInput();
+        stopReading();
+        setSpeechError("");
         isSendingRef.current = true;
         const ts = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         setMessages(prev => [...prev, { text: text.trim(), isUser: true, timestamp: ts }]);
@@ -474,11 +889,17 @@ export function AskAiraWidget() {
 
         setIsLoading(false);
         isSendingRef.current = false;
-    }, [isLoading]);
+    }, [isLoading, stopReading, stopVoiceInput]);
 
     const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(inputValue); }
     };
+
+    const voiceInputTitle = isVoiceInputUnavailable
+        ? "Voice input is unavailable right now"
+        : isSpeechSupported
+            ? (isListening ? "Stop voice input" : "Start voice input")
+            : "Voice input is not supported";
 
     return (
         <>
@@ -574,6 +995,8 @@ export function AskAiraWidget() {
                         <img
                             src="/images/AIRA_MASCOT/AIRA_New.png"
                             alt="AIRA Assistant"
+                            width={120}
+                            height={120}
                             className="aira-mascot-grip"
                             style={{
                                 width: "100%",
@@ -751,7 +1174,32 @@ export function AskAiraWidget() {
                                             <div style={{ padding: msg.isUser ? "8px 14px" : "12px 16px", borderRadius: msg.isUser ? 20 : 12, borderBottomRightRadius: msg.isUser ? 4 : 12, borderBottomLeftRadius: msg.isUser ? 12 : 4, fontSize: 14, lineHeight: 1.6, wordBreak: "normal", overflowWrap: "break-word", whiteSpace: "pre-wrap", width: "fit-content", background: msg.isUser ? GREEN_LIGHT : "#ffffff", color: DARK_TEXT, border: msg.isUser ? "1px solid #9ee8df" : "1px solid #e5e7eb", fontWeight: msg.isUser ? 500 : 400, boxShadow: msg.isUser ? "none" : "0 1px 3px rgba(0,0,0,0.06)" }}>
                                                 <MessageContent text={msg.text} isUser={msg.isUser} />
                                             </div>
-                                            <span style={{ fontSize: 10, color: "#9ca3af", padding: "0 3px" }}>{msg.timestamp}</span>
+                                            <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "0 3px" }}>
+                                                <span style={{ fontSize: 10, color: "#9ca3af" }}>{msg.timestamp}</span>
+                                                {!msg.isUser && (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => readMessage(msg.text, i)}
+                                                        aria-label={speakingMessageIndex === i ? "Stop reading response" : "Read response aloud"}
+                                                        title={speakingMessageIndex === i ? "Stop reading" : "Read response"}
+                                                        style={{
+                                                            width: 22,
+                                                            height: 22,
+                                                            borderRadius: "50%",
+                                                            border: "1px solid #d1d5db",
+                                                            background: speakingMessageIndex === i ? GREEN_LIGHT : "#ffffff",
+                                                            color: speakingMessageIndex === i ? GREEN : "#6b7280",
+                                                            cursor: "pointer",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "center",
+                                                            padding: 0,
+                                                        }}
+                                                    >
+                                                        {speakingMessageIndex === i ? <VolumeX size={12} /> : <Volume2 size={12} />}
+                                                    </button>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -772,27 +1220,47 @@ export function AskAiraWidget() {
                             </div>
 
                             {/* Input */}
-                            <div style={{ display: "flex", alignItems: "center", gap: 10, margin: "0 16px 16px", padding: "11px 14px", background: "#ffffff", border: `1.5px solid rgba(0,201,177,0.4)`, borderRadius: 12, flexShrink: 0, boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
-                                <Search size={15} style={{ color: "#9ca3af", flexShrink: 0 }} />
-                                <input
-                                    ref={chatInputRef}
-                                    type="text"
-                                    value={inputValue}
-                                    onChange={e => setInputValue(e.target.value)}
-                                    onKeyDown={handleKey}
-                                    placeholder="Ask for follow up"
-                                    aria-label="Ask AIRA"
-                                    style={{ flex: 1, border: "none", outline: "none", background: "transparent", fontSize: 14, color: DARK_TEXT, caretColor: GREEN }}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => sendMessage(inputValue)}
-                                    disabled={!inputValue.trim() || isLoading}
-                                    aria-label="Send"
-                                    style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: "50%", border: "none", background: inputValue.trim() && !isLoading ? GREEN : "#e5e7eb", color: inputValue.trim() && !isLoading ? "#ffffff" : "#9ca3af", cursor: inputValue.trim() && !isLoading ? "pointer" : "not-allowed", transition: "background 0.2s" }}
-                                >
-                                    <Send size={14} style={{ transform: "rotate(-45deg)" }} />
-                                </button>
+                            <div style={{ margin: "0 16px 16px", flexShrink: 0 }}>
+                                <div className="aira-input-bar" style={{ display: "flex", alignItems: "center", gap: 10, padding: "11px 14px", background: "#ffffff", border: `1.5px solid ${isListening ? GREEN : "rgba(0,201,177,0.4)"}`, borderRadius: 12, boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
+                                    <Search size={15} style={{ color: "#9ca3af", flexShrink: 0 }} />
+                                    <input
+                                        ref={chatInputRef}
+                                        type="text"
+                                        value={inputValue}
+                                        onChange={e => {
+                                            setInputValue(e.target.value);
+                                            setSpeechError("");
+                                        }}
+                                        onKeyDown={handleKey}
+                                        placeholder={isListening ? "Listening..." : "Ask for follow up"}
+                                        aria-label="Ask AIRA"
+                                        style={{ flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent", fontSize: 14, color: DARK_TEXT, caretColor: GREEN }}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={toggleVoiceInput}
+                                        disabled={!isSpeechSupported || isLoading}
+                                        aria-label={isListening ? "Stop voice input" : "Start voice input"}
+                                        title={voiceInputTitle}
+                                        style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: "50%", border: `1px solid ${isListening ? GREEN : "#d1d5db"}`, background: isListening ? GREEN_LIGHT : "#ffffff", color: isListening ? GREEN : "#6b7280", cursor: isSpeechSupported && !isLoading ? "pointer" : "not-allowed", opacity: isSpeechSupported && !isLoading ? 1 : 0.55, transition: "background 0.2s, border-color 0.2s, color 0.2s" }}
+                                    >
+                                        {isListening ? <MicOff size={14} /> : <Mic size={14} />}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => sendMessage(inputValue)}
+                                        disabled={!inputValue.trim() || isLoading}
+                                        aria-label="Send"
+                                        style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: "50%", border: "none", background: inputValue.trim() && !isLoading ? GREEN : "#e5e7eb", color: inputValue.trim() && !isLoading ? "#ffffff" : "#9ca3af", cursor: inputValue.trim() && !isLoading ? "pointer" : "not-allowed", transition: "background 0.2s" }}
+                                    >
+                                        <Send size={14} style={{ transform: "rotate(-45deg)" }} />
+                                    </button>
+                                </div>
+                                {speechError && (
+                                    <p role="status" style={{ margin: "6px 4px 0", color: "#dc2626", fontSize: 11, lineHeight: 1.4 }}>
+                                        {speechError}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </div>
