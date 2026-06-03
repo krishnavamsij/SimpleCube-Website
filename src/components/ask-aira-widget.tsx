@@ -519,6 +519,7 @@ export function AskAiraWidget() {
     // scroll / hover state for show/hide
     const [isMiddle, setIsMiddle] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     // chat state
     const [isOpen, setIsOpen] = useState(false);
@@ -624,6 +625,10 @@ export function AskAiraWidget() {
             isStoppingVoiceInputRef.current = true;
             recognitionRef.current?.abort();
             window.speechSynthesis?.cancel();
+            // Cleanup hover timeout
+            if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+            }
         };
     }, []);
 
@@ -918,10 +923,24 @@ export function AskAiraWidget() {
             <div
                 className="fixed aira-widget-container"
                 onMouseEnter={() => {
+                    // Clear any pending timeout
+                    if (hoverTimeoutRef.current) {
+                        clearTimeout(hoverTimeoutRef.current);
+                        hoverTimeoutRef.current = null;
+                    }
+                    // Set hover immediately on enter
                     setIsHovered(true);
                 }}
                 onMouseLeave={() => {
-                    setIsHovered(false);
+                    // Clear any pending timeout
+                    if (hoverTimeoutRef.current) {
+                        clearTimeout(hoverTimeoutRef.current);
+                    }
+                    // Add delay before removing hover state to prevent flickering
+                    hoverTimeoutRef.current = setTimeout(() => {
+                        setIsHovered(false);
+                        hoverTimeoutRef.current = null;
+                    }, 150);
                 }}
                 style={{
                     pointerEvents: "auto",
