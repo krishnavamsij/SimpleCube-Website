@@ -630,6 +630,17 @@ export function AskAiraWidget() {
     useEffect(() => {
         const handler = (e: Event) => {
             const url = (e as CustomEvent<{ url: string }>).detail.url;
+            // CLOSE CHATBOT IMMEDIATELY when navigating
+            setIsOpen(false);
+            setIsClosing(false);
+            // Stop voice and speech
+            isStoppingVoiceInputRef.current = true;
+            recognitionRef.current?.stop();
+            recognitionRef.current = null;
+            setIsListening(false);
+            window.speechSynthesis?.cancel();
+            setSpeakingMessageIndex(null);
+            // Navigate
             router.push(url);
         };
         window.addEventListener("aira:navigate", handler);
