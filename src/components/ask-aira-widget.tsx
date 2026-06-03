@@ -1253,7 +1253,7 @@ export function AskAiraWidget() {
                                         aria-label="Send"
                                         style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: "50%", border: "none", background: inputValue.trim() && !isLoading ? GREEN : "#e5e7eb", color: inputValue.trim() && !isLoading ? "#ffffff" : "#9ca3af", cursor: inputValue.trim() && !isLoading ? "pointer" : "not-allowed", transition: "background 0.2s" }}
                                     >
-                                        <Send size={14} style={{ transform: "rotate(-45deg)" }} />
+                                        <Send size={14} style={{ transform: "rotate(45deg)" }} />
                                     </button>
                                 </div>
                                 {speechError && (

@@ -932,7 +932,7 @@ export function AiraChatbot({
                     transition: "background 0.2s",
                   }}
                 >
-                  <Send size={14} style={{ transform: "rotate(-45deg)" }} />
+                  <Send size={14} style={{ transform: "rotate(45deg)" }} />
                 </button>
               </div>
             </div>
