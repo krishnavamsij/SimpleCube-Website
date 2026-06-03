@@ -914,14 +914,14 @@ export function AskAiraWidget() {
                 }}
                 style={{
                     pointerEvents: "auto",
-                    right: "1rem",
+                    right: (isMiddle && !isHovered) ? "0" : "1rem",
                     bottom: "2rem",
                     left: "auto",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-end",
                     paddingRight: "0px",
-                    transition: "padding-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    transition: "right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), padding-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     zIndex: 9999,
                 }}
             >
@@ -1332,7 +1332,6 @@ export function AskAiraWidget() {
                     /* Position widget in bottom-right corner, fully visible */
                     .aira-widget-container {
                         bottom: 1.5rem !important;
-                        right: 1rem !important;
                     }
                     
                     /* Chat panel mobile styles */
