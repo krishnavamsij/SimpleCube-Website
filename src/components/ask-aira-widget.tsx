@@ -623,7 +623,7 @@ export function AskAiraWidget() {
                                 transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                             }}
                         >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }}>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.9))' }}>
                                 <path d="M10 2L11.5 7.5L17 9L11.5 10.5L10 16L8.5 10.5L3 9L8.5 7.5L10 2Z" />
                                 <path d="M18 12L18.75 14.25L21 15L18.75 15.75L18 18L17.25 15.75L15 15L17.25 14.25L18 12Z" />
                                 <path d="M17 3L17.5 4.5L19 5L17.5 5.5L17 7L16.5 5.5L15 5L16.5 4.5L17 3Z" />
