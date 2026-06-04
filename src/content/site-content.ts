@@ -190,7 +190,7 @@ export const servicesContent = {
     metrics: [
         { value: "15+", label: "Years of platform \npartnerships" },
         { value: "220+", label: "Enterprise applications \ndelivered" },
-        { value: "30+", label: "Clients across \n5 industries" }
+        { value: "45+", label: "Clients across \n5 industries" }
     ],
     services: [
         {
