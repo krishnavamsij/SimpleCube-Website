@@ -169,7 +169,7 @@ export default function PodcastPage() {
                                 {/* Button */}
                                 <div className="mt-auto">
                                     <a
-                                        href="https://www.youtube.com/watch?v=oROwZ4z7Yow"
+                                        href={episode.videoUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={(e) => e.stopPropagation()}
