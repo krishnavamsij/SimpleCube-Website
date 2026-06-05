@@ -237,16 +237,27 @@ function AnimatedCounter({
     return (
         <motion.div
             variants={fadeInUp}
-            className="text-center"
+            className="flex flex-col items-center text-center px-2 py-4"
             ref={ref}
         >
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 mx-auto">
-                <i className={`${stat.icon} text-3xl`} style={{ color: stat.iconColor }}></i>
+            {/* Icon — fixed size, always same height */}
+            <div className="mb-3 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-red-50">
+                <i className={`${stat.icon} text-2xl`} style={{ color: stat.iconColor }}></i>
             </div>
-            <p className="text-3xl sm:text-4xl font-extrabold text-blue-600 mb-2">
+            {/* Number — fixed line height so all numbers sit at same level */}
+            <p className="text-2xl sm:text-3xl font-extrabold text-blue-600 leading-none mb-2">
                 {count.toLocaleString()}{stat.suffix}
             </p>
-            <p className="text-sm sm:text-base text-slate-600">
+            {/* Label — fixed height = exactly 2 lines so ALL cards are consistent */}
+            <p
+                className="text-xs sm:text-sm text-slate-600 w-full"
+                style={{
+                    whiteSpace: "pre-line",
+                    height: "2.8em",
+                    lineHeight: "1.4em",
+                    overflow: "hidden",
+                }}
+            >
                 {stat.label}
             </p>
         </motion.div>
@@ -326,17 +337,10 @@ function AboutIntro() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+                    className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8"
                 >
                     {aboutContent.intro.highlights.map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            variants={fadeInUp}
-                            custom={index * 0.1}
-                            className="text-center px-2 py-4"
-                        >
-                            <AnimatedCounter key={index} stat={stat} />
-                        </motion.div>
+                        <AnimatedCounter key={index} stat={stat} />
                     ))}
                 </motion.div>
             </div>

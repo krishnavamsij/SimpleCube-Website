@@ -35,30 +35,37 @@ export const aboutContent = {
         valuesImage: "/images/2023/12/Hyniva-Values.png",
         highlights: [
             {
-                metric: "60",
-                label: "Applications Delivered",
+                metric: "220",
+                label: "Applications\nDelivered",
                 suffix: "+",
                 icon: "iconsmind-Administrator iconsmind-People",
                 iconColor: "#ff3d42"
             },
             {
-                metric: "6",
-                label: "Products Delivered",
+                metric: "7",
+                label: "Products\nDelivered",
                 suffix: "",
                 icon: "iconsmind-Data-Clock iconsmind-Database",
                 iconColor: "#ff3d42"
             },
             {
-                metric: "1200",
-                label: "Man Hours of Experience",
+                metric: "4000",
+                label: "Man Years of\nExperience",
                 suffix: "+",
                 icon: "iconsmind-Compass iconsmind-Design",
                 iconColor: "#ff3d42"
             },
             {
-                metric: "48",
-                label: "Happy Clients",
+                metric: "15",
+                label: "Years of Partnership with\nPlatform Vendors",
                 suffix: "",
+                icon: "iconsmind-Coffee iconsmind-Food-Drinks",
+                iconColor: "#ff3d42"
+            },
+            {
+                metric: "45",
+                label: "Happy\nClients",
+                suffix: "+",
                 icon: "iconsmind-Coffee iconsmind-Food-Drinks",
                 iconColor: "#ff3d42"
             }

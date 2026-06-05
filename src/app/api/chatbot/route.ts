@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const sessionId =
       typeof session_id === "string" && session_id.trim()
         ? session_id.trim()
-        : undefined;
+        : null;
 
     const apiUrl = getChatbotApiUrl();
     if (!apiUrl) {
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         message: message.trim(),
-        ...(sessionId ? { session_id: sessionId } : {}),
+        session_id: sessionId,
       }),
       cache: "no-store",
     });

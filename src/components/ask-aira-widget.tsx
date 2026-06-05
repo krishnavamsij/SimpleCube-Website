@@ -355,9 +355,9 @@ function getSpeechRecognitionErrorMessage(error?: string) {
         case "audio-capture":
             return "No microphone was found. Please check your input device.";
         case "language-not-supported":
-            return "Voice input does not support this language here.";
+            return "Voice input does not support this language. Try again.";
         case "network":
-            return "Voice input is unavailable right now. Please type your question instead.";
+            return "Voice input had a network issue. Tap the mic to try again.";
         case "no-speech":
             return "I didn't catch that. Tap the mic and try again.";
         case "not-allowed":
@@ -368,8 +368,9 @@ function getSpeechRecognitionErrorMessage(error?: string) {
     }
 }
 
+/** Only permanently disable mic when the user has blocked microphone permission. */
 function shouldDisableVoiceInputAfterError(error?: string) {
-    return error === "network" || error === "language-not-supported";
+    return error === "not-allowed" || error === "service-not-allowed";
 }
 
 /** Wipe legacy persisted chat so a full browser refresh always starts clean. */
@@ -532,7 +533,13 @@ export function AskAiraWidget() {
     const [isVoiceInputUnavailable, setIsVoiceInputUnavailable] = useState(false);
     const [speechError, setSpeechError] = useState("");
     const [speakingMessageIndex, setSpeakingMessageIndex] = useState<number | null>(null);
-    const isSpeechSupported = Boolean(getSpeechRecognitionConstructor()) && !isVoiceInputUnavailable;
+    const [hasSpeechRecognition, setHasSpeechRecognition] = useState(false);
+    const isSpeechSupported = hasSpeechRecognition && !isVoiceInputUnavailable;
+
+    // Detect SpeechRecognition support on the client only (not during SSR)
+    useEffect(() => {
+        setHasSpeechRecognition(Boolean(getSpeechRecognitionConstructor()));
+    }, []);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatInputRef = useRef<HTMLInputElement>(null);
@@ -733,11 +740,13 @@ export function AskAiraWidget() {
         }
 
         const SpeechRecognitionCtor = getSpeechRecognitionConstructor();
-        if (!SpeechRecognitionCtor || isVoiceInputUnavailable) {
+        if (!SpeechRecognitionCtor) {
             setSpeechError("Voice input is not supported in this browser.");
             return;
         }
 
+        // Reset any previous unavailable state so user can always retry
+        setIsVoiceInputUnavailable(false);
         setSpeechError("");
         listeningBaseInputRef.current = inputValue.trim() ? `${inputValue.trim()} ` : "";
         isStoppingVoiceInputRef.current = false;
@@ -762,6 +771,9 @@ export function AskAiraWidget() {
                 setSpeechError(getSpeechRecognitionErrorMessage(event.error));
                 if (shouldDisableVoiceInputAfterError(event.error)) {
                     setIsVoiceInputUnavailable(true);
+                } else {
+                    // Transient error — auto-clear the message after 4 s so mic stays usable
+                    setTimeout(() => setSpeechError(""), 4000);
                 }
             }
             setIsListening(false);
@@ -912,10 +924,10 @@ export function AskAiraWidget() {
     };
 
     const voiceInputTitle = isVoiceInputUnavailable
-        ? "Voice input is unavailable right now"
+        ? "Microphone access was blocked. Please allow it in your browser settings."
         : isSpeechSupported
             ? (isListening ? "Stop voice input" : "Start voice input")
-            : "Voice input is not supported";
+            : "Voice input is not supported in this browser";
 
     return (
         <>
