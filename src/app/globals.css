@@ -455,6 +455,22 @@ html {
   content: "🍽️";
 }
 
+.iconsmind-Handshake::before {
+  content: "🤝";
+}
+
+.iconsmind-Network::before {
+  content: "🔗";
+}
+
+.iconsmind-Happy::before {
+  content: "😊";
+}
+
+.iconsmind-Smile::before {
+  content: "⭐";
+}
+
 /* FontAwesome fallback for timeline icons */
 .fas {
   font-family: "Font Awesome 5 Free", sans-serif;

@@ -59,14 +59,14 @@ export const aboutContent = {
                 metric: "15",
                 label: "Years of Partnership with\nPlatform Vendors",
                 suffix: "",
-                icon: "iconsmind-Coffee iconsmind-Food-Drinks",
+                icon: "iconsmind-Handshake iconsmind-Network",
                 iconColor: "#ff3d42"
             },
             {
                 metric: "45",
                 label: "Happy\nClients",
                 suffix: "+",
-                icon: "iconsmind-Coffee iconsmind-Food-Drinks",
+                icon: "iconsmind-Happy iconsmind-Smile",
                 iconColor: "#ff3d42"
             }
         ]
