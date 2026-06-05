@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         message: message.trim(),
-        session_id: sessionId,
+        ...(sessionId ? { session_id: sessionId } : {}),
       }),
       cache: "no-store",
     });

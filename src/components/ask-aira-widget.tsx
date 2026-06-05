@@ -535,6 +535,8 @@ export function AskAiraWidget() {
     const [speakingMessageIndex, setSpeakingMessageIndex] = useState<number | null>(null);
     const [hasSpeechRecognition, setHasSpeechRecognition] = useState(false);
     const isSpeechSupported = hasSpeechRecognition && !isVoiceInputUnavailable;
+    const networkRetryCountRef = useRef(0);
+    const MAX_NETWORK_RETRIES = 3;
 
     // Detect SpeechRecognition support on the client only (not during SSR)
     useEffect(() => {
@@ -544,7 +546,7 @@ export function AskAiraWidget() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatInputRef = useRef<HTMLInputElement>(null);
     const isSendingRef = useRef(false);
-    const sessionIdRef = useRef("");
+    const sessionIdRef = useRef(generateSessionId()); // always initialised immediately
     const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
     const listeningBaseInputRef = useRef("");
     const isStoppingVoiceInputRef = useRef(false);
@@ -748,54 +750,94 @@ export function AskAiraWidget() {
         // Reset any previous unavailable state so user can always retry
         setIsVoiceInputUnavailable(false);
         setSpeechError("");
+        networkRetryCountRef.current = 0;
         listeningBaseInputRef.current = inputValue.trim() ? `${inputValue.trim()} ` : "";
         isStoppingVoiceInputRef.current = false;
 
-        const recognition = new SpeechRecognitionCtor();
-        recognition.continuous = true;
-        recognition.interimResults = true;
-        // Use the dominant language of existing input so voice recognition
-        // matches what the user is already typing in (falls back to en-US)
-        recognition.lang = detectSpeechLanguage(inputValue.trim()) || "en-US";
-        recognition.onresult = (event) => {
-            let transcript = "";
+        // Track whether we're in the middle of an auto-retry so onend doesn't
+        // reset isListening to false between retries (which causes the fluctuation).
+        let isRetrying = false;
 
-            for (let index = 0; index < event.results.length; index += 1) {
-                transcript += event.results[index][0].transcript;
-            }
+        const startRecognition = () => {
+            const SpeechRecognitionCtor = getSpeechRecognitionConstructor();
+            if (!SpeechRecognitionCtor) return;
 
-            setInputValue(`${listeningBaseInputRef.current}${transcript}`.trimStart());
-        };
-        recognition.onerror = (event) => {
-            if (event.error !== "aborted" && !isStoppingVoiceInputRef.current) {
-                setSpeechError(getSpeechRecognitionErrorMessage(event.error));
-                if (shouldDisableVoiceInputAfterError(event.error)) {
-                    setIsVoiceInputUnavailable(true);
-                } else {
-                    // Transient error — auto-clear the message after 4 s so mic stays usable
-                    setTimeout(() => setSpeechError(""), 4000);
+            const recognition = new SpeechRecognitionCtor();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = detectSpeechLanguage(inputValue.trim()) || "en-US";
+
+            recognition.onresult = (event) => {
+                let transcript = "";
+                for (let index = 0; index < event.results.length; index += 1) {
+                    transcript += event.results[index][0].transcript;
                 }
+                setInputValue(`${listeningBaseInputRef.current}${transcript}`.trimStart());
+            };
+
+            recognition.onerror = (event) => {
+                if (isStoppingVoiceInputRef.current || event.error === "aborted") {
+                    isRetrying = false;
+                    setIsListening(false);
+                    recognitionRef.current = null;
+                    return;
+                }
+
+                if (event.error === "network" && networkRetryCountRef.current < MAX_NETWORK_RETRIES) {
+                    // Keep isListening = true during retry so mic icon stays active (no flicker)
+                    networkRetryCountRef.current += 1;
+                    isRetrying = true;
+                    setSpeechError("Reconnecting mic…");
+                    recognitionRef.current = null;
+                    setTimeout(() => {
+                        if (!isStoppingVoiceInputRef.current) {
+                            setSpeechError("");
+                            startRecognition();
+                        } else {
+                            isRetrying = false;
+                            setIsListening(false);
+                        }
+                    }, 1200);
+                } else {
+                    isRetrying = false;
+                    setSpeechError(getSpeechRecognitionErrorMessage(event.error));
+                    if (shouldDisableVoiceInputAfterError(event.error)) {
+                        setIsVoiceInputUnavailable(true);
+                    } else {
+                        setTimeout(() => setSpeechError(""), 4000);
+                    }
+                    setIsListening(false);
+                    recognitionRef.current = null;
+                }
+            };
+
+            recognition.onend = () => {
+                // If we're retrying, don't touch isListening — the retry will
+                // call startRecognition() again and keep the mic "on".
+                if (isRetrying) {
+                    recognitionRef.current = null;
+                    return;
+                }
+                isStoppingVoiceInputRef.current = false;
+                setIsListening(false);
+                recognitionRef.current = null;
+                setTimeout(() => chatInputRef.current?.focus(), 50);
+            };
+
+            recognitionRef.current = recognition;
+
+            try {
+                recognition.start();
+                setIsListening(true);
+            } catch {
+                isRetrying = false;
+                setSpeechError("Voice input could not start. Please try again.");
+                recognitionRef.current = null;
+                setIsListening(false);
             }
-            setIsListening(false);
-            recognitionRef.current = null;
-        };
-        recognition.onend = () => {
-            isStoppingVoiceInputRef.current = false;
-            setIsListening(false);
-            recognitionRef.current = null;
-            setTimeout(() => chatInputRef.current?.focus(), 50);
         };
 
-        recognitionRef.current = recognition;
-
-        try {
-            recognition.start();
-            setIsListening(true);
-        } catch {
-            setSpeechError("Voice input could not start. Please try again.");
-            recognitionRef.current = null;
-            setIsListening(false);
-        }
+        startRecognition();
     }, [inputValue, isListening, isVoiceInputUnavailable, stopVoiceInput]);
 
     const readMessage = useCallback(async (text: string, index: number) => {
@@ -870,9 +912,6 @@ export function AskAiraWidget() {
         if (["hi", "hello", "hey"].includes(text.toLowerCase()) || text.toLowerCase().startsWith("hi ")) {
             reply = generateFallbackResponse(text);
         } else {
-            if (!sessionIdRef.current) {
-                sessionIdRef.current = generateSessionId();
-            }
             try {
                 const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
                 const res = await fetch(apiUrl, {
