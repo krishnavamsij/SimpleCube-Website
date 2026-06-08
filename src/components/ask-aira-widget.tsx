@@ -913,13 +913,17 @@ export function AskAiraWidget() {
             reply = generateFallbackResponse(text);
         } else {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
+                const sessionId = sessionIdRef.current;
+                const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
+                // Send session_id both in body AND as query param to cover both backend expectations
+                const apiUrl = `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}session_id=${encodeURIComponent(sessionId)}`;
+                console.debug("[AIRA] fetch →", apiUrl, "| session_id:", sessionId);
                 const res = await fetch(apiUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         message: text,
-                        session_id: sessionIdRef.current,
+                        session_id: sessionId,
                     }),
                 });
                 if (!res.ok) {
