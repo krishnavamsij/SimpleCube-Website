@@ -42,7 +42,7 @@ function AboutHero() {
     return (
         <section className="relative overflow-hidden bg-[#040b16] pt-32 pb-24 lg:pt-48 lg:pb-32">
             {/* Globe Graphic (Image) */}
-            <div className="absolute top-[5%] lg:top-[10%] right-[-10%] lg:right-[5%] w-[100%] lg:w-[45%] max-w-[650px] aspect-square pointer-events-none z-0 opacity-60 lg:opacity-100">
+            <div className="absolute top-[5%] lg:top-[10%] right-[-10%] lg:right-[5%] w-[100%] lg:w-[45%] max-w-[650px] aspect-square pointer-events-none z-0 opacity-60 lg:opacity-100 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]">
                 <Image src="/globe-previous.png" alt="Global Network" fill className="object-contain scale-110" priority />
             </div>
 
