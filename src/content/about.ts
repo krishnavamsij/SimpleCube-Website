@@ -150,104 +150,68 @@ export const aboutContent = {
         timeline: [
             {
                 date: "2007",
-                title: "Founding",
-                description: "Hyniva was founded in 2007 as Upper Room Technologies, with its roots in Chennai, India, marking the beginning of its journey in IT services and business consulting.",
+                title: "Foundation & Growth",
+                description: "Founded in Chennai, India, as a technology consulting and software development company, and subsequently expanded operations to Bengaluru and San Antonio, Texas, strengthening Hyniva's delivery capabilities and presence in key markets.",
                 image: "/images/journey/media__1780675818948.jpg"
             },
             {
                 date: "2009",
                 title: "First SaaS Product Launch",
-                description: "MediaFusion became Hyniva’s first SaaS product — a digital media platform built specifically for churches to stream audio, video and live sessions.",
+                description: "Launched MediaFusion, a digital media platform that marked Hyniva’s entry into software product development and SaaS solutions.",
                 image: "/images/journey/media__1780675819072.jpg"
             },
             {
                 date: "2012",
                 title: "EazySchool Launch",
-                description: "Expanded into education sector by launching EazySchool, a cutting-edge school management product suite that streamlined administrative operations and enabled digital transformation for nearly 50 schools across India.",
+                description: "Expanded into the education sector with EazySchool, a comprehensive school management platform that helped institutions digitize operations and improve stakeholder engagement.",
                 image: "/images/journey/media__1780675819372.jpg"
             },
             {
-                date: "2013",
-                title: "Rebranding & Expansion",
-                description: "Upper Room Technologies was rebranded as Hyniva. During the same year, the company expanded its operations to San Antonio, Texas, to better serve banking and insurance customers.",
-                image: "/images/journey/media__1780675819614.jpg"
-            },
-            {
                 date: "2014",
-                title: "iLendX Framework",
-                description: "Hyniva collaborated with iLendX to build the iLendX framework, enabling a fully digital lending experience with integrated compliance support.",
+                title: "Digital Lending & Enterprise Transformation",
+                description: "Built digital lending frameworks, workflow automation solutions and enterprise integration capabilities that helped organizations modernize operations and accelerate digital transformation.",
                 image: "/images/journey/media__1780675819620.jpg"
-            },
-            {
-                date: "2015",
-                title: "Enterprise Workflow Automation Initiatives",
-                description: "Started delivering workflow automation and process optimization solutions for enterprise customers handling complex operational processes.",
-                image: "/images/journey/media__1780675818948.jpg"
-            },
-            {
-                date: "2016",
-                title: "API & Integration Capability Expansion",
-                description: "Expanded expertise in enterprise integrations, third-party APIs and middleware solutions across financial and operational systems.",
-                image: "/images/journey/media__1780675819072.jpg"
             },
             {
                 date: "2017",
                 title: "CreditSnap Launch",
-                description: "Hyniva launched CreditSnap, its first FinTech product — a revolutionary omni-channel lending platform that pre-qualified borrowers with no credit impact while streamlining the loan origination process.",
+                description: "Introduced CreditSnap, an omni-channel lending platform that transformed borrower prequalification and loan origination experiences for financial institutions.",
                 image: "/images/journey/media__1780675819372.jpg"
             },
             {
                 date: "2018",
-                title: "Salesforce Ecosystem Expansion",
-                description: "Strengthened Salesforce consulting and implementation capabilities for customer engagement and digital experience initiatives.",
+                title: "Salesforce, Cloud & Global Delivery Growth",
+                description: "Expanded Salesforce consulting, digital experience, cloud transformation, and distributed engineering capabilities to support enterprise clients at scale.",
                 image: "/images/journey/media__1780675819614.jpg"
-            },
-            {
-                date: "2019",
-                title: "Cloud Transformation Services",
-                description: "Expanded cloud modernization and migration services to help enterprises transition from legacy infrastructure to scalable cloud-native environments.",
-                image: "/images/journey/media__1780675819620.jpg"
-            },
-            {
-                date: "2020",
-                title: "Remote Delivery & Distributed Engineering Operations",
-                description: "Scaled distributed engineering and remote delivery capabilities to support global clients and uninterrupted enterprise operations.",
-                image: "/images/journey/media__1780675818948.jpg"
             },
             {
                 date: "2022",
                 title: "Hyper Portfolio Recommendation Engine",
-                description: "Hyniva partnered with a leading investment management firm to launch Hyper, a portfolio recommendation engine designed to help customers better understand and optimize their investment strategies.",
+                description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation engine that helps investors better understand and optimize their financial strategies.",
                 image: "/images/journey/media__1780675819072.jpg"
             },
             {
                 date: "2023",
-                title: "Enterprise RFP Win Against CTS",
-                description: "Hyniva secured a major enterprise win by successfully competing against CTS in a high-value RFP engagement for Victory Capital, demonstrating the company’s growing enterprise capabilities and delivery strength.",
+                title: "Strategic Enterprise Breakthrough",
+                description: "Secured a major enterprise engagement with Victory Capital, winning a competitive RFP against TCS and Cognizant and reinforcing Hyniva's growing reputation for delivering complex digital transformation initiatives.",
                 image: "/images/journey/media__1780675819372.jpg"
             },
             {
                 date: "2024",
-                title: "Salesforce Next Digital Experience Product",
-                description: "Hyniva launched its Salesforce Next Digital Experience Product, leveraging AI capabilities to streamline user experiences while strengthening enterprise-grade data security.",
+                title: "FinXServe Launch & CreditSnap Acquisition",
+                description: "Launched FinXServe, a Salesforce-native digital banking experience platform for banks and credit unions. In the same year, CreditSnap was acquired by SavvyMoney, marking a significant product success and strategic exit.",
                 image: "/images/journey/media__1780675819614.jpg"
             },
             {
-                date: "2024",
-                title: "Sold CreditSnap to Savvy Money",
-                description: "",
-                image: "/images/journey/media__1780675819620.jpg"
-            },
-            {
                 date: "2025",
-                title: "Launched AIRA",
-                description: "",
+                title: "AIRA Debuts at Cypher AI Summit",
+                description: "Unveiled AIRA (Autonomous Intelligent Reasoning Agent) at the Cypher AI Summit, marking Hyniva’s expansion into enterprise AI solutions for regulated industries.",
                 image: "/images/journey/media__1780675818948.jpg"
             },
             {
-                date: "2025",
-                title: "SOC 2 Type II Compliance Achieved",
-                description: "Hyniva achieved SOC 2 Type II compliance, reaffirming its commitment to the highest standards of security, privacy, and data integrity. This milestone reflects the strength of Hyniva’s internal controls and its dedication to protecting client data across all operations.",
+                date: "2026",
+                title: "Claim Pioneer Launch & SOC 2 Achievement",
+                description: "Launched Claim Pioneer, an AI-powered claims management platform for insurance organizations, and achieved SOC 2 Type II compliance, reinforcing Hyniva’s commitment to secure, trusted and innovative enterprise solutions.",
                 image: "/images/journey/media__1780675819072.jpg"
             }
         ]
