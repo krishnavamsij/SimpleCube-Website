@@ -413,31 +413,40 @@ function OperationsSection() {
         <section className="bg-[#f0f9ff] py-24 pb-32">
             <div className="mx-auto max-w-[1400px] px-6">
                 
-                {/* Top: How We Operate White Card */}
-                <div className="bg-white rounded-[2rem] p-10 sm:p-16 shadow-sm border border-slate-100 max-w-5xl mx-auto mb-16">
-                    <div className="text-center mb-12">
-                        <div className="text-[15px] font-black tracking-widest text-[#0f172a] uppercase">
+                <div className="bg-white rounded-[2rem] p-10 sm:p-16 shadow-sm border border-slate-100 mx-auto mb-16">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <div className="text-[12px] font-black tracking-widest text-[#2563eb] uppercase mb-4">
                             HOW WE WORK
                         </div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-6">
+                            {aboutContent.operations.howWeOperate.title}
+                        </h2>
+                        <p className="text-slate-500 text-lg">
+                            {aboutContent.operations.howWeOperate.description}
+                        </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10">
-                        {aboutContent.operations.howWeOperate.map((item, idx) => {
-                            const IconComponent = iconMap[item.icon] || Zap;
-                            return (
-                                <div key={idx} className="flex flex-col items-start">
-                                    <div className="text-[#2563eb] mb-5">
-                                        <IconComponent className="w-[30px] h-[30px]" strokeWidth={1.5} />
+                    <div className="relative pt-4 pb-4">
+                        {/* Connecting Line */}
+                        <div className="absolute top-[24px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12">
+                            {aboutContent.operations.howWeOperate.steps.map((item, idx) => {
+                                return (
+                                    <div key={idx} className="flex flex-col items-center text-center relative z-10">
+                                        <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-white">
+                                            {idx + 1}
+                                        </div>
+                                        <h4 className="font-bold text-[15px] text-slate-900 mb-3">
+                                            {item.title}
+                                        </h4>
+                                        <p className="text-[13px] text-slate-500 leading-relaxed max-w-[240px]">
+                                            {item.description}
+                                        </p>
                                     </div>
-                                    <h4 className="font-bold text-[14px] text-slate-900 mb-3 leading-snug">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-[12px] text-slate-500 leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
 

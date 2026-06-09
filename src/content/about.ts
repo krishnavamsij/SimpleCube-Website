@@ -132,12 +132,28 @@ export const aboutContent = {
         ]
     },
     operations: {
-        howWeOperate: [
-            { title: "Direct Access to Expertise", icon: "Users", description: "Work directly with senior leaders and domain experts." },
-            { title: "Client-Centric Partnership", icon: "Target", description: "We align with your priorities and measurable goals." },
-            { title: "Transparency & Trust", icon: "Shield", description: "Clear communication and accountability." },
-            { title: "Agility with Impact", icon: "Rocket", description: "Agile execution focused on measurable outcomes." },
-        ],
+        howWeOperate: {
+            title: "From discovery to delivery — no surprises",
+            description: "We say what we do and do what we say. Our structured delivery model eliminates bureaucracy and keeps you directly connected to our experts.",
+            steps: [
+                {
+                    title: "Discovery",
+                    description: "We understand your business goals, existing systems, and constraints before proposing anything."
+                },
+                {
+                    title: "Strategy & Scope",
+                    description: "A clear roadmap with transparent cost, timeline, and risk — no padded estimates, no surprises."
+                },
+                {
+                    title: "Agile Delivery",
+                    description: "Direct access to our engineers and SMEs. Weekly demos. Decisions made fast."
+                },
+                {
+                    title: "Launch & Scale",
+                    description: "We don't hand off and disappear — we support, optimize, and grow with you."
+                }
+            ]
+        },
         digitalFactory: {
             title: "Digital Factory Model.",
             description: "The core structure of how we operate is the Digital Factory Model, an operating model for scaling and executing with efficiency.",
