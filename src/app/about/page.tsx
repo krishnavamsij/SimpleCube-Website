@@ -65,7 +65,7 @@ function AboutHero() {
                     animate="visible"
                     className="max-w-[950px]"
                 >
-                    <motion.div variants={fadeInUp} className="mb-6">
+                    <motion.div variants={fadeInUp} className="mb-8">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             WHO WE ARE
@@ -73,7 +73,7 @@ function AboutHero() {
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6"
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-8"
                         style={{ whiteSpace: "pre-line" }}
                     >
                         {aboutContent.hero.title}
@@ -88,12 +88,12 @@ function AboutHero() {
             </div>
 
             {/* Metrics Bar */}
-            <div className="relative z-20 mt-16 lg:mt-32 mx-auto w-full max-w-[1400px] px-6">
+            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1400px] px-6">
                 <motion.div 
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
-                    className="bg-[#0b1426]/80 backdrop-blur-md border border-blue-900/30 rounded-xl p-8 shadow-2xl"
+                    className=""
                 >
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-900/50">
                         {aboutContent.hero.metrics.map((metric, idx) => (
