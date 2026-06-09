@@ -59,12 +59,12 @@ function AboutHero() {
                 <Image src="/globe-previous.png" alt="Global Network" fill className="object-contain scale-110" priority />
             </div>
 
-            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
+            <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-[950px]"
+                    className="max-w-[850px]"
                 >
                     <motion.div variants={fadeInUp} className="mb-8">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
@@ -89,7 +89,7 @@ function AboutHero() {
             </div>
 
             {/* Metrics Bar */}
-            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1400px] px-6">
+            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1200px] px-6">
                 <motion.div 
                     variants={fadeInUp}
                     initial="hidden"
@@ -258,15 +258,18 @@ function ApiSection() {
                         viewport={viewportOnce}
                         className="w-full lg:w-[35%] lg:pl-8"
                     >
-                        <div className="text-sm font-bold tracking-widest text-[#2563eb] mb-6 uppercase">
-                            OUR FOUNDATION
+                        <div className="mb-6">
+                            <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
+                                <span className="dot bg-[#2563eb]" />
+                                OUR FOUNDATION
+                            </span>
                         </div>
-                        <h2 className="text-2xl md:text-[26px] lg:text-[28px] font-extrabold mb-8 text-[#0f172a] leading-[1.3] tracking-tight">
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-[#0f172a] leading-[1.15] tracking-tight">
                             At the core of Hyniva<br />
                             are three defining strengths:<br />
-                            <span className="text-[#2563eb]">Agility, People and Innovation.</span>
+                            <span className="text-[#63c2ff]">Agility, People and Innovation.</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed tracking-wide">
+                        <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                             We call it the Hyniva API.
                         </p>
                     </motion.div>
@@ -292,12 +295,16 @@ function LeadershipSection() {
                         viewport={viewportOnce}
                         className="lg:w-1/4 pt-4"
                     >
-                        <div className="text-xs font-bold tracking-widest text-blue-400 mb-4 uppercase">OUR LEADERSHIP TEAM</div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight whitespace-pre-line">
+                        <div className="mb-6">
+                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
+                                <span className="dot bg-[#1e90ff]" />
+                                OUR LEADERSHIP TEAM
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-white leading-[1.15] tracking-tight whitespace-pre-line">
                             {aboutContent.leadership.sectionTitle}
                         </h2>
-                        <div className="w-12 h-1 bg-blue-500 mb-6"></div>
-                        <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                        <p className="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
                             {aboutContent.leadership.sectionDescription}
                         </p>
                     </motion.div>
@@ -370,8 +377,13 @@ function ValuesSection() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <div className="text-xs font-bold tracking-widest text-blue-600 mb-4 uppercase">OUR VALUES</div>
-                        <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 text-slate-900 leading-tight whitespace-pre-line">
+                        <div className="mb-6">
+                            <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
+                                <span className="dot bg-[#2563eb]" />
+                                OUR VALUES
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
                             {aboutContent.values.title}
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed max-w-md">
@@ -413,55 +425,61 @@ function OperationsSection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-[#f0f9ff] py-24 pb-32">
-            <div className="mx-auto max-w-[1400px] px-6">
-                
-                {/* Unified Card Container */}
-                <div className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 mx-auto max-w-5xl flex flex-col">
-                    
-                    {/* Top Half: How We Work (White) */}
-                    <div className="bg-white p-10 sm:p-16">
-                        <div className="text-center mb-16 max-w-3xl mx-auto">
-                            <div className="text-[12px] font-black tracking-widest text-[#2563eb] uppercase mb-4">
-                                HOW WE WORK
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-6">
-                                {aboutContent.operations.howWeOperate.title}
-                            </h2>
-                            <p className="text-slate-500 text-lg">
-                                {aboutContent.operations.howWeOperate.description}
-                            </p>
-                        </div>
-                        
-                        <div className="relative pt-4 pb-4">
-                            {/* Connecting Line */}
-                            <div className="absolute top-[24px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
-                            
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12">
-                                {aboutContent.operations.howWeOperate.steps.map((item, idx) => (
-                                    <div key={idx} className="flex flex-col items-center text-center relative z-10">
-                                        <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-white">
-                                            {idx + 1}
-                                        </div>
-                                        <h4 className="font-bold text-[15px] text-slate-900 mb-3">
-                                            {item.title}
-                                        </h4>
-                                        <p className="text-[13px] text-slate-500 leading-relaxed max-w-[240px]">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+        <section className="bg-white py-24">
+            {/* How We Work Section */}
+            <div className="mx-auto max-w-[1200px] px-6">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <div className="mb-4 flex justify-center">
+                        <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
+                            <span className="dot bg-[#2563eb]" />
+                            HOW WE WORK
+                        </span>
                     </div>
+                    <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight">
+                        {aboutContent.operations.howWeOperate.title}
+                    </h2>
+                    <p className="text-slate-600 text-lg leading-relaxed">
+                        {aboutContent.operations.howWeOperate.description}
+                    </p>
+                </div>
+                
+                <div className="relative pt-4 pb-4">
+                    {/* Connecting Line */}
+                    <div className="absolute top-[24px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12">
+                        {aboutContent.operations.howWeOperate.steps.map((item, idx) => (
+                            <div key={idx} className="flex flex-col items-center text-center relative z-10">
+                                <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-white">
+                                    {idx + 1}
+                                </div>
+                                <h4 className="font-bold text-[15px] text-slate-900 mb-3">
+                                    {item.title}
+                                </h4>
+                                <p className="text-[13px] text-slate-500 leading-relaxed max-w-[240px]">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
-                    {/* Bottom Half: Digital Factory Graphic (Navy) */}
-                    <div className="relative overflow-hidden bg-[#030B3B] p-10 sm:p-16 text-white pt-16 sm:pt-20">
-                        {/* Background glow effects */}
-                        <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
-                        <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
+/* ─────────────── Digital Factory Section ─────────────── */
 
-                        <div className="relative z-10 mx-auto max-w-[1400px]">
+function DigitalFactorySection() {
+    const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
+
+    return (
+        <section className="relative overflow-hidden bg-[#030B3B] py-24 text-white">
+            {/* Background glow effects */}
+            <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
+            <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
+
+            <div className="relative z-10 mx-auto max-w-[1200px] px-6">
                             {/* ── Header Row: left title + right stat ── */}
                             <motion.div
                                 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
@@ -655,16 +673,12 @@ function OperationsSection() {
                         <g className="hpg hfloat-4" style={{ transformOrigin: "922px 134px" }}>
                             <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
                             <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs"/>
-                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="hc5)"/>
+                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)"/>
                             <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
                             <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
                         </g>
                     </svg>
-                            </motion.div>
-                        </div>
-                    </div>
-                </div>
-
+                </motion.div>
             </div>
         </section>
     );
@@ -822,6 +836,7 @@ export default function AboutPage() {
                 <LeadershipSection />
                 <ValuesSection />
                 <OperationsSection />
+                <DigitalFactorySection />
                 <TimelineSection />
             </main>
             <Footer />

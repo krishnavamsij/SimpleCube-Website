@@ -71,7 +71,7 @@ export const heroSlides = [
         stats: [
             { value: "70%", label: "Faster Product Launch" },
             { value: "50%", label: "Lower Cost of Ownership" },
-            { value: "30+", label: "Happy Clients" },
+            { value: "45+", label: "Happy Clients" },
         ],
     },
     {
@@ -351,7 +351,7 @@ export const whyHynivaContent = {
         highlightedWord: "Hyniva?",
         stats: [
             { value: "220+", label: "Applications\nDelivered" },
-            { value: "30+", label: "Enterprise\nClients" },
+            { value: "45+", label: "Enterprise\nClients" },
             { value: "100+", label: "Certified\nExperts" }
         ],
         description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live, not by what gets proposed.",

@@ -10,7 +10,7 @@ export const aboutContent = {
         description: "Our mission is to simplify enterprise complexity through product engineering services that deliver measurable outcomes and enable organizations to scale with confidence.",
         metrics: [
             { value: "220+", label: "Applications Delivered" },
-            { value: "30+", label: "Enterprise Clients" },
+            { value: "45+", label: "Enterprise Clients" },
             { value: "15+", label: "Years of Partners\nTeamed Up" },
             { value: "7", label: "Products Built" }
         ]
@@ -138,11 +138,11 @@ export const aboutContent = {
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your business goals, existing systems, and constraints before proposing anything."
+                    description: "We understand your business goals, existing systems and constraints before proposing anything."
                 },
                 {
                     title: "Strategy & Scope",
-                    description: "A clear roadmap with transparent cost, timeline, and risk — no padded estimates, no surprises."
+                    description: "A clear roadmap with transparent cost, timeline and risk — no padded estimates, no surprises."
                 },
                 {
                     title: "Agile Delivery",
@@ -150,7 +150,7 @@ export const aboutContent = {
                 },
                 {
                     title: "Launch & Scale",
-                    description: "We don't hand off and disappear — we support, optimize, and grow with you."
+                    description: "We don't hand off and disappear — we support, optimize and grow with you."
                 }
             ]
         },
