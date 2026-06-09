@@ -24,8 +24,9 @@ export async function POST(request: Request) {
     const body = (await request.json()) as {
       message?: unknown;
       session_id?: unknown;
+      user_intent?: unknown;
     };
-    const { message, session_id } = body;
+    const { message, session_id, user_intent } = body;
 
     if (typeof message !== "string" || !message.trim()) {
       return NextResponse.json(
@@ -37,6 +38,11 @@ export async function POST(request: Request) {
     const sessionId =
       typeof session_id === "string" && session_id.trim()
         ? session_id.trim()
+        : null;
+
+    const userIntent =
+      typeof user_intent === "string" && user_intent.trim()
+        ? user_intent.trim()
         : null;
 
     const apiUrl = getChatbotApiUrl();
@@ -55,6 +61,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         message: message.trim(),
         ...(sessionId ? { session_id: sessionId } : {}),
+        ...(userIntent ? { user_intent: userIntent } : {}),
       }),
       cache: "no-store",
     });
