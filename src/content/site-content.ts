@@ -127,6 +127,8 @@ export const trustContent = {
         { name: "USGB", src: "/logos/Replacement/USGB.png" },
         { name: "Fiserv", src: "/logos/Additional/fiserv-logo-orange-ff6600.svg" },
         { name: "Always Track", src: "/logos/Additional/Always_Track.png" },
+        { name: "Westcare", src: "/logos/Westcare.png", scale: 1.6 },
+        { name: "Delta", src: "/logos/delta.png", scale: 1.4 },
     ],
 };
 
