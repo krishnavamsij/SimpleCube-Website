@@ -152,67 +152,67 @@ export const aboutContent = {
                 date: "2007",
                 title: "Foundation & Growth",
                 description: "Founded in Chennai, India, as a technology consulting and software development company, and subsequently expanded operations to Bengaluru and San Antonio, Texas, strengthening Hyniva's delivery capabilities and presence in key markets.",
-                image: "/images/journey/media__1780675818948.jpg"
+                image: "/images/About_Us/2007.png"
             },
             {
                 date: "2009",
                 title: "First SaaS Product Launch",
                 description: "Launched MediaFusion, a digital media platform that marked Hyniva’s entry into software product development and SaaS solutions.",
-                image: "/images/journey/media__1780675819072.jpg"
+                image: "/images/About_Us/2009.png"
             },
             {
                 date: "2012",
                 title: "EazySchool Launch",
                 description: "Expanded into the education sector with EazySchool, a comprehensive school management platform that helped institutions digitize operations and improve stakeholder engagement.",
-                image: "/images/journey/media__1780675819372.jpg"
+                image: "/images/About_Us/2012.png"
             },
             {
                 date: "2014",
                 title: "Digital Lending & Enterprise Transformation",
                 description: "Built digital lending frameworks, workflow automation solutions and enterprise integration capabilities that helped organizations modernize operations and accelerate digital transformation.",
-                image: "/images/journey/media__1780675819620.jpg"
+                image: "/images/About_Us/2014.png"
             },
             {
                 date: "2017",
                 title: "CreditSnap Launch",
                 description: "Introduced CreditSnap, an omni-channel lending platform that transformed borrower prequalification and loan origination experiences for financial institutions.",
-                image: "/images/journey/media__1780675819372.jpg"
+                image: "/images/About_Us/2017.png"
             },
             {
                 date: "2018",
                 title: "Salesforce, Cloud & Global Delivery Growth",
                 description: "Expanded Salesforce consulting, digital experience, cloud transformation, and distributed engineering capabilities to support enterprise clients at scale.",
-                image: "/images/journey/media__1780675819614.jpg"
+                image: "/images/About_Us/2018.png"
             },
             {
                 date: "2022",
                 title: "Hyper Portfolio Recommendation Engine",
                 description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation engine that helps investors better understand and optimize their financial strategies.",
-                image: "/images/journey/media__1780675819072.jpg"
+                image: "/images/About_Us/2022.jpeg"
             },
             {
                 date: "2023",
                 title: "Strategic Enterprise Breakthrough",
                 description: "Secured a major enterprise engagement with Victory Capital, winning a competitive RFP against TCS and Cognizant and reinforcing Hyniva's growing reputation for delivering complex digital transformation initiatives.",
-                image: "/images/journey/media__1780675819372.jpg"
+                image: "/images/About_Us/2023.jpeg"
             },
             {
                 date: "2024",
                 title: "FinXServe Launch & CreditSnap Acquisition",
                 description: "Launched FinXServe, a Salesforce-native digital banking experience platform for banks and credit unions. In the same year, CreditSnap was acquired by SavvyMoney, marking a significant product success and strategic exit.",
-                image: "/images/journey/media__1780675819614.jpg"
+                image: "/images/About_Us/2024.png"
             },
             {
                 date: "2025",
                 title: "AIRA Debuts at Cypher AI Summit",
                 description: "Unveiled AIRA (Autonomous Intelligent Reasoning Agent) at the Cypher AI Summit, marking Hyniva’s expansion into enterprise AI solutions for regulated industries.",
-                image: "/images/journey/media__1780675818948.jpg"
+                image: "/images/About_Us/2025.png"
             },
             {
                 date: "2026",
                 title: "Claim Pioneer Launch & SOC 2 Achievement",
                 description: "Launched Claim Pioneer, an AI-powered claims management platform for insurance organizations, and achieved SOC 2 Type II compliance, reinforcing Hyniva’s commitment to secure, trusted and innovative enterprise solutions.",
-                image: "/images/journey/media__1780675819072.jpg"
+                image: "/images/About_Us/2026.png"
             }
         ]
     }
