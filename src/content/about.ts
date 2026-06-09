@@ -9,10 +9,10 @@ export const aboutContent = {
         title: "Where Product Thinking\nMeets Enterprise Execution",
         description: "Our mission is to simplify enterprise complexity through product engineering services that deliver measurable outcomes and enable organizations to scale with confidence.",
         metrics: [
-            { value: "220+", label: "Applications Delivered" },
-            { value: "45+", label: "Enterprise Clients" },
+            { value: "220+", label: "Applications\nDelivered" },
+            { value: "45+", label: "Enterprise\nClients" },
             { value: "15+", label: "Years of Partners\nTeamed Up" },
-            { value: "7", label: "Products Built" }
+            { value: "7", label: "Products\nBuilt" }
         ]
     },
     api: {

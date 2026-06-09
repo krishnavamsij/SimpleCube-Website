@@ -55,18 +55,18 @@ function AboutHero() {
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
             {/* Globe Graphic (Image) */}
-            <div className="absolute top-[5%] lg:top-[10%] right-[-10%] lg:right-[5%] w-[100%] lg:w-[45%] max-w-[650px] aspect-square pointer-events-none z-0 opacity-60 lg:opacity-100 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]">
+            <div className="hidden lg:block absolute top-[5%] lg:top-[10%] right-[-10%] lg:right-[5%] w-[100%] lg:w-[45%] max-w-[650px] aspect-square pointer-events-none z-0 opacity-60 lg:opacity-100 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]">
                 <Image src="/globe-previous.png" alt="Global Network" fill className="object-contain scale-110" priority />
             </div>
 
-            <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6">
+            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-[850px]"
+                    className="w-full lg:w-1/2 max-w-[680px]"
                 >
-                    <motion.div variants={fadeInUp} className="mb-8">
+                    <motion.div variants={fadeInUp} className="mb-10">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             WHO WE ARE
@@ -74,14 +74,14 @@ function AboutHero() {
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-8"
+                        className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35] mb-10 font-display"
                         style={{ whiteSpace: "pre-line" }}
                     >
                         {aboutContent.hero.title}
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl"
+                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl font-medium"
                     >
                         {aboutContent.hero.description}
                     </motion.p>
@@ -89,16 +89,16 @@ function AboutHero() {
             </div>
 
             {/* Metrics Bar */}
-            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1200px] px-6">
+            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1400px] px-6">
                 <motion.div 
                     variants={fadeInUp}
                     initial="hidden"
                     animate="visible"
                     className=""
                 >
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-900/50">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
                         {aboutContent.hero.metrics.map((metric, idx) => (
-                            <div key={idx} className={`flex flex-col items-center text-center ${idx === 0 ? '' : 'pl-8'}`}>
+                            <div key={idx} className={`flex flex-col items-center text-center ${idx !== 0 ? 'border-l border-blue-900/50 pl-8' : ''}`}>
                                 <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2">{metric.value}</div>
                                 <div className="text-sm font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
                             </div>
@@ -131,9 +131,9 @@ function ApiSection() {
                             {/* Background Waves - Moved inside the Plate Assembly for perfect centering */}
                             
                             {/* Top row with 3 items */}
-                            <div className="flex justify-between w-full relative z-20">
+                            <div className="flex flex-col md:flex-row md:justify-between w-full relative z-20 gap-8 md:gap-0">
                                 {/* Agility */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
+                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.12)] border border-blue-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-blue-100 m-[3px]"></div>
                                         <Gauge className="w-7 h-7 text-[#2563eb]" strokeWidth={1.5} />
@@ -146,7 +146,7 @@ function ApiSection() {
                                 </div>
 
                                 {/* People */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
+                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.12)] border border-green-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-green-100 m-[3px]"></div>
                                         <Users className="w-7 h-7 text-[#16a34a]" strokeWidth={1.5} />
@@ -159,7 +159,7 @@ function ApiSection() {
                                 </div>
 
                                 {/* Innovation */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
+                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.12)] border border-purple-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-purple-100 m-[3px]"></div>
                                         <Lightbulb className="w-7 h-7 text-[#7c3aed]" strokeWidth={1.5} />
@@ -173,7 +173,7 @@ function ApiSection() {
                             </div>
 
                             {/* Connecting Lines SVG */}
-                            <div className="w-full h-[160px] mt-2 relative z-10">
+                            <div className="hidden md:block w-full h-[160px] mt-2 relative z-10">
                                 <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 600 160">
                                     {/* Glow effect lines */}
                                     <path d="M 100,0 C 100,80 300,100 300,150" fill="none" stroke="url(#grad-blue)" strokeWidth="6" strokeLinecap="round" className="opacity-30 blur-[2px]" />
@@ -267,7 +267,7 @@ function ApiSection() {
                         <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-[#0f172a] leading-[1.15] tracking-tight">
                             At the core of Hyniva<br />
                             are three defining strengths:<br />
-                            <span className="text-[#63c2ff]">Agility, People and Innovation.</span>
+                            <span className="text-[#1e90ff]">Agility, People and Innovation.</span>
                         </h2>
                         <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                             We call it the Hyniva API.
@@ -293,7 +293,7 @@ function LeadershipSection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:w-1/4 pt-4"
+                        className="w-full lg:w-1/4 pt-4"
                     >
                         <div className="mb-6">
                             <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
@@ -425,38 +425,38 @@ function OperationsSection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-white py-24">
+        <section className="bg-[#ECF6FF] py-24">
             {/* How We Work Section */}
-            <div className="mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-[1100px] px-6">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
-                    <div className="mb-4 flex justify-center">
+                    <div className="mb-6 flex justify-center">
                         <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                             <span className="dot bg-[#2563eb]" />
                             HOW WE WORK
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight">
+                    <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display">
                         {aboutContent.operations.howWeOperate.title}
                     </h2>
-                    <p className="text-slate-600 text-lg leading-relaxed">
+                    <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
                         {aboutContent.operations.howWeOperate.description}
                     </p>
                 </div>
                 
-                <div className="relative pt-4 pb-4">
+                <div className="relative pt-8 pb-4">
                     {/* Connecting Line */}
-                    <div className="absolute top-[24px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
+                    <div className="absolute top-[44px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12">
                         {aboutContent.operations.howWeOperate.steps.map((item, idx) => (
                             <div key={idx} className="flex flex-col items-center text-center relative z-10">
-                                <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-white">
+                                <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-black text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-[#ECF6FF] font-display">
                                     {idx + 1}
                                 </div>
-                                <h4 className="font-bold text-[15px] text-slate-900 mb-3">
+                                <h4 className="font-black text-[16px] text-[#030B3B] mb-3 font-display tracking-tight">
                                     {item.title}
                                 </h4>
-                                <p className="text-[13px] text-slate-500 leading-relaxed max-w-[240px]">
+                                <p className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full min-h-[65px] md:h-[65px] overflow-hidden">
                                     {item.description}
                                 </p>
                             </div>
@@ -530,7 +530,7 @@ function DigitalFactorySection() {
                             {/* ── Planet Wave SVG ── */}
                             <motion.div
                                 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                                className="w-full flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
+                                className="w-full overflow-x-hidden flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
                             >
                                 <style>{`
                                     @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -693,6 +693,8 @@ function TimelineSection() {
     // Extract unique years from the timeline dates
     const years = Array.from(new Set(aboutContent.journey.timeline.map(item => item.date.split(' ').pop() || "")));
     const [activeYear, setActiveYear] = useState<string>(years[0] || "");
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
 
     const scrollToYear = (year: string) => {
         setActiveYear(year);
@@ -700,9 +702,23 @@ function TimelineSection() {
         const container = scrollContainerRef.current;
         const element = container.querySelector(`[data-year="${year}"]`) as HTMLElement;
         if (element) {
-            const scrollLeft = element.offsetLeft - container.offsetLeft - 24; // padding offset
+            const scrollLeft = element.offsetLeft - container.offsetLeft - 24;
             container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
         }
+    };
+
+    const scrollBy4 = (dir: 'left' | 'right') => {
+        if (!scrollContainerRef.current) return;
+        const container = scrollContainerRef.current;
+        const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth + 32 : 332;
+        container.scrollBy({ left: dir === 'right' ? cardWidth * 4 : -cardWidth * 4, behavior: 'smooth' });
+    };
+
+    const updateScrollState = () => {
+        if (!scrollContainerRef.current) return;
+        const container = scrollContainerRef.current;
+        setCanScrollLeft(container.scrollLeft > 0);
+        setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 1);
     };
 
     // Update active year based on scroll position
@@ -723,11 +739,13 @@ function TimelineSection() {
                 }
             });
             if (currentYear !== activeYear) setActiveYear(currentYear);
+            updateScrollState();
         };
         
         const container = scrollContainerRef.current;
         if (container) {
             container.addEventListener('scroll', handleScroll, { passive: true });
+            updateScrollState();
             return () => container.removeEventListener('scroll', handleScroll);
         }
     }, [activeYear]);
@@ -747,12 +765,12 @@ function TimelineSection() {
                 </h2>
 
                 {/* Year Tabs */}
-                <div className="flex justify-between sm:justify-center gap-3 md:gap-4 flex-wrap mb-16">
+                <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-center gap-3 md:gap-4 mb-16">
                     {years.map(year => (
                         <button 
                             key={year}
                             onClick={() => scrollToYear(year)}
-                            className={`py-3 md:py-4 px-5 min-w-[85px] border transition-colors focus-visible:outline-none focus-visible:ring-2 rounded-sm font-semibold text-[15px] leading-5 tracking-wider
+                            className={`py-2 sm:py-3 md:py-4 px-3 sm:px-5 min-w-[60px] sm:min-w-[85px] border transition-colors focus-visible:outline-none focus-visible:ring-2 rounded-sm font-semibold text-[12px] sm:text-[15px] leading-5 tracking-wider
                                 ${activeYear === year 
                                     ? 'bg-[#2563eb] text-white border-[#2563eb]' 
                                     : 'bg-white text-slate-900 border-slate-200 hover:border-slate-400'
@@ -763,13 +781,25 @@ function TimelineSection() {
                     ))}
                 </div>
 
-                {/* Carousel */}
-                <div className="overflow-hidden relative -mx-4 px-4 sm:mx-0 sm:px-0">
-                    <div 
-                        ref={scrollContainerRef}
-                        className="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory hide-scrollbar"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                {/* Carousel with side arrows */}
+                <div className="flex items-center gap-4">
+                    {/* Left Arrow */}
+                    <button
+                        onClick={() => scrollBy4('left')}
+                        disabled={!canScrollLeft}
+                        className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm items-center justify-center text-slate-400 hover:text-slate-600 hover:border-slate-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                        aria-label="Scroll left"
                     >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </button>
+
+                    {/* Carousel */}
+                    <div className="overflow-hidden flex-1">
+                        <div 
+                            ref={scrollContainerRef}
+                            className="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory hide-scrollbar"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        >
                         {aboutContent.journey.timeline.map((item, idx) => {
                             const year = item.date.split(' ').pop() || "";
                             // Alternating pattern like DBB Software
@@ -779,7 +809,7 @@ function TimelineSection() {
                                 <div 
                                     key={idx} 
                                     data-year={year}
-                                    className="min-w-[280px] max-w-[320px] shrink-0 snap-start flex flex-col gap-6 group"
+                                    className="min-w-[85vw] max-w-[85vw] sm:min-w-[calc(50%-16px)] sm:max-w-[calc(50%-16px)] lg:min-w-[calc(25%-24px)] lg:max-w-[calc(25%-24px)] shrink-0 snap-start flex flex-col gap-6 group"
                                 >
                                     <div className={`aspect-square bg-slate-50 rounded-xl overflow-hidden relative shadow-sm border border-slate-100 ${isImageTop ? 'order-1' : 'order-2'}`}>
                                         {/* @ts-ignore */}
@@ -806,9 +836,9 @@ function TimelineSection() {
                                             <h3 className="text-2xl font-black text-slate-200">{item.date}</h3>
                                         </div>
                                         {/* @ts-ignore */}
-                                        {item.title && <h4 className="text-[16px] font-bold text-slate-900 mb-3 leading-snug">{item.title}</h4>}
+                                        {item.title && <h4 className="text-[15px] font-bold text-slate-900 mb-2 leading-snug">{item.title}</h4>}
                                         {item.description && (
-                                            <p className="text-slate-600 leading-relaxed text-[13px] font-medium">
+                                            <p className="text-slate-500 leading-relaxed text-[12.5px] font-medium">
                                                 {item.description}
                                             </p>
                                         )}
@@ -817,6 +847,17 @@ function TimelineSection() {
                             );
                         })}
                     </div>
+                    </div>
+
+                    {/* Right Arrow */}
+                    <button
+                        onClick={() => scrollBy4('right')}
+                        disabled={!canScrollRight}
+                        className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm items-center justify-center text-slate-400 hover:text-slate-600 hover:border-slate-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                        aria-label="Scroll right"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </button>
                 </div>
 
             </div>
