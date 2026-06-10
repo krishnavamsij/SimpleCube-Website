@@ -44,11 +44,16 @@ interface LeadData {
 }
 
 const INTENTS = [
-    { label: "Digital Transformation",  emoji: "🔄" },
-    { label: "Enterprise Platforms",    emoji: "🏗️" },
-    { label: "Product Engineering",     emoji: "⚙️" },
-    { label: "Strategy Consulting",     emoji: "🧭" },
-    { label: "Something else",          emoji: "💬" },
+    { label: "Digital Transformation",          emoji: "🔄" },
+    { label: "Enterprise Platforms",             emoji: "🏗️" },
+    { label: "Product Engineering",              emoji: "⚙️" },
+    { label: "Data, AI & Automation",            emoji: "🤖" },
+    { label: "Cloud & Infrastructure Services",  emoji: "☁️" },
+    { label: "Strategy & IT Consulting",         emoji: "🧭" },
+    { label: "Managed Services & Support",       emoji: "🛠️" },
+    { label: "Hyniva Products & Solutions",      emoji: "🚀" },
+    { label: "Partnership Opportunities",        emoji: "🤝" },
+    { label: "Other",                            emoji: "💬" },
 ] as const;
 
 // ─── Speech types ─────────────────────────────────────────────────────────────
@@ -623,7 +628,7 @@ export function AskAiraWidget() {
     // Inject welcome message when chat opens
     useEffect(() => {
         if (isOpen && messages.length === 0 && onboardStep === "ask_name") {
-            setMessages([botMsg("Hi! I'm AIRA, Hyniva's AI Assistant 👋\nI'm here to help you explore solutions, discuss business challenges, and connect you with the right Hyniva experts.\n\nTo get started, may I know your name?")]);
+            setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nShare your goals, challenges, or ideas, and I'll help identify the expertise, solutions, and next steps that best fit your needs.\n\nTo get started, what's your name?")]);
         }
     }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -649,7 +654,7 @@ export function AskAiraWidget() {
         } catch { /* ignore */ }
         sessionIdRef.current = generateSessionId();
         clearStaleChatStorage();
-        setMessages([botMsg("Hi! I'm AIRA, Hyniva's AI Assistant 👋\nI'm here to help you explore solutions, discuss business challenges, and connect you with the right Hyniva experts.\n\nTo get started, may I know your name?")]);
+        setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nShare your goals, challenges, or ideas, and I'll help identify the expertise, solutions, and next steps that best fit your needs.\n\nTo get started, what's your name?")]);
         setOnboardStep("ask_name");
         setLeadData({ name: "", email: "", intent: "", challenge: "" });
         setLeadCaptured(false); setSmeConnected(false);
@@ -672,6 +677,15 @@ export function AskAiraWidget() {
 
         // ── ask_name ──────────────────────────────────────────────────────────
         if (onboardStep === "ask_name") {
+            // Reject greetings or too-short inputs
+            const greetings = new Set(["hi", "hello", "hey", "hiya", "yo", "sup", "howdy", "greetings", "helo", "hii", "hiii"]);
+            const isGreeting = greetings.has(trimmed.toLowerCase());
+            const isTooShort = trimmed.replace(/\s/g, "").length < 2;
+            if (isGreeting || isTooShort) {
+                setMessages(prev => [...prev, userMsg(trimmed),
+                    botMsg("Please share your name to get started.")]);
+                isSendingRef.current = false; return;
+            }
             setMessages(prev => [...prev, userMsg(trimmed),
                 botMsg(`Nice to meet you, ${trimmed}! 😊\nTo help us follow up and share relevant information, could you please provide your work email address?`)]);
             setLeadData(prev => ({ ...prev, name: trimmed }));
@@ -742,9 +756,9 @@ export function AskAiraWidget() {
             const updatedLead: LeadData = { ...leadData, challenge: trimmed };
             setLeadData(updatedLead);
             setLeadCaptured(true);
-            fireLead(updatedLead);
+            // ✅ Do NOT fire lead email here — wait for SME or Book Call action
             setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Thank you for sharing that.\n\nYour challenge appears related to ${trimmed}.\n\nBased on what you've shared, Hyniva's teams can help assess your requirements, recommend the right approach, and design solutions tailored to your business needs.\n\nHow would you like to proceed?`)]);
+                botMsg(`Thank you for sharing that, ${leadData.name}.\n\nBased on what you've described, Hyniva's teams can help assess your requirements, recommend the right approach, and design solutions tailored to your business needs.\n\nHow would you like to proceed?`)]);
             setOnboardStep("chat");
             setShowChallengeActions(true);
             isSendingRef.current = false; return;
@@ -766,6 +780,7 @@ export function AskAiraWidget() {
         const isShortYes    = /^(yes|yeah|yep|yup|sure|ok|okay|👍)\.?$/i.test(trimmed);
 
         if (isSmeRequest && leadCaptured) {
+            fireLead(leadData);
             fireSMEConnect(leadData);
             setSmeConnected(true); setShowChallengeActions(false);
             setMessages(prev => [...prev, userMsg(trimmed),
@@ -845,14 +860,14 @@ export function AskAiraWidget() {
 
     // ── Intent button handler ─────────────────────────────────────────────────
     const handleIntentSelect = useCallback((intent: string) => {
-        if (intent === "Something else") {
+        if (intent === "Other") {
             setMessages(prev => [...prev, userMsg("Something else"),
                 botMsg(`Sure, ${leadData.name}! Could you briefly describe what you're looking for? 😊`)]);
             setOnboardStep("ask_custom_intent"); return;
         }
         setLeadData(prev => ({ ...prev, intent }));
         setMessages(prev => [...prev, userMsg(intent),
-            botMsg(`Excellent choice.\n\nTo better understand your needs, could you briefly describe the business or technology challenge you're trying to solve?\n\nFor example:\n• Modernizing legacy applications\n• Cloud migration\n• Payment platform scalability\n• System integration challenges`)]);
+            botMsg(`Excellent choice.\n\nTo better understand your needs, please briefly describe your business challenge or project requirement.\n\nWhat are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?\n\nFor example:\n• Modernizing legacy applications and infrastructure\n• Migrating business-critical systems to the cloud\n• Building an AI-powered solution to improve operational efficiency\n• Implementing or enhancing enterprise platforms such as Salesforce, ServiceNow, or Microsoft Dynamics\n• Improving customer experience through digital transformation\n• Automating manual business processes and workflows\n• Developing a new product or platform\n• Scaling existing applications to support business growth\n• Integrating multiple systems and data sources\n• Strengthening security, compliance, and operational resilience`)]);
         setOnboardStep("ask_challenge");
     }, [leadData.name]);
 
@@ -1079,7 +1094,7 @@ export function AskAiraWidget() {
                                 {/* Post-challenge action buttons */}
                                 {showChallengeActions && onboardStep === "chat" && !isLoading && (
                                     <ChallengeActionButtons
-                                        onSME={() => { setShowChallengeActions(false); sendMessage("I'd like to connect with a Solution Architect"); }}
+                                        onSME={() => { setShowChallengeActions(false); fireLead(leadData); sendMessage("I'd like to connect with a Solution Architect"); }}
                                         onCall={() => { setShowChallengeActions(false); sendMessage("I'd like to schedule a consultation call"); }}
                                     />
                                 )}

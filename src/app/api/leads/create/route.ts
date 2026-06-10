@@ -34,50 +34,59 @@ export async function POST(request: Request) {
     }
 
     const html = `
-        <div style="font-family:Arial,sans-serif;max-width:600px;color:#1e293b;">
-            <h2 style="color:#00c9b1;margin-bottom:4px;">🎯 New Lead — AIRA Chatbot</h2>
-            <p style="color:#6b7280;margin-top:0;font-size:13px;">Someone just completed the onboarding flow</p>
-            <table style="border-collapse:collapse;width:100%;margin-top:16px;">
-                <tr style="border-bottom:1px solid #f3f4f6;">
-                    <td style="padding:10px 0;font-weight:bold;color:#374151;width:110px;">Name</td>
-                    <td style="padding:10px 0;">${name}</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f3f4f6;">
-                    <td style="padding:10px 0;font-weight:bold;color:#374151;">Email</td>
-                    <td style="padding:10px 0;"><a href="mailto:${email}" style="color:#00c9b1;">${email}</a></td>
-                </tr>
-                <tr style="border-bottom:1px solid #f3f4f6;">
-                    <td style="padding:10px 0;font-weight:bold;color:#374151;">Interest</td>
-                    <td style="padding:10px 0;">${intent}</td>
-                </tr>
-                ${problem ? `
-                <tr>
-                    <td style="padding:10px 0;font-weight:bold;color:#374151;">Details</td>
-                    <td style="padding:10px 0;">${problem}</td>
-                </tr>` : ""}
-            </table>
-            <div style="margin-top:24px;padding:16px;background:#f0faf9;border-radius:8px;border-left:4px solid #00c9b1;">
-                <p style="margin:0;font-size:13px;color:#374151;">
-                    <strong>Action:</strong> Reach out to ${name} at
-                    <a href="mailto:${email}" style="color:#00c9b1;">${email}</a> within 24 hours.
-                </p>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1e293b;">
+            <!-- Header -->
+            <div style="background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);padding:32px 32px 24px;border-radius:12px 12px 0 0;">
+                <h1 style="color:#ffffff;margin:0 0 6px;font-size:22px;font-weight:700;">🎯 New Business Inquiry</h1>
+                <p style="color:#93c5fd;margin:0;font-size:14px;">A potential customer has expressed interest in Hyniva's services and is looking for assistance.</p>
             </div>
-            <hr style="margin:24px 0;border:none;border-top:1px solid #e5e7eb;">
-            <p style="color:#9ca3af;font-size:11px;">Captured via AIRA — Hyniva Website Chatbot</p>
+            <!-- Body -->
+            <div style="background:#ffffff;padding:28px 32px;border:1px solid #e2e8f0;border-top:none;">
+                <table style="border-collapse:collapse;width:100%;">
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                        <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;width:160px;">Contact Name</td>
+                        <td style="padding:12px 0;color:#0f172a;font-weight:500;">${name}</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                        <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Email</td>
+                        <td style="padding:12px 0;"><a href="mailto:${email}" style="color:#2563eb;font-weight:500;">${email}</a></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                        <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Area of Interest</td>
+                        <td style="padding:12px 0;color:#0f172a;font-weight:500;">${intent}</td>
+                    </tr>
+                    ${problem ? `
+                    <tr>
+                        <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;vertical-align:top;">Business Challenge</td>
+                        <td style="padding:12px 0;color:#0f172a;line-height:1.6;">${problem}</td>
+                    </tr>` : ""}
+                </table>
+                <!-- Next Step -->
+                <div style="margin-top:24px;padding:18px 20px;background:#eff6ff;border-radius:8px;border-left:4px solid #2563eb;">
+                    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:0.05em;">Recommended Next Step</p>
+                    <p style="margin:0;font-size:14px;color:#1e293b;line-height:1.6;">Review the requirement and reach out to the prospect to discuss how Hyniva can help address their business challenge.</p>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div style="background:#f8fafc;padding:16px 32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;">
+                <p style="color:#94a3b8;font-size:11px;margin:0;">This inquiry was captured via AIRA, Hyniva's AI assistant on hyniva.com</p>
+            </div>
         </div>
     `;
 
     const text = [
-        "New Lead — AIRA Chatbot",
-        "================================",
-        `Name:     ${name}`,
-        `Email:    ${email}`,
-        `Interest: ${intent}`,
-        ...(problem ? [`Details:  ${problem}`] : []),
+        "🎯 New Business Inquiry",
+        "A potential customer has expressed interest in Hyniva's services.",
+        "================================================",
+        `Contact Name:      ${name}`,
+        `Email:             ${email}`,
+        `Area of Interest:  ${intent}`,
+        ...(problem ? [`Business Challenge: ${problem}`] : []),
         "",
-        `Action: Reach out to ${name} at ${email} within 24 hours.`,
+        "Recommended Next Step:",
+        "Review the requirement and reach out to the prospect to discuss how Hyniva can help address their business challenge.",
         "",
-        "Captured via AIRA — Hyniva Website Chatbot",
+        "Captured via AIRA — Hyniva AI Assistant (hyniva.com)",
     ].join("\n");
 
     try {
@@ -85,7 +94,7 @@ export async function POST(request: Request) {
             Source: `AIRA at Hyniva <${sourceEmail}>`,
             Destination: { ToAddresses: [LEADS_RECIPIENT] },
             Message: {
-                Subject: { Data: `[New Lead] ${name} — ${intent}`, Charset: "UTF-8" },
+                Subject: { Data: `New Business Inquiry – ${intent || "Hyniva Services"}`, Charset: "UTF-8" },
                 Body: {
                     Text: { Data: text, Charset: "UTF-8" },
                     Html: { Data: html, Charset: "UTF-8" },
