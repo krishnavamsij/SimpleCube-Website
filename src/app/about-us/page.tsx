@@ -349,7 +349,7 @@ function HowWeOperateSection() {
 /* ─────────────── How We Work Section ─────────────── */
 function HowWeWorkSection() {
     return (
-        <section className="py-20 sm:py-28 md:py-32 bg-white">
+        <section className="pt-20 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 bg-white">
             <div className="mx-auto max-w-6xl px-6 sm:px-8">
                 <motion.div
                     variants={fadeInUp}
@@ -413,7 +413,7 @@ function HowWeWorkSection() {
 /* ─────────────── Digital Factory Model Section ─────────────── */
 function DigitalFactorySection() {
     return (
-        <section className="py-20 sm:py-28 md:py-32 bg-slate-50">
+        <section className="pt-8 sm:pt-10 md:pt-12 pb-20 sm:pb-28 md:pb-32 bg-slate-50">
             <div className="mx-auto max-w-6xl px-6 sm:px-8">
                 <motion.div
                     variants={fadeInUp}
