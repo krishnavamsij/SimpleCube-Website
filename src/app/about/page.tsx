@@ -114,26 +114,26 @@ function AboutHero() {
 
 function ApiSection() {
     return (
-        <section className="bg-white py-24 relative overflow-hidden">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
             <div className="mx-auto max-w-[1400px] px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-8">
-                    
-                    {/* Left Hand Side - Illustration */}
+                <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-8">
+
+                    {/* Left Hand Side - Illustration (all screens, scaled on mobile) */}
                     <motion.div 
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[65%] relative flex justify-center py-6"
+                        className="w-full lg:w-[65%] relative flex justify-center py-0 lg:py-6"
                     >
-                        <div className="relative w-full max-w-[800px] flex flex-col items-center pt-4 pb-8">
+                        <div className="relative w-full max-w-[800px] flex flex-col items-center pt-4 pb-8 scale-[0.6] sm:scale-[0.75] lg:scale-100 origin-top lg:mb-0 -mb-[280px] sm:-mb-[200px] md:-mb-[100px]">
                             
                             {/* Background Waves - Moved inside the Plate Assembly for perfect centering */}
                             
                             {/* Top row with 3 items */}
-                            <div className="flex flex-col md:flex-row md:justify-between w-full relative z-20 gap-8 md:gap-0">
+                            <div className="flex flex-row justify-between w-full relative z-20 gap-0">
                                 {/* Agility */}
-                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
+                                <div className="flex flex-col items-center w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.12)] border border-blue-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-blue-100 m-[3px]"></div>
                                         <Gauge className="w-7 h-7 text-[#2563eb]" strokeWidth={1.5} />
@@ -146,7 +146,7 @@ function ApiSection() {
                                 </div>
 
                                 {/* People */}
-                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
+                                <div className="flex flex-col items-center w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.12)] border border-green-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-green-100 m-[3px]"></div>
                                         <Users className="w-7 h-7 text-[#16a34a]" strokeWidth={1.5} />
@@ -159,7 +159,7 @@ function ApiSection() {
                                 </div>
 
                                 {/* Innovation */}
-                                <div className="flex flex-col items-center w-full md:w-[32%] text-center">
+                                <div className="flex flex-col items-center w-[32%] text-center">
                                     <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.12)] border border-purple-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
                                         <div className="absolute inset-0 rounded-full border border-purple-100 m-[3px]"></div>
                                         <Lightbulb className="w-7 h-7 text-[#7c3aed]" strokeWidth={1.5} />
@@ -173,7 +173,7 @@ function ApiSection() {
                             </div>
 
                             {/* Connecting Lines SVG */}
-                            <div className="hidden md:block w-full h-[160px] mt-2 relative z-10">
+                            <div className="w-full h-[160px] mt-2 relative z-10">
                                 <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 600 160">
                                     {/* Glow effect lines */}
                                     <path d="M 100,0 C 100,80 300,100 300,150" fill="none" stroke="url(#grad-blue)" strokeWidth="6" strokeLinecap="round" className="opacity-30 blur-[2px]" />
@@ -213,14 +213,14 @@ function ApiSection() {
                             </div>
 
                             {/* Floating API & Plate Assembly */}
-                            <div className="relative z-20 flex flex-col items-center mt-[-40px]">
+                            <div className="relative z-20 flex flex-col items-center mt-0 md:mt-[-40px] overflow-hidden w-full">
                                 
-                                {/* Background Waves perfectly centered at the ground level of the 5:1 plate */}
-                                <div className="absolute top-[108px] left-1/2 -translate-x-1/2 w-0 h-0 flex items-center justify-center pointer-events-none z-0">
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[72px] rounded-[100%] border-[1.5px] border-blue-200/80 shadow-[inset_0_0_15px_rgba(37,99,235,0.03)] opacity-100"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[112px] rounded-[100%] border-[1.5px] border-slate-300/60 shadow-[inset_0_0_15px_rgba(0,0,0,0.02)] opacity-70"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[152px] rounded-[100%] border-[1.5px] border-slate-200/60 shadow-[inset_0_0_15px_rgba(0,0,0,0.02)] opacity-40"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[192px] rounded-[100%] border-[1.5px] border-slate-200/40 shadow-[inset_0_0_15px_rgba(0,0,0,0.02)] opacity-15"></div>
+                                {/* Background Waves */}
+                                <div className="absolute top-[108px] left-1/2 -translate-x-1/2 w-0 h-0 pointer-events-none z-0">
+                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[72px] rounded-[100%] border-[1.5px] border-blue-200/80 opacity-100"></div>
+                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[112px] rounded-[100%] border-[1.5px] border-slate-300/60 opacity-70"></div>
+                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[152px] rounded-[100%] border-[1.5px] border-slate-200/60 opacity-40"></div>
+                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[192px] rounded-[100%] border-[1.5px] border-slate-200/40 opacity-15"></div>
                                 </div>
 
                                 {/* Floating API Text */}
@@ -230,21 +230,15 @@ function ApiSection() {
                                     </h3>
                                 </div>
 
-                                {/* 3D Plate Underneath (Strict 5:1 Aspect Ratio) */}
-                                <div className="relative w-[320px] h-[80px] z-20">
-                                    {/* Ground shadow */}
+                                {/* 3D Plate Underneath */}
+                                <div className="relative w-[200px] sm:w-[280px] md:w-[320px] h-[80px] z-20">
                                     <div className="absolute -bottom-4 left-[10%] w-[80%] h-[20px] bg-slate-900/10 blur-xl rounded-[100%] z-0"></div>
-                                    
-                                    {/* Plate Rim / Bottom Ellipse (5:1) */}
                                     <div className="absolute bottom-0 left-0 w-full h-[64px] bg-gradient-to-b from-slate-100 to-slate-300 rounded-[100%] shadow-[0_15px_30px_rgba(15,23,42,0.1)] border-b-2 border-slate-300 z-10"></div>
-                                    
-                                    {/* Plate Top Surface / Top Ellipse (5:1) */}
                                     <div className="absolute bottom-[16px] left-0 w-full h-[64px] bg-gradient-to-b from-white via-slate-50 to-slate-100 rounded-[100%] shadow-[inset_0_4px_15px_rgba(255,255,255,1),inset_0_-2px_6px_rgba(15,23,42,0.06)] border border-slate-200 flex items-center justify-center z-20">
-                                        {/* Faint blue reflection directly under the API text */}
                                         <div className="w-[120px] h-[25px] bg-blue-500/10 blur-md rounded-[100%]"></div>
                                     </div>
                                 </div>
-                                <p className="text-[14px] text-slate-500 mt-6 font-medium tracking-wide">Our foundation. Enabling everything we do.</p>
+                                <p className="text-[14px] text-slate-500 mt-6 font-medium tracking-wide text-center">Our foundation. Enabling everything we do.</p>
                             </div>
 
                         </div>
@@ -256,7 +250,7 @@ function ApiSection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[35%] lg:pl-8"
+                        className="w-full lg:w-[35%] lg:pl-8 order-first lg:order-none"
                     >
                         <div className="mb-6">
                             <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
@@ -284,7 +278,7 @@ function ApiSection() {
 
 function LeadershipSection() {
     return (
-        <section className="bg-[#0b1426] py-24 text-white">
+        <section className="bg-[#0b1426] py-[30px] sm:py-[40px] lg:py-[50px] text-white">
             <div className="mx-auto max-w-[1400px] px-6">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
                     {/* Left Column - Text */}
@@ -363,7 +357,7 @@ function LeadershipSection() {
 
 function ValuesSection() {
     return (
-        <section className="bg-white py-24 relative overflow-hidden">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
             {/* Background decorative waves */}
             <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] bg-gradient-to-tr from-blue-100/50 to-transparent rounded-full blur-3xl z-0 pointer-events-none"></div>
             
@@ -425,7 +419,7 @@ function OperationsSection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-[#ECF6FF] py-24">
+        <section className="bg-[#ECF6FF] py-[30px] sm:py-[40px] lg:py-[50px]">
             {/* How We Work Section */}
             <div className="mx-auto max-w-[1100px] px-6">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -474,7 +468,7 @@ function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="relative overflow-hidden bg-[#030B3B] py-24 text-white">
+        <section className="relative overflow-hidden bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px] text-white">
             {/* Background glow effects */}
             <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
@@ -530,7 +524,7 @@ function DigitalFactorySection() {
                             {/* ── Planet Wave SVG ── */}
                             <motion.div
                                 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                                className="w-full overflow-x-hidden flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
+                                className="w-full overflow-x-hidden flex justify-center mt-10 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
                             >
                                 <style>{`
                                     @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -548,7 +542,7 @@ function DigitalFactorySection() {
                                     .hfloat-4 { animation: hFloat4 4.8s ease-in-out infinite 1.2s; }
                                 `}</style>
 
-                                <svg width="100%" viewBox="0 0 1020 360" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible", display: "block" }}>
+                                <svg width="100%" viewBox="0 -40 1020 400" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible", display: "block" }}>
                         <defs>
                             {/* Teal sphere */}
                             <radialGradient id="hs1" cx="33%" cy="28%" r="64%">
@@ -751,7 +745,7 @@ function TimelineSection() {
     }, [activeYear]);
 
     return (
-        <section className="bg-white py-24 md:py-32">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
             <style jsx>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
