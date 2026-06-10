@@ -276,7 +276,7 @@ function ApiSection() {
 
 function LeadershipSection() {
     return (
-        <section className="bg-[#0b1426] py-[30px] sm:py-[40px] lg:py-[50px] text-white">
+        <section id="leadership" className="bg-[#0b1426] py-[30px] sm:py-[40px] lg:py-[50px] text-white scroll-mt-24">
             <div className="mx-auto max-w-[1400px] px-6">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
                     {/* Left Column - Text */}
@@ -418,7 +418,7 @@ function OperationsSection() {
 
     return (
         <section className="bg-white px-4 sm:px-6 lg:px-8 pt-[30px] sm:pt-[40px] lg:pt-[50px] pb-0">
-            <div className="mx-auto max-w-[1200px]">
+            <div className="mx-auto max-w-[1400px]">
                 <motion.div
                     variants={fadeInUp}
                     initial="hidden"
@@ -428,14 +428,14 @@ function OperationsSection() {
                 >
                     {/* Inner Content - How We Work Section */}
                     <div className="px-6 sm:px-8 lg:px-12 py-[30px] sm:py-[40px] lg:py-[50px]">
-                        <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <div className="text-center mb-16 max-w-4xl mx-auto">
                             <div className="mb-6 flex justify-center">
                                 <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                                     <span className="dot bg-[#2563eb]" />
                                     HOW WE WORK
                                 </span>
                             </div>
-                            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display">
+                            <h2 className="text-[26px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display">
                                 {aboutContent.operations.howWeOperate.title}
                             </h2>
                             <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
@@ -456,9 +456,11 @@ function OperationsSection() {
                                         <h4 className="font-black text-[16px] text-[#030B3B] mb-3 font-display tracking-tight">
                                             {item.title}
                                         </h4>
-                                        <p className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full min-h-[65px] md:h-[65px] overflow-hidden">
-                                            {item.description}
-                                        </p>
+                                        <div className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full max-w-[240px] px-2">
+                                            <p className="block">
+                                                {item.description}
+                                            </p>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -477,7 +479,7 @@ function DigitalFactorySection() {
 
     return (
         <section className="bg-white px-4 sm:px-6 lg:px-8 pt-6 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-            <div className="mx-auto max-w-[1200px] flex flex-col gap-4">
+            <div className="mx-auto max-w-[1400px] flex flex-col gap-4">
                 <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px] text-white">
                     {/* Background glow effects */}
                     <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
