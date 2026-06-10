@@ -2719,5 +2719,228 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "content": "<p>Hyniva's successful collaboration with the Fortune 500 company illustrates the transformative power of AI-driven solutions in the customer service sector. As businesses across the globe seek to enhance customer experience in the digital age, AI and NLP-powered chatbots are becoming essential tools.</p><p>This partnership serves as a testament to the potential of AI in revolutionizing the way companies engage with their customers, driving increased satisfaction, efficiency, and profitability.</p>"
             }
         ]
+    },
+    "eazyschool-government-education-management": {
+        "slug": "eazyschool-government-education-management",
+        "eyebrow": "Education Technology",
+        "title": "Transforming Government Schools with<br>\n      <em>AI-Powered Education Management</em>",
+        "summary": "Eliminated fragmented school administration with a centralized AI platform that connects education authorities, schools and parents to drive better governance and student outcomes.",
+        "metrics": [
+            {
+                "icon": "📉",
+                "value": "60%",
+                "label": "Reduction in Manual<br>Admin Workload",
+                "sub": ""
+            },
+            {
+                "icon": "⏱️",
+                "value": "Real-Time",
+                "label": "Attendance & Dropout<br>Visibility",
+                "sub": ""
+            },
+            {
+                "icon": "💰",
+                "value": "Zero",
+                "label": "Fund Leakage Risk<br>with Accurate Reporting",
+                "sub": ""
+            },
+            {
+                "icon": "📞",
+                "value": "24/7",
+                "label": "Parent-School<br>Communication",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Government schools were managing attendance, student records, teacher monitoring, examinations, and communication through disconnected systems and manual processes. This lack of integration made it difficult for school administrators and education authorities to obtain accurate, real-time visibility into day-to-day operations.</p>\n        <p>A critical challenge was the allocation of government-funded resources such as meals, uniforms, books and welfare schemes. Since funding was based on enrolment figures, outdated attendance and dropout records often resulted in inaccurate resource planning and financial leakage.</p>\n        <p>Schools also faced challenges in monitoring teacher attendance, managing classroom continuity, maintaining effective parent communication, and tracking overall operational performance. Without centralised oversight, district and state authorities struggled to make timely, data-driven decisions.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva implemented EazySchool, an AI-powered education management platform designed specifically for government school ecosystems.</p>",
+                    "items": [
+                        {
+                            "num": "a",
+                            "title": "Improving Attendance Visibility and Student Retention",
+                            "desc": "The platform introduced real-time digital attendance tracking for students and teachers through web and mobile interfaces. Schools could monitor absenteeism patterns, identify students at risk of dropping out and maintain accurate enrolment records, ensuring greater transparency and data accuracy."
+                        },
+                        {
+                            "num": "b",
+                            "title": "Strengthening Teacher Accountability and Classroom Continuity",
+                            "desc": "Administrators gained visibility into teacher attendance, classroom activity, and substitute teacher requirements through centralized monitoring dashboards. This helped improve accountability, reduce classroom disruptions and ensure continuity in learning delivery."
+                        },
+                        {
+                            "num": "c",
+                            "title": "Streamlining School Administration Through Centralisation",
+                            "desc": "EazySchool consolidated critical administrative functions — student and staff management, attendance tracking, timetables, examinations, leave workflows, academic records, notifications and compliance reporting — into a single platform. By replacing fragmented processes with a unified system, schools simplified day-to-day administration and improved operational efficiency."
+                        },
+                        {
+                            "num": "d",
+                            "title": "Enhancing Parent-School Communication and Engagement",
+                            "desc": "The platform automated communication between schools and parents through instant notifications for attendance, examinations, school announcements and leave approvals. This improved transparency, strengthened parent engagement and enabled quicker intervention when student attendance issues arose."
+                        },
+                        {
+                            "num": "e",
+                            "title": "Enabling Data-Driven Governance and Educational Oversight",
+                            "desc": "Centralised dashboards provided district and state education authorities with real-time insights into enrolment trends, attendance patterns, operational performance and resource utilisation. With access to reliable data, administrators could monitor schools more effectively and make informed decisions at scale."
+                        }
+                    ],
+                    "footer": ""
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The implementation delivered significant improvements in school administration and governance. Key improvements included:</p>",
+                    "items": [
+                        "Reduced administrative effort through workflow automation and centralised management",
+                        "Improved accuracy of attendance and enrolment data for resource planning",
+                        "Stronger teacher accountability and classroom oversight",
+                        "Faster communication between schools, parents, and education authorities",
+                        "Increased transparency across school operations and reporting",
+                        "Better-informed decision-making through real-time analytics and dashboards"
+                    ],
+                    "footer": "<p>By creating a single source of truth for operational data, education authorities were able to improve planning, strengthen governance, and allocate resources more effectively. Schools benefited from streamlined processes, while parents gained greater visibility into student activities and engagement.</p>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>Building on the success of the implementation, future enhancements include:</p>",
+                    "items": [
+                        "AI-Driven Learning Analytics",
+                        "Predictive Dropout Identification",
+                        "Teacher Performance Intelligence",
+                        "GIS-Based Infrastructure Planning",
+                        "Practical Learning Modules for Grades 6–10"
+                    ],
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>The long-term vision is to create a connected digital education ecosystem that improves governance, operational efficiency, and student outcomes across government schools.</p>\n      </div>"
+                }
+            }
+        ]
+    },
+    "eazyschool-unified-school-management": {
+        "slug": "eazyschool-unified-school-management",
+        "eyebrow": "Education Technology",
+        "title": "Simplifying School Operations with<br>\n      <em>a Unified Digital Management Platform</em>",
+        "summary": "Eliminated disconnected school systems with a centralized platform that connects teachers, administrators and parents to streamline operations and improve academic focus.",
+        "metrics": [
+            {
+                "icon": "✅",
+                "value": "100%",
+                "label": "Digital Attendance<br>& Reporting",
+                "sub": ""
+            },
+            {
+                "icon": "📄",
+                "value": "Zero",
+                "label": "Paper-Based<br>Administrative Processes",
+                "sub": ""
+            },
+            {
+                "icon": "⚡",
+                "value": "3x",
+                "label": "Faster Report Card<br>Generation",
+                "sub": ""
+            },
+            {
+                "icon": "📞",
+                "value": "24/7",
+                "label": "Parent-School<br>Communication",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Educational institutions were spending significant time managing day-to-day operations through disconnected systems, spreadsheets and paper-based processes. Critical functions such as attendance, fee management, examinations, timetables, student records and parent communication were handled independently, creating inefficiencies across the school ecosystem.</p>\n        <p>As administrative complexity increased, teachers were spending valuable time on clerical tasks instead of focusing on student learning. Administrators faced challenges accessing accurate information quickly, while parents lacked timely visibility into important school activities and updates.</p>\n        <p>Without a unified system, schools struggled to maintain operational efficiency, streamline communication and support data-driven decision-making.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva implemented EazySchool as a centralized digital school management platform, unifying administration, academics, reporting and communication into one intelligent ecosystem.</p>",
+                    "items": [
+                        {
+                            "num": "a",
+                            "title": "Digitizing Student Administration",
+                            "desc": "The platform centralized student lifecycle management, covering admissions, academic records, certificates, transfers and student information within a single digital system. This eliminated fragmented record-keeping and provided administrators with instant access to critical information."
+                        },
+                        {
+                            "num": "b",
+                            "title": "Simplifying Attendance Management",
+                            "desc": "Mobile-enabled attendance tracking allowed teachers to record attendance quickly and accurately while providing administrators with real-time visibility. Automated absence notifications helped keep parents informed and reduced manual follow-up efforts."
+                        },
+                        {
+                            "num": "c",
+                            "title": "Automating Examination and Academic Reporting",
+                            "desc": "EazySchool digitized examination workflows, including hall ticket generation, grade calculations, scorecards, and report card preparation. By automating these processes, the platform significantly reduced administrative effort while improving reporting accuracy."
+                        },
+                        {
+                            "num": "d",
+                            "title": "Streamlining Fee Administration",
+                            "desc": "The platform simplified fee management by supporting multiple fee structures, automating payment reminders and enabling digital payment workflows. This improved financial visibility and reduced the effort required to manage collections."
+                        },
+                        {
+                            "num": "e",
+                            "title": "Optimizing Timetable Management",
+                            "desc": "A centralized scheduling engine enabled schools to create and manage timetables based on staff availability, academic requirements and operational constraints. This reduced scheduling complexity and minimized manual adjustments."
+                        },
+                        {
+                            "num": "f",
+                            "title": "Enhancing Parent and Stakeholder Communication",
+                            "desc": "Integrated communication capabilities enabled schools to share announcements, attendance updates, fee reminders and academic information through mobile notifications, SMS and digital circulars, ensuring timely engagement across all stakeholders."
+                        }
+                    ],
+                    "footer": ""
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The implementation of EazySchool transformed school operations by reducing administrative complexity and enabling a more connected educational environment. Key outcomes included:</p>",
+                    "items": [
+                        "100% digital attendance and administrative reporting processes",
+                        "Elimination of paper-based workflows across core school operations",
+                        "Faster access to student, staff, and academic information through centralised records",
+                        "Significant reduction in time spent on examination reporting and report card preparation",
+                        "Improved efficiency in fee administration and collections management",
+                        "Stronger parent engagement through consistent, real-time communication"
+                    ],
+                    "footer": "<p>By automating routine administrative activities, teachers were able to dedicate more time to classroom instruction and student engagement. Administrators gained greater operational visibility, while parents benefited from improved transparency and access to school information.</p>\n        <p>The result was a more efficient, connected, and digitally enabled school ecosystem capable of supporting both academic excellence and operational effectiveness.</p>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>As schools continue to modernize their operations, the next phase of EazySchool focuses on further reducing administrative effort while enhancing the experience for educators, students, parents and school leaders.</p>\n        <p>Future enhancements include:</p>",
+                    "items": [
+                        "AI-Assisted Administrative Workflows",
+                        "Advanced Operational Dashboards",
+                        "Mobile-First Experiences",
+                        "Regional Language Support",
+                        "Intelligent Academic Performance Tracking"
+                    ],
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>By continuously expanding its automation, analytics, and communication capabilities, EazySchool aims to help schools operate more efficiently, improve stakeholder engagement and create a connected digital ecosystem that supports better educational outcomes.</p>\n      </div>"
+                }
+            }
+        ]
     }
 };

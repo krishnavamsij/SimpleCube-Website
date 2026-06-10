@@ -106,6 +106,13 @@ export const caseStudiesContent = {
             tags: ["Salesforce", "Digital Transformation", "Banking"],
         },
         {
+            title: "Simplifying School Operations with <span class='text-[#3B82F6]'>a Unified Digital Management Platform</span>",
+            image: "/images/Case_Studies/Optimized/cs-20.png",
+            description: "Eliminated disconnected school systems with a centralized platform connecting teachers, administrators and parents.",
+            href: "/insights/case-studies/eazyschool-unified-school-management",
+            tags: ["Product Engineering", "Education"],
+        },
+        {
             title: "<span class='text-[#3B82F6]'>Optimizing Loan Routing</span> and Pre-Qualification with AI",
             image: "/images/Case_Studies/Optimized/cs-15.png",
             description: "Real-time borrower evaluation and lender routing to improve matches and speed up lending.",
@@ -167,6 +174,13 @@ export const caseStudiesContent = {
             description: "Deployed an AI chatbot to improve response times and reduce support effort.",
             href: "/insights/case-studies/ai-customer-support-automation",
             tags: ["Digital Transformation", "Applied AI", "Banking"],
+        },
+        {
+            title: "Transforming Government Schools with <span class='text-[#3B82F6]'>AI-Powered Education Management</span>",
+            image: "/images/Case_Studies/Optimized/cs-23.png",
+            description: "Eliminated fragmented school administration with a centralized AI platform connecting education authorities, schools and parents.",
+            href: "/insights/case-studies/eazyschool-government-education-management",
+            tags: ["Product Engineering", "Applied AI", "Education"],
         },
     ],
 };
