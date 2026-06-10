@@ -357,6 +357,26 @@ function MessageContent({ text }: { text: string; isUser: boolean }) {
     const handleUrlClick = (e: React.MouseEvent | React.KeyboardEvent, url: string) => {
         e.preventDefault(); e.stopPropagation(); navigateFromChat(url);
     };
+
+    const renderTextWithBold = (str: string, baseKey: number) => {
+        const boldRegex = /\*\*(.*?)\*\*/g;
+        const elements: React.ReactNode[] = [];
+        let lastIdx = 0;
+        let match;
+        let subKey = 0;
+        while ((match = boldRegex.exec(str)) !== null) {
+            if (match.index > lastIdx) {
+                elements.push(<span key={`${baseKey}-t-${subKey++}`}>{str.slice(lastIdx, match.index)}</span>);
+            }
+            elements.push(<strong key={`${baseKey}-b-${subKey++}`} style={{ fontWeight: 600, color: isUser ? "inherit" : "#111827" }}>{match[1]}</strong>);
+            lastIdx = boldRegex.lastIndex;
+        }
+        if (lastIdx < str.length) {
+            elements.push(<span key={`${baseKey}-t-${subKey++}`}>{str.slice(lastIdx)}</span>);
+        }
+        return elements;
+    };
+
     return (
         <>
             {parseMessageForUrls(text).map((n, i) =>
@@ -364,10 +384,12 @@ function MessageContent({ text }: { text: string; isUser: boolean }) {
                     <span key={i} role="link" tabIndex={0}
                         onClick={(e) => handleUrlClick(e, n.content)}
                         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleUrlClick(e, n.content); }}
-                        style={{ color: "#0066cc", textDecoration: "underline", wordBreak: "break-all", cursor: "pointer" }}>
+                        style={{ color: "#0ea5e9", textDecoration: "underline", wordBreak: "break-all", cursor: "pointer", fontWeight: 500 }}>
                         {n.content}
                     </span>
-                ) : <span key={i}>{n.content}</span>
+                ) : (
+                    <span key={i}>{renderTextWithBold(n.content, i)}</span>
+                )
             )}
         </>
     );
@@ -400,13 +422,32 @@ function ClearConfirmDialog({ onConfirm, onCancel }: { onConfirm: () => void; on
 // ─── Intent buttons ───────────────────────────────────────────────────────────
 function IntentButtons({ onSelect }: { onSelect: (intent: string) => void }) {
     return (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, padding: "0 0 16px 0" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 12, padding: "8px 0 16px 0", width: "100%" }}>
             {INTENTS.map(({ label, emoji }) => (
                 <button key={label} type="button" onClick={() => onSelect(label)}
-                    style={{ padding: "9px 18px", borderRadius: 20, border: `1.5px solid ${GREEN}`, background: GREEN_LIGHT, color: GREEN, fontWeight: 600, fontSize: 13, cursor: "pointer", whiteSpace: "nowrap" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT; (e.currentTarget as HTMLButtonElement).style.color = GREEN; }}>
-                    {emoji} {label}
+                    style={{ 
+                        display: "flex", alignItems: "center", gap: 12, 
+                        padding: "14px 16px", borderRadius: 12, 
+                        border: "1.5px solid #f3f4f6", background: "#ffffff", 
+                        color: "#374151", fontWeight: 600, fontSize: 13, 
+                        cursor: "pointer", textAlign: "left",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.03)",
+                        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+                    }}
+                    onMouseEnter={e => { 
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = GREEN; 
+                        (e.currentTarget as HTMLButtonElement).style.background = "#f0fdfa"; // Very light teal/green
+                        (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 16px rgba(45, 212, 191, 0.15)";
+                        (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={e => { 
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#f3f4f6"; 
+                        (e.currentTarget as HTMLButtonElement).style.background = "#ffffff";
+                        (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 6px rgba(0,0,0,0.03)";
+                        (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                    }}>
+                    <span style={{ fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, background: "#f8fafc", borderRadius: 8 }}>{emoji}</span>
+                    <span style={{ lineHeight: 1.3 }}>{label}</span>
                 </button>
             ))}
         </div>
@@ -439,7 +480,7 @@ function ChallengeActionButtons({ onSME, onCall }: {
 }
 
 // ─── Ongoing action buttons (after challenge captured) ────────────────────────
-function ActionButtons({ onSME, onBook, smeConnected }: { onSME: () => void; onBook: () => void; smeConnected: boolean }) {
+function ActionButtons({ onSME, onBook, onChangeIntent, smeConnected }: { onSME: () => void; onBook: () => void; onChangeIntent: () => void; smeConnected: boolean }) {
     const btn: React.CSSProperties = {
         padding: "9px 18px", borderRadius: 20, border: `1.5px solid ${GREEN}`,
         background: "#ffffff", color: GREEN, fontWeight: 600, fontSize: 13,
@@ -458,6 +499,11 @@ function ActionButtons({ onSME, onBook, smeConnected }: { onSME: () => void; onB
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#ffffff"; }}>
                 📅 Book a call
+            </button>
+            <button type="button" onClick={onChangeIntent} style={btn}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#ffffff"; }}>
+                🔄 Change Area of Interest
             </button>
         </div>
     );
@@ -551,6 +597,7 @@ export function AskAiraWidget() {
     const [smeConnected, setSmeConnected] = useState(false);
     const [showCallForm, setShowCallForm] = useState(false);
     const [showChallengeActions, setShowChallengeActions] = useState(false);
+    const [chatTurnCount, setChatTurnCount] = useState(0);
 
     // voice state
     const [isListening, setIsListening] = useState(false);
@@ -681,14 +728,23 @@ export function AskAiraWidget() {
             const greetings = new Set(["hi", "hello", "hey", "hiya", "yo", "sup", "howdy", "greetings", "helo", "hii", "hiii"]);
             const isGreeting = greetings.has(trimmed.toLowerCase());
             const isTooShort = trimmed.replace(/\s/g, "").length < 2;
-            if (isGreeting || isTooShort) {
+
+            // Extract the actual name by removing common prefixes
+            let extractedName = trimmed;
+            const namePrefixes = /^(i'm|im|i\s+am|my\s+name\s+is|this\s+is|myself|call\s+me|name\s+is|it's|its|they\s+call\s+me)\s+/i;
+            extractedName = extractedName.replace(namePrefixes, '').trim();
+            // Capitalize first letter of each word in the name
+            extractedName = extractedName.replace(/\b\w/g, c => c.toUpperCase());
+
+            if (isGreeting || isTooShort || !extractedName) {
                 setMessages(prev => [...prev, userMsg(trimmed),
                     botMsg("Please share your name to get started.")]);
                 isSendingRef.current = false; return;
             }
+            
             setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Nice to meet you, ${trimmed}! 😊\nTo help us follow up and share relevant information, could you please provide your work email address?`)]);
-            setLeadData(prev => ({ ...prev, name: trimmed }));
+                botMsg(`Nice to meet you, ${extractedName}! 😊\nTo help us follow up and share relevant information, could you please provide your work email address?`)]);
+            setLeadData(prev => ({ ...prev, name: extractedName }));
             setOnboardStep("ask_email");
             isSendingRef.current = false; return;
         }
@@ -756,12 +812,56 @@ export function AskAiraWidget() {
             const updatedLead: LeadData = { ...leadData, challenge: trimmed };
             setLeadData(updatedLead);
             setLeadCaptured(true);
-            // ✅ Do NOT fire lead email here — wait for SME or Book Call action
-            setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Thank you for sharing that, ${leadData.name}.\n\nBased on what you've described, Hyniva's teams can help assess your requirements, recommend the right approach, and design solutions tailored to your business needs.\n\nHow would you like to proceed?`)]);
+            // ✅ Fire lead email immediately when challenge is captured
+            fireLead(updatedLead);
+            
+            setMessages(prev => [...prev, userMsg(trimmed)]);
+            setIsLoading(true);
+            isSendingRef.current = true;
+            
+            let reply = "";
+            let routeToNavigate: string | null = null;
+            
+            try {
+                const sessionId = sessionIdRef.current;
+                const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
+                const qs = new URLSearchParams({ session_id: sessionId });
+                const combinedIntent = `${updatedLead.intent} — ${updatedLead.challenge}`;
+                qs.set("user_intent", combinedIntent);
+                
+                const apiUrl = `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}${qs.toString()}`;
+                
+                const res = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: trimmed,
+                        session_id: sessionId,
+                        user_intent: combinedIntent,
+                    }),
+                });
+                
+                if (!res.ok) {
+                    reply = res.status === 403 ? HYNIVA_ONLY_MESSAGE : "";
+                    if (!reply) throw new Error("API error");
+                } else {
+                    const data: ApiResponse = await res.json();
+                    reply = normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that.");
+                    routeToNavigate = data.route || data.target_route || null;
+                    if (routeToNavigate) routeToNavigate = normalizeProductRoute(routeToNavigate);
+                }
+            } catch {
+                reply = "Sorry, I couldn't reach the server right now. Please try again.";
+            }
+            
+            setMessages(prev => [...prev, botMsg(reply)]);
+            if (routeToNavigate) setTimeout(() => navigateFromChat(routeToNavigate!), 700);
+            
             setOnboardStep("chat");
-            setShowChallengeActions(true);
-            isSendingRef.current = false; return;
+            setShowChallengeActions(false);
+            setIsLoading(false);
+            isSendingRef.current = false;
+            return;
         }
 
         // ── ask_call_time (typed fallback) ────────────────────────────────────
@@ -778,9 +878,17 @@ export function AskAiraWidget() {
         const isSmeRequest  = /connect.*sme|sme.*connect|speak.*expert|talk.*expert|connect.*expert|connect.*specialist|connect with a solution|connect with an expert/i.test(trimmed);
         const isBookRequest = /book.*call|schedule.*call|book.*meeting|schedule a|book a call|i.d like to book|schedule a consultation/i.test(trimmed);
         const isShortYes    = /^(yes|yeah|yep|yup|sure|ok|okay|👍)\.?$/i.test(trimmed);
+        const isChangeIntent = /change.*topic|change.*intent|different.*topic|different.*intent|talk.*about.*something.*else|another.*topic/i.test(trimmed);
+
+        if (isChangeIntent && leadCaptured) {
+            setShowChallengeActions(false);
+            setMessages(prev => [...prev, userMsg(trimmed),
+                botMsg(`No problem, ${leadData.name}. What other area would you like to explore?`)]);
+            setOnboardStep("ask_intent");
+            isSendingRef.current = false; return;
+        }
 
         if (isSmeRequest && leadCaptured) {
-            fireLead(leadData);
             fireSMEConnect(leadData);
             setSmeConnected(true); setShowChallengeActions(false);
             setMessages(prev => [...prev, userMsg(trimmed),
@@ -806,6 +914,7 @@ export function AskAiraWidget() {
 
         // ── Normal API call ───────────────────────────────────────────────────
         setShowChallengeActions(false);
+        setChatTurnCount(prev => prev + 1);
         setMessages(prev => [...prev, userMsg(trimmed)]);
         setIsLoading(true);
 
@@ -1068,8 +1177,25 @@ export function AskAiraWidget() {
                                                 <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                                             </div>
                                         )}
-                                        <div className="aira-message-content" style={{ display: "flex", flexDirection: "column", gap: 4, maxWidth: "85%", alignItems: msg.isUser ? "flex-end" : "flex-start" }}>
-                                            <div style={{ padding: msg.isUser ? "8px 14px" : "12px 16px", borderRadius: msg.isUser ? 20 : 12, borderBottomRightRadius: msg.isUser ? 4 : 12, borderBottomLeftRadius: msg.isUser ? 12 : 4, fontSize: 14, lineHeight: 1.6, wordBreak: "normal", overflowWrap: "break-word", whiteSpace: "pre-wrap", width: "fit-content", background: msg.isUser ? GREEN_LIGHT : "#fff", color: DARK_TEXT, border: msg.isUser ? "1px solid #9ee8df" : "1px solid #e5e7eb", fontWeight: msg.isUser ? 500 : 400, boxShadow: msg.isUser ? "none" : "0 1px 3px rgba(0,0,0,0.06)" }}>
+                                        <div className="aira-message-content" style={{ display: "flex", flexDirection: "column", gap: 6, maxWidth: "88%", alignItems: msg.isUser ? "flex-end" : "flex-start" }}>
+                                            <div style={{ 
+                                                padding: msg.isUser ? "10px 16px" : "16px 20px", 
+                                                borderRadius: msg.isUser ? 20 : 16, 
+                                                borderBottomRightRadius: msg.isUser ? 4 : 16, 
+                                                borderBottomLeftRadius: msg.isUser ? 16 : 4, 
+                                                fontSize: 14, 
+                                                lineHeight: 1.65, 
+                                                letterSpacing: "0.01em",
+                                                wordBreak: "normal", 
+                                                overflowWrap: "break-word", 
+                                                whiteSpace: "pre-wrap", 
+                                                width: "fit-content", 
+                                                background: msg.isUser ? GREEN_LIGHT : "#ffffff", 
+                                                color: msg.isUser ? DARK_TEXT : "#374151", 
+                                                border: msg.isUser ? "1px solid #9ee8df" : "1px solid #f3f4f6", 
+                                                fontWeight: msg.isUser ? 500 : 400, 
+                                                boxShadow: msg.isUser ? "none" : "0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)" 
+                                            }}>
                                                 <MessageContent text={msg.text} isUser={msg.isUser} />
                                             </div>
                                             <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "0 3px" }}>
@@ -1094,7 +1220,14 @@ export function AskAiraWidget() {
                                 {/* Post-challenge action buttons */}
                                 {showChallengeActions && onboardStep === "chat" && !isLoading && (
                                     <ChallengeActionButtons
-                                        onSME={() => { setShowChallengeActions(false); fireLead(leadData); sendMessage("I'd like to connect with a Solution Architect"); }}
+                                        onSME={() => {
+                                            setShowChallengeActions(false);
+                                            fireSMEConnect(leadData);
+                                            setSmeConnected(true);
+                                            setMessages(prev => [...prev,
+                                                botMsg(`Absolutely, ${leadData.name}.\n\nI've notified our consulting team about your interest in ${leadData.intent}. A specialist will review your requirements and reach out to ${leadData.email}.\n\nWould you also like to schedule a discussion with one of our specialists?`)
+                                            ]);
+                                        }}
                                         onCall={() => { setShowChallengeActions(false); sendMessage("I'd like to schedule a consultation call"); }}
                                     />
                                 )}
@@ -1130,10 +1263,16 @@ export function AskAiraWidget() {
                                 )}
 
                                 {/* Ongoing action buttons */}
-                                {onboardStep === "chat" && !showChallengeActions && !isLoading && messages.length > 0 && leadCaptured && (
+                                {onboardStep === "chat" && !showChallengeActions && !isLoading && messages.length > 0 && leadCaptured && chatTurnCount >= 1 && (
                                     <ActionButtons
                                         onSME={() => sendMessage("I'd like to connect with an SME")}
                                         onBook={() => sendMessage("I'd like to book a call")}
+                                        onChangeIntent={() => {
+                                            setMessages(prev => [...prev, userMsg("I want to discuss a different topic"),
+                                                botMsg(`No problem, ${leadData.name}. What other area would you like to explore?`)]);
+                                            setOnboardStep("ask_intent");
+                                            setChatTurnCount(0);
+                                        }}
                                         smeConnected={smeConnected}
                                     />
                                 )}
