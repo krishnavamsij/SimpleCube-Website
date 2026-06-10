@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -114,158 +114,243 @@ function AboutHero() {
 
 function ApiSection() {
     return (
-        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
-            <div className="mx-auto max-w-[1400px] px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-8">
+        <section className="bg-white relative py-16 lg:py-24 overflow-hidden">
+            {/* Background Grid Pattern */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23f1f5f9\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50 z-0"></div>
 
-                    {/* Left Hand Side - Illustration (all screens, scaled on mobile) */}
-                    <motion.div
-                        variants={fadeInUp}
+            <div className="mx-auto max-w-[1400px] px-6 w-full flex flex-col lg:flex-row relative z-20">
+                
+                {/* Left Hand Side - Content */}
+                <div className="w-full lg:w-[35%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
+                    <div className="mb-6">
+                        <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
+                            <span className="dot bg-[#2563eb]" />
+                            OUR FOUNDATION
+                        </span>
+                    </div>
+                    <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6 font-medium">
+                        At the core of Hyniva are three defining strengths: <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
+                    </h2>
+                    <p className="text-[32px] sm:text-[38px] md:text-4xl lg:text-[46px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight font-display">
+                        We call it the <br className="hidden lg:block"/>
+                        <span className="text-[#1e90ff]">Hyniva API.</span>
+                    </p>
+                </div>
+
+                {/* Right Hand Side - DNA Diagram */}
+                <div className="w-full lg:w-[65%] relative flex items-center justify-center mt-12 lg:mt-0 min-h-[500px] lg:min-h-[600px]">
+                    
+                    <motion.div 
                         initial="hidden"
                         whileInView="visible"
-                        viewport={viewportOnce}
-                        className="w-full lg:w-[65%] relative flex justify-center py-0 lg:py-6"
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="relative w-full h-[500px] lg:h-[600px] flex items-center justify-center"
                     >
-                        <div className="relative w-full max-w-[800px] flex flex-col items-center pt-4 pb-8 scale-[0.6] sm:scale-[0.75] lg:scale-100 origin-top lg:mb-0 -mb-[280px] sm:-mb-[200px] md:-mb-[100px]">
+                        {/* SVG DNA Canvas */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none -translate-y-16 lg:-translate-y-36">
+                            <svg viewBox="0 0 800 750" className="w-full h-full overflow-visible max-h-[480px]">
+                                <defs>
+                                    <clipPath id="dna-reveal">
+                                        <motion.rect 
+                                            x="-100" width="1000" height="900"
+                                            initial={{ y: 750 }}
+                                            variants={{ visible: { y: -100, transition: { duration: 2.5, ease: "easeInOut" } } }}
+                                        />
+                                    </clipPath>
 
-                            {/* Background Waves - Moved inside the Plate Assembly for perfect centering */}
+                                    <linearGradient id="grad-hyniva-front" x1="0" y1="1" x2="0" y2="0">
+                                        <stop offset="0%" stopColor="#8b5cf6"/>
+                                        <stop offset="50%" stopColor="#10b981"/>
+                                        <stop offset="100%" stopColor="#3b82f6"/>
+                                    </linearGradient>
 
-                            {/* Top row with 3 items */}
-                            <div className="flex flex-row justify-between w-full relative z-20 gap-0">
-                                {/* Agility */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
-                                    <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.12)] border border-blue-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
-                                        <div className="absolute inset-0 rounded-full border border-blue-100 m-[3px]"></div>
-                                        <Gauge className="w-7 h-7 text-[#2563eb]" strokeWidth={1.5} />
-                                    </div>
-                                    <h4 className="text-[#2563eb] font-bold tracking-widest text-sm mb-3 uppercase">Agility</h4>
-                                    <div className="w-8 h-[2px] bg-[#2563eb] mx-auto mb-4 opacity-30"></div>
-                                    <p className="text-[12px] text-[#475569] leading-relaxed">
-                                        Agility powers our ability to move with speed and precision through our <span className="text-[#2563eb] font-semibold">Digital Factory</span> model.
-                                    </p>
-                                </div>
+                                    <linearGradient id="grad-hyniva-back" x1="0" y1="1" x2="0" y2="0">
+                                        <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8"/>
+                                        <stop offset="50%" stopColor="#059669" stopOpacity="0.8"/>
+                                        <stop offset="100%" stopColor="#2563eb" stopOpacity="0.8"/>
+                                    </linearGradient>
 
-                                {/* People */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
-                                    <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.12)] border border-green-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
-                                        <div className="absolute inset-0 rounded-full border border-green-100 m-[3px]"></div>
-                                        <Users className="w-7 h-7 text-[#16a34a]" strokeWidth={1.5} />
-                                    </div>
-                                    <h4 className="text-[#16a34a] font-bold tracking-widest text-sm mb-3 uppercase">People</h4>
-                                    <div className="w-8 h-[2px] bg-[#16a34a] mx-auto mb-4 opacity-30"></div>
-                                    <p className="text-[12px] text-[#475569] leading-relaxed">
-                                        People drive outcomes through ownership, collaboration, and a deep commitment to <span className="text-[#16a34a] font-semibold">customer success.</span>
-                                    </p>
-                                </div>
+                                    <filter id="sphere-shade" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                                        <feSpecularLighting in="blur" surfaceScale="4" specularConstant="0.6" specularExponent="3" lightingColor="white" result="specOut">
+                                            <fePointLight x="-20" y="-20" z="50"/>
+                                        </feSpecularLighting>
+                                        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+                                        <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+                                        <feDropShadow in="litPaint" dx="2" dy="4" stdDeviation="3" floodColor="#0f172a" floodOpacity="0.3" />
+                                    </filter>
+                                </defs>
 
-                                {/* Innovation */}
-                                <div className="flex flex-col items-center w-[32%] text-center">
-                                    <div className="w-[72px] h-[72px] rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.12)] border border-purple-50 flex items-center justify-center mb-5 relative group transition-transform hover:-translate-y-1">
-                                        <div className="absolute inset-0 rounded-full border border-purple-100 m-[3px]"></div>
-                                        <Lightbulb className="w-7 h-7 text-[#7c3aed]" strokeWidth={1.5} />
-                                    </div>
-                                    <h4 className="text-[#7c3aed] font-bold tracking-widest text-sm mb-3 uppercase">Innovation</h4>
-                                    <div className="w-8 h-[2px] bg-[#7c3aed] mx-auto mb-4 opacity-30"></div>
-                                    <p className="text-[12px] text-[#475569] leading-relaxed">
-                                        Innovation reflects our product engineering mindset and technical depth, enabling us to turn <span className="text-[#7c3aed] font-semibold">ideas into impact.</span>
-                                    </p>
-                                </div>
-                            </div>
+                                <g clipPath="url(#dna-reveal)">
+                                    {/* Base Pairs (Dense Rungs) */}
+                                    {[
+                                        { y: 675, w: 35, color: "#8b5cf6" },
+                                        { y: 650, w: 65, color: "#8b5cf6" },
+                                        { y: 625, w: 100, color: "#9333ea" },
+                                        { y: 600, w: 120, color: "#a855f7" },
+                                        { y: 575, w: 100, color: "#c084fc" },
+                                        { y: 550, w: 65, color: "#d8b4fe" },
+                                        { y: 525, w: 35, color: "#e9d5ff" },
 
-                            {/* Connecting Lines SVG */}
-                            <div className="w-full h-[160px] mt-2 relative z-10">
-                                <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 600 160">
-                                    {/* Glow effect lines */}
-                                    <path d="M 100,0 C 100,80 300,100 300,150" fill="none" stroke="url(#grad-blue)" strokeWidth="6" strokeLinecap="round" className="opacity-30 blur-[2px]" />
-                                    <path d="M 300,0 L 300.1,150" fill="none" stroke="url(#grad-green)" strokeWidth="6" strokeLinecap="round" className="opacity-30 blur-[2px]" />
-                                    <path d="M 500,0 C 500,80 300,100 300,150" fill="none" stroke="url(#grad-purple)" strokeWidth="6" strokeLinecap="round" className="opacity-30 blur-[2px]" />
+                                        { y: 475, w: 35, color: "#a7f3d0" },
+                                        { y: 450, w: 65, color: "#34d399" },
+                                        { y: 425, w: 100, color: "#10b981" },
+                                        { y: 400, w: 120, color: "#059669" },
+                                        { y: 375, w: 100, color: "#10b981" },
+                                        { y: 350, w: 65, color: "#34d399" },
+                                        { y: 325, w: 35, color: "#6ee7b7" },
 
-                                    {/* Main solid lines */}
-                                    <path d="M 100,0 C 100,80 300,100 300,150" fill="none" stroke="url(#grad-blue)" strokeWidth="2" strokeLinecap="round" />
-                                    <path d="M 300,0 L 300.1,150" fill="none" stroke="url(#grad-green)" strokeWidth="2" strokeLinecap="round" />
-                                    <path d="M 500,0 C 500,80 300,100 300,150" fill="none" stroke="url(#grad-purple)" strokeWidth="2" strokeLinecap="round" />
+                                        { y: 275, w: 35, color: "#93c5fd" },
+                                        { y: 250, w: 65, color: "#60a5fa" },
+                                        { y: 225, w: 100, color: "#3b82f6" },
+                                        { y: 200, w: 120, color: "#2563eb" },
+                                        { y: 175, w: 100, color: "#3b82f6" },
+                                        { y: 150, w: 65, color: "#60a5fa" },
+                                        { y: 125, w: 35, color: "#93c5fd" }
+                                    ].map((rung, i) => (
+                                        <g key={`rung-${i}`}>
+                                            <line 
+                                                x1={400 - rung.w} y1={rung.y} x2={400 + rung.w} y2={rung.y}
+                                                stroke={rung.color} strokeWidth="3" strokeOpacity="0.6"
+                                            />
+                                            {/* Sphere Rung Ends */}
+                                            <circle cx={400 - rung.w} cy={rung.y} r="5.5" fill={rung.color} filter="url(#sphere-shade)" />
+                                            <circle cx={400 + rung.w} cy={rung.y} r="5.5" fill={rung.color} filter="url(#sphere-shade)" />
+                                            {/* Rung middle dots for texture */}
+                                            <line 
+                                                x1={400 - rung.w + 12} y1={rung.y} x2={400 + rung.w - 12} y2={rung.y}
+                                                stroke={rung.color} strokeWidth="5" strokeLinecap="round" strokeDasharray="0 14" filter="url(#sphere-shade)"
+                                            />
+                                        </g>
+                                    ))}
 
-                                    {/* Nodes on paths */}
-                                    <circle cx="150" cy="55" r="2.5" fill="#2563eb" />
-                                    <circle cx="220" cy="115" r="2.5" fill="#2563eb" />
+                                    {/* Back Strand (Dark) - Sphere Cluster */}
+                                    <g filter="url(#sphere-shade)">
+                                        <path 
+                                            d="M 400 700 C 280 630, 280 570, 400 500 C 520 430, 520 370, 400 300 C 280 230, 280 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-back)" strokeWidth="18" strokeLinecap="round" strokeDasharray="0 18"
+                                        />
+                                        <path 
+                                            d="M 400 700 C 280 630, 280 570, 400 500 C 520 430, 520 370, 400 300 C 280 230, 280 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-back)" strokeWidth="14" strokeLinecap="round" strokeDasharray="0 15" transform="translate(5, 3)"
+                                        />
+                                        <path 
+                                            d="M 400 700 C 280 630, 280 570, 400 500 C 520 430, 520 370, 400 300 C 280 230, 280 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-back)" strokeWidth="10" strokeLinecap="round" strokeDasharray="0 12" transform="translate(-4, -4)"
+                                        />
+                                    </g>
 
-                                    <circle cx="300" cy="60" r="2.5" fill="#16a34a" />
-                                    <circle cx="300" cy="115" r="2.5" fill="#16a34a" />
+                                    {/* Front Strand (Vibrant) - Sphere Cluster */}
+                                    <g filter="url(#sphere-shade)">
+                                        <path 
+                                            d="M 400 700 C 520 630, 520 570, 400 500 C 280 430, 280 370, 400 300 C 520 230, 520 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-front)" strokeWidth="18" strokeLinecap="round" strokeDasharray="0 18"
+                                        />
+                                        <path 
+                                            d="M 400 700 C 520 630, 520 570, 400 500 C 280 430, 280 370, 400 300 C 520 230, 520 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-front)" strokeWidth="14" strokeLinecap="round" strokeDasharray="0 15" transform="translate(-5, 4)"
+                                        />
+                                        <path 
+                                            d="M 400 700 C 520 630, 520 570, 400 500 C 280 430, 280 370, 400 300 C 520 230, 520 170, 400 100"
+                                            fill="none" stroke="url(#grad-hyniva-front)" strokeWidth="10" strokeLinecap="round" strokeDasharray="0 12" transform="translate(4, -3)"
+                                        />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
 
-                                    <circle cx="450" cy="55" r="2.5" fill="#7c3aed" />
-                                    <circle cx="380" cy="115" r="2.5" fill="#7c3aed" />
-
-                                    <defs>
-                                        <linearGradient id="grad-blue" x1="100" y1="0" x2="300" y2="150" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.9" />
-                                            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.1" />
-                                        </linearGradient>
-                                        <linearGradient id="grad-green" x1="300" y1="0" x2="300.1" y2="150" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0%" stopColor="#16a34a" stopOpacity="0.9" />
-                                            <stop offset="100%" stopColor="#16a34a" stopOpacity="0.1" />
-                                        </linearGradient>
-                                        <linearGradient id="grad-purple" x1="500" y1="0" x2="300" y2="150" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.9" />
-                                            <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.1" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-
-                            {/* Floating API & Plate Assembly */}
-                            <div className="relative z-20 flex flex-col items-center mt-0 md:mt-[-40px] overflow-hidden w-full">
-
-                                {/* Background Waves */}
-                                <div className="absolute top-[108px] left-1/2 -translate-x-1/2 w-0 h-0 pointer-events-none z-0">
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[72px] rounded-[100%] border-[1.5px] border-blue-200/80 opacity-100"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[112px] rounded-[100%] border-[1.5px] border-slate-300/60 opacity-70"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[152px] rounded-[100%] border-[1.5px] border-slate-200/60 opacity-40"></div>
-                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[192px] rounded-[100%] border-[1.5px] border-slate-200/40 opacity-15"></div>
-                                </div>
-
-                                {/* Floating API Text */}
-                                <div className="relative z-30 mb-2">
-                                    <h3 className="text-[52px] leading-none font-black tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_8px_16px_rgba(37,99,235,0.25)]">
+                        {/* Animated Cards Container */}
+                        <div className="absolute inset-0 w-full h-full pointer-events-auto max-h-[550px] mx-auto">
+                            
+                            {/* API Base */}
+                            <div className="absolute bottom-[-5%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                                {/* Dynamic Glow */}
+                                <motion.div 
+                                    variants={{
+                                        hidden: { opacity: 0, scale: 0.8 },
+                                        visible: { opacity: 1, scale: 1, transition: { duration: 1 } }
+                                    }}
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[150px] bg-blue-500/20 blur-[50px] rounded-full pointer-events-none"
+                                />
+                                <div className="relative z-30 mb-2 mt-12">
+                                    <h3 className="text-[48px] lg:text-[56px] leading-none font-black tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_8px_16px_rgba(37,99,235,0.35)] font-display">
                                         API
                                     </h3>
                                 </div>
-
-                                {/* 3D Plate Underneath */}
-                                <div className="relative w-[200px] sm:w-[280px] md:w-[320px] h-[80px] z-20">
-                                    <div className="absolute -bottom-4 left-[10%] w-[80%] h-[20px] bg-slate-900/10 blur-xl rounded-[100%] z-0"></div>
-                                    <div className="absolute bottom-0 left-0 w-full h-[64px] bg-gradient-to-b from-slate-100 to-slate-300 rounded-[100%] shadow-[0_15px_30px_rgba(15,23,42,0.1)] border-b-2 border-slate-300 z-10"></div>
-                                    <div className="absolute bottom-[16px] left-0 w-full h-[64px] bg-gradient-to-b from-white via-slate-50 to-slate-100 rounded-[100%] shadow-[inset_0_4px_15px_rgba(255,255,255,1),inset_0_-2px_6px_rgba(15,23,42,0.06)] border border-slate-200 flex items-center justify-center z-20">
-                                        <div className="w-[120px] h-[25px] bg-blue-500/10 blur-md rounded-[100%]"></div>
+                                <div className="relative w-[240px] md:w-[280px] h-[60px] z-20">
+                                    <div className="absolute -bottom-4 left-[10%] w-[80%] h-[20px] bg-slate-900/15 blur-xl rounded-[100%] z-0"></div>
+                                    <div className="absolute bottom-0 left-0 w-full h-[48px] bg-gradient-to-b from-slate-100 to-slate-300 rounded-[100%] shadow-[0_15px_30px_rgba(15,23,42,0.15)] border-b-2 border-slate-300 z-10"></div>
+                                    <div className="absolute bottom-[12px] left-0 w-full h-[48px] bg-gradient-to-b from-white via-slate-50 to-slate-100 rounded-[100%] shadow-[inset_0_4px_15px_rgba(255,255,255,1),inset_0_-2px_6px_rgba(15,23,42,0.06)] border border-slate-200 flex items-center justify-center z-20">
+                                        <motion.div 
+                                            animate={{ opacity: [0.4, 0.8, 0.4] }}
+                                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                            className="w-[100px] h-[16px] bg-blue-500/20 blur-md rounded-[100%]"
+                                        />
                                     </div>
                                 </div>
-                                <p className="text-[14px] text-slate-500 mt-6 font-medium tracking-wide text-center">Our foundation. Enabling everything we do.</p>
+                                <div className="mt-4 flex items-center justify-center">
+                                    <p className="text-[11px] lg:text-[12px] text-slate-600 font-bold tracking-widest text-center uppercase relative z-30 bg-white/80 px-4 py-2 rounded-full backdrop-blur-md border border-slate-100 shadow-sm whitespace-nowrap">
+                                        Our foundation. Enabling everything we do.
+                                    </p>
+                                </div>
                             </div>
 
+                            {/* Innovation (Purple - Bottom Left) */}
+                            <motion.div 
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.6, ease: "easeOut" } }
+                                }}
+                                className="absolute bottom-[25%] left-[2%] sm:left-[8%] lg:left-[5%] w-[180px] sm:w-[220px] flex flex-col items-center lg:items-end text-center lg:text-right group"
+                            >
+                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[2px]"></div>
+                                    <Lightbulb className="w-4 h-4 text-[#7c3aed]" strokeWidth={2} />
+                                </div>
+                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">Innovation</h4>
+                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20">
+                                    Innovation reflects our technical depth, enabling us to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
+                                </p>
+                            </motion.div>
+
+                            {/* People (Green - Middle Right) */}
+                            <motion.div 
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    visible: { opacity: 1, y: 0, transition: { delay: 1.0, duration: 0.6, ease: "easeOut" } }
+                                }}
+                                className="absolute top-[25%] right-[2%] sm:right-[8%] lg:right-[5%] w-[180px] sm:w-[220px] flex flex-col items-center lg:items-start text-center lg:text-left group"
+                            >
+                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[2px]"></div>
+                                    <Users className="w-4 h-4 text-[#16a34a]" strokeWidth={2} />
+                                </div>
+                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">People</h4>
+                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20">
+                                    People drive outcomes with a deep commitment to <span className="text-[#16a34a] font-bold">customer success.</span>
+                                </p>
+                            </motion.div>
+
+                            {/* Agility (Blue - Top Left) */}
+                            <motion.div 
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6, ease: "easeOut" } }
+                                }}
+                                className="absolute -top-[5%] left-[2%] sm:left-[8%] lg:left-[5%] w-[180px] sm:w-[220px] flex flex-col items-center lg:items-end text-center lg:text-right group"
+                            >
+                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[2px]"></div>
+                                    <Gauge className="w-4 h-4 text-[#2563eb]" strokeWidth={2} />
+                                </div>
+                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">Agility</h4>
+                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20">
+                                    Agility powers speed and precision through our <span className="text-[#2563eb] font-bold">Digital Factory</span> model.
+                                </p>
+                            </motion.div>
+
                         </div>
                     </motion.div>
-
-                    {/* Right Hand Side - Content */}
-                    <motion.div
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={viewportOnce}
-                        className="w-full lg:w-[35%] lg:pl-8 order-first lg:order-none"
-                    >
-                        <div className="mb-6">
-                            <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
-                                <span className="dot bg-[#2563eb]" />
-                                OUR FOUNDATION
-                            </span>
-                        </div>
-                        <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6">
-                            At the core of Hyniva are three defining strengths: Agility, People and Innovation.
-                        </h2>
-                        <p className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight">
-                            We call it the <span className="text-[#1e90ff]">Hyniva API.</span>
-                        </p>
-                    </motion.div>
-
                 </div>
             </div>
         </section>
