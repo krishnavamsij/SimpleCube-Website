@@ -258,13 +258,11 @@ function ApiSection() {
                                 OUR FOUNDATION
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-[#0f172a] leading-[1.15] tracking-tight">
-                            At the core of Hyniva<br />
-                            are three defining strengths:<br />
-                            <span className="text-[#1e90ff]">Agility, People and Innovation.</span>
+                        <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6">
+                            At the core of Hyniva are three defining strengths: Agility, People and Innovation.
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-                            We call it the Hyniva API.
+                        <p className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight">
+                            We call it the <span className="text-[#1e90ff]">Hyniva API.</span>
                         </p>
                     </motion.div>
 
