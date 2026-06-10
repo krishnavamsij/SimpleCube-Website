@@ -1,5 +1,6 @@
 export interface PodcastEpisode {
     id: string;
+    seriesTitle: string;
     title: string;
     date: string;
     duration: string;
@@ -27,7 +28,8 @@ export const podcastContent: {
     episodes: [
         {
             id: "cu-next-podcast",
-            title: "CU Next: Conversations shaping the NEXT era of Credit Unions",
+            seriesTitle: "CU Next: Conversations shaping the NEXT era of Credit Unions",
+            title: "Scale Trust to Grow Relationships",
             date: "13th May 2026",
             duration: "24 minutes",
             category: "Credit Union Tech",
@@ -41,7 +43,8 @@ export const podcastContent: {
         },
         {
             id: "cu-next-podcast-2",
-            title: "Perfect is the Enemy of the Good | Ricardo J. Chamorro, EVP , PenFed Credit Union",
+            seriesTitle: "CU Next: Conversations shaping the NEXT era of Credit Unions",
+            title: "Perfect is the Enemy of the Good",
             date: "June 2, 2026",
             duration: "20 minutes",
             category: "Credit Union Tech",

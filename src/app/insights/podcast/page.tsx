@@ -232,7 +232,7 @@ export default function PodcastPage() {
                                     src={`${getYouTubeEmbedUrl(
                                         selectedEpisode.videoUrl
                                     )}?autoplay=1`}
-                                    title={selectedEpisode.title}
+                                    title={selectedEpisode.seriesTitle}
                                     className="absolute inset-0 w-full h-full border-0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowFullScreen
@@ -259,10 +259,10 @@ export default function PodcastPage() {
                                 </div>
 
                                 <h2 className="text-xl sm:text-2xl font-black font-display tracking-tight leading-tight text-white mb-3">
-                                    {selectedEpisode.title}
+                                    {selectedEpisode.seriesTitle}
                                 </h2>
 
-                                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
+                                <p className="text-slate-400 text-xs sm:text-[16px] leading-relaxed mb-5">
                                     {selectedEpisode.description}
                                 </p>
 
