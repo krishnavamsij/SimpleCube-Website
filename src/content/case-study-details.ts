@@ -1367,7 +1367,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "member-experience-transformation-at-a-leading-credit-union": {
         "slug": "member-experience-transformation-at-a-leading-credit-union",
         "eyebrow": "FinXServe & Credit Union Digital Lending",
-        "title": "Elevating Digital Member<br>Engagement in <em>Modern Banking Operations</em>",
+        "title": "Elevating Digital Member<br><span class='text-white'>Engagement in</span> <em>Modern Banking Operations</em>",
         "summary": "Unified lending and engagement journeys across multiple channels to deliver instant loan offers and seamless member experiences at scale.",
         "metrics": [
             {
@@ -2723,7 +2723,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-government-education-management": {
         "slug": "eazyschool-government-education-management",
         "eyebrow": "Education Technology",
-        "title": "Transforming Government Schools with<br>\n      <em>AI-Powered Education Management</em>",
+        "title": "Transforming Government Schools with<br><span class='text-white'>AI-Powered Education Management</span>",
         "summary": "Eliminated fragmented school administration with a centralized AI platform that connects education authorities, schools and parents to drive better governance and student outcomes.",
         "metrics": [
             {
@@ -2832,7 +2832,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-unified-school-management": {
         "slug": "eazyschool-unified-school-management",
         "eyebrow": "Education Technology",
-        "title": "Simplifying School Operations with<br>\n      <em>a Unified Digital Management Platform</em>",
+        "title": "Simplifying School Operations with<br><span class='text-white'>a Unified Digital Management Platform</span>",
         "summary": "Eliminated disconnected school systems with a centralized platform that connects teachers, administrators and parents to streamline operations and improve academic focus.",
         "metrics": [
             {

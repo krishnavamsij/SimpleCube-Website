@@ -295,7 +295,12 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     color: #ffffff !important; /* White for emphasized parts */
                 }
                 h1.cs-line-clamp-2:not(em):not([class*="em"]) {
-                    color: #00D4AA !important; /* Blue for regular text */
+                    color: #00D4AA !important; /* Green for regular text */
+                }
+                /* White text override for specific spans */
+                h1.cs-line-clamp-2 .text-white,
+                h1.cs-line-clamp-2 span.text-white {
+                    color: #ffffff !important; /* White for marked spans */
                 }
                 /* Summary text - remove line clamp to show full text */
                 p.cs-line-clamp-2 {
