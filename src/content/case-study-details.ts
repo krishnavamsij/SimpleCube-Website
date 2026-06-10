@@ -2723,7 +2723,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-government-education-management": {
         "slug": "eazyschool-government-education-management",
         "eyebrow": "Education Technology",
-        "title": "Transforming Government Schools with<br><span class='text-white'>AI-Powered Education Management</span>",
+        "title": "<span class='text-white'>Transforming Government Schools with</span><br>AI-Powered Education Management",
         "summary": "Eliminated fragmented school administration with a centralized AI platform that connects education authorities, schools and parents to drive better governance and student outcomes.",
         "metrics": [
             {
@@ -2832,7 +2832,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-unified-school-management": {
         "slug": "eazyschool-unified-school-management",
         "eyebrow": "Education Technology",
-        "title": "Simplifying School Operations with<br><span class='text-white'>a Unified Digital Management Platform</span>",
+        "title": "<span class='text-white'>Simplifying School Operations with a</span><br>Unified Digital Management Platform",
         "summary": "Eliminated disconnected school systems with a centralized platform that connects teachers, administrators and parents to streamline operations and improve academic focus.",
         "metrics": [
             {

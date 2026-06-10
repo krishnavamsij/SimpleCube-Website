@@ -106,7 +106,7 @@ export const caseStudiesContent = {
             tags: ["Salesforce", "Digital Transformation", "Banking"],
         },
         {
-            title: "<span class='text-[#3B82F6]'>Simplifying School Operations with</span> a Unified Digital Management Platform",
+            title: "Simplifying School Operations with a <span class='text-[#3B82F6]'>Unified Digital Management Platform</span>",
             image: "/images/Case_Studies/eazyschool-2.png",
             description: "Built a unified digital platform that simplifies school operations, automates reporting and connects parents and teachers.",
             href: "/insights/case-studies/eazyschool-unified-school-management",
@@ -176,7 +176,7 @@ export const caseStudiesContent = {
             tags: ["Digital Transformation", "Applied AI", "Banking"],
         },
         {
-            title: "<span class='text-[#3B82F6]'>Transforming Government Schools with</span> AI-Powered Education Management",
+            title: "Transforming Government Schools with <span class='text-[#3B82F6]'>AI-Powered Education Management</span>",
             image: "/images/Case_Studies/eazyschool-1.png",
             description: "Built a centralized platform to unify school administration, attendance and governance across government schools.",
             href: "/insights/case-studies/eazyschool-government-education-management",
