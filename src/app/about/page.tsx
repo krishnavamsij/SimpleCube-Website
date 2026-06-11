@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 import Image from "next/image";
 import { motion, type Variants, useScroll, useTransform } from "framer-motion";
+import { DigitalGlobe } from "@/components/digital-globe";
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -41,7 +42,7 @@ const viewportOnce = { once: true, margin: "-100px" };
 
 function AboutHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] pt-32 pb-24 lg:pt-48 lg:pb-32">
+        <section className="relative overflow-hidden bg-[#030b1e] h-screen min-h-[700px] w-full flex items-center pt-16">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -54,9 +55,9 @@ function AboutHero() {
             />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
-            {/* Globe Graphic (Image) */}
-            <div className="hidden lg:block absolute top-[5%] lg:top-[10%] right-[-10%] lg:right-[5%] w-[100%] lg:w-[45%] max-w-[650px] aspect-square pointer-events-none z-0 opacity-60 lg:opacity-100 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]">
-                <Image src="/globe-previous.png" alt="Global Network" fill className="object-contain scale-110" priority />
+            {/* 3D Digital Globe (Canvas) */}
+            <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
+                <DigitalGlobe />
             </div>
 
             <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
@@ -64,7 +65,7 @@ function AboutHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="w-full lg:w-1/2 max-w-[680px]"
+                    className="w-full lg:w-[60%] max-w-[750px]"
                 >
                     <motion.div variants={fadeInUp} className="mb-10">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
@@ -81,29 +82,22 @@ function AboutHero() {
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl font-medium"
+                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl font-medium mb-16 lg:mb-24"
                     >
                         {aboutContent.hero.description}
                     </motion.p>
-                </motion.div>
-            </div>
 
-            {/* Metrics Bar */}
-            <div className="relative z-20 mt-24 lg:mt-48 mx-auto w-full max-w-[1400px] px-6">
-                <motion.div
-                    variants={fadeInUp}
-                    initial="hidden"
-                    animate="visible"
-                    className=""
-                >
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
-                        {aboutContent.hero.metrics.map((metric, idx) => (
-                            <div key={idx} className={`flex flex-col items-center text-center ${idx !== 0 ? 'border-l border-blue-900/50 pl-8' : ''}`}>
-                                <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2">{metric.value}</div>
-                                <div className="text-sm font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Metrics Bar (Moved to left column) */}
+                    <motion.div variants={fadeInUp}>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0">
+                            {aboutContent.hero.metrics.map((metric, idx) => (
+                                <div key={idx} className="flex flex-col items-start border-l border-blue-900/50 pl-5 sm:px-6">
+                                    <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">{metric.value}</div>
+                                    <div className="text-sm font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
