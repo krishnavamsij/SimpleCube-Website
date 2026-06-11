@@ -180,7 +180,7 @@ export const caseStudiesContent = {
             image: "/images/Case_Studies/eazyschool-1.png",
             description: "Built a centralized platform to unify school administration, attendance and governance across government schools.",
             href: "/insights/case-studies/eazyschool-government-education-management",
-            tags: ["Applied AI", "Education"],
+            tags: ["Digital Transformation", "Education"],
         },
     ],
 };

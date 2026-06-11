@@ -207,7 +207,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-2xl'}`}
+                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-3xl'}`}
                         dangerouslySetInnerHTML={{ __html: summary }}
                     />
 
@@ -247,8 +247,8 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                                     {/* Divider */}
                                     <div className="w-5 sm:w-7 h-[2px] bg-gradient-to-r from-[#1e90ff] to-[#63c2ff] opacity-40 mb-2 sm:mb-3 group-hover:w-9 sm:group-hover:w-11 group-hover:opacity-100 transition-all duration-300" />
                                     
-                                    {/* Supporting Text - Exactly 2 lines enforced - Force 2 lines without breaking words */}
-                                    <div className="flex flex-col justify-center text-center max-w-[100px] sm:max-w-[110px] text-[10px] sm:text-[11px] lg:text-[11px] font-medium text-white mx-auto cs-force-2-lines-safe" dangerouslySetInnerHTML={{ __html: metric.label }} />
+                                    {/* Supporting Text - Exactly 2 lines enforced - Show all text without truncation */}
+                                    <div className="flex flex-col justify-center text-center max-w-[150px] sm:max-w-[160px] text-[10px] sm:text-[11px] lg:text-[11px] font-medium text-white mx-auto cs-force-2-lines-safe" dangerouslySetInnerHTML={{ __html: metric.label }} />
                                 </div>
 
                                 {/* Divider */}
@@ -302,9 +302,19 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                 h1.cs-line-clamp-2 span.text-white {
                     color: #ffffff !important; /* White for marked spans */
                 }
-                /* Summary text - remove line clamp to show full text */
+                /* Summary text - enforce 2 line clamp */
                 p.cs-line-clamp-2 {
-                    /* No line clamp - show full text */
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                /* Metric labels - allow wrapping to 2 lines naturally */
+                .cs-force-2-lines-safe {
+                    display: block;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    line-height: 1.3;
                 }
                 `
             }} />
