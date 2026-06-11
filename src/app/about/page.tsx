@@ -355,76 +355,90 @@ function ApiSection() {
 
 function LeadershipSection() {
     return (
-        <section id="leadership" className="bg-[#0b1426] py-[30px] sm:py-[40px] lg:py-[50px] text-white scroll-mt-24">
-            <div className="mx-auto max-w-[1400px] px-6">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
-                    {/* Left Column - Text */}
+        <section id="leadership" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#030b1e] py-16 sm:py-24 lg:py-32 text-white scroll-mt-24">
+            <div className="mx-auto max-w-[1400px] px-6 relative z-10">
+                
+                {/* Header Area */}
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16 lg:mb-20">
+                    {/* Left Column - Header Title */}
                     <motion.div
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-1/4 pt-4"
+                        className="w-full lg:w-1/2"
                     >
-                        <div className="mb-6">
-                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
-                                <span className="dot bg-[#1e90ff]" />
-                                OUR LEADERSHIP TEAM
-                            </span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-white leading-[1.15] tracking-tight whitespace-pre-line">
-                            {aboutContent.leadership.sectionTitle}
+                        <h3 className="text-[#1e90ff] uppercase tracking-widest text-xs font-bold mb-4">OUR LEADERSHIP TEAM</h3>
+                        <div className="w-10 h-0.5 bg-[#1e90ff] mb-8"></div>
+                        <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] tracking-tight">
+                            Built by people<br className="hidden md:block" />who build impact<span className="text-[#1e90ff]">.</span>
                         </h2>
-                        <p className="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
-                            {aboutContent.leadership.sectionDescription}
-                        </p>
                     </motion.div>
 
-                    {/* Right Column - Grid */}
-                    <div className="lg:w-3/4">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                            {aboutContent.leadership.team.map((leader, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    variants={fadeInUp}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={viewportOnce}
-                                    className="group cursor-pointer"
-                                >
-                                    <div className="relative aspect-square overflow-hidden rounded-lg mb-3 bg-slate-800">
-                                        {leader.image ? (
-                                            <Image
-                                                src={leader.image}
-                                                alt={leader.name}
-                                                fill
-                                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-105"
-                                            />
-                                        ) : (
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <Users className="w-12 h-12 text-slate-600" />
-                                            </div>
-                                        )}
-                                        {/* Overlay gradient */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1426] via-transparent to-transparent opacity-80"></div>
-
-                                        <div className="absolute bottom-3 left-3 right-3 z-10">
-                                            <h3 className="font-bold text-sm sm:text-base leading-tight mb-0.5">{leader.name}</h3>
-                                            <div className="flex items-center justify-between">
-                                                <p className="text-[10px] sm:text-xs text-blue-400 font-medium truncate pr-2">{leader.title}</p>
-                                                {leader.linkedin && (
-                                                    <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors flex-shrink-0">
-                                                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-                                                    </a>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                    {/* Right Column - Header Description */}
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        className="w-full lg:w-[45%] flex items-center lg:border-l lg:border-slate-800 lg:pl-12 lg:h-[180px] mt-4 lg:mt-8"
+                    >
+                        <p className="text-slate-300 text-base md:text-[17px] leading-relaxed font-medium">
+                            Our leadership team brings together deep expertise across technology, product engineering, and enterprise delivery to drive meaningful outcomes.
+                        </p>
+                    </motion.div>
                 </div>
+
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {aboutContent.leadership.team.map((leader, idx) => (
+                        <motion.div
+                            key={idx}
+                            variants={fadeInUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                            className="bg-[#050b16] border border-slate-800/80 rounded-xl overflow-hidden flex flex-col group hover:border-slate-700 transition-colors shadow-sm"
+                        >
+                            {/* Image Container */}
+                            <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-[#0e182f] to-[#050b16] overflow-hidden">
+                                {leader.image ? (
+                                    <Image
+                                        src={leader.image}
+                                        alt={leader.name}
+                                        fill
+                                        className="object-cover transition-transform duration-500"
+                                        style={
+                                            leader.name === 'Madhu Bandarapu'
+                                                ? { transform: 'scale(1.3) translateY(-2%)', objectPosition: 'center 15%' }
+                                                : leader.name === 'Joseph Thomas'
+                                                ? { transform: 'scale(1.35) translateY(12%)', objectPosition: 'center 15%' }
+                                                : { transform: 'scale(1)', objectPosition: 'top' }
+                                        }
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <Users className="w-12 h-12 text-slate-600" />
+                                    </div>
+                                )}
+                                {/* Bottom fade gradient */}
+                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#050b16] to-transparent pointer-events-none"></div>
+                            </div>
+
+                            {/* Text Content */}
+                            <div className="p-6 pt-0 flex-1 flex flex-col relative z-10">
+                                <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
+                                <p className="text-[13px] font-semibold text-[#1e90ff] mb-5">{leader.title}</p>
+                                
+                                <div className="w-full h-px bg-slate-800/80 mb-5"></div>
+                                
+                                {/* @ts-ignore */}
+                                <p className="text-[13px] text-slate-400 leading-relaxed font-medium">{leader.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
             </div>
         </section>
     );
