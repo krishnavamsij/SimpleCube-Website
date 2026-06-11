@@ -204,13 +204,13 @@ export const aboutContent = {
                 date: "2022",
                 title: "Hyper Portfolio Recommendation Engine",
                 description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation engine that helps investors better understand and optimize their financial strategies.",
-                image: "/images/About_Us/2022.jpeg"
+                image: "/images/About_Us/2022-logo.png"
             },
             {
                 date: "2023",
                 title: "Strategic Enterprise Breakthrough",
                 description: "Secured a major enterprise engagement with Victory Capital, winning a competitive RFP against TCS and Cognizant and reinforcing Hyniva's growing reputation for delivering complex digital transformation initiatives.",
-                image: "/images/About_Us/2023.jpeg"
+                image: "/images/About_Us/2023-logo.png"
             },
             {
                 date: "2024",

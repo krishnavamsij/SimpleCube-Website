@@ -177,7 +177,7 @@ export const caseStudiesContent = {
         },
         {
             title: "Transforming Government Schools with <span class='text-[#3B82F6]'>AI-Powered Education Management</span>",
-            image: "/images/Case_Studies/eazyschool-1.png",
+            image: "/images/Case_Studies/Govt_Schools.png",
             description: "Built a centralized platform to unify school administration, attendance and governance across government schools.",
             href: "/insights/case-studies/eazyschool-government-education-management",
             tags: ["Digital Transformation", "Education"],
