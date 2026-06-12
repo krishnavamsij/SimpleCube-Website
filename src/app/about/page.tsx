@@ -429,8 +429,19 @@ function LeadershipSection() {
 
                             {/* Text Content */}
                             <div className="p-6 pt-0 flex-1 flex flex-col relative z-10">
-                                <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
-                                <p className="text-[13px] font-semibold text-[#1e90ff] mb-5">{leader.title}</p>
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
+                                        <p className="text-[13px] font-semibold text-[#1e90ff] mb-5">{leader.title}</p>
+                                    </div>
+                                    {/* @ts-ignore */}
+                                    {leader.linkedin && (
+                                        /* @ts-ignore */
+                                        <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80 mt-1">
+                                            <Image src="/images/About_Us/linkedin (3).png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 object-contain" />
+                                        </a>
+                                    )}
+                                </div>
                                 
                                 <div className="w-full h-px bg-slate-800/80 mb-5"></div>
                                 
