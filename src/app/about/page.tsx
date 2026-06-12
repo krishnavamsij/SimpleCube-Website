@@ -453,8 +453,6 @@ function LeadershipSection() {
 function ValuesSection() {
     return (
         <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
-            {/* Background decorative waves */}
-            <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] bg-gradient-to-tr from-blue-100/50 to-transparent rounded-full blur-3xl z-0 pointer-events-none"></div>
 
             <div className="mx-auto max-w-[1400px] px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -577,7 +575,7 @@ function DigitalFactorySection() {
     return (
         <section className="bg-white px-4 sm:px-6 lg:px-8 pt-6 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
             <div className="mx-auto max-w-[1400px] flex flex-col gap-4">
-                <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] py-[20px] sm:py-[30px] lg:py-[40px] text-white">
+                <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pb-[10px] sm:pb-[15px] lg:pb-[20px] text-white">
                     {/* Background glow effects */}
                     <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
                     <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
