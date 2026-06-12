@@ -116,13 +116,13 @@ function ApiSection() {
                 
                 {/* Left Hand Side - Content */}
                 <div className="w-full lg:w-[35%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
-                    <div className="mb-6">
+                    <div className="mb-10 lg:mb-14">
                         <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                             <span className="dot bg-[#2563eb]" />
                             OUR FOUNDATION
                         </span>
                     </div>
-                    <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6 font-medium">
+                    <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
                         At the core of Hyniva are three defining strengths: <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
                     </h2>
                     <p className="text-[32px] sm:text-[38px] md:text-4xl lg:text-[46px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight font-display">
@@ -466,13 +466,13 @@ function ValuesSection() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <div className="mb-6">
+                        <div className="mb-10 lg:mb-14">
                             <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                                 <span className="dot bg-[#2563eb]" />
                                 OUR VALUES
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-6 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-10 lg:mb-14 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
                             {aboutContent.values.title}
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed max-w-md">
