@@ -553,7 +553,7 @@ function OperationsSection() {
                                         <h4 className="font-black text-[16px] text-[#030B3B] mb-3 font-display tracking-tight">
                                             {item.title}
                                         </h4>
-                                        <div className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full max-w-[240px] px-2">
+                                        <div className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full max-w-[280px] px-2">
                                             <p className="block whitespace-pre-line">
                                                 {item.description}
                                             </p>
