@@ -182,7 +182,7 @@ export const aboutContent = {
                 date: "2009",
                 title: "First SaaS Product Launch",
                 description: "Launched MediaFusion, a digital media platform that marked Hyniva’s entry into software product development and SaaS solutions.",
-                image: "/images/About_Us/2009.png"
+                image: "/images/About_Us/2009-logo.png"
             },
             {
                 date: "2012",
@@ -236,7 +236,7 @@ export const aboutContent = {
                 date: "2026",
                 title: "Claim Pioneer Launch & SOC 2 Achievement",
                 description: "Launched Claim Pioneer, an AI-powered claims management platform for insurance organizations, and achieved SOC 2 Type II compliance, reinforcing Hyniva’s commitment to secure, trusted and innovative enterprise solutions.",
-                image: "/images/About_Us/2026.png"
+                image: "/images/About_Us/2026-logo.png"
             }
         ]
     }
