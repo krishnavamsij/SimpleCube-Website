@@ -571,8 +571,8 @@ function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-0 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-            <div className="mx-auto max-w-[1400px] flex flex-col">
+        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-6 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
+            <div className="mx-auto max-w-[1400px] flex flex-col gap-4">
                 <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] py-[20px] sm:py-[30px] lg:py-[40px] text-white">
                     {/* Background glow effects */}
                     <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
