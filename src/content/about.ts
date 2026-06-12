@@ -146,7 +146,7 @@ export const aboutContent = {
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your business goals, existing systems and constraints before proposing anything."
+                    description: "We understand your business goals,\nexisting systems and constraints\nbefore proposing anything."
                 },
                 {
                     title: "Strategy & Scope",

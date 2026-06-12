@@ -517,7 +517,7 @@ function OperationsSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="bg-[#ECF6FF] rounded-t-[32px] rounded-b-none shadow-lg overflow-hidden"
+                    className="bg-[#ECF6FF] rounded-t-[32px] rounded-b-none shadow-[0_15px_30px_rgba(0,0,0,0.12)] overflow-hidden relative z-10"
                 >
                     {/* Inner Content - How We Work Section */}
                     <div className="px-6 sm:px-8 lg:px-12 py-[30px] sm:py-[40px] lg:py-[50px]">
@@ -550,7 +550,7 @@ function OperationsSection() {
                                             {item.title}
                                         </h4>
                                         <div className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full max-w-[240px] px-2">
-                                            <p className="block">
+                                            <p className="block whitespace-pre-line">
                                                 {item.description}
                                             </p>
                                         </div>
@@ -571,9 +571,9 @@ function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-6 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-            <div className="mx-auto max-w-[1400px] flex flex-col gap-4">
-                <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px] text-white">
+        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-0 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
+            <div className="mx-auto max-w-[1400px] flex flex-col">
+                <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] py-[20px] sm:py-[30px] lg:py-[40px] text-white">
                     {/* Background glow effects */}
                     <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
                     <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
@@ -629,7 +629,7 @@ function DigitalFactorySection() {
                         {/* ── Planet Wave SVG ── */}
                         <motion.div
                             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                            className="w-full overflow-x-hidden flex justify-center mt-10 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
+                            className="w-full overflow-x-hidden flex justify-center mt-6 lg:mt-12 mb-[-30px] lg:mb-[-50px]"
                         >
                             <style>{`
                                     @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
