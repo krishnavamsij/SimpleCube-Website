@@ -141,7 +141,7 @@ export const aboutContent = {
     },
     operations: {
         howWeOperate: {
-            title: "From discovery to delivery — no surprises",
+            title: "From discovery to delivery — no surprises.",
             description: "We say what we do and do what we say. Our structured delivery model eliminates bureaucracy and keeps you directly connected to our experts.",
             steps: [
                 {
@@ -170,7 +170,7 @@ export const aboutContent = {
         }
     },
     journey: {
-        sectionTitle: "Our Journey",
+        sectionTitle: "Our Journey.",
         timeline: [
             {
                 date: "2007",
