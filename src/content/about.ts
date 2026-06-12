@@ -55,7 +55,7 @@ export const aboutContent = {
                 title: "Chief Delivery Officer",
                 image: "/images/leadership images/Madhu_Bandarapu_v2.png",
                 linkedin: "https://www.linkedin.com/in/madhu-bandarapu-0a10b621/",
-                description: "Seasoned delivery executive with 25+ years of experience driving enterprise transformation and operational excellence across BFSI, Healthcare, and Technology.",
+                description: "25+ years of experience driving enterprise transformation and operational excellence across BFSI, Healthcare and Technology.",
             },
             {
                 name: "Joseph Thomas",
@@ -69,7 +69,7 @@ export const aboutContent = {
                 title: "Advisory Board Member",
                 image: "/images/leadership images/Rickey Burks.png",
                 linkedin: "http://www.linkedin.com/in/rickeyburks/",
-                description: "Technology and consulting veteran with 40+ years of experience driving strategic growth, operational excellence, and business transformation.",
+                description: "Technology and consulting veteran with 40+ years of experience driving strategic growth and business transformation.",
             },
             {
                 name: "Luther Branham",
