@@ -368,8 +368,12 @@ function LeadershipSection() {
                         viewport={viewportOnce}
                         className="w-full lg:w-1/2"
                     >
-                        <h3 className="text-[#1e90ff] uppercase tracking-widest text-xs font-bold mb-4">OUR LEADERSHIP TEAM</h3>
-                        <div className="w-10 h-0.5 bg-[#1e90ff] mb-8"></div>
+                        <div className="mb-6 lg:mb-8">
+                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md inline-flex items-center">
+                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                                OUR LEADERSHIP TEAM
+                            </span>
+                        </div>
                         <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] tracking-tight">
                             Built by people<br className="hidden md:block" />who build impact<span className="text-[#1e90ff]">.</span>
                         </h2>
