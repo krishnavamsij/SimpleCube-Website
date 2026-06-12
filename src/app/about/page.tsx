@@ -438,7 +438,7 @@ function LeadershipSection() {
                                     {leader.linkedin && (
                                         /* @ts-ignore */
                                         <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80 mt-1">
-                                            <Image src="/images/About_Us/linkedin-icon.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 object-contain" />
+                                            <img src="/images/About_Us/linkedin-icon.png" alt="LinkedIn" className="w-6 h-6 object-contain" />
                                         </a>
                                     )}
                                 </div>
