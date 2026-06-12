@@ -402,10 +402,10 @@ function LeadershipSection() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="bg-[#050b16] border border-slate-800/80 rounded-xl overflow-hidden flex flex-col group hover:border-slate-700 transition-colors shadow-sm"
+                            className="bg-[#06102b] border border-slate-800/80 rounded-xl overflow-hidden flex flex-col group transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-slate-600"
                         >
                             {/* Image Container */}
-                            <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-[#0e182f] to-[#050b16] overflow-hidden">
+                            <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-[#0e182f] to-[#06102b] overflow-hidden">
                                 {leader.image ? (
                                     <Image
                                         src={leader.image}
@@ -424,7 +424,7 @@ function LeadershipSection() {
                                     </div>
                                 )}
                                 {/* Bottom fade gradient */}
-                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#050b16] to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#06102b] to-transparent pointer-events-none"></div>
                             </div>
 
                             {/* Text Content */}
