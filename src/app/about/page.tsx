@@ -67,7 +67,7 @@ function AboutHero() {
                     animate="visible"
                     className="w-full lg:w-[60%] max-w-[750px]"
                 >
-                    <motion.div variants={fadeInUp} className="mb-10">
+                    <motion.div variants={fadeInUp} className="mb-12">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             WHO WE ARE
@@ -75,23 +75,23 @@ function AboutHero() {
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white mb-10 font-display"
+                        className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white mb-12 font-display"
                     >
                         Product Thinking.<br />
                         Enterprise Impact.
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-medium mb-16 lg:mb-24"
+                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-medium mb-20 lg:mb-28"
                     >
                         {aboutContent.hero.description}
                     </motion.p>
 
                     {/* Metrics Bar (Moved to left column) */}
                     <motion.div variants={fadeInUp}>
-                        <div className="flex flex-col sm:flex-row w-full justify-between gap-y-8 sm:gap-y-0">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0 sm:divide-x divide-blue-900/50 w-full">
                             {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className={`flex flex-col items-start flex-1 py-3 ${idx === 0 ? 'pr-4 sm:pr-6 lg:pr-8' : 'sm:border-l sm:border-blue-900/50 pl-4 sm:pl-6 lg:pl-8'}`}>
+                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-4 sm:pr-6 lg:pr-8' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-4 sm:pl-6 lg:pl-8' : 'px-4 sm:px-6 lg:px-8'}`}>
                                     <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-3">{metric.value}</div>
                                     <div className="text-base font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
                                 </div>
