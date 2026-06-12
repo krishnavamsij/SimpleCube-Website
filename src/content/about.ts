@@ -170,7 +170,7 @@ export const aboutContent = {
         }
     },
     journey: {
-        sectionTitle: "Built on trust.\nDriven by impact.",
+        sectionTitle: "Our Journey",
         timeline: [
             {
                 date: "2007",
