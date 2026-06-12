@@ -375,7 +375,7 @@ function LeadershipSection() {
                             </span>
                         </div>
                         <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35]">
-                            Built by Practitioners<span className="text-[#1e90ff]">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-[#1e90ff]">.</span>
+                            Built by Practitioners<span className="text-white">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-white">.</span>
                         </h2>
                     </motion.div>
 
@@ -861,7 +861,7 @@ function TimelineSection() {
             <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
 
                 {/* Title */}
-                <h2 className="text-[32px] md:text-5xl font-normal text-slate-900 mb-12">
+                <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] text-slate-900 leading-[1.2] tracking-tight text-center whitespace-pre-line mb-12 lg:mb-16">
                     {aboutContent.journey.sectionTitle}
                 </h2>
 
