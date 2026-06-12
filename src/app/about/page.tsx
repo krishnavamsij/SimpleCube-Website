@@ -91,7 +91,7 @@ function AboutHero() {
                     <motion.div variants={fadeInUp}>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0">
                             {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className="flex flex-col items-start border-l border-blue-900/50 pl-5 sm:px-6">
+                                <div key={idx} className={`flex flex-col items-start ${idx === 0 ? 'pr-5 sm:pr-6' : 'border-l border-blue-900/50 pl-5 sm:px-6'}`}>
                                     <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">{metric.value}</div>
                                     <div className="text-sm font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
                                 </div>
