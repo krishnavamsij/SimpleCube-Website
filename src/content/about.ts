@@ -62,7 +62,7 @@ export const aboutContent = {
                 title: "Senior Advisor",
                 image: "/images/leadership images/Joseph_Thomas_v2.png",
                 linkedin: "https://www.linkedin.com/in/joseph-t-086b2918/",
-                description: "Former PenFed CIO recognized for pioneering Salesforce as a digital banking platform and driving transformative technology innovation.",
+                description: "Former PenFed CIO recognized for pioneering Salesforce as a digital banking platform and driving innovation.",
             },
             {
                 name: "Rickey Burks",
