@@ -920,7 +920,7 @@ function TimelineSection() {
                                                     src={item.image}
                                                     alt={item.date}
                                                     fill
-                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                    className={`object-cover transition-transform duration-700 ${year === '2009' ? 'object-[center_100%] scale-[1.15] group-hover:scale-[1.2]' : 'group-hover:scale-105'}`}
                                                 />
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe] flex flex-col items-center justify-center p-8 text-center group-hover:scale-105 transition-transform duration-700">
