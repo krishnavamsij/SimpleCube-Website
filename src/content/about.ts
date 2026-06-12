@@ -46,7 +46,7 @@ export const aboutContent = {
             {
                 name: "Sreeram Jadapolu",
                 title: "Founder & CEO",
-                image: "/images/leadership images/Sreeram_Jadapolu_v2.png",
+                image: "/images/leadership images/Sreeram Jadapolu.png",
                 linkedin: "https://www.linkedin.com/in/jsreeram",
                 description: "Product builder and enterprise leader driving innovation and impact.",
             },

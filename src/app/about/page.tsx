@@ -414,10 +414,8 @@ function LeadershipSection() {
                                         className="object-cover transition-transform duration-500"
                                         style={
                                             leader.name === 'Madhu Bandarapu'
-                                                ? { transform: 'scale(1.3) translateY(-2%)', objectPosition: 'center 15%' }
-                                                : leader.name === 'Joseph Thomas'
-                                                ? { transform: 'scale(1.35) translateY(12%)', objectPosition: 'center 15%' }
-                                                : { transform: 'scale(1)', objectPosition: 'top' }
+                                                ? { transform: 'scale(1.35) translateY(-2%)', objectPosition: 'top', transformOrigin: 'top center' }
+                                                : { objectPosition: 'top' }
                                         }
                                     />
                                 ) : (
