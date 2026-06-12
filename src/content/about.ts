@@ -6,8 +6,8 @@
 
 export const aboutContent = {
     hero: {
-        title: "Where Product Thinking\nMeets Enterprise Execution",
-        description: "Our mission is to simplify enterprise complexity through product engineering services that deliver measurable outcomes and enable organizations to scale with confidence.",
+        title: "Product Thinking.\nEnterprise Impact.",
+        description: "Our mission is to simplify enterprise complexity through product engineering services that enable organizations to modernize faster, innovate continuously and deliver lasting value.",
         metrics: [
             { value: "220+", label: "Applications\nDelivered" },
             { value: "45+", label: "Enterprise\nClients" },

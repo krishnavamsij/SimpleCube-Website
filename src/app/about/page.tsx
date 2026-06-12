@@ -75,10 +75,10 @@ function AboutHero() {
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35] mb-10 font-display"
-                        style={{ whiteSpace: "pre-line" }}
+                        className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white mb-10 font-display"
                     >
-                        {aboutContent.hero.title}
+                        <span className="text-[#00D4AA]">Product</span> Thinking.<br />
+                        <span className="text-[#00D4AA]">Enterprise</span> Impact.
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
