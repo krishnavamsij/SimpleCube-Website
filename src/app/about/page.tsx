@@ -77,23 +77,23 @@ function AboutHero() {
                         variants={fadeInUp}
                         className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white mb-10 font-display"
                     >
-                        <span className="text-[#00D4AA]">Product</span> Thinking.<br />
-                        <span className="text-[#00D4AA]">Enterprise</span> Impact.
+                        Product Thinking.<br />
+                        Enterprise Impact.
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl font-medium mb-16 lg:mb-24"
+                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-medium mb-16 lg:mb-24"
                     >
                         {aboutContent.hero.description}
                     </motion.p>
 
                     {/* Metrics Bar (Moved to left column) */}
                     <motion.div variants={fadeInUp}>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0">
+                        <div className="flex flex-col sm:flex-row w-full justify-between gap-y-8 sm:gap-y-0">
                             {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className={`flex flex-col items-start ${idx === 0 ? 'pr-5 sm:pr-6' : 'border-l border-blue-900/50 pl-5 sm:px-6'}`}>
-                                    <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">{metric.value}</div>
-                                    <div className="text-sm font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
+                                <div key={idx} className={`flex flex-col items-start flex-1 py-3 ${idx === 0 ? 'pr-4 sm:pr-6 lg:pr-8' : 'sm:border-l sm:border-blue-900/50 pl-4 sm:pl-6 lg:pl-8'}`}>
+                                    <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-3">{metric.value}</div>
+                                    <div className="text-base font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -125,10 +125,10 @@ function ApiSection() {
                     <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
                         At the core of Hyniva are three defining strengths: <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
                     </h2>
-                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B]">
+                    <p className="text-[32px] sm:text-[38px] md:text-4xl lg:text-[46px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight font-display">
                         We call it the <br className="hidden lg:block"/>
-                        <span className="text-[#00D4AA]">Hyniva API.</span>
-                    </h2>
+                        <span className="text-[#1e90ff]">Hyniva API.</span>
+                    </p>
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
@@ -374,8 +374,8 @@ function LeadershipSection() {
                                 OUR LEADERSHIP TEAM
                             </span>
                         </div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-white">
-                            Built by <span className="text-[#00D4AA]">Practitioners.</span><br className="hidden md:block" />Guided by <span className="text-[#00D4AA]">Visionaries.</span>
+                        <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35]">
+                            Built by Practitioners<span className="text-[#1e90ff]">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-[#1e90ff]">.</span>
                         </h2>
                     </motion.div>
 
@@ -468,9 +468,8 @@ function ValuesSection() {
                                 OUR VALUES
                             </span>
                         </div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B] mb-10 lg:mb-14">
-                            Built on <span className="text-[#00D4AA]">trust.</span><br />
-                            Driven by <span className="text-[#00D4AA]">impact.</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-10 lg:mb-14 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
+                            {aboutContent.values.title}
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed max-w-md">
                             {aboutContent.values.description}
@@ -862,8 +861,8 @@ function TimelineSection() {
             <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
 
                 {/* Title */}
-                <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B] mb-12">
-                    Our <span className="text-[#00D4AA]">journey</span>
+                <h2 className="text-[32px] md:text-5xl font-normal text-slate-900 mb-12">
+                    {aboutContent.journey.sectionTitle}
                 </h2>
 
                 {/* Year Tabs */}
