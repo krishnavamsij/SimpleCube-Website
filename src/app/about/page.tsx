@@ -125,10 +125,10 @@ function ApiSection() {
                     <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
                         At the core of Hyniva are three defining strengths: <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
                     </h2>
-                    <p className="text-[32px] sm:text-[38px] md:text-4xl lg:text-[46px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight font-display">
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B]">
                         We call it the <br className="hidden lg:block"/>
-                        <span className="text-[#1e90ff]">Hyniva API.</span>
-                    </p>
+                        <span className="text-[#00D4AA]">Hyniva API.</span>
+                    </h2>
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
@@ -374,8 +374,8 @@ function LeadershipSection() {
                                 OUR LEADERSHIP TEAM
                             </span>
                         </div>
-                        <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35]">
-                            Built by Practitioners<span className="text-[#1e90ff]">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-[#1e90ff]">.</span>
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-white">
+                            Built by <span className="text-[#00D4AA]">Practitioners.</span><br className="hidden md:block" />Guided by <span className="text-[#00D4AA]">Visionaries.</span>
                         </h2>
                     </motion.div>
 
@@ -468,8 +468,9 @@ function ValuesSection() {
                                 OUR VALUES
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-10 lg:mb-14 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
-                            {aboutContent.values.title}
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B] mb-10 lg:mb-14">
+                            Built on <span className="text-[#00D4AA]">trust.</span><br />
+                            Driven by <span className="text-[#00D4AA]">impact.</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed max-w-md">
                             {aboutContent.values.description}
@@ -861,8 +862,8 @@ function TimelineSection() {
             <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
 
                 {/* Title */}
-                <h2 className="text-[32px] md:text-5xl font-normal text-slate-900 mb-12">
-                    {aboutContent.journey.sectionTitle}
+                <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight leading-[1.1] font-display text-[#030B3B] mb-12">
+                    Our <span className="text-[#00D4AA]">journey</span>
                 </h2>
 
                 {/* Year Tabs */}
