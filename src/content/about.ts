@@ -81,7 +81,7 @@ export const aboutContent = {
             {
                 name: "John Calef",
                 title: "VP of Product Management",
-                image: "/images/2025/06/John_Enhanced.jpg",
+                image: "/images/leadership images/John_Calef_v2.png",
                 linkedin: "https://www.linkedin.com/in/john-calef-7b6784b9/",
                 description: "Product strategist with 25+ years of experience turning complex challenges into customer-centric solutions.",
             },

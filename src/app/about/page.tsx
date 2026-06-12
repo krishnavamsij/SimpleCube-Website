@@ -424,7 +424,7 @@ function LeadershipSection() {
                                     </div>
                                 )}
                                 {/* Bottom fade gradient */}
-                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#06102b] to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#06102b] via-[#06102b]/60 to-transparent pointer-events-none"></div>
                             </div>
 
                             {/* Text Content */}
