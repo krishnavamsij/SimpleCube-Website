@@ -154,7 +154,7 @@ export const aboutContent = {
                 },
                 {
                     title: "Agile Delivery",
-                    description: "Direct access to our engineers and SMEs. Weekly demos. Decisions made fast."
+                    description: "Direct access to our engineers\nand SMEs. Weekly demos.\nDecisions made fast."
                 },
                 {
                     title: "Launch & Scale",
