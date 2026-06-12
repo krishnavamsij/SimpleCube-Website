@@ -146,7 +146,7 @@ export const aboutContent = {
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your business goals,\nexisting systems and constraints\nbefore proposing anything."
+                    description: "We understand your business goals, \nexisting systems and constraints\nbefore proposing anything."
                 },
                 {
                     title: "Strategy & Scope",
@@ -158,7 +158,7 @@ export const aboutContent = {
                 },
                 {
                     title: "Launch & Scale",
-                    description: "We don't hand off and disappear — we support, optimize and grow with you."
+                    description: "We don't hand off and\ndisappear — we support, optimize\nand grow with you."
                 }
             ]
         },
