@@ -301,9 +301,9 @@ function ApiSection() {
                                     <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[2px]"></div>
                                     <Lightbulb className="w-4 h-4 text-[#7c3aed]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">Innovation</h4>
-                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20">
-                                    Innovation reflects our technical depth, enabling us to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
+                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">Innovation</h4>
+                                <p className="text-[12px] sm:text-[14px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 whitespace-pre-line">
+                                    Innovation reflects our<br />technical depth, enabling us<br />to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
                                 </p>
                             </motion.div>
 
@@ -319,9 +319,9 @@ function ApiSection() {
                                     <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[2px]"></div>
                                     <Users className="w-4 h-4 text-[#16a34a]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">People</h4>
-                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20">
-                                    People drive outcomes with a deep commitment to <span className="text-[#16a34a] font-bold">customer success.</span>
+                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">People</h4>
+                                <p className="text-[12px] sm:text-[14px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 whitespace-pre-line">
+                                    People drive outcomes with<br />a deep commitment to<br /><span className="text-[#16a34a] font-bold">customer success.</span>
                                 </p>
                             </motion.div>
 
@@ -337,9 +337,9 @@ function ApiSection() {
                                     <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[2px]"></div>
                                     <Gauge className="w-4 h-4 text-[#2563eb]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-[10px] sm:text-xs mb-2 uppercase">Agility</h4>
-                                <p className="text-[11px] sm:text-[12px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20">
-                                    Agility powers speed and precision through our <span className="text-[#2563eb] font-bold">Digital Factory</span> model.
+                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">Agility</h4>
+                                <p className="text-[12px] sm:text-[14px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 rounded-xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 whitespace-pre-line">
+                                    Agility powers speed and<br />precision through our<br /><span className="text-[#2563eb] font-bold">Digital Factory</span> model.
                                 </p>
                             </motion.div>
 
