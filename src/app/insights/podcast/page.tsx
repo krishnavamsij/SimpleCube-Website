@@ -74,11 +74,13 @@ export default function PodcastPage() {
                     </motion.div>
 
                     {/* Header Content */}
-                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start gap-2 sm:gap-8">
-                        {/* Left Content */}
-                        <div className="lg:w-2/3 flex flex-col gap-0">
+                    <div className="flex flex-col gap-4">
+                        <div className="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
                             {/* Logo */}
-                            <motion.div variants={fadeInUp} className="-mt-4 sm:-mt-6">
+                            <motion.div
+                                variants={fadeInUp}
+                                className="-mt-4 flex flex-wrap items-center gap-2 sm:-mt-6 sm:gap-3"
+                            >
                                 <Image
                                     src="/images/Podcast/CU_Next_Podcast_logo.png"
                                     alt="CU NEXT Podcast"
@@ -87,28 +89,47 @@ export default function PodcastPage() {
                                     priority
                                     className="w-auto max-w-[250px] sm:max-w-[320px] lg:max-w-[380px] h-auto object-contain -ml-2"
                                 />
+
+                                <a
+                                    href="https://www.linkedin.com/company/cu-next/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit CU Next on LinkedIn"
+                                    className="relative top-6 inline-flex h-6 w-6 items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(10,102,194,0.25)] sm:top-7 sm:h-7 sm:w-7"
+                                >
+                                    <Image
+                                        src="/images/linkedin (3).png"
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        className="h-full w-full object-contain"
+                                    />
+                                </a>
                             </motion.div>
 
-                            {/* Description */}
-                            <motion.p
+                            {/* Button */}
+                            <motion.div
                                 variants={fadeInUp}
-                                className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl -mt-4 sm:-mt-6"
+                                className="relative top-3 shrink-0 sm:top-3"
                             >
-                                {podcastContent.hero.description}
-                            </motion.p>
+                                <a
+                                    href="https://www.youtube.com/@hynivapodcast1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-3 text-sm font-bold text-[#1e90ff] transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] sm:min-h-14 sm:px-6"
+                                >
+                                    Visit Podcast Channel
+                                </a>
+                            </motion.div>
                         </div>
 
-                        {/* Button */}
-                        <motion.div variants={fadeInUp} className="shrink-0">
-                            <a
-                                href="https://www.youtube.com/@hynivapodcast1"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#1e90ff]/10 border border-[#1e90ff]/20 text-[#1e90ff] text-sm font-bold transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
-                            >
-                                Visit Podcast Channel
-                            </a>
-                        </motion.div>
+                        {/* Description */}
+                        <motion.p
+                            variants={fadeInUp}
+                            className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl -mt-4 sm:-mt-6"
+                        >
+                            {podcastContent.hero.description}
+                        </motion.p>
                     </div>
                 </motion.div>
 
