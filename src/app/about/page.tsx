@@ -375,7 +375,7 @@ function LeadershipSection() {
                             </span>
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] tracking-tight">
-                            Built by people<br className="hidden md:block" />who build impact<span className="text-[#1e90ff]">.</span>
+                            Built by Practitioners<span className="text-[#1e90ff]">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-[#1e90ff]">.</span>
                         </h2>
                     </motion.div>
 
@@ -388,7 +388,7 @@ function LeadershipSection() {
                         className="w-full lg:w-[45%] flex items-center lg:border-l lg:border-slate-800 lg:pl-12 lg:h-[180px] mt-4 lg:mt-8"
                     >
                         <p className="text-slate-300 text-base md:text-[17px] leading-relaxed font-medium">
-                            Our leadership team brings together deep expertise across technology, product engineering, and enterprise delivery to drive meaningful outcomes.
+                            More than technology executives, our leaders are builders. From launching products to delivering large-scale transformations, they combine strategic vision with execution discipline to help clients move faster and innovate with confidence.
                         </p>
                     </motion.div>
                 </div>
