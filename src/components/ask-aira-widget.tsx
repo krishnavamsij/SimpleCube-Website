@@ -4,13 +4,40 @@ import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "
 import { createPortal } from "react-dom";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { ChevronRight, Send, X, Search, Mic, MicOff, Volume2, VolumeX } from "lucide-react";
+import { ChevronRight, Send, X, Search, Mic, MicOff, Volume2, VolumeX, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import {
     normalizeProductLinksInText,
     normalizeProductRoute,
 } from "@/lib/product-route-normalizer";
 
+// ─── Text formatter for API responses ──────────────────────────────────────────
+function formatToBullets(text: string): string {
+    if (!text) return text;
+    return text;
+}
+
+// Put each URL as an indented sub-point when multiple URLs share a line
+function separateUrls(text: string): string {
+    const urlRegex = /https?:\/\/[^\s<>"{}|\\^`[\]]+/gi;
+    const urls = text.match(urlRegex);
+    if (!urls || urls.length < 2) return text;
+
+    const parts = text.split(urlRegex);
+    const result: string[] = [];
+    for (let i = 0; i < urls.length; i++) {
+        if (i === 0) {
+            const intro = parts[0].replace(/\s+(?:and|or)\s*$/, "").trim();
+            if (intro) result.push(intro);
+        }
+        result.push(`  > ${urls[i]}`);
+    }
+    const trailing = parts[parts.length - 1].trim();
+    if (trailing && !/^(?:and|or)$/i.test(trailing)) {
+        result.push(trailing);
+    }
+    return result.join("\n");
+}
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
     text: string;
@@ -34,13 +61,15 @@ type OnboardStep =
     | "ask_custom_intent"
     | "ask_challenge"
     | "chat"
-    | "ask_call_time";
+    | "ask_call_time"
+    | "ask_sme_contact";
 
 interface LeadData {
     name: string;
     email: string;
     intent: string;
     challenge: string;
+    organisation: string;
 }
 
 const INTENTS = [
@@ -307,6 +336,7 @@ function fireLead(lead: LeadData) {
             name: lead.name,
             email: lead.email,
             intent: lead.intent,
+            organisation: lead.organisation,
             problem: lead.challenge || lead.intent,
         }),
     }).catch(() => {});
@@ -320,6 +350,7 @@ function fireSMEConnect(lead: LeadData) {
             name: lead.name,
             email: lead.email,
             intent: `SME Connect Request — ${lead.intent}`,
+            organisation: lead.organisation,
             problem: lead.challenge || lead.intent,
         }),
     }).catch(() => {});
@@ -333,6 +364,7 @@ function fireBookCall(lead: LeadData, preferredTime: string) {
             name: lead.name,
             email: lead.email,
             intent: lead.intent,
+            organisation: lead.organisation,
             preferredTime,
         }),
     }).catch(() => {});
@@ -352,47 +384,271 @@ const GREEN      = "#00c9b1";
 const GREEN_LIGHT = "#e6faf8";
 const DARK_TEXT  = "#1e293b";
 
+// ─── Resource link extraction ─────────────────────────────────────────────────
+// Pulls trailing "Learn more: <url>" / "Related case study: <url>" / "Read more: <url>"
+// lines out of the main message body so they can be rendered as clean link cards
+// instead of inline blue text dumped at the end of a paragraph.
+interface ParsedMessage {
+    body: string;
+    resources: { label: string; url: string }[];
+}
+
+const RESOURCE_LINE_PATTERN =
+    /^(Related case study|Related|Case study|Learn more(?: here)?|Read more|See also|Reference|More info(?:rmation)?)\s*:?\s*(https?:\/\/\S+)$/i;
+
+function extractResourceLinks(text: string): ParsedMessage {
+    if (!text) return { body: text, resources: [] };
+
+    const lines = text.split("\n");
+    const bodyLines: string[] = [];
+    const resources: { label: string; url: string }[] = [];
+
+    for (const rawLine of lines) {
+        const trimmed = rawLine.trim();
+        const match = trimmed.match(RESOURCE_LINE_PATTERN);
+        if (match) {
+            const { href, trailing } = splitUrlAndTrailingPunctuation(match[2]);
+            let isValid = false;
+            try { new URL(href); isValid = true; } catch { isValid = false; }
+            if (isValid) {
+                resources.push({ label: normalizeResourceLabel(match[1]), url: href });
+                continue; // drop this line, trailing punctuation (if any) is discarded intentionally
+            }
+            void trailing;
+        }
+        bodyLines.push(rawLine);
+    }
+
+    // Trim trailing blank lines left behind after stripping resource lines
+    while (bodyLines.length > 0 && bodyLines[bodyLines.length - 1].trim() === "") {
+        bodyLines.pop();
+    }
+
+    return { body: bodyLines.join("\n"), resources };
+}
+
+function normalizeResourceLabel(rawLabel: string): string {
+    const lower = rawLabel.toLowerCase();
+    if (lower.includes("case study")) return "Case Study";
+    if (lower.includes("learn more")) return "Learn More";
+    if (lower.includes("read more")) return "Read More";
+    if (lower.includes("see also")) return "See Also";
+    if (lower.includes("reference")) return "Reference";
+    if (lower.includes("more info")) return "More Information";
+    return "Related Link";
+}
+
+// Friendly display title derived from a Hyniva URL path, e.g.
+// "https://www.hyniva.com/insights/case-studies/modernizing-case-management-for-a-community-healthcare-provider-stop"
+// -> "Modernizing Case Management For A Community Healthcare Provider"
+function urlToDisplayTitle(url: string): string {
+    try {
+        const parsed = new URL(url);
+        const segments = parsed.pathname.split("/").filter(Boolean);
+        let last = segments[segments.length - 1] || parsed.hostname;
+        last = last.replace(/-stop$/i, "");
+        const words = last
+            .split(/[-_]/)
+            .filter(Boolean)
+            .map((w) => (w.length <= 3 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)));
+        const title = words.join(" ");
+        return title || parsed.hostname.replace(/^www\./, "");
+    } catch {
+        return url;
+    }
+}
+
+// ─── ResourceLinks ────────────────────────────────────────────────────────────
+function ResourceLinks({ resources }: { resources: { label: string; url: string }[] }) {
+    if (resources.length === 0) return null;
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12, paddingTop: 12, borderTop: "1px solid #f1f5f9", width: "100%" }}>
+            {resources.map((r, i) => (
+                <button
+                    key={`${r.url}-${i}`}
+                    type="button"
+                    onClick={() => navigateFromChat(r.url)}
+                    style={{
+                        display: "flex", alignItems: "center", gap: 10,
+                        padding: "10px 12px", borderRadius: 10,
+                        border: "1px solid #e5f6f4", background: GREEN_LIGHT,
+                        color: DARK_TEXT, fontSize: 12.5, fontWeight: 500,
+                        textAlign: "left", cursor: "pointer", width: "100%",
+                        transition: "background 0.15s, border-color 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.background = "#d3f5f1";
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = GREEN;
+                    }}
+                    onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT;
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#e5f6f4";
+                    }}
+                >
+                    <span style={{
+                        flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
+                        width: 28, height: 28, borderRadius: 8, background: "#ffffff",
+                        color: GREEN, fontSize: 10, fontWeight: 700, letterSpacing: "0.04em",
+                    }}>
+                        {r.label === "Case Study" ? "CS" : <ExternalLink size={13} />}
+                    </span>
+                    <span style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 }}>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: GREEN, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                            {r.label}
+                        </span>
+                        <span style={{
+                            fontSize: 12.5, color: DARK_TEXT, fontWeight: 600,
+                            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                        }}>
+                            {urlToDisplayTitle(r.url)}
+                        </span>
+                    </span>
+                    <ChevronRight size={14} style={{ color: GREEN, flexShrink: 0 }} />
+                </button>
+            ))}
+        </div>
+    );
+}
+
 // ─── MessageContent ───────────────────────────────────────────────────────────
-function MessageContent({ text }: { text: string; isUser: boolean }) {
+function MessageContent({ text, isUser }: { text: string; isUser: boolean }) {
     const handleUrlClick = (e: React.MouseEvent | React.KeyboardEvent, url: string) => {
         e.preventDefault(); e.stopPropagation(); navigateFromChat(url);
     };
 
-    const renderTextWithBold = (str: string, baseKey: number) => {
-        const boldRegex = /\*\*(.*?)\*\*/g;
-        const elements: React.ReactNode[] = [];
-        let lastIdx = 0;
-        let match;
-        let subKey = 0;
-        while ((match = boldRegex.exec(str)) !== null) {
-            if (match.index > lastIdx) {
-                elements.push(<span key={`${baseKey}-t-${subKey++}`}>{str.slice(lastIdx, match.index)}</span>);
-            }
-            elements.push(<strong key={`${baseKey}-b-${subKey++}`} style={{ fontWeight: 600, color: isUser ? "inherit" : "#111827" }}>{match[1]}</strong>);
-            lastIdx = boldRegex.lastIndex;
-        }
-        if (lastIdx < str.length) {
-            elements.push(<span key={`${baseKey}-t-${subKey++}`}>{str.slice(lastIdx)}</span>);
-        }
-        return elements;
-    };
-
-    return (
-        <>
-            {parseMessageForUrls(text).map((n, i) =>
-                n.type === "url" ? (
-                    <span key={i} role="link" tabIndex={0}
+    // Render inline: bold (**text**) + URLs
+    const renderInline = (str: string, baseKey: string) => {
+        const parts = parseMessageForUrls(str);
+        return parts.map((n, i) => {
+            if (n.type === "url") {
+                return (
+                    <span key={`${baseKey}-u${i}`} role="link" tabIndex={0}
                         onClick={(e) => handleUrlClick(e, n.content)}
                         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleUrlClick(e, n.content); }}
                         style={{ color: "#0ea5e9", textDecoration: "underline", wordBreak: "break-all", cursor: "pointer", fontWeight: 500 }}>
                         {n.content}
                     </span>
-                ) : (
-                    <span key={i}>{renderTextWithBold(n.content, i)}</span>
-                )
-            )}
-        </>
-    );
+                );
+            }
+            // parse bold within text segments
+            const boldRegex = /\*\*(.*?)\*\*/g;
+            const elems: React.ReactNode[] = [];
+            let last = 0; let m; let k = 0;
+            while ((m = boldRegex.exec(n.content)) !== null) {
+                if (m.index > last) elems.push(<span key={`${baseKey}-t${i}-${k++}`}>{n.content.slice(last, m.index)}</span>);
+                elems.push(<strong key={`${baseKey}-b${i}-${k++}`} style={{ fontWeight: 700, color: isUser ? "inherit" : "#0f172a" }}>{m[1]}</strong>);
+                last = boldRegex.lastIndex;
+            }
+            if (last < n.content.length) elems.push(<span key={`${baseKey}-t${i}-${k++}`}>{n.content.slice(last)}</span>);
+            return <span key={`${baseKey}-s${i}`}>{elems}</span>;
+        });
+    };
+
+    // Split text into lines and group into paragraphs, bullet, and sub-bullet lists
+    const rawLines = separateUrls(text).split("\n");
+    type BulletEntry = { text: string; subs: string[] };
+    type ParsedLine =
+        | { kind: "bullet"; data: BulletEntry }
+        | { kind: "blank" }
+        | { kind: "text"; text: string; subs: string[] };
+
+    const parsed: ParsedLine[] = [];
+
+    for (let i = 0; i < rawLines.length; i++) {
+        const trimmed = rawLines[i].trim();
+
+        // Sub-bullet: lines starting with ">" (from separateUrls)
+        const subMatch = trimmed.match(/^>\s(.+)/);
+        if (subMatch) {
+            const last = parsed[parsed.length - 1];
+            if (last && last.kind === "bullet") {
+                last.data.subs.push(subMatch[1]);
+            } else if (last && last.kind === "text") {
+                last.subs.push(subMatch[1]);
+            } else {
+                parsed.push({ kind: "bullet", data: { text: subMatch[1], subs: [] } });
+            }
+            continue;
+        }
+
+        // Top-level bullet
+        const bulletMatch = trimmed.match(/^([•●\-\*]|\d+\.) (.+)/);
+        if (bulletMatch) {
+            parsed.push({ kind: "bullet", data: { text: bulletMatch[2], subs: [] } });
+            continue;
+        }
+
+        if (trimmed === "") {
+            parsed.push({ kind: "blank" });
+        } else {
+            parsed.push({ kind: "text", text: trimmed, subs: [] });
+        }
+    }
+
+    const elements: React.ReactNode[] = [];
+    let itemKey = 0;
+    let i = 0;
+
+    while (i < parsed.length) {
+        const item = parsed[i];
+
+        if (item.kind === "bullet") {
+            const run: BulletEntry[] = [];
+            while (i < parsed.length && parsed[i].kind === "bullet") {
+                run.push((parsed[i] as { kind: "bullet"; data: BulletEntry }).data);
+                i++;
+            }
+            elements.push(
+                <ul key={`ul-${itemKey++}`} style={{ margin: "6px 0 6px 0", padding: "0 0 0 16px", listStyle: "none" }}>
+                    {run.map((b, bi) => (
+                        <li key={bi} style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: b.subs.length ? 6 : 4, fontSize: "inherit", lineHeight: 1.55 }}>
+                            <span style={{ display: "flex", alignItems: "flex-start", gap: 7 }}>
+                                <span style={{ color: GREEN, fontWeight: 700, flexShrink: 0, marginTop: 2, fontSize: 10 }}>●</span>
+                                <span>{renderInline(b.text, `bl-${itemKey}-${bi}`)}</span>
+                            </span>
+                            {b.subs.length > 0 && (
+                                <ul style={{ margin: "2px 0 0 20px", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 3, fontSize: 14 }}>
+                                    {b.subs.map((sub, si) => (
+                                        <li key={si} style={{ display: "flex", alignItems: "flex-start", gap: 6, lineHeight: 1.5, fontSize: 14 }}>
+                                            <span style={{ color: GREEN, opacity: 0.6, flexShrink: 0, marginTop: 3, fontSize: 8 }}>◦</span>
+                                            <span style={{ fontSize: 14 }}>{renderInline(sub, `sub-${itemKey}-${bi}-${si}`)}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            );
+        } else if (item.kind === "blank") {
+            if (i > 0 && i < parsed.length - 1) {
+                elements.push(<div key={`sp-${itemKey++}`} style={{ height: 6 }} />);
+            }
+            i++;
+        } else {
+            elements.push(
+                <div key={`tx-${itemKey}`} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span style={{ display: "block", lineHeight: 1.6 }}>
+                        {renderInline(item.text, `ln-${itemKey}`)}
+                    </span>
+                    {item.subs.length > 0 && (
+                        <ul style={{ margin: "2px 0 0 20px", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 3, fontSize: 14 }}>
+                            {item.subs.map((sub, si) => (
+                                <li key={si} style={{ display: "flex", alignItems: "flex-start", gap: 6, lineHeight: 1.5, fontSize: 14 }}>
+                                    <span style={{ color: GREEN, opacity: 0.6, flexShrink: 0, marginTop: 3, fontSize: 8 }}>◦</span>
+                                    <span style={{ fontSize: 14 }}>{renderInline(sub, `txsub-${itemKey}-${si}`)}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            );
+            itemKey++;
+            i++;
+        }
+    }
+
+    return <>{elements}</>;
 }
 
 // ─── Portal ───────────────────────────────────────────────────────────────────
@@ -455,8 +711,8 @@ function IntentButtons({ onSelect }: { onSelect: (intent: string) => void }) {
 }
 
 // ─── Post-challenge action buttons (2 only) ──────────────────────────────────
-function ChallengeActionButtons({ onSME, onCall }: {
-    onSME: () => void; onCall: () => void;
+function ChallengeActionButtons({ onSME, onCall, onChangeIntent }: {
+    onSME: () => void; onCall: () => void; onChangeIntent: () => void;
 }) {
     const btn: React.CSSProperties = {
         padding: "9px 14px", borderRadius: 12, border: `1.5px solid ${GREEN}`,
@@ -474,6 +730,11 @@ function ChallengeActionButtons({ onSME, onCall }: {
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT; (e.currentTarget as HTMLButtonElement).style.color = GREEN; }}>
                 📅 Schedule a Consultation
+            </button>
+            <button type="button" onClick={onChangeIntent} style={btn}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN_LIGHT; (e.currentTarget as HTMLButtonElement).style.color = GREEN; }}>
+                🔄 Change Area of Interest
             </button>
         </div>
     );
@@ -510,7 +771,10 @@ function ActionButtons({ onSME, onBook, onChangeIntent, smeConnected }: { onSME:
 }
 
 // ─── Call booking form ────────────────────────────────────────────────────────
-function CallBookingForm({ onSubmit }: { onSubmit: (date: string, time: string, tz: string) => void }) {
+function CallBookingForm({ onSubmit }: { onSubmit: (name: string, email: string, org: string, date: string, time: string, tz: string) => void }) {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [org, setOrg] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [tz, setTz] = useState("IST (UTC+5:30)");
@@ -541,12 +805,26 @@ function CallBookingForm({ onSubmit }: { onSubmit: (date: string, time: string, 
 
     return (
         <div style={{ background: "#fff", border: `1.5px solid ${GREEN}`, borderRadius: 12, padding: "16px 18px", marginBottom: 12, animation: "airaMsgIn 0.22s ease" }}>
-            <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: DARK_TEXT }}>📅 Preferred Meeting Details</p>
+            <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: DARK_TEXT }}>📅 Schedule a Consultation</p>
+            <p style={{ margin: "0 0 14px", fontSize: 12, color: "#6b7280" }}>Share your details and preferred time — our team will confirm the meeting.</p>
 
-            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Date</label>
-            <input type="date" min={today} value={date} onChange={e => { setDate(e.target.value); setError(""); }} style={inputStyle} />
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Your Name *</label>
+            <input type="text" placeholder="e.g. John Smith" value={name}
+                onChange={e => { setName(e.target.value); setError(""); }} style={inputStyle} />
 
-            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Time</label>
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Business Email *</label>
+            <input type="email" placeholder="e.g. john@company.com" value={email}
+                onChange={e => { setEmail(e.target.value); setError(""); }} style={inputStyle} />
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Organisation *</label>
+            <input type="text" placeholder="e.g. Acme Corp" value={org}
+                onChange={e => { setOrg(e.target.value); setError(""); }} style={inputStyle} />
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Preferred Date *</label>
+            <input type="date" min={today} value={date}
+                onChange={e => { setDate(e.target.value); setError(""); }} style={inputStyle} />
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Preferred Time *</label>
             <select value={time} onChange={e => { setTime(e.target.value); setError(""); }} style={inputStyle}>
                 <option value="">Select a time...</option>
                 {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
@@ -562,11 +840,71 @@ function CallBookingForm({ onSubmit }: { onSubmit: (date: string, time: string, 
             <button
                 type="button"
                 onClick={() => {
-                    if (!date || !time) { setError("Please select both a date and time."); return; }
-                    onSubmit(date, time, tz);
+                    if (!name.trim()) { setError("Please enter your name."); return; }
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) { setError("Please enter a valid business email."); return; }
+                    if (!org.trim()) { setError("Please enter your organisation name."); return; }
+                    if (!date || !time) { setError("Please select a preferred date and time."); return; }
+                    onSubmit(name.trim(), email.trim(), org.trim(), date, time, tz);
                 }}
                 style={{ width: "100%", padding: "10px", borderRadius: 20, border: "none", background: GREEN, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", marginTop: 4 }}>
                 Confirm Meeting Request →
+            </button>
+        </div>
+    );
+}
+
+// ─── SME Contact Form ─────────────────────────────────────────────────────────
+function SMEContactForm({ onSubmit }: { onSubmit: (name: string, email: string, org: string) => void }) {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [org, setOrg] = useState("");
+    const [error, setError] = useState("");
+
+    const inputStyle: React.CSSProperties = {
+        width: "100%", padding: "8px 10px", borderRadius: 8,
+        border: "1px solid #e5e7eb", fontSize: 13, color: DARK_TEXT,
+        marginTop: 4, marginBottom: 10, boxSizing: "border-box" as const,
+        background: "#fff", outline: "none",
+    };
+
+    return (
+        <div style={{ background: "#fff", border: `1.5px solid ${GREEN}`, borderRadius: 12, padding: "16px 18px", marginBottom: 12, animation: "airaMsgIn 0.22s ease" }}>
+            <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: DARK_TEXT }}>🧑‍💼 Connect with an Expert</p>
+            <p style={{ margin: "0 0 14px", fontSize: 12, color: "#6b7280" }}>Share your contact details and we'll have the right person reach out.</p>
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Your Name *</label>
+            <input
+                type="text" placeholder="e.g. John Smith"
+                value={name} onChange={e => { setName(e.target.value); setError(""); }}
+                style={inputStyle}
+            />
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Business Email *</label>
+            <input
+                type="email" placeholder="e.g. john@company.com"
+                value={email} onChange={e => { setEmail(e.target.value); setError(""); }}
+                style={inputStyle}
+            />
+
+            <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Organisation *</label>
+            <input
+                type="text" placeholder="e.g. Acme Corp"
+                value={org} onChange={e => { setOrg(e.target.value); setError(""); }}
+                style={inputStyle}
+            />
+
+            {error && <p style={{ color: "#dc2626", fontSize: 12, margin: "0 0 8px" }}>{error}</p>}
+
+            <button
+                type="button"
+                onClick={() => {
+                    if (!name.trim()) { setError("Please enter your name."); return; }
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) { setError("Please enter a valid business email."); return; }
+                    if (!org.trim()) { setError("Please enter your organisation name."); return; }
+                    onSubmit(name.trim(), email.trim(), org.trim());
+                }}
+                style={{ width: "100%", padding: "10px", borderRadius: 20, border: "none", background: GREEN, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", marginTop: 4 }}>
+                Connect Me with an Expert →
             </button>
         </div>
     );
@@ -591,11 +929,12 @@ export function AskAiraWidget() {
     const [showClearConfirm, setShowClearConfirm] = useState(false);
 
     // onboarding state
-    const [onboardStep, setOnboardStep] = useState<OnboardStep>("ask_name");
-    const [leadData, setLeadData] = useState<LeadData>({ name: "", email: "", intent: "", challenge: "" });
+    const [onboardStep, setOnboardStep] = useState<OnboardStep>("ask_intent");
+    const [leadData, setLeadData] = useState<LeadData>({ name: "", email: "", intent: "", challenge: "", organisation: "" });
     const [leadCaptured, setLeadCaptured] = useState(false);
     const [smeConnected, setSmeConnected] = useState(false);
     const [showCallForm, setShowCallForm] = useState(false);
+    const [showSMEForm, setShowSMEForm] = useState(false);
     const [showChallengeActions, setShowChallengeActions] = useState(false);
     const [chatTurnCount, setChatTurnCount] = useState(0);
 
@@ -674,8 +1013,8 @@ export function AskAiraWidget() {
 
     // Inject welcome message when chat opens
     useEffect(() => {
-        if (isOpen && messages.length === 0 && onboardStep === "ask_name") {
-            setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nShare your goals, challenges, or ideas, and I'll help identify the expertise, solutions, and next steps that best fit your needs.\n\nTo get started, what's your name?")]);
+        if (isOpen && messages.length === 0) {
+            setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nHere's how I can help:\n• Share your goals, challenges, or ideas\n• Identify the right expertise and solutions tailored to your needs\n• Map out actionable next steps for your business")]);
         }
     }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -701,11 +1040,11 @@ export function AskAiraWidget() {
         } catch { /* ignore */ }
         sessionIdRef.current = generateSessionId();
         clearStaleChatStorage();
-        setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nShare your goals, challenges, or ideas, and I'll help identify the expertise, solutions, and next steps that best fit your needs.\n\nTo get started, what's your name?")]);
-        setOnboardStep("ask_name");
-        setLeadData({ name: "", email: "", intent: "", challenge: "" });
+        setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nHere's how I can help:\n• Share your goals, challenges, or ideas\n• Identify the right expertise and solutions tailored to your needs\n• Map out actionable next steps for your business")]);
+        setOnboardStep("ask_intent");
+        setLeadData({ name: "", email: "", intent: "", challenge: "", organisation: "" });
         setLeadCaptured(false); setSmeConnected(false);
-        setShowCallForm(false); setShowChallengeActions(false);
+        setShowCallForm(false); setShowSMEForm(false); setShowChallengeActions(false);
         setInputValue(""); stopVoiceInput(); stopReading();
         setSpeechError(""); setIsVoiceInputUnavailable(false);
         isSendingRef.current = false; setIsLoading(false);
@@ -722,78 +1061,32 @@ export function AskAiraWidget() {
         const trimmed = text.trim();
         setInputValue("");
 
-        // ── ask_name ──────────────────────────────────────────────────────────
-        if (onboardStep === "ask_name") {
-            // Reject greetings or too-short inputs
-            const greetings = new Set(["hi", "hello", "hey", "hiya", "yo", "sup", "howdy", "greetings", "helo", "hii", "hiii"]);
-            const isGreeting = greetings.has(trimmed.toLowerCase());
-            const isTooShort = trimmed.replace(/\s/g, "").length < 2;
-
-            // Extract the actual name by removing common prefixes
-            let extractedName = trimmed;
-            const namePrefixes = /^(i'm|im|i\s+am|my\s+name\s+is|this\s+is|myself|call\s+me|name\s+is|it's|its|they\s+call\s+me)\s+/i;
-            extractedName = extractedName.replace(namePrefixes, '').trim();
-            // Capitalize first letter of each word in the name
-            extractedName = extractedName.replace(/\b\w/g, c => c.toUpperCase());
-
-            if (isGreeting || isTooShort || !extractedName) {
-                setMessages(prev => [...prev, userMsg(trimmed),
-                    botMsg("Please share your name to get started.")]);
-                isSendingRef.current = false; return;
-            }
-            
-            setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Nice to meet you, ${extractedName}! 😊\nTo help us follow up and share relevant information, could you please provide your work email address?`)]);
-            setLeadData(prev => ({ ...prev, name: extractedName }));
-            setOnboardStep("ask_email");
-            isSendingRef.current = false; return;
-        }
-
-        // ── ask_email ─────────────────────────────────────────────────────────
-        if (onboardStep === "ask_email") {
-            if (!EMAIL_REGEX.test(trimmed)) {
-                setMessages(prev => [...prev, userMsg(trimmed),
-                    botMsg("Hmm, that doesn't look like a valid email. Could you double-check? 🙏")]);
-                isSendingRef.current = false; return;
-            }
-            const name = leadData.name;
-            setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Thank you, ${name}.\nWhat brings you here today?`)]);
-            setLeadData(prev => ({ ...prev, email: trimmed }));
-            setOnboardStep("ask_intent");
-            isSendingRef.current = false; return;
-        }
-
-        // ── ask_custom_intent ─────────────────────────────────────────────────
-        if (onboardStep === "ask_custom_intent") {
-            // User described what they want — treat it as both intent and first message
-            const updatedLead: LeadData = { ...leadData, intent: trimmed, challenge: "" };
+        // ── ask_custom_intent (user typed freely instead of picking a button) ──
+        if (onboardStep === "ask_intent" || onboardStep === "ask_custom_intent") {
+            // Store what they typed as intent, go straight to chat
+            const updatedLead: LeadData = { ...leadData, intent: trimmed };
             setLeadData(updatedLead);
             setLeadCaptured(true);
-            fireLead(updatedLead);
             setOnboardStep("chat");
-            // Send their message directly to the AI — no user_intent, just the raw message
             setMessages(prev => [...prev, userMsg(trimmed)]);
             setIsLoading(true);
-            isSendingRef.current = true; // already set above, keep flag
+            isSendingRef.current = true;
 
             let reply = "";
             let routeToNavigate: string | null = null;
             try {
                 const sessionId = sessionIdRef.current;
-                const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
-                const apiUrl = `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}session_id=${encodeURIComponent(sessionId)}`;
-                const res = await fetch(apiUrl, {
+                const res = await fetch("/api/chatbot", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: trimmed, session_id: sessionId }),
+                    body: JSON.stringify({ message: trimmed, session_id: sessionId, user_intent: trimmed }),
                 });
                 if (!res.ok) {
                     reply = res.status === 403 ? HYNIVA_ONLY_MESSAGE : "";
                     if (!reply) throw new Error("API error");
                 } else {
                     const data: ApiResponse = await res.json();
-                    reply = normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that.");
+                    reply = formatToBullets(normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that."));
                     routeToNavigate = data.route || data.target_route || null;
                     if (routeToNavigate) routeToNavigate = normalizeProductRoute(routeToNavigate);
                 }
@@ -802,6 +1095,8 @@ export function AskAiraWidget() {
             }
             setMessages(prev => [...prev, botMsg(reply)]);
             if (routeToNavigate) setTimeout(() => navigateFromChat(routeToNavigate!), 700);
+            setShowChallengeActions(true);
+            setChatTurnCount(1);
             setIsLoading(false);
             isSendingRef.current = false;
             return;
@@ -812,8 +1107,6 @@ export function AskAiraWidget() {
             const updatedLead: LeadData = { ...leadData, challenge: trimmed };
             setLeadData(updatedLead);
             setLeadCaptured(true);
-            // ✅ Fire lead email immediately when challenge is captured
-            fireLead(updatedLead);
             
             setMessages(prev => [...prev, userMsg(trimmed)]);
             setIsLoading(true);
@@ -824,14 +1117,11 @@ export function AskAiraWidget() {
             
             try {
                 const sessionId = sessionIdRef.current;
-                const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
-                const qs = new URLSearchParams({ session_id: sessionId });
+                // ✅ user_intent sent ONCE here to initialise backend session context.
+                // All subsequent messages rely on backend session memory — no user_intent appended.
                 const combinedIntent = `${updatedLead.intent} — ${updatedLead.challenge}`;
-                qs.set("user_intent", combinedIntent);
                 
-                const apiUrl = `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}${qs.toString()}`;
-                
-                const res = await fetch(apiUrl, {
+                const res = await fetch("/api/chatbot", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -846,7 +1136,7 @@ export function AskAiraWidget() {
                     if (!reply) throw new Error("API error");
                 } else {
                     const data: ApiResponse = await res.json();
-                    reply = normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that.");
+                    reply = formatToBullets(normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that."));
                     routeToNavigate = data.route || data.target_route || null;
                     if (routeToNavigate) routeToNavigate = normalizeProductRoute(routeToNavigate);
                 }
@@ -859,6 +1149,7 @@ export function AskAiraWidget() {
             
             setOnboardStep("chat");
             setShowChallengeActions(false);
+            setChatTurnCount(1);
             setIsLoading(false);
             isSendingRef.current = false;
             return;
@@ -881,7 +1172,8 @@ export function AskAiraWidget() {
         const isChangeIntent = /change.*topic|change.*intent|different.*topic|different.*intent|talk.*about.*something.*else|another.*topic/i.test(trimmed);
 
         if (isChangeIntent && leadCaptured) {
-            setShowChallengeActions(false);
+            setShowChallengeActions(false); // hide while picking new intent
+            setChatTurnCount(0); // reset so buttons reappear after new challenge
             setMessages(prev => [...prev, userMsg(trimmed),
                 botMsg(`No problem, ${leadData.name}. What other area would you like to explore?`)]);
             setOnboardStep("ask_intent");
@@ -889,15 +1181,14 @@ export function AskAiraWidget() {
         }
 
         if (isSmeRequest && leadCaptured) {
-            fireSMEConnect(leadData);
-            setSmeConnected(true); setShowChallengeActions(false);
-            setMessages(prev => [...prev, userMsg(trimmed),
-                botMsg(`Absolutely, ${leadData.name}.\n\nI've captured your interest in ${leadData.intent} and your requirements. A member of our consulting team will review your request and reach out to ${leadData.email}.\n\nWould you also like to schedule a discussion with one of our specialists?`)]);
+            // Show contact form — collect name/email/org before firing lead email
+            setShowSMEForm(true);
+            setOnboardStep("ask_sme_contact");
             isSendingRef.current = false; return;
         }
 
         if (isBookRequest && leadCaptured) {
-            setShowChallengeActions(false);
+            setShowChallengeActions(false); // hide while booking form is shown
             setMessages(prev => [...prev, userMsg(trimmed),
                 botMsg(`Great, ${leadData.name}!\n\nTo help us arrange the discussion, please fill in your preferred meeting details below 👇`)]);
             setOnboardStep("ask_call_time");
@@ -906,14 +1197,17 @@ export function AskAiraWidget() {
         }
 
         if (isShortYes && leadCaptured) {
-            setShowChallengeActions(false);
+            // keep buttons visible — just let them continue chatting
             setMessages(prev => [...prev, userMsg(trimmed),
                 botMsg(`Of course, ${leadData.name}! What would you like to know? I'm here to help 😊`)]);
             isSendingRef.current = false; return;
         }
 
         // ── Normal API call ───────────────────────────────────────────────────
-        setShowChallengeActions(false);
+        // user_intent is NOT sent here — it was sent once during ask_challenge to
+        // initialise backend session context. All subsequent messages rely on
+        // backend session memory so the bot can respond naturally to any topic.
+        // showChallengeActions stays true so buttons persist after every reply.
         setChatTurnCount(prev => prev + 1);
         setMessages(prev => [...prev, userMsg(trimmed)]);
         setIsLoading(true);
@@ -923,28 +1217,14 @@ export function AskAiraWidget() {
 
         try {
             const sessionId = sessionIdRef.current;
-            const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL || "/api/chatbot";
-            const qs = new URLSearchParams({ session_id: sessionId });
-            if (leadCaptured && leadData.intent) {
-                const combinedIntent = leadData.challenge
-                    ? `${leadData.intent} — ${leadData.challenge}`
-                    : leadData.intent;
-                qs.set("user_intent", combinedIntent);
-            }
-            const apiUrl = `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}${qs.toString()}`;
-            console.debug("[AIRA] fetch →", apiUrl);
 
-            const res = await fetch(apiUrl, {
+            const res = await fetch("/api/chatbot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     message: trimmed,
                     session_id: sessionId,
-                    ...(leadCaptured && leadData.intent ? {
-                        user_intent: leadData.challenge
-                            ? `${leadData.intent} — ${leadData.challenge}`
-                            : leadData.intent,
-                    } : {}),
+                    // ✅ No user_intent — backend uses session context from initial setup
                 }),
             });
 
@@ -953,7 +1233,7 @@ export function AskAiraWidget() {
                 if (!reply) throw new Error("API error");
             } else {
                 const data: ApiResponse = await res.json();
-                reply = normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that.");
+                reply = formatToBullets(normalizeProductLinksInText(data.message || "Sorry, I couldn't understand that."));
                 routeToNavigate = data.route || data.target_route || null;
                 if (routeToNavigate) routeToNavigate = normalizeProductRoute(routeToNavigate);
             }
@@ -975,6 +1255,7 @@ export function AskAiraWidget() {
             setOnboardStep("ask_custom_intent"); return;
         }
         setLeadData(prev => ({ ...prev, intent }));
+        setChatTurnCount(0); // reset so buttons reappear after new challenge submitted
         setMessages(prev => [...prev, userMsg(intent),
             botMsg(`Excellent choice.\n\nTo better understand your needs, please briefly describe your business challenge or project requirement.\n\nWhat are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?\n\nFor example:\n• Modernizing legacy applications and infrastructure\n• Migrating business-critical systems to the cloud\n• Building an AI-powered solution to improve operational efficiency\n• Implementing or enhancing enterprise platforms such as Salesforce, ServiceNow, or Microsoft Dynamics\n• Improving customer experience through digital transformation\n• Automating manual business processes and workflows\n• Developing a new product or platform\n• Scaling existing applications to support business growth\n• Integrating multiple systems and data sources\n• Strengthening security, compliance, and operational resilience`)]);
         setOnboardStep("ask_challenge");
@@ -1058,16 +1339,15 @@ export function AskAiraWidget() {
         if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(inputValue); }
     };
 
-    const inputDisabled = onboardStep === "ask_intent" || onboardStep === "ask_call_time";
+    const inputDisabled = onboardStep === "ask_intent" || onboardStep === "ask_call_time" || onboardStep === "ask_sme_contact";
     const inputPlaceholder = isListening ? "Listening..." : ({
-        ask_name:          "Type your name...",
-        ask_email:         "Type your work email...",
-        ask_intent:        "Please select an option above",
+        ask_intent:        "Or type your goal or challenge...",
         ask_custom_intent: "Describe what you're looking for...",
         ask_challenge:     "Describe your challenge...",
+        ask_sme_contact:   "Fill in the form above...",
         ask_call_time:     "Or type your preferred time here...",
         chat:              "Ask a follow up...",
-    } as Record<OnboardStep, string>)[onboardStep];
+    } as Record<OnboardStep, string>)[onboardStep] ?? "Message AIRA...";
 
     const voiceInputTitle = isVoiceInputUnavailable
         ? "Microphone access was blocked." : isSpeechSupported
@@ -1168,49 +1448,59 @@ export function AskAiraWidget() {
                             <div className="aira-messages-container" aria-live="polite"
                                 style={{ flex: "1 1 0", minHeight: 0, overflowY: "auto", padding: "24px 28px 16px", display: "flex", flexDirection: "column", gap: 16, background: "#fff", scrollbarWidth: "thin", scrollbarColor: "#d1d5db transparent" }}>
 
-                                {messages.map((msg, i) => (
-                                    <div key={i} className="aira-message"
-                                        data-testid={msg.isUser ? "chat-message-user" : "chat-message-assistant"}
-                                        style={{ display: "flex", alignItems: "flex-start", gap: 10, justifyContent: msg.isUser ? "flex-end" : "flex-start", animation: "airaMsgIn 0.22s ease" }}>
-                                        {!msg.isUser && (
-                                            <div className="aira-bot-avatar" style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                                <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                                            </div>
-                                        )}
-                                        <div className="aira-message-content" style={{ display: "flex", flexDirection: "column", gap: 6, maxWidth: "88%", alignItems: msg.isUser ? "flex-end" : "flex-start" }}>
-                                            <div style={{ 
-                                                padding: msg.isUser ? "10px 16px" : "16px 20px", 
-                                                borderRadius: msg.isUser ? 20 : 16, 
-                                                borderBottomRightRadius: msg.isUser ? 4 : 16, 
-                                                borderBottomLeftRadius: msg.isUser ? 16 : 4, 
-                                                fontSize: 14, 
-                                                lineHeight: 1.65, 
-                                                letterSpacing: "0.01em",
-                                                wordBreak: "normal", 
-                                                overflowWrap: "break-word", 
-                                                whiteSpace: "pre-wrap", 
-                                                width: "fit-content", 
-                                                background: msg.isUser ? GREEN_LIGHT : "#ffffff", 
-                                                color: msg.isUser ? DARK_TEXT : "#374151", 
-                                                border: msg.isUser ? "1px solid #9ee8df" : "1px solid #f3f4f6", 
-                                                fontWeight: msg.isUser ? 500 : 400, 
-                                                boxShadow: msg.isUser ? "none" : "0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)" 
-                                            }}>
-                                                <MessageContent text={msg.text} isUser={msg.isUser} />
-                                            </div>
-                                            <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "0 3px" }}>
-                                                <span style={{ fontSize: 10, color: "#9ca3af" }}>{msg.timestamp}</span>
-                                                {!msg.isUser && (
-                                                    <button type="button" onClick={() => readMessage(msg.text, i)}
-                                                        aria-label={speakingMessageIndex === i ? "Stop reading" : "Read aloud"}
-                                                        style={{ width: 22, height: 22, borderRadius: "50%", border: "1px solid #d1d5db", background: speakingMessageIndex === i ? GREEN_LIGHT : "#fff", color: speakingMessageIndex === i ? GREEN : "#6b7280", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>
-                                                        {speakingMessageIndex === i ? <VolumeX size={12} /> : <Volume2 size={12} />}
-                                                    </button>
-                                                )}
+                                {messages.map((msg, i) => {
+                                    // For bot messages, split out trailing "Related case study / Learn more"
+                                    // style links so they render as clean cards instead of inline blue text.
+                                    const { body, resources } = msg.isUser
+                                        ? { body: msg.text, resources: [] as { label: string; url: string }[] }
+                                        : extractResourceLinks(msg.text);
+
+                                    return (
+                                        <div key={i} className="aira-message"
+                                            data-testid={msg.isUser ? "chat-message-user" : "chat-message-assistant"}
+                                            style={{ display: "flex", alignItems: "flex-start", gap: 10, justifyContent: msg.isUser ? "flex-end" : "flex-start", animation: "airaMsgIn 0.22s ease" }}>
+                                            {!msg.isUser && (
+                                                <div className="aira-bot-avatar" style={{ width: 32, height: 32, flexShrink: 0, marginTop: 2, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                    <Image src="/images/AIRA_MASCOT/AIRA_NEW_MASCOT_crop.png" alt="AIRA" width={32} height={32} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                                                </div>
+                                            )}
+                                            <div className="aira-message-content" style={{ display: "flex", flexDirection: "column", gap: 6, maxWidth: "88%", alignItems: msg.isUser ? "flex-end" : "flex-start" }}>
+                                                <div style={{
+                                                    padding: msg.isUser ? "10px 16px" : "16px 20px",
+                                                    borderRadius: msg.isUser ? 20 : 16,
+                                                    borderBottomRightRadius: msg.isUser ? 4 : 16,
+                                                    borderBottomLeftRadius: msg.isUser ? 16 : 4,
+                                                    fontSize: 14,
+                                                    lineHeight: 1.65,
+                                                    letterSpacing: "0.01em",
+                                                    wordBreak: "normal",
+                                                    overflowWrap: "break-word",
+                                                    whiteSpace: "pre-wrap",
+                                                    width: "fit-content",
+                                                    maxWidth: "100%",
+                                                    background: msg.isUser ? GREEN_LIGHT : "#ffffff",
+                                                    color: msg.isUser ? DARK_TEXT : "#374151",
+                                                    border: msg.isUser ? "1px solid #9ee8df" : "1px solid #f3f4f6",
+                                                    fontWeight: msg.isUser ? 500 : 400,
+                                                    boxShadow: msg.isUser ? "none" : "0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)"
+                                                }}>
+                                                    <MessageContent text={body} isUser={msg.isUser} />
+                                                    {!msg.isUser && <ResourceLinks resources={resources} />}
+                                                </div>
+                                                <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "0 3px" }}>
+                                                    <span style={{ fontSize: 10, color: "#9ca3af" }}>{msg.timestamp}</span>
+                                                    {!msg.isUser && (
+                                                        <button type="button" onClick={() => readMessage(msg.text, i)}
+                                                            aria-label={speakingMessageIndex === i ? "Stop reading" : "Read aloud"}
+                                                            style={{ width: 22, height: 22, borderRadius: "50%", border: "1px solid #d1d5db", background: speakingMessageIndex === i ? GREEN_LIGHT : "#fff", color: speakingMessageIndex === i ? GREEN : "#6b7280", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>
+                                                            {speakingMessageIndex === i ? <VolumeX size={12} /> : <Volume2 size={12} />}
+                                                        </button>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
 
                                 {/* Intent buttons */}
                                 {onboardStep === "ask_intent" && !isLoading && (
@@ -1221,28 +1511,54 @@ export function AskAiraWidget() {
                                 {showChallengeActions && onboardStep === "chat" && !isLoading && (
                                     <ChallengeActionButtons
                                         onSME={() => {
-                                            setShowChallengeActions(false);
-                                            fireSMEConnect(leadData);
-                                            setSmeConnected(true);
-                                            setMessages(prev => [...prev,
-                                                botMsg(`Absolutely, ${leadData.name}.\n\nI've notified our consulting team about your interest in ${leadData.intent}. A specialist will review your requirements and reach out to ${leadData.email}.\n\nWould you also like to schedule a discussion with one of our specialists?`)
-                                            ]);
+                                            setShowSMEForm(true);
+                                            setOnboardStep("ask_sme_contact");
                                         }}
                                         onCall={() => { setShowChallengeActions(false); sendMessage("I'd like to schedule a consultation call"); }}
+                                        onChangeIntent={() => {
+                                            setMessages(prev => [...prev, userMsg("I want to discuss a different topic"),
+                                                botMsg(`No problem, ${leadData.name}. What other area would you like to explore?`)]);
+                                            setOnboardStep("ask_intent");
+                                            setChatTurnCount(0);
+                                        }}
+                                    />
+                                )}
+
+                                {/* SME Contact Form */}
+                                {showSMEForm && onboardStep === "ask_sme_contact" && !isLoading && (
+                                    <SMEContactForm
+                                        onSubmit={(name, email, org) => {
+                                            const updatedLead: LeadData = { ...leadData, name, email, organisation: org };
+                                            setLeadData(updatedLead);
+                                            setLeadCaptured(true);
+                                            setSmeConnected(true);
+                                            setShowSMEForm(false);
+                                            // Fire lead + SME connect with full context
+                                            fireLead(updatedLead);
+                                            fireSMEConnect(updatedLead);
+                                            setOnboardStep("chat");
+                                            setShowChallengeActions(true);
+                                            setMessages(prev => [...prev,
+                                                botMsg(`Thank you, ${name} 🙏\n\nI've notified our consulting team. A specialist will review your requirements and reach out to ${email} shortly.\n\nIn the meantime, feel free to keep exploring — I'm here to help.`)
+                                            ]);
+                                        }}
                                     />
                                 )}
 
                                 {/* Call booking form */}
                                 {showCallForm && onboardStep === "ask_call_time" && !isLoading && (
                                     <CallBookingForm
-                                        onSubmit={(date, time, tz) => {
+                                        onSubmit={(name, email, org, date, time, tz) => {
                                             const formatted = `${date} at ${time} ${tz}`;
+                                            const updatedLead: LeadData = { ...leadData, name, email, organisation: org };
+                                            setLeadData(updatedLead);
+                                            setLeadCaptured(true);
                                             setShowCallForm(false);
-                                            fireBookCall(leadData, formatted);
+                                            fireBookCall(updatedLead, formatted);
                                             setOnboardStep("chat");
+                                            setShowChallengeActions(true);
                                             setMessages(prev => [...prev,
-                                                { text: `${date} at ${time} ${tz}`, isUser: true, timestamp: makeTs() },
-                                                botMsg(`Thank you, ${leadData.name}.\n\nI've recorded your preferred meeting time:\n📅 ${date}\n🕒 ${time} ${tz}\n\nOur team will review your request and reach out to ${leadData.email} to confirm the call.\n\nIs there anything else I can help with?`)
+                                                botMsg(`Thank you, ${name} 🙏\n\nI've recorded your preferred meeting time:\n📅 ${date}\n🕒 ${time} ${tz}\n\nOur team will review your request and reach out to ${email} to confirm the call.\n\nIs there anything else I can help with?`)
                                             ]);
                                         }}
                                     />

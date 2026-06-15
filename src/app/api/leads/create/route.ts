@@ -24,10 +24,11 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
     }
 
-    const name    = typeof body.name    === "string" ? body.name.trim()    : "";
-    const email   = typeof body.email   === "string" ? body.email.trim()   : "";
-    const intent  = typeof body.intent  === "string" ? body.intent.trim()  : "";
-    const problem = typeof body.problem === "string" ? body.problem.trim() : "";
+    const name         = typeof body.name         === "string" ? body.name.trim()         : "";
+    const email        = typeof body.email        === "string" ? body.email.trim()        : "";
+    const intent       = typeof body.intent       === "string" ? body.intent.trim()       : "";
+    const problem      = typeof body.problem      === "string" ? body.problem.trim()      : "";
+    const organisation = typeof body.organisation === "string" ? body.organisation.trim() : "";
 
     if (!name || !email || !intent) {
         return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
@@ -51,6 +52,11 @@ export async function POST(request: Request) {
                         <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Email</td>
                         <td style="padding:12px 0;"><a href="mailto:${email}" style="color:#2563eb;font-weight:500;">${email}</a></td>
                     </tr>
+                    ${organisation ? `
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                        <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Organisation</td>
+                        <td style="padding:12px 0;color:#0f172a;font-weight:500;">${organisation}</td>
+                    </tr>` : ""}
                     <tr style="border-bottom:1px solid #f1f5f9;">
                         <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Area of Interest</td>
                         <td style="padding:12px 0;color:#0f172a;font-weight:500;">${intent}</td>
@@ -80,6 +86,7 @@ export async function POST(request: Request) {
         "================================================",
         `Contact Name:      ${name}`,
         `Email:             ${email}`,
+        ...(organisation ? [`Organisation:       ${organisation}`] : []),
         `Area of Interest:  ${intent}`,
         ...(problem ? [`Business Challenge: ${problem}`] : []),
         "",
