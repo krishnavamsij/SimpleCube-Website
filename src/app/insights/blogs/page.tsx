@@ -2,7 +2,9 @@
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { BlogNoResults } from "@/components/blog-no-results";
 import { blogContent } from "@/content/blog";
+import { searchBlogs, hasNoResults } from "@/lib/blog-search";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
@@ -11,17 +13,23 @@ import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/an
 export default function BlogsPage() {
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Filter blog posts based on search query only
+    // Get only blog posts (not news)
+    const blogPosts = useMemo(() => {
+        return blogContent.posts.filter(post => !post.isNews);
+    }, []);
+
+    // Filter blog posts using the search utility
     const filteredPosts = useMemo(() => {
-        return blogContent.posts
-            .filter(post => !post.isNews) // Only show regular blog posts
-            .filter(post => {
-                const title = post.title.replace(/<[^>]*>/g, ''); // Remove HTML tags for search
-                const matchesSearch = searchQuery === '' || title.toLowerCase().includes(searchQuery.toLowerCase());
-                
-                return matchesSearch;
-            });
-    }, [searchQuery]);
+        return searchBlogs(blogPosts, searchQuery);
+    }, [blogPosts, searchQuery]);
+
+    // Check if we should show the no results message
+    const showNoResults = hasNoResults(blogPosts, searchQuery);
+
+    // Handler to clear search
+    const handleClearSearch = () => {
+        setSearchQuery('');
+    };
 
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
@@ -63,39 +71,76 @@ export default function BlogsPage() {
                                     placeholder="Search"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-3 py-2 pr-10 text-sm font-medium text-[#030B3B] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e90ff] focus:border-transparent placeholder:text-[#9CA3AF] transition-all duration-200"
+                                    className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
                                 />
-                                {/* <svg 
-                                    className="absolute right-4 top-1/2 w-5 h-5 text-[#9CA3AF] pointer-events-none" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-2a2 2 0 00-2 2v12a2 2 0 002 2h-4l-4 4m0 0l-4-4m4-4H3" />
-                                </svg> */}
+                                {/* Search Icon */}
+                                <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg
+                                        className="w-4 h-4 text-[#9CA3AF]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                        />
+                                    </svg>
+                                </div>
+                                {/* Clear Button */}
+                                {searchQuery && (
+                                    <button
+                                        onClick={() => setSearchQuery('')}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full transition-colors"
+                                        aria-label="Clear search"
+                                    >
+                                        <svg
+                                            className="w-4 h-4 text-[#9CA3AF] hover:text-[#030B3B]"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
                 </motion.div>
 
-                {/* ── Card Grid ── */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPosts.map((post, idx) => (
+                {/* ── Card Grid or No Results ── */}
+                {showNoResults ? (
+                    <BlogNoResults
+                        searchQuery={searchQuery}
+                        onClearSearch={handleClearSearch}
+                        type="blog"
+                    />
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredPosts.map((post, idx) => (
                         <motion.div
                             key={idx}
                             variants={scrollReveal}
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+                            className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
                         >
                             {/* Card Image */}
-                            <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
+                            <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px]">
                                 <div 
                                     className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                                     style={{ backgroundImage: `url('${encodeURI(post.image)}')` }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-40" />
                             </div>
 
                             {/* Card Body */}
@@ -128,6 +173,7 @@ export default function BlogsPage() {
                         </motion.div>
                     ))}
                 </div>
+                )}
             </main>
 
             <Footer />

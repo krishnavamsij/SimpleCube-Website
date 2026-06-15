@@ -2,17 +2,34 @@
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { BlogNoResults } from "@/components/blog-no-results";
 import { blogContent } from "@/content/blog";
+import { searchBlogs, hasNoResults } from "@/lib/blog-search";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import { scrollReveal, viewportOnce, fadeInUp, staggerContainer } from "@/lib/animations";
 
 export default function NewsPage() {
-    // Filter news posts
-    const filteredPosts = useMemo(() => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Get only news posts
+    const newsPosts = useMemo(() => {
         return blogContent.posts.filter(post => post.isNews);
     }, []);
+
+    // Filter news posts using the search utility
+    const filteredPosts = useMemo(() => {
+        return searchBlogs(newsPosts, searchQuery);
+    }, [newsPosts, searchQuery]);
+
+    // Never show no results for news - always show all news posts
+    const showNoResults = false;
+
+    // Handler to clear search
+    const handleClearSearch = () => {
+        setSearchQuery('');
+    };
 
     return (
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
@@ -46,27 +63,86 @@ export default function NewsPage() {
                                 and milestones from Hyniva.
                             </motion.p>
                         </div>
+
+                        {/* Filter Side */}
+                        <div className="w-full lg:w-[300px]">
+                            {/* Search Bar */}
+                            <div className="relative w-full">
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
+                                />
+                                {/* Search Icon */}
+                                <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg
+                                        className="w-4 h-4 text-[#9CA3AF]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                        />
+                                    </svg>
+                                </div>
+                                {/* Clear Button */}
+                                {searchQuery && (
+                                    <button
+                                        onClick={() => setSearchQuery('')}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full transition-colors"
+                                        aria-label="Clear search"
+                                    >
+                                        <svg
+                                            className="w-4 h-4 text-[#9CA3AF] hover:text-[#030B3B]"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </button>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* ── Card Grid ── */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPosts.map((post, idx) => (
+                {/* ── Card Grid or No Results ── */}
+                {showNoResults ? (
+                    <BlogNoResults
+                        searchQuery={searchQuery}
+                        onClearSearch={handleClearSearch}
+                        type="news"
+                    />
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredPosts.map((post, idx) => (
                         <motion.div
                             key={idx}
                             variants={scrollReveal}
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+                            className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
                         >
                             {/* Card Image */}
-                            <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
+                            <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px]">
                                 <div 
                                     className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                                     style={{ backgroundImage: `url('${encodeURI(post.image)}')` }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-40" />
                             </div>
 
                             {/* Card Body */}
@@ -95,6 +171,7 @@ export default function NewsPage() {
                         </motion.div>
                     ))}
                 </div>
+                )}
             </main>
 
             <Footer />

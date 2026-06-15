@@ -1004,6 +1004,15 @@ export function AskAiraWidget() {
         return () => window.removeEventListener("aira:navigate", handler);
     }, [router]);
 
+    // ── Listen for external open requests ──
+    useEffect(() => {
+        const handler = () => {
+            setIsOpen(true);
+        };
+        window.addEventListener("aira:open", handler);
+        return () => window.removeEventListener("aira:open", handler);
+    }, []);
+
     useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, showCallForm, showChallengeActions]);
     useEffect(() => { if (isOpen) setTimeout(() => chatInputRef.current?.focus(), 150); }, [isOpen]);
     useEffect(() => {

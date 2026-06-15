@@ -2,7 +2,9 @@
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { CaseStudyNoResults } from "@/components/case-study-no-results";
 import { caseStudiesContent } from "@/content/case-studies";
+import { searchCaseStudies, hasNoResults } from "@/lib/case-study-search";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
@@ -69,20 +71,19 @@ export default function CaseStudiesPage() {
     });
   }, []);
 
-  // Filter case studies based on search term and tag
+  // Filter case studies based on search term and tag using two-layer search
   const filteredStudies = useMemo(() => {
-    return caseStudiesContent.studies.filter((study) => {
-      const title = study.title.replace(/<[^>]*>/g, ""); // Remove HTML tags for search
-      const matchesSearch =
-        searchTerm === "" ||
-        title.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesTag =
-        selectedTag === "All" ||
-        (study.tags && study.tags.includes(selectedTag));
-
-      return matchesSearch && matchesTag;
-    });
+    return searchCaseStudies(caseStudiesContent.studies, searchTerm, selectedTag);
   }, [searchTerm, selectedTag]);
+
+  // Check if we should show the no results message
+  const showNoResults = hasNoResults(caseStudiesContent.studies, searchTerm, selectedTag);
+
+  // Handler to clear search
+  const handleClearSearch = () => {
+    setSearchTerm("");
+    setSelectedTag("All");
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans text-[#030B3B]">
@@ -134,8 +135,46 @@ export default function CaseStudiesPage() {
                   placeholder="Search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-3 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
+                  className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
                 />
+                {/* Search Icon */}
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-[#9CA3AF]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
+                {/* Clear Button */}
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <svg
+                      className="w-4 h-4 text-[#9CA3AF] hover:text-[#030B3B]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                )}
               </div>
 
               {/* Tag Dropdown */}
@@ -171,9 +210,15 @@ export default function CaseStudiesPage() {
           </div>
         </motion.div>
 
-        {/* ── Card Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredStudies.map((study, idx) => {
+        {/* ── Card Grid or No Results ── */}
+        {showNoResults ? (
+          <CaseStudyNoResults
+            searchQuery={searchTerm}
+            onClearSearch={handleClearSearch}
+          />
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredStudies.map((study, idx) => {
             const cardKey = `${study.href}-${idx}`;
 
             return (
@@ -183,15 +228,15 @@ export default function CaseStudiesPage() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+              className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
             >
               {/* Card Image */}
-              <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
+              <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px]">
                 <div
                   className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ backgroundImage: `url('${study.image}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-40" />
               </div>
 
               {/* Card Body */}
@@ -284,6 +329,7 @@ export default function CaseStudiesPage() {
             );
           })}
         </div>
+        )}
       </main>
 
       <Footer />
