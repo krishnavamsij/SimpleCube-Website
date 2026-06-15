@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 
 interface JobPosition {
   id: string;
+  requestId?: string;
   title: string;
   location: string;
   type?: string;
@@ -374,6 +375,7 @@ const cities = [
 const jobOpenings: JobPosition[] = [
   {
     id: "pega-developer",
+    requestId: "HYC2026001",
     title: "PEGA Developer",
     location: "Toronto, ON (Onsite)",
     jobDuties: [
@@ -404,6 +406,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "sap-s4hana-vertex-o-consultant",
+    requestId: "HYC2026002",
     title: "SAP S/4HANA Vertex O Consultant",
     location: "Remote (Anywhere from Canada)",
     jobDuties: [
@@ -432,6 +435,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "radar-rating-expert",
+    requestId: "HYC2026003",
     title: "RADAR Rating Expert (Guidewire)",
     location: "Calgary (AB), Edmonton (AB), Vancouver (BC), Winnipeg (MB), London/Toronto (ON), Montreal (QC), and Moncton (NB) – Onsite",
     jobDuties: [
@@ -464,6 +468,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "senior-salesforce-developer",
+    requestId: "HYU2026001",
     title: "Senior Salesforce Developer",
     location: "Tyson, VA (USA)",
     jobDuties: [
@@ -497,6 +502,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "data-governance-technical-consultant",
+    requestId: "HYC2026004",
     title: "Data Governance Technical Consultant (Collibra)",
     location: "Vancouver, BC / Calgary, AB (Onsite)",
     jobDuties: [
@@ -535,6 +541,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "service-designer",
+    requestId: "HYC2026005",
     title: "Service Designer",
     location: "Alberta, Canada (Remote with occasional onsite travel)",
     jobDuties: [
@@ -572,6 +579,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "training-specialist-dras",
+    requestId: "HYC2026006",
     title: "Training Specialist (DRAS – Digital Regulatory Assurance System)",
     location: "Edmonton, Alberta (Hybrid – Mostly Remote)",
     jobDuties: [
@@ -607,6 +615,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "genesys-cloud-cx",
+    requestId: "HYU2026002",
     title: "Genesys Cloud CX – Admin, Developer",
     location: "San Antonio, TX Or Tyson, VA(On-site)",
     jobDuties: [
@@ -646,30 +655,8 @@ const jobOpenings: JobPosition[] = [
     region: "us",
   },
   {
-    id: "full-stack-developer-php-laravel",
-    title: "Full Stack Developer (PHP & Laravel)",
-    location: "Bengaluru, India",
-    jobDuties: [
-      "Write and maintain code in core PHP and Laravel",
-      "Work with MySQL databases (creating tables and writing SQL queries)",
-      "Build and update web pages using HTML, CSS, and JavaScript/jQuery",
-      "Support the development of our admin tools using Laravel APIs and React"
-    ],
-    qualifications: {
-      degree: "Bachelor's degree in Computer Science, Engineering, or related field",
-      experience: "4 to 7 Years",
-    },
-    skillsRequired: [
-      "PHP: Good working knowledge of core PHP and Laravel framework",
-      "Database: Experience with MySQL (basic DDL and writing queries)",
-      "Web Basics: Comfortable with HTML, CSS, JavaScript, and AJAX",
-      "ReactJS: Basic understanding or willingness to work with React (Hooks and APIs)",
-      "Experience or familiarity with AWS (Nice to Have)"
-    ],
-    region: "india",
-  },
-  {
     id: "salesforce-developer",
+    requestId: "HYI2026002",
     title: "Salesforce Developer",
     location: "Bengaluru, India",
     jobDuties: [
@@ -705,6 +692,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "genesys-cloud-cx-specialist",
+    requestId: "HYI2026001",
     title: "Genesys Cloud CX Integration Specialist",
     location: "Bengaluru, India",
     jobDuties: [
@@ -751,6 +739,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "guidewire-integration-lead-developer",
+    requestId: "HYC2026007",
     title: "Guidewire Integration Lead Developer",
     location: "Idaho (USA / Canada) – Remote",
     type: "Long Term Contract",
@@ -783,6 +772,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "salesforce-data-360-agentforce-consultant",
+    requestId: "HYU2026003",
     title: "Salesforce Data 360 & AgentForce Consultant",
     location: "Tyson, VA (OR) San Antonio, TX (USA)",
     type: "Full-Time",
@@ -820,6 +810,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "tosca-automation-engineer",
+    requestId: "HYC2026008",
     title: "Tosca Automation Engineer",
     location: "Toronto, Canada (Remote – Ontario / Nova Scotia preferred)",
     type: "Permanent",
@@ -857,6 +848,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "digital-architect",
+    requestId: "HYC2026009",
     title: "Digital Architect",
     location: "Remote within Canada (Occasional travel within Alberta if required)",
     type: "Contract",
@@ -912,6 +904,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "qa-automation-engineer",
+    requestId: "HYC2026010",
     title: "QA Automation Engineer",
     location: "Remote within Canada (Occasional travel to Edmonton, Alberta if required)",
     type: "Contract",
@@ -964,6 +957,7 @@ const jobOpenings: JobPosition[] = [
   },
   {
     id: "senior-data-architect-ai",
+    requestId: "HYC2026011",
     title: "Senior Data Architect / AI Data Architect",
     location: "Remote within Canada (Occasional travel to Edmonton, Alberta if required)",
     type: "Long-Term Contract",
@@ -1021,6 +1015,7 @@ export default function CareersPage() {
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<string>("");
+  const [selectedJobId, setSelectedJobId] = useState<string>("");
   const [filter, setFilter] = useState<string>("all");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1060,13 +1055,17 @@ export default function CareersPage() {
   const openModal = (jobTitle: string) => {
     setSelectedJob(jobTitle);
     
-    // Find the job and set country code based on region
+    // Find the job and set country code and job ID based on region
     const job = jobOpenings.find(j => j.title === jobTitle);
-    if (job && job.region) {
-      const countryCode = getCountryCodeByRegion(job.region);
-      setSelectedCountry(countryCode);
+    if (job) {
+      if (job.region) {
+        const countryCode = getCountryCodeByRegion(job.region);
+        setSelectedCountry(countryCode);
+      }
+      setSelectedJobId(job.requestId || "");
     } else {
       setSelectedCountry(defaultCountryCode);
+      setSelectedJobId("");
     }
     
     setModalOpen(true);
@@ -1401,6 +1400,7 @@ export default function CareersPage() {
       formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`.trim());
       formDataToSend.append("email", formData.email);
       formDataToSend.append("role", selectedJob);
+      formDataToSend.append("jobId", selectedJobId);
       formDataToSend.append("ctc", formData.currentCTC);
       formDataToSend.append("skills", formData.skills);
       formDataToSend.append("location", formData.location);
@@ -1555,6 +1555,11 @@ export default function CareersPage() {
                           {job.title}
                         </h3>
                         <div className="flex flex-wrap gap-3">
+                          {job.requestId && (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[#1e6fff]/[0.05] text-[#1e6fff]">
+                              <span className="font-semibold">Job ID:</span> {job.requestId}
+                            </span>
+                          )}
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-[#1e6fff]/[0.05] text-[#1e6fff]">
                             <Briefcase className="w-3 h-3" />
                             {job.type || "Full-Time"}

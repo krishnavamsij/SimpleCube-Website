@@ -141,6 +141,7 @@ export async function POST(request: Request) {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const role = formData.get("role") as string;
+    const jobId = formData.get("jobId") as string;
     const ctc = formData.get("ctc") as string;
     const skills = formData.get("skills") as string;
     const location = formData.get("location") as string;
@@ -150,6 +151,7 @@ export async function POST(request: Request) {
       name: name ? "✅" : "❌",
       email: email ? "✅" : "❌",
       role: role ? "✅" : "❌",
+      jobId: jobId ? "✅" : "❌",
       ctc: ctc ? "✅" : "❌",
       skills: skills ? "✅" : "❌",
       location: location ? "✅" : "❌",
@@ -241,8 +243,8 @@ export async function POST(request: Request) {
     const usRole = isUsLocation(location, role);
     const targetEmail = usRole ? SES_RECIPIENT_CAREERS_US : SES_RECIPIENT_CAREERS_NONUS;
     const subject = usRole
-      ? `[Job Application - US] ${name} - ${role}`
-      : `[Job Application] ${name} - ${role}`;
+      ? `[Job Application - US] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
+      : `[Job Application] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
 
     console.log("Email routing:", {
       applicantLocation: location,
