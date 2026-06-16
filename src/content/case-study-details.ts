@@ -2723,7 +2723,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-government-education-management": {
         "slug": "eazyschool-government-education-management",
         "eyebrow": "Education Technology",
-        "title": "<span class='text-white'>Transforming Government Schools with</span><br>AI-Powered Education Management",
+        "title": "<span class='text-white'>Transforming Government Schools with</span><br>AI-Powered Management",
         "summary": "Eliminated fragmented school administration with a centralized AI platform that connects education authorities, schools and parents to drive better governance and student outcomes.",
         "metrics": [
             {
