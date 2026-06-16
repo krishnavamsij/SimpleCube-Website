@@ -2947,7 +2947,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "eazyschool-admin",
         "eyebrow": "Education Technology",
         "title": "Intelligent School Administration <span style='color: white;'>for</span><br>\n      <em>Modern Institutions</em>",
-        "summary": "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
+        "summary": "Eliminated manual school administration with a centralized platform that automates workflows,<br>delivers real-time operational visibility and drives stronger accountability across institutions.",
         "metrics": [
             {
                 "icon": "⚡",

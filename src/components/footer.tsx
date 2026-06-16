@@ -292,8 +292,15 @@ export function Footer() {
                     className="h-16 sm:h-20 w-auto object-contain"
                   />
                   <Image
+                    src="/images/Footer/ISO.png"
+                    alt="ISO Certification"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
+                  />
+                  <Image
                     src="/images/Footer/Certification_Badge_without_Background.png"
-                    alt="AICPA SOC Certification Badge"
+                    alt="Great Place to Work Certification"
                     width={100}
                     height={100}
                     className="h-20 sm:h-24 w-auto object-contain"

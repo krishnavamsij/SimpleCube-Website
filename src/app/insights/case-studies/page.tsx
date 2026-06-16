@@ -297,10 +297,10 @@ export default function CaseStudiesPage() {
                   </div>
                 )}
                 <h3
-                  className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
+                  className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4"
                   dangerouslySetInnerHTML={{ __html: study.title }}
                 />
-                <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8">
+                <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
                   {study.description}
                 </p>
 
