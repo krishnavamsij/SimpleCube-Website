@@ -94,7 +94,7 @@ export const bankingContent = {
             },
             {
                 title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce Document Intelligence",
-                description: "Built an AI-powered lending concierge to deliver instant loan processing, streamlining the entire lending lifecycle from application to approval.",
+                description: "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
                 href: "/insights/case-studies/instant-loan-processing",
                 image: "/images/Case_Study/4.png"
             },

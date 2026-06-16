@@ -26,7 +26,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "autonomous-lending-experiences",
         "eyebrow": "AI-Driven Lending & Agentforce",
         "title": "Autonomous Lending Experience with<br>\n      <em>FinXServe and Agentforce</em>",
-        "summary": "Built an AI-powered lending concierge to deliver instant loan processing,\n      streamlining the entire lending lifecycle from application to approval.",
+        "summary": "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
         "metrics": [
             {
                 "icon": "🚀",
@@ -174,7 +174,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "instant-loan-processing",
         "eyebrow": "Agentforce Document Intelligence",
         "title": "Faster Loan Processing with<br>\n      <em>Agentforce Document Intelligence</em>",
-        "summary": "Built an AI-powered lending concierge to deliver instant loan processing,<br>streamlining the entire lending lifecycle from application to approval.",
+        "summary": "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
         "metrics": [
             {
                 "icon": "📉",
