@@ -108,7 +108,7 @@ export const caseStudiesContent = {
         {
             title: "Simplifying School Operations with a <span class='text-[#3B82F6]'>Unified Digital Management Platform</span>",
             image: "/images/Case_Studies/eazyschool-2.png",
-            description: "Built a unified digital platform that simplifies school operations, automates reporting and connects parents and teachers.",
+            description: "Transformed school operations through automated reporting and connected communication.",
             href: "/insights/case-studies/eazyschool-unified-school-management",
             tags: ["Applied AI", "Education"],
         },
