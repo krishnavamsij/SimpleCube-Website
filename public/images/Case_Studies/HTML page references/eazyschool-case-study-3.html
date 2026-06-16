@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EazySchool — Intelligent School Administration | Hyniva Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2040;
+    --teal: #00b4a6;
+    --teal-light: #00d4c4;
+    --white: #ffffff;
+    --off-white: #f8fafc;
+    --gray-light: #e8edf2;
+    --gray-mid: #94a3b8;
+    --gray-text: #64748b;
+    --body-text: #334155;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--body-text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--teal); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--body-text);
+    text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 140px 48px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(0,180,166,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 28px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--gray-mid);
+    max-width: 640px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* ── STATS BANNER ── */
+  .stats-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-value {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--gray-mid);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+  }
+
+  /* ── SCROLL HINT ── */
+  .scroll-hint {
+    margin-top: 56px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, rgba(0,180,166,0.6), transparent);
+    animation: scrollDown 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollDown {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.3); }
+  }
+
+  /* ── SECTION NAV ── */
+  .section-nav {
+    background: var(--navy-mid);
+    padding: 0 48px;
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .section-nav-inner {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-mid);
+    text-decoration: none;
+    padding: 16px 24px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .section-nav a:hover {
+    color: var(--teal-light);
+    border-bottom-color: var(--teal);
+  }
+
+  /* ── CONTENT ── */
+  .content-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .case-section {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .case-section:last-of-type { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .section-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--teal);
+    text-transform: uppercase;
+    padding-top: 6px;
+    min-width: 24px;
+  }
+  .section-title {
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  /* Challenge */
+  .challenge-body { margin-left: 64px; }
+  .challenge-body p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--body-text);
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .challenge-body p:last-child { margin-bottom: 0; }
+
+  /* Solution */
+  .solution-intro {
+    margin-left: 64px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--body-text);
+    max-width: 720px;
+  }
+  .solution-steps {
+    margin-left: 64px;
+    display: grid;
+    gap: 20px;
+  }
+  .step-card {
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 10px;
+    padding: 28px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--body-text);
+    line-height: 1.7;
+  }
+
+  /* Impact */
+  .impact-intro {
+    margin-left: 64px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--body-text);
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+  .impact-grid {
+    margin-left: 64px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .impact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--off-white);
+    border-radius: 8px;
+    border: 1px solid var(--gray-light);
+  }
+  .impact-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .impact-item p {
+    font-size: 14px;
+    color: var(--body-text);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .impact-closing {
+    margin-left: 64px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--body-text);
+    max-width: 720px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(0,180,166,0.06), rgba(10,22,40,0.04));
+    border-radius: 10px;
+    border-left: 3px solid var(--teal);
+  }
+
+  /* Road Ahead */
+  .future-intro {
+    margin-left: 64px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--body-text);
+    max-width: 720px;
+    margin-bottom: 12px;
+  }
+  .future-sub {
+    margin-left: 64px;
+    font-size: 15px;
+    color: var(--gray-text);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+  .future-list {
+    margin-left: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .future-tag {
+    background: var(--navy);
+    color: var(--teal-light);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 100px;
+    letter-spacing: 0.2px;
+  }
+  .future-closing {
+    margin-left: 64px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--gray-text);
+    max-width: 720px;
+    font-style: italic;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--navy);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .cta-section p {
+    font-size: 16px;
+    color: var(--gray-mid);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 8px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--teal-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07111f;
+    padding: 64px 48px 32px;
+    color: var(--gray-mid);
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .footer-brand .logo span { color: var(--teal); }
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 220px;
+  }
+  .footer-col h5 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 13px;
+    color: var(--gray-mid);
+    text-decoration: none;
+  }
+  .footer-col ul li a:hover { color: var(--teal); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    font-size: 12px;
+    color: rgba(148,163,184,0.5);
+    text-align: center;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .stats-banner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-item { border-right: none; }
+    .content-wrap { padding: 0 20px; }
+    .section-header { flex-direction: column; gap: 8px; }
+    .challenge-body,
+    .solution-intro, .solution-steps,
+    .impact-intro, .impact-grid, .impact-closing,
+    .future-intro, .future-sub, .future-list, .future-closing { margin-left: 0; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .section-nav { padding: 0 20px; overflow-x: auto; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .cta-section { padding: 64px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Hyni<span>va</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Industries</a></li>
+    <li><a href="#">Insights</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-cta">CONTACT US</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">Case Study</span>
+  <h1>Intelligent School Administration for <em>Modern Institutions</em></h1>
+  <p class="hero-sub">
+    Eliminated manual school administration with a centralized platform that automates workflows, delivers real-time operational visibility and drives stronger accountability across institutions.
+  </p>
+
+  <div class="stats-banner">
+    <div class="stat-item">
+      <div class="stat-value">3X</div>
+      <div class="stat-label">Faster Administrative Decision-Making</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">Real‑Time</div>
+      <div class="stat-label">Attendance &amp; Classroom Visibility</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">Digital Workflow Management</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Automated Parent Communication</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- SECTION NAV -->
+<div class="section-nav">
+  <div class="section-nav-inner">
+    <a href="#challenge">Challenge</a>
+    <a href="#solution">Hyniva's Solution</a>
+    <a href="#impact">Impact</a>
+    <a href="#future">Road Ahead</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- 01 CHALLENGE -->
+  <section class="case-section" id="challenge">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Challenge</h2>
+    </div>
+    <div class="challenge-body">
+      <p>
+        School administrators are responsible for coordinating every operational function within an institution, from attendance and examinations to fee administration, staff management, scheduling and parent communication. As schools grow, managing these responsibilities becomes increasingly complex when information is spread across multiple systems, spreadsheets and manual processes.
+      </p>
+      <p>
+        Without a centralized view of operations, administrators often spend significant time gathering information, coordinating across departments and responding to routine issues rather than focusing on school performance and strategic planning.
+      </p>
+      <p>
+        The need was clear: a unified administration platform that could centralize workflows, improve visibility and reduce the operational burden on administrative teams.
+      </p>
+    </div>
+  </section>
+
+  <!-- 02 SOLUTION -->
+  <section class="case-section" id="solution">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Hyniva's Solution</h2>
+    </div>
+
+    <p class="solution-intro">
+      Hyniva implemented the admin-focused capabilities of <strong>EazySchool</strong> to create a centralized digital administration ecosystem, unifying all operational workflows into a single intelligent platform.
+    </p>
+
+    <div class="solution-steps">
+
+      <div class="step-card">
+        <div class="step-num">a</div>
+        <div class="step-content">
+          <h4>Centralizing School-Wide Administration</h4>
+          <p>EazySchool provided administrators with a unified dashboard that consolidated student records, staff administration, attendance, examinations, timetables, fee management, leave workflows, notifications and compliance reporting into a single system. This eliminated fragmented processes and provided a centralized operational command center for school administration.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">b</div>
+        <div class="step-content">
+          <h4>Real-Time Attendance and Classroom Monitoring</h4>
+          <p>Administrators gained live visibility into student and teacher attendance through real-time dashboards. The platform highlighted absenteeism patterns, unattended classrooms and substitute teacher requirements, enabling faster intervention and improved classroom continuity.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">c</div>
+        <div class="step-content">
+          <h4>Automating Parent Communication</h4>
+          <p>The platform automated communication through SMS, mobile notifications and WhatsApp, ensuring parents received timely updates regarding attendance, examinations, leave approvals and school announcements. Automated alerts reduced manual follow-ups while improving parent engagement and responsiveness.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">d</div>
+        <div class="step-content">
+          <h4>Simplifying Fee Administration</h4>
+          <p>Digital fee management capabilities supported configurable fee structures, payment tracking and automated reminders. Administrators could monitor collections, access payment information instantly and reduce the effort associated with manual fee follow-ups.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">e</div>
+        <div class="step-content">
+          <h4>Streamlining Timetable and Examination Management</h4>
+          <p>A centralized scheduling engine simplified timetable creation and examination planning by managing subject allocations, teacher availability and scheduling constraints within a single workflow, reducing administrative effort and minimizing conflicts.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">f</div>
+        <div class="step-content">
+          <h4>Enabling Data-Driven Operational Reporting</h4>
+          <p>Centralized dashboards provided real-time insights into attendance, fee collections, staff activity, examinations and operational performance. Administrators could access critical information instantly and make faster, more informed decisions without relying on manual reporting.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 03 IMPACT -->
+  <section class="case-section" id="impact">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Impact</h2>
+    </div>
+
+    <p class="impact-intro">
+      The implementation of EazySchool transformed school administration by giving operational teams a single platform to manage, monitor and coordinate daily activities across the institution. Key outcomes included:
+    </p>
+
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Reduced administrative effort through workflow automation and centralized management</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Faster access to operational information without cross-department coordination</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Improved responsiveness to attendance issues and classroom disruptions</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Greater efficiency in fee administration and payment follow-ups</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Simplified scheduling and examination planning processes</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Stronger parent engagement through timely, automated communication</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <p>Increased transparency and accountability across administrative functions</p>
+      </div>
+    </div>
+
+    <div class="impact-closing">
+      With real-time visibility into school operations, administrators were able to make quicker decisions, resolve issues proactively, and spend less time on routine coordination activities. The result was a more organized, responsive, and efficient administrative environment that supported both staff productivity and institutional performance.
+    </div>
+  </section>
+
+  <!-- 04 ROAD AHEAD -->
+  <section class="case-section" id="future">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Road Ahead</h2>
+    </div>
+
+    <p class="future-intro">
+      As school administration becomes increasingly digital, the next phase of EazySchool focuses on helping administrators manage operations more proactively through automation, intelligence and real-time insights.
+    </p>
+
+    <p class="future-sub">Future enhancements include:</p>
+
+    <div class="future-list">
+      <span class="future-tag">AI-Assisted Workflow Automation</span>
+      <span class="future-tag">Predictive Operational Alerts</span>
+      <span class="future-tag">Advanced Administrative Dashboards</span>
+      <span class="future-tag">Smart Compliance Management</span>
+      <span class="future-tag">Mobile-First Administration</span>
+      <span class="future-tag">Intelligent Resource Planning</span>
+    </div>
+
+    <p class="future-closing">
+      Hyniva's long-term vision is to empower school administrators with a fully connected management ecosystem where operational decisions are guided by real-time data, routine tasks are automated, and institutions can operate with greater efficiency, accountability and control.
+    </p>
+  </section>
+
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to simplify your enterprise?</h2>
+  <p>Let's start with a 30-minute discovery call. No commitment, no sales pitch. Just a real conversation about your challenges.</p>
+  <a href="#" class="cta-btn">Schedule a free consultation</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Hyni<span>va</span></div>
+      <p><strong>United States</strong><br />13333 Blanco Road, Suite 206, San Antonio, Texas – 78216</p>
+      <p style="margin-top:12px"><strong>India</strong><br />The Cube Karle Town Center, 5th Floor, Bengaluru, KA – 560045</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Digital Transformation</a></li>
+        <li><a href="#">Enterprise Platforms</a></li>
+        <li><a href="#">Product Engineering</a></li>
+        <li><a href="#">Strategy Consulting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">EazySchool</a></li>
+        <li><a href="#">FinXServe</a></li>
+        <li><a href="#">Claim Pioneer</a></li>
+        <li><a href="#">AIRA</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Hyniva</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Hyniva. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
