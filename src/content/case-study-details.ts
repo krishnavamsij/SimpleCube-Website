@@ -2942,5 +2942,121 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 }
             }
         ]
+    },
+    "eazyschool-admin": {
+        "slug": "eazyschool-admin",
+        "eyebrow": "Education Technology",
+        "title": "Intelligent School Administration <span style='color: white;'>for</span><br>\n      <em>Modern Institutions</em>",
+        "summary": "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "3X",
+                "label": "Faster Administrative<br>Decision-Making",
+                "sub": ""
+            },
+            {
+                "icon": "🎯",
+                "value": "Real-Time",
+                "label": "Attendance &<br>Classroom Visibility",
+                "sub": ""
+            },
+            {
+                "icon": "✅",
+                "value": "100%",
+                "label": "Digital Workflow<br>Management",
+                "sub": ""
+            },
+            {
+                "icon": "📱",
+                "value": "24/7",
+                "label": "Automated Parent<br>Communication",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>School administrators are responsible for coordinating every operational function within an institution, from attendance and examinations to fee administration, staff management, scheduling and parent communication. As schools grow, managing these responsibilities becomes increasingly complex when information is spread across multiple systems, spreadsheets and manual processes.</p>\n        <p>Without a centralized view of operations, administrators often spend significant time gathering information, coordinating across departments and responding to routine issues rather than focusing on school performance and strategic planning.</p>\n        <p>The need was clear: a unified administration platform that could centralize workflows, improve visibility and reduce the operational burden on administrative teams.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Hyniva's Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Hyniva implemented the admin-focused capabilities of <strong>EazySchool</strong> to create a centralized digital administration ecosystem, unifying all operational workflows into a single intelligent platform.</p>",
+                    "items": [
+                        {
+                            "num": "a",
+                            "title": "Centralizing School-Wide Administration",
+                            "desc": "EazySchool provided administrators with a unified dashboard that consolidated student records, staff administration, attendance, examinations, timetables, fee management, leave workflows, notifications and compliance reporting into a single system. This eliminated fragmented processes and provided a centralized operational command center for school administration."
+                        },
+                        {
+                            "num": "b",
+                            "title": "Real-Time Attendance and Classroom Monitoring",
+                            "desc": "Administrators gained live visibility into student and teacher attendance through real-time dashboards. The platform highlighted absenteeism patterns, unattended classrooms and substitute teacher requirements, enabling faster intervention and improved classroom continuity."
+                        },
+                        {
+                            "num": "c",
+                            "title": "Automating Parent Communication",
+                            "desc": "The platform automated communication through SMS, mobile notifications and WhatsApp, ensuring parents received timely updates regarding attendance, examinations, leave approvals and school announcements. Automated alerts reduced manual follow-ups while improving parent engagement and responsiveness."
+                        },
+                        {
+                            "num": "d",
+                            "title": "Simplifying Fee Administration",
+                            "desc": "Digital fee management capabilities supported configurable fee structures, payment tracking and automated reminders. Administrators could monitor collections, access payment information instantly and reduce the effort associated with manual fee follow-ups."
+                        },
+                        {
+                            "num": "e",
+                            "title": "Streamlining Timetable and Examination Management",
+                            "desc": "A centralized scheduling engine simplified timetable creation and examination planning by managing subject allocations, teacher availability and scheduling constraints within a single workflow, reducing administrative effort and minimizing conflicts."
+                        },
+                        {
+                            "num": "f",
+                            "title": "Enabling Data-Driven Operational Reporting",
+                            "desc": "Centralized dashboards provided real-time insights into attendance, fee collections, staff activity, examinations and operational performance. Administrators could access critical information instantly and make faster, more informed decisions without relying on manual reporting."
+                        }
+                    ],
+                    "footer": ""
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "outcome-list",
+                "content": {
+                    "body": "<p>The implementation of EazySchool transformed school administration by giving operational teams a single platform to manage, monitor and coordinate daily activities across the institution. Key outcomes included:</p>",
+                    "items": [
+                        "Reduced administrative effort through workflow automation and centralized management",
+                        "Faster access to operational information without cross-department coordination",
+                        "Improved responsiveness to attendance issues and classroom disruptions",
+                        "Greater efficiency in fee administration and payment follow-ups",
+                        "Simplified scheduling and examination planning processes",
+                        "Stronger parent engagement through timely, automated communication",
+                        "Increased transparency and accountability across administrative functions"
+                    ],
+                    "footer": "<p>With real-time visibility into school operations, administrators were able to make quicker decisions, resolve issues proactively, and spend less time on routine coordination activities. The result was a more organized, responsive, and efficient administrative environment that supported both staff productivity and institutional performance.</p>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>As school administration becomes increasingly digital, the next phase of EazySchool focuses on helping administrators manage operations more proactively through automation, intelligence and real-time insights.</p>\n        <p>Future enhancements include:</p>",
+                    "items": [
+                        "AI-Assisted Workflow Automation",
+                        "Predictive Operational Alerts",
+                        "Advanced Administrative Dashboards",
+                        "Smart Compliance Management",
+                        "Mobile-First Administration",
+                        "Intelligent Resource Planning"
+                    ],
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Hyniva's long-term vision is to empower school administrators with a fully connected management ecosystem where operational decisions are guided by real-time data, routine tasks are automated, and institutions can operate with greater efficiency, accountability and control.</p>\n      </div>"
+                }
+            }
+        ]
     }
 };

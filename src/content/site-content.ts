@@ -341,6 +341,12 @@ export const caseStudiesContent = {
             image: "/images/Case_Study/8.png",
             href: "/insights/case-studies/core-banking-transformation",
         },
+        {
+            title: "*Intelligent School Administration*\nfor Modern Institutions",
+            description: "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
+            image: "/images/Case_Studies/Eazyschool_admin.png",
+            href: "/insights/case-studies/eazyschool-admin",
+        },
     ],
 };
 
