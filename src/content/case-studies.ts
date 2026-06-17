@@ -65,7 +65,7 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Intelligent School Administration</span> for Modern Institutions",
-            image: "/images/Case_Studies/Eazyschool_admin.png",
+            image: "/images/Case_Studies/Eazyschool_3.png",
             description: "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
             href: "/insights/case-studies/eazyschool-admin",
             tags: ["Applied AI", "Education", "Product Engineering"],
