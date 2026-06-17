@@ -819,11 +819,11 @@ function TimelineSection() {
         }
     };
 
-    const scrollBy4 = (dir: 'left' | 'right') => {
+    const scrollBy3 = (dir: 'left' | 'right') => {
         if (!scrollContainerRef.current) return;
         const container = scrollContainerRef.current;
         const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth + 32 : 332;
-        container.scrollBy({ left: dir === 'right' ? cardWidth * 4 : -cardWidth * 4, behavior: 'smooth' });
+        container.scrollBy({ left: dir === 'right' ? cardWidth * 3 : -cardWidth * 3, behavior: 'smooth' });
     };
 
     const updateScrollState = () => {
@@ -897,7 +897,7 @@ function TimelineSection() {
                 <div className="flex items-center gap-4">
                     {/* Left Arrow */}
                     <button
-                        onClick={() => scrollBy4('left')}
+                        onClick={() => scrollBy3('left')}
                         disabled={!canScrollLeft}
                         className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm items-center justify-center text-slate-400 hover:text-slate-600 hover:border-slate-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         aria-label="Scroll left"
@@ -921,7 +921,7 @@ function TimelineSection() {
                                     <div
                                         key={idx}
                                         data-year={year}
-                                        className="min-w-[85vw] max-w-[85vw] sm:min-w-[calc(50%-16px)] sm:max-w-[calc(50%-16px)] lg:min-w-[calc(25%-24px)] lg:max-w-[calc(25%-24px)] shrink-0 snap-start flex flex-col gap-6 group"
+                                        className="min-w-[85vw] max-w-[85vw] sm:min-w-[calc(50%-16px)] sm:max-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.33px)] lg:max-w-[calc(33.333%-21.33px)] shrink-0 snap-start flex flex-col gap-6 group"
                                     >
                                         <div className={`aspect-square bg-slate-50 rounded-xl overflow-hidden relative shadow-sm border border-slate-100 ${isImageTop ? 'order-1' : 'order-2'}`}>
                                             {/* @ts-ignore */}
@@ -969,7 +969,7 @@ function TimelineSection() {
 
                     {/* Right Arrow */}
                     <button
-                        onClick={() => scrollBy4('right')}
+                        onClick={() => scrollBy3('right')}
                         disabled={!canScrollRight}
                         className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm items-center justify-center text-slate-400 hover:text-slate-600 hover:border-slate-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                         aria-label="Scroll right"
