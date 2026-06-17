@@ -156,6 +156,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile marquee for certifications auto-scroll */
+@media (max-width: 639px) {
+  .marquee-mobile {
+    animation: marquee-scroll 20s linear infinite;
+    width: max-content;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* Hide scrollbar while keeping scroll functionality */
 .no-scrollbar {
   -ms-overflow-style: none;

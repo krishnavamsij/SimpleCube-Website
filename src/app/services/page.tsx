@@ -11,9 +11,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRightIcon, ShieldCheck, Lock, ClipboardCheck } from "lucide-react";
+import { ArrowUpRightIcon, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
@@ -91,100 +91,18 @@ function ServicesHero() {
 }
 
 /* ──────────────────────────────────────────
-   Meet the Experts — full leadership section
-   (same as About page, uses aboutContent data)
-────────────────────────────────────────── */
-
-// function MeetTheExperts() {
-//     return (
-//         <section id="meet-the-experts" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#030b1e] py-12 sm:py-16 lg:py-20 text-white scroll-mt-24">
-//             <div className="mx-auto max-w-[1400px] px-6 relative z-10">
-//                 <motion.div
-//                     variants={fadeInUp}
-//                     initial="hidden"
-//                     whileInView="visible"
-//                     viewport={viewportOnce}
-//                     className="text-center mb-12"
-//                 >
-//                     <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35]">
-//                         Meet the Experts
-//                     </h2>
-//                 </motion.div>
-
-//                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//                     {aboutContent.leadership.team.map((leader, idx) => (
-//                         <motion.div
-//                             key={idx}
-//                             variants={fadeInUp}
-//                             initial="hidden"
-//                             whileInView="visible"
-//                             viewport={viewportOnce}
-//                             className="bg-[#06102b] border border-slate-800/80 rounded-xl overflow-hidden flex flex-col group transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-slate-600"
-//                         >
-//                             <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-[#0e182f] to-[#06102b] overflow-hidden">
-//                                 {leader.image ? (
-//                                     <Image
-//                                         src={leader.image}
-//                                         alt={leader.name}
-//                                         fill
-//                                         className="object-cover transition-transform duration-500"
-//                                         style={
-//                                             leader.name === "Madhu Bandarapu"
-//                                                 ? { transform: "scale(1.35) translateY(-2%)", objectPosition: "top", transformOrigin: "top center" }
-//                                                 : { objectPosition: "top" }
-//                                         }
-//                                     />
-//                                 ) : (
-//                                     <div className="absolute inset-0 flex items-center justify-center">
-//                                         <Users className="w-12 h-12 text-slate-600" />
-//                                     </div>
-//                                 )}
-//                                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#06102b] via-[#06102b]/60 to-transparent pointer-events-none" />
-//                             </div>
-
-//                             <div className="p-6 pt-0 flex-1 flex flex-col relative z-10">
-//                                 <div className="flex justify-between items-start">
-//                                     <div>
-//                                         <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
-//                                         <p className="text-[13px] font-semibold text-[#1e90ff] mb-5">{leader.title}</p>
-//                                     </div>
-//                                     {(leader as any).linkedin && (
-//                                         <a
-//                                             href={(leader as any).linkedin}
-//                                             target="_blank"
-//                                             rel="noopener noreferrer"
-//                                             className="transition-opacity hover:opacity-80 mt-1"
-//                                             aria-label={`${leader.name} on LinkedIn`}
-//                                         >
-//                                             <img src="/images/About_Us/linkedin-icon.png" alt="LinkedIn" className="w-6 h-6 object-contain" />
-//                                         </a>
-//                                     )}
-//                                 </div>
-//                                 <div className="w-full h-px bg-slate-800/80 mb-5" />
-//                                 <p className="text-[13px] text-slate-400 leading-relaxed font-medium">
-//                                     {(leader as any).description}
-//                                 </p>
-//                             </div>
-//                         </motion.div>
-//                     ))}
-//                 </div>
-
-//             </div>
-//         </section>
-//     );
-// }
-
-/* ──────────────────────────────────────────
    Certifications — static badge row
 ────────────────────────────────────────── */
 
 const certifications = [
-    { name: "Agentforce Specialist",       src: "/images/Certifications_Image/Agentforce_Specialist_badge.svg" },
-    { name: "AI Associate",                src: "/images/Certifications_Image/AI_Associate.svg" },
-    { name: "Data Cloud Consultant",       src: "/images/Certifications_Image/Data_Cloud_Consultant_Badge.svg" },
-    { name: "Platform Administrator",      src: "/images/Certifications_Image/Platform_administrator_Badge.svg" },
-    { name: "Platform Developer",          src: "/images/Certifications_Image/Platform_developer_Badge.svg" },
-    { name: "AWS Cloud Practitioner",      src: "/images/Certifications_Image/AWS_cloud_Practitioner.svg" },
+    { name: "Agentforce Specialist",   src: "/images/Certifications_Image/Agentforce_Specialist_badge.svg" },
+    { name: "AI Associate",            src: "/images/Certifications_Image/AI_Associate.svg" },
+    { name: "Data Cloud Consultant",   src: "/images/Certifications_Image/Data_Cloud_Consultant_Badge.svg" },
+    { name: "Platform Administrator",  src: "/images/Certifications_Image/Platform_administrator_Badge.svg" },
+    { name: "Platform Developer",      src: "/images/Certifications_Image/Platform_developer_Badge.svg" },
+    { name: "AWS DevOps Engineer",     src: "/images/Certifications_Image/AWS_Certified_DevOps_Engineer_Professional.png" },
+    { name: "AWS Solutions Architect", src: "/images/Certifications_Image/AWS_Certified_Solutions_Architect_Associate.png" },
+    { name: "AWS Cloud Practitioner",  src: "/images/Certifications_Image/AWS_cloud_Practitioner.svg" },
 ];
 
 function CertificationsScroll() {
@@ -195,337 +113,105 @@ function CertificationsScroll() {
                     Certifications & Recognitions
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-10">
-                    {certifications.map((cert, i) => (
-                        <div
-                            key={cert.name}
-                            className={`relative h-20 sm:h-28 lg:h-36 w-[100px] sm:w-[130px] lg:w-[160px] p-2 ${i === 5 ? 'lg:w-[200px] lg:h-38' : ''}`}
-                        >
-                            <Image
-                                src={cert.src}
-                                alt={cert.name}
-                                fill
-                                className={`object-contain ${i === 5 ? 'object-left' : ''}`}
-                            />
-                        </div>
-                    ))}
+                {/* Mobile: marquee — Desktop: centered row */}
+                <div className="overflow-hidden sm:overflow-visible">
+                    <div className="flex flex-nowrap items-center gap-3 sm:gap-5 lg:gap-8 marquee-mobile sm:justify-center sm:w-auto sm:animate-none">
+                        {[...certifications, ...certifications].map((cert, i) => (
+                            <div
+                                key={`${cert.name}-${i}`}
+                                className={`relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 ${i >= certifications.length ? 'sm:hidden' : ''}`}
+                            >
+                                <Image
+                                    src={cert.src}
+                                    alt={cert.name}
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
     );
 }
+
 /* ──────────────────────────────────────────
-   Security & Compliance Hexagon Visuals
+   Data Security & Compliance Section
+   — LHS: text  |  RHS: hexagonal visual
 ────────────────────────────────────────── */
 
-interface HexagonProps {
-    className?: string;
-    strokeColor?: string;
-    fillColor?: string;
-    strokeWidth?: number;
-    shadowId?: string;
-    style?: React.CSSProperties;
-    children?: React.ReactNode;
+/* ── SVG geometry helpers ── */
+const VB_W = 620;
+const VB_H = 560;
+
+// Centre hex
+const CX = 295;
+const CY = 255;
+const CR = 105; // vertex radius
+
+// Satellite hex radius
+const SR = 80;
+
+// Satellite centres
+const ISO_X = 455;
+const ISO_Y = 120;
+
+const SEC_X = 100;
+const SEC_Y = 320;
+
+const SOC_X = 455;
+const SOC_Y = 390;
+
+/** Regular hexagon points, flat-top orientation */
+function hexPoints(cx: number, cy: number, r: number): string {
+    return Array.from({ length: 6 }, (_, i) => {
+        const angle = (Math.PI / 180) * (60 * i - 30);
+        return `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`;
+    }).join(" ");
 }
 
-function Hexagon({
-    className = "",
-    strokeColor = "#3B82F6",
-    fillColor = "none",
-    strokeWidth = 2,
-    shadowId,
-    style,
-    children,
-}: HexagonProps) {
-    return (
-        <div className={className} style={style}>
-            <svg
-                viewBox="0 0 100 115"
-                className="w-full h-full filter drop-shadow-[0_8px_16px_rgba(59,130,246,0.06)]"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                {shadowId && (
-                    <defs>
-                        <filter id={shadowId} x="-20%" y="-20%" width="140%" height="140%">
-                            <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#3b82f6" floodOpacity="0.1" />
-                        </filter>
-                    </defs>
-                )}
-                <polygon
-                    points="50,5 95,30 95,85 50,110 5,85 5,30"
-                    fill={fillColor}
-                    stroke={strokeColor}
-                    strokeWidth={strokeWidth}
-                    strokeLinejoin="round"
-                    filter={shadowId ? `url(#${shadowId})` : undefined}
-                />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-                {children}
-            </div>
-        </div>
-    );
+/** Point along the line from (x1,y1) to (x2,y2) at fraction t */
+function along(x1: number, y1: number, x2: number, y2: number, t: number) {
+    return { x: x1 + (x2 - x1) * t, y: y1 + (y2 - y1) * t };
 }
 
-function SecurityComplianceVisual() {
+/**
+ * AbsHex — absolutely positions a div centred over a hexagon
+ * described in SVG viewBox coordinates, so it scales with the SVG.
+ */
+interface AbsHexProps {
+    cx: number;
+    cy: number;
+    r: number;
+    vbW: number;
+    vbH: number;
+    children: React.ReactNode;
+}
+
+function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
     return (
         <div
-            className="relative w-full max-w-[560px] mx-auto"
-            style={{ aspectRatio: "5 / 4" }}
+            className="absolute flex items-center justify-center pointer-events-none"
+            style={{
+                left:   `${((cx - r) / vbW) * 100}%`,
+                top:    `${((cy - r) / vbH) * 100}%`,
+                width:  `${((r * 2)  / vbW) * 100}%`,
+                height: `${((r * 2)  / vbH) * 100}%`,
+            }}
         >
-            <svg
-                viewBox="0 0 500 420"
-                className="absolute inset-0 w-full h-full"
-            >
-                <defs>
-                    <linearGradient
-                        id="scCenterGrad"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                    >
-                        <stop offset="0%" stopColor="#18BFFF" />
-                        <stop offset="55%" stopColor="#3777FF" />
-                        <stop offset="100%" stopColor="#4F46E5" />
-                    </linearGradient>
-
-                    <linearGradient
-                        id="scBorder"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                    >
-                        <stop offset="0%" stopColor="#52D3FF" />
-                        <stop offset="100%" stopColor="#4B6CFF" />
-                    </linearGradient>
-
-                    <filter id="hexShadow">
-                        <feDropShadow
-                            dx="0"
-                            dy="18"
-                            stdDeviation="22"
-                            floodColor="#2563eb"
-                            floodOpacity=".18"
-                        />
-                    </filter>
-                </defs>
-
-                {/* BACKGROUND BRACES */}
-                <text
-                    x="90"
-                    y="230"
-                    fontSize="120"
-                    fill="#D9FAFF"
-                    opacity=".15"
-                >
-                    {"{"}
-                </text>
-
-                <text
-                    x="390"
-                    y="230"
-                    fontSize="120"
-                    fill="#D9FAFF"
-                    opacity=".15"
-                >
-                    {"}"}
-                </text>
-
-                {/* Decorative */}
-                <polygon
-                    points="175,125 240,160 240,235 175,270 110,235 110,160"
-                    stroke="#DDEAFF"
-                    fill="none"
-                />
-
-                <polygon
-                    points="325,125 390,160 390,235 325,270 260,235 260,160"
-                    stroke="#DDEAFF"
-                    fill="none"
-                />
-
-                {/* CENTER */}
-                <polygon
-                    points="
-                    250,88
-                    350,145
-                    350,255
-                    250,312
-                    150,255
-                    150,145
-                "
-                    fill="url(#scCenterGrad)"
-                    filter="url(#hexShadow)"
-                />
-
-                {/* TOP */}
-                <polygon
-                    points="
-                    395,60
-                    455,95
-                    455,175
-                    395,210
-                    335,175
-                    335,95
-                "
-                    fill="white"
-                    stroke="url(#scBorder)"
-                    strokeWidth="2"
-                />
-
-                {/* LEFT */}
-                <polygon
-                    points="
-                    110,250
-                    170,285
-                    170,365
-                    110,400
-                    50,365
-                    50,285
-                "
-                    fill="white"
-                    stroke="url(#scBorder)"
-                    strokeWidth="2"
-                />
-
-                {/* RIGHT */}
-                <polygon
-                    points="
-                    390,250
-                    450,285
-                    450,365
-                    390,400
-                    330,365
-                    330,285
-                "
-                    fill="white"
-                    stroke="url(#scBorder)"
-                    strokeWidth="2"
-                />
-
-                {/* TOP ICON */}
-                <path
-                    d="M395 112 L406 123 L425 100"
-                    stroke="#3BB8FF"
-                    strokeWidth="3"
-                />
-
-                {/* LEFT ICON */}
-                <circle
-                    cx="130"
-                    cy="315"
-                    r="18"
-                    stroke="#3BB8FF"
-                    strokeWidth="3"
-                />
-
-                <line
-                    x1="143"
-                    y1="328"
-                    x2="158"
-                    y2="344"
-                    stroke="#3BB8FF"
-                    strokeWidth="3"
-                />
-
-                {/* RIGHT ICON */}
-                <path
-                    d="
-                    M390 295
-                    L420 308
-                    L420 335
-                    Q420 355 390 370
-                    Q360 355 360 335
-                    L360 308 Z
-                "
-                    stroke="#4F66FF"
-                    strokeWidth="3"
-                    fill="none"
-                />
-
-                {/* LABELS */}
-                <text
-                    x="395"
-                    y="188"
-                    textAnchor="middle"
-                    fontSize="10"
-                    fontWeight="700"
-                    fill="#2E74FF"
-                >
-                    VERIFIED STANDARDS
-                </text>
-
-                <text
-                    x="110"
-                    y="378"
-                    textAnchor="middle"
-                    fontSize="10"
-                    fontWeight="700"
-                    fill="#2E74FF"
-                >
-                    AUDITED & VALIDATED
-                </text>
-
-                <text
-                    x="390"
-                    y="378"
-                    textAnchor="middle"
-                    fontSize="10"
-                    fontWeight="700"
-                    fill="#4F46E5"
-                >
-                    TRUST & TRANSPARENCY
-                </text>
-            </svg>
-
-            {/* HEX CLIPPED CERTIFICATE */}
-            <div
-                className="absolute z-10 overflow-hidden"
-                style={{
-                    left: "50%",
-                    top: "50%",
-                    width: "28%",
-                    aspectRatio: "1",
-                    transform: "translate(-50%, -50%)",
-                    clipPath:
-                        "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
-                    filter:
-                        "drop-shadow(0 12px 32px rgba(37,99,235,.18))",
-                }}
-            >
-                <Image
-                    src="/images/Certifications_Image/Certified.svg"
-                    alt="Certification"
-                    fill
-                    className="object-cover"
-                />
-
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background:
-                            "linear-gradient(135deg, rgba(20,184,255,.08), rgba(79,70,229,.08))",
-                    }}
-                />
-            </div>
+            {children}
         </div>
     );
 }
-
-/* ------------------------------------------
-   Data Security Trust Section
------------------------------------------- */
 
 function DataSecuritySection() {
     return (
-        <section className="bg-[#f8fafc] py-16 sm:py-20 lg:py-24 border-t border-slate-100">
+        <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
-                    {/* LEFT — text content */}
+                    {/* ── LEFT — text content ── */}
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -544,34 +230,33 @@ function DataSecuritySection() {
                             <span className="text-[#2563eb] mt-4 inline-block">We engineer it that way.</span>
                         </h2>
                         <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-xl">
-                            Security is not an afterthought at Hyniva — it is built into every layer of our delivery model. From SOC 2 compliance to zero-trust architecture, we uphold the highest standards so your data, your clients, and your reputation stay protected.
+                            Security is not an afterthought at Hyniva — it is built into every layer of our
+                            delivery model. From SOC 2 compliance to zero-trust architecture, we uphold the
+                            highest standards so your data, your clients, and your reputation stay protected.
                         </p>
 
                         <h3 className="text-xl font-bold text-slate-900 mb-2">Trusted by 45+ Enterprise Clients</h3>
                         <p className="text-sm text-slate-500 max-w-xl">
-                            From financial institutions to Fortune 500s, organizations trust Hyniva to handle their most sensitive workloads securely and compliantly.
+                            From financial institutions to Fortune 500s, organizations trust Hyniva to handle
+                            their most sensitive workloads securely and compliantly.
                         </p>
                     </motion.div>
 
-                    {/* RIGHT — key certifications */}
+                    {/* ── RIGHT — security certification image ── */}
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[48%] flex flex-col lg:pt-6 items-start"
+                        className="w-full lg:w-[48%] flex items-center justify-center"
                     >
-                        <p className="text-[12px] font-bold uppercase tracking-[2px] text-slate-400 mb-8 w-full text-left pl-4">
-                            Certifications
-                        </p>
-
-                        <div className="flex items-center justify-start -ml-4 lg:ml-0 gap-0">
-                            <div className="relative h-44 w-52">
-                                <Image src="/images/Certifications_Image/ISO.png" alt="ISO Certified" fill className="object-left object-contain" />
-                            </div>
-                            <div className="relative h-44 w-52 -ml-4">
-                                <Image src="/images/Certifications_Image/Certified.png" alt="SOC 2 Certified" fill className="object-left object-contain mix-blend-multiply" />
-                            </div>
+                        <div className="relative w-full max-w-[600px] aspect-square -ml-4 lg:-ml-8">
+                            <Image
+                                src="/images/Certifications_Image/services_certify1.png"
+                                alt="Hyniva Security Certifications"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                     </motion.div>
 
@@ -580,6 +265,7 @@ function DataSecuritySection() {
         </section>
     );
 }
+
 /* ------------------------------------------
    Technology & Partners (inline - editable)
 ------------------------------------------ */
@@ -588,23 +274,37 @@ function TechPartnersSection() {
     const [activeCategory, setActiveCategory] = useState(
         techShowcaseData[0].category
     );
+    const [isMobile, setIsMobile] = useState(false);
 
-    const active = techShowcaseData.find(
-        (item) => item.category === activeCategory
-    )!;
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 639px)");
+        setIsMobile(mq.matches);
+        const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
+
+    const allTechs = techShowcaseData.flatMap((cat) =>
+        cat.technologies.map((tech) => ({ ...tech, category: cat.category }))
+    );
+
+    const activeTechNames = new Set(
+        techShowcaseData
+            .find((c) => c.category === activeCategory)
+            ?.technologies.map((t) => t.name) ?? []
+    );
 
     return (
         <section className="bg-white py-16 lg:py-20">
             <div className="mx-auto max-w-[1400px] px-6">
 
                 {/* Category Tabs */}
-                <div className="flex overflow-x-auto no-scrollbar gap-4 mb-14 justify-start lg:justify-center pb-2">
-
+                <div className="grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:gap-4 mb-14 justify-start lg:justify-center pb-2">
                     {techShowcaseData.map((category) => (
                         <button
                             key={category.category}
                             onClick={() => setActiveCategory(category.category)}
-                            className={`px-7 py-3 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-300 border ${
+                            className={`px-2 sm:px-7 py-3 rounded-xl text-[11px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
                                 activeCategory === category.category
                                     ? "bg-[#2563EB] text-white border-[#2563EB] shadow-lg"
                                     : "bg-white text-slate-800 border-slate-200 hover:border-blue-300 hover:text-blue-600"
@@ -615,30 +315,42 @@ function TechPartnersSection() {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-12 gap-x-10 justify-items-start max-w-6xl mx-auto">
-
-                    {active.technologies.map((tech) => (
-                        <a
-                            key={tech.name}
-                            href={tech.page}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex flex-col items-center"
-                        >
-                            <div className="relative w-[72px] h-[72px] transition-all duration-300 group-hover:scale-110">
-                                <Image
-                                    src={tech.logo}
-                                    alt={tech.name}
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-
-                            <span className="mt-3 text-sm font-medium text-slate-600 text-center group-hover:text-[#2563EB] transition-colors">
-                                {tech.name}
-                            </span>
-                        </a>
-                    ))}
+                {/* Logos — mobile: only active, desktop: all */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-6 gap-x-4 max-w-6xl mx-auto">
+                    {allTechs
+                        .filter((tech) => !isMobile || activeTechNames.has(tech.name))
+                        .map((tech) => {
+                            const isActive = activeTechNames.has(tech.name);
+                            return (
+                            <a
+                                key={`${tech.category}-${tech.name}`}
+                                href={tech.page}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`group flex flex-col items-center rounded-2xl p-3 border transition-all duration-300 ${
+                                    isActive
+                                        ? "bg-transparent border-transparent scale-105"
+                                        : "bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-200"
+                                }`}
+                            >
+                                <div className="relative w-[52px] h-[52px] transition-transform duration-300 group-hover:scale-110">
+                                    <Image
+                                        src={tech.logo}
+                                        alt={tech.name}
+                                        fill
+                                        unoptimized={tech.format === "SVG"}
+                                className="object-contain outline-none"
+                                        style={tech.filter ? { filter: tech.filter } : undefined}
+                                    />
+                                </div>
+                                <span className={`mt-2 text-[12px] font-medium text-center transition-colors ${
+                                    isActive ? "text-[#2563EB] font-bold" : "text-slate-500 group-hover:text-[#2563EB]"
+                                }`}>
+                                    {tech.name}
+                                </span>
+                            </a>
+                            );
+                        })}
                 </div>
             </div>
         </section>
@@ -646,13 +358,14 @@ function TechPartnersSection() {
 }
 
 /* ------------------------------------------
-   Tech Showcase — tabbed logo accordion
+   Tech Showcase data
 ------------------------------------------ */
 interface TechItem {
     name: string;
     logo: string;
     page: string;
     format: string;
+    filter?: string;
 }
 
 interface TechCategory {
@@ -662,72 +375,71 @@ interface TechCategory {
 
 const techShowcaseData: TechCategory[] = [
     {
-        category: "UI/UX",
+        category: "Digital Experience",
         technologies: [
-            { name: "ReactJS", logo: "/tech_logos/ReactJS.png", page: "https://react.dev", format: "PNG" },
-            { name: "Angular", logo: "/tech_logos/Angular.png", page: "https://angular.io", format: "PNG" },
-            { name: "HTML5", logo: "/tech_logos/HTML5.png", page: "https://html.spec.whatwg.org", format: "PNG" },
-            { name: "CSS3", logo: "/tech_logos/CSS3.png", page: "https://www.w3.org/Style/CSS/", format: "PNG" },
-            { name: "JavaScript", logo: "/tech_logos/JavaScript.png", page: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", format: "PNG" },
-            { name: "jQuery", logo: "/tech_logos/jQuery.png", page: "https://jquery.com", format: "PNG" },
-            { name: "Figma", logo: "/tech_logos/Figma.png", page: "https://www.figma.com", format: "PNG" },
+            { name: "Figma",        logo: "/tech_logos/Figma.png",       page: "https://www.figma.com",          format: "PNG" },
+            { name: "Adobe XD",     logo: "https://unpkg.com/simple-icons@9/icons/adobexd.svg",   page: "https://www.adobe.com/products/xd.html", format: "SVG", filter: "invert(26%) sepia(89%) saturate(1400%) hue-rotate(270deg) brightness(90%)" },
+            { name: "ReactJS",      logo: "/tech_logos/ReactJS.png",     page: "https://react.dev",              format: "PNG" },
+            { name: "Angular",      logo: "/tech_logos/Angular.png",     page: "https://angular.io",             format: "PNG" },
+            { name: "HTML",         logo: "/tech_logos/HTML5.png",       page: "https://html.spec.whatwg.org",   format: "PNG" },
+            { name: "CSS",          logo: "/tech_logos/CSS3.png",        page: "https://www.w3.org/Style/CSS/",  format: "PNG" },
+            { name: "JavaScript",   logo: "/tech_logos/JavaScript.png",  page: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", format: "PNG" },
+            { name: "jQuery",       logo: "/tech_logos/jQuery.png",      page: "https://jquery.com",             format: "PNG" },
+            { name: "Next.js",      logo: "https://unpkg.com/simple-icons@9/icons/nextdotjs.svg", page: "https://nextjs.org", format: "SVG", filter: "invert(0%)" },
+            { name: "React Native", logo: "/tech_logos/React_Native.png",page: "https://reactnative.dev",        format: "PNG" },
+            { name: "Flutter",      logo: "/tech_logos/Flutter.png",     page: "https://flutter.dev",            format: "PNG" },
+            { name: "Swift",        logo: "/tech_logos/Swift.png",       page: "https://www.swift.org",          format: "PNG" },
+            { name: "Kotlin",       logo: "/tech_logos/Kotlin.png",      page: "https://kotlinlang.org",         format: "PNG" },
         ],
     },
     {
-        category: "Mobile",
+        category: "Application Development",
         technologies: [
-            { name: "React Native", logo: "/tech_logos/React_Native.png", page: "https://reactnative.dev", format: "PNG" },
-            { name: "Flutter", logo: "/tech_logos/Flutter.png", page: "https://flutter.dev", format: "PNG" },
-            { name: "Swift", logo: "/tech_logos/Swift.png", page: "https://www.swift.org", format: "PNG" },
-            { name: "Kotlin", logo: "/tech_logos/Kotlin.png", page: "https://kotlinlang.org", format: "PNG" },
+            { name: "Java",          logo: "/tech_logos/Java.png",       page: "https://www.java.com",               format: "PNG" },
+            { name: ".NET",          logo: "/tech_logos/ASP.Net.png",    page: "https://dotnet.microsoft.com",       format: "PNG" },
+            { name: "Node.js",       logo: "/tech_logos/NodeJS.png",     page: "https://nodejs.org",                 format: "PNG" },
+            { name: "PHP",           logo: "/tech_logos/PHP.png",        page: "https://www.php.net",                format: "PNG" },
+            { name: "Python",        logo: "/tech_logos/Python.png",     page: "https://www.python.org",             format: "PNG" },
+            { name: "TypeScript",    logo: "/tech_logos/TypeScript.png", page: "https://www.typescriptlang.org",     format: "PNG" },
+            { name: "Backend APIs",  logo: "https://unpkg.com/simple-icons@9/icons/fastapi.svg",    page: "https://fastapi.tiangolo.com",  format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(130deg) brightness(95%)" },
+            { name: "Microservices", logo: "https://unpkg.com/simple-icons@9/icons/docker.svg",     page: "https://microservices.io",      format: "SVG", filter: "invert(39%) sepia(93%) saturate(500%) hue-rotate(185deg) brightness(100%)" },
         ],
     },
     {
-        category: "Back End",
+        category: "Enterprise Platforms",
         technologies: [
-            { name: "Java", logo: "/tech_logos/Java.png", page: "https://www.java.com", format: "PNG" },
-            { name: "NodeJS", logo: "/tech_logos/NodeJS.png", page: "https://nodejs.org", format: "PNG" },
-            { name: "PHP", logo: "/tech_logos/PHP.png", page: "https://www.php.net", format: "PNG" },
-            { name: "Python", logo: "/tech_logos/Python.png", page: "https://www.python.org", format: "PNG" },
-            { name: "ASP.Net", logo: "/tech_logos/ASP.Net.png", page: "https://dotnet.microsoft.com", format: "PNG" },
-            { name: "TypeScript", logo: "/tech_logos/TypeScript.png", page: "https://www.typescriptlang.org", format: "PNG" },
+            { name: "Salesforce",     logo: "/tech_logos/Salesforce.png",     page: "https://www.salesforce.com",     format: "PNG" },
+            { name: "MS Dynamics",    logo: "/tech_logos/MS_Dynamics.png",    page: "https://dynamics.microsoft.com", format: "PNG" },
+            { name: "Genesys",        logo: "/tech_logos/Genesys.png",        page: "https://www.genesys.com",        format: "PNG" },
+            { name: "Amazon Connect", logo: "/tech_logos/AWS.png",            page: "https://aws.amazon.com/connect/",format: "PNG" },
+            { name: "Mendix",         logo: "/tech_logos/Mendix.png",         page: "https://www.mendix.com",         format: "PNG" },
         ],
     },
     {
-        category: "CRM",
+        category: "Cloud & Infrastructure",
         technologies: [
-            { name: "Salesforce", logo: "/tech_logos/Salesforce.png", page: "https://www.salesforce.com", format: "PNG" },
-            { name: "MS Dynamics", logo: "/tech_logos/MS_Dynamics.png", page: "https://dynamics.microsoft.com", format: "PNG" },
-            { name: "Business Central", logo: "/tech_logos/Business_Central.png", page: "https://dynamics.microsoft.com/business-central", format: "PNG" },
+            { name: "AWS",          logo: "/tech_logos/AWS.png",          page: "https://aws.amazon.com",       format: "PNG" },
+            { name: "Azure",        logo: "/tech_logos/Azure.png",        page: "https://azure.microsoft.com",  format: "PNG" },
+            { name: "Google Cloud", logo: "/tech_logos/Google_Cloud.png", page: "https://cloud.google.com",     format: "PNG" },
         ],
     },
     {
-        category: "Infrastructure",
+        category: "Quality Engineering",
         technologies: [
-            { name: "Google Cloud", logo: "/tech_logos/Google_Cloud.png", page: "https://cloud.google.com", format: "PNG" },
-            { name: "AWS", logo: "/tech_logos/AWS.png", page: "https://aws.amazon.com", format: "PNG" },
-            { name: "Azure", logo: "/tech_logos/Azure.png", page: "https://azure.microsoft.com", format: "PNG" },
+            { name: "Selenium",    logo: "/tech_logos/Selenium.png",    page: "https://www.selenium.dev",    format: "PNG" },
+            { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://pactumjs.github.io",  format: "PNG" },
+            { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io",        format: "PNG" },
+            { name: "ContextQA",   logo: "/tech_logos/ContextQA.png",   page: "https://contextqa.com",       format: "PNG" },
         ],
     },
     {
-        category: "Test Automation",
+        category: "AI / ML",
         technologies: [
-            { name: "Selenium", logo: "/tech_logos/Selenium.png", page: "https://www.selenium.dev", format: "PNG" },
-            { name: "PactumJS", logo: "/tech_logos/PactumJS.png", page: "https://pactumjs.github.io", format: "PNG" },
-            { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io", format: "PNG" },
-            { name: "ContextQA", logo: "/tech_logos/ContextQA.png", page: "https://contextqa.com", format: "PNG" },
-        ],
-    },
-    {
-        category: "Contact Center",
-        technologies: [
-            { name: "Genesys", logo: "/tech_logos/Genesys.png", page: "https://www.genesys.com", format: "PNG" },
-        ],
-    },
-    {
-        category: "Low Code / No Code",
-        technologies: [
-            { name: "Mendix", logo: "/tech_logos/Mendix.png", page: "https://www.mendix.com", format: "PNG" },
+            { name: "Generative AI",      logo: "https://unpkg.com/simple-icons@9/icons/openai.svg",        page: "https://openai.com",                  format: "SVG", filter: "invert(15%) sepia(5%) saturate(200%) hue-rotate(0deg) brightness(20%)" },
+            { name: "Intelligent Search", logo: "https://unpkg.com/simple-icons@9/icons/elasticsearch.svg",  page: "https://www.elastic.co",              format: "SVG", filter: "invert(70%) sepia(80%) saturate(600%) hue-rotate(10deg) brightness(105%)" },
+            { name: "Conversational AI",  logo: "https://unpkg.com/simple-icons@9/icons/dialogflow.svg",     page: "https://cloud.google.com/dialogflow", format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(190deg) brightness(100%)" },
+            { name: "Computer Vision",    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg", page: "https://opencv.org", format: "SVG" },
+            { name: "Recommendations",    logo: "https://unpkg.com/simple-icons@9/icons/tensorflow.svg",     page: "https://www.tensorflow.org",          format: "SVG", filter: "invert(55%) sepia(80%) saturate(600%) hue-rotate(360deg) brightness(100%)" },
         ],
     },
 ];
@@ -746,7 +458,6 @@ export default function ServicesPage() {
                     <Services />
                 </div>
                 <TechPartnersSection />
-                {/* <MeetTheExperts /> */}
                 <CertificationsScroll />
                 <DataSecuritySection />
             </main>
