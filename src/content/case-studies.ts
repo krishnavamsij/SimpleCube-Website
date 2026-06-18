@@ -71,6 +71,13 @@ export const caseStudiesContent = {
             tags: ["Applied AI", "Education", "Product Engineering"],
         },
         {
+            title: "Turning Enterprise Data into a <span class='text-[#3B82F6]'>Strategic Intelligence Engine</span>",
+            image: "/images/Case_Studies/Optimized/cs-9.png",
+            description: "Enabled real-time Customer 360 insights with a unified, automated data platform.",
+            href: "/insights/case-studies/enterprise-data-intelligence",
+            tags: ["AWS", "Data Intelligence", "Banking"],
+        },
+        {
             title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span><br>Platform Transformation",
             image: "/images/Case_Studies/Optimized/cs-10.png",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
