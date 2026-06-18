@@ -192,6 +192,10 @@ export default function CaseStudyDetailPage() {
     const slug = params?.slug as string;
     const study = caseStudyDetails[slug as keyof typeof caseStudyDetails];
 
+    if (!study) {
+        return notFound();
+    }
+
     // Extract section IDs for the new hook
     const sectionIds = study.sections.map(section => section.id);
     const { activeTabIndex, scrollToTab } = useScrollTabSync({
@@ -204,10 +208,6 @@ export default function CaseStudyDetailPage() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    if (!study) {
-        return notFound();
-    }
 
     const renderSectionContent = (section: CaseStudySection) => {
         const { type, content } = section;

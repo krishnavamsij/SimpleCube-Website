@@ -86,14 +86,14 @@ export const microsoftServicesContent = {
             type: "Case Study",
             description: "Hyniva reimagined financial workflows using Microsoft technologies, streamlining loan processing, compliance, and customer onboarding.",
             image: "/images/2026/02/core-banking-Modernization.png",
-            link: "/insights/case-studies/transforming-core-banking-operations-with-microsoft-innovation",
+            link: "/insights/case-studies/core-banking-transformation",
         },
         {
             title: "Cloud Modernization",
             type: "Case Study",
             description: "Hyniva transformed legacy CRM into a modern Dynamics 365 platform, improving scalability, efficiency, and user experience for smarter service delivery.",
             image: "/images/2026/02/Cloud-Modernization.png",
-            link: "/insights/case-studies/empowering-enterprises-through-microsoft-powered-modernization",
+            link: "/insights/case-studies/microsoft-crm-modernization",
         },
         {
             title: "Campaign Reinvented",

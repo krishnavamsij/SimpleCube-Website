@@ -147,7 +147,7 @@ export const salesforceContent = {
             type: "Case Study",
             description: "Hyniva integrated Pindrop into the contact center to enable passive, multi-factor voice authentication, reducing handle time while strengthening fraud protection.",
             image: "/images/2026/02/Pindrop-Integration.png",
-            link: "/insights/case-studies/engineering-secure-authentication-through-pindrop-integration",
+            link: "/insights/case-studies/customer-authentication",
         },
     ],
     deliveryEnablers: {

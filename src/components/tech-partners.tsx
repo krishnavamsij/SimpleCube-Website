@@ -194,55 +194,39 @@ export function TechPartners() {
 
                                     {/* Main Honeycomb */}
                                     {mainHexagons.map((pos) => {
-                                        const hex = techPartnersContent.hexagons[pos.idx];
+                                        const hex = techPartnersContent.hexagons[pos.idx] as {
+                                            title: string;
+                                            items: string[];
+                                            color: string;
+                                            logo?: string;
+                                        };
 
                                         return (
                                             <div
                                                 key={pos.idx}
-                                                className={`
-                                                    absolute
-                                                    flex
-                                                    flex-col
-                                                    items-center
-                                                    justify-center
-                                                    text-center
-                                                    px-4
-                                                    lg:px-6
-                                                    py-8
-                                                    ${hex.color}
-                                                    shadow-2xl
-                                                    transition-transform
-                                                    duration-300
-                                                    hover:scale-105
-                                                    hover:z-50
-                                                `}
+                                                className={`absolute flex flex-col items-center justify-center text-center ${hex.color} shadow-2xl transition-transform duration-300 hover:scale-105 hover:z-50`}
                                                 style={{
                                                     left: pos.x,
                                                     top: pos.y,
                                                     width: CONTENT_W,
                                                     height: CONTENT_H,
-                                                    clipPath:
-                                                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                                                 }}
                                             >
-
-                                                <div className="flex flex-col items-center justify-center w-full">
-
-                                                    <h4 className="text-[13px] sm:text-[14px] lg:text-[15px] font-black uppercase tracking-[0.08em] mb-1.5 lg:mb-2 text-white leading-tight">
+                                                <div className="flex flex-col items-center justify-center w-full px-6 gap-2">
+                                                    {hex.logo && (
+                                                        <div className="relative w-[65%] h-[55px]">
+                                                            <Image
+                                                                src={hex.logo}
+                                                                alt={hex.title}
+                                                                fill
+                                                                className="object-contain brightness-0 invert"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-white/70 leading-tight">
                                                         {hex.title}
-                                                    </h4>
-
-                                                    <ul className="flex flex-col gap-0.5 lg:gap-1 w-full text-center">
-                                                        {hex.items.map((item, itemIdx) => (
-                                                            <li
-                                                                key={itemIdx}
-                                                                className="text-[13px] sm:text-[14px] lg:text-[14.5px] font-medium text-white/95 leading-tight"
-                                                            >
-                                                                {item}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-
+                                                    </p>
                                                 </div>
                                             </div>
                                         );

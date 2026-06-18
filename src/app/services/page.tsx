@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SERVICES PAGE
  *
  * Hero banner (same dark-blue style as home/about) followed by
@@ -13,11 +13,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRightIcon, ShieldCheck } from "lucide-react";
+import { ArrowUpRightIcon, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
+import { TechPartners } from "@/components/tech-partners";
 import { servicesListingContent } from "@/content/services-listing";
+import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
 
 /* ──────────────────────────────────────────
@@ -206,6 +208,17 @@ function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
 }
 
 function DataSecuritySection() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        emblaApi.on("select", () => setCurrent(emblaApi.selectedScrollSnap()));
+    }, [emblaApi]);
+
+    const scrollPrev = () => emblaApi?.scrollPrev();
+    const scrollNext = () => emblaApi?.scrollNext();
+
     return (
         <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
@@ -261,6 +274,96 @@ function DataSecuritySection() {
                     </motion.div>
 
                 </div>
+
+                {/* ── Projects carousel ── */}
+                <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    className="mb-12 mt-16"
+                >
+                    <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-extrabold tracking-tight text-slate-900 leading-tight">
+                        Work that speaks
+                    </h2>
+
+                    <div className="flex items-center gap-2 mt-4">
+                        <span className="text-[28px] sm:text-[36px] font-black leading-none tracking-tight text-[#2563EB]">220+</span>
+                        <span className="text-sm sm:text-base font-semibold text-[#2563EB] uppercase tracking-widest">Enterprise applications delivered</span>
+                    </div>
+                </motion.div>
+
+                <div className="overflow-hidden" ref={emblaRef}>
+                    <div className="flex">
+                        {servicesProjectsData.map((study, idx) => (
+                            <div key={idx} className="min-w-0 flex-[0_0_100%]">
+                                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                                    <div className="w-full lg:w-[45%] flex flex-col gap-4">
+                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
+                                            <Image
+                                                src={study.image}
+                                                alt={study.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
+                                                <ChevronLeft className="w-5 h-5" />
+                                            </button>
+                                            <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
+                                                <ChevronRight className="w-5 h-5" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-[55%]">
+                                        <h3 className="text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
+                                            {study.title}
+                                        </h3>
+                                        <div className="mb-5">
+                                            <p className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-1">Challenge:</p>
+                                            <p className="text-slate-600 text-base leading-relaxed">{study.challenge}</p>
+                                        </div>
+                                        <div className="mb-5">
+                                            <p className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Solution:</p>
+                                            <ul className="space-y-1.5">
+                                                {study.solution.map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-2 text-slate-600 text-base">
+                                                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className="mt-6">
+                                            <p className="text-base font-bold text-slate-900 mb-3">Result:</p>
+                                            <div className="rounded-2xl px-6 py-5 flex items-start gap-4" style={{ backgroundColor: '#fde047' }}>
+                                                <span className="text-2xl shrink-0 mt-0.5">♛</span>
+                                                <p className="text-slate-900 text-base font-semibold leading-relaxed"
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: study.result.replace(
+                                                            /(\d[\d,+%\-x\.]*\s*(?:Lighthouse|faster|month|integrations|version|score|per\s+month)?[\w\s]*)/gi,
+                                                            '<strong>$1</strong>'
+                                                        )
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="mt-8">
+                                            <Link
+                                                href={servicesProjectsData[current].href}
+                                                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-[#2563EB] hover:border-[#2563EB] hover:text-white transition-all duration-300"
+                                            >
+                                                Explore more
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     );
@@ -268,7 +371,7 @@ function DataSecuritySection() {
 
 /* ------------------------------------------
    Technology & Partners (inline - editable)
------------------------------------------- */
+----------------------------------------- */
 
 function TechPartnersSection() {
     const [activeCategory, setActiveCategory] = useState(
@@ -295,11 +398,25 @@ function TechPartnersSection() {
     );
 
     return (
-        <section className="bg-white py-16 lg:py-20">
-            <div className="mx-auto max-w-[1400px] px-6">
+        <section className="bg-white pt-6 pb-16 lg:pt-8 lg:pb-20">
+            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+
+                {/* Header */}
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-12 mb-12">
+                    <div className="shrink-0 md:w-[25%]">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                            Our <span className="text-[#2563EB]">Tech Stack</span>
+                        </h2>
+                    </div>
+                    <div className="ml-auto md:w-[62%]">
+                        <p className="text-base text-slate-600 leading-relaxed">
+                            Each project requires a tailored approach and the appropriate tech stack to ensure timely delivery and clean code. So here&apos;s what our engineers use to bring product ideas to life.
+                        </p>
+                    </div>
+                </div>
 
                 {/* Category Tabs */}
-                <div className="grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:gap-4 mb-14 justify-start lg:justify-center pb-2">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-14 pb-2 w-full">
                     {techShowcaseData.map((category) => (
                         <button
                             key={category.category}
@@ -445,6 +562,130 @@ const techShowcaseData: TechCategory[] = [
 ];
 
 /* ──────────────────────────────────────────
+   NEW: Projects Carousel data
+────────────────────────────────────────── */
+
+interface ProjectStudy {
+    title: string;
+    image: string;
+    challenge: string;
+    solution: string[];
+    result: string;
+    href: string;
+}
+
+const servicesProjectsData: ProjectStudy[] = [
+    {
+        title: "Autonomous Lending Experience with FinXServe and Agentforce",
+        image: "/images/Case_Studies/Optimized/cs-1.png",
+        challenge: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+        solution: [
+            "Designed an AI-powered lending concierge with Agentforce.",
+            "Automated document processing and verification workflows.",
+            "Integrated real-time decisioning and approval systems.",
+            "Deployed role-based dashboards for lending teams.",
+        ],
+        result: "80% faster time-to-market and 70% faster loan processing with near-instant digital approvals.",
+        href: "/insights/case-studies/autonomous-lending-experiences",
+    },
+    {
+        title: "Faster Loan Processing with Agentforce Document Intelligence",
+        image: "/images/Case_Studies/Optimized/cs-2.png",
+        challenge: "A leading bank needed to accelerate loan processing with intelligent document automation and verification.",
+        solution: [
+            "Implemented Agentforce-powered document intelligence for verification.",
+            "Automated document extraction and classification workflows.",
+            "Integrated with existing loan origination systems.",
+            "Built real-time approval and exception handling flows.",
+        ],
+        result: "70% reduction in document processing time with near-instant digital loan approvals.",
+        href: "/insights/case-studies/instant-loan-processing",
+    },
+    {
+        title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
+        image: "/images/Case_Studies/Optimized/cs-3.png",
+        challenge: "A legacy IVR system was causing long wait times and poor customer satisfaction scores.",
+        solution: [
+            "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+            "Implemented intelligent call routing with natural language understanding.",
+            "Built self-service flows for common banking inquiries.",
+            "Integrated real-time sentiment analysis for escalation.",
+        ],
+        result: "Significant reduction in average handle time and improved customer satisfaction across all channels.",
+        href: "/insights/case-studies/intelligent-ivr-self-service",
+    },
+    {
+        title: "Autonomous Freight Operations with GenAI",
+        image: "/images/Case_Studies/Optimized/cs-4.png",
+        challenge: "A logistics provider was manually creating loads, leading to high operational costs and slow turnaround times.",
+        solution: [
+            "Deployed GenAI-driven automation for load creation.",
+            "Built intelligent routing and optimization algorithms.",
+            "Integrated real-time tracking and visibility systems.",
+            "Automated dispatch and scheduling workflows.",
+        ],
+        result: "98% reduction in load creation time and 99.5% cost reduction through GenAI-driven automation.",
+        href: "/insights/case-studies/autonomous-freight-operations",
+    },
+    {
+        title: "Frictionless Customer Authentication for Secure Banking",
+        image: "/images/Case_Studies/Optimized/cs-7.png",
+        challenge: "A bank needed to modernize contact center authentication to reduce fraud and improve customer experience.",
+        solution: [
+            "Integrated Pindrop voice biometrics for passive multi-factor authentication.",
+            "Built seamless authentication workflows across channels.",
+            "Implemented real-time fraud detection and prevention.",
+            "Reduced average handle time with frictionless verification.",
+        ],
+        result: "Reduced authentication time while strengthening fraud protection across all contact center channels.",
+        href: "/insights/case-studies/customer-authentication",
+    },
+    {
+        title: "Cost-Optimized Document Platform on AWS",
+        image: "/images/Case_Studies/Optimized/cs-22.png",
+        challenge: "A wealth management firm needed to reduce licensing costs while scaling document management capabilities.",
+        solution: [
+            "Architected a serverless document platform on AWS.",
+            "Migrated from legacy licensing model to pay-as-you-go.",
+            "Built automated document processing and storage pipelines.",
+            "Implemented enterprise-grade security and compliance controls.",
+        ],
+        result: "Zero licensing costs with scalable document management, saving hundreds of thousands annually.",
+        href: "/insights/case-studies/cost-optimized-document-platform-on-aws",
+    },
+    {
+        title: "Intelligent School Administration for Modern Institutions",
+        image: "/images/Case_Studies/Eazyschool_admin.png",
+        challenge: "Educational institutions needed a unified platform to manage administration, attendance, and communications.",
+        solution: [
+            "Built a comprehensive school management platform.",
+            "Automated attendance tracking and reporting workflows.",
+            "Integrated parent-teacher communication channels.",
+            "Deployed role-based dashboards for administrators and teachers.",
+        ],
+        result: "Streamlined administrative operations with real-time visibility and automated workflows across institutions.",
+        href: "/insights/case-studies/eazyschool-admin",
+    },
+    {
+        title: "Transforming Claims Operations with a Scalable Digital Platform",
+        image: "/images/Case_Studies/Optimized/cs-17.png",
+        challenge: "An insurance group needed to modernize claims processing with real-time visibility and faster settlements.",
+        solution: [
+            "Designed a unified digital claims platform.",
+            "Automated claims intake and validation workflows.",
+            "Built real-time processing and visibility dashboards.",
+            "Implemented scalable architecture for future growth.",
+        ],
+        result: "Unified claims workflows with real-time processing and visibility for faster settlements and improved customer satisfaction.",
+        href: "/insights/case-studies/transforming-insurance-claims-operations-with-a-scalable-digital-platform",
+    },
+];
+
+/* ──────────────────────────────────────────
+   NEW: Projects Carousel component
+────────────────────────────────────────── */
+
+/* ──────────────────────────────────────────
    Page
 ────────────────────────────────────────── */
 
@@ -457,6 +698,7 @@ export default function ServicesPage() {
                 <div id="our-services" className="scroll-mt-20">
                     <Services />
                 </div>
+                <TechPartners />
                 <TechPartnersSection />
                 <CertificationsScroll />
                 <DataSecuritySection />

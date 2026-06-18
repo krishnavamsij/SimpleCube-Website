@@ -464,32 +464,38 @@ export const techPartnersContent = {
         {
             title: "CRM & PLATFORMS",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#1F35A4]"
+            color: "bg-[#1F35A4]",
+            logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         },
         {
             title: "CLOUD",
             items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"],
-            color: "bg-[#00A8FF]"
+            color: "bg-[#00A8FF]",
+            logo: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png"
         },
         {
             title: "AI & DATA",
             items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"],
-            color: "bg-[#008f72]"
+            color: "bg-[#008f72]",
+            logo: "/images/Partners_Logo/Microsoft_logo_(2012).svg.png"
         },
         {
             title: "FRONTEND",
             items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"],
-            color: "bg-[#0D9488]"
+            color: "bg-[#0D9488]",
+            logo: "/images/Partners_Logo/Adobe_Corporate_Logo.png"
         },
         {
             title: "BACKEND",
             items: ["ASP.Net / TypeScript", "Java / Node.js / Python / PHP", "Microservices", "REST / GraphQL APIs"],
-            color: "bg-[#1e1b4b]"
+            color: "bg-[#1e1b4b]",
+            logo: "/images/Partners_Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp"
         },
         {
             title: "QA & DEVOPS",
             items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Azure DevOps"],
-            color: "bg-[#0f172a]"
+            color: "bg-[#0f172a]",
+            logo: "/tech_logos/AWS.png"
         }
     ],
 };
