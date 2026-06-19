@@ -263,7 +263,7 @@ function DataSecuritySection() {
                         viewport={viewportOnce}
                         className="w-full lg:w-[48%] flex items-center justify-center"
                     >
-                        <div className="relative w-full max-w-[600px] aspect-square -ml-4 lg:-ml-8">
+                        <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] lg:h-[500px]">
                             <Image
                                 src="/images/Certifications_Image/services_certify1.png"
                                 alt="Hyniva Security Certifications"
@@ -298,24 +298,6 @@ function DataSecuritySection() {
                         {servicesProjectsData.map((study, idx) => (
                             <div key={idx} className="min-w-0 flex-[0_0_100%]">
                                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-                                    <div className="w-full lg:w-[45%] flex flex-col gap-4">
-                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
-                                            <Image
-                                                src={study.image}
-                                                alt={study.title}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
-                                                <ChevronLeft className="w-5 h-5" />
-                                            </button>
-                                            <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
-                                                <ChevronRight className="w-5 h-5" />
-                                            </button>
-                                        </div>
-                                    </div>
                                     <div className="w-full lg:w-[55%]">
                                         <h3 className="text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
                                             {study.title}
@@ -337,7 +319,7 @@ function DataSecuritySection() {
                                         </div>
                                         <div className="mt-6">
                                             <p className="text-base font-bold text-slate-900 mb-3">Result:</p>
-                                            <div className="rounded-2xl px-6 py-5 flex items-start gap-4" style={{ backgroundColor: '#fde047' }}>
+                                            <div className="rounded-2xl px-6 py-5 flex items-start gap-4" style={{ backgroundColor: '#00D4AA' }}>
                                                 <span className="text-2xl shrink-0 mt-0.5">♛</span>
                                                 <p className="text-slate-900 text-base font-semibold leading-relaxed"
                                                     dangerouslySetInnerHTML={{
@@ -356,6 +338,24 @@ function DataSecuritySection() {
                                             >
                                                 Explore more
                                             </Link>
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-[45%] flex flex-col gap-4">
+                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
+                                            <Image
+                                                src={study.image}
+                                                alt={study.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
+                                                <ChevronLeft className="w-5 h-5" />
+                                            </button>
+                                            <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
+                                                <ChevronRight className="w-5 h-5" />
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

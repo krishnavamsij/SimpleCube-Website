@@ -21,19 +21,18 @@ const DECOR_H = 182;
 
 /* Main Honeycomb Grid */
 const mainHexagons = [
-    { idx: 3, x: 0, y: DY * 3 },        // FRONTEND
+    { idx: 3, x: DX, y: DY * 4 },       // FRONTEND (Adobe moved to removed position)
     { idx: 4, x: DX, y: DY * 2 },       // BACKEND
-    { idx: 0, x: DX, y: DY * 4 },       // CRM & PLATFORMS
     { idx: 1, x: DX * 2, y: DY },       // CLOUD
-    { idx: 5, x: DX * 2, y: DY * 3 },   // QA & DEVOPS
+    { idx: 5, x: DX * 2, y: DY * 3 },   // QA & DEVOPS (Salesforce)
     { idx: 2, x: DX * 3, y: DY * 2 },   // AI & DATA
 ];
 
 /* Background Decorative Elements */
 const decorHexagons = [
-    { x: -DX * 1.15, y: DY * 3, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
+    { x: -DX * 0.5, y: DY * 3.5, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
     { x: 0, y: DY * 5, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-blue-100/40" },
-    { x: -DX, y: DY * 2, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
+    { x: -DX * 0.2, y: DY * 2.5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
     { x: 0, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
     { x: DX, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
     { x: DX * 3, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
@@ -92,29 +91,7 @@ export function TechPartners() {
                                 {techPartnersContent.sub}
                             </p>
 
-                            {/* Partner Logos */}
-                            <div className="flex flex-row flex-nowrap items-center justify-between sm:flex-wrap sm:justify-start gap-1.5 xs:gap-3 sm:gap-x-10 sm:gap-y-7 opacity-95 w-full">
 
-                                {techPartnersContent.partners.map((partner, index) => {
-                                    const img = (
-                                        <div
-                                            key={index}
-                                            className="relative h-6 xs:h-8 sm:h-11 w-[16%] xs:w-[18%] sm:w-32 flex-shrink-0 flex items-center justify-center"
-                                        >
-                                            <Image
-                                                src={partner.src}
-                                                alt={partner.name}
-                                                fill
-                                                className="object-contain object-center sm:object-left"
-                                            />
-                                        </div>
-                                    );
-
-                                    return index === 2
-                                        ? [img, <div key="break" className="hidden sm:block basis-full h-0" />]
-                                        : img;
-                                })}
-                            </div>
 
                         </motion.div>
                     </div>
@@ -213,20 +190,32 @@ export function TechPartners() {
                                                     clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                                                 }}
                                             >
-                                                <div className="flex flex-col items-center justify-center w-full px-6 gap-2">
+                                                <div className="flex flex-col items-center justify-center w-full px-6">
                                                     {hex.logo && (
-                                                        <div className="relative w-[65%] h-[55px]">
+                                                        <div className="relative w-[85%] h-[70px]">
                                                             <Image
                                                                 src={hex.logo}
                                                                 alt={hex.title}
                                                                 fill
                                                                 className="object-contain brightness-0 invert"
                                                             />
+                                                            {hex.title === "Salesforce" && (
+                                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                                    <span 
+                                                                        className="font-bold text-[18px]" 
+                                                                        style={{ 
+                                                                            color: '#032d60',
+                                                                            fontFamily: 'Georgia, "Times New Roman", serif',
+                                                                            letterSpacing: '-0.02em',
+                                                                            marginTop: '1px'
+                                                                        }}
+                                                                    >
+                                                                        sales<span style={{ fontStyle: 'italic', fontFamily: 'Georgia, "Times New Roman", serif' }}>f</span>orce
+                                                                    </span>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     )}
-                                                    <p className="text-[11px] font-semibold uppercase tracking-widest text-white/70 leading-tight">
-                                                        {hex.title}
-                                                    </p>
                                                 </div>
                                             </div>
                                         );
