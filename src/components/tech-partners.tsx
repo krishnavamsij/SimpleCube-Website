@@ -30,23 +30,23 @@ const mainHexagons = [
 
 /* Background Decorative Elements */
 const decorHexagons = [
-    { x: -DX * 0.5, y: DY * 3.5, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
+    { x: -DX * 0.8, y: DY * 4.2, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
     { x: 0, y: DY * 5, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-blue-100/40" },
     { x: -DX * 0.2, y: DY * 2.5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
-    { x: 0, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
-    { x: DX, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
-    { x: DX * 3, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
-    { x: DX * 4, y: DY, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-slate-200/40" },
-    { x: DX * 4, y: DY * 3, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-[#1F35A4]/15" },
-    { x: DX * 3, y: DY * 4, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-slate-300/30" },
-    { x: DX * 2, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#1e90ff]/10" },
+    { x: DX * 0.15, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
+    { x: DX * 1.15, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
+    { x: DX * 3.15, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
+    { x: DX * 4.15, y: DY, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-slate-200/40" },
+    { x: DX * 4.15, y: DY * 3, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-[#1F35A4]/15" },
+    { x: DX * 3.15, y: DY * 4, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-slate-300/30" },
+    { x: DX * 2.15, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#1e90ff]/10" },
 
     // Tiny Floating Decor
     { x: -DX * 1.2, y: DY * 5.5, w: DECOR_W * 0.35, h: DECOR_H * 0.35, color: "bg-slate-200/60" },
     { x: -DX * 0.5, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-300/50" },
-    { x: DX * 1.8, y: -DY * 1.2, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-sky-100/60" },
-    { x: DX * 4.2, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-200/60" },
-    { x: DX * 4.5, y: DY * 4.5, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-slate-300/40" },
+    { x: DX * 1.95, y: -DY * 1.2, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-sky-100/60" },
+    { x: DX * 4.35, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-200/60" },
+    { x: DX * 4.65, y: DY * 4.5, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-slate-300/40" },
 ];
 
 export function TechPartners() {
@@ -117,6 +117,8 @@ export function TechPartners() {
                                 md:h-[580px]
                                 lg:h-[680px]
                                 overflow-visible
+                                lg:translate-x-10
+                                xl:translate-x-12
                             "
                         >
 
@@ -164,6 +166,7 @@ export function TechPartners() {
                                                     height: decor.h,
                                                     clipPath:
                                                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    zIndex: 1,
                                                 }}
                                             />
                                         );
@@ -188,6 +191,7 @@ export function TechPartners() {
                                                     width: CONTENT_W,
                                                     height: CONTENT_H,
                                                     clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    zIndex: 10,
                                                 }}
                                             >
                                                 <div className="flex flex-col items-center justify-center w-full px-6">

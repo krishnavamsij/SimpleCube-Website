@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SERVICES PAGE
  *
  * Hero banner (same dark-blue style as home/about) followed by
@@ -18,6 +18,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
 import { TechPartners } from "@/components/tech-partners";
+import { WhyHyniva } from "@/components/why-hyniva";
 import { servicesListingContent } from "@/content/services-listing";
 import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
@@ -28,61 +29,47 @@ import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/an
 
 function ServicesHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] min-h-[400px] sm:min-h-[450px] lg:min-h-[520px] flex items-center pt-16">
-            {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
-            <div
-                className="absolute inset-0 opacity-[0.025]"
-                style={{
-                    backgroundImage:
-                        "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-                }}
-            />
-            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen">
+            {/* Background layers - no image, just gradient like banking */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/80 to-[#02040a]/92" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
+            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center text-center w-full"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-10 md:space-y-12"
                 >
-                    {/* Headline */}
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white font-display"
-                    >
-                        Services
-                    </motion.h1>
-
-                    {/* Sub-headline */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mt-6 text-xs sm:text-xl text-slate-300 leading-relaxed font-medium"
-                    >
-                        {/* Mobile: 3-line split */}
-                        <span className="sm:hidden">
-                            {servicesListingContent.hero.subtitleMobile.split("<br />").map((line, i, arr) => (
-                                <span key={i}>{line.trim()}{i < arr.length - 1 && <br />}</span>
-                            ))}
-                        </span>
-                        {/* Desktop: 2-line split */}
-                        <span className="hidden sm:inline">
-                            {servicesListingContent.hero.subtitle.split("<br />").map((line, i, arr) => (
-                                <span key={i}>{line.trim()}{i < arr.length - 1 && <br />}</span>
-                            ))}
+                    {/* Eyebrow Badge */}
+                    <motion.div variants={fadeInUp} className="flex justify-center">
+                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                            SERVICES
                         </span>
                     </motion.div>
 
-                    {/* CTA */}
-                    <motion.div variants={fadeInUp} className="mt-10">
+                    {/* Headline */}
+                    <motion.h1
+                        variants={fadeInUp}
+                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
+                        dangerouslySetInnerHTML={{ __html: "Building resilient, intelligent <br />enterprises for what's next" }}
+                    />
+
+                    {/* Subtitle */}
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
+                        dangerouslySetInnerHTML={{ __html: "Technology decisions today shape how organizations compete tomorrow. We help organizations <br />modernize operations, accelerate innovation, and create experiences that drive sustainable growth." }}
+                    />
+
+                    {/* CTA Button */}
+                    <motion.div variants={fadeInUp} className="mt-4">
                         <Link
                             href="/contact"
                             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] px-8 py-4 text-sm font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 hover:scale-[1.03]"
                         >
-                            Discuss Your Project
+                            Discuss your project
                             <ArrowUpRightIcon className="h-4 w-4" />
                         </Link>
                     </motion.div>
@@ -97,17 +84,20 @@ function ServicesHero() {
 ────────────────────────────────────────── */
 
 const certifications = [
-    { name: "Agentforce Specialist",   src: "/images/Certifications_Image/Agentforce_Specialist_badge.svg" },
-    { name: "AI Associate",            src: "/images/Certifications_Image/AI_Associate.svg" },
-    { name: "Data Cloud Consultant",   src: "/images/Certifications_Image/Data_Cloud_Consultant_Badge.svg" },
-    { name: "Platform Administrator",  src: "/images/Certifications_Image/Platform_administrator_Badge.svg" },
-    { name: "Platform Developer",      src: "/images/Certifications_Image/Platform_developer_Badge.svg" },
-    { name: "AWS DevOps Engineer",     src: "/images/Certifications_Image/AWS_Certified_DevOps_Engineer_Professional.png" },
+    { name: "Agentforce Specialist", src: "/images/Certifications_Image/Agentforce_Specialist_badge.svg" },
+    { name: "AI Associate", src: "/images/Certifications_Image/AI_Associate.svg" },
+    { name: "Data Cloud Consultant", src: "/images/Certifications_Image/Data_Cloud_Consultant_Badge.svg" },
+    { name: "Platform Administrator", src: "/images/Certifications_Image/Platform_administrator_Badge.svg" },
+    { name: "Platform Developer", src: "/images/Certifications_Image/Platform_developer_Badge.svg" },
+    { name: "AWS DevOps Engineer", src: "/images/Certifications_Image/AWS_Certified_DevOps_Engineer_Professional.png" },
     { name: "AWS Solutions Architect", src: "/images/Certifications_Image/AWS_Certified_Solutions_Architect_Associate.png" },
-    { name: "AWS Cloud Practitioner",  src: "/images/Certifications_Image/AWS_cloud_Practitioner.svg" },
+    { name: "AWS Cloud Practitioner", src: "/images/Certifications_Image/AWS_cloud_Practitioner.svg" },
 ];
 
 function CertificationsScroll() {
+    // Duplicate certifications for seamless infinite scroll
+    const duplicatedCertifications = [...certifications, ...certifications];
+
     return (
         <section className="border-y border-slate-200 bg-white py-10 sm:py-14">
             <div className="mx-auto max-w-[1400px] px-6">
@@ -115,13 +105,16 @@ function CertificationsScroll() {
                     Certifications & Recognitions
                 </p>
 
-                {/* Mobile: marquee — Desktop: centered row */}
-                <div className="overflow-hidden sm:overflow-visible">
-                    <div className="flex flex-nowrap items-center gap-3 sm:gap-5 lg:gap-8 marquee-mobile sm:justify-center sm:w-auto sm:animate-none">
-                        {[...certifications, ...certifications].map((cert, i) => (
+                {/* Marquee container with fade edges */}
+                <div className="marquee-fade overflow-hidden">
+                    <div
+                        className="animate-marquee flex w-max items-center gap-8 sm:gap-10 lg:gap-14 px-6"
+                        style={{ "--marquee-duration": "20s" } as React.CSSProperties}
+                    >
+                        {duplicatedCertifications.map((cert, i) => (
                             <div
                                 key={`${cert.name}-${i}`}
-                                className={`relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 ${i >= certifications.length ? 'sm:hidden' : ''}`}
+                                className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center"
                             >
                                 <Image
                                     src={cert.src}
@@ -196,10 +189,10 @@ function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
         <div
             className="absolute flex items-center justify-center pointer-events-none"
             style={{
-                left:   `${((cx - r) / vbW) * 100}%`,
-                top:    `${((cy - r) / vbH) * 100}%`,
-                width:  `${((r * 2)  / vbW) * 100}%`,
-                height: `${((r * 2)  / vbH) * 100}%`,
+                left: `${((cx - r) / vbW) * 100}%`,
+                top: `${((cy - r) / vbH) * 100}%`,
+                width: `${((r * 2) / vbW) * 100}%`,
+                height: `${((r * 2) / vbH) * 100}%`,
             }}
         >
             {children}
@@ -208,17 +201,6 @@ function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
 }
 
 function DataSecuritySection() {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-    const [current, setCurrent] = useState(0);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-        emblaApi.on("select", () => setCurrent(emblaApi.selectedScrollSnap()));
-    }, [emblaApi]);
-
-    const scrollPrev = () => emblaApi?.scrollPrev();
-    const scrollNext = () => emblaApi?.scrollNext();
-
     return (
         <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
@@ -261,27 +243,50 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[48%] flex items-center justify-center"
+                        className="w-full lg:w-[48%] relative"
                     >
-                        <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] lg:h-[500px]">
+                        <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
                             <Image
                                 src="/images/Certifications_Image/services_certify1.png"
                                 alt="Hyniva Security Certifications"
                                 fill
-                                className="object-contain"
+                                style={{ objectFit: 'contain' }}
                             />
                         </div>
                     </motion.div>
 
                 </div>
+            </div>
+        </section>
+    );
+}
 
-                {/* ── Projects carousel ── */}
+/* ------------------------------------------
+   Work That Speaks - Projects Carousel
+----------------------------------------- */
+
+function WorkThatSpeaks() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        emblaApi.on("select", () => setCurrent(emblaApi.selectedScrollSnap()));
+    }, [emblaApi]);
+
+    const scrollPrev = () => emblaApi?.scrollPrev();
+    const scrollNext = () => emblaApi?.scrollNext();
+
+    return (
+        <section className="bg-white py-10 sm:py-14 lg:py-16">
+            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+                {/* ── Header ── */}
                 <motion.div
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-12 mt-16"
+                    className="mb-12"
                 >
                     <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-extrabold tracking-tight text-slate-900 leading-tight">
                         Work that speaks
@@ -293,6 +298,7 @@ function DataSecuritySection() {
                     </div>
                 </motion.div>
 
+                {/* ── Carousel ── */}
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div className="flex">
                         {servicesProjectsData.map((study, idx) => (
@@ -363,7 +369,6 @@ function DataSecuritySection() {
                         ))}
                     </div>
                 </div>
-
             </div>
         </section>
     );
@@ -398,7 +403,7 @@ function TechPartnersSection() {
     );
 
     return (
-        <section className="bg-white pt-6 pb-16 lg:pt-8 lg:pb-20">
+        <section className="bg-[#D6EBFA] pt-6 pb-16 lg:pt-8 lg:pb-20">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
                 {/* Header */}
@@ -421,11 +426,10 @@ function TechPartnersSection() {
                         <button
                             key={category.category}
                             onClick={() => setActiveCategory(category.category)}
-                            className={`px-2 sm:px-7 py-3 rounded-xl text-[11px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
-                                activeCategory === category.category
-                                    ? "bg-[#2563EB] text-white border-[#2563EB] shadow-lg"
-                                    : "bg-white text-slate-800 border-slate-200 hover:border-blue-300 hover:text-blue-600"
-                            }`}
+                            className={`px-2 sm:px-7 py-3 rounded-xl text-[11px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${activeCategory === category.category
+                                ? "bg-[#2563EB] text-white border-[#2563EB] shadow-lg"
+                                : "bg-white text-slate-800 border-slate-200 hover:border-blue-300 hover:text-blue-600"
+                                }`}
                         >
                             {category.category}
                         </button>
@@ -433,39 +437,57 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Logos — mobile: only active, desktop: all */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-6 gap-x-4 max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-4 gap-x-3 max-w-6xl mx-auto">
                     {allTechs
                         .filter((tech) => !isMobile || activeTechNames.has(tech.name))
                         .map((tech) => {
                             const isActive = activeTechNames.has(tech.name);
                             return (
-                            <a
-                                key={`${tech.category}-${tech.name}`}
-                                href={tech.page}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`group flex flex-col items-center rounded-2xl p-3 border transition-all duration-300 ${
-                                    isActive
-                                        ? "bg-transparent border-transparent scale-105"
-                                        : "bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-200"
-                                }`}
-                            >
-                                <div className="relative w-[52px] h-[52px] transition-transform duration-300 group-hover:scale-110">
-                                    <Image
-                                        src={tech.logo}
-                                        alt={tech.name}
-                                        fill
-                                        unoptimized={tech.format === "SVG"}
-                                className="object-contain outline-none"
-                                        style={tech.filter ? { filter: tech.filter } : undefined}
-                                    />
-                                </div>
-                                <span className={`mt-2 text-[12px] font-medium text-center transition-colors ${
-                                    isActive ? "text-[#2563EB] font-bold" : "text-slate-500 group-hover:text-[#2563EB]"
-                                }`}>
-                                    {tech.name}
-                                </span>
-                            </a>
+                                <a
+                                    key={`${tech.category}-${tech.name}`}
+                                    href={tech.page}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`group relative flex flex-col items-center bg-white rounded-2xl p-3 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] ${isActive
+                                        ? "scale-105"
+                                        : ""
+                                        }`}
+                                >
+                                    {/* Animated gradient border - only shown when active or on hover */}
+                                    <div
+                                        className={`absolute inset-0 rounded-2xl p-[2px] transition-opacity duration-300 ${isActive
+                                            ? "opacity-100 animate-border-spin"
+                                            : "opacity-0 group-hover:opacity-100"
+                                            }`}
+                                        style={{
+                                            background: 'linear-gradient(90deg, rgba(37,99,235,0.55), rgba(99,102,241,0.75), rgba(59,130,246,0.85), rgba(37,99,235,0.55), rgba(99,102,241,0.75), rgba(59,130,246,0.85), rgba(37,99,235,0.55))',
+                                            backgroundSize: '300% 300%',
+                                            zIndex: -1,
+                                        }}
+                                    >
+                                        <div className="w-full h-full bg-white rounded-2xl"></div>
+                                    </div>
+
+                                    {/* Static border for non-active/non-hovered state */}
+                                    {!isActive && (
+                                        <div className="absolute inset-0 rounded-2xl border border-[#030B3B]/10 group-hover:border-transparent transition-colors duration-300 pointer-events-none"></div>
+                                    )}
+
+                                    <div className="relative w-[32px] h-[32px] transition-transform duration-300 group-hover:scale-125 z-10">
+                                        <Image
+                                            src={tech.logo}
+                                            alt={tech.name}
+                                            fill
+                                            unoptimized={tech.format === "SVG"}
+                                            className="object-contain outline-none"
+                                            style={tech.filter ? { filter: tech.filter } : undefined}
+                                        />
+                                    </div>
+                                    <span className={`mt-2 text-[11px] font-medium text-center transition-colors z-10 ${isActive ? "text-[#2563EB] font-bold" : "text-slate-500 group-hover:text-[#2563EB]"
+                                        }`}>
+                                        {tech.name}
+                                    </span>
+                                </a>
                             );
                         })}
                 </div>
@@ -494,69 +516,69 @@ const techShowcaseData: TechCategory[] = [
     {
         category: "Digital Experience",
         technologies: [
-            { name: "Figma",        logo: "/tech_logos/Figma.png",       page: "https://www.figma.com",          format: "PNG" },
-            { name: "Adobe XD",     logo: "https://unpkg.com/simple-icons@9/icons/adobexd.svg",   page: "https://www.adobe.com/products/xd.html", format: "SVG", filter: "invert(26%) sepia(89%) saturate(1400%) hue-rotate(270deg) brightness(90%)" },
-            { name: "ReactJS",      logo: "/tech_logos/ReactJS.png",     page: "https://react.dev",              format: "PNG" },
-            { name: "Angular",      logo: "/tech_logos/Angular.png",     page: "https://angular.io",             format: "PNG" },
-            { name: "HTML",         logo: "/tech_logos/HTML5.png",       page: "https://html.spec.whatwg.org",   format: "PNG" },
-            { name: "CSS",          logo: "/tech_logos/CSS3.png",        page: "https://www.w3.org/Style/CSS/",  format: "PNG" },
-            { name: "JavaScript",   logo: "/tech_logos/JavaScript.png",  page: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", format: "PNG" },
-            { name: "jQuery",       logo: "/tech_logos/jQuery.png",      page: "https://jquery.com",             format: "PNG" },
-            { name: "Next.js",      logo: "https://unpkg.com/simple-icons@9/icons/nextdotjs.svg", page: "https://nextjs.org", format: "SVG", filter: "invert(0%)" },
-            { name: "React Native", logo: "/tech_logos/React_Native.png",page: "https://reactnative.dev",        format: "PNG" },
-            { name: "Flutter",      logo: "/tech_logos/Flutter.png",     page: "https://flutter.dev",            format: "PNG" },
-            { name: "Swift",        logo: "/tech_logos/Swift.png",       page: "https://www.swift.org",          format: "PNG" },
-            { name: "Kotlin",       logo: "/tech_logos/Kotlin.png",      page: "https://kotlinlang.org",         format: "PNG" },
+            { name: "Figma", logo: "/tech_logos/Figma.png", page: "https://www.figma.com", format: "PNG" },
+            { name: "Adobe XD", logo: "https://unpkg.com/simple-icons@9/icons/adobexd.svg", page: "https://www.adobe.com/products/xd.html", format: "SVG", filter: "invert(26%) sepia(89%) saturate(1400%) hue-rotate(270deg) brightness(90%)" },
+            { name: "ReactJS", logo: "/tech_logos/ReactJS.png", page: "https://react.dev", format: "PNG" },
+            { name: "Angular", logo: "/tech_logos/Angular.png", page: "https://angular.io", format: "PNG" },
+            { name: "HTML", logo: "/tech_logos/HTML5.png", page: "https://html.spec.whatwg.org", format: "PNG" },
+            { name: "CSS", logo: "/tech_logos/CSS3.png", page: "https://www.w3.org/Style/CSS/", format: "PNG" },
+            { name: "JavaScript", logo: "/tech_logos/JavaScript.png", page: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", format: "PNG" },
+            { name: "jQuery", logo: "/tech_logos/jQuery.png", page: "https://jquery.com", format: "PNG" },
+            { name: "Next.js", logo: "https://unpkg.com/simple-icons@9/icons/nextdotjs.svg", page: "https://nextjs.org", format: "SVG", filter: "invert(0%)" },
+            { name: "React Native", logo: "/tech_logos/React_Native.png", page: "https://reactnative.dev", format: "PNG" },
+            { name: "Flutter", logo: "/tech_logos/Flutter.png", page: "https://flutter.dev", format: "PNG" },
+            { name: "Swift", logo: "/tech_logos/Swift.png", page: "https://www.swift.org", format: "PNG" },
+            { name: "Kotlin", logo: "/tech_logos/Kotlin.png", page: "https://kotlinlang.org", format: "PNG" },
         ],
     },
     {
         category: "Application Development",
         technologies: [
-            { name: "Java",          logo: "/tech_logos/Java.png",       page: "https://www.java.com",               format: "PNG" },
-            { name: ".NET",          logo: "/tech_logos/ASP.Net.png",    page: "https://dotnet.microsoft.com",       format: "PNG" },
-            { name: "Node.js",       logo: "/tech_logos/NodeJS.png",     page: "https://nodejs.org",                 format: "PNG" },
-            { name: "PHP",           logo: "/tech_logos/PHP.png",        page: "https://www.php.net",                format: "PNG" },
-            { name: "Python",        logo: "/tech_logos/Python.png",     page: "https://www.python.org",             format: "PNG" },
-            { name: "TypeScript",    logo: "/tech_logos/TypeScript.png", page: "https://www.typescriptlang.org",     format: "PNG" },
-            { name: "Backend APIs",  logo: "https://unpkg.com/simple-icons@9/icons/fastapi.svg",    page: "https://fastapi.tiangolo.com",  format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(130deg) brightness(95%)" },
-            { name: "Microservices", logo: "https://unpkg.com/simple-icons@9/icons/docker.svg",     page: "https://microservices.io",      format: "SVG", filter: "invert(39%) sepia(93%) saturate(500%) hue-rotate(185deg) brightness(100%)" },
+            { name: "Java", logo: "/tech_logos/Java.png", page: "https://www.java.com", format: "PNG" },
+            { name: ".NET", logo: "/tech_logos/ASP.Net.png", page: "https://dotnet.microsoft.com", format: "PNG" },
+            { name: "Node.js", logo: "/tech_logos/NodeJS.png", page: "https://nodejs.org", format: "PNG" },
+            { name: "PHP", logo: "/tech_logos/PHP.png", page: "https://www.php.net", format: "PNG" },
+            { name: "Python", logo: "/tech_logos/Python.png", page: "https://www.python.org", format: "PNG" },
+            { name: "TypeScript", logo: "/tech_logos/TypeScript.png", page: "https://www.typescriptlang.org", format: "PNG" },
+            { name: "Backend APIs", logo: "https://unpkg.com/simple-icons@9/icons/fastapi.svg", page: "https://fastapi.tiangolo.com", format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(130deg) brightness(95%)" },
+            { name: "Microservices", logo: "https://unpkg.com/simple-icons@9/icons/docker.svg", page: "https://microservices.io", format: "SVG", filter: "invert(39%) sepia(93%) saturate(500%) hue-rotate(185deg) brightness(100%)" },
         ],
     },
     {
         category: "Enterprise Platforms",
         technologies: [
-            { name: "Salesforce",     logo: "/tech_logos/Salesforce.png",     page: "https://www.salesforce.com",     format: "PNG" },
-            { name: "MS Dynamics",    logo: "/tech_logos/MS_Dynamics.png",    page: "https://dynamics.microsoft.com", format: "PNG" },
-            { name: "Genesys",        logo: "/tech_logos/Genesys.png",        page: "https://www.genesys.com",        format: "PNG" },
-            { name: "Amazon Connect", logo: "/tech_logos/AWS.png",            page: "https://aws.amazon.com/connect/",format: "PNG" },
-            { name: "Mendix",         logo: "/tech_logos/Mendix.png",         page: "https://www.mendix.com",         format: "PNG" },
+            { name: "Salesforce", logo: "/tech_logos/Salesforce.png", page: "https://www.salesforce.com", format: "PNG" },
+            { name: "MS Dynamics", logo: "/tech_logos/MS_Dynamics.png", page: "https://dynamics.microsoft.com", format: "PNG" },
+            { name: "Genesys", logo: "/tech_logos/Genesys.png", page: "https://www.genesys.com", format: "PNG" },
+            { name: "Amazon Connect", logo: "/tech_logos/AWS.png", page: "https://aws.amazon.com/connect/", format: "PNG" },
+            { name: "Mendix", logo: "/tech_logos/Mendix.png", page: "https://www.mendix.com", format: "PNG" },
         ],
     },
     {
         category: "Cloud & Infrastructure",
         technologies: [
-            { name: "AWS",          logo: "/tech_logos/AWS.png",          page: "https://aws.amazon.com",       format: "PNG" },
-            { name: "Azure",        logo: "/tech_logos/Azure.png",        page: "https://azure.microsoft.com",  format: "PNG" },
-            { name: "Google Cloud", logo: "/tech_logos/Google_Cloud.png", page: "https://cloud.google.com",     format: "PNG" },
+            { name: "AWS", logo: "/tech_logos/AWS.png", page: "https://aws.amazon.com", format: "PNG" },
+            { name: "Azure", logo: "/tech_logos/Azure.png", page: "https://azure.microsoft.com", format: "PNG" },
+            { name: "Google Cloud", logo: "/tech_logos/Google_Cloud.png", page: "https://cloud.google.com", format: "PNG" },
         ],
     },
     {
         category: "Quality Engineering",
         technologies: [
-            { name: "Selenium",    logo: "/tech_logos/Selenium.png",    page: "https://www.selenium.dev",    format: "PNG" },
-            { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://pactumjs.github.io",  format: "PNG" },
-            { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io",        format: "PNG" },
-            { name: "ContextQA",   logo: "/tech_logos/ContextQA.png",   page: "https://contextqa.com",       format: "PNG" },
+            { name: "Selenium", logo: "/tech_logos/Selenium.png", page: "https://www.selenium.dev", format: "PNG" },
+            { name: "PactumJS", logo: "/tech_logos/PactumJS.png", page: "https://pactumjs.github.io", format: "PNG" },
+            { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io", format: "PNG" },
+            { name: "ContextQA", logo: "/tech_logos/ContextQA.png", page: "https://contextqa.com", format: "PNG" },
         ],
     },
     {
         category: "AI / ML",
         technologies: [
-            { name: "Generative AI",      logo: "https://unpkg.com/simple-icons@9/icons/openai.svg",        page: "https://openai.com",                  format: "SVG", filter: "invert(15%) sepia(5%) saturate(200%) hue-rotate(0deg) brightness(20%)" },
-            { name: "Intelligent Search", logo: "https://unpkg.com/simple-icons@9/icons/elasticsearch.svg",  page: "https://www.elastic.co",              format: "SVG", filter: "invert(70%) sepia(80%) saturate(600%) hue-rotate(10deg) brightness(105%)" },
-            { name: "Conversational AI",  logo: "https://unpkg.com/simple-icons@9/icons/dialogflow.svg",     page: "https://cloud.google.com/dialogflow", format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(190deg) brightness(100%)" },
-            { name: "Computer Vision",    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg", page: "https://opencv.org", format: "SVG" },
-            { name: "Recommendations",    logo: "https://unpkg.com/simple-icons@9/icons/tensorflow.svg",     page: "https://www.tensorflow.org",          format: "SVG", filter: "invert(55%) sepia(80%) saturate(600%) hue-rotate(360deg) brightness(100%)" },
+            { name: "Generative AI", logo: "https://unpkg.com/simple-icons@9/icons/openai.svg", page: "https://openai.com", format: "SVG", filter: "invert(15%) sepia(5%) saturate(200%) hue-rotate(0deg) brightness(20%)" },
+            { name: "Intelligent Search", logo: "https://unpkg.com/simple-icons@9/icons/elasticsearch.svg", page: "https://www.elastic.co", format: "SVG", filter: "invert(70%) sepia(80%) saturate(600%) hue-rotate(10deg) brightness(105%)" },
+            { name: "Conversational AI", logo: "https://unpkg.com/simple-icons@9/icons/dialogflow.svg", page: "https://cloud.google.com/dialogflow", format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(190deg) brightness(100%)" },
+            { name: "Computer Vision", logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg", page: "https://opencv.org", format: "SVG" },
+            { name: "Recommendations", logo: "https://unpkg.com/simple-icons@9/icons/tensorflow.svg", page: "https://www.tensorflow.org", format: "SVG", filter: "invert(55%) sepia(80%) saturate(600%) hue-rotate(360deg) brightness(100%)" },
         ],
     },
 ];
@@ -700,8 +722,10 @@ export default function ServicesPage() {
                 </div>
                 <TechPartners />
                 <TechPartnersSection />
-                <CertificationsScroll />
                 <DataSecuritySection />
+                <WhyHyniva />
+                <WorkThatSpeaks />
+                <CertificationsScroll />
             </main>
             <Footer />
         </>

@@ -458,7 +458,7 @@ export const techPartnersContent = {
         {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#032E60]",
+            color: "bg-[#1F36A4]",
             logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         },
         {
@@ -476,7 +476,7 @@ export const techPartnersContent = {
         {
             title: "Genesys",
             items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"],
-            color: "bg-[#14B8A6]",
+            color: "bg-[#0D9488]",
             logo: "/images/Partners_Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp"
         },
         {
@@ -488,7 +488,7 @@ export const techPartnersContent = {
         {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#032E60]",
+            color: "bg-[#1F36A4]",
             logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         }
     ],
