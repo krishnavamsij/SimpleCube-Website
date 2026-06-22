@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ABOUT US CONTENT CONFIGURATION
  * 
  * This file contains all the content data for the About Us page based on the new design.
@@ -175,67 +175,67 @@ export const aboutContent = {
             {
                 date: "2007",
                 title: "Foundation & Growth",
-                description: "Founded in Chennai, India, as a technology consulting and software development company, and subsequently expanded operations to Bengaluru and San Antonio, Texas, strengthening Hyniva's delivery capabilities and presence in key markets.",
+                description: "Founded in Chennai, India, as a technology consulting and software development company, later expanding operations to Bengaluru and San Antonio, Texas.",
                 image: "/images/About_Us/2007.png"
             },
             {
                 date: "2009",
                 title: "First SaaS Product Launch",
-                description: "Launched MediaFusion, a digital media platform that marked Hyniva’s entry into software product development and SaaS solutions.",
+                description: "Launched MediaFusion, a digital media platform that marked Hyniva's entry into SaaS product development.",
                 image: "/images/About_Us/2009-logo.png"
             },
             {
                 date: "2012",
                 title: "EazySchool Launch",
-                description: "Expanded into the education sector with EazySchool, a comprehensive school management platform that helped institutions digitize operations and improve stakeholder engagement.",
+                description: "Entered the education sector with EazySchool, helping schools streamline administration and digitize operations.",
                 image: "/images/About_Us/2012.png"
             },
             {
                 date: "2014",
                 title: "Digital Lending & Enterprise Transformation",
-                description: "Built digital lending frameworks, workflow automation solutions and enterprise integration capabilities that helped organizations modernize operations and accelerate digital transformation.",
+                description: "Expanded into digital lending, workflow automation and enterprise integration solutions to accelerate business transformation.",
                 image: "/images/About_Us/2014.png"
             },
             {
                 date: "2017",
                 title: "CreditSnap Launch",
-                description: "Introduced CreditSnap, an omni-channel lending platform that transformed borrower prequalification and loan origination experiences for financial institutions.",
+                description: "Launched CreditSnap, an omni-channel lending platform that modernized borrower prequalification and loan origination.",
                 image: "/images/About_Us/2017.png"
             },
             {
                 date: "2018",
                 title: "Salesforce, Cloud & Global Delivery Growth",
-                description: "Expanded Salesforce consulting, digital experience, cloud transformation, and distributed engineering capabilities to support enterprise clients at scale.",
+                description: "Expanded Salesforce, cloud transformation and global delivery capabilities to support enterprise-scale digital initiatives.",
                 image: "/images/About_Us/2018.png"
             },
             {
                 date: "2022",
                 title: "Hyper Portfolio Recommendation Engine",
-                description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation engine that helps investors better understand and optimize their financial strategies.",
+                description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation platform.",
                 image: "/images/About_Us/2022-logo.png"
             },
             {
                 date: "2023",
                 title: "Strategic Enterprise Breakthrough",
-                description: "Secured a major enterprise engagement with Victory Capital, winning a competitive RFP against TCS and Cognizant and reinforcing Hyniva's growing reputation for delivering complex digital transformation initiatives.",
+                description: "Won a major Victory Capital RFP against TCS and Cognizant, demonstrating Hyniva's growing enterprise delivery strength.",
                 image: "/images/About_Us/2023-logo.png"
             },
             {
                 date: "2024",
                 title: "FinXServe Launch & CreditSnap Acquisition",
-                description: "Launched FinXServe, a Salesforce-native digital banking experience platform for banks and credit unions. In the same year, CreditSnap was acquired by SavvyMoney, marking a significant product success and strategic exit.",
+                description: "Launched FinXServe, a Salesforce-native digital banking experience platform, while CreditSnap was acquired by SavvyMoney.",
                 image: "/images/About_Us/2024.png"
             },
             {
                 date: "2025",
                 title: "AIRA Debuts at Cypher AI Summit",
-                description: "Unveiled AIRA (Autonomous Intelligent Reasoning Agent) at the Cypher AI Summit, marking Hyniva’s expansion into enterprise AI solutions for regulated industries.",
+                description: "Unveiled AIRA at the Cypher AI Summit, marking Hyniva's expansion into enterprise AI solutions.",
                 image: "/images/About_Us/2025.png"
             },
             {
                 date: "2026",
                 title: "Claim Pioneer Launch & SOC 2 Achievement",
-                description: "Launched Claim Pioneer, an AI-powered claims management platform for insurance organizations, and achieved SOC 2 Type II compliance, reinforcing Hyniva’s commitment to secure, trusted and innovative enterprise solutions.",
+                description: "Launched Claim Pioneer and achieved SOC 2 Type II compliance, strengthening Hyniva's position as a trusted AI and technology partner.",
                 image: "/images/About_Us/2026-logo.png"
             }
         ]

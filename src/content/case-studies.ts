@@ -64,6 +64,13 @@ export const caseStudiesContent = {
             tags: ["Microsoft", "Enterprise Platforms", "Banking"],
         },
         {
+            title: "<span class='text-[#3B82F6]'>Intelligent School Administration</span> for Modern Institutions",
+            image: "/images/Case_Studies/Eazyschool_3.png",
+            description: "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
+            href: "/insights/case-studies/eazyschool-admin",
+            tags: ["Applied AI", "Education", "Product Engineering"],
+        },
+        {
             title: "Turning Enterprise Data into a <span class='text-[#3B82F6]'>Strategic Intelligence Engine</span>",
             image: "/images/Case_Studies/Optimized/cs-9.png",
             description: "Enabled real-time Customer 360 insights with a unified, automated data platform.",
@@ -90,13 +97,6 @@ export const caseStudiesContent = {
             description: "Streamlined case workflows for real-time visibility, better coordination and efficient service delivery.",
             href: "/insights/case-studies/modernizing-case-management-for-a-community-healthcare-provider-stop",
             tags: ["Microsoft", "Enterprise Platforms", "Others"],
-        },
-        {
-            title: "<span class='text-[#3B82F6]'>Intelligent School Administration</span> for Modern Institutions",
-            image: "/images/Case_Studies/Eazyschool_admin.png",
-            description: "Empowered school administrators with real-time visibility, automated workflows and complete control over daily operations.",
-            href: "/insights/case-studies/eazyschool-admin",
-            tags: ["Applied AI", "Education", "Product Engineering"],
         },
         {
             title: "<span class='text-[#3B82F6]'>Intelligent Service Operations</span> on Salesforce",

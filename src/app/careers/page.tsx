@@ -1009,6 +1009,42 @@ const jobOpenings: JobPosition[] = [
     region: "us",
     howToApply: "Updated Resume\nCurrent Location\nWork Authorization\nAvailability\nExpected Rate\nLinkedIn Profile",
   },
+  {
+    id: "business-analyst-banking",
+    requestId: "HYI2026003",
+    title: "Business Analyst (Banking Domain)",
+    location: "Bangalore, India (Work From Office)",
+    jobDuties: [
+      "Gather, analyze, and document business requirements",
+      "Create User Stories, Acceptance Criteria, BRDs, FRDs, and Use Cases",
+      "Work closely with business stakeholders and project teams",
+      "Conduct workshops and requirement elicitation sessions",
+      "Collaborate with US clients and stakeholders to understand business needs",
+      "Support Agile ceremonies and backlog management activities",
+      "Assist with UAT planning, execution, and issue resolution",
+      "Ensure requirements are accurately captured and communicated throughout the project lifecycle"
+    ],
+    qualifications: {
+      degree: "Not specified",
+      experience: "7+ Years",
+      immediateJoinee: true,
+    },
+    skillsRequired: [
+      "7+ years of Business Analysis experience",
+      "Strong Banking / Financial Services domain expertise",
+      "Hands-on experience in requirement gathering, analysis, and documentation",
+      "Expertise in User Stories, Acceptance Criteria, BRDs, FRDs, and Use Cases",
+      "Strong understanding of Agile/Scrum methodologies",
+      "Experience working directly with US clients and stakeholders",
+      "Proficiency with Jira, Confluence, and related collaboration tools",
+      "Excellent communication, analytical, and stakeholder management skills",
+      "Experience supporting workshops, requirement sessions, and UAT activities",
+      "Experience in digital banking or banking transformation programs (Nice to Have)",
+      "Exposure to regulatory and compliance-driven initiatives (Nice to Have)",
+      "Strong business process improvement and stakeholder engagement experience (Nice to Have)"
+    ],
+    region: "india",
+  },
 ];
 
 export default function CareersPage() {
