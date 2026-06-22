@@ -458,7 +458,7 @@ export const techPartnersContent = {
         {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#4B3BE3]",
+            color: "bg-[#032E60]",
             logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         },
         {
@@ -488,7 +488,7 @@ export const techPartnersContent = {
         {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#4B3BE3]",
+            color: "bg-[#032E60]",
             logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         }
     ],
