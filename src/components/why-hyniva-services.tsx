@@ -62,14 +62,23 @@ export function WhyHynivaServices() {
                             <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
                                 <div className="flex gap-6 sm:grid sm:grid-cols-2 lg:flex lg:gap-16 overflow-x-auto pb-2 sm:pb-0">
                                     {topBox.stats.map((stat, idx) => (
-                                        <div key={idx} className="flex flex-col flex-shrink-0">
-                                            <div className="flex items-baseline gap-1 mb-2">
-                                                <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
-                                                    {stat.value.replace('+', '')}
-                                                </span>
-                                                {stat.value.includes('+') && (
-                                                    <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
-                                                )}
+                                        <div key={idx} className="flex flex-col flex-shrink-0 w-full pr-4 sm:pr-12 lg:pr-24">
+                                            <div className="flex items-center justify-between w-full mb-2">
+                                                <div className="flex items-baseline gap-1">
+                                                    <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                                        {stat.value.replace('+', '')}
+                                                    </span>
+                                                    {stat.value.includes('+') && (
+                                                        <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                                    )}
+                                                </div>
+                                                {/* Avatars aligned with the number */}
+                                                <div className="flex -space-x-3 sm:-space-x-4">
+                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-10 relative shadow-sm" />
+                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-20 relative shadow-sm" />
+                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-30 relative shadow-sm" />
+                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-40 relative shadow-sm" />
+                                                </div>
                                             </div>
                                             <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
                                                 {stat.label}
