@@ -21,38 +21,37 @@ const DECOR_H = 182;
 
 /* Main Honeycomb Grid */
 const mainHexagons = [
-    { idx: 3, x: 0, y: DY * 3 },        // FRONTEND
+    { idx: 3, x: DX, y: DY * 4 },       // FRONTEND (Adobe moved to removed position)
     { idx: 4, x: DX, y: DY * 2 },       // BACKEND
-    { idx: 0, x: DX, y: DY * 4 },       // CRM & PLATFORMS
     { idx: 1, x: DX * 2, y: DY },       // CLOUD
-    { idx: 5, x: DX * 2, y: DY * 3 },   // QA & DEVOPS
+    { idx: 5, x: DX * 2, y: DY * 3 },   // QA & DEVOPS (Salesforce)
     { idx: 2, x: DX * 3, y: DY * 2 },   // AI & DATA
 ];
 
 /* Background Decorative Elements */
 const decorHexagons = [
-    { x: -DX * 1.15, y: DY * 3, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
+    { x: -DX * 0.8, y: DY * 4.2, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
     { x: 0, y: DY * 5, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-blue-100/40" },
-    { x: -DX, y: DY * 2, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
-    { x: 0, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
-    { x: DX, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
-    { x: DX * 3, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
-    { x: DX * 4, y: DY, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-slate-200/40" },
-    { x: DX * 4, y: DY * 3, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-[#1F35A4]/15" },
-    { x: DX * 3, y: DY * 4, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-slate-300/30" },
-    { x: DX * 2, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#1e90ff]/10" },
+    { x: -DX * 0.2, y: DY * 2.5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
+    { x: DX * 0.15, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
+    { x: DX * 1.15, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
+    { x: DX * 3.15, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
+    { x: DX * 4.15, y: DY, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-slate-200/40" },
+    { x: DX * 4.15, y: DY * 3, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-[#1F35A4]/15" },
+    { x: DX * 3.15, y: DY * 4, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-slate-300/30" },
+    { x: DX * 2.15, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#1e90ff]/10" },
 
     // Tiny Floating Decor
     { x: -DX * 1.2, y: DY * 5.5, w: DECOR_W * 0.35, h: DECOR_H * 0.35, color: "bg-slate-200/60" },
     { x: -DX * 0.5, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-300/50" },
-    { x: DX * 1.8, y: -DY * 1.2, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-sky-100/60" },
-    { x: DX * 4.2, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-200/60" },
-    { x: DX * 4.5, y: DY * 4.5, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-slate-300/40" },
+    { x: DX * 1.95, y: -DY * 1.2, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-sky-100/60" },
+    { x: DX * 4.35, y: -DY * 0.2, w: DECOR_W * 0.25, h: DECOR_H * 0.25, color: "bg-slate-200/60" },
+    { x: DX * 4.65, y: DY * 4.5, w: DECOR_W * 0.3, h: DECOR_H * 0.3, color: "bg-slate-300/40" },
 ];
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white py-[24px] sm:py-[50px] lg:py-[70px]">
+        <section className="relative overflow-hidden bg-white pt-[24px] sm:pt-[50px] lg:pt-[70px] pb-[8px] sm:pb-[15px] lg:pb-[20px]">
 
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
@@ -92,29 +91,7 @@ export function TechPartners() {
                                 {techPartnersContent.sub}
                             </p>
 
-                            {/* Partner Logos */}
-                            <div className="flex flex-row flex-nowrap items-center justify-between sm:flex-wrap sm:justify-start gap-1.5 xs:gap-3 sm:gap-x-10 sm:gap-y-7 opacity-95 w-full">
 
-                                {techPartnersContent.partners.map((partner, index) => {
-                                    const img = (
-                                        <div
-                                            key={index}
-                                            className="relative h-6 xs:h-8 sm:h-11 w-[16%] xs:w-[18%] sm:w-32 flex-shrink-0 flex items-center justify-center"
-                                        >
-                                            <Image
-                                                src={partner.src}
-                                                alt={partner.name}
-                                                fill
-                                                className="object-contain object-center sm:object-left"
-                                            />
-                                        </div>
-                                    );
-
-                                    return index === 2
-                                        ? [img, <div key="break" className="hidden sm:block basis-full h-0" />]
-                                        : img;
-                                })}
-                            </div>
 
                         </motion.div>
                     </div>
@@ -136,10 +113,13 @@ export function TechPartners() {
                                 max-w-[600px]
                                 sm:max-w-[760px]
                                 h-[290px]
-                                sm:h-[480px]
-                                md:h-[580px]
-                                lg:h-[680px]
+                                sm:h-[400px]
+                                md:h-[500px]
+                                lg:h-[560px]
+                                xl:h-[640px]
                                 overflow-visible
+                                lg:translate-x-10
+                                xl:translate-x-12
                             "
                         >
 
@@ -187,6 +167,7 @@ export function TechPartners() {
                                                     height: decor.h,
                                                     clipPath:
                                                         "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    zIndex: 1,
                                                 }}
                                             />
                                         );
@@ -194,55 +175,52 @@ export function TechPartners() {
 
                                     {/* Main Honeycomb */}
                                     {mainHexagons.map((pos) => {
-                                        const hex = techPartnersContent.hexagons[pos.idx];
+                                        const hex = techPartnersContent.hexagons[pos.idx] as {
+                                            title: string;
+                                            items: string[];
+                                            color: string;
+                                            logo?: string;
+                                        };
 
                                         return (
                                             <div
                                                 key={pos.idx}
-                                                className={`
-                                                    absolute
-                                                    flex
-                                                    flex-col
-                                                    items-center
-                                                    justify-center
-                                                    text-center
-                                                    px-4
-                                                    lg:px-6
-                                                    py-8
-                                                    ${hex.color}
-                                                    shadow-2xl
-                                                    transition-transform
-                                                    duration-300
-                                                    hover:scale-105
-                                                    hover:z-50
-                                                `}
+                                                className={`absolute flex flex-col items-center justify-center text-center ${hex.color} shadow-2xl transition-transform duration-300 hover:scale-105 hover:z-50`}
                                                 style={{
                                                     left: pos.x,
                                                     top: pos.y,
                                                     width: CONTENT_W,
                                                     height: CONTENT_H,
-                                                    clipPath:
-                                                        "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    zIndex: 10,
                                                 }}
                                             >
-
-                                                <div className="flex flex-col items-center justify-center w-full">
-
-                                                    <h4 className="text-[13px] sm:text-[14px] lg:text-[15px] font-black uppercase tracking-[0.08em] mb-1.5 lg:mb-2 text-white leading-tight">
-                                                        {hex.title}
-                                                    </h4>
-
-                                                    <ul className="flex flex-col gap-0.5 lg:gap-1 w-full text-center">
-                                                        {hex.items.map((item, itemIdx) => (
-                                                            <li
-                                                                key={itemIdx}
-                                                                className="text-[13px] sm:text-[14px] lg:text-[14.5px] font-medium text-white/95 leading-tight"
-                                                            >
-                                                                {item}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-
+                                                <div className="flex flex-col items-center justify-center w-full px-6">
+                                                    {hex.logo && (
+                                                        <div className="relative w-[85%] h-[70px]">
+                                                            <Image
+                                                                src={hex.logo}
+                                                                alt={hex.title}
+                                                                fill
+                                                                className="object-contain brightness-0 invert"
+                                                            />
+                                                            {hex.title === "Salesforce" && (
+                                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                                    <span 
+                                                                        className="font-bold text-[18px]" 
+                                                                        style={{ 
+                                                                            color: '#032d60',
+                                                                            fontFamily: 'Georgia, "Times New Roman", serif',
+                                                                            letterSpacing: '-0.02em',
+                                                                            marginTop: '1px'
+                                                                        }}
+                                                                    >
+                                                                        sales<span style={{ fontStyle: 'italic', fontFamily: 'Georgia, "Times New Roman", serif' }}>f</span>orce
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
                                         );

@@ -20,9 +20,9 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const dropdownItems: { label: string; items: { title: string; href: string; desc?: string }[] }[] = [
+    const dropdownItems: { label: string; href?: string; items: { title: string; href: string; desc?: string }[] }[] = [
         { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
-        { label: "Services", items: navContent.services.map(s => ({ title: s.title, href: s.href })) },
+        { label: "Services", href: "/services", items: navContent.services.map(s => ({ title: s.title, href: s.href })) },
         { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
         { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
         {
@@ -86,14 +86,28 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                             onMouseEnter={() => setOpenDropdown(group.label)}
                             onMouseLeave={() => setOpenDropdown(null)}
                         >
-                            <button className={cn(
-                                "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
-                                scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
-                                (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
-                            )}>
-                                {group.label}
-                                <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
-                            </button>
+                            {group.href ? (
+                                <Link
+                                    href={group.href}
+                                    className={cn(
+                                        "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
+                                        scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
+                                        (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
+                                    )}
+                                >
+                                    {group.label}
+                                    <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
+                                </Link>
+                            ) : (
+                                <button className={cn(
+                                    "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
+                                    scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
+                                    (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
+                                )}>
+                                    {group.label}
+                                    <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
+                                </button>
+                            )}
                             <AnimatePresence>
                                 {openDropdown === group.label && (
                                     <motion.div
@@ -182,7 +196,17 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         <div className="max-h-[70vh] overflow-y-auto divide-y divide-slate-100 px-6 py-3">
                             {dropdownItems.map((group) => (
                                 <div key={group.label} className="py-3">
-                                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
+                                    {group.href ? (
+                                        <Link
+                                            href={group.href}
+                                            className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block hover:text-[#2563EB]"
+                                            onClick={() => setMobileOpen(false)}
+                                        >
+                                            {group.label}
+                                        </Link>
+                                    ) : (
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
+                                    )}
                                     <div className="space-y-1">
                                         {group.items.map((item) => (
                                             <Link

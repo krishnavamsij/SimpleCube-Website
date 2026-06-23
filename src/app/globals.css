@@ -156,6 +156,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile marquee for certifications auto-scroll */
+@media (max-width: 639px) {
+  .marquee-mobile {
+    animation: marquee-scroll 20s linear infinite;
+    width: max-content;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* Hide scrollbar while keeping scroll functionality */
 .no-scrollbar {
   -ms-overflow-style: none;
@@ -1169,4 +1182,23 @@ html {
     opacity: 0.7;
     transform: translate(-50%, -50%) scale(1.1);
   }
+}
+
+/* ============================================================
+   Tech Card Animated Border Gradient
+   ============================================================ */
+@keyframes border-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-border-spin {
+  animation: border-spin 3s ease-in-out infinite;
 }

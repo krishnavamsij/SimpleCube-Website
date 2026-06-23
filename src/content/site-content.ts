@@ -382,6 +382,47 @@ export const whyHynivaContent = {
     ]
 };
 
+// ── Expertise Section (for Services/About pages) ─────────────────────────────
+export const expertiseContent = {
+    topBox: {
+        headline: "Expertise Behind Every Engagement",
+        highlightedWord: "Every Engagement",
+        stats: [
+            { value: "250+", label: "Certified\nProfessionals" }
+        ],
+        description: "Our experts continuously expand their capabilities across AI, cloud, data and enterprise platforms to solve today's challenges and prepare for tomorrow's opportunities.",
+        boldWords: [],
+        cta: { label: "About Us", href: "/about" },
+        imagePlaceholder: "/images/expertise/professionals.png"
+    },
+    bottomBox: [
+        {
+            icon: "Calendar",
+            title: "AI-Ready Talent",
+            description: "Exploring, adopting, and applying the latest advancements in generative AI, intelligent automation, and intelligent agents to solve complex business challenges.",
+            imagePlaceholder: "/images/expertise/ai-talent.png"
+        },
+        {
+            icon: "CircleArrowRight",
+            title: "Platform Specialists",
+            description: "Certified across Salesforce, AWS, Microsoft, and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
+            imagePlaceholder: "/images/expertise/platform-specialists.png"
+        },
+        {
+            icon: "Star",
+            title: "Industry Experience",
+            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
+            imagePlaceholder: "/images/expertise/industry-experience.png"
+        },
+        {
+            icon: "CalendarCheck",
+            title: "Continuous Learning Culture",
+            description: "Innovation thrives when learning never stops. We invest in certifications, emerging technologies, and experimentation to keep our teams ahead of what's next.",
+            imagePlaceholder: "/images/expertise/learning-culture.png"
+        }
+    ]
+};
+
 // ── Industries ───────────────────────────────────────────────────────────────
 export const industriesContent = {
     label: "Industries We Serve",
@@ -456,34 +497,40 @@ export const techPartnersContent = {
     ],
     hexagons: [
         {
-            title: "CRM & PLATFORMS",
+            title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
-            color: "bg-[#1F35A4]"
+            color: "bg-[#1F36A4]",
+            logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         },
         {
-            title: "CLOUD",
+            title: "AWS",
             items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"],
-            color: "bg-[#00A8FF]"
+            color: "bg-[#00A8FF]",
+            logo: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png"
         },
         {
-            title: "AI & DATA",
+            title: "Microsoft",
             items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"],
-            color: "bg-[#008f72]"
+            color: "bg-[#064834]",
+            logo: "/images/Partners_Logo/Microsoft_logo_(2012).svg.png"
         },
         {
-            title: "FRONTEND",
+            title: "Genesys",
             items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "UI/UX Design"],
-            color: "bg-[#0D9488]"
+            color: "bg-[#0D9488]",
+            logo: "/images/Partners_Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp"
         },
         {
-            title: "BACKEND",
+            title: "Adobe",
             items: ["ASP.Net / TypeScript", "Java / Node.js / Python / PHP", "Microservices", "REST / GraphQL APIs"],
-            color: "bg-[#1e1b4b]"
+            color: "bg-[#1e1b4b]",
+            logo: "/images/Partners_Logo/Adobe_Corporate_Logo.png"
         },
         {
-            title: "QA & DEVOPS",
-            items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Azure DevOps"],
-            color: "bg-[#0f172a]"
+            title: "Salesforce",
+            items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
+            color: "bg-[#1F36A4]",
+            logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
         }
     ],
 };

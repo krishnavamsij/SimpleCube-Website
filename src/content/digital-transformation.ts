@@ -86,7 +86,7 @@ export const digitalTransformationContent = {
             type: "Case Study",
             description: "Hyniva completed a full digital migration in 2 months using only the live site no backend access. Agile execution and SDET-led quality turned the impossible into enterprise-grade delivery.",
             image: "/images/2026/02/Zero-Access-Migration-.png",
-            link: "/insights/case-studies/a-race-against-time-that-others-refused-to-run",
+            link: "/insights/case-studies/aem-migration",
         },
         {
             title: "Empowering Credit Unions to Thrive in a Digital Era",
