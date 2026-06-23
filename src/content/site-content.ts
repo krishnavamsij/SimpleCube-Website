@@ -19,13 +19,15 @@ export const navContent = {
     ],
     services: [
         { title: "Digital Transformation", href: "/services/digital-transformation" },
+        { title: "Enterprise Platforms", href: "/services/enterprise-platforms" },
         { title: "Salesforce", href: "/services/salesforce" },
         { title: "Microsoft Services", href: "/services/microsoft-services" },
         { title: "AWS Cloud", href: "/services/aws-cloud-services" },
         { title: "Applied AI", href: "/services/applied-ai" },
         { title: "Data Intelligence", href: "/services/data-intelligence" },
         { title: "Product Development", href: "/services/product-development" },
-        { title: "IT Strategy", href: "/services/it-strategy" },
+        { title: "Product Engineering", href: "/services/product-engineering" },
+        { title: "Strategy Consulting", href: "/services/strategy-consulting" },
         { title: "Cloud Migration", href: "/services/cloud-migration" },
     ],
     insights: [
@@ -215,7 +217,7 @@ export const servicesContent = {
                 "From mobile apps to AI agents, we design, build, test and ship technology products that work in production, not just in demos.",
             tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
             image: "/images/Our_Services/Product_Engineering_no_BG.png",
-            href: "/services/product-development",
+            href: "/services/product-engineering",
         },
         {
             num: "04",
@@ -224,7 +226,7 @@ export const servicesContent = {
                 "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
             tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
             image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
-            href: "/services/it-strategy",
+            href: "/services/strategy-consulting",
         },
     ],
 };
@@ -605,8 +607,8 @@ export const footerContent = {
             links: [
                 { title: "Digital Transformation", href: "/services/digital-transformation" },
                 { title: "Enterprise Platforms", href: "/services/salesforce" },
-                { title: "Product Engineering", href: "/services/product-development" },
-                { title: "Strategy Consulting", href: "/services/it-strategy" },
+                { title: "Product Engineering", href: "/services/product-engineering" },
+                { title: "Strategy Consulting", href: "/services/strategy-consulting" },
             ],
         },
         {
