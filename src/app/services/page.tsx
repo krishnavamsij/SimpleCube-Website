@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SERVICES PAGE
  *
  * Hero banner (same dark-blue style as home/about) followed by
@@ -10,6 +10,7 @@
 "use client";
 
 import Link from "next/link";
+import { CertificationsDiagram } from "@/components/certifications-diagram";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -29,10 +30,10 @@ import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/an
 
 function ServicesHero() {
     return (
-        <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64">
-            {/* Background layers - matching landing page gradient with centered radial glow */}
+        <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64 bg-[#030b1e]">
+            {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -40,6 +41,7 @@ function ServicesHero() {
                         "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
                 }}
             />
+            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
@@ -251,15 +253,10 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[48%] relative"
+                        className="w-full lg:w-[48%] relative flex items-center justify-center"
                     >
-                        <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
-                            <Image
-                                src="/images/Certifications_Image/services_certify1.png"
-                                alt="Hyniva Security Certifications"
-                                fill
-                                style={{ objectFit: 'contain' }}
-                            />
+                        <div className="w-full">
+                            <CertificationsDiagram />
                         </div>
                     </motion.div>
 
@@ -386,22 +383,28 @@ function WorkThatSpeaks() {
 ----------------------------------------- */
 
 function TechPartnersSection() {
-    const [activeCategory, setActiveCategory] = useState(
-        techShowcaseData[0].category
-    );
+    const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [shuffledTechs, setShuffledTechs] = useState<any[]>([]);
 
     useEffect(() => {
         const mq = window.matchMedia("(max-width: 639px)");
         setIsMobile(mq.matches);
         const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
         mq.addEventListener("change", handler);
+
+        // Shuffle tech items client-side
+        const techs = techShowcaseData.flatMap((cat) =>
+            cat.technologies.map((tech) => ({ ...tech, category: cat.category }))
+        );
+        for (let i = techs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [techs[i], techs[j]] = [techs[j], techs[i]];
+        }
+        setShuffledTechs(techs);
+
         return () => mq.removeEventListener("change", handler);
     }, []);
-
-    const allTechs = techShowcaseData.flatMap((cat) =>
-        cat.technologies.map((tech) => ({ ...tech, category: cat.category }))
-    );
 
     const activeTechNames = new Set(
         techShowcaseData
@@ -410,7 +413,7 @@ function TechPartnersSection() {
     );
 
     return (
-        <section className="bg-[#ECF6FF] pt-6 pb-8 lg:pt-8 lg:pb-10">
+        <section className="bg-[#ECF6FF] pt-12 sm:pt-16 lg:pt-20 pb-8 lg:pb-10">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
                 {/* Header */}
@@ -428,15 +431,15 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-8 pb-2 w-full">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-3 sm:flex sm:flex-nowrap sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-8 pb-2 w-full">
                     {techShowcaseData.map((category) => (
                         <button
                             key={category.category}
                             onClick={() => setActiveCategory(category.category)}
-                            className={`px-2 sm:px-7 py-3 rounded-xl text-[11px] sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
+                            className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-[10px] sm:text-xs font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
                                 activeCategory === category.category
-                                    ? "bg-[#2563EB] text-white border-[#2563EB] shadow-lg"
-                                    : "bg-white text-slate-800 border-slate-200 hover:border-blue-300 hover:text-blue-600"
+                                    ? "bg-[#2563EB] text-white border-[#2563EB] shadow-md"
+                                    : "bg-white text-slate-800 border-slate-200 hover:border-[#2563EB] hover:text-[#2563EB]"
                             }`}
                         >
                             {category.category}
@@ -446,36 +449,43 @@ function TechPartnersSection() {
 
                 {/* Logos — mobile: only active, desktop: all */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-6xl mx-auto">
-                    {allTechs
-                        .filter((tech) => !isMobile || activeTechNames.has(tech.name))
+                    {shuffledTechs
+                        .filter((tech) => !isMobile || activeCategory === null || activeTechNames.has(tech.name))
                         .map((tech) => {
-                            const isActive = activeTechNames.has(tech.name);
+                            const isCategorySelected = activeCategory !== null;
+                            const isHighlighted = isCategorySelected && activeTechNames.has(tech.name);
+                            
+                            let containerClass = "p-3";
+                            if (isCategorySelected) {
+                                if (isHighlighted) {
+                                    containerClass = "bg-white/40 rounded-xl px-2 py-3 border border-blue-300";
+                                } else {
+                                    containerClass = "p-3";
+                                }
+                            }
+
                             return (
                             <a
                                 key={`${tech.category}-${tech.name}`}
                                 href={tech.page}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`group relative flex flex-col items-center justify-center transition-all duration-300 ${
-                                    isActive
-                                        ? "bg-white rounded-2xl px-2 py-3 border border-[#2563EB]/30 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#2563EB]/50 hover:scale-105"
-                                        : "p-3"
-                                }`}
+                                className={`group relative flex flex-col items-center justify-center transition-all duration-300 ${containerClass}`}
                             >
-                                <div className={`relative w-[40px] h-[40px] transition-transform duration-300 ${
-                                    isActive ? "group-hover:scale-125" : ""
-                                }`}>
+                                <div 
+                                    className="relative w-[60px] h-[40px] transition-transform duration-300 group-hover:scale-110"
+                                    style={{ mixBlendMode: "multiply", ...(tech.filter ? { filter: tech.filter } : {}) }}
+                                >
                                     <Image
                                         src={tech.logo}
                                         alt={tech.name}
                                         fill
                                         unoptimized={tech.format === "SVG"}
                                         className="object-contain outline-none"
-                                        style={tech.filter ? { filter: tech.filter } : tech.format === "PNG" ? { mixBlendMode: "multiply" } : undefined}
                                     />
                                 </div>
-                                <span className={`mt-1.5 text-[11px] font-medium text-center transition-colors ${
-                                    isActive ? "text-[#2563EB] font-bold" : "text-slate-500"
+                                <span className={`mt-2 text-[11px] font-medium text-center transition-transform duration-300 group-hover:scale-105 ${
+                                    isHighlighted ? "text-[#2563EB] font-bold" : "text-slate-500"
                                 }`}>
                                     {tech.name}
                                 </span>

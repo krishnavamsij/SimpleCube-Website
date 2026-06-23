@@ -14,7 +14,7 @@ export function Services() {
     const services = servicesContent.services;
 
     return (
-        <section className="bg-[#f8fafc] py-[30px] sm:py-[40px] lg:py-[50px] text-slate-900">
+        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] text-slate-900">
             <div className="mx-auto max-w-[1400px] px-6">
 
                 {/* ── Section Header ── */}
