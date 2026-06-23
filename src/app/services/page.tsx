@@ -18,7 +18,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
 import { TechPartners } from "@/components/tech-partners";
-import { WhyHyniva } from "@/components/why-hyniva";
+import { WhyHynivaServices } from "@/components/why-hyniva-services";
 import { servicesListingContent } from "@/content/services-listing";
 import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
@@ -29,9 +29,17 @@ import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/an
 
 function ServicesHero() {
     return (
-        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen">
-            {/* Background layers - no image, just gradient like banking */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/80 to-[#02040a]/92" />
+        <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64">
+            {/* Background layers - matching landing page gradient with centered radial glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div
+                className="absolute inset-0 opacity-[0.025]"
+                style={{
+                    backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                }}
+            />
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
@@ -39,11 +47,11 @@ function ServicesHero() {
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-10 md:space-y-12"
+                    className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10"
                 >
                     {/* Eyebrow Badge */}
                     <motion.div variants={fadeInUp} className="flex justify-center">
-                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
+                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             SERVICES
                         </span>
@@ -59,12 +67,12 @@ function ServicesHero() {
                     {/* Subtitle */}
                     <motion.p
                         variants={fadeInUp}
-                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
-                        dangerouslySetInnerHTML={{ __html: "Technology decisions today shape how organizations compete tomorrow. We help organizations <br />modernize operations, accelerate innovation, and create experiences that drive sustainable growth." }}
+                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-6xl mx-auto text-center"
+                        dangerouslySetInnerHTML={{ __html: "Technology decisions today shape how organizations compete tomorrow. We help organizations modernize operations, accelerate innovation, and create experiences that drive sustainable growth." }}
                     />
 
                     {/* CTA Button */}
-                    <motion.div variants={fadeInUp} className="mt-4">
+                    <motion.div variants={fadeInUp}>
                         <Link
                             href="/contact"
                             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] px-8 py-4 text-sm font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 hover:scale-[1.03]"
@@ -449,13 +457,15 @@ function TechPartnersSection() {
                                 href={tech.page}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`group relative flex flex-col items-center bg-white rounded-2xl p-3 border border-[#030B3B]/10 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#2563EB]/30 ${
+                                className={`group relative flex flex-col items-center justify-center transition-all duration-300 ${
                                     isActive
-                                        ? "scale-105 border-[#2563EB]/30"
-                                        : ""
+                                        ? "bg-white rounded-2xl px-2 py-3 border border-[#2563EB]/30 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#2563EB]/50 hover:scale-105"
+                                        : "p-3"
                                 }`}
                             >
-                                <div className="relative w-[32px] h-[32px] transition-transform duration-300 group-hover:scale-125">
+                                <div className={`relative w-[40px] h-[40px] transition-transform duration-300 ${
+                                    isActive ? "group-hover:scale-125" : ""
+                                }`}>
                                     <Image
                                         src={tech.logo}
                                         alt={tech.name}
@@ -465,8 +475,8 @@ function TechPartnersSection() {
                                         style={tech.filter ? { filter: tech.filter } : undefined}
                                     />
                                 </div>
-                                <span className={`mt-2 text-[11px] font-medium text-center transition-colors ${
-                                    isActive ? "text-[#2563EB] font-bold" : "text-slate-500 group-hover:text-[#2563EB]"
+                                <span className={`mt-1.5 text-[11px] font-medium text-center transition-colors ${
+                                    isActive ? "text-[#2563EB] font-bold" : "text-slate-500"
                                 }`}>
                                     {tech.name}
                                 </span>
@@ -707,8 +717,8 @@ export default function ServicesPage() {
                 <TechPartnersSection />
                 <DataSecuritySection />
                 <WhyHyniva />
-                <WorkThatSpeaks />
                 <CertificationsScroll />
+                <WorkThatSpeaks />
             </main>
             <Footer />
         </>
