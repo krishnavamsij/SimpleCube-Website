@@ -382,6 +382,47 @@ export const whyHynivaContent = {
     ]
 };
 
+// ── Expertise Section (for Services/About pages) ─────────────────────────────
+export const expertiseContent = {
+    topBox: {
+        headline: "Expertise Behind Every Engagement",
+        highlightedWord: "Every Engagement",
+        stats: [
+            { value: "250+", label: "Certified\nProfessionals" }
+        ],
+        description: "Our experts continuously expand their capabilities across AI, cloud, data and enterprise platforms to solve today's challenges and prepare for tomorrow's opportunities.",
+        boldWords: [],
+        cta: { label: "About Us", href: "/about" },
+        imagePlaceholder: "/images/expertise/professionals.png"
+    },
+    bottomBox: [
+        {
+            icon: "Calendar",
+            title: "AI-Ready Talent",
+            description: "Exploring, adopting, and applying the latest advancements in generative AI, intelligent automation, and intelligent agents to solve complex business challenges.",
+            imagePlaceholder: "/images/expertise/ai-talent.png"
+        },
+        {
+            icon: "CircleArrowRight",
+            title: "Platform Specialists",
+            description: "Certified across Salesforce, AWS, Microsoft, and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
+            imagePlaceholder: "/images/expertise/platform-specialists.png"
+        },
+        {
+            icon: "Star",
+            title: "Industry Experience",
+            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
+            imagePlaceholder: "/images/expertise/industry-experience.png"
+        },
+        {
+            icon: "CalendarCheck",
+            title: "Continuous Learning Culture",
+            description: "Innovation thrives when learning never stops. We invest in certifications, emerging technologies, and experimentation to keep our teams ahead of what's next.",
+            imagePlaceholder: "/images/expertise/learning-culture.png"
+        }
+    ]
+};
+
 // ── Industries ───────────────────────────────────────────────────────────────
 export const industriesContent = {
     label: "Industries We Serve",

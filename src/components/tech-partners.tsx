@@ -51,7 +51,7 @@ const decorHexagons = [
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white py-[24px] sm:py-[50px] lg:py-[70px]">
+        <section className="relative overflow-hidden bg-white pt-[24px] sm:pt-[50px] lg:pt-[70px] pb-[16px] sm:pb-[30px] lg:pb-[40px]">
 
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
@@ -113,9 +113,10 @@ export function TechPartners() {
                                 max-w-[600px]
                                 sm:max-w-[760px]
                                 h-[290px]
-                                sm:h-[480px]
-                                md:h-[580px]
-                                lg:h-[680px]
+                                sm:h-[400px]
+                                md:h-[500px]
+                                lg:h-[560px]
+                                xl:h-[640px]
                                 overflow-visible
                                 lg:translate-x-10
                                 xl:translate-x-12

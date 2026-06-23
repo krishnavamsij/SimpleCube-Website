@@ -411,11 +411,11 @@ function TechPartnersSection() {
     );
 
     return (
-        <section className="bg-[#ECF6FF] pt-6 pb-16 lg:pt-8 lg:pb-20">
+        <section className="bg-[#ECF6FF] pt-6 pb-8 lg:pt-8 lg:pb-10">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
                 {/* Header */}
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-12 mb-12">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">
                     <div className="shrink-0 md:w-[25%]">
                         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
                             Our <span className="text-[#2563EB]">Tech Stack</span>
@@ -429,7 +429,7 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-14 pb-2 w-full">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-2 sm:flex sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-8 pb-2 w-full">
                     {techShowcaseData.map((category) => (
                         <button
                             key={category.category}
@@ -446,7 +446,7 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Logos — mobile: only active, desktop: all */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-y-4 gap-x-3 max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-6xl mx-auto">
                     {allTechs
                         .filter((tech) => !isMobile || activeTechNames.has(tech.name))
                         .map((tech) => {
@@ -716,7 +716,7 @@ export default function ServicesPage() {
                 <TechPartners />
                 <TechPartnersSection />
                 <DataSecuritySection />
-                <WhyHyniva />
+                <WhyHynivaServices />
                 <CertificationsScroll />
                 <WorkThatSpeaks />
             </main>
