@@ -141,32 +141,27 @@ export const challengesContent = {
         {
             icon: "Construction",
             title: "Slow Kickoffs",
-            description:
-                "Start development faster with pre-configured environments eliminating lengthy setup and getting teams building in days.",
+            description: "Lengthy setup and integration dependencies delay project starts.\nOur pre-configured accelerators help teams start building in days.",
         },
         {
             icon: "Clock",
             title: "Missed Milestones",
-            description:
-                "Stay on schedule with AI-accelerated workflows shortening development cycles and keeping releases on track.",
+            description: "Competing priorities and complex systems derail delivery timelines. Our\nAI-powered workflows accelerate execution and keep releases on track.",
         },
         {
             icon: "DollarSign",
             title: "Rising Engineering Costs",
-            description:
-                "Reduce operational costs with expert teams and efficient delivery models outperforming in-house builds.",
+            description: "Growing technology stacks increase development overhead. Our efficient delivery models improve productivity while\nreducing costs.",
         },
         {
             icon: "Scale",
             title: "Growing Technical Debt",
-            description:
-                "Standardize development with proven frameworks reducing fragmented codebases and inconsistent practices.",
+            description: "Legacy systems and fragmented codebases slow innovation. Our standardized frameworks reduce complexity and maintenance effort.",
         },
         {
             icon: "Brain",
             title: "Untapped AI Potential",
-            description:
-                "Unlock the value of your data with AI platforms turning insights into automated business outcomes.",
+            description: "Fragmented data and disconnected systems\nlimit AI adoption. Our enterprise-ready AI\nturns insights into\nbusiness outcomes.",
         },
     ],
 };
@@ -175,7 +170,7 @@ export const challengesContent = {
 export const approachContent = {
     label: "The Hyniva Approach",
     headline: "Digital Factory Model",
-    sub: "The developer owns the full lifecycle — from story definition to production support, reducing overhead and increasing accountability at every stage.",
+    sub: "The developer owns the full lifecycle enabling Zero Handoff Friction, reducing overhead\u00A0and\u00A0increasing accountability at every stage.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
         { value: 30, suffix: "%", label: "Faster POC & Prototype Stages" },
@@ -243,11 +238,11 @@ export const productsContent = {
     logos: [
         { industry: "LENDING", name: "iLENDX", src: "/images/Product_Logos/Compressed/iLendX.png", acquiredBy: "Fiserv", acquiredByUrl: "https://www.fiserv.com/" },
         { industry: "FINANCIAL INSTITUTION", name: "CreditSnap", src: "/images/Product_Logos/Compressed/Credit_Snap.png", acquiredBy: "SavvyMoney", acquiredByUrl: "https://www.savvymoney.com/" },
-        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product_Logos/Compressed/EazySchool.png" },
-        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product_Logos/Compressed/Hyper.png" },
         { industry: "FINANCIAL INSTITUTION", name: "FinXServe", src: "/images/Product_Logos/Compressed/FinXServe.png" },
         { industry: "INSURANCE", name: "Claim Pioneer", src: "/images/Product_Logos/PNG/ClaimPioneerWhiteNew.png" },
         { industry: "FINANCIAL INSTITUTION", name: "AIRA", src: "/images/Product_Logos/Compressed/AIRA.png" },
+        { industry: "WEALTH MANAGEMENT", name: "Hyper", src: "/images/Product_Logos/Compressed/Hyper.png" },
+        { industry: "EDUCATION", name: "EazySchool", src: "/images/Product_Logos/Compressed/EazySchool.png" },
     ],
     products: [
         {
@@ -295,49 +290,49 @@ export const caseStudiesContent = {
     studies: [
         {
             title: "*Autonomous Lending Experience*\nwith FinXServe & Agentforce",
-            description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+            description: "Built an AI-driven lending journey that automates document processing, decisioning and\u00A0approvals.",
             image: "/images/Case_Study/1.png",
             href: "/insights/case-studies/autonomous-lending-experiences",
         },
         {
             title: "Modernizing Contact Centers\nwith *Intelligent IVR Self-Service*",
-            description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
+            description: "Transformed legacy IVR into a Smart Customer Engagement Interaction\u00A0System.",
             image: "/images/Case_Study/2.png",
             href: "/insights/case-studies/intelligent-ivr-self-service",
         },
         {
             title: "*Autonomous Freight Operations*\nwith GenAI",
-            description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
+            description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven\u00A0automation.",
             image: "/images/Case_Study/3.png",
             href: "/insights/case-studies/autonomous-freight-operations",
         },
         {
             title: "*Faster Loan Processing with*\nAgentforce Document Intelligence",
-            description: "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
+            description: "Built an AI-powered lending concierge that accelerates loan processing and\u00A0approvals.",
             image: "/images/Case_Study/4.png",
             href: "/insights/case-studies/instant-loan-processing",
         },
         {
             title: "*Enterprise CRM Modernization*\non Microsoft Cloud",
-            description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero downtime.",
+            description: "Transformed a legacy CRM into a cloud-native Microsoft ecosystem with zero\u00A0downtime.",
             image: "/images/Case_Study/5.png",
             href: "/insights/case-studies/microsoft-crm-modernization",
         },
         {
             title: "Rapid Reverse-Engineered\n*Website Migration*",
-            description: "Delivered a full website migration in 2 months with zero downtime—without backend access.",
+            description: "Delivered a full website migration in 2 months with zero downtime—without backend\u00A0access.",
             image: "/images/Case_Study/6.png",
             href: "/insights/case-studies/aem-migration",
         },
         {
             title: "*AWS-Powered Document*\nPlatform Transformation",
-            description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
+            description: "Saved $500K annually and improved performance by 5× with serverless AWS\u00A0modernization.",
             image: "/images/Case_Study/7.png",
             href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",
         },
         {
             title: "*Core Banking Transformation*\non Microsoft",
-            description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led modernization.",
+            description: "Accelerated loan approvals by 50% and reduced operational costs by 30% with Microsoft-led\u00A0modernization.",
             image: "/images/Case_Study/8.png",
             href: "/insights/case-studies/core-banking-transformation",
         },
@@ -352,10 +347,10 @@ export const whyHynivaContent = {
         stats: [
             { value: "220+", label: "Applications\nDelivered" },
             { value: "45+", label: "Enterprise\nClients" },
-            { value: "100+", label: "Certified\nExperts" }
+            { value: "250+", label: "Certified\nExperts" }
         ],
-        description: "When you work with Hyniva, you get a team that already knows your industry, owns the full lifecycle and measures success by what goes live, not by what gets proposed.",
-        boldWords: ["already knows your industry", "measures success by what goes live"],
+        description: "When you work with Hyniva, you get a team that understands your industry and stays accountable from strategy to delivery.",
+        boldWords: ["understands your industry", "stays accountable"],
         cta: { label: "Know More →", href: "/about" }
     },
     bottomBox: [
@@ -367,7 +362,7 @@ export const whyHynivaContent = {
         {
             icon: "Globe2",
             title: "Industry Depth",
-            description: "15+ years inside regulated\nindustries. We spend less\ntime learning and more time\nbuilding."
+            description: "15+ years inside regulated\nindustries. We spend less\ntime learning and more\ntime building."
         },
         {
             icon: "Zap",
@@ -377,7 +372,7 @@ export const whyHynivaContent = {
         {
             icon: "Activity",
             title: "Built for Outcomes",
-            description: "A product builder's mindset and an implementer's discipline in every engagement."
+            description: "Combining industry expertise, product thinking, and execution discipline in every engagement."
         }
     ]
 };
@@ -543,22 +538,24 @@ export const vocContent = {
     testimonials: [
         {
             industry: "Lending & Fintech",
-            quote: "Hyniva demonstrated a clear understanding of our goals and helped us transform a manual, fragmented prequalification process into an intuitive, algorithm-driven experience. The resulting loan application process is not only faster but built on a scalable, cost-efficient stack that positions us perfectly for future growth.",
+            quote: "Hyniva demonstrated a clear understanding of our goals and helped us transform a manual, fragmented prequalification process into an intuitive, algorithm-driven experience. The resulting loan application process is not only faster but built on\u00A0a\u00A0scalable, cost-efficient stack that positions us perfectly for\u00A0future\u00A0growth.",
             author: "Gustavo Lasala",
             designation: "President and CEO",
             company: "PeopleFund",
             image: "/images/voc/gustavo_transparent.png",
             logo: "/logos/Additional/People_fund.png",
+            result: "Built an intelligent lending platform that reduced loan prequalification from <span class='text-[#1e90ff] font-semibold'>days to minutes.</span>",
             caseStudyHref: "/insights/case-studies/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
         },
         {
             industry: "Transportation & Logistics",
-            quote: "We’ve partnered with Hyniva for the past three years. Their expertise in software management and development has significantly enhanced our operations, allowing us to focus on our core business. The team's dedication to maintaining and improving our systems has made a remarkable impact on our growth and efficiency.",
+            quote: "We’ve partnered with Hyniva for the past three years. Their expertise in software management and development has significantly enhanced our operations, allowing us to focus on\u00A0our\u00A0core business. The team's dedication to maintaining and improving our systems has made a remarkable impact on our growth and efficiency.",
             author: "Jose Zamora",
             designation: "Founder and CEO",
             company: "Always Track",
             image: "/images/voc/jose_zamora.png",
             logo: "/logos/Additional/Always_Track.png",
+            result: "Reduced manual freight paperwork through Intelligent Document Processing with <span class='text-[#1e90ff] font-semibold'>99.69% accuracy.</span>",
             caseStudyHref: "/insights/case-studies/autonomous-freight-operations",
         },
     ]
@@ -638,3 +635,47 @@ export const footerContent = {
     linkedin: "https://www.linkedin.com/company/hyniva/",
     email: "connect@hyniva.com",
 };
+
+// ── FAQ ──────────────────────────────────────────────────────────────────────
+export const faqContent = [
+    {
+        question: "What is Hyniva?",
+        answer: "Hyniva is a technology consulting and product engineering company that helps organizations transform through artificial intelligence, enterprise platforms, cloud technologies and modern software engineering. Founded in 2007, Hyniva combines over two decades of industry expertise with a proven product engineering heritage, helping organizations accelerate innovation, modernize operations and achieve measurable business outcomes."
+    },
+    {
+        question: "Why do organizations choose Hyniva as a technology partner?",
+        answer: "Organizations choose Hyniva because it combines the agility of a product company with the expertise of a technology consulting partner. Backed by more than 20 years of industry experience, Hyniva has delivered transformation programs across banking, credit unions, insurance, wealth management, logistics and education while helping clients accelerate delivery, reduce complexity and unlock greater value from their technology investments."
+    },
+    {
+        question: "How can enterprises accelerate digital transformation initiatives?",
+        answer: "Successful digital transformation requires modernizing legacy systems, improving data accessibility, automating business processes and creating connected customer experiences. Hyniva helps organizations accelerate transformation through AI-powered solutions, cloud modernization, enterprise platforms and product engineering services that move initiatives from strategy to execution faster and with lower risk."
+    },
+    {
+        question: "How can organizations move from AI experimentation to business value?",
+        answer: "Many organizations successfully pilot AI initiatives but struggle to scale them across the enterprise. Creating business value from AI requires strong data foundations, system integration, governance and clearly defined outcomes. Hyniva helps organizations operationalize AI through AIRA, its Agentic AI platform, along with intelligent automation, document intelligence, workflow orchestration and enterprise integrations that embed AI directly into business operations."
+    },
+    {
+        question: "How can businesses modernize legacy systems without disrupting operations?",
+        answer: "Legacy modernization is most effective when approached as a phased transformation rather than a complete replacement. Organizations can reduce risk through cloud migration, application modernization, API-led integration and process automation strategies. Hyniva helps businesses modernize technology environments while maintaining operational continuity through proven delivery frameworks, modernization accelerators and enterprise integration expertise."
+    },
+    {
+        question: "How can enterprises accelerate software delivery?",
+        answer: "Accelerating software delivery requires more than adding developers. Hyniva's Digital Factory model combines AI-assisted development, reusable accelerators, automation and cross-functional teams that own the entire software lifecycle. This approach reduces handoffs, improves accountability and helps organizations deliver solutions significantly faster while maintaining quality, governance and scalability."
+    },
+    {
+        question: "How can AI improve operational efficiency and customer experiences?",
+        answer: "Artificial intelligence helps organizations automate repetitive tasks, improve decision-making, streamline workflows and deliver more personalized customer experiences. Hyniva helps enterprises apply AI through intelligent agents, document intelligence, conversational AI, predictive analytics and workflow automation solutions that improve productivity while enhancing customer engagement."
+    },
+    {
+        question: "What makes a digital transformation initiative successful?",
+        answer: "Successful digital transformation initiatives align technology investments with business objectives, customer needs and operational priorities. Organizations that combine modern platforms, process automation, data-driven decision-making and change management are better positioned to achieve sustainable outcomes. Hyniva leverages over 20 years of industry expertise and proven delivery methodologies to help clients execute transformation programs that deliver measurable business value."
+    },
+    {
+        question: "How can organizations build and launch digital products faster?",
+        answer: "Organizations can accelerate product delivery by combining domain expertise, modern engineering practices, reusable accelerators and cross-functional product teams. Hyniva brings a product engineering mindset shaped by building seven enterprise software products, including CreditSnap and iLendX, which were successfully acquired by SavvyMoney and Fiserv. This experience enables Hyniva to help organizations move from concept to market faster, reduce delivery risk and build scalable digital products that deliver long-term business value."
+    },
+    {
+        question: "How can enterprises adopt AI responsibly and at scale?",
+        answer: "Responsible AI adoption requires governance, transparency, security, compliance and continuous monitoring. Organizations must ensure AI solutions align with business objectives while protecting customer data and maintaining trust. Hyniva helps enterprises implement scalable AI frameworks, governance models, and enterprise-grade AI solutions that balance innovation with compliance, enabling organizations to deploy AI confidently across the business."
+    }
+];

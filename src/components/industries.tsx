@@ -23,7 +23,7 @@ const INDUSTRIES_DATA = [
     },
     {
         title: "Insurance",
-        description: "Transforming claims operations and policy administration with automation, AI assignment and real-time visibility across the full claims lifecycle.",
+        description: "Transforming operations and policy administration with automation, AI assignment and real-time visibility across end-to-end claims lifecycle.",
         image: "/images/Industries_Section/Insurance.png",
         bgColor: "#EAF6FE",
         href: "/industries/insurance"
@@ -37,7 +37,7 @@ const INDUSTRIES_DATA = [
     },
     {
         title: "Education",
-        description: "Enabling institutions to streamline administration, improve student outcomes and scale operations through purpose-built technology.",
+        description: "Enabling connected ecosystems that simplify admin operations, strengthen parent-teacher communication and support better learning outcomes.",
         image: "/images/Industries_Section/Education.png",
         bgColor: "#EAF8FF",
         href: "/industries/education"

@@ -72,7 +72,9 @@ export function Challenges() {
                                 <h3 className="text-base sm:text-sm font-bold text-slate-800 leading-snug">{challenge.title}</h3>
 
                                 {/* Description */}
-                                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-slate-500">
+                                {/* @ts-ignore */}
+                                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-slate-500 whitespace-pre-line">
+                                    {/* @ts-ignore */}
                                     {challenge.description}
                                 </p>
                             </motion.div>

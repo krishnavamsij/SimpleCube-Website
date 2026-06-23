@@ -17,7 +17,7 @@ export function TrustBar() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="border-y border-slate-200 bg-white py-[30px] sm:py-[40px] lg:py-[50px]"
+            className="border-t border-slate-200 bg-white py-[30px] sm:py-[40px] lg:py-[50px]"
         >
             <div className="mx-auto max-w-[1400px] px-6">
                 <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">

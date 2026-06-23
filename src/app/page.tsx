@@ -10,6 +10,7 @@ import { WhyHyniva } from "@/components/why-hyniva";
 import { Industries } from "@/components/industries";
 import { TechPartners } from "@/components/tech-partners";
 import { VoiceOfCustomer } from "@/components/voice-of-customer";
+import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -19,16 +20,15 @@ export default function Home() {
       <main>
         <HeroCarousel />
         <TrustBar />
+        <VoiceOfCustomer />
+        <WhyHyniva />
         <Challenges />
         <Approach />
-        <Services />
-        <ProductsShowcase />
-        <Industries />
         <CaseStudies />
-        <WhyHyniva />
-        <TechPartners />
-        <VoiceOfCustomer />
+        <Industries />
+        <ProductsShowcase />
       </main>
+      <Faq />
       <Footer />
     </>
   );

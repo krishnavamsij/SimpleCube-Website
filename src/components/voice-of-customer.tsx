@@ -31,7 +31,7 @@ export function VoiceOfCustomer() {
     const active = testimonials[current];
 
     return (
-        <section className="bg-[#ECF6FF] py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden min-h-[750px] flex flex-col justify-center">
+        <section className="bg-white pt-[10px] pb-[30px] sm:pt-[20px] sm:pb-[40px] lg:pt-[20px] lg:pb-[50px] relative overflow-hidden min-h-[750px] flex flex-col justify-center">
             
             {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -94,10 +94,10 @@ export function VoiceOfCustomer() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.5, ease: EASE_OUT_QUART }}
-                            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start"
+                            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
                         >
                             {/* Left Side: Industry & Quote (Strictly Left Aligned to Logo Margin) */}
-                            <div className="flex flex-col items-start space-y-10 pt-4">
+                            <div className="flex flex-col items-start space-y-10 pt-4 lg:col-span-7">
                                 <div className="inline-flex items-center gap-2.5 rounded-full bg-[#1e90ff]/5 border border-[#1e90ff]/20 px-6 py-3 text-xs font-semibold text-[#1e90ff] tracking-wide">
                                     {getTagIcon(active.industry)}
                                     {active.industry}
@@ -109,19 +109,25 @@ export function VoiceOfCustomer() {
                                     </p>
                                 </div>
 
-                                <div className="pt-2">
-                                    <a 
-                                        href={active.caseStudyHref}
-                                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] group uppercase tracking-wide"
-                                    >
-                                        View Case Study
-                                        <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </a>
+                                <div className="pt-2 w-full">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-[#1e90ff]/5 border border-[#1e90ff]/20 w-full">
+                                        <p 
+                                            className="text-sm sm:text-base text-[#030B3B] font-medium leading-relaxed flex-1"
+                                            dangerouslySetInnerHTML={{ __html: active.result as string }}
+                                        />
+                                        <a 
+                                            href={active.caseStudyHref}
+                                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-xs shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-[#3B82F6]/30 transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] group uppercase tracking-wide shrink-0 whitespace-nowrap"
+                                        >
+                                            View Case Study
+                                            <MoveRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Right Side: Profile & Branding (Strictly Right Aligned to Contact Us Margin) */}
-                            <div className="relative flex flex-col items-center lg:items-end w-full pt-4">
+                            <div className="relative flex flex-col items-center lg:items-end w-full lg:-mt-12 lg:col-span-5">
                                 {/* Wrapper to ensure image and text align perfectly to each other's center and prevent horizontal scrollbar */}
                                 <div className="flex flex-col items-center lg:mr-12">
                                     <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">

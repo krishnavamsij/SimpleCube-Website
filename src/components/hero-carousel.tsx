@@ -72,7 +72,7 @@ export function HeroCarousel() {
                                 variants={fadeInUp}
                                 className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl font-medium max-w-xl lg:mt-12"
                             >
-                                We combine deep industry knowledge, proven engineering models and the platforms your business already runs on. So you get outcomes, not overhead.
+                                Powered by 20+ years of experience across multiple industries, we focus on delivering business outcomes without adding complexity or overhead.
                             </motion.p>
 
                             {/* Hero Metrics Row */}
