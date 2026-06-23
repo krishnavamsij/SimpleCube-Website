@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SERVICES PAGE
  *
  * Hero banner (same dark-blue style as home/about) followed by
@@ -297,12 +297,11 @@ function WorkThatSpeaks() {
                     className="mb-12"
                 >
                     <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Work that speaks
+                        Enterprise Impact
                     </h2>
 
                     <div className="flex items-center gap-2 mt-4">
-                        <span className="text-[28px] sm:text-[36px] font-black leading-none tracking-tight text-[#2563EB]">220+</span>
-                        <span className="text-sm sm:text-base font-semibold text-[#2563EB] uppercase tracking-widest">Enterprise applications delivered</span>
+                        <span className="text-sm sm:text-base font-semibold text-[#2563EB] uppercase tracking-widest">Delivered by our Experts</span>
                     </div>
                 </motion.div>
 
@@ -472,7 +471,7 @@ function TechPartnersSection() {
                                         fill
                                         unoptimized={tech.format === "SVG"}
                                         className="object-contain outline-none"
-                                        style={tech.filter ? { filter: tech.filter } : undefined}
+                                        style={tech.filter ? { filter: tech.filter } : tech.format === "PNG" ? { mixBlendMode: "multiply" } : undefined}
                                     />
                                 </div>
                                 <span className={`mt-1.5 text-[11px] font-medium text-center transition-colors ${
@@ -567,11 +566,11 @@ const techShowcaseData: TechCategory[] = [
     {
         category: "AI / ML",
         technologies: [
-            { name: "Generative AI",      logo: "https://unpkg.com/simple-icons@9/icons/openai.svg",        page: "https://openai.com",                  format: "SVG", filter: "invert(15%) sepia(5%) saturate(200%) hue-rotate(0deg) brightness(20%)" },
-            { name: "Intelligent Search", logo: "https://unpkg.com/simple-icons@9/icons/elasticsearch.svg",  page: "https://www.elastic.co",              format: "SVG", filter: "invert(70%) sepia(80%) saturate(600%) hue-rotate(10deg) brightness(105%)" },
-            { name: "Conversational AI",  logo: "https://unpkg.com/simple-icons@9/icons/dialogflow.svg",     page: "https://cloud.google.com/dialogflow", format: "SVG", filter: "invert(44%) sepia(98%) saturate(400%) hue-rotate(190deg) brightness(100%)" },
-            { name: "Computer Vision",    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg", page: "https://opencv.org", format: "SVG" },
-            { name: "Recommendations",    logo: "https://unpkg.com/simple-icons@9/icons/tensorflow.svg",     page: "https://www.tensorflow.org",          format: "SVG", filter: "invert(55%) sepia(80%) saturate(600%) hue-rotate(360deg) brightness(100%)" },
+            { name: "Generative AI",      logo: "/images/ai-icons/gen.png",             page: "https://openai.com",                  format: "PNG" },
+            { name: "Intelligent Search", logo: "/images/ai-icons/is.png",              page: "https://www.elastic.co",              format: "PNG" },
+            { name: "Conversational AI",  logo: "/images/ai-icons/ai.png",              page: "https://cloud.google.com/dialogflow", format: "PNG" },
+            { name: "Computer Vision",    logo: "/images/ai-icons/computervs.png",      page: "https://opencv.org",                  format: "PNG" },
+            { name: "Recommendations",    logo: "/images/ai-icons/recomendations.png",  page: "https://www.tensorflow.org",          format: "PNG" },
         ],
     },
 ];
@@ -591,107 +590,107 @@ interface ProjectStudy {
 
 const servicesProjectsData: ProjectStudy[] = [
     {
-        title: "Autonomous Lending Experience with FinXServe and Agentforce",
+        title: "Autonomous Lending Experience with FinXServe & Agentforce",
         image: "/images/Case_Studies/Optimized/cs-1.png",
-        challenge: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
+        challenge: "Traditional lending processes relied heavily on loan officers to answer borrower questions, collect documents and guide applicants through the loan journey, creating delays and limiting scalability.",
         solution: [
-            "Designed an AI-powered lending concierge with Agentforce.",
-            "Automated document processing and verification workflows.",
-            "Integrated real-time decisioning and approval systems.",
-            "Deployed role-based dashboards for lending teams.",
+            "Implemented Intelligent Lending Concierge to engage borrowers throughout the application process.",
+            "Guided applicants with personalized recommendations based on their borrowing needs and eligibility.",
+            "Automated document collection, follow-ups and application progression.",
+            "Enabled a self-service lending experience across digital channels.",
         ],
-        result: "80% faster time-to-market and 70% faster loan processing with near-instant digital approvals.",
+        result: "Delivered personalized borrower guidance through an intelligent lending concierge, accelerating product launches by 80%.",
         href: "/insights/case-studies/autonomous-lending-experiences",
-    },
-    {
-        title: "Faster Loan Processing with Agentforce Document Intelligence",
-        image: "/images/Case_Studies/Optimized/cs-2.png",
-        challenge: "A leading bank needed to accelerate loan processing with intelligent document automation and verification.",
-        solution: [
-            "Implemented Agentforce-powered document intelligence for verification.",
-            "Automated document extraction and classification workflows.",
-            "Integrated with existing loan origination systems.",
-            "Built real-time approval and exception handling flows.",
-        ],
-        result: "70% reduction in document processing time with near-instant digital loan approvals.",
-        href: "/insights/case-studies/instant-loan-processing",
     },
     {
         title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
         image: "/images/Case_Studies/Optimized/cs-3.png",
-        challenge: "A legacy IVR system was causing long wait times and poor customer satisfaction scores.",
+        challenge: "A large percentage of inbound calls involved routine account inquiries, increasing agent workload and extending customer wait times.",
         solution: [
-            "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
-            "Implemented intelligent call routing with natural language understanding.",
-            "Built self-service flows for common banking inquiries.",
-            "Integrated real-time sentiment analysis for escalation.",
+            "Analyzed call patterns and automated high-volume inquiries through intelligent self-service IVR workflows.",
+            "Designed guided IVR journeys for balance inquiries, account information and common service requests.",
+            "Integrated voice authentication to securely verify customers before service delivery.",
+            "Routed only complex requests to agents while resolving routine inquiries automatically.",
         ],
-        result: "Significant reduction in average handle time and improved customer satisfaction across all channels.",
+        result: "Reduced routine agent interactions through intelligent IVR self-service, improving call handling efficiency by 30%.",
         href: "/insights/case-studies/intelligent-ivr-self-service",
     },
     {
         title: "Autonomous Freight Operations with GenAI",
         image: "/images/Case_Studies/Optimized/cs-4.png",
-        challenge: "A logistics provider was manually creating loads, leading to high operational costs and slow turnaround times.",
+        challenge: "Freight teams spent significant time manually reviewing shipment documents, extracting data and creating loads, resulting in delays and operational inefficiencies.",
         solution: [
-            "Deployed GenAI-driven automation for load creation.",
-            "Built intelligent routing and optimization algorithms.",
-            "Integrated real-time tracking and visibility systems.",
-            "Automated dispatch and scheduling workflows.",
+            "Implemented Intelligent Document Processing to automatically classify freight documents.",
+            "Extracted shipment details from rate confirmations, bills of lading and carrier documents.",
+            "Validated extracted data against operational rules and freight workflows.",
+            "Automated load creation and reduced manual data entry across freight operations.",
         ],
-        result: "98% reduction in load creation time and 99.5% cost reduction through GenAI-driven automation.",
+        result: "Reduced manual freight paperwork through Intelligent Document Processing with 99.69% accuracy.",
         href: "/insights/case-studies/autonomous-freight-operations",
     },
     {
-        title: "Frictionless Customer Authentication for Secure Banking",
-        image: "/images/Case_Studies/Optimized/cs-7.png",
-        challenge: "A bank needed to modernize contact center authentication to reduce fraud and improve customer experience.",
+        title: "Faster Loan Processing with Agentforce Document Intelligence",
+        image: "/images/Case_Studies/Optimized/cs-2.png",
+        challenge: "Manual document reviews and verification processes delayed loan approvals and created friction for borrowers.",
         solution: [
-            "Integrated Pindrop voice biometrics for passive multi-factor authentication.",
-            "Built seamless authentication workflows across channels.",
-            "Implemented real-time fraud detection and prevention.",
-            "Reduced average handle time with frictionless verification.",
+            "Deployed AI-powered document intelligence for loan document processing.",
+            "Automated document classification, extraction and validation.",
+            "Enabled real-time identity verification and data checks.",
+            "Streamlined the lending workflow from application to decision.",
         ],
-        result: "Reduced authentication time while strengthening fraud protection across all contact center channels.",
-        href: "/insights/case-studies/customer-authentication",
+        result: "Accelerated lending decisions through AI-powered document intelligence, completing loan applications in under 2 minutes.",
+        href: "/insights/case-studies/instant-loan-processing",
     },
     {
         title: "Cost-Optimized Document Platform on AWS",
         image: "/images/Case_Studies/Optimized/cs-22.png",
-        challenge: "A wealth management firm needed to reduce licensing costs while scaling document management capabilities.",
+        challenge: "An enterprise document management platform faced rising infrastructure costs, limited scalability and increasing maintenance overhead.",
         solution: [
-            "Architected a serverless document platform on AWS.",
-            "Migrated from legacy licensing model to pay-as-you-go.",
-            "Built automated document processing and storage pipelines.",
-            "Implemented enterprise-grade security and compliance controls.",
+            "Migrated the document platform to AWS cloud infrastructure.",
+            "Optimized storage and compute resources based on usage patterns.",
+            "Automated deployment, monitoring and scaling processes.",
+            "Modernized the platform architecture for improved efficiency and resilience.",
         ],
-        result: "Zero licensing costs with scalable document management, saving hundreds of thousands annually.",
+        result: "Reduced infrastructure costs by over 50% through a cloud-native document management platform on AWS.",
         href: "/insights/case-studies/cost-optimized-document-platform-on-aws",
+    },
+    {
+        title: "Frictionless Customer Authentication for Secure Banking",
+        image: "/images/Case_Studies/Optimized/cs-7.png",
+        challenge: "A financial institution needed to strengthen security while eliminating the friction of passwords, security questions and lengthy verification processes.",
+        solution: [
+            "Implemented voice biometric authentication for customer verification.",
+            "Introduced passive identity verification during customer interactions.",
+            "Integrated authentication seamlessly into IVR journeys.",
+            "Automated customer verification without relying on traditional credentials.",
+        ],
+        result: "Eliminated password-based verification through voice biometric authentication for a faster, frictionless customer experience.",
+        href: "/insights/case-studies/customer-authentication",
     },
     {
         title: "Intelligent School Administration for Modern Institutions",
         image: "/images/Case_Studies/Eazyschool_admin.png",
-        challenge: "Educational institutions needed a unified platform to manage administration, attendance, and communications.",
+        challenge: "Schools relied on disconnected systems and manual processes that made administration, reporting and communication inefficient.",
         solution: [
-            "Built a comprehensive school management platform.",
-            "Automated attendance tracking and reporting workflows.",
-            "Integrated parent-teacher communication channels.",
-            "Deployed role-based dashboards for administrators and teachers.",
+            "Built a unified platform to centralize school administration activities.",
+            "Automated attendance, reporting and academic management workflows.",
+            "Connected teachers, administrators, students and parents on a single platform.",
+            "Improved visibility into academic and operational performance.",
         ],
-        result: "Streamlined administrative operations with real-time visibility and automated workflows across institutions.",
+        result: "Reduced administrative workload by 80% through a unified platform connecting school operations, teachers and parents.",
         href: "/insights/case-studies/eazyschool-admin",
     },
     {
         title: "Transforming Claims Operations with a Scalable Digital Platform",
         image: "/images/Case_Studies/Optimized/cs-17.png",
-        challenge: "An insurance group needed to modernize claims processing with real-time visibility and faster settlements.",
+        challenge: "Claims teams relied on disconnected systems and manual coordination to assign, track and process claims, limiting visibility and slowing resolution times.",
         solution: [
-            "Designed a unified digital claims platform.",
-            "Automated claims intake and validation workflows.",
-            "Built real-time processing and visibility dashboards.",
-            "Implemented scalable architecture for future growth.",
+            "Built a unified digital platform to manage the end-to-end claims lifecycle.",
+            "Automated claim intake, assignment, approvals and workflow orchestration.",
+            "Enabled real-time visibility into claim status, workloads and operational performance.",
+            "Equipped field teams with mobile-first capabilities for inspections, updates and documentation.",
         ],
-        result: "Unified claims workflows with real-time processing and visibility for faster settlements and improved customer satisfaction.",
+        result: "Accelerated claims processing through end-to-end digital claims orchestration with real-time operational visibility.",
         href: "/insights/case-studies/transforming-insurance-claims-operations-with-a-scalable-digital-platform",
     },
 ];
