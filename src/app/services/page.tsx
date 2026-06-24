@@ -14,7 +14,7 @@ import { CertificationsDiagram } from "@/components/certifications-diagram";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRightIcon, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRightIcon, ShieldCheck, ChevronLeft, ChevronRight, ArrowRightIcon } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
@@ -109,10 +109,10 @@ function CertificationsScroll() {
     const duplicatedCertifications = [...certifications, ...certifications];
 
     return (
-        <section className="border-y border-slate-200 bg-white py-10 sm:py-14">
+        <section className="bg-white pt-4 pb-10 sm:pt-6 sm:pb-14">
             <div className="mx-auto max-w-[1400px] px-6">
                 <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-8">
-                    Certifications & Recognitions
+                    Certifications
                 </p>
 
                 {/* Marquee container with fade edges */}
@@ -286,71 +286,72 @@ function WorkThatSpeaks() {
         <section className="bg-white py-10 sm:py-14 lg:py-16">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
                 {/* ── Header ── */}
-                <motion.div
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="mb-12"
-                >
-                    <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Enterprise Impact
-                    </h2>
-
-                    <div className="flex items-center gap-2 mt-4">
-                        <span className="text-sm sm:text-base font-semibold text-[#2563EB] uppercase tracking-widest">Delivered by our Experts</span>
+                <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-16 mb-12">
+                    <div className="w-full lg:w-[55%] flex items-center">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight">
+                            Enterprise <span className="text-[#00D4AA]">Impact</span><br className="hidden sm:block" />
+                            Delivered By Our <span className="text-[#00D4AA]">Experts<span className="text-[#00D4AA]">.</span></span>
+                        </h2>
                     </div>
-                </motion.div>
+                    <div className="w-full lg:w-[45%] flex items-stretch">
+                        <div className="w-[3px] sm:w-1 bg-[#00D4AA] shrink-0 mr-6 rounded-full"></div>
+                        <div className="flex items-center">
+                            <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight leading-tight">
+                                Over 220 Projects<br />
+                                Delivered Successfully
+                            </h3>
+                        </div>
+                    </div>
+                </div>
 
                 {/* ── Carousel ── */}
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div className="flex">
                         {servicesProjectsData.map((study, idx) => (
                             <div key={idx} className="min-w-0 flex-[0_0_100%]">
-                                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-                                    <div className="w-full lg:w-[55%]">
-                                        <h3 className="text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
+                                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+                                    <div className="w-full lg:w-[55%] flex flex-col justify-between">
+                                        <div>
+                                            <h3 className="whitespace-pre-line text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
                                             {study.title}
                                         </h3>
-                                        <div className="mb-5">
-                                            <p className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-1">Challenge:</p>
-                                            <p className="text-slate-600 text-base leading-relaxed">{study.challenge}</p>
+                                        <div className="mb-6">
+                                            <p className="text-base font-bold text-slate-900 mb-2">Challenge</p>
+                                            <p className="whitespace-pre-line text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
                                         </div>
-                                        <div className="mb-5">
-                                            <p className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Solution:</p>
-                                            <ul className="space-y-1.5">
+                                        <div className="mb-6">
+                                            <p className="text-base font-bold text-slate-900 mb-3">Solution</p>
+                                            <ul className="space-y-2">
                                                 {study.solution.map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-slate-600 text-base">
-                                                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
+                                                    <li key={i} className="flex items-start gap-2 text-slate-600 text-sm leading-relaxed">
+                                                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
                                                         {item}
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
-                                        <div className="mt-6">
-                                            <p className="text-base font-bold text-slate-900 mb-3">Result:</p>
-                                            <div className="rounded-2xl px-6 py-5 flex items-start gap-4" style={{ backgroundColor: '#00D4AA' }}>
-                                                <span className="text-2xl shrink-0 mt-0.5">♛</span>
-                                                <p className="text-slate-900 text-base font-semibold leading-relaxed"
+                                        </div>
+                                        <div className="mt-8 lg:mt-auto pt-4">
+                                            <p className="text-lg font-bold text-slate-900 mb-3">Result:</p>
+                                            <div className="bg-[#1e90ff]/5 border border-[#1e90ff]/20 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                                                <p className="text-sm text-slate-600 leading-relaxed max-w-2xl"
                                                     dangerouslySetInnerHTML={{
                                                         __html: study.result.replace(
                                                             /(\d[\d,+%\-x\.]*\s*(?:Lighthouse|faster|month|integrations|version|score|per\s+month)?[\w\s]*)/gi,
-                                                            '<strong>$1</strong>'
+                                                            '<span class="text-[#1e90ff] font-bold">$1</span>'
                                                         )
                                                     }}
                                                 />
+                                                <Link
+                                                    href={study.href}
+                                                    className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2563EB] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#1e40af] hover:scale-105 transition-all shadow-md"
+                                                >
+                                                    Read More <ArrowRightIcon className="w-3.5 h-3.5" />
+                                                </Link>
                                             </div>
                                         </div>
-                                        <div className="mt-8">
-                                            <Link
-                                                href={servicesProjectsData[current].href}
-                                                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-[#2563EB] hover:border-[#2563EB] hover:text-white transition-all duration-300"
-                                            >
-                                                Explore more
-                                            </Link>
-                                        </div>
                                     </div>
-                                    <div className="w-full lg:w-[45%] flex flex-col gap-4">
+                                    <div className="w-full lg:w-[45%] flex flex-col justify-between">
                                         <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
                                             <Image
                                                 src={study.image}
@@ -359,13 +360,18 @@ function WorkThatSpeaks() {
                                                 className="object-cover"
                                             />
                                         </div>
-                                        <div className="flex items-center gap-3">
-                                            <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
-                                                <ChevronLeft className="w-5 h-5" />
-                                            </button>
-                                            <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
-                                                <ChevronRight className="w-5 h-5" />
-                                            </button>
+                                        <div className="flex flex-col items-center justify-center gap-4 mt-8 lg:mt-auto pt-4">
+                                            <div className="flex items-center justify-center gap-3">
+                                                <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                                    <ChevronLeft className="w-5 h-5" />
+                                                </button>
+                                                <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                                    <ChevronRight className="w-5 h-5" />
+                                                </button>
+                                            </div>
+                                            <div className="text-[11px] font-light tracking-[2px] text-slate-400">
+                                                <span className="text-[#00D4AA] font-medium">{(idx + 1).toString().padStart(2, '0')}</span> / {servicesProjectsData.length.toString().padStart(2, '0')}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -600,12 +606,12 @@ interface ProjectStudy {
 
 const servicesProjectsData: ProjectStudy[] = [
     {
-        title: "Autonomous Lending Experience with FinXServe & Agentforce",
+        title: "Autonomous Lending Experience with\nFinXServe & Agentforce",
         image: "/images/Case_Studies/Optimized/cs-1.png",
         challenge: "Traditional lending processes relied heavily on loan officers to answer borrower questions, collect documents and guide applicants through the loan journey, creating delays and limiting scalability.",
         solution: [
-            "Implemented Intelligent Lending Concierge to engage borrowers throughout the application process.",
-            "Guided applicants with personalized recommendations based on their borrowing needs and eligibility.",
+            "Built Intelligent Lending Concierge to engage applicants throughout the process.",
+            "Provide personalized recommendations based on their borrowing needs and eligibility.",
             "Automated document collection, follow-ups and application progression.",
             "Enabled a self-service lending experience across digital channels.",
         ],
@@ -613,12 +619,12 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/autonomous-lending-experiences",
     },
     {
-        title: "Modernizing Contact Centers with Intelligent IVR Self-Service",
+        title: "Modernizing Contact Centers with\nIntelligent IVR Self-Service",
         image: "/images/Case_Studies/Optimized/cs-3.png",
-        challenge: "A large percentage of inbound calls involved routine account inquiries, increasing agent workload and extending customer wait times.",
+        challenge: "A large percentage of inbound calls involved routine account inquiries, increasing\nagent workload and extending customer wait times.",
         solution: [
-            "Analyzed call patterns and automated high-volume inquiries through intelligent self-service IVR workflows.",
-            "Designed guided IVR journeys for balance inquiries, account information and common service requests.",
+            "Automated high-volume inquiries through intelligent self-service IVR workflows.",
+            "Created guided IVR journeys for balance inquiries, account information and service requests.",
             "Integrated voice authentication to securely verify customers before service delivery.",
             "Routed only complex requests to agents while resolving routine inquiries automatically.",
         ],
@@ -626,9 +632,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/intelligent-ivr-self-service",
     },
     {
-        title: "Autonomous Freight Operations with GenAI",
+        title: "Autonomous Freight Operations\nwith GenAI",
         image: "/images/Case_Studies/Optimized/cs-4.png",
-        challenge: "Freight teams spent significant time manually reviewing shipment documents, extracting data and creating loads, resulting in delays and operational inefficiencies.",
+        challenge: "Freight teams spent significant time manually reviewing shipment documents, extracting\ndata and creating loads, resulting in delays and operational inefficiencies.",
         solution: [
             "Implemented Intelligent Document Processing to automatically classify freight documents.",
             "Extracted shipment details from rate confirmations, bills of lading and carrier documents.",
@@ -639,9 +645,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/autonomous-freight-operations",
     },
     {
-        title: "Faster Loan Processing with Agentforce Document Intelligence",
+        title: "Faster Loan Processing with\nAgentforce Document Intelligence",
         image: "/images/Case_Studies/Optimized/cs-2.png",
-        challenge: "Manual document reviews and verification processes delayed loan approvals and created friction for borrowers.",
+        challenge: "Manual document reviews and verification processes delayed loan approvals and\ncreated friction for borrowers.",
         solution: [
             "Deployed AI-powered document intelligence for loan document processing.",
             "Automated document classification, extraction and validation.",
@@ -652,9 +658,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/instant-loan-processing",
     },
     {
-        title: "Cost-Optimized Document Platform on AWS",
+        title: "Cost-Optimized Document\nPlatform on AWS",
         image: "/images/Case_Studies/Optimized/cs-22.png",
-        challenge: "An enterprise document management platform faced rising infrastructure costs, limited scalability and increasing maintenance overhead.",
+        challenge: "An enterprise document management platform faced rising infrastructure costs, limited\nscalability and increasing maintenance overhead.",
         solution: [
             "Migrated the document platform to AWS cloud infrastructure.",
             "Optimized storage and compute resources based on usage patterns.",
@@ -665,9 +671,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/cost-optimized-document-platform-on-aws",
     },
     {
-        title: "Frictionless Customer Authentication for Secure Banking",
+        title: "Frictionless Customer Authentication\nfor Secure Banking",
         image: "/images/Case_Studies/Optimized/cs-7.png",
-        challenge: "A financial institution needed to strengthen security while eliminating the friction of passwords, security questions and lengthy verification processes.",
+        challenge: "A financial institution needed to strengthen security while eliminating the friction of\npasswords, security questions and lengthy verification processes.",
         solution: [
             "Implemented voice biometric authentication for customer verification.",
             "Introduced passive identity verification during customer interactions.",
@@ -678,9 +684,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/customer-authentication",
     },
     {
-        title: "Intelligent School Administration for Modern Institutions",
+        title: "Intelligent School Administration\nfor Modern Institutions",
         image: "/images/Case_Studies/Eazyschool_admin.png",
-        challenge: "Schools relied on disconnected systems and manual processes that made administration, reporting and communication inefficient.",
+        challenge: "Schools relied on disconnected systems and manual processes that made administration,\nreporting and communication inefficient.",
         solution: [
             "Built a unified platform to centralize school administration activities.",
             "Automated attendance, reporting and academic management workflows.",
@@ -691,9 +697,9 @@ const servicesProjectsData: ProjectStudy[] = [
         href: "/insights/case-studies/eazyschool-admin",
     },
     {
-        title: "Transforming Claims Operations with a Scalable Digital Platform",
+        title: "Transforming Claims Operations with a\nScalable Digital Platform",
         image: "/images/Case_Studies/Optimized/cs-17.png",
-        challenge: "Claims teams relied on disconnected systems and manual coordination to assign, track and process claims, limiting visibility and slowing resolution times.",
+        challenge: "Claims teams relied on disconnected systems and manual coordination to assign, track\nand process claims, limiting visibility and slowing resolution times.",
         solution: [
             "Built a unified digital platform to manage the end-to-end claims lifecycle.",
             "Automated claim intake, assignment, approvals and workflow orchestration.",

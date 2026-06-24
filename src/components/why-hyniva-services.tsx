@@ -29,7 +29,7 @@ export function WhyHynivaServices() {
     const { topBox, bottomBox } = expertiseContent;
 
     return (
-        <section className="bg-white px-6 py-[24px] sm:py-[32px] lg:py-[40px] lg:px-8">
+        <section className="bg-white px-6 pt-[24px] sm:pt-[32px] lg:pt-[40px] pb-2 lg:px-8">
             <div className="mx-auto max-w-[1200px] flex flex-col gap-3">
                 
                 {/* ── Top Box: Dark Glowing Container ── */}
