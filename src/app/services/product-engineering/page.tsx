@@ -65,15 +65,18 @@ function ProductEngineeringHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
+                        {/* Boosted Ambient Glow Container to match visual brightness of DT */}
+                        <div className="absolute right-[-20%] lg:right-[-10%] top-[10%] lg:top-[15%] w-[650px] h-[400px] lg:w-[900px] lg:h-[550px] pointer-events-none flex items-center justify-center">
+                            {/* Ambient background glow (boosted opacity and size) */}
+                            <div className="absolute left-[15%] top-[15%] w-[500px] h-[400px] bg-[#06b6d4]/50 blur-[90px] rounded-full mix-blend-screen" />
+                            <div className="absolute left-[35%] top-[25%] w-[400px] h-[300px] bg-[#8b5cf6]/50 blur-[90px] rounded-full mix-blend-screen" />
+                            {/* Soft radial illumination inside center */}
+                            <div className="absolute inset-[15%] bg-gradient-to-tr from-indigo-500/30 to-cyan-400/30 blur-[60px] rounded-full mix-blend-screen" />
+                        </div>
+
                         {/* Geometric Wireframe Illustration - High Fidelity */}
                         <div className="absolute right-[-20%] lg:right-[-10%] top-[10%] lg:top-[15%] w-[650px] h-[400px] lg:w-[900px] lg:h-[550px] pointer-events-none flex items-center justify-center">
-                            
-                            {/* Ambient background glow */}
-                            <div className="absolute left-[10%] top-[20%] w-[400px] h-[300px] bg-[#00F0FF]/15 blur-[100px] rounded-full" />
-                            <div className="absolute right-[20%] top-[30%] w-[350px] h-[250px] bg-[#D946EF]/15 blur-[100px] rounded-full" />
-                            <div className="absolute left-[40%] top-[10%] w-[300px] h-[400px] bg-[#2563EB]/15 blur-[100px] rounded-full" />
-
-                            <svg viewBox="0 0 1000 500" className="w-full h-full relative z-10" xmlns="http://www.w3.org/2000/svg">
+                             <svg viewBox="0 0 1000 500" className="w-full h-full relative z-10" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <linearGradient id="globalGrad" x1="100" y1="250" x2="930" y2="250" gradientUnits="userSpaceOnUse">
                                         <stop offset="0%" stopColor="#00F0FF" />
