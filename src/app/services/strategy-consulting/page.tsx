@@ -7,7 +7,7 @@ import { ArrowRight, Compass, ShieldCheck, TrendingUp, Cpu, Users, Layers, Map }
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
-const animations = {
+const animations: any = {
     fadeInUp: {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
