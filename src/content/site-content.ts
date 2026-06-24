@@ -396,25 +396,25 @@ export const expertiseContent = {
         {
             icon: "Calendar",
             title: "AI-Ready Talent",
-            description: "Exploring, adopting, and applying advancements in generative AI, automation, and intelligent agents to solve complex business challenges.",
+            description: "Exploring, adopting, and applying the latest advancements in generative AI, intelligent automation, and intelligent agents to solve complex business challenges.",
             imagePlaceholder: "/images/expertise/ai-talent.png"
         },
         {
             icon: "CircleArrowRight",
             title: "Platform Specialists",
-            description: "Certified across Salesforce, AWS, Microsoft, and leading ecosystems to accelerate implementation, innovation, and business adoption.",
+            description: "Certified across Salesforce, AWS, Microsoft, and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
             imagePlaceholder: "/images/expertise/platform-specialists.png"
         },
         {
             icon: "Star",
             title: "Industry Experience",
-            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer challenges in regulated industries.",
+            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
             imagePlaceholder: "/images/expertise/industry-experience.png"
         },
         {
             icon: "CalendarCheck",
             title: "Continuous Learning Culture",
-            description: "Innovation thrives when learning never stops. We invest in certifications and experimentation to keep our teams ahead of what's next.",
+            description: "Innovation thrives when learning never stops. We invest in certifications, emerging technologies, and experimentation to keep our teams ahead of what's next.",
             imagePlaceholder: "/images/expertise/learning-culture.png"
         }
     ]

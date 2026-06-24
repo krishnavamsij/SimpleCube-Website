@@ -30,7 +30,7 @@ import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/an
 
 function ServicesHero() {
     return (
-        <section className="relative overflow-hidden w-full bg-[#030b1e] min-h-[400px] sm:min-h-[450px] lg:min-h-[520px] flex items-center pt-16">
+        <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64 bg-[#030b1e]">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -124,7 +124,7 @@ function CertificationsScroll() {
                         {duplicatedCertifications.map((cert, i) => (
                             <div
                                 key={`${cert.name}-${i}`}
-                                className="relative shrink-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 flex items-center justify-center"
+                                className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center"
                             >
                                 <Image
                                     src={cert.src}
@@ -423,13 +423,13 @@ function TechPartnersSection() {
             <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-14">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">
                     <div className="shrink-0 md:w-[25%]">
-                        <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
                             Our <span className="text-[#2563EB]">Tech Stack</span>
                         </h2>
                     </div>
-                    <div className="ml-auto md:w-[50%]">
+                    <div className="ml-auto md:w-[62%]">
                         <p className="text-base text-slate-600 leading-relaxed">
                             Each project requires a tailored approach and the appropriate tech stack to ensure timely delivery and clean code. So here&apos;s what our engineers use to bring product ideas to life.
                         </p>
@@ -437,7 +437,7 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-nowrap sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-8 pb-2 w-full">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 gap-3 sm:flex sm:flex-nowrap sm:overflow-x-auto sm:no-scrollbar sm:justify-between mb-8 pb-2 w-full">
                     {techShowcaseData.map((category) => (
                         <button
                             key={category.category}
@@ -454,7 +454,7 @@ function TechPartnersSection() {
                 </div>
 
                 {/* Logos — mobile: only active, desktop: all */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-6xl mx-auto">
                     {shuffledTechs
                         .filter((tech) => !isMobile || activeCategory === null || activeTechNames.has(tech.name))
                         .map((tech) => {
