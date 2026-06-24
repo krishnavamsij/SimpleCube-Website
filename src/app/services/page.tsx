@@ -76,7 +76,6 @@ function SalesforceChip() {
 const BRANDS = [
     { name: "AWS",          render: () => <img src="https://unpkg.com/simple-icons@9/icons/amazonaws.svg"     alt="AWS"          style={SVG_STYLE} /> },
     { name: "Salesforce",   render: () => <SalesforceChip /> },
-    { name: "Genesys",      render: () => <img src="/tech_logos/GENESYS-1.png"                                 alt="Genesys"      style={{ ...PNG_STYLE, filter: "invert(1) grayscale(1) brightness(2)" }} /> },
     { name: "HTML5",        render: () => <img src="https://unpkg.com/simple-icons@9/icons/html5.svg"         alt="HTML5"        style={SVG_STYLE} /> },
     { name: "Google Cloud", render: () => <img src="https://unpkg.com/simple-icons@9/icons/googlecloud.svg"   alt="Google Cloud" style={SVG_STYLE} /> },
     { name: "Python",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/python.svg"        alt="Python"       style={SVG_STYLE} /> },
