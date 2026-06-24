@@ -25,6 +25,13 @@ const getIcon = (name: string) => {
     }
 };
 
+const preventOrphan = (text: string) => {
+    const trimmed = text.trim();
+    const lastSpaceIndex = trimmed.lastIndexOf(" ");
+    if (lastSpaceIndex === -1) return trimmed;
+    return trimmed.substring(0, lastSpaceIndex) + "\u00A0" + trimmed.substring(lastSpaceIndex + 1);
+};
+
 export function WhyHynivaServices() {
     const { topBox, bottomBox } = expertiseContent;
 
@@ -38,11 +45,11 @@ export function WhyHynivaServices() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[32px] lg:p-[40px]"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px]"
                 >
                     <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                        WHY HYNIVA
+                        OUR STRENGTH
                     </div>
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
@@ -63,26 +70,27 @@ export function WhyHynivaServices() {
                                 <div className="flex gap-6 sm:grid sm:grid-cols-2 lg:flex lg:gap-16 overflow-x-auto pb-2 sm:pb-0">
                                     {topBox.stats.map((stat, idx) => (
                                         <div key={idx} className="flex flex-col flex-shrink-0 w-full pr-4 sm:pr-12 lg:pr-24">
-                                            <div className="flex items-center justify-between w-full mb-2">
-                                                <div className="flex items-baseline gap-1">
-                                                    <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
-                                                        {stat.value.replace('+', '')}
+                                            <div className="flex items-center justify-between w-full gap-4">
+                                                <div className="flex flex-col">
+                                                    <div className="flex items-baseline gap-1">
+                                                        <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                                            {stat.value.replace('+', '')}
+                                                        </span>
+                                                        {stat.value.includes('+') && (
+                                                            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                                        )}
+                                                    </div>
+                                                    <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight mt-1.5 max-w-[80px] sm:max-w-none">
+                                                        {stat.label}
                                                     </span>
-                                                    {stat.value.includes('+') && (
-                                                        <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
-                                                    )}
                                                 </div>
-                                                {/* Avatars aligned with the number */}
-                                                <div className="flex -space-x-3 sm:-space-x-4">
-                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-10 relative shadow-sm" />
-                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-20 relative shadow-sm" />
-                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-30 relative shadow-sm" />
-                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-40 relative shadow-sm" />
+                                                <div className="flex -space-x-5 sm:-space-x-6 items-center">
+                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#0A102E] object-cover grayscale z-10 relative shadow-sm" />
+                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#0A102E] object-cover grayscale z-20 relative shadow-sm" />
+                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#0A102E] object-cover grayscale z-30 relative shadow-sm" />
+                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#0A102E] object-cover grayscale z-40 relative shadow-sm" />
                                                 </div>
                                             </div>
-                                            <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
-                                                {stat.label}
-                                            </span>
                                         </div>
                                     ))}
                                 </div>
@@ -90,9 +98,13 @@ export function WhyHynivaServices() {
                         </div>
 
                         {/* Right Side: Description & CTA */}
-                        <div className="flex flex-col items-start pt-4 lg:pt-0">
-                            <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10">
-                                {topBox.description}
+                        <div className="flex flex-col items-start pt-4 lg:pt-0 lg:pl-16">
+                            <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10">
+                                Our experts continuously expand<br />
+                                their capabilities across AI, cloud,<br />
+                                data and enterprise platforms to solve<br />
+                                today&apos;s challenges and prepare for<br />
+                                tomorrow&apos;s opportunities.
                             </p>
                             <Link 
                                 href={topBox.cta.href}
@@ -110,22 +122,24 @@ export function WhyHynivaServices() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[24px] sm:p-[32px] lg:p-[40px] border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[30px] sm:p-[40px] lg:p-[50px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
-                        {bottomBox.map((card, idx) => (
-                            <div key={idx} className="flex flex-col">
-                                <div className="h-10 w-10 flex items-center justify-center mb-3 flex-shrink-0">
-                                    {getIcon(card.icon)}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                        {bottomBox.map((card, idx) => {
+                            return (
+                                <div key={idx} className="flex flex-col">
+                                    <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-5 flex-shrink-0">
+                                        {getIcon(card.icon)}
+                                    </div>
+                                    <h3 className="text-base lg:text-[17px] xl:text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display whitespace-nowrap tracking-tight">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed text-pretty">
+                                        {preventOrphan(card.description)}
+                                    </p>
                                 </div>
-                                <h3 className="text-[18px] font-black text-[#030B3B] mb-2 leading-tight font-display">
-                                    {card.title}
-                                </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-[1.5]">
-                                    {card.description}
-                                </p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </motion.div>
                 
