@@ -222,7 +222,7 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[52%]"
+                        className="w-full lg:w-[45%]"
                     >
                         {/* Eyebrow */}
                         <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 py-1.5 mb-6">
@@ -253,10 +253,15 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[48%] relative flex items-center justify-center"
+                        className="w-full lg:w-[55%] flex items-center justify-center -ml-8 lg:-ml-16"
                     >
-                        <div className="w-full">
-                            <CertificationsDiagram />
+                        <div className="relative w-full aspect-square">
+                            <Image
+                                src="/images/Hexagon_certify.png"
+                                alt="Hyniva Security Certifications"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                     </motion.div>
 
@@ -556,10 +561,10 @@ const techShowcaseData: TechCategory[] = [
         category: "Enterprise Platforms",
         technologies: [
             { name: "Salesforce",     logo: "/tech_logos/Salesforce.png",     page: "https://www.salesforce.com",     format: "PNG" },
-            { name: "MS Dynamics",    logo: "/tech_logos/MS_Dynamics.png",    page: "https://dynamics.microsoft.com", format: "PNG" },
-            { name: "Genesys",        logo: "/tech_logos/Genesys.png",        page: "https://www.genesys.com",        format: "PNG" },
+            { name: "MS Dynamics",    logo: "/images/logo1_gradient_mark.svg",    page: "https://dynamics.microsoft.com", format: "SVG" },
+            { name: "Genesys",        logo: "/images/gensys.png",        page: "https://www.genesys.com",        format: "PNG" },
             { name: "Amazon Connect", logo: "/tech_logos/AWS.png",            page: "https://aws.amazon.com/connect/",format: "PNG" },
-            { name: "Mendix",         logo: "/tech_logos/Mendix.png",         page: "https://www.mendix.com",         format: "PNG" },
+            { name: "Mendix",         logo: "/images/logo3_mx.svg",         page: "https://www.mendix.com",         format: "SVG" },
         ],
     },
     {
@@ -576,7 +581,7 @@ const techShowcaseData: TechCategory[] = [
             { name: "Selenium",    logo: "/tech_logos/Selenium.png",    page: "https://www.selenium.dev",    format: "PNG" },
             { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://pactumjs.github.io",  format: "PNG" },
             { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io",        format: "PNG" },
-            { name: "ContextQA",   logo: "/tech_logos/ContextQA.png",   page: "https://contextqa.com",       format: "PNG" },
+            { name: "ContextQA",   logo: "/images/logo2_qa_bot.svg",   page: "https://contextqa.com",       format: "SVG" },
         ],
     },
     {
