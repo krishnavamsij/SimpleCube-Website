@@ -25,10 +25,194 @@ import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
 
 /* ──────────────────────────────────────────
-   Hero — same dark-blue style as home/about
+   Hero — ServicesHero component
 ────────────────────────────────────────── */
 
+// Simple Icons SVGs → transparent bg → brightness(0) invert(1) = pure white, zero background box
+const SVG_STYLE: React.CSSProperties = {
+    width: 40,
+    height: 40,
+    objectFit: "contain",
+    filter: "brightness(0) invert(1)",
+    display: "block",
+};
+
+// PNG with white bg → brightness(0) invert(1) + mix-blend-mode:screen hides the background
+const PNG_STYLE: React.CSSProperties = {
+    width: 40,
+    height: 40,
+    objectFit: "contain",
+    filter: "brightness(0) invert(1)",
+    mixBlendMode: "screen",
+    display: "block",
+};
+
+// Salesforce: icon + wordmark so the brand is identifiable
+function SalesforceChip() {
+    return (
+        <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40 }}>
+            <img
+                src="https://unpkg.com/simple-icons@9/icons/salesforce.svg"
+                alt="Salesforce"
+                style={SVG_STYLE}
+            />
+            <span style={{
+                position: "absolute",
+                color: "#030b1e",
+                fontSize: "5.8px",
+                fontWeight: 900,
+                textAlign: "center",
+                lineHeight: 1,
+                pointerEvents: "none",
+                marginTop: "3px",
+                letterSpacing: "-0.02em",
+            }}>
+                salesforce
+            </span>
+        </div>
+    );
+}
+
+const BRANDS = [
+    { name: "AWS",          render: () => <img src="https://unpkg.com/simple-icons@9/icons/amazonaws.svg"     alt="AWS"          style={SVG_STYLE} /> },
+    { name: "Salesforce",   render: () => <SalesforceChip /> },
+    { name: "Genesys",      render: () => <img src="/tech_logos/GENESYS-1.png"                                 alt="Genesys"      style={{ ...PNG_STYLE, filter: "invert(1) grayscale(1) brightness(2)" }} /> },
+    { name: "HTML5",        render: () => <img src="https://unpkg.com/simple-icons@9/icons/html5.svg"         alt="HTML5"        style={SVG_STYLE} /> },
+    { name: "Google Cloud", render: () => <img src="https://unpkg.com/simple-icons@9/icons/googlecloud.svg"   alt="Google Cloud" style={SVG_STYLE} /> },
+    { name: "Python",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/python.svg"        alt="Python"       style={SVG_STYLE} /> },
+    { name: "Java",         render: () => <img src="https://unpkg.com/simple-icons@9/icons/openjdk.svg"       alt="Java"         style={SVG_STYLE} /> },
+    { name: "ReactJS",      render: () => <img src="https://unpkg.com/simple-icons@9/icons/react.svg"         alt="ReactJS"      style={SVG_STYLE} /> },
+    { name: "Swift",        render: () => <img src="https://unpkg.com/simple-icons@9/icons/swift.svg"         alt="Swift"        style={SVG_STYLE} /> },
+    { name: "Azure",        render: () => <img src="https://unpkg.com/simple-icons@9/icons/microsoftazure.svg" alt="Azure"       style={SVG_STYLE} /> },
+    { name: "Angular",      render: () => <img src="https://unpkg.com/simple-icons@9/icons/angular.svg"       alt="Angular"      style={SVG_STYLE} /> },
+    { name: "Flutter",      render: () => <img src="https://unpkg.com/simple-icons@9/icons/flutter.svg"       alt="Flutter"      style={SVG_STYLE} /> },
+    { name: "Figma",        render: () => <img src="https://unpkg.com/simple-icons@9/icons/figma.svg"         alt="Figma"        style={SVG_STYLE} /> },
+    { name: "Kotlin",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/kotlin.svg"        alt="Kotlin"       style={SVG_STYLE} /> },
+    { name: "TypeScript",   render: () => <img src="https://unpkg.com/simple-icons@9/icons/typescript.svg"    alt="TypeScript"   style={SVG_STYLE} /> },
+    { name: "NodeJS",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/nodedotjs.svg"      alt="NodeJS"       style={SVG_STYLE} /> },
+    { name: "MS Dynamics",  render: () => <img src="https://unpkg.com/simple-icons@9/icons/microsoft.svg"     alt="MS Dynamics"  style={SVG_STYLE} /> },
+    { name: "PHP",          render: () => <img src="https://unpkg.com/simple-icons@9/icons/php.svg"           alt="PHP"          style={SVG_STYLE} /> },
+    { name: "Selenium",     render: () => <img src="https://unpkg.com/simple-icons@9/icons/selenium.svg"      alt="Selenium"     style={SVG_STYLE} /> },
+    { name: "jQuery",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/jquery.svg"        alt="jQuery"       style={SVG_STYLE} /> },
+    { name: "WebdriverIO",  render: () => <img src="https://unpkg.com/simple-icons@9/icons/webdriverio.svg"   alt="WebdriverIO"  style={SVG_STYLE} /> },
+];
+
+/* ── Chip positions only (no brand assignment — brands are shuffled at runtime) ── */
+
+// Seeded pseudo-random (deterministic across hydration for position/animation props)
+function seededRand(seed: number) {
+    const x = Math.sin(seed + 1) * 10000;
+    return x - Math.floor(x);
+}
+
+interface ChipPos {
+    id:    number;
+    left:  string;
+    top:   string;
+    bx:    string;
+    by:    string;
+    dx:    string;
+    dy:    string;
+    dur:   string;
+    delay: string;
+}
+
+// 12 fixed positions spread across the hero, avoiding the ~20-80% vertical centre band and keeping top positions below navbar
+const EXPLICIT_POS = [
+    // ── Far Left ──
+    { x:  6, y: 50 },
+    { x: 11, y: 26 },
+    { x:  8, y: 80 },
+    // ── Near-Left ──
+    { x: 19, y: 20 },
+    { x: 21, y: 91 },
+    // ── Centre top & bottom ──
+    { x: 38, y: 20 },
+    { x: 62, y: 21 },
+    { x: 40, y: 92 },
+    { x: 60, y: 93 },
+    // ── Near-Right ──
+    { x: 79, y: 20 },
+    { x: 81, y: 90 },
+    // ── Far Right ──
+    { x: 88, y: 38 },
+];
+
+function buildChipPositions(): ChipPos[] {
+    return EXPLICIT_POS.map(({ x, y }, idx) => {
+        const seed  = idx * 137;
+        const bx    = `${50 - x}vw`;
+        const by    = `${105 - y}vh`;
+        const side  = x < 50 ? -1 : 1;
+        const dx    = side * Math.round(20 + seededRand(seed + 2) * 24);
+        const dy    = -Math.round(30 + seededRand(seed + 1) * 20);
+        const dur   = (7.0 + seededRand(seed + 3) * 3.0).toFixed(1);
+        const delay = (seededRand(seed + 4) * 2.0).toFixed(2);
+
+        return {
+            id:    idx,
+            left:  `${x}%`,
+            top:   `${y}%`,
+            bx,
+            by,
+            dx:    `${dx}px`,
+            dy:    `${dy}px`,
+            dur:   `${dur}s`,
+            delay: `${delay}s`,
+        };
+    });
+}
+
+// Positions are fixed; only brand assignment shuffles each cycle
+const CHIP_POSITIONS = buildChipPositions();
+
+/** Fisher-Yates shuffle returning a NEW array */
+function shuffled<T>(arr: T[]): T[] {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+
 function ServicesHero() {
+    const [isMounted, setIsMounted] = useState(false);
+    const [chipBrands, setChipBrands] = useState<number[]>([]);
+
+    useEffect(() => {
+        setIsMounted(true);
+        // Generate initial unique random brands for each position
+        const availableIndices = Array.from({ length: BRANDS.length }, (_, i) => i);
+        const shuffledAvailable = shuffled(availableIndices);
+        const initial = CHIP_POSITIONS.map((_, idx) => shuffledAvailable[idx % BRANDS.length]);
+        setChipBrands(initial);
+    }, []);
+
+    const handleAnimationIteration = (chipIdx: number) => {
+        setChipBrands((prev) => {
+            if (prev.length === 0) return prev;
+            const next = [...prev];
+            const currentBrand = prev[chipIdx];
+            
+            // Find which brands are currently not visible on any of the chips
+            const activeBrands = new Set(prev);
+            const unusedBrands = BRANDS.map((_, i) => i).filter(i => !activeBrands.has(i));
+            
+            let newBrand = currentBrand;
+            if (unusedBrands.length > 0) {
+                newBrand = unusedBrands[Math.floor(Math.random() * unusedBrands.length)];
+            } else {
+                const alternatives = BRANDS.map((_, i) => i).filter(i => i !== currentBrand);
+                newBrand = alternatives[Math.floor(Math.random() * alternatives.length)];
+            }
+            
+            next[chipIdx] = newBrand;
+            return next;
+        });
+    };
+
     return (
         <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64 bg-[#030b1e]">
             {/* Background layers */}
@@ -42,6 +226,91 @@ function ServicesHero() {
                 }}
             />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
+
+            {/* Scatter-fade keyframe — per spec:
+                 0→28%  : fast pop-out, tiny→full size
+                 28→100%: continuous slow shrink + fade outward (no frozen hold)
+            */}
+            <style dangerouslySetInnerHTML={{ __html: `
+                .scatter-chip {
+                    position: absolute;
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 18px;
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.45);
+                    backdrop-filter: blur(12px);
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    animation: popInOut var(--dur) linear infinite both;
+                    animation-delay: var(--delay);
+                    z-index: 1;
+                    pointer-events: none;
+                    will-change: transform, opacity;
+                    overflow: hidden;
+                    opacity: 0;
+                }
+                @keyframes popInOut {
+                    /* ── Phase 1: pop out from the shared launch point (0 → 28%) ── */
+                    0% {
+                        opacity: 0;
+                        transform: translate(var(--bx), var(--by)) scale(0.05);
+                    }
+                    12% {
+                        opacity: 0.85;
+                        transform: translate(calc(var(--bx) * 0.4), calc(var(--by) * 0.4)) scale(1.08);
+                    }
+                    28% {
+                        opacity: 1;
+                        transform: translate(0px, 0px) scale(1);
+                    }
+                    /* ── Phase 2: continuous shrink + drift + fade, no pause (28 → 100%) ── */
+                    55% {
+                        opacity: 0.72;
+                        transform: translate(calc(var(--dx) * 0.35), calc(var(--dy) * 0.35)) scale(0.7);
+                    }
+                    78% {
+                        opacity: 0.35;
+                        transform: translate(calc(var(--dx) * 0.7), calc(var(--dy) * 0.7)) scale(0.38);
+                    }
+                    100% {
+                        opacity: 0;
+                        transform: translate(var(--dx), var(--dy)) scale(0.05);
+                    }
+                }
+            `}} />
+
+            {/* Chips — positions fixed, brands shuffle on animation iteration */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 1 }}>
+                {isMounted && CHIP_POSITIONS.map((pos, idx) => {
+                    const brandIdx = chipBrands[idx];
+                    if (brandIdx === undefined) return null;
+                    const brand = BRANDS[brandIdx];
+                    if (!brand) return null;
+                    return (
+                        <div
+                            key={pos.id}
+                            className="scatter-chip hidden md:flex"
+                            style={{
+                                left: pos.left,
+                                top:  pos.top,
+                                "--bx":    pos.bx,
+                                "--by":    pos.by,
+                                "--dx":    pos.dx,
+                                "--dy":    pos.dy,
+                                "--dur":   pos.dur,
+                                "--delay": pos.delay,
+                            } as React.CSSProperties}
+                            onAnimationIteration={() => handleAnimationIteration(idx)}
+                        >
+                            {brand.render()}
+                        </div>
+                    );
+                })}
+            </div>
+
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
@@ -557,9 +826,8 @@ const techShowcaseData: TechCategory[] = [
         technologies: [
             { name: "Salesforce",     logo: "/tech_logos/Salesforce.png",     page: "https://www.salesforce.com",     format: "PNG" },
             { name: "MS Dynamics",    logo: "/tech_logos/MS_Dynamics.png",    page: "https://dynamics.microsoft.com", format: "PNG" },
-            { name: "Genesys",        logo: "/tech_logos/Genesys.png",        page: "https://www.genesys.com",        format: "PNG" },
+            { name: "Genesys",        logo: "/tech_logos/GENESYS-1.png",        page: "https://www.genesys.com",        format: "PNG" },
             { name: "Amazon Connect", logo: "/tech_logos/AWS.png",            page: "https://aws.amazon.com/connect/",format: "PNG" },
-            { name: "Mendix",         logo: "/tech_logos/Mendix.png",         page: "https://www.mendix.com",         format: "PNG" },
         ],
     },
     {
