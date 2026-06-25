@@ -66,8 +66,9 @@ function SalesforceChip() {
                 pointerEvents: "none",
                 marginTop: "3px",
                 letterSpacing: "-0.02em",
+                fontFamily: 'Georgia, "Times New Roman", serif',
             }}>
-                salesforce
+                sales<span style={{ fontStyle: 'italic', fontFamily: 'Georgia, "Times New Roman", serif' }}>f</span>orce
             </span>
         </div>
     );

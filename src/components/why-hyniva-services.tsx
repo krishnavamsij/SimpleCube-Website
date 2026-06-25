@@ -73,11 +73,11 @@ export function WhyHynivaServices() {
                                                     )}
                                                 </div>
                                                 {/* Avatars aligned with the number */}
-                                                <div className="flex -space-x-3 sm:-space-x-4">
-                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-10 relative shadow-sm" />
-                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-20 relative shadow-sm" />
-                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-30 relative shadow-sm" />
-                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0A102E] object-cover grayscale z-40 relative shadow-sm" />
+                                                <div className="flex -space-x-4 sm:-space-x-5 ml-12 sm:ml-18 lg:ml-24">
+                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-10 relative shadow-lg transition-all duration-300" />
+                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-20 relative shadow-lg transition-all duration-300" />
+                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-30 relative shadow-lg transition-all duration-300" />
+                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-40 relative shadow-lg transition-all duration-300" />
                                                 </div>
                                             </div>
                                             <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
