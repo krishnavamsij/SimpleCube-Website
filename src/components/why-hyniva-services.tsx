@@ -3,27 +3,26 @@
 import { motion } from "framer-motion";
 import { expertiseContent } from "@/content/site-content";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
-import { Calendar, Star, Calendar as CalendarAlt } from "lucide-react";
+import { Brain, Layers, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const getIcon = (name: string) => {
     switch (name) {
-        case "Calendar": return <Calendar className="w-5 h-5 text-[#3B82F6]" />;
-        case "CircleArrowRight": return (
-            <div className="relative w-5 h-5 flex items-center justify-center">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="#3B82F6" strokeWidth="2" fill="none"/>
-                    <path d="M9 12L11 14L11 10L9 12Z M13 12L15 14L15 10L13 12Z" fill="#3B82F6"/>
-                    <path d="M9 10L11 12L9 14 M13 10L15 12L13 14" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </div>
-        );
-        case "Star": return <Star className="w-5 h-5 text-[#3B82F6]" />;
-        case "CalendarCheck": return <CalendarAlt className="w-5 h-5 text-[#3B82F6]" />;
-        default: return <Calendar className="w-5 h-5 text-[#3B82F6]" />;
+        case "Brain": return <Brain className="w-5 h-5 text-[#3B82F6]" />;
+        case "Layers": return <Layers className="w-5 h-5 text-[#3B82F6]" />;
+        case "Briefcase": return <Briefcase className="w-5 h-5 text-[#3B82F6]" />;
+        case "GraduationCap": return <GraduationCap className="w-5 h-5 text-[#3B82F6]" />;
+        default: return <Brain className="w-5 h-5 text-[#3B82F6]" />;
     }
 };
+
+const preventWidow = (text: string) => {
+    const lastSpaceIndex = text.lastIndexOf(" ");
+    if (lastSpaceIndex === -1) return text;
+    return text.substring(0, lastSpaceIndex) + "\u00a0" + text.substring(lastSpaceIndex + 1);
+};
+
 
 export function WhyHynivaServices() {
     const { topBox, bottomBox } = expertiseContent;
@@ -42,7 +41,7 @@ export function WhyHynivaServices() {
                 >
                     <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                        WHY HYNIVA
+                        OUR STRENGTH
                     </div>
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
@@ -115,14 +114,14 @@ export function WhyHynivaServices() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
-                                <div className="h-10 w-10 flex items-center justify-center mb-3 flex-shrink-0">
+                                <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[18px] font-black text-[#030B3B] mb-2 leading-tight font-display">
+                                <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-[1.5]">
-                                    {card.description}
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
+                                    {preventWidow(card.description)}
                                 </p>
                             </div>
                         ))}

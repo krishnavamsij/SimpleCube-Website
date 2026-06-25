@@ -411,26 +411,26 @@ export const expertiseContent = {
     },
     bottomBox: [
         {
-            icon: "Calendar",
+            icon: "Brain",
             title: "AI-Ready Talent",
             description: "Exploring, adopting, and applying the latest advancements in generative AI, intelligent automation, and intelligent agents to solve complex business challenges.",
             imagePlaceholder: "/images/expertise/ai-talent.png"
         },
         {
-            icon: "CircleArrowRight",
+            icon: "Layers",
             title: "Platform Specialists",
             description: "Certified across Salesforce, AWS, Microsoft, and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
             imagePlaceholder: "/images/expertise/platform-specialists.png"
         },
         {
-            icon: "Star",
+            icon: "Briefcase",
             title: "Industry Experience",
             description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
             imagePlaceholder: "/images/expertise/industry-experience.png"
         },
         {
-            icon: "CalendarCheck",
-            title: "Continuous Learning Culture",
+            icon: "GraduationCap",
+            title: "Learning Eco System",
             description: "Innovation thrives when learning never stops. We invest in certifications, emerging technologies, and experimentation to keep our teams ahead of what's next.",
             imagePlaceholder: "/images/expertise/learning-culture.png"
         }
@@ -490,7 +490,7 @@ export const techContent = {
     groups: [
         { title: "CRM & ERP", items: ["Salesforce FSC", "MS Dynamics 365", "Business Central", "Power Platform"] },
         { title: "Cloud", items: ["Microsoft Azure", "Amazon AWS", "Google Cloud", "Azure DevOps"] },
-        { title: "AI & Data", items: ["Copilot / Azure OpenAI", "Salesforce Data Cloud", "Python / ML", "Data Lake / Analytics"] },
+        { title: "AI & Data", items: ["Copilot", "ChatGPT", "Claude", "Antigravity"] },
         { title: "Frontend", items: ["React / Angular", "React Native / Flutter", "Swift / Kotlin", "Figma / UX Design"] },
         { title: "Backend", items: ["Java / Node.js / Python", "ASP.NET / TypeScript", "Microservices", "REST / GraphQL APIs", "Mendix"] },
         { title: "QA & DevOps", items: ["Selenium / ContextQA", "CI/CD Pipelines", "Docker / Kubernetes", "Genesys Contact Center"] },

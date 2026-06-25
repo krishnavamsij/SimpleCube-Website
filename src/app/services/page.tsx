@@ -751,7 +751,7 @@ function TechPartnersSection() {
                             >
                                 <div 
                                     className="relative w-[60px] h-[40px] transition-transform duration-300 group-hover:scale-110"
-                                    style={{ mixBlendMode: "multiply", ...(tech.filter ? { filter: tech.filter } : {}) }}
+                                    style={{ ...(tech.multiply !== false ? { mixBlendMode: "multiply" } : {}), ...(tech.filter ? { filter: tech.filter } : {}) }}
                                 >
                                     <Image
                                         src={tech.logo}
@@ -784,6 +784,7 @@ interface TechItem {
     page: string;
     format: string;
     filter?: string;
+    multiply?: boolean;
 }
 
 interface TechCategory {
@@ -853,11 +854,10 @@ const techShowcaseData: TechCategory[] = [
     {
         category: "AI / ML",
         technologies: [
-            { name: "Generative AI",      logo: "/images/ai-icons/gen.png",             page: "https://openai.com",                  format: "PNG" },
-            { name: "Intelligent Search", logo: "/images/ai-icons/is.png",              page: "https://www.elastic.co",              format: "PNG" },
-            { name: "Conversational AI",  logo: "/images/ai-icons/ai.png",              page: "https://cloud.google.com/dialogflow", format: "PNG" },
-            { name: "Computer Vision",    logo: "/images/ai-icons/computervs.png",      page: "https://opencv.org",                  format: "PNG" },
-            { name: "Recommendations",    logo: "/images/ai-icons/recomendations.png",  page: "https://www.tensorflow.org",          format: "PNG" },
+            { name: "Copilot",    logo: "/images/ai-icons/copilot.png",    page: "https://github.com/features/copilot",    format: "PNG" },
+            { name: "ChatGPT",    logo: "/images/ai-icons/chatgpt.png",    page: "https://chatgpt.com",                    format: "PNG" },
+            { name: "Claude",     logo: "/images/ai-icons/claude.png",     page: "https://claude.ai",                      format: "PNG" },
+            { name: "Antigravity",logo: "/images/ai-icons/antigravity.png",page: "https://antigravity.com",                 format: "PNG" },
         ],
     },
 ];
