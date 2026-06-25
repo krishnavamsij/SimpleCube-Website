@@ -70,23 +70,23 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/salesforce',
-        destination: '/services/salesforce',
+        destination: '/services/enterprise-platforms/salesforce',
       },
       {
         source: '/microsoft-services',
-        destination: '/services/microsoft-services',
+        destination: '/services/enterprise-platforms/microsoft-services',
       },
       {
         source: '/aws-cloud-services',
-        destination: '/services/aws-cloud-services',
+        destination: '/services/enterprise-platforms/aws-cloud-services',
       },
       {
         source: '/applied-ai',
-        destination: '/services/applied-ai',
+        destination: '/services/digital-transformation/applied-ai',
       },
       {
         source: '/data-intelligence',
-        destination: '/services/data-intelligence',
+        destination: '/services/digital-transformation/data-intelligence',
       },
       {
         source: '/product-development',
@@ -98,7 +98,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/cloud-migration',
-        destination: '/services/cloud-migration',
+        destination: '/services/digital-transformation/cloud-migration',
+      },
+      {
+        source: '/strategy-consulting',
+        destination: '/services/product-engineering/strategy-consulting',
       },
       // Insights pages - clean URLs
       {

@@ -63,13 +63,13 @@ export const servicesListingContent = {
             icon: Settings,
             title: "Salesforce",
             description: "Salesforce implementation, customization, and optimization services for maximum ROI with CRM, automation, and analytics.",
-            href: "/services/salesforce",
+            href: "/services/enterprise-platforms/salesforce",
         },
         {
             icon: Cloud,
             title: "Cloud Migration",
             description: "Strategic cloud migration and adoption services to enhance scalability, security, and cost-effectiveness.",
-            href: "/services/cloud-migration",
+            href: "/services/digital-transformation/cloud-migration",
         },
         {
             icon: Shield,
@@ -81,13 +81,13 @@ export const servicesListingContent = {
             icon: Database,
             title: "Data Intelligence",
             description: "Advanced data analytics and intelligence solutions to drive informed decision-making.",
-            href: "/services/data-intelligence",
+            href: "/services/digital-transformation/data-intelligence",
         },
         {
             icon: Lightbulb,
             title: "Applied AI",
             description: "Cutting-edge AI solutions and machine learning implementations to automate and optimize processes.",
-            href: "/services/applied-ai",
+            href: "/services/digital-transformation/applied-ai",
         },
         {
             icon: Code,
@@ -105,7 +105,7 @@ export const servicesListingContent = {
             icon: Settings,
             title: "Enterprise Platforms",
             description: "Implementation and optimization of enterprise platforms including Microsoft solutions and other enterprise systems.",
-            href: "/services/microsoft-services",
+            href: "/services/enterprise-platforms/microsoft-services",
         },
     ],
     cta: {

@@ -18,17 +18,34 @@ export const navContent = {
         { title: "Education", href: "/industries/education" },
     ],
     services: [
-        { title: "Digital Transformation", href: "/services/digital-transformation" },
-        { title: "Enterprise Platforms", href: "/services/enterprise-platforms" },
-        { title: "Salesforce", href: "/services/salesforce" },
-        { title: "Microsoft Services", href: "/services/microsoft-services" },
-        { title: "AWS Cloud", href: "/services/aws-cloud-services" },
-        { title: "Applied AI", href: "/services/applied-ai" },
-        { title: "Data Intelligence", href: "/services/data-intelligence" },
-        { title: "Product Development", href: "/services/product-development" },
-        { title: "Product Engineering", href: "/services/product-engineering" },
-        { title: "Strategy Consulting", href: "/services/strategy-consulting" },
-        { title: "Cloud Migration", href: "/services/cloud-migration" },
+        { 
+            category: "Digital Transformation", 
+            isBold: true,
+            href: "/services/digital-transformation",
+            items: [
+                { title: "Applied AI", href: "/services/digital-transformation/applied-ai" },
+                { title: "Data Intelligence", href: "/services/digital-transformation/data-intelligence" },
+                { title: "Cloud Migration", href: "/services/digital-transformation/cloud-migration" },
+            ]
+        },
+        { 
+            category: "Enterprise Platforms", 
+            isBold: true,
+            href: "/services/enterprise-platforms",
+            items: [
+                { title: "Salesforce", href: "/services/enterprise-platforms/salesforce" },
+                { title: "Microsoft Services", href: "/services/enterprise-platforms/microsoft-services" },
+                { title: "AWS Cloud", href: "/services/enterprise-platforms/aws-cloud-services" },
+            ]
+        },
+        { 
+            category: "Product Engineering", 
+            isBold: true,
+            href: "/services/product-engineering",
+            items: [
+                { title: "Strategy Consulting", href: "/services/product-engineering/strategy-consulting", isBold: true },
+            ]
+        },
     ],
     insights: [
         { title: "Case Studies", href: "/insights/case-studies" },
@@ -606,9 +623,9 @@ export const footerContent = {
             title: "Services",
             links: [
                 { title: "Digital Transformation", href: "/services/digital-transformation" },
-                { title: "Enterprise Platforms", href: "/services/salesforce" },
+                { title: "Enterprise Platforms", href: "/services/enterprise-platforms" },
                 { title: "Product Engineering", href: "/services/product-engineering" },
-                { title: "Strategy Consulting", href: "/services/strategy-consulting" },
+                { title: "Strategy Consulting", href: "/services/product-engineering/strategy-consulting" },
             ],
         },
         {

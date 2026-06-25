@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -13,6 +13,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,9 +21,32 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const dropdownItems: { label: string; href?: string; items: { title: string; href: string; desc?: string }[] }[] = [
+    const handleMouseEnter = (label: string) => {
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+        setOpenDropdown(label);
+    };
+
+    const handleMouseLeave = () => {
+        closeTimeoutRef.current = setTimeout(() => {
+            setOpenDropdown(null);
+        }, 150);
+    };
+
+    const dropdownItems: { 
+        label: string; 
+        href?: string; 
+        items?: { title: string; href: string; desc?: string; isBold?: boolean }[];
+        categories?: { category: string; isBold?: boolean; href?: string; items: { title: string; href: string; isBold?: boolean }[] }[];
+    }[] = [
         { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
-        { label: "Services", href: "/services", items: navContent.services.map(s => ({ title: s.title, href: s.href })) },
+        { 
+            label: "Services", 
+            href: "/services", 
+            categories: navContent.services as any
+        },
         { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
         { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
         {
@@ -52,7 +76,9 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 ease: [0.32, 0.72, 0, 1],
             }}
             className="fixed z-50 left-1/2 -translate-x-1/2 backdrop-blur-xl"
+            style={{ position: "fixed" }}
         >
+            <div className="relative w-full h-full">
             <nav className="mx-auto flex h-full w-full items-center px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
@@ -78,13 +104,13 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 />
 
                 {/* Desktop nav */}
-                <div className="hidden items-center lg:flex gap-0">
+                <div className="hidden items-center lg:flex gap-0 relative">
                     {dropdownItems.map((group) => (
                         <div
                             key={group.label}
-                            className="relative"
-                            onMouseEnter={() => setOpenDropdown(group.label)}
-                            onMouseLeave={() => setOpenDropdown(null)}
+                            className={group.label === "Services" ? "static" : "relative"}
+                            onMouseEnter={() => handleMouseEnter(group.label)}
+                            onMouseLeave={handleMouseLeave}
                         >
                             {group.href ? (
                                 <Link
@@ -109,30 +135,57 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                 </button>
                             )}
                             <AnimatePresence>
-                                {openDropdown === group.label && (
+                                {openDropdown === group.label && group.label !== "Services" && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 12, scale: 0.95 }}
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: 12, scale: 0.95 }}
                                         transition={{ duration: 0.2, ease: "easeOut" }}
                                         className={cn(
-                                            "absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white p-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
-                                            group.label === "Services" ? "w-[280px]" : "w-[260px]",
+                                            "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
+                                            group.label === "Services" ? "left-[-24px] right-[-24px] px-8 py-6" : "left-1/2 -translate-x-1/2 p-2.5 w-[260px]",
                                             group.label === "Products" && "w-[340px]"
                                         )}
                                     >
-                                        {group.items.map((item) => (
-                                            <Link
-                                                key={item.title}
-                                                href={item.href}
-                                                className="group block rounded-xl px-4 py-3 transition-all hover:bg-slate-50"
-                                            >
-                                                <span className="text-sm font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">{item.title}</span>
-                                                {item.desc && (
-                                                    <p className="mt-1 text-xs leading-relaxed text-slate-500 line-clamp-2">{item.desc}</p>
-                                                )}
-                                            </Link>
-                                        ))}
+                                        {group.categories ? (
+                                            <div className="grid grid-cols-3 gap-8">
+                                                {group.categories.map((cat) => (
+                                                    <div key={cat.category} className="space-y-3">
+                                                        <div className={cn(
+                                                            "px-0 py-0 text-slate-900",
+                                                            cat.isBold && "text-[15px] font-bold"
+                                                        )}>
+                                                            {cat.category}
+                                                        </div>
+                                                        {cat.items.map((item) => (
+                                                            <Link
+                                                                key={item.title}
+                                                                href={item.href}
+                                                                className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#2563EB]"
+                                                            >
+                                                                <span className={cn(
+                                                                    "text-[14px] text-slate-700 group-hover:text-[#2563EB] transition-colors",
+                                                                    item.isBold && "font-bold text-slate-900"
+                                                                )}>{item.title}</span>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : group.items ? (
+                                            group.items.map((item) => (
+                                                <Link
+                                                    key={item.title}
+                                                    href={item.href}
+                                                    className="group block rounded-xl px-4 py-3 transition-all hover:bg-slate-50"
+                                                >
+                                                    <span className="text-sm font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">{item.title}</span>
+                                                    {item.desc && (
+                                                        <p className="mt-1 text-xs leading-relaxed text-slate-500 line-clamp-2">{item.desc}</p>
+                                                    )}
+                                                </Link>
+                                            ))
+                                        ) : null}
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -184,6 +237,60 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 </div>
             </nav>
 
+            {/* Services Dropdown - positioned relative to header */}
+            <AnimatePresence>
+                {openDropdown === "Services" && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 12, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[82%] max-w-[820px] rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                        onMouseEnter={() => handleMouseEnter("Services")}
+                        onMouseLeave={handleMouseLeave}
+                        style={{ pointerEvents: "auto" }}
+                    >
+                        <div className="grid grid-cols-3 gap-8">
+                            {(dropdownItems.find(d => d.label === "Services")?.categories || []).map((cat) => (
+                                <div key={cat.category} className="space-y-3">
+                                    {cat.href ? (
+                                        <Link
+                                            href={cat.href}
+                                            className={cn(
+                                                "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors",
+                                                cat.isBold && "text-[15px] font-bold"
+                                            )}
+                                        >
+                                            {cat.category}
+                                        </Link>
+                                    ) : (
+                                        <div className={cn(
+                                            "px-0 py-0 text-slate-900",
+                                            cat.isBold && "text-[15px] font-bold"
+                                        )}>
+                                            {cat.category}
+                                        </div>
+                                    )}
+                                    {cat.items.map((item) => (
+                                        <Link
+                                            key={item.title}
+                                            href={item.href}
+                                            className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#2563EB]"
+                                        >
+                                            <span className={cn(
+                                                "text-slate-700 group-hover:text-[#2563EB] transition-colors",
+                                                item.isBold ? "text-[15px] font-bold text-slate-900" : "text-[14px]"
+                                            )}>{item.title}</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            </div>
+
             {/* Mobile menu */}
             <AnimatePresence>
                 {mobileOpen && (
@@ -207,18 +314,59 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                     ) : (
                                         <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
                                     )}
-                                    <div className="space-y-1">
-                                        {group.items.map((item) => (
-                                            <Link
-                                                key={item.title}
-                                                href={item.href}
-                                                className="block rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                                                onClick={() => setMobileOpen(false)}
-                                            >
-                                                {item.title}
-                                            </Link>
-                                        ))}
-                                    </div>
+                                    {group.categories ? (
+                                        <div className="space-y-3">
+                                            {group.categories.map((cat) => (
+                                                <div key={cat.category} className="space-y-1">
+                                                    {cat.href ? (
+                                                        <Link
+                                                            href={cat.href}
+                                                            className={cn(
+                                                                "block px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600 hover:text-[#2563EB]",
+                                                                cat.isBold && "font-extrabold"
+                                                            )}
+                                                            onClick={() => setMobileOpen(false)}
+                                                        >
+                                                            {cat.category}
+                                                        </Link>
+                                                    ) : (
+                                                        <div className={cn(
+                                                            "px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600",
+                                                            cat.isBold && "font-extrabold"
+                                                        )}>
+                                                            {cat.category}
+                                                        </div>
+                                                    )}
+                                                    {cat.items.map((item) => (
+                                                        <Link
+                                                            key={item.title}
+                                                            href={item.href}
+                                                            className={cn(
+                                                                "block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-50",
+                                                                item.isBold && "font-semibold"
+                                                            )}
+                                                            onClick={() => setMobileOpen(false)}
+                                                        >
+                                                            {item.title}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : group.items ? (
+                                        <div className="space-y-1">
+                                            {group.items.map((item) => (
+                                                <Link
+                                                    key={item.title}
+                                                    href={item.href}
+                                                    className="block rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                                                    onClick={() => setMobileOpen(false)}
+                                                >
+                                                    {item.title}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    ) : null}
                                 </div>
                             ))}
                             <div className="pt-3 pb-6">
