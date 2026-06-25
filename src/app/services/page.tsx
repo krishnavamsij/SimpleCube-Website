@@ -243,11 +243,6 @@ function ServicesHero() {
                     position: absolute;
                     width: 72px;
                     height: 72px;
-                    border-radius: 18px;
-                    background: rgba(255, 255, 255, 0.08);
-                    border: 1px solid rgba(255, 255, 255, 0.45);
-                    backdrop-filter: blur(12px);
-                    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -256,7 +251,6 @@ function ServicesHero() {
                     z-index: 1;
                     pointer-events: none;
                     will-change: transform, opacity;
-                    overflow: hidden;
                     opacity: 0;
                 }
                 @keyframes popInOut {
