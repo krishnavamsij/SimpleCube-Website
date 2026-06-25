@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { expertiseContent } from "@/content/site-content";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
-import { Brain, Layers, Briefcase, GraduationCap } from "lucide-react";
+import { Brain, Layers, Briefcase, GraduationCap, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -61,9 +61,10 @@ export function WhyHynivaServices() {
                             <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
                                 <div className="flex gap-6 sm:grid sm:grid-cols-2 lg:flex lg:gap-16 overflow-x-auto pb-2 sm:pb-0">
                                     {topBox.stats.map((stat, idx) => (
-                                        <div key={idx} className="flex flex-col flex-shrink-0 w-full pr-4 sm:pr-12 lg:pr-24">
-                                            <div className="flex items-center justify-between w-full mb-2">
-                                                <div className="flex items-baseline gap-1">
+                                        <div key={idx} className="flex flex-row items-center flex-shrink-0 w-full pr-4 sm:pr-12 lg:pr-24">
+                                            {/* Text Block */}
+                                            <div className="flex flex-col">
+                                                <div className="flex items-baseline gap-1 mb-1">
                                                     <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                         {stat.value.replace('+', '')}
                                                     </span>
@@ -71,17 +72,18 @@ export function WhyHynivaServices() {
                                                         <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
                                                     )}
                                                 </div>
-                                                {/* Avatars aligned with the number */}
-                                                <div className="flex -space-x-4 sm:-space-x-5 ml-12 sm:ml-18 lg:ml-24">
-                                                    <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-10 relative shadow-lg transition-all duration-300" />
-                                                    <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-20 relative shadow-lg transition-all duration-300" />
-                                                    <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-30 relative shadow-lg transition-all duration-300" />
-                                                    <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-40 relative shadow-lg transition-all duration-300" />
-                                                </div>
+                                                <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none mt-0">
+                                                    {stat.label}
+                                                </span>
                                             </div>
-                                            <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
-                                                {stat.label}
-                                            </span>
+                                            
+                                            {/* Avatars Block */}
+                                            <div className="flex -space-x-3 sm:-space-x-4 lg:-space-x-5 ml-5 sm:ml-8 lg:ml-12">
+                                                <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-10 relative shadow-lg transition-all duration-300" />
+                                                <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-20 relative shadow-lg transition-all duration-300" />
+                                                <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-30 relative shadow-lg transition-all duration-300" />
+                                                <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-40 relative shadow-lg transition-all duration-300" />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
@@ -89,7 +91,7 @@ export function WhyHynivaServices() {
                         </div>
 
                         {/* Right Side: Description & CTA */}
-                        <div className="flex flex-col items-start pt-0 lg:pt-0">
+                        <div className="flex flex-col items-start pt-0 lg:pt-0 lg:pl-8">
                             <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10 whitespace-pre-line">
                                 {topBox.description}
                             </p>
@@ -98,6 +100,7 @@ export function WhyHynivaServices() {
                                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
                             >
                                 {topBox.cta.label}
+                                <ArrowRightIcon className="w-4 h-4 ml-1" />
                             </Link>
                         </div>
                     </div>
@@ -113,7 +116,7 @@ export function WhyHynivaServices() {
                 >
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                         {bottomBox.map((card, idx) => (
-                            <div key={idx} className="flex flex-col">
+                            <div key={idx} className={`flex flex-col ${idx === 3 ? 'lg:ml-4' : ''}`}>
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>

@@ -404,7 +404,7 @@ export const expertiseContent = {
         stats: [
             { value: "250+", label: "Certified\nProfessionals" }
         ],
-        description: "Our experts continuously expand their capabilities\nacross AI, cloud, data and enterprise platforms to\nsolve today's challenges and prepare for\ntomorrow's opportunities.",
+        description: "Our experts continuously expand their capabilities\nacross AI, cloud, data and enterprise platforms to\nsolve today's challenges and prepare our clients\nfor tomorrow's opportunities.",
         boldWords: [],
         cta: { label: "About Us", href: "/about" },
         imagePlaceholder: "/images/expertise/professionals.png"
@@ -413,25 +413,25 @@ export const expertiseContent = {
         {
             icon: "Brain",
             title: "AI-Ready Talent",
-            description: "Exploring, adopting, and applying the latest advancements in generative AI, intelligent automation, and intelligent agents to solve complex business challenges.",
+            description: "Applied expertise in GenAI,\nintelligent automation and\nAI agents to solve complex\nchallenges and accelerate\nbusiness innovation.",
             imagePlaceholder: "/images/expertise/ai-talent.png"
         },
         {
             icon: "Layers",
             title: "Platform Specialists",
-            description: "Certified across Salesforce, AWS, Microsoft, and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
+            description: "Certified across Salesforce,\nAWS, Microsoft and leading\nenterprise ecosystems to\naccelerate implementation,\ninnovation, and adoption.",
             imagePlaceholder: "/images/expertise/platform-specialists.png"
         },
         {
             icon: "Briefcase",
             title: "Industry Experience",
-            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
+            description: "Hands-on experience delivering\nenterprise solutions that address\noperational, regulatory, and\ncustomer experience challenges\nacross highly regulated industries.",
             imagePlaceholder: "/images/expertise/industry-experience.png"
         },
         {
             icon: "GraduationCap",
-            title: "Learning Eco System",
-            description: "Innovation thrives when learning never stops. We invest in certifications, emerging technologies, and experimentation to keep our teams ahead of what's next.",
+            title: "Learning Ecosystem",
+            description: "Innovation thrives when learning\nnever stops. We invest in emerging\ntechnologies, certifications and\nexperimentation to keep our teams\nahead of what's next.",
             imagePlaceholder: "/images/expertise/learning-culture.png"
         }
     ]
@@ -499,7 +499,7 @@ export const techContent = {
 
 // ── Technology & Partners ────────────────────────────────────────────────────
 export const techPartnersContent = {
-    label: "Our Technology & Partners",
+    label: "TECHNOLOGY & PARTNERS",
     headline: "Built on the platforms you already trust",
     sub: "Our teams are certified and experienced across the platforms that power modern enterprises. So there's no ramp-up time and no translation layer between your goals and our delivery.",
     partners: [

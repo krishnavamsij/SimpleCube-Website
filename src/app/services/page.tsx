@@ -13,7 +13,7 @@ import Link from "next/link";
 import { CertificationsDiagram } from "@/components/certifications-diagram";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRightIcon, ShieldCheck, ChevronLeft, ChevronRight, ArrowRightIcon } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -383,7 +383,7 @@ function CertificationsScroll() {
         <section className="bg-white pt-4 pb-10 sm:pt-6 sm:pb-14">
             <div className="mx-auto max-w-[1400px] px-6">
                 <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-8">
-                    Certifications
+                    Proof Behind Our Expertise
                 </p>
 
                 {/* Marquee container with fade edges */}
@@ -501,9 +501,9 @@ function DataSecuritySection() {
                             Security & Compliance
                         </div>
 
-                        <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-5">
+                        <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5">
                             Your data is safe.<br />
-                            <span className="text-[#2563eb] mt-4 inline-block">We engineer it that way.</span>
+                            <span className="text-[#00D4AA]">We engineer it that way.</span>
                         </h2>
                         <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-xl">
                             Security is not an afterthought at Hyniva — it is built into every layer of our
@@ -575,55 +575,77 @@ function WorkThatSpeaks() {
                     </div>
                 </div>
 
-                {/* ── Carousel ── */}
-                <div className="overflow-hidden" ref={emblaRef}>
-                    <div className="flex">
-                        {servicesProjectsData.map((study, idx) => (
-                            <div key={idx} className="min-w-0 flex-[0_0_100%]">
-                                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
-                                    <div className="w-full lg:w-[55%] flex flex-col justify-between">
-                                        <div>
-                                            <h3 className="whitespace-pre-line text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
-                                            {study.title}
-                                        </h3>
-                                        <div className="mb-6">
-                                            <p className="text-base font-bold text-slate-900 mb-2">Challenge</p>
-                                            <p className="whitespace-pre-line text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
-                                        </div>
-                                        <div className="mb-6">
-                                            <p className="text-base font-bold text-slate-900 mb-3">Solution</p>
-                                            <ul className="space-y-2">
-                                                {study.solution.map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-slate-600 text-sm leading-relaxed">
-                                                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
-                                                        {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        </div>
-                                        <div className="mt-8 lg:mt-auto pt-4">
-                                            <p className="text-lg font-bold text-slate-900 mb-3">Result:</p>
-                                            <div className="bg-[#1e90ff]/5 border border-[#1e90ff]/20 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                                                <p className="text-sm text-slate-600 leading-relaxed max-w-2xl"
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: study.result.replace(
-                                                            /(\d[\d,+%\-x\.]*\s*(?:Lighthouse|faster|month|integrations|version|score|per\s+month)?[\w\s]*)/gi,
-                                                            '<span class="text-[#1e90ff] font-bold">$1</span>'
-                                                        )
-                                                    }}
-                                                />
-                                                <Link
-                                                    href={study.href}
-                                                    className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2563EB] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#1e40af] hover:scale-105 transition-all shadow-md"
-                                                >
-                                                    Read More <ArrowRightIcon className="w-3.5 h-3.5" />
-                                                </Link>
+                {/* ── Content ── */}
+                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+                    
+                    {/* LHS Text Content with Fade Animation */}
+                    <div className="w-full lg:w-[55%] relative">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={current}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 10 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="flex flex-col justify-between h-full"
+                            >
+                                {(() => {
+                                    const study = servicesProjectsData[current];
+                                    return (
+                                        <>
+                                            <div>
+                                                <h3 className="whitespace-pre-line text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
+                                                    {study.title}
+                                                </h3>
+                                                <div className="mb-6">
+                                                    <p className="text-base font-bold text-slate-900 mb-2">Challenge</p>
+                                                    <p className="whitespace-pre-line text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
+                                                </div>
+                                                <div className="mb-6">
+                                                    <p className="text-base font-bold text-slate-900 mb-3">Solution</p>
+                                                    <ul className="space-y-2">
+                                                        {study.solution.map((item, i) => (
+                                                            <li key={i} className="flex items-start gap-2 text-slate-600 text-sm leading-relaxed">
+                                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
+                                                                {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="w-full lg:w-[45%] flex flex-col justify-between">
-                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
+                                            <div className="mt-8 lg:mt-auto pt-4">
+                                                <p className="text-lg font-bold text-slate-900 mb-3">Result:</p>
+                                                <div className="bg-[#1e90ff]/5 border border-[#1e90ff]/20 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                                                    <p className="text-sm text-slate-600 leading-relaxed max-w-2xl"
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: study.result.replace(
+                                                                /(\d[\d,+%\-x\.]*\s*(?:Lighthouse|faster|month|integrations|version|score|per\s+month)?[\w\s]*)/gi,
+                                                                '<span class="text-[#1e90ff] font-bold">$1</span>'
+                                                            )
+                                                        }}
+                                                    />
+                                                    <Link
+                                                        href={study.href}
+                                                        className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2563EB] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#1e40af] hover:scale-105 transition-all shadow-md"
+                                                    >
+                                                        Read More <ArrowRightIcon className="w-3.5 h-3.5" />
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </>
+                                    );
+                                })()}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* RHS Image Carousel */}
+                    <div className="w-full lg:w-[45%] flex flex-col justify-between">
+                        <div className="overflow-hidden relative w-full" ref={emblaRef}>
+                            <div className="flex h-full -ml-4">
+                                {servicesProjectsData.map((study, idx) => (
+                                    <div key={idx} className="min-w-0 flex-[0_0_100%] h-full relative pl-4 transform-gpu" style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
+                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 shadow-sm">
                                             <Image
                                                 src={study.image}
                                                 alt={study.title}
@@ -631,23 +653,23 @@ function WorkThatSpeaks() {
                                                 className="object-cover"
                                             />
                                         </div>
-                                        <div className="flex flex-col items-center justify-center gap-4 mt-8 lg:mt-auto pt-4">
-                                            <div className="flex items-center justify-center gap-3">
-                                                <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
-                                                    <ChevronLeft className="w-5 h-5" />
-                                                </button>
-                                                <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
-                                                    <ChevronRight className="w-5 h-5" />
-                                                </button>
-                                            </div>
-                                            <div className="text-[11px] font-light tracking-[2px] text-slate-400">
-                                                <span className="text-[#00D4AA] font-medium">{(idx + 1).toString().padStart(2, '0')}</span> / {servicesProjectsData.length.toString().padStart(2, '0')}
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+                        <div className="flex flex-col items-center justify-center gap-4 mt-8 lg:mt-auto pt-4">
+                            <div className="flex items-center justify-center gap-3">
+                                <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                    <ChevronLeft className="w-5 h-5" />
+                                </button>
+                                <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                    <ChevronRight className="w-5 h-5" />
+                                </button>
+                            </div>
+                            <div className="text-[11px] font-light tracking-[2px] text-slate-400">
+                                <span className="text-[#00D4AA] font-medium">{(current + 1).toString().padStart(2, '0')}</span> / {servicesProjectsData.length.toString().padStart(2, '0')}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -697,7 +719,7 @@ function TechPartnersSection() {
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">
                     <div className="shrink-0 md:w-[25%]">
                         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-                            Our <span className="text-[#2563EB]">Tech Stack</span>
+                            Our <span className="text-[#00D4AA]">Tech Stack</span>
                         </h2>
                     </div>
                     <div className="ml-auto md:w-[62%]">
@@ -715,8 +737,8 @@ function TechPartnersSection() {
                             onClick={() => setActiveCategory(category.category)}
                             className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-[10px] sm:text-xs font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
                                 activeCategory === category.category
-                                    ? "bg-[#2563EB] text-white border-[#2563EB] shadow-md"
-                                    : "bg-white text-slate-800 border-slate-200 hover:border-[#2563EB] hover:text-[#2563EB]"
+                                    ? "bg-[#00D4AA] text-white border-[#00D4AA] shadow-md"
+                                    : "bg-white text-slate-800 border-slate-200 hover:border-[#00D4AA] hover:text-[#00D4AA]"
                             }`}
                         >
                             {category.category}
