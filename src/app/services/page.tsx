@@ -827,8 +827,9 @@ const techShowcaseData: TechCategory[] = [
         technologies: [
             { name: "Salesforce",     logo: "/tech_logos/Salesforce.png",     page: "https://www.salesforce.com",     format: "PNG" },
             { name: "MS Dynamics",    logo: "/tech_logos/MS_Dynamics.png",    page: "https://dynamics.microsoft.com", format: "PNG" },
-            { name: "Genesys",        logo: "/tech_logos/GENESYS-1.png",        page: "https://www.genesys.com",        format: "PNG" },
+            { name: "Genesys",        logo: "/tech_logos/Genesys.png",           page: "https://www.genesys.com",        format: "PNG" },
             { name: "Amazon Connect", logo: "/tech_logos/AWS.png",            page: "https://aws.amazon.com/connect/",format: "PNG" },
+            { name: "Mendix",         logo: "/tech_logos/Mendix.svg",          page: "https://www.mendix.com",         format: "SVG" },
         ],
     },
     {
@@ -845,7 +846,7 @@ const techShowcaseData: TechCategory[] = [
             { name: "Selenium",    logo: "/tech_logos/Selenium.png",    page: "https://www.selenium.dev",    format: "PNG" },
             { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://pactumjs.github.io",  format: "PNG" },
             { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io",        format: "PNG" },
-            { name: "ContextQA",   logo: "/tech_logos/ContextQA.png",   page: "https://contextqa.com",       format: "PNG" },
+            { name: "ContextQA",   logo: "/tech_logos/ContextQA.svg",   page: "https://contextqa.com",       format: "SVG" },
         ],
     },
     {
