@@ -123,7 +123,10 @@ export function Services() {
                                                 {svc.num}
                                             </div>
 
-                                            {/* REMOVED EYEBROW BADGE */}
+                                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                                                OUR STRENGTH
+                                            </div>
 
                                             {/* Title */}
                                             <h3 className="relative z-10 text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-tight tracking-tight text-slate-900">
