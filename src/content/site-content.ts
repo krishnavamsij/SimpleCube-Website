@@ -404,7 +404,7 @@ export const expertiseContent = {
         stats: [
             { value: "250+", label: "Certified\nProfessionals" }
         ],
-        description: "Our experts continuously expand their capabilities across AI, cloud, data and enterprise platforms to solve today's challenges and prepare for tomorrow's opportunities.",
+        description: "Our experts continuously expand their capabilities\nacross AI, cloud, data and enterprise platforms to\nsolve today's challenges and prepare for\ntomorrow's opportunities.",
         boldWords: [],
         cta: { label: "About Us", href: "/about" },
         imagePlaceholder: "/images/expertise/professionals.png"

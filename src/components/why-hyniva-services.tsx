@@ -47,7 +47,7 @@ export function WhyHynivaServices() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 lg:gap-24 lg:grid-cols-[1fr_1.3fr] items-center">
+                    <div className="relative z-10 grid gap-8 lg:gap-24 lg:grid-cols-[1fr_1.3fr] items-start">
                         {/* Left Side: Headline & Stats */}
                         <div>
                             <h2 className="text-[24px] sm:text-[32px] md:text-[36px] lg:text-[42px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-6 sm:mb-8 lg:mb-12 font-display">
@@ -90,8 +90,8 @@ export function WhyHynivaServices() {
                         </div>
 
                         {/* Right Side: Description & CTA */}
-                        <div className="flex flex-col items-start pt-4 lg:pt-0">
-                            <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10">
+                        <div className="flex flex-col items-start pt-0 lg:pt-0">
+                            <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10 whitespace-pre-line">
                                 {topBox.description}
                             </p>
                             <Link 
