@@ -140,13 +140,21 @@ const EXPLICIT_POS = [
 function buildChipPositions(): ChipPos[] {
     return EXPLICIT_POS.map(({ x, y }, idx) => {
         const seed  = idx * 137;
+        // Start from center middle (behind text) instead of bottom
         const bx    = `${50 - x}vw`;
-        const by    = `${105 - y}vh`;
+        const by    = `${50 - y}vh`;  // Changed from 105 to 50 (middle of viewport)
         const side  = x < 50 ? -1 : 1;
-        const dx    = side * Math.round(20 + seededRand(seed + 2) * 24);
-        const dy    = -Math.round(30 + seededRand(seed + 1) * 20);
+        // Increase horizontal movement, reduce vertical to emphasize left/right motion
+        const dx    = side * Math.round(40 + seededRand(seed + 2) * 30);
+        const dy    = Math.round(-10 + seededRand(seed + 1) * 20);  // Smaller vertical drift
         const dur   = (7.0 + seededRand(seed + 3) * 3.0).toFixed(1);
-        const delay = (seededRand(seed + 4) * 2.0).toFixed(2);
+        
+        // Create wave pattern: logos come in groups/waves
+        // Group logos into 3 waves based on index
+        const wave = Math.floor(idx / 4);  // 4 logos per wave
+        const waveDelay = wave * 0.8;  // Each wave starts 0.8s after previous
+        const withinWaveDelay = (idx % 4) * 0.15;  // Slight stagger within each wave
+        const delay = (waveDelay + withinWaveDelay).toFixed(2);
 
         return {
             id:    idx,

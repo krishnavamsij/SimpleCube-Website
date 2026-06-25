@@ -245,19 +245,22 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 12, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[82%] max-w-[820px] rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                        className={cn(
+                            "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
+                            scrolled ? "left-0 w-full" : "left-1/2 -translate-x-1/2 w-[82%] max-w-[820px]"
+                        )}
                         onMouseEnter={() => handleMouseEnter("Services")}
                         onMouseLeave={handleMouseLeave}
                         style={{ pointerEvents: "auto" }}
                     >
                         <div className="grid grid-cols-3 gap-8">
                             {(dropdownItems.find(d => d.label === "Services")?.categories || []).map((cat) => (
-                                <div key={cat.category} className="space-y-3">
+                                <div key={cat.category} className="space-y-1.5">
                                     {cat.href ? (
                                         <Link
                                             href={cat.href}
                                             className={cn(
-                                                "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors",
+                                                "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors mb-4",
                                                 cat.isBold && "text-[15px] font-bold"
                                             )}
                                         >
@@ -265,7 +268,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                         </Link>
                                     ) : (
                                         <div className={cn(
-                                            "px-0 py-0 text-slate-900",
+                                            "px-0 py-0 text-slate-900 mb-4",
                                             cat.isBold && "text-[15px] font-bold"
                                         )}>
                                             {cat.category}
@@ -275,7 +278,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                         <Link
                                             key={item.title}
                                             href={item.href}
-                                            className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#2563EB]"
+                                            className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#2563EB]"
                                         >
                                             <span className={cn(
                                                 "text-slate-700 group-hover:text-[#2563EB] transition-colors",
