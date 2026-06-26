@@ -79,10 +79,22 @@ export function WhyHynivaServices() {
                                             
                                             {/* Avatars Block */}
                                             <div className="flex -space-x-3 sm:-space-x-4 lg:-space-x-5 ml-5 sm:ml-8 lg:ml-12">
-                                                <img src="/images/2025/06/Rickey_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-10 relative shadow-lg transition-all duration-300" />
-                                                <img src="/images/2025/06/Sreeram_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-20 relative shadow-lg transition-all duration-300" />
-                                                <img src="/images/2025/06/Venkatadri_Enhanced.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-30 relative shadow-lg transition-all duration-300" />
-                                                <img src="/images/2025/09/LutherBranham.jpg" alt="Expert" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] object-cover grayscale z-40 relative shadow-lg transition-all duration-300" />
+                                                {/* 1 - Hidu (Zoomed 20%, top aligned) */}
+                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-10 relative shadow-lg">
+                                                    <img src="/images/Our_Services/Experts/Hidu.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                </div>
+                                                {/* 2 - Madhavi (Zoomed 20%, top aligned) */}
+                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-20 relative shadow-lg">
+                                                    <img src="/images/Our_Services/Experts/Madhavi.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                </div>
+                                                {/* 3 - Madhumalathi (Original) */}
+                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-30 relative shadow-lg">
+                                                    <img src="/images/Our_Services/Experts/Madhumalathi.png" alt="Expert" className="w-full h-full object-cover grayscale transition-all duration-300" />
+                                                </div>
+                                                {/* 4 - suraj (Zoomed 20%, top aligned) */}
+                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[76px] lg:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-40 relative shadow-lg">
+                                                    <img src="/images/Our_Services/Experts/suraj.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
