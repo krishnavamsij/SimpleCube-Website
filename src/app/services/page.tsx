@@ -222,7 +222,7 @@ function ServicesHero() {
     };
 
     return (
-        <section className="relative overflow-hidden py-16 pt-28 sm:py-32 sm:pt-48 md:py-40 md:pt-56 lg:py-48 lg:pt-64 bg-[#030b1e]">
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen bg-[#030b1e]">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
