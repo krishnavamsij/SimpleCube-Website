@@ -415,6 +415,10 @@ function LeadershipSection() {
                                         style={
                                             leader.name === 'Madhu Bandarapu'
                                                 ? { transform: 'scale(1.35) translateY(-2%)', objectPosition: 'top', transformOrigin: 'top center' }
+                                                : leader.name === 'Ramesh Devidas' || leader.name === 'Sowburniga'
+                                                ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.15) translateY(-2%)', transformOrigin: 'top center' }
+                                                : leader.name === 'Ravi Kumar Kanaka'
+                                                ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.20) translateY(-2%)', transformOrigin: 'top center' }
                                                 : { objectPosition: 'top' }
                                         }
                                     />
@@ -424,7 +428,7 @@ function LeadershipSection() {
                                     </div>
                                 )}
                                 {/* Bottom fade gradient */}
-                                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#06102b] via-[#06102b]/60 to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#06102b] via-[#06102b]/30 to-transparent pointer-events-none"></div>
                             </div>
 
                             {/* Text Content */}

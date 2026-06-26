@@ -65,13 +65,13 @@ function EnterprisePlatformsHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        {/* Boosted Ambient Glow Container to match visual brightness of DT */}
-                        <div className="absolute right-[-15%] lg:right-[-25%] top-[-5%] lg:top-[-5%] w-[500px] h-[500px] lg:w-[750px] lg:h-[750px] pointer-events-none flex items-center justify-center">
-                            {/* Ambient background glow (boosted opacity and size) */}
-                            <div className="absolute left-[10%] top-[15%] w-[400px] h-[550px] bg-[#06b6d4]/50 blur-[90px] rounded-full mix-blend-screen" />
-                            <div className="absolute left-[25%] top-[25%] w-[300px] h-[450px] bg-[#8b5cf6]/50 blur-[90px] rounded-full mix-blend-screen" />
+                        {/* Identical Ambient Glow Container from Digital Transformation */}
+                        <div className="absolute right-[-15%] lg:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
+                            {/* Ambient background glow (increased visibility) */}
+                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             {/* Soft radial illumination inside center */}
-                            <div className="absolute inset-[15%] bg-gradient-to-tr from-indigo-500/30 to-cyan-400/30 blur-[60px] rounded-full mix-blend-screen" />
+                            <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
                         </div>
 
                         {/* Abstract Glass Blocks Illustration - Crisp Line Art Style */}

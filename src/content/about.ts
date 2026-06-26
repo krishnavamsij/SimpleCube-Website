@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ABOUT US CONTENT CONFIGURATION
  * 
  * This file contains all the content data for the About Us page based on the new design.
@@ -98,6 +98,27 @@ export const aboutContent = {
                 image: "/images/2025/09/Srinivas_Thumati.jpg",
                 linkedin: "http://www.linkedin.com/in/srinivasa-rao-thumati-632405141/",
                 description: "Application delivery expert leading high-impact programs across banking, insurance, and emerging technologies.",
+            },
+            {
+                name: "Ramesh Devidas",
+                title: "Enterprise Architect",
+                image: "/images/leadership images/Ramesh .png",
+                linkedin: "https://www.linkedin.com/in/ramesh-gujarathi-a4b1b850/",
+                description: "30+ years of expertise guiding enterprise modernization with architecture strategies balancing innovation and reliability.",
+            },
+            {
+                name: "Sowburniga",
+                title: "Marketing Director",
+                image: "/images/leadership images/sowburniga.png",
+                linkedin: "https://www.linkedin.com/in/sowburniga-sivagurunathan-b96049131/",
+                description: "Product marketing and brand strategist specializing in enterprise technology, go-to-market strategy and market positioning.",
+            },
+            {
+                name: "Ravi Kumar Kanaka",
+                title: "SVP, HR & Operations Head",
+                image: "/images/leadership images/Ravi_v2.png",
+                linkedin: "https://www.linkedin.com/in/ravi-kumar-kanaka-2022a630/",
+                description: "Combines expertise in human resources and operations to strengthen workplace culture and organizational effectiveness.",
             },
         ],
     },
