@@ -202,23 +202,8 @@ export function TechPartners() {
                                                                 src={hex.logo}
                                                                 alt={hex.title}
                                                                 fill
-                                                                className="object-contain brightness-0 invert"
+                                                                className={`object-contain brightness-0 invert ${hex.title === 'Salesforce' ? 'scale-125' : ''}`}
                                                             />
-                                                            {hex.title === "Salesforce" && (
-                                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                                    <span 
-                                                                        className="font-bold text-[18px]" 
-                                                                        style={{ 
-                                                                            color: '#032d60',
-                                                                            fontFamily: 'Georgia, "Times New Roman", serif',
-                                                                            letterSpacing: '-0.02em',
-                                                                            marginTop: '1px'
-                                                                        }}
-                                                                    >
-                                                                        sales<span style={{ fontStyle: 'italic', fontFamily: 'Georgia, "Times New Roman", serif' }}>f</span>orce
-                                                                    </span>
-                                                                </div>
-                                                            )}
                                                         </div>
                                                     )}
                                                 </div>

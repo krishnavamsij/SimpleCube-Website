@@ -399,7 +399,7 @@ export const whyHynivaContent = {
 // ── Expertise Section (for Services/About pages) ─────────────────────────────
 export const expertiseContent = {
     topBox: {
-        headline: "Expertise Behind Every Engagement",
+        headline: "Expertise Behind\nEvery Engagement",
         highlightedWord: "Every Engagement",
         stats: [
             { value: "250+", label: "Certified\nProfessionals" }
@@ -503,7 +503,7 @@ export const techPartnersContent = {
     headline: "Built on the platforms you already trust",
     sub: "Our teams are certified and experienced across the platforms that power modern enterprises. So there's no ramp-up time and no translation layer between your goals and our delivery.",
     partners: [
-        { name: "Salesforce", src: "/images/Partners_Logo/Salesforce.com_logo.svg.png" },
+        { name: "Salesforce", src: "/images/Partners_Logo/salesforce white.png" },
         { name: "AWS", src: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png" },
         { name: "Microsoft", src: "/images/Partners_Logo/Microsoft_logo_(2012).svg.png" },
         { name: "Genesys", src: "/images/Partners_Logo/GENESYS_logo_FullColor_rgb_png-1024x189.webp" },
@@ -514,7 +514,7 @@ export const techPartnersContent = {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
             color: "bg-[#1F36A4]",
-            logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
+            logo: "/images/Partners_Logo/salesforce white.png"
         },
         {
             title: "AWS",
@@ -544,7 +544,7 @@ export const techPartnersContent = {
             title: "Salesforce",
             items: ["Salesforce FSC", "MS Dynamics 365", "Power Platform", "Genesys"],
             color: "bg-[#1F36A4]",
-            logo: "/images/Partners_Logo/Salesforce.com_logo.svg.png"
+            logo: "/images/Partners_Logo/salesforce white.png"
         }
     ],
 };
