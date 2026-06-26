@@ -100,8 +100,8 @@ export const aboutContent = {
                 description: "Application delivery expert leading high-impact programs across banking, insurance, and emerging technologies.",
             },
             {
-                name: "Ramesh Devidas",
-                title: "Enterprise Architect",
+                name: "Ramesh Gujarathi",
+                title: "VP, Enterprise Architect",
                 image: "/images/leadership images/Ramesh .png",
                 linkedin: "https://www.linkedin.com/in/ramesh-gujarathi-a4b1b850/",
                 description: "30+ years of expertise guiding enterprise modernization with architecture strategies balancing innovation and reliability.",
