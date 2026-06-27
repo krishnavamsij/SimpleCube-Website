@@ -108,7 +108,7 @@ export const aboutContent = {
             },
             {
                 name: "Sowburniga",
-                title: "Marketing Director",
+                title: "VP, Head - Sales and Marketing",
                 image: "/images/leadership images/sowburniga.png",
                 linkedin: "https://www.linkedin.com/in/sowburniga-sivagurunathan-b96049131/",
                 description: "Product marketing and brand strategist specializing in enterprise technology, go-to-market strategy and market positioning.",
