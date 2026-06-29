@@ -118,22 +118,23 @@ interface ChipPos {
 }
 
 // 12 fixed positions spread across the hero, avoiding the ~20-80% vertical centre band and keeping top positions below navbar
+// Bottom positions kept at max 78% to ensure logos disappear 1-2 inches above footer
 const EXPLICIT_POS = [
     // ── Far Left ──
     { x:  6, y: 50 },
     { x: 11, y: 26 },
-    { x:  8, y: 80 },
+    { x:  8, y: 76 },
     // ── Near-Left ──
     { x: 19, y: 20 },
-    { x: 21, y: 91 },
+    { x: 21, y: 78 },
     // ── Centre top & bottom ──
     { x: 38, y: 20 },
     { x: 62, y: 21 },
-    { x: 40, y: 92 },
-    { x: 60, y: 93 },
+    { x: 40, y: 77 },
+    { x: 60, y: 78 },
     // ── Near-Right ──
     { x: 79, y: 20 },
-    { x: 81, y: 90 },
+    { x: 81, y: 76 },
     // ── Far Right ──
     { x: 88, y: 38 },
 ];
