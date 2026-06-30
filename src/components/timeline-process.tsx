@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const processSteps = [
+const defaultProcessSteps = [
   {
     num: "01",
     title: "Understand",
@@ -30,7 +30,28 @@ const processSteps = [
   }
 ];
 
-export function TimelineProcess() {
+interface TimelineProcessProps {
+  eyebrow?: string;
+  title?: string;
+  description?: React.ReactNode;
+  steps?: {
+    num: string;
+    title: string;
+    desc: string;
+    angle: number;
+  }[];
+}
+
+export function TimelineProcess({
+  eyebrow = "OUR APPROACH",
+  title = "Transform with Purpose",
+  description = (
+    <>
+      Every organization follows a different transformation journey, but lasting change comes from balancing <br className="hidden md:block" />business priorities with modern engineering. Our approach creates a structured path from strategy to measurable outcomes.
+    </>
+  ),
+  steps = defaultProcessSteps
+}: TimelineProcessProps) {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -64,14 +85,14 @@ export function TimelineProcess() {
           <div className="flex justify-center mb-6">
             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
               <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-              OUR APPROACH
+              {eyebrow}
             </div>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold max-w-3xl mx-auto leading-tight tracking-tight">
-            Transform with Purpose
+            {title}
           </h2>
           <p className="mt-6 text-slate-400 text-lg max-w-[1200px] mx-auto leading-relaxed">
-            Every organization follows a different transformation journey, but lasting change comes from balancing <br className="hidden md:block" />business priorities with modern engineering. Our approach creates a structured path from strategy to measurable outcomes.
+            {description}
           </p>
         </motion.div>
 
@@ -82,7 +103,7 @@ export function TimelineProcess() {
           <div className="absolute top-[50%] left-0 right-0 h-[1px] bg-white/20 border-t border-dashed border-white/30 z-0" />
           
           <div className="flex flex-row items-center justify-center relative w-full h-full">
-            {processSteps.map((step, idx) => {
+            {steps.map((step, idx) => {
               const isActive = activeStep === idx;
               const isPast = activeStep >= idx;
               
@@ -170,7 +191,7 @@ export function TimelineProcess() {
 
         {/* Mobile / Tablet Vertical Timeline */}
         <div className="lg:hidden relative border-l border-white/10 ml-6 pl-8 space-y-16 mt-16">
-          {processSteps.map((step, idx) => {
+          {steps.map((step, idx) => {
              const isActive = activeStep === idx;
              return (
                <div key={step.title} className="relative">
