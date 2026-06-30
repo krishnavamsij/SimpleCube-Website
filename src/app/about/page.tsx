@@ -95,9 +95,13 @@ function AboutHero() {
                     <motion.div variants={fadeInUp}>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0 sm:divide-x divide-blue-900/50 w-full">
                             {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-4 sm:pr-6 lg:pr-8' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-4 sm:pl-6 lg:pl-8' : 'px-4 sm:px-6 lg:px-8'}`}>
+                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-2 sm:pr-4 lg:pr-6' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-2 sm:pl-4 lg:pl-6' : 'px-2 sm:px-4 lg:px-6'}`}>
                                     <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-3">{metric.value}</div>
-                                    <div className="text-base font-medium text-slate-300 whitespace-pre-line leading-tight">{metric.label}</div>
+                                    <div className="text-sm lg:text-base font-medium text-slate-300 leading-tight">
+                                        {metric.label.split('\n').map((line, lIdx) => (
+                                            <span key={lIdx} className="block whitespace-nowrap">{line}</span>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
