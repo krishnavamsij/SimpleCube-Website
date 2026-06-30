@@ -118,26 +118,31 @@ export function FloatingPhotoCards() {
           z-index: 2;
         }
         
-        /* Smooth, polished lifecycle: appear → slow shrink → disappear (no shaking) */
+        /* Smooth, symmetrical lifecycle: zoom-in → brief hold → zoom-out (mirrored) */
         @keyframes photoLifecycle {
-          /* Phase 1: Rapid pop-in */
+          /* Phase 1: Smooth zoom-in */
           0% {
             opacity: 0;
             transform: scale(0.1) translate(var(--start-x), var(--start-y));
           }
-          15% {
+          20% {
             opacity: 1;
             transform: scale(1) translate(0, 0);
           }
-          /* Phase 2: Immediate and continuous zoom-out */
+          /* Phase 2: Brief hold at full size */
+          30% {
+            opacity: 1;
+            transform: scale(1) translate(0, 0);
+          }
+          /* Phase 3: Smooth zoom-out (mirror of zoom-in) */
           85% {
             opacity: 1;
-            transform: scale(0.2) translate(0, 0);
+            transform: scale(0.1) translate(0, 0);
           }
-          /* Phase 3: Quick fade exit */
+          /* Phase 4: Final fade */
           100% {
             opacity: 0;
-            transform: scale(0) translate(0, 0);
+            transform: scale(0.1) translate(0, 0);
           }
         }
       `;
@@ -243,9 +248,9 @@ export function FloatingPhotoCards() {
       el.style.left = `${x}px`;
       el.style.top = `${y}px`;
 
-      // Extremely fast, snappy lifecycle (no waiting)
-      const duration = 3 + Math.random() * 2; // 3-5 seconds 
-      const delay = Math.random() * 0.4; // Small start delay for subtle variation
+      // Smooth, gentle lifecycle with more time
+      const duration = 6 + Math.random() * 3; // 6-9 seconds for smoother transitions
+      const delay = Math.random() * 0.6; // Small start delay for subtle variation
       el.style.setProperty('--duration', `${duration}s`);
       el.style.setProperty('--delay', `${delay}s`);
 
@@ -302,17 +307,17 @@ export function FloatingPhotoCards() {
           animateSingleCard();
         }
         
-        // Faster spawn rate to compensate for shorter lifespans
-        let spawnDelay = 600; // Base: 0.6 second
+        // Slower spawn rate for smoother, less chaotic feel
+        let spawnDelay = 800; // Base: 0.8 seconds
         
         if (activeCards > 7) {
-          spawnDelay = 1000; // Slow when getting full
+          spawnDelay = 1400; // Slow when getting full
         } else if (activeCards > 5) {
-          spawnDelay = 800; // Moderate pace
+          spawnDelay = 1100; // Moderate pace
         }
         
         // Small variation for natural feel
-        spawnDelay += Math.random() * 300;
+        spawnDelay += Math.random() * 400;
         
         await sleep(spawnDelay);
       }
