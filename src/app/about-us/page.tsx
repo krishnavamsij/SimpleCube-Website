@@ -598,56 +598,239 @@ function WhatWeBelieveSection() {
     );
 }
 
+/* ─────────────── Orbiting Cards Data ─────────────── */
+const orbitingCards = [
+    { icon: "🚀", title: "Innovation", color: "from-purple-500 to-purple-700" },
+    { icon: "⚡", title: "Speed", color: "from-yellow-500 to-orange-600" },
+    { icon: "🎯", title: "Precision", color: "from-blue-500 to-blue-700" },
+    { icon: "🔒", title: "Security", color: "from-green-500 to-green-700" },
+    { icon: "💡", title: "Ideas", color: "from-pink-500 to-rose-700" },
+    { icon: "🌐", title: "Global", color: "from-cyan-500 to-teal-700" },
+    { icon: "⚙️", title: "Efficiency", color: "from-slate-500 to-slate-700" },
+    { icon: "🎨", title: "Design", color: "from-indigo-500 to-indigo-700" },
+    { icon: "📊", title: "Analytics", color: "from-emerald-500 to-emerald-700" },
+    { icon: "🤝", title: "Partnership", color: "from-amber-500 to-amber-700" },
+    { icon: "🔄", title: "Agility", color: "from-violet-500 to-violet-700" },
+    { icon: "✨", title: "Excellence", color: "from-fuchsia-500 to-fuchsia-700" },
+];
+
 /* ─────────────── Hero Section ─────────────── */
 function HeroSection() {
     return (
         <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 pt-20">
             {/* Background effects */}
-            <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0 opacity-20">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
                 <div className="absolute -bottom-8 right-10 w-72 h-72 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000" />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-28 sm:py-32 md:py-40">
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {/* Eyebrow */}
-                    <motion.div variants={fadeInUp}>
-                        <span className="eyebrow text-blue-300 bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
-                            <span className="dot bg-blue-400 shadow-blue-400" />
-                            Who We Are
-                        </span>
-                    </motion.div>
-
-                    {/* Heading */}
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white font-display max-w-4xl"
-                    >
-                        Where Product Thinking Meets Enterprise Execution
-                    </motion.h1>
-
-                    {/* Callout */}
+            <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 py-20 sm:py-24 md:py-28">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left Side - Content (Primary Focus) */}
                     <motion.div
-                        variants={fadeInUp}
-                        className="mt-10 sm:mt-12 max-w-2xl bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-400/30 rounded-xl p-6 sm:p-8 backdrop-blur-sm"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                        className="relative z-20"
                     >
-                        <p className="text-lg sm:text-xl text-blue-50 leading-relaxed font-medium">
-                            Our mission is to simplify enterprise complexity through products and technology services that deliver measurable outcomes and enable organizations to scale with confidence.
-                        </p>
+                        {/* Eyebrow */}
+                        <motion.div variants={fadeInUp}>
+                            <span className="eyebrow text-blue-300 bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
+                                <span className="dot bg-blue-400 shadow-blue-400" />
+                                Who We Are
+                            </span>
+                        </motion.div>
+
+                        {/* Heading */}
+                        <motion.h1
+                            variants={fadeInUp}
+                            className="mt-8 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-white font-display"
+                        >
+                            Where Product Thinking Meets Enterprise Execution
+                        </motion.h1>
+
+                        {/* Callout */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="mt-8 bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm"
+                        >
+                            <p className="text-base sm:text-lg text-blue-50 leading-relaxed font-medium">
+                                Our mission is to simplify enterprise complexity through products and technology services that deliver measurable outcomes and enable organizations to scale with confidence.
+                            </p>
+                        </motion.div>
+
+                        {/* Metrics */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="mt-12"
+                        >
+                            <KeyMetrics />
+                        </motion.div>
                     </motion.div>
 
-                    {/* Metrics */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mt-16 sm:mt-20"
-                    >
-                        <KeyMetrics />
-                    </motion.div>
-                </motion.div>
+                    {/* Right Side - Orbiting Globe Effect */}
+                    <div className="hidden lg:block relative h-[500px] overflow-hidden">
+                        {/* Central Globe */}
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ 
+                                scale: 1, 
+                                opacity: 1,
+                                rotate: [0, 360]
+                            }}
+                            transition={{ 
+                                scale: { duration: 0.8, ease: EASE_OUT_QUART },
+                                opacity: { duration: 0.8, ease: EASE_OUT_QUART },
+                                rotate: { duration: 40, repeat: Infinity, ease: "linear" }
+                            }}
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-2xl shadow-blue-500/50"
+                        >
+                            {/* Globe grid effect */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                                <div className="absolute inset-0 opacity-30">
+                                    {[...Array(6)].map((_, i) => (
+                                        <div
+                                            key={`lat-${i}`}
+                                            className="absolute left-0 right-0 border-t border-blue-300/30"
+                                            style={{ top: `${(i + 1) * 16.66}%` }}
+                                        />
+                                    ))}
+                                    {[...Array(6)].map((_, i) => (
+                                        <div
+                                            key={`long-${i}`}
+                                            className="absolute top-0 bottom-0 border-l border-blue-300/30"
+                                            style={{ left: `${(i + 1) * 16.66}%` }}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* Glow effect */}
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/20 to-transparent" />
+                        </motion.div>
+
+                        {/* Roaming Cards with varied paths - constrained to stay within safe bounds */}
+                        {orbitingCards.map((card, index) => {
+                            // Create varied paths for each card - much more constrained
+                            // Reduced radii to keep cards well within the container
+                            const pathVariations = [
+                                { radiusX: 120, radiusY: 35, speed: 8, delay: 0 },
+                                { radiusX: 130, radiusY: 32, speed: 10, delay: 1 },
+                                { radiusX: 110, radiusY: 38, speed: 9, delay: 2 },
+                                { radiusX: 125, radiusY: 33, speed: 11, delay: 0.5 },
+                                { radiusX: 115, radiusY: 36, speed: 9.5, delay: 1.5 },
+                                { radiusX: 128, radiusY: 34, speed: 10.5, delay: 2.5 },
+                                { radiusX: 118, radiusY: 31, speed: 9, delay: 3 },
+                                { radiusX: 132, radiusY: 37, speed: 10, delay: 3.5 },
+                                { radiusX: 112, radiusY: 33, speed: 9.5, delay: 4 },
+                                { radiusX: 122, radiusY: 35, speed: 10.5, delay: 4.5 },
+                                { radiusX: 126, radiusY: 32, speed: 9, delay: 5 },
+                                { radiusX: 116, radiusY: 36, speed: 10, delay: 5.5 },
+                            ];
+                            
+                            const path = pathVariations[index];
+                            const angle = (index * 360) / orbitingCards.length;
+                            
+                            // Calculate minimum safe distance from globe center (globe radius + card size + padding)
+                            const minDistanceFromGlobe = 90; // 70 (half globe) + 20 (card size/2) + 20 (padding)
+                            
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{
+                                        scale: [0, 1, 1],
+                                        opacity: [0, 1, 1],
+                                    }}
+                                    transition={{
+                                        scale: { delay: 0.3 + index * 0.08, duration: 0.4 },
+                                        opacity: { delay: 0.3 + index * 0.08, duration: 0.4 },
+                                    }}
+                                    className="absolute top-1/2 left-1/2"
+                                >
+                                    <motion.div
+                                        animate={{
+                                            x: [
+                                                Math.cos((angle * Math.PI) / 180) * path.radiusX,
+                                                Math.cos(((angle + 120) * Math.PI) / 180) * path.radiusX,
+                                                Math.cos(((angle + 240) * Math.PI) / 180) * path.radiusX,
+                                                Math.cos((angle * Math.PI) / 180) * path.radiusX,
+                                            ],
+                                            y: [
+                                                Math.sin((angle * Math.PI) / 180) * path.radiusY,
+                                                Math.sin(((angle + 120) * Math.PI) / 180) * path.radiusY,
+                                                Math.sin(((angle + 240) * Math.PI) / 180) * path.radiusY,
+                                                Math.sin((angle * Math.PI) / 180) * path.radiusY,
+                                            ].map(y => {
+                                                // Clamp Y values to stay well within container bounds
+                                                // Container is 500px, so keep within -200 to +200 from center
+                                                return Math.max(-180, Math.min(180, y));
+                                            }),
+                                        }}
+                                        transition={{
+                                            duration: path.speed,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: path.delay,
+                                        }}
+                                        className="relative -translate-x-1/2 -translate-y-1/2"
+                                    >
+                                        {/* Card with float animation */}
+                                        <motion.div
+                                            animate={{
+                                                y: [-2, 2, -2],
+                                                rotate: [-1, 1, -1],
+                                            }}
+                                            transition={{
+                                                duration: 3 + index * 0.3,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                            }}
+                                            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 shadow-lg hover:bg-white/20 hover:scale-110 transition-all cursor-pointer"
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-lg">{card.icon}</span>
+                                                <span className="text-xs font-semibold text-white whitespace-nowrap">
+                                                    {card.title}
+                                                </span>
+                                            </div>
+                                        </motion.div>
+                                    </motion.div>
+                                </motion.div>
+                            );
+                        })}
+
+                        {/* Orbital rings with pulse - adjusted to match constrained paths */}
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ 
+                                scale: [0.95, 1, 0.95], 
+                                opacity: [0.1, 0.2, 0.1] 
+                            }}
+                            transition={{ 
+                                scale: { duration: 1.2, ease: EASE_OUT_QUART },
+                                opacity: { duration: 1.2, ease: EASE_OUT_QUART, delay: 0 },
+                                repeat: Infinity,
+                                repeatDelay: 2
+                            }}
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[130px] rounded-full border border-blue-400/40"
+                        />
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ 
+                                scale: [0.95, 1, 0.95], 
+                                opacity: [0.05, 0.15, 0.05] 
+                            }}
+                            transition={{ 
+                                scale: { duration: 1.8, ease: EASE_OUT_QUART },
+                                opacity: { duration: 1.8, ease: EASE_OUT_QUART, delay: 0.3 },
+                                repeat: Infinity,
+                                repeatDelay: 2
+                            }}
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[150px] rounded-full border border-blue-400/30"
+                        />
+                    </div>
+                </div>
             </div>
         </section>
     );

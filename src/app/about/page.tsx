@@ -5,6 +5,8 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { DigitalGlobe } from "@/components/digital-globe";
+import { FloatingPhotoCards } from "@/components/floating-photo-cards";
+
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -55,10 +57,12 @@ function AboutHero() {
             />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
-            {/* 3D Digital Globe (Canvas) */}
+            {/* 3D Digital Globe (Canvas) + Floating Photo Cards */}
             <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
                 <DigitalGlobe />
+                <FloatingPhotoCards />
             </div>
+
 
             <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
                 <motion.div
