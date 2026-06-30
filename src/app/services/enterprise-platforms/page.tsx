@@ -53,9 +53,7 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl max-w-2xl lg:mt-10"
                         >
-                            Enterprise platforms deliver greater value when they work<br />
-                            as one. Connecting systems, people and information creates<br />
-                            the digital backbone for a more responsive enterprise.
+                            Organizations connect platforms, people and information to build the digital backbone for a more responsive enterprise.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -249,7 +247,7 @@ function WhatWeTransform() {
                     <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl font-bold text-slate-900">
                         Why Connected Platforms Matter
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="mt-6 text-base sm:text-[17px] text-slate-600 leading-relaxed w-full max-w-3xl mx-auto">
+                    <motion.p variants={animations.fadeInUp} className="mt-6 text-[17px] text-slate-600 leading-relaxed w-full max-w-3xl mx-auto">
                         Enterprise platforms often evolve independently over time, creating disconnected environments that become increasingly difficult to manage.
                     </motion.p>
                 </motion.div>
@@ -329,8 +327,8 @@ function EnterpriseEnablement() {
                         <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                             Platforms <br className="hidden lg:block" />That Power <br className="hidden lg:block" />Enterprise Growth
                         </h2>
-                        <p className="text-[15px] text-slate-600 leading-relaxed">
-                            Every enterprise depends on platforms that support different parts of the business. We help organizations bring them together into a secure, scalable environment where each platform strengthens the value of the others.
+                        <p className="text-[17px] text-slate-600 leading-relaxed">
+                            Every enterprise depends <br className="hidden md:block"/>on platforms that support different <br/>parts of the business. We help organizations bring them together into a secure, scalable environment where each platform strengthens the value of the others.
                         </p>
                     </motion.div>
 
@@ -369,10 +367,10 @@ function EnterpriseEnablement() {
 function TransformationInAction() {
     const caseStudies = [
         {
-            title: "<span class='text-[#3B82F6]'>Core Banking Transformation</span> on Microsoft",
-            image: "/images/Case_Studies/Optimized/cs-8.png",
-            description: "50% faster loan approvals and 30% lower costs with Microsoft-led\u00A0modernization.",
-            href: "/insights/case-studies/core-banking-transformation"
+            title: "Cost-Optimized <span class='text-[#3B82F6]'>Document Platform</span> on AWS",
+            image: "/images/Case_Studies/Optimized/cs-22.png",
+            description: "Reduced costs to zero licensing while scaling document management on AWS.",
+            href: "/insights/case-studies/cost-optimized-document-platform-on-aws"
         },
         {
             title: "<span class='text-[#3B82F6]'>Intelligent Service Operations</span> on Salesforce",
@@ -521,8 +519,8 @@ function WhyHynivaEP() {
                             </div>
                             <h2 className="text-[28px] sm:text-[36px] lg:text-[40px] font-[900] text-[#ffffff] tracking-tight leading-[1.2] mb-0 font-display">
                                 Why Organizations<br/>
-                                Choose <span className="text-[#00D4AA]">Hyniva</span> for <br/>
-                                Enterprise Platforms<span className="text-[#00D4AA]">?</span>
+                                Choose Hyniva for <br/>
+                                <span className="text-[#00D4AA]">Enterprise Platforms?</span>
                             </h2>
                         </div>
 
@@ -601,26 +599,26 @@ export default function EnterprisePlatformsPage() {
                         {
                             num: "01",
                             title: "Assess",
-                            desc: "Understand the current platform landscape and identify opportunities for consolidation and integration.",
+                            desc: <>Understand the current<br/>platform landscape and identify opportunities<br/>for consolidation and integration.</>,
                             angle: 45
                         },
                         {
                             num: "02",
                             title: "Integrate",
-                            desc: "Connect enterprise applications and establish reliable, scalable interactions across systems.",
+                            desc: <>Connect enterprise<br/>applications and establish reliable,<br/>scalable interactions across systems.</>,
                             angle: -30
                         },
                         {
                             num: "03",
                             title: "Orchestrate",
-                            desc: "Coordinate data, workflows and intelligent automation to create a unified operating model.",
+                            desc: <>Coordinate data,<br/>workflows and intelligent automation<br/>to create a unified operating model.</>,
                             angle: 120
                         },
                         {
                             num: "04",
                             title: "Optimize",
-                            desc: "Continuously extend platform capabilities while strengthening governance, performance and adoption.",
-                            angle: -80
+                            desc: <>Continuously extend<br/>platform capabilities while strengthening<br/>governance, performance and adoption.</>,
+                            angle: 210
                         }
                     ]}
                 />

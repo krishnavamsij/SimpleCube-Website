@@ -7,25 +7,25 @@ const defaultProcessSteps = [
   {
     num: "01",
     title: "Understand",
-    desc: "Gain a clear view of business priorities, operational challenges and customer expectations.",
+    desc: <>Gain a clear view of<br/>business priorities, operational challenges<br/>and customer expectations.</>,
     angle: 45
   },
   {
     num: "02",
     title: "Modernize",
-    desc: "Redesign processes and modernize enterprise systems to improve agility and operational efficiency.",
+    desc: <>Redesign processes and modernize<br/>enterprise systems to improve<br/>agility and operational efficiency.</>,
     angle: -30
   },
   {
     num: "03",
     title: "Enable",
-    desc: "Introduce intelligent capabilities through AI, trusted data and cloud technologies where they create measurable impact.",
+    desc: <>Introduce intelligent capabilities through<br/>AI, trusted data and cloud technologies<br/>where they create measurable impact.</>,
     angle: 120
   },
   {
     num: "04",
     title: "Evolve",
-    desc: "Continuously optimize, expand and refine digital capabilities as your business grows and market demands change.",
+    desc: <>Continuously optimize, expand and<br/>refine digital capabilities as your<br/>business grows and market demands change.</>,
     angle: -80
   }
 ];
@@ -37,7 +37,7 @@ interface TimelineProcessProps {
   steps?: {
     num: string;
     title: string;
-    desc: string;
+    desc: React.ReactNode;
     angle: number;
   }[];
 }
@@ -52,18 +52,34 @@ export function TimelineProcess({
   ),
   steps = defaultProcessSteps
 }: TimelineProcessProps) {
-  const [tick, setTick] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loopCount, setLoopCount] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTick((prev) => prev + 1);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+    let timeout1: NodeJS.Timeout;
+    let timeout2: NodeJS.Timeout;
 
-  // Ping-pong sequence: 0, 1, 2, 3, 2, 1
-  const cycle = [0, 1, 2, 3, 2, 1];
-  const activeStep = cycle[tick % cycle.length];
+    if (activeStep < steps.length - 1) {
+      timeout1 = setTimeout(() => {
+        setActiveStep((prev) => prev + 1);
+      }, 4000);
+    } else {
+      timeout1 = setTimeout(() => {
+        setIsTransitioning(true);
+        timeout2 = setTimeout(() => {
+          setActiveStep(0);
+          setLoopCount((prev) => prev + 1);
+          setIsTransitioning(false);
+        }, 1200);
+      }, 4000);
+    }
+
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
+  }, [activeStep, steps.length]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
   const sizeMap = [400, 300, 260, 240];
@@ -91,7 +107,7 @@ export function TimelineProcess({
           <h2 className="text-4xl sm:text-5xl font-bold max-w-3xl mx-auto leading-tight tracking-tight">
             {title}
           </h2>
-          <p className="mt-6 text-slate-400 text-lg max-w-[1200px] mx-auto leading-relaxed">
+          <p className="mt-6 text-slate-400 text-[17px] max-w-[1200px] mx-auto leading-relaxed">
             {description}
           </p>
         </motion.div>
@@ -130,18 +146,30 @@ export function TimelineProcess({
                       {/* The Pure Movement Seamless Glow (NO fades, pure spatial morphing) */}
                       {isActive && (
                         <motion.div
-                          layoutId="activeGlowOrb"
-                          className="absolute pointer-events-none mix-blend-screen z-0 rounded-full"
-                          transition={{ type: "spring", stiffness: 45, damping: 15 }}
-                          style={{
-                            width: '110%',
-                            height: '110%',
-                            rotate: step.angle,
-                            // Darkened Teal inner core, Dark Blue middle space, Blue outer glow
-                            background: `radial-gradient(circle at 60% 60%, rgba(0,160,130,0.7) 0%, rgba(3,11,30,1) 45%, rgba(37,99,235,0.7) 80%, transparent 100%)`,
-                            filter: 'blur(15px)',
+                          className="absolute w-full h-full flex justify-center items-center pointer-events-none z-0"
+                          initial={activeStep === 0 ? { opacity: 0, scale: 0.5 } : false}
+                          animate={{
+                            opacity: isTransitioning ? 0 : 1,
+                            scale: isTransitioning ? 0.5 : 1,
                           }}
-                        />
+                          transition={{ 
+                            duration: 1.2, ease: "easeInOut"
+                          }}
+                        >
+                          <motion.div
+                            layoutId={`activeGlowOrb-${loopCount}`}
+                            className="absolute rounded-full mix-blend-screen"
+                            transition={{ type: "spring", stiffness: 45, damping: 15 }}
+                            style={{
+                              width: '110%',
+                              height: '110%',
+                              rotate: step.angle,
+                              // Darkened Teal inner core, Dark Blue middle space, Blue outer glow
+                              background: `radial-gradient(circle at 60% 60%, rgba(0,160,130,0.7) 0%, rgba(3,11,30,1) 45%, rgba(37,99,235,0.7) 80%, transparent 100%)`,
+                              filter: 'blur(15px)',
+                            }}
+                          />
+                        </motion.div>
                       )}
 
                       {/* Grid Pattern inside active circle */}
@@ -178,7 +206,7 @@ export function TimelineProcess({
 
                   {/* Description below the circle */}
                   <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 ease-in-out z-30 ${isActive ? 'scale-105' : 'scale-90'}`} style={{ marginTop: (size / 2) + 15 }}>
-                    <p className={`leading-relaxed text-[13px] transition-colors duration-1000 ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>
+                    <p className={`leading-relaxed text-[13px] whitespace-nowrap transition-colors duration-1000 ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>
                       {step.desc}
                     </p>
                   </div>

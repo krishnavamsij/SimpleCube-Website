@@ -220,7 +220,7 @@ function WhatWeTransform() {
                     <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl font-bold text-slate-900">
                         Why Businesses Must Transform
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="mt-6 text-base sm:text-[17px] text-slate-600 leading-relaxed w-full">
+                    <motion.p variants={animations.fadeInUp} className="mt-6 text-[17px] text-slate-600 leading-relaxed w-full">
                         Change is no longer driven by technology alone. It&apos;s driven by evolving customer expectations, faster market shifts and increasing <br className="hidden md:block"/>competitive pressure. Organizations that fail to adapt often find themselves constrained by operational complexity rather than market opportunity.
                     </motion.p>
                 </motion.div>
@@ -300,7 +300,7 @@ function EnterpriseEnablement() {
                         <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                             Capabilities <br className="hidden lg:block" />That Enable <br className="hidden lg:block" />Transformation
                         </h2>
-                        <p className="text-[15px] text-slate-600 leading-relaxed">
+                        <p className="text-[17px] text-slate-600 leading-relaxed">
                             Transformation isn't delivered through a single technology. It requires the right combination of intelligence, data and cloud capabilities working together to create a resilient digital foundation.
                         </p>
                     </motion.div>
