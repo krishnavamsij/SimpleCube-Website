@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 
 const defaultProcessSteps = [
   {
@@ -56,7 +56,12 @@ export function TimelineProcess({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loopCount, setLoopCount] = useState(0);
 
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { amount: 0.3 });
+
   useEffect(() => {
+    if (!isInView) return;
+
     let timeout1: NodeJS.Timeout;
     let timeout2: NodeJS.Timeout;
 
@@ -79,13 +84,13 @@ export function TimelineProcess({
       clearTimeout(timeout1);
       clearTimeout(timeout2);
     };
-  }, [activeStep, steps.length]);
+  }, [activeStep, steps.length, isInView]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
   const sizeMap = [400, 300, 260, 240];
 
   return (
-    <section className="bg-[#030b1e] py-24 relative overflow-hidden text-white font-sans select-none">
+    <section ref={containerRef} className="bg-[#030b1e] py-24 relative overflow-hidden text-white font-sans select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
       

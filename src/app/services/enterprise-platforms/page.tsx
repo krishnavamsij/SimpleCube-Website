@@ -46,8 +46,8 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[54px] lg:text-[60px] xl:text-[64px] lg:mt-8 font-display"
                         >
-                            <span className="whitespace-nowrap">Unify platforms.</span><br />
-                            <span className="whitespace-nowrap text-[#00D4AA]">Power the enterprise.</span>
+                            <span className="whitespace-nowrap">Unify <span className="text-[#00D4AA]">platforms.</span></span><br />
+                            <span className="whitespace-nowrap">Power the <span className="text-[#00D4AA]">enterprise.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
@@ -406,7 +406,7 @@ function TransformationInAction() {
                                 CASE STUDIES
                             </h2>
                             <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
-                                Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.
+                                Real implementations demonstrating how modern enterprise platforms unlock operational efficiency, integration, and business resilience.
                             </p>
                         </motion.div>
                         
@@ -531,7 +531,7 @@ function WhyHynivaEP() {
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">3</div>
                                     <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Strategic<br/>Partnerships</div>
                                 </div>
-                                <div className="flex flex-col relative -left-[10px]">
+                                <div className="flex flex-col relative -left-[20px]">
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">150+</div>
                                     <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Platform<br/>Implementations</div>
                                 </div>
@@ -594,7 +594,7 @@ export default function EnterprisePlatformsPage() {
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
                     title="Connect with Purpose"
-                    description="Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment."
+                    description={<>Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows <br/>into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment.</>}
                     steps={[
                         {
                             num: "01",
