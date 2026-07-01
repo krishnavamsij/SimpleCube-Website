@@ -74,7 +74,7 @@ export const aboutContent = {
             {
                 name: "Luther Branham",
                 title: "Advisory Board Member",
-                image: "/images/2025/09/LutherBranham.jpg",
+                image: "/images/leadership images/Luther_Branham.png",
                 linkedin: "https://www.linkedin.com/in/lgbranham/",
                 description: "Financial services executive known for building innovative organizations and accelerating business growth.",
             },

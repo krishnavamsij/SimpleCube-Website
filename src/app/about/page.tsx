@@ -423,6 +423,8 @@ function LeadershipSection() {
                                         style={
                                             leader.name === 'Madhu Bandarapu'
                                                 ? { transform: 'scale(1.35) translateY(-2%)', objectPosition: 'top', transformOrigin: 'top center' }
+                                                : leader.name === 'Luther Branham'
+                                                ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.30) translateY(-2%)', transformOrigin: 'top center' }
                                                 : leader.name === 'Ramesh Gujarathi' || leader.name === 'Sowburniga' || leader.name === 'Ravi Kumar Kanaka'
                                                 ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.15) translateY(-2%)', transformOrigin: 'top center' }
                                                 : { objectPosition: 'top' }
