@@ -87,7 +87,7 @@ export const aboutContent = {
             },
             {
                 name: "Venkatadri Naidu G",
-                title: "Director",
+                title: "VP of Application Delivery",
                 image: "/images/leadership images/Venkatadri Naidu G.png",
                 linkedin: "https://www.linkedin.com/in/venkatadri/",
                 description: "Digital transformation leader driving innovation across Salesforce, AI, and enterprise platforms.",
