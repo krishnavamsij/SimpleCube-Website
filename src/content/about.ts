@@ -93,18 +93,18 @@ export const aboutContent = {
                 description: "Digital transformation leader driving innovation across Salesforce, AI, and enterprise platforms.",
             },
             {
-                name: "Srinivas Thumati",
-                title: "Director of Application Delivery",
-                image: "/images/leadership images/Srinivas.png",
-                linkedin: "http://www.linkedin.com/in/srinivasa-rao-thumati-632405141/",
-                description: "Application delivery expert leading high-impact programs across banking, insurance, and emerging technologies.",
-            },
-            {
                 name: "Ramesh Gujarathi",
                 title: "VP, Enterprise Architect",
                 image: "/images/leadership images/Ramesh .png",
                 linkedin: "https://www.linkedin.com/in/ramesh-gujarathi-a4b1b850/",
                 description: "30+ years of expertise guiding enterprise modernization with architecture strategies balancing innovation and reliability.",
+            },
+            {
+                name: "Srinivas Thumati",
+                title: "Director of Application Delivery",
+                image: "/images/leadership images/Srinivas.png",
+                linkedin: "http://www.linkedin.com/in/srinivasa-rao-thumati-632405141/",
+                description: "Application delivery expert leading high-impact programs across banking, insurance, and emerging technologies.",
             },
             {
                 name: "Sowburniga",
