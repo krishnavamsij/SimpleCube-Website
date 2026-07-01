@@ -423,10 +423,8 @@ function LeadershipSection() {
                                         style={
                                             leader.name === 'Madhu Bandarapu'
                                                 ? { transform: 'scale(1.35) translateY(-2%)', objectPosition: 'top', transformOrigin: 'top center' }
-                                                : leader.name === 'Ramesh Gujarathi' || leader.name === 'Sowburniga'
+                                                : leader.name === 'Ramesh Gujarathi' || leader.name === 'Sowburniga' || leader.name === 'Ravi Kumar Kanaka'
                                                 ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.15) translateY(-2%)', transformOrigin: 'top center' }
-                                                : leader.name === 'Ravi Kumar Kanaka'
-                                                ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.20) translateY(-2%)', transformOrigin: 'top center' }
                                                 : { objectPosition: 'top' }
                                         }
                                     />
@@ -476,7 +474,7 @@ function ValuesSection() {
         <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
 
             <div className="mx-auto max-w-[1400px] px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
                     {/* Left Column - Text */}
                     <motion.div
@@ -484,6 +482,7 @@ function ValuesSection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
+                        className="lg:col-span-5 xl:col-span-4"
                     >
                         <div className="mb-10 lg:mb-14">
                             <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
@@ -500,7 +499,7 @@ function ValuesSection() {
                     </motion.div>
 
                     {/* Right Column - Cards Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="lg:col-span-7 xl:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {aboutContent.values.items.map((item, idx) => {
                             const IconComponent = iconMap[item.icon] || Zap;
                             return (
@@ -516,7 +515,7 @@ function ValuesSection() {
                                         <IconComponent className="w-7 h-7" />
                                     </div>
                                     <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                                    <p className="text-slate-600 text-[13px] leading-relaxed whitespace-pre-line">{item.description}</p>
                                 </motion.div>
                             );
                         })}

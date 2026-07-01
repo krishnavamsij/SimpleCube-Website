@@ -95,7 +95,7 @@ export const aboutContent = {
             {
                 name: "Srinivas Thumati",
                 title: "Director of Application Delivery",
-                image: "/images/2025/09/Srinivas_Thumati.jpg",
+                image: "/images/leadership images/Srinivas.png",
                 linkedin: "http://www.linkedin.com/in/srinivasa-rao-thumati-632405141/",
                 description: "Application delivery expert leading high-impact programs across banking, insurance, and emerging technologies.",
             },
@@ -116,7 +116,7 @@ export const aboutContent = {
             {
                 name: "Ravi Kumar Kanaka",
                 title: "SVP, HR & Operations Head",
-                image: "/images/leadership images/Ravi_v2.png",
+                image: "/images/leadership images/Ravi_Plain_BG.png",
                 linkedin: "https://www.linkedin.com/in/ravi-kumar-kanaka-2022a630/",
                 description: "Combines expertise in human resources and operations to strengthen workplace culture and organizational effectiveness.",
             },
@@ -128,15 +128,15 @@ export const aboutContent = {
         items: [
             {
                 title: "Direct Access to Expertise",
-                description: "Work directly with senior talent and domain experts.",
+                description: "Our model enables direct engagement with senior leaders and domain experts, ensuring faster decisions, clear ownership, and end-to-end accountability.",
                 icon: "Users",
                 colorClass: "bg-[#f0f5ff] border-[#e2ecff]",
                 textColorClass: "text-[#3b82f6]",
                 iconBgClass: "bg-[#e2ecff]"
             },
             {
-                title: "Client-Centric Partnership",
-                description: "We align with your priorities and measure our goals.",
+                title: "Client-Centricity",
+                description: "We align closely with our clients’ strategic priorities, tailoring every engagement to deliver measurable and sustainable outcomes.",
                 icon: "Target",
                 colorClass: "bg-[#f0fdf4] border-[#dcfce7]",
                 textColorClass: "text-[#10b981]",
@@ -144,7 +144,7 @@ export const aboutContent = {
             },
             {
                 title: "Transparency & Trust",
-                description: "Clear communication and no surprises.",
+                description: "We operate with clarity and candor. From opportunities \nto risks, we communicate proactively to enable better decisions and stronger partnerships.",
                 icon: "Shield",
                 colorClass: "bg-[#faf5ff] border-[#f3e8ff]",
                 textColorClass: "text-[#a855f7]",
@@ -152,7 +152,7 @@ export const aboutContent = {
             },
             {
                 title: "Agility with Impact",
-                description: "Agile execution focused on measurable outcomes.",
+                description: "Our lean structure creates a distinct competitive \nedge, enabling focused execution and delivering \noutsized impact.",
                 icon: "Rocket",
                 colorClass: "bg-[#fff7ed] border-[#ffedd5]",
                 textColorClass: "text-[#f97316]",
