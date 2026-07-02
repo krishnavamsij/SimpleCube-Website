@@ -33,13 +33,18 @@
 
 @layer base {
   html {
-    /* Base size is 16px (100%). Scale down slightly on smaller laptops to prevent the "zoomed in" look */
-    @media (max-width: 1440px) {
+    /* Base size is 16px (100%). Default for large desktops and 16" laptops without scaling. */
+
+    /* 15" and 14" Windows Laptops with 125% scaling (Effective width ~1536px) */
+    @media (max-width: 1600px) {
       font-size: 85%; /* ~13.6px */
     }
-    @media (max-width: 1280px) {
+    
+    /* 13" Laptops, smaller MacBooks, or Windows laptops at 150% scaling */
+    @media (max-width: 1366px) {
       font-size: 80%; /* ~12.8px */
     }
+    
     /* TABLET & MOBILE: Revert to 100% so text remains normal size and existing breakpoints work perfectly */
     @media (max-width: 1024px) {
       font-size: 100%;
