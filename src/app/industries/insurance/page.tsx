@@ -15,7 +15,7 @@ import {
     fadeInUp,
 } from "@/lib/animations";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Bot,
     Users,
     CreditCard,

@@ -17,7 +17,7 @@ import {
 
 /* ------------------- Icon Map ------------------- */
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Cpu: Cpu,
     Zap: Zap,
     Settings: Settings,

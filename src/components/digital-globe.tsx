@@ -166,11 +166,11 @@ function drawStars(ctx: CanvasRenderingContext2D, stars: Star[], frame: number) 
 }
 
 function drawGlobeBase(ctx: CanvasRenderingContext2D, cx: number, cy: number, radius: number) {
-    // Core dark fill
+    // Core fill — very transparent so the photo collage underneath shows through clearly
     const baseGrad = ctx.createRadialGradient(cx - radius * 0.3, cy - radius * 0.3, 0, cx, cy, radius);
-    baseGrad.addColorStop(0, "rgba(10, 20, 50, 0.95)");
-    baseGrad.addColorStop(0.6, "rgba(5, 10, 30, 0.98)");
-    baseGrad.addColorStop(1, "rgba(2, 5, 15, 1)");
+    baseGrad.addColorStop(0, "rgba(10, 20, 50, 0.03)");
+    baseGrad.addColorStop(0.6, "rgba(5, 10, 30, 0.05)");
+    baseGrad.addColorStop(1, "rgba(2, 5, 15, 0.10)");
     
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
@@ -179,18 +179,18 @@ function drawGlobeBase(ctx: CanvasRenderingContext2D, cx: number, cy: number, ra
 
     // 3D Specular Highlight
     const specular = ctx.createRadialGradient(cx - radius * 0.4, cy - radius * 0.4, 0, cx - radius * 0.4, cy - radius * 0.4, radius * 0.8);
-    specular.addColorStop(0, "rgba(60, 160, 255, 0.15)");
+    specular.addColorStop(0, "rgba(60, 160, 255, 0.06)");
     specular.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.fillStyle = specular;
     ctx.fill();
 
-    // Outer glow rim
+    // Outer glow rim - slightly more visible
     const rimGrad = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
-    rimGrad.addColorStop(0, "rgba(30, 144, 255, 0.8)");
-    rimGrad.addColorStop(0.3, "rgba(20, 100, 220, 0.3)");
-    rimGrad.addColorStop(0.8, "rgba(10, 40, 100, 0.05)");
+    rimGrad.addColorStop(0, "rgba(30, 144, 255, 0.5)");
+    rimGrad.addColorStop(0.3, "rgba(20, 100, 220, 0.20)");
+    rimGrad.addColorStop(0.8, "rgba(10, 40, 100, 0.06)");
     rimGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.beginPath();
@@ -201,8 +201,8 @@ function drawGlobeBase(ctx: CanvasRenderingContext2D, cx: number, cy: number, ra
 
     // Atmospheric halo
     const halo = ctx.createRadialGradient(cx, cy, radius, cx, cy, radius * 1.3);
-    halo.addColorStop(0, "rgba(30, 144, 255, 0.15)");
-    halo.addColorStop(0.5, "rgba(20, 80, 200, 0.05)");
+    halo.addColorStop(0, "rgba(30, 144, 255, 0.08)");
+    halo.addColorStop(0.5, "rgba(20, 80, 200, 0.04)");
     halo.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.beginPath();
     ctx.arc(cx, cy, radius * 1.3, 0, Math.PI * 2);
@@ -226,7 +226,7 @@ function drawNetwork(
         return { ...p, z: pos.z, node };
     });
 
-    // Draw Data Lines
+    // Draw Data Lines - Enhanced visibility on images with adaptive brightness
     for (let i = 0; i < projected.length; i++) {
         const p1 = projected[i];
         if (!p1.visible || p1.z > 0) continue;
@@ -236,38 +236,65 @@ function drawNetwork(
             if (!p2.visible || p2.z > 0) continue;
 
             const depthFactor = Math.max(0, 1 - Math.abs(p1.z) / radius);
-            const alpha = 0.08 + depthFactor * 0.3;
+            
+            // Lines on top of images (front-facing) get higher visibility
+            const isFrontFacing = p1.z < -radius * 0.3 && p2.z < -radius * 0.3;
+            const baseAlpha = isFrontFacing ? 0.40 : 0.30;
+            const depthBoost = isFrontFacing ? 0.50 : 0.40;
+            const alpha = baseAlpha + depthFactor * depthBoost;
 
+            // Draw stronger glow for front-facing lines
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(60, 180, 255, ${alpha})`;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = `rgba(140, 210, 255, ${alpha * (isFrontFacing ? 0.4 : 0.3)})`; 
+            ctx.lineWidth = isFrontFacing ? 3.0 : 2.5;
+            ctx.stroke();
+
+            // Draw main line on top
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(120, 205, 255, ${alpha})`; 
+            ctx.lineWidth = isFrontFacing ? 1.8 : 1.5;
             ctx.stroke();
         }
     }
 
-    // Draw Nodes
+    // Draw Nodes - Balanced glow
     for (const p of projected) {
         if (!p.visible || p.z > 0) continue;
 
         const pulse = Math.sin(frame * p.node.pulseSpeed + p.node.pulseOffset) * 0.5 + 0.5;
         const depthFactor = Math.max(0, 1 - Math.abs(p.z) / radius);
-        const alpha = (0.4 + p.node.brightness * 0.6) * depthFactor * (0.6 + pulse * 0.4);
+        const alpha = (0.55 + p.node.brightness * 0.35) * depthFactor * (0.75 + pulse * 0.25);
         const sz = p.node.size * p.scale * (1 + pulse * 0.3);
 
-        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, sz * 3);
-        glow.addColorStop(0, `rgba(100, 220, 255, ${alpha * 0.9})`);
-        glow.addColorStop(1, "rgba(50, 150, 255, 0)");
+        // Outer glow - reduced
+        const outerGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, sz * 4);
+        outerGlow.addColorStop(0, `rgba(130, 220, 255, ${alpha * 0.5})`);
+        outerGlow.addColorStop(0.5, `rgba(90, 190, 255, ${alpha * 0.25})`);
+        outerGlow.addColorStop(1, "rgba(70, 170, 255, 0)");
         
         ctx.beginPath();
-        ctx.arc(p.x, p.y, sz * 3, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, sz * 4, 0, Math.PI * 2);
+        ctx.fillStyle = outerGlow;
+        ctx.fill();
+
+        // Inner glow
+        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, sz * 2.5);
+        glow.addColorStop(0, `rgba(140, 220, 255, ${alpha * 0.85})`);
+        glow.addColorStop(1, "rgba(80, 170, 255, 0)");
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, sz * 2.5, 0, Math.PI * 2);
         ctx.fillStyle = glow;
         ctx.fill();
 
+        // Node core - bright but not overwhelming
         ctx.beginPath();
         ctx.arc(p.x, p.y, sz, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 240, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(230, 248, 255, ${alpha})`; // Slightly reduced brightness
         ctx.fill();
     }
 }

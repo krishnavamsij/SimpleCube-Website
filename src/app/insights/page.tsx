@@ -56,7 +56,7 @@ function InsightCard({
     title: string;
     description: string;
     href: string;
-    icon: React.ElementType;
+    icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
     bgColor: string;
     borderColor: string;
 }) {

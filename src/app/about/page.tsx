@@ -15,7 +15,7 @@ import { approachContent } from "@/content/site-content";
 
 /* ─────────────── Icon Map ─────────────── */
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Zap,
     Lightbulb,
     Users,
@@ -68,7 +68,8 @@ function AboutHero() {
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
-                    animate="visible"
+                    whileInView="visible"
+                    viewport={viewportOnce}
                     className="w-full lg:w-[60%] max-w-[750px]"
                 >
                     <motion.div variants={fadeInUp} className="mb-12">
