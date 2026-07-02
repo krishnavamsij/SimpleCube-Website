@@ -40,8 +40,8 @@
     @media (max-width: 1280px) {
       font-size: 80%; /* ~12.8px */
     }
-    /* Revert to 100% on mobile so text remains readable */
-    @media (max-width: 768px) {
+    /* TABLET & MOBILE: Revert to 100% so text remains normal size and existing breakpoints work perfectly */
+    @media (max-width: 1024px) {
       font-size: 100%;
     }
   }

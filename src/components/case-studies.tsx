@@ -34,17 +34,17 @@ export function CaseStudies() {
     }, [emblaApi, onSelect]);
 
     return (
-        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
+        <section className="bg-white py-[1.875rem] sm:py-[2.5rem] lg:py-[3.125rem] tracking-[-0.01em] overflow-hidden flex flex-col justify-center">
             <div className="mx-auto w-full">
                 
                 {/* ── Section header ── */}
                 <div className="mx-auto w-full max-w-4xl px-6 mb-16 text-center flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
+                    <div className="inline-flex items-center gap-2 text-[0.6875rem] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
                     </div>
                     
-                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6">
+                    <h2 className="text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6">
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
@@ -53,7 +53,7 @@ export function CaseStudies() {
                         ))}
                     </h2>
 
-                    <p className="text-[16px] sm:text-[18px] font-medium text-slate-500 leading-[1.7] max-w-2xl">
+                    <p className="text-[1rem] sm:text-[1.125rem] font-medium text-slate-500 leading-[1.7] max-w-2xl">
                         {sub}
                     </p>
                 </div>
@@ -73,7 +73,7 @@ export function CaseStudies() {
                                         onClick={() => scrollTo(index)}
                                     >
                                         <div 
-                                            className={`relative w-full h-[380px] sm:h-[440px] lg:h-[500px] rounded-[20px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
+                                            className={`relative w-full h-[23.75rem] sm:h-[27.5rem] lg:h-[31.25rem] rounded-[1.25rem] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
                                             ${isActive 
                                                 ? "scale-100 opacity-100 brightness-100 shadow-[0_28px_72px_rgba(0,0,0,0.2),0_0_0_1px_rgba(30,144,255,0.12)]" 
                                                 : "scale-[0.88] opacity-55 brightness-75 shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
@@ -96,16 +96,16 @@ export function CaseStudies() {
 
                                             {/* Left accent strip */}
                                             <div 
-                                                className={`absolute left-0 top-[16%] bottom-[16%] w-[3px] rounded-r-[3px] transition-opacity duration-400
+                                                className={`absolute left-0 top-[16%] bottom-[16%] w-[0.1875rem] rounded-r-[3px] transition-opacity duration-400
                                                 ${isActive ? "opacity-100" : "opacity-0"}`}
                                                 style={{ background: "linear-gradient(to bottom, transparent, #1e90ff 30%, #63c2ff 65%, transparent)" }}
                                             />
 
                                             {/* Corner brackets */}
-                                            <div className={`absolute top-4 left-4 w-[18px] h-[18px] border-t border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute top-4 right-4 w-[18px] h-[18px] border-t border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute bottom-4 left-4 w-[18px] h-[18px] border-b border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute bottom-4 right-4 w-[18px] h-[18px] border-b border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute top-4 left-4 w-[1.125rem] h-[1.125rem] border-t border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute top-4 right-4 w-[1.125rem] h-[1.125rem] border-t border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 left-4 w-[1.125rem] h-[1.125rem] border-b border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 right-4 w-[1.125rem] h-[1.125rem] border-b border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
 
                                             {/* Top Right CTA */}
                                             <div className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-400 delay-[300ms]
@@ -117,7 +117,7 @@ export function CaseStudies() {
 
                                             {/* Content */}
                                             <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6 sm:px-10 sm:pb-8 sm:pt-0 z-10 translate-y-2">
-                                                <h3 className={`text-[22px] sm:text-[28px] lg:text-[30px] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100
+                                                <h3 className={`text-[1.375rem] sm:text-[1.75rem] lg:text-[1.875rem] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100
                                                     ${isActive ? "translate-y-0" : "translate-y-3"}`}>
                                                     {study.title.split("*").map((part, i) => (
                                                         <React.Fragment key={i}>
@@ -135,7 +135,7 @@ export function CaseStudies() {
                                                     ))}
                                                 </h3>
                                                 
-                                                <p className={`text-[14px] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[560px] transition-all duration-400 delay-200
+                                                <p className={`text-[0.875rem] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200
                                                     ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
                                                     {study.description}
                                                 </p>
@@ -167,7 +167,7 @@ export function CaseStudies() {
                     </div>
 
                     {/* Count */}
-                    <div className="mt-2 text-[11px] font-light text-[#9ca3af] tracking-[2px]">
+                    <div className="mt-2 text-[0.6875rem] font-light text-[#9ca3af] tracking-[2px]">
                         <strong className="text-[#00D4AA] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
                     </div>
                 </div>
