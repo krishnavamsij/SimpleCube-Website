@@ -66,7 +66,7 @@ export const podcastContent: {
             host: "Joseph Thomas",
             hostRole: "Advisor, Hyniva | Retired PenFed CIO",
             guest: "Rickey Burks",
-            guestRole: "Former SVP Chief Technology and Innovation Officer at U",
+            guestRole: "Former SVP Chief Technology and Innovation Officer at USAA",
             image: "/images/Podcast/Episode3poster.svg",
             videoUrl: "https://www.youtube.com/watch?v=dgVirnkI5Us",
             description: "Episode #03 Don't Put No in Innovation",
