@@ -42,7 +42,7 @@ export function HeroCarousel() {
             {/* Two-column layout */}
             <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
                 {/* ── LHS: Text ── */}
-                <div className="flex w-full flex-col justify-center pb-2 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-28">
+                <div className="flex w-full flex-col justify-center pb-2 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-20 xl:pt-24 2xl:pt-28">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key="hero-content"
@@ -52,7 +52,7 @@ export function HeroCarousel() {
                         >
                             {/* Badge / Eyebrow */}
                             <motion.div variants={fadeInUp}>
-                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
+                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md text-[9px] xl:text-[10px]">
                                     <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                                     AI-powered Software Delivery
                                 </span>
@@ -61,7 +61,7 @@ export function HeroCarousel() {
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-10 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[68px] lg:mt-14 font-display"
+                                className="mt-8 xl:mt-10 2xl:mt-14 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[68px] font-display"
                             >
                                 Build in <span className="text-[#00D4AA]">weeks,</span><br />
                                 not <span className="text-[#00D4AA]">months.</span>
@@ -70,7 +70,7 @@ export function HeroCarousel() {
                             {/* Subheadline */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl font-medium max-w-xl lg:mt-12"
+                                className="mt-6 xl:mt-8 2xl:mt-12 w-full text-base sm:text-lg lg:text-lg 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-xl"
                             >
                                 Powered by 20+ years of experience across multiple industries, we focus on delivering business outcomes without adding complexity or overhead.
                             </motion.p>
@@ -78,7 +78,7 @@ export function HeroCarousel() {
                             {/* Hero Metrics Row */}
                             <motion.div 
                                 variants={fadeInUp} 
-                                className="mt-10 grid grid-cols-3 gap-x-4 gap-y-4 sm:flex sm:flex-row sm:flex-nowrap sm:items-start sm:gap-14 lg:mt-16 lg:gap-24 w-full sm:w-auto"
+                                className="mt-8 xl:mt-10 2xl:mt-16 grid grid-cols-3 gap-x-2 gap-y-4 sm:flex sm:flex-row sm:flex-nowrap sm:items-start sm:gap-8 lg:gap-12 xl:gap-16 2xl:gap-24 w-full sm:w-auto"
                             >
                                 {[
                                     { value: "50%", label: "Less Planning\nTime" },
@@ -86,13 +86,13 @@ export function HeroCarousel() {
                                     { value: "30%", label: "Faster\nPOC" }
                                 ].map((stat, idx) => (
                                     <div key={idx} className="flex flex-col items-start text-left sm:items-start sm:text-left w-full sm:w-auto">
-                                        <div className="flex items-baseline justify-start gap-0.5 mb-2 sm:mb-3">
-                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                        <div className="flex items-baseline justify-start gap-0.5 mb-1 sm:mb-2 xl:mb-3">
+                                            <span className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-[900] text-white leading-none font-display">
                                                 {stat.value.replace('%', '')}
                                             </span>
-                                            <span className="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-none">%</span>
+                                            <span className="text-lg sm:text-2xl lg:text-2xl xl:text-3xl font-black text-white leading-none">%</span>
                                         </div>
-                                        <span className="text-[11px] sm:text-[14px] lg:text-[15px] text-slate-400 font-semibold whitespace-pre-line leading-[1.4]">
+                                        <span className="text-[10px] sm:text-[12px] lg:text-[13px] xl:text-[15px] text-slate-400 font-semibold whitespace-pre-line leading-[1.4]">
                                             {stat.label}
                                         </span>
                                     </div>
@@ -100,13 +100,13 @@ export function HeroCarousel() {
                             </motion.div>
  
                             {/* CTAs */}
-                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-4 lg:mt-16">
-                                <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-8 h-14">
+                            <motion.div variants={fadeInUp} className="mt-8 xl:mt-10 2xl:mt-16 flex flex-wrap gap-3 xl:gap-4">
+                                <Button size="lg" asChild className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-6 xl:px-8 h-12 xl:h-14 text-sm xl:text-base">
                                     <Link href={heroCtas.primary.href}>
                                         {heroCtas.primary.label} <ArrowUpRightIcon className="ml-1 h-4 w-4" />
                                     </Link>
                                 </Button>
-                                <Button size="lg" variant="outline" asChild className="border-2 border-white/40 bg-white/10 text-white font-semibold backdrop-blur-sm hover:bg-transparent hover:border-white/40 hover:text-[#3B82F6] transition-all duration-300 rounded-full px-8 h-14">
+                                <Button size="lg" variant="outline" asChild className="border-2 border-white/40 bg-white/10 text-white font-semibold backdrop-blur-sm hover:bg-transparent hover:border-white/40 hover:text-[#3B82F6] transition-all duration-300 rounded-full px-6 xl:px-8 h-12 xl:h-14 text-sm xl:text-base">
                                     <Link href={heroCtas.secondary.href}>
                                         {heroCtas.secondary.label}
                                     </Link>
