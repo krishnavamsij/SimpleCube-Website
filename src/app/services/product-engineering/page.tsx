@@ -65,108 +65,88 @@ function ProductEngineeringHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        {/* Identical Ambient Glow Container from Digital Transformation */}
-                        <div className="absolute right-[-15%] lg:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
-                            {/* Ambient background glow (increased visibility) */}
-                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
-                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
-                            {/* Soft radial illumination inside center */}
-                            <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
-                        </div>
-
                         {/* Geometric Wireframe Illustration - High Fidelity */}
                         <div className="absolute right-[-20%] lg:right-[-10%] top-[10%] lg:top-[15%] w-[650px] h-[400px] lg:w-[900px] lg:h-[550px] pointer-events-none flex items-center justify-center">
-                            <svg viewBox="0 0 1000 600" className="w-full h-full relative z-10 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="grad-cyan-white" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
-                                    </linearGradient>
-                                    <linearGradient id="grad-cyan-white-top" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
-                                    </linearGradient>
-                                    <linearGradient id="grad-white-purple" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#d946ef" stopOpacity="1" />
-                                    </linearGradient>
-                                    <linearGradient id="grad-cyan-purple-long" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
-                                        <stop offset="50%" stopColor="#6366f1" stopOpacity="0.8" />
-                                        <stop offset="100%" stopColor="#d946ef" stopOpacity="0.8" />
-                                    </linearGradient>
-                                    <linearGradient id="grad-white-purple-lower" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#d946ef" stopOpacity="1" />
-                                    </linearGradient>
+                            
+                            {/* Ambient background glow */}
+                            <div className="absolute left-[10%] top-[20%] w-[400px] h-[300px] bg-[#00F0FF]/15 blur-[100px] rounded-full" />
+                            <div className="absolute right-[20%] top-[30%] w-[350px] h-[250px] bg-[#D946EF]/15 blur-[100px] rounded-full" />
+                            <div className="absolute left-[40%] top-[10%] w-[300px] h-[400px] bg-[#2563EB]/15 blur-[100px] rounded-full" />
 
-                                    {/* Glow Filters */}
-                                    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
-                                        <feGaussianBlur stdDeviation="12" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                    <filter id="glow-purple" x="-50%" y="-50%" width="200%" height="200%">
-                                        <feGaussianBlur stdDeviation="12" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                    <filter id="glow-white" x="-50%" y="-50%" width="200%" height="200%">
-                                        <feGaussianBlur stdDeviation="10" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
+                            <svg viewBox="0 0 1000 500" className="w-full h-full relative z-10" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="globalGrad" x1="100" y1="250" x2="930" y2="250" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stopColor="#00F0FF" />
+                                        <stop offset="35%" stopColor="#00A3FF" />
+                                        <stop offset="65%" stopColor="#2563EB" />
+                                        <stop offset="100%" stopColor="#D946EF" />
+                                    </linearGradient>
                                 </defs>
 
-                                {/* Curved Sweeping Paths */}
-                                <path d="M 150 450 C 300 450, 380 300, 450 300" fill="none" stroke="url(#grad-cyan-white)" strokeWidth="3.5" strokeLinecap="round" />
-                                <path d="M 350 150 C 450 100, 500 200, 450 300" fill="none" stroke="url(#grad-cyan-white-top)" strokeWidth="3" strokeLinecap="round" />
-                                <path d="M 450 300 C 550 300, 650 150, 750 150" fill="none" stroke="url(#grad-white-purple)" strokeWidth="3.5" strokeLinecap="round" />
-                                <path d="M 150 450 C 350 550, 600 550, 900 400" fill="none" stroke="url(#grad-cyan-purple-long)" strokeWidth="2.5" strokeLinecap="round" />
-                                <path d="M 450 300 C 550 300, 750 450, 900 400" fill="none" stroke="url(#grad-white-purple-lower)" strokeWidth="3" strokeLinecap="round" />
-                                <path d="M 750 150 C 750 300, 800 400, 900 400" fill="none" stroke="#d946ef" strokeOpacity="0.7" strokeWidth="2.5" strokeLinecap="round" />
-                                <path d="M 750 150 C 800 100, 850 100, 950 100" fill="none" stroke="#d946ef" strokeOpacity="0.8" strokeWidth="2.5" strokeLinecap="round" />
+                                <g transform="rotate(-25, 500, 250)">
+                                    {/* Axis Line */}
+                                    <line x1="50" y1="250" x2="980" y2="250" stroke="url(#globalGrad)" strokeWidth="2" strokeDasharray="6 8" opacity="0.9" />
 
-                                {/* Straight Lines & Hollow Nodes */}
-                                <g strokeOpacity="0.6" strokeWidth="1.5" fill="none">
-                                    <line x1="150" y1="450" x2="300" y2="520" stroke="#06b6d4" />
-                                    <circle cx="300" cy="520" r="4" stroke="#06b6d4" strokeWidth="2" />
+                                    {/* Main Shapes */}
+                                    <g stroke="url(#globalGrad)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round">
+                                        
+                                        {/* Square Box */}
+                                        <g fill="url(#globalGrad)" fillOpacity="0.04">
+                                            {/* Back face */}
+                                            <polygon points="190,145 190,305 250,325 250,165" />
+                                            {/* Front face */}
+                                            <polygon points="170,160 170,320 230,340 230,180" />
+                                            {/* Connecting lines */}
+                                            <line x1="170" y1="160" x2="190" y2="145" />
+                                            <line x1="170" y1="320" x2="190" y2="305" />
+                                            <line x1="230" y1="340" x2="250" y2="325" />
+                                            <line x1="230" y1="180" x2="250" y2="165" />
+                                        </g>
 
-                                    <line x1="150" y1="450" x2="350" y2="350" stroke="#06b6d4" />
-                                    <circle cx="350" cy="350" r="4" stroke="#06b6d4" strokeWidth="2" />
+                                        {/* Disk */}
+                                        <g fill="url(#globalGrad)" fillOpacity="0.04">
+                                            <ellipse cx="370" cy="250" rx="30" ry="85" />
+                                            <ellipse cx="350" cy="250" rx="30" ry="85" />
+                                            <line x1="350" y1="165" x2="370" y2="165" />
+                                            <line x1="350" y1="335" x2="370" y2="335" />
+                                        </g>
 
-                                    <line x1="350" y1="150" x2="550" y2="80" stroke="#06b6d4" />
-                                    <circle cx="550" cy="80" r="4" stroke="#06b6d4" strokeWidth="2" />
+                                        {/* Cylinder */}
+                                        <g fill="url(#globalGrad)" fillOpacity="0.04">
+                                            <ellipse cx="670" cy="250" rx="35" ry="70" />
+                                            <ellipse cx="490" cy="250" rx="35" ry="70" />
+                                            <line x1="490" y1="180" x2="670" y2="180" />
+                                            <line x1="490" y1="320" x2="670" y2="320" />
+                                        </g>
 
-                                    <line x1="450" y1="300" x2="600" y2="450" stroke="#a78bfa" />
-                                    <circle cx="600" cy="450" r="4" stroke="#a78bfa" strokeWidth="2" />
+                                        {/* Cone */}
+                                        <g fill="url(#globalGrad)" fillOpacity="0.04">
+                                            <ellipse cx="810" cy="250" rx="35" ry="70" />
+                                            <line x1="810" y1="180" x2="960" y2="250" />
+                                            <line x1="810" y1="320" x2="960" y2="250" />
+                                            {/* Inner detail */}
+                                            <ellipse cx="890" cy="250" rx="15" ry="32" fill="none" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.6" />
+                                        </g>
 
-                                    <line x1="900" y1="400" x2="750" y2="470" stroke="#d946ef" />
-                                    <circle cx="750" cy="470" r="4" stroke="#d946ef" strokeWidth="2" />
+                                    </g>
 
-                                    <line x1="900" y1="400" x2="820" y2="280" stroke="#d946ef" />
-                                    <circle cx="820" cy="280" r="4" stroke="#d946ef" strokeWidth="2" />
+                                    {/* Markers on Axis */}
+                                    <g stroke="url(#globalGrad)" strokeWidth="2.5" opacity="1">
+                                        <line x1="206" y1="250" x2="214" y2="250" />
+                                        <line x1="210" y1="246" x2="210" y2="254" />
+                                        
+                                        <line x1="356" y1="250" x2="364" y2="250" />
+                                        <line x1="360" y1="246" x2="360" y2="254" />
 
-                                    <circle cx="950" cy="100" r="4" stroke="#d946ef" strokeWidth="2" />
+                                        <line x1="576" y1="250" x2="584" y2="250" />
+                                        <line x1="580" y1="246" x2="580" y2="254" />
+
+                                        <line x1="806" y1="250" x2="814" y2="250" />
+                                        <line x1="810" y1="246" x2="810" y2="254" />
+
+                                        <circle cx="960" cy="250" r="4" fill="url(#globalGrad)" stroke="none" />
+                                    </g>
                                 </g>
-
-                                {/* Main Glowing Nodes */}
-                                {/* Bottom Left Cyan */}
-                                <circle cx="150" cy="450" r="10" fill="#06b6d4" filter="url(#glow-cyan)" />
-                                <circle cx="150" cy="450" r="5" fill="#ffffff" />
-
-                                {/* Top Left Cyan */}
-                                <circle cx="350" cy="150" r="9" fill="#06b6d4" filter="url(#glow-cyan)" />
-                                <circle cx="350" cy="150" r="4" fill="#ffffff" />
-
-                                {/* Center White */}
-                                <circle cx="450" cy="300" r="12" fill="#ffffff" filter="url(#glow-white)" />
-                                <circle cx="450" cy="300" r="16" fill="none" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
-
-                                {/* Top Right Purple */}
-                                <circle cx="750" cy="150" r="9" fill="#d946ef" filter="url(#glow-purple)" />
-                                <circle cx="750" cy="150" r="4" fill="#ffffff" />
-
-                                {/* Bottom Right Purple */}
-                                <circle cx="900" cy="400" r="10" fill="#d946ef" filter="url(#glow-purple)" />
-                                <circle cx="900" cy="400" r="5" fill="#ffffff" />
                             </svg>
                         </div>
                     </motion.div>
