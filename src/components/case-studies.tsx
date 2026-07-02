@@ -69,7 +69,7 @@ export function CaseStudies() {
                                 return (
                                     <div
                                         key={index}
-                                        className="relative flex-[0_0_100%] sm:flex-[0_0_max(58.75rem,70vw)] lg:flex-[0_0_58.75rem] px-3 sm:px-4 cursor-pointer"
+                                        className="relative flex-none w-full sm:w-[max(58.75rem,70vw)] lg:w-[58.75rem] px-3 sm:px-4 cursor-pointer"
                                         onClick={() => scrollTo(index)}
                                     >
                                         <div 

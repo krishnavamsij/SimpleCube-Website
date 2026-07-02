@@ -44,6 +44,11 @@
     @media (max-width: 1366px) {
       font-size: 80%; /* ~12.8px */
     }
+
+    /* Short screens (like 14" Windows laptops) need aggressive scaling to fit tall sections */
+    @media (max-height: 850px) and (max-width: 1600px) {
+      font-size: 75%; /* ~12px */
+    }
     
     /* TABLET & MOBILE: Revert to 100% so text remains normal size and existing breakpoints work perfectly */
     @media (max-width: 1024px) {
