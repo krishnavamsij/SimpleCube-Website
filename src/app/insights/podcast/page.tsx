@@ -70,7 +70,7 @@ export default function PodcastPage() {
                         className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-0 w-fit"
                     >
                         <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
-                        CU TECH PODCAST
+                        PODCAST
                     </motion.div>
 
                     {/* Header Content */}

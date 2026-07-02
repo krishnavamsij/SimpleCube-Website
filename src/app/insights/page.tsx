@@ -171,7 +171,7 @@ function InsightsGrid() {
             borderColor: "#1e90ff",
         },
         {
-            title: "CU Tech Podcast",
+            title: "Podcast",
             description: "Listen and watch Hyniva's leaders and industry experts discuss the future of AI, enterprise platforms, and credit union innovation.",
             href: "/insights/podcast",
             icon: PlayCircle,

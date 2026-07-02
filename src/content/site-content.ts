@@ -49,7 +49,7 @@ export const navContent = {
     ],
     insights: [
         { title: "Case Studies", href: "/insights/case-studies" },
-        { title: "CU Tech Podcast", href: "/insights/podcast" },
+        { title: "Podcast", href: "/insights/podcast" },
         { title: "Blogs", href: "/insights/blogs" },
         { title: "News", href: "/insights/news" },
     ],
