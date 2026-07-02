@@ -60,7 +60,7 @@ function AboutHero() {
             {/* 3D Digital Globe (Canvas) + Floating Photo Cards */}
             <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
                 <DigitalGlobe />
-                <FloatingPhotoCards />
+                {/* <FloatingPhotoCards /> */}
             </div>
 
 
