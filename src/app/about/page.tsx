@@ -15,7 +15,7 @@ import { approachContent } from "@/content/site-content";
 
 /* ─────────────── Icon Map ─────────────── */
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+const iconMap: Record<string, React.ElementType> = {
     Zap,
     Lightbulb,
     Users,
@@ -60,7 +60,7 @@ function AboutHero() {
             {/* 3D Digital Globe (Canvas) + Floating Photo Cards */}
             <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
                 <DigitalGlobe />
-                {/* <FloatingPhotoCards /> */}
+                <FloatingPhotoCards />
             </div>
 
 
@@ -68,8 +68,7 @@ function AboutHero() {
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
+                    animate="visible"
                     className="w-full lg:w-[60%] max-w-[750px]"
                 >
                     <motion.div variants={fadeInUp} className="mb-12">

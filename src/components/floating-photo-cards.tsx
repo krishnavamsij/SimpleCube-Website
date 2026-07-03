@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import { useEffect, useRef } from "react";
 
 /* ─────────────────────────────────────────────
    Images from public/about_us_image/
@@ -22,175 +20,331 @@ const IMAGE_POOL = [
 ];
 
 /* ─────────────────────────────────────────────
-   3D Sphere with photo-collage texture
-   - cols × rows grid baked into a canvas texture
-   - Mapped onto a THREE.SphereGeometry so each
-     cell naturally curves with lat/lon lines
+   Size variants for visual variety
 ───────────────────────────────────────────── */
-function SphereCollage({ radius }: { radius: number }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
+const SIZE_VARIANTS = [
+  { width: 140, height: 140 },
+  { width: 120, height: 120 },
+  { width: 100, height: 100 },
+  { width: 160, height: 160 },
+  { width: 110, height: 110 },
+  { width: 130, height: 130 },
+  { width: 90, height: 90 },
+];
 
-  useEffect(() => {
-    let isMounted = true;
+/* ─────────────────────────────────────────────
+   Helpers
+───────────────────────────────────────────── */
+function sleep(ms: number) {
+  return new Promise<void>((r) => setTimeout(r, ms));
+}
 
-    const TEX_W = 4096;
-    const TEX_H = 2048;
-    const COLS = 12;
-    const ROWS = 6;
-    const BORDER = 24; // black gap between images in px (at texture res)
+let shuffled: string[] = [];
+let shuffleIndex = 0;
 
-    const canvas = document.createElement("canvas");
-    canvas.width = TEX_W;
-    canvas.height = TEX_H;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+function nextImage(): string {
+  if (shuffleIndex >= shuffled.length) {
+    shuffled = [...IMAGE_POOL].sort(() => Math.random() - 0.5);
+    shuffleIndex = 0;
+  }
+  return shuffled[shuffleIndex++];
+}
 
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, TEX_W, TEX_H);
-
-    const cellW = TEX_W / COLS;
-    const cellH = TEX_H / ROWS;
-
-    const loadImages = async () => {
-      const loaded = await Promise.all(
-        IMAGE_POOL.map(
-          (src) =>
-            new Promise<HTMLImageElement>((resolve) => {
-              const img = new Image();
-              img.crossOrigin = "anonymous";
-              img.onload = () => resolve(img);
-              img.onerror = () => resolve(img);
-              img.src = src;
-            })
-        )
-      );
-      const valid = loaded.filter((img) => img.width > 0);
-      if (valid.length === 0) return;
-
-      let idx = 0;
-      for (let r = 0; r < ROWS; r++) {
-        for (let c = 0; c < COLS; c++) {
-          const img = valid[idx % valid.length];
-          idx++;
-
-          const destX = c * cellW + BORDER / 2;
-          const destY = r * cellH + BORDER / 2;
-          const destW = cellW - BORDER;
-          const destH = cellH - BORDER;
-
-          // object-fit: cover
-          const imgAR = img.width / img.height;
-          const cellAR = destW / destH;
-          let sx = 0, sy = 0, sw = img.width, sh = img.height;
-          if (imgAR > cellAR) {
-            sw = img.height * cellAR;
-            sx = (img.width - sw) / 2;
-          } else {
-            sh = img.width / cellAR;
-            sy = (img.height - sh) / 2;
-          }
-
-          ctx.drawImage(img, sx, sy, sw, sh, destX, destY, destW, destH);
-        }
-      }
-
-      if (isMounted) {
-        const tex = new THREE.CanvasTexture(canvas);
-        tex.colorSpace = THREE.SRGBColorSpace;
-        tex.anisotropy = 16;
-        setTexture(tex);
-      }
-    };
-
-    loadImages();
-    return () => { isMounted = false; };
-  }, []);
-
-  // Slow spin matching the DigitalGlobe's rotation speed (frame * 0.06 deg/frame at ~60fps)
-  useFrame((_state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.06 * (Math.PI / 180) * 60;
-    }
-  });
-
-  if (!texture) return null;
-
-  return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[radius, 64, 64]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent 
-        opacity={0.55}
-      />
-    </mesh>
-  );
+function getRandomSize() {
+  return SIZE_VARIANTS[Math.floor(Math.random() * SIZE_VARIANTS.length)];
 }
 
 /* ─────────────────────────────────────────────
-   Scene — syncs orthographic camera to pixel size
-───────────────────────────────────────────── */
-function Scene({ radius }: { radius: number }) {
-  const { camera, size } = useThree();
-
-  useEffect(() => {
-    if (camera instanceof THREE.OrthographicCamera) {
-      camera.left   = -size.width  / 2;
-      camera.right  =  size.width  / 2;
-      camera.top    =  size.height / 2;
-      camera.bottom = -size.height / 2;
-      camera.updateProjectionMatrix();
-    }
-  }, [camera, size]);
-
-  return <SphereCollage radius={radius} />;
-}
-
-/* ─────────────────────────────────────────────
-   FloatingPhotoCards
-   - Sits BEHIND the DigitalGlobe canvas (zIndex -1)
-   - Matches the exact globe radius (Math.min(w,h)*0.42)
-   - Renders via WebGL so latitude/longitude curves
-     appear naturally on the sphere surface
+   Component
 ───────────────────────────────────────────── */
 export function FloatingPhotoCards() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [radius, setRadius] = useState(0);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const runningRef = useRef(true);
+  const activeCardsRef = useRef<Array<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    element: HTMLDivElement;
+  }>>([]);
 
   useEffect(() => {
-    const update = () => {
-      if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect();
-        setRadius(Math.min(width, height) * 0.42);
+    runningRef.current = true;
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    /* Smooth continuous animation inspired by services hero */
+    const styleId = "floating-cards-style";
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.textContent = `
+        .fpc-card {
+          position: absolute;
+          border-radius: 26px;
+          box-shadow:
+            0 25px 50px -10px rgba(0, 0, 0, 0.8),
+            0 0 0 1.5px rgba(255, 255, 255, 0.35) inset,
+            0 0 30px rgba(59, 130, 246, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          overflow: hidden;
+          opacity: 0;
+          transform: scale(0.05);
+          pointer-events: none;
+          will-change: transform, opacity;
+          background: rgba(15, 23, 42, 0.3);
+          backdrop-filter: blur(10px);
+          animation: photoLifecycle var(--duration) cubic-bezier(0.34, 0.61, 0.36, 1) forwards;
+          animation-delay: var(--delay);
+        }
+        .fpc-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 15%;
+          display: block;
+          filter: grayscale(100%) brightness(1.1) contrast(1.05);
+        }
+        .fpc-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 100%
+          );
+          pointer-events: none;
+          z-index: 2;
+        }
+        
+        /* Smooth, symmetrical lifecycle: zoom-in → brief hold → zoom-out (mirrored) */
+        @keyframes photoLifecycle {
+          /* Phase 1: Smooth zoom-in */
+          0% {
+            opacity: 0;
+            transform: scale(0.1) translate(var(--start-x), var(--start-y));
+          }
+          20% {
+            opacity: 1;
+            transform: scale(1) translate(0, 0);
+          }
+          /* Phase 2: Brief hold at full size */
+          30% {
+            opacity: 1;
+            transform: scale(1) translate(0, 0);
+          }
+          /* Phase 3: Smooth zoom-out (mirror of zoom-in) */
+          85% {
+            opacity: 1;
+            transform: scale(0.1) translate(0, 0);
+          }
+          /* Phase 4: Final fade */
+          100% {
+            opacity: 0;
+            transform: scale(0.1) translate(0, 0);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Check if two rectangles overlap - using top-left coordinates
+    function hasCollision(
+      x: number,
+      y: number,
+      width: number,
+      height: number,
+      minSpacing: number = 45
+    ): boolean {
+      for (const card of activeCardsRef.current) {
+        // Check rectangle overlap with spacing buffer
+        const horizontalOverlap = 
+          x < card.x + card.width + minSpacing && 
+          x + width + minSpacing > card.x;
+        
+        const verticalOverlap = 
+          y < card.y + card.height + minSpacing && 
+          y + height + minSpacing > card.y;
+        
+        if (horizontalOverlap && verticalOverlap) {
+          return true; // Cards would overlap
+        }
+      }
+      return false;
+    }
+
+    // Calculate safe positioning - GUARANTEE no cutoffs
+    function getSafePosition(size: { width: number; height: number }): { x: number; y: number } | null {
+      const stageWidth = stage?.clientWidth || 600;
+      let stageHeight = stage?.clientHeight || 600;
+      
+      // Prevent spawning below the visible bounds of the section
+      if (stage) {
+        const section = stage.closest('section');
+        const sectionHeight = section?.clientHeight || window.innerHeight;
+        const stageTopOffset = stage.offsetTop || 0;
+        const availableHeight = sectionHeight - stageTopOffset;
+        if (availableHeight > 0) {
+          stageHeight = Math.min(stageHeight, availableHeight);
+        }
+      }
+      
+      // Expand boundary dynamically based on the viewport.
+      // The parent container has `right-[-10%]`, meaning exactly 10vw is off the right edge of the screen.
+      // We calculate the exact visible width of the stage so cards can go all the way to the right edge!
+      const offScreenPixels = window.innerWidth * 0.1;
+      const RIGHT_BOUNDARY = stageWidth - offScreenPixels; 
+      
+      const TOP_PADDING = 70;
+      const LEFT_PADDING = 35;
+      
+      // CRITICAL: Calculate max positions so card BOTTOM and RIGHT edges stay visible
+      // maxX = rightmost point where left edge can be placed
+      const maxX = RIGHT_BOUNDARY - size.width - 35;
+      // maxY = lowest point where top edge can be placed  
+      // Add extra 140px buffer because the float animation moves cards down significantly
+      const maxY = stageHeight - size.height - 140; 
+      
+      const minX = LEFT_PADDING;
+      const minY = TOP_PADDING;
+      
+      // Ensure we have valid space
+      if (maxX <= minX || maxY <= minY) {
+        return null;
+      }
+      
+      // Try to find non-overlapping position
+      for (let attempt = 0; attempt < 200; attempt++) {
+        const x = minX + Math.random() * (maxX - minX);
+        const y = minY + Math.random() * (maxY - minY);
+        
+        if (!hasCollision(x, y, size.width, size.height)) {
+          return { x, y };
+        }
+      }
+      
+      return null;
+    }
+
+    // Create and animate a single card with smooth, natural transitions
+    async function animateSingleCard() {
+      const sizeVariant = getRandomSize();
+      const posData = getSafePosition(sizeVariant);
+      
+      if (!posData) {
+        // If space is full, wait longer before retry
+        await sleep(3000);
+        return;
+      }
+      
+      const { x, y } = posData;
+      const imgSrc = nextImage();
+
+      const el = document.createElement("div");
+      el.className = "fpc-card";
+      el.style.width = `${sizeVariant.width}px`;
+      el.style.height = `${sizeVariant.height}px`;
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+
+      // Smooth, gentle lifecycle with more time
+      const duration = 6 + Math.random() * 3; // 6-9 seconds for smoother transitions
+      const delay = Math.random() * 0.6; // Small start delay for subtle variation
+      el.style.setProperty('--duration', `${duration}s`);
+      el.style.setProperty('--delay', `${delay}s`);
+
+      // Subtle, gentle movement - not jarring or clumsy
+      const moveRange = 15 + Math.random() * 15; // 15-30px - smooth float
+      el.style.setProperty('--start-x', `${(Math.random() - 0.5) * 30}px`);
+      el.style.setProperty('--start-y', `${(Math.random() - 0.5) * 30}px`);
+      el.style.setProperty('--float-x1', `${(Math.random() - 0.5) * moveRange}px`);
+      el.style.setProperty('--float-y1', `${(Math.random() - 0.5) * moveRange}px`);
+      el.style.setProperty('--float-x2', `${(Math.random() - 0.5) * moveRange}px`);
+      el.style.setProperty('--float-y2', `${(Math.random() - 0.5) * moveRange}px`);
+      el.style.setProperty('--end-x', `${(Math.random() - 0.5) * 40}px`);
+      el.style.setProperty('--end-y', `${(Math.random() - 0.5) * 40}px`);
+
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.alt = "Hyniva team";
+      img.draggable = false;
+      el.appendChild(img);
+
+      const overlay = document.createElement("div");
+      overlay.className = "fpc-overlay";
+      el.appendChild(overlay);
+
+      // Track active card - store actual position and dimensions
+      const cardData = {
+        x: x,
+        y: y,
+        width: sizeVariant.width,
+        height: sizeVariant.height,
+        element: el,
+      };
+      activeCardsRef.current.push(cardData);
+
+      stage!.appendChild(el);
+
+      // Wait for full lifecycle, then cleanup
+      await sleep((duration + delay) * 1000);
+      el.remove();
+      
+      const index = activeCardsRef.current.indexOf(cardData);
+      if (index > -1) {
+        activeCardsRef.current.splice(index, 1);
+      }
+    }
+
+    // Spawn cards with balanced timing - fill the space nicely
+    async function cardSpawner() {
+      while (runningRef.current) {
+        const activeCards = activeCardsRef.current.length;
+        
+        // Allow more cards to fill space effectively (8-10 cards)
+        if (activeCards < 10) {
+          animateSingleCard();
+        }
+        
+        // Slower spawn rate for smoother, less chaotic feel
+        let spawnDelay = 800; // Base: 0.8 seconds
+        
+        if (activeCards > 7) {
+          spawnDelay = 1400; // Slow when getting full
+        } else if (activeCards > 5) {
+          spawnDelay = 1100; // Moderate pace
+        }
+        
+        // Small variation for natural feel
+        spawnDelay += Math.random() * 400;
+        
+        await sleep(spawnDelay);
+      }
+    }
+
+    cardSpawner();
+
+    return () => {
+      runningRef.current = false;
+      activeCardsRef.current = [];
+      if (stage) {
+        stage.querySelectorAll(".fpc-card").forEach((c) => c.remove());
       }
     };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
   }, []);
 
   return (
     <div
-      ref={containerRef}
+      ref={stageRef}
       aria-hidden="true"
       style={{
         position: "absolute",
         inset: 0,
-        zIndex: -1, // strictly behind the DigitalGlobe canvas
+        zIndex: 5,
         pointerEvents: "none",
+        overflow: "visible",
       }}
-    >
-      {radius > 0 && (
-        <Canvas
-          orthographic
-          camera={{ position: [0, 0, 1000], zoom: 1 }}
-          gl={{ antialias: true, alpha: true }}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <Scene radius={radius} />
-        </Canvas>
-      )}
-    </div>
+    />
   );
 }
