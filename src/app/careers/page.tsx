@@ -374,6 +374,49 @@ const cities = [
 
 const jobOpenings: JobPosition[] = [
   {
+    id: "engagement-manager",
+    requestId: "HYU2026004",
+    title: "Engagement Manager",
+    location: "Tysons, Virginia (Onsite – 5 Days/Week)",
+    jobDuties: [
+      "Own end-to-end delivery of multiple projects/programs while ensuring quality, budget, and timeline adherence",
+      "Build and maintain strong relationships with clients, serving as the primary point of contact for delivery and account-related activities",
+      "Manage customer expectations, identify business opportunities, and drive account growth",
+      "Lead project planning, execution, risk management, issue resolution, and change management",
+      "Collaborate with cross-functional teams including Engineering, QA, Product, Infrastructure, and Business stakeholders",
+      "Monitor project health using KPIs, delivery metrics, and governance frameworks",
+      "Ensure successful resource planning, utilization, and capacity management",
+      "Drive continuous process improvement and delivery excellence using Agile and/or Waterfall methodologies",
+      "Conduct regular client reviews, status meetings, executive reporting, and steering committee presentations",
+      "Identify and mitigate project risks while ensuring proactive communication with stakeholders",
+      "Mentor and coach project managers and delivery teams to improve performance and delivery maturity",
+      "Support pre-sales activities, solution discussions, estimation, and proposal development when required",
+      "Ensure compliance with organizational processes, quality standards, and governance models"
+    ],
+    qualifications: {
+      degree: "Bachelor's or Master's degree in Computer Science, Engineering, Business, or related field",
+      experience: "15+ Years",
+    },
+    skillsRequired: [
+      "12+ years of overall IT experience with significant experience in Delivery Management",
+      "Proven experience in Account Management, Project Management, and Delivery Management",
+      "Strong client-facing and stakeholder management skills",
+      "Experience managing enterprise-scale projects and distributed delivery teams",
+      "Excellent leadership, negotiation, communication, and presentation skills",
+      "Expertise in project planning, budgeting, forecasting, and financial management",
+      "Strong understanding of Agile, Scrum, Waterfall, and hybrid delivery methodologies",
+      "Experience in risk management, escalation management, and governance",
+      "Ability to manage multiple projects and priorities simultaneously",
+      "Strong analytical, problem-solving, and decision-making skills",
+      "PMP, PMI-ACP, Scrum Master, or Prince2 certification (Preferred)",
+      "Experience working with enterprise clients in a consulting or services environment (Preferred)",
+      "Knowledge of cloud technologies (AWS, Azure, or GCP) is a plus",
+      "Familiarity with DevOps practices and digital transformation initiatives is preferred",
+      "MBA or equivalent management qualification is an added advantage"
+    ],
+    region: "us",
+  },
+  {
     id: "pega-developer",
     requestId: "HYC2026001",
     title: "PEGA Developer",
