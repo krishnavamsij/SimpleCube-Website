@@ -179,7 +179,7 @@ function WhyHyniva() {
                             </div>
                         </motion.div>
                         <motion.h2 variants={animations.fadeInUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                            Connected by Design
+                            Connect with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="mt-6 space-y-6 text-lg text-slate-600 leading-relaxed">
                             <p>
