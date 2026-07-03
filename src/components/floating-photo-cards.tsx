@@ -84,17 +84,17 @@ export function FloatingPhotoCards() {
           border-radius: 26px;
           box-shadow:
             0 25px 50px -10px rgba(0, 0, 0, 0.8),
-            0 0 0 1.5px rgba(255, 255, 255, 0.35) inset,
             0 0 30px rgba(59, 130, 246, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: none;
           overflow: hidden;
           opacity: 0;
-          transform: scale(0.05);
+          transform: scale(0.1);
           pointer-events: none;
           will-change: transform, opacity;
           background: rgba(15, 23, 42, 0.3);
           backdrop-filter: blur(10px);
-          animation: photoLifecycle var(--duration) cubic-bezier(0.34, 0.61, 0.36, 1) forwards;
+          /* ease-in-out creates the sine-wave velocity needed for an orbital look */
+          animation: orbitAnim var(--duration) ease-in-out forwards;
           animation-delay: var(--delay);
         }
         .fpc-card img {
@@ -103,7 +103,7 @@ export function FloatingPhotoCards() {
           object-fit: cover;
           object-position: center 15%;
           display: block;
-          filter: grayscale(100%) brightness(1.1) contrast(1.05);
+          filter: grayscale(100%) sepia(100%) hue-rotate(185deg) saturate(150%) brightness(0.9) contrast(1.1);
         }
         .fpc-overlay {
           position: absolute;
@@ -118,31 +118,28 @@ export function FloatingPhotoCards() {
           z-index: 2;
         }
         
-        /* Smooth, symmetrical lifecycle: zoom-in → brief hold → zoom-out (mirrored) */
-        @keyframes photoLifecycle {
-          /* Phase 1: Smooth zoom-in */
+        /* Simulated 3D Orbit: 
+           - X translates slow -> fast -> slow (due to ease-in-out)
+           - Scale grows from small -> 1 -> small 
+        */
+        @keyframes orbitAnim {
           0% {
             opacity: 0;
-            transform: scale(0.1) translate(var(--start-x), var(--start-y));
+            transform: translateX(var(--start-x)) translateY(var(--start-y)) scale(0.1);
           }
           20% {
-            opacity: 1;
-            transform: scale(1) translate(0, 0);
+            opacity: 0.55;
           }
-          /* Phase 2: Brief hold at full size */
-          30% {
-            opacity: 1;
-            transform: scale(1) translate(0, 0);
+          50% {
+            opacity: 0.55;
+            transform: translateX(var(--mid-x)) translateY(var(--mid-y)) scale(1);
           }
-          /* Phase 3: Smooth zoom-out (mirror of zoom-in) */
-          85% {
-            opacity: 1;
-            transform: scale(0.1) translate(0, 0);
+          80% {
+            opacity: 0.55;
           }
-          /* Phase 4: Final fade */
           100% {
             opacity: 0;
-            transform: scale(0.1) translate(0, 0);
+            transform: translateX(var(--end-x)) translateY(var(--end-y)) scale(0.1);
           }
         }
       `;
@@ -248,22 +245,26 @@ export function FloatingPhotoCards() {
       el.style.left = `${x}px`;
       el.style.top = `${y}px`;
 
-      // Smooth, gentle lifecycle with more time
-      const duration = 6 + Math.random() * 3; // 6-9 seconds for smoother transitions
-      const delay = Math.random() * 0.6; // Small start delay for subtle variation
+      // Slow, majestic orbit (10-15 seconds)
+      const duration = 10 + Math.random() * 5; 
+      const delay = Math.random() * 0.6;
       el.style.setProperty('--duration', `${duration}s`);
       el.style.setProperty('--delay', `${delay}s`);
 
-      // Subtle, gentle movement - not jarring or clumsy
-      const moveRange = 15 + Math.random() * 15; // 15-30px - smooth float
-      el.style.setProperty('--start-x', `${(Math.random() - 0.5) * 30}px`);
-      el.style.setProperty('--start-y', `${(Math.random() - 0.5) * 30}px`);
-      el.style.setProperty('--float-x1', `${(Math.random() - 0.5) * moveRange}px`);
-      el.style.setProperty('--float-y1', `${(Math.random() - 0.5) * moveRange}px`);
-      el.style.setProperty('--float-x2', `${(Math.random() - 0.5) * moveRange}px`);
-      el.style.setProperty('--float-y2', `${(Math.random() - 0.5) * moveRange}px`);
-      el.style.setProperty('--end-x', `${(Math.random() - 0.5) * 40}px`);
-      el.style.setProperty('--end-y', `${(Math.random() - 0.5) * 40}px`);
+      // Calculate an orbital arc across the X axis.
+      // Because we use `ease-in-out` in the CSS, it automatically creates the sine-wave speed curve
+      // (fastest when crossing the center, slower at the edges) simulating 3D rotation.
+      const orbitWidth = 250 + Math.random() * 150; // Total width of the simulated orbit
+      const orbitCurve = (Math.random() - 0.5) * 60; // Slight vertical bowing for the arc
+      
+      el.style.setProperty('--start-x', `${-orbitWidth / 2}px`);
+      el.style.setProperty('--start-y', `${-orbitCurve}px`);
+      
+      el.style.setProperty('--mid-x', `0px`);
+      el.style.setProperty('--mid-y', `0px`);
+      
+      el.style.setProperty('--end-x', `${orbitWidth / 2}px`);
+      el.style.setProperty('--end-y', `${orbitCurve}px`);
 
       const img = document.createElement("img");
       img.src = imgSrc;
