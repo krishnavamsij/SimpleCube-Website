@@ -593,7 +593,7 @@ export default function EnterprisePlatformsPage() {
                 <WhatWeTransform />
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
-                    title="Connect with Purpose"
+                    title="From Platforms to Performance"
                     description={<>Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows <br/>into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment.</>}
                     steps={[
                         {
