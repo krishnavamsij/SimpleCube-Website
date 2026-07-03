@@ -53,7 +53,7 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl max-w-2xl lg:mt-10"
                         >
-                            Organizations connect platforms, people and information to build the digital backbone for a more responsive enterprise.
+                            Businesses connect platforms, people and information to build the digital backbone for a more responsive enterprise.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
