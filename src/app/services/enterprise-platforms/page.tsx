@@ -53,7 +53,7 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl max-w-2xl lg:mt-10"
                         >
-                            Organizations connect platforms, people and information to build the digital backbone for a more responsive enterprise.
+                            Businesses connect platforms, people and information to build the digital backbone for a more responsive enterprise.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -179,7 +179,7 @@ function WhyHyniva() {
                             </div>
                         </motion.div>
                         <motion.h2 variants={animations.fadeInUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                            Connected by Design
+                            Connect with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="mt-6 space-y-6 text-lg text-slate-600 leading-relaxed">
                             <p>
@@ -593,7 +593,7 @@ export default function EnterprisePlatformsPage() {
                 <WhatWeTransform />
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
-                    title="Connect with Purpose"
+                    title="From Platforms to Performance"
                     description={<>Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows <br/>into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment.</>}
                     steps={[
                         {

@@ -564,7 +564,7 @@ export default function DigitalTransformationPage() {
                 <DigitalTransformationHero />
                 <WhyHyniva />
                 <WhatWeTransform />
-                <TimelineProcess />
+                <TimelineProcess title="From Vision to Value" />
                 <EnterpriseEnablement />
                 <WhyHynivaDT />
                 <TransformationInAction />
