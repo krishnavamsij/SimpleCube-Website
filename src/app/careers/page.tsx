@@ -398,7 +398,7 @@ const jobOpenings: JobPosition[] = [
       experience: "15+ Years",
     },
     skillsRequired: [
-      "12+ years of overall IT experience with significant experience in Delivery Management",
+      "15+ years of overall IT experience with significant experience in Engagement Management",
       "Proven experience in Account Management, Project Management, and Delivery Management",
       "Strong client-facing and stakeholder management skills",
       "Experience managing enterprise-scale projects and distributed delivery teams",
