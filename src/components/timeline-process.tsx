@@ -57,6 +57,7 @@ export function TimelineProcess({
   const [loopCount, setLoopCount] = useState(0);
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [resumeAnimation, setResumeAnimation] = useState(0);
 
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
@@ -86,7 +87,7 @@ export function TimelineProcess({
       clearTimeout(timeout1);
       clearTimeout(timeout2);
     };
-  }, [activeStep, steps.length, isInView, isPaused]);
+  }, [activeStep, steps.length, isInView, isPaused, resumeAnimation]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
   const sizeMap = [400, 300, 260, 240];
@@ -149,6 +150,7 @@ export function TimelineProcess({
                     setHoveredStep(null);
                     setActiveStep(idx); // Set active to this position when hover ends
                     setIsPaused(false);
+                    setResumeAnimation(prev => prev + 1); // Force useEffect to re-run
                   }}
                 >
                   
