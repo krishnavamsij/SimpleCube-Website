@@ -72,15 +72,38 @@ function DigitalTransformationHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        <div className="absolute right-[-10%] lg:right-[-10%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
-                            <div className="w-full h-full relative">
-                                <Image
-                                    src="/images/Our_Services/video/strategy-hero-illustration-nobg.png"
-                                    alt="Strategy Consulting Gyroscope"
-                                    fill
-                                    className="object-contain"
-                                    priority
-                                />
+                        <div className="absolute right-[-10%] lg:right-[-10%] top-[-5%] lg:top-[-5%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
+                            {/* Ambient background glow */}
+                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#c026d3]/30 blur-[80px] rounded-full" />
+                            <div className="absolute inset-[20%] bg-gradient-to-tr from-[#3b82f6]/10 to-[#22d3ee]/10 blur-[50px] rounded-full mix-blend-screen" />
+
+                            <div className="strategy-visual">
+                                <div className="gyro">
+                                    <div className="gyro-ring ring-1">
+                                    <span className="ring-highlight"></span>
+                                    </div>
+
+                                    <div className="gyro-ring ring-2">
+                                    <span className="ring-highlight"></span>
+                                    </div>
+
+                                    <div className="gyro-ring ring-3">
+                                    <span className="ring-highlight"></span>
+                                    </div>
+
+                                    <div className="gyro-ring ring-4">
+                                    <span className="ring-highlight"></span>
+                                    </div>
+
+                                    <div className="gyro-axis"></div>
+
+                                    <div className="gyro-hub">
+                                    <div className="hub-ring hub-ring-1"></div>
+                                    <div className="hub-ring hub-ring-2"></div>
+                                    <div className="hub-core"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
