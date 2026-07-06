@@ -100,6 +100,13 @@ export const aboutContent = {
                 description: "30+ years of expertise guiding enterprise modernization with architecture strategies balancing innovation and reliability.",
             },
             {
+                name: "Ramarao Jadapolu",
+                title: "Director of Application Delivery",
+                image: "/images/leadership images/Ramarao.png",
+                linkedin: "",
+                description: "Application Delivery Leader with 18+ years of experience delivering enterprise solutions across banking, wealth management and education.",
+            },
+            {
                 name: "Srinivas Thumati",
                 title: "Director of Application Delivery",
                 image: "/images/leadership images/Srinivas.png",
