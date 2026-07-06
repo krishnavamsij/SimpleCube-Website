@@ -55,12 +55,14 @@ export function TimelineProcess({
   const [activeStep, setActiveStep] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loopCount, setLoopCount] = useState(0);
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || isPaused) return;
 
     let timeout1: NodeJS.Timeout;
     let timeout2: NodeJS.Timeout;
@@ -84,7 +86,7 @@ export function TimelineProcess({
       clearTimeout(timeout1);
       clearTimeout(timeout2);
     };
-  }, [activeStep, steps.length, isInView]);
+  }, [activeStep, steps.length, isInView, isPaused]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
   const sizeMap = [400, 300, 260, 240];
@@ -125,7 +127,8 @@ export function TimelineProcess({
           
           <div className="flex flex-row items-center justify-center relative w-full h-full">
             {steps.map((step, idx) => {
-              const isActive = activeStep === idx;
+              // When hovering, show gradient on hovered globe; when not hovering, show on active globe
+              const showGlow = hoveredStep !== null ? hoveredStep === idx : activeStep === idx;
               const isPast = activeStep >= idx;
               
               // Calculate distance to the active step
@@ -134,7 +137,20 @@ export function TimelineProcess({
               const size = sizeMap[distance];
               
               return (
-                <div key={step.title} className="relative h-full flex flex-col justify-center items-center transition-all duration-1000 ease-in-out" style={{ width: size, flexShrink: 0 }}>
+                <div 
+                  key={step.title} 
+                  className="relative h-full flex flex-col justify-center items-center transition-all duration-1000 ease-in-out cursor-pointer" 
+                  style={{ width: size, flexShrink: 0 }}
+                  onMouseEnter={() => {
+                    setHoveredStep(idx);
+                    setIsPaused(true);
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredStep(null);
+                    setActiveStep(idx); // Set active to this position when hover ends
+                    setIsPaused(false);
+                  }}
+                >
                   
                   {/* Outer Large Circle Container */}
                   <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none transition-all duration-1000 ease-in-out"
@@ -145,24 +161,25 @@ export function TimelineProcess({
                       className="rounded-full border transition-all duration-1000 absolute w-full h-full flex justify-center items-center"
                       style={{
                         borderColor: isPast ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.05)',
-                        backgroundColor: isActive ? 'rgba(255,255,255,0.02)' : 'transparent',
+                        backgroundColor: showGlow ? 'rgba(255,255,255,0.02)' : 'transparent',
                       }}
                     >
                       {/* The Pure Movement Seamless Glow (NO fades, pure spatial morphing) */}
-                      {isActive && (
+                      {showGlow && (
                         <motion.div
                           className="absolute w-full h-full flex justify-center items-center pointer-events-none z-0"
-                          initial={activeStep === 0 ? { opacity: 0, scale: 0.5 } : false}
+                          initial={activeStep === 0 && hoveredStep === null ? { opacity: 0, scale: 0.5 } : false}
                           animate={{
-                            opacity: isTransitioning ? 0 : 1,
-                            scale: isTransitioning ? 0.5 : 1,
+                            opacity: isTransitioning && hoveredStep === null ? 0 : 1,
+                            scale: isTransitioning && hoveredStep === null ? 0.5 : 1,
                           }}
                           transition={{ 
-                            duration: 1.2, ease: "easeInOut"
+                            duration: hoveredStep !== null ? 0.5 : 1.2, 
+                            ease: "easeInOut"
                           }}
                         >
                           <motion.div
-                            layoutId={`activeGlowOrb-${loopCount}`}
+                            layoutId={`glowOrb-${loopCount}`}
                             className="absolute rounded-full mix-blend-screen"
                             transition={{ type: "spring", stiffness: 45, damping: 15 }}
                             style={{
@@ -178,7 +195,7 @@ export function TimelineProcess({
                       )}
 
                       {/* Grid Pattern inside active circle */}
-                      <div className={`absolute inset-0 rounded-full transition-opacity duration-1000 overflow-hidden ${isActive ? 'opacity-100' : 'opacity-0'}`} 
+                      <div className={`absolute inset-0 rounded-full transition-opacity duration-1000 overflow-hidden ${showGlow ? 'opacity-100' : 'opacity-0'}`} 
                            style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                     </div>
 
@@ -188,13 +205,13 @@ export function TimelineProcess({
                       style={{
                         width: size * 0.65,
                         height: size * 0.65,
-                        borderColor: isActive ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.05)',
-                        transform: isActive ? 'rotate(45deg)' : 'rotate(-45deg)'
+                        borderColor: showGlow ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.05)',
+                        transform: showGlow ? 'rotate(45deg)' : 'rotate(-45deg)'
                       }}
                     />
 
                     {/* Step Number IN THE TOP INNER BOUNDARY of circle */}
-                    <div className={`absolute top-4 left-1/2 -translate-x-1/2 text-[12px] font-bold tracking-widest font-mono transition-colors duration-1000 ${isActive ? 'text-white' : 'text-white/40'}`}>
+                    <div className={`absolute top-4 left-1/2 -translate-x-1/2 text-[12px] font-bold tracking-widest font-mono transition-colors duration-1000 ${showGlow ? 'text-white' : 'text-white/40'}`}>
                       {step.num}
                     </div>
 
@@ -203,15 +220,15 @@ export function TimelineProcess({
                   </div>
 
                   {/* Title Above the middle line */}
-                  <div className={`absolute bottom-[50%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 z-30 ${isActive ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
-                    <h3 className={`font-bold tracking-wide transition-colors duration-1000 ${isActive ? 'text-white drop-shadow-md' : 'text-slate-300'}`}>
+                  <div className={`absolute bottom-[50%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 z-30 ${showGlow ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
+                    <h3 className={`font-bold tracking-wide transition-colors duration-1000 ${showGlow ? 'text-white drop-shadow-md' : 'text-slate-300'}`}>
                       {step.title}
                     </h3>
                   </div>
 
                   {/* Description below the circle */}
-                  <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 ease-in-out z-30 ${isActive ? 'scale-105' : 'scale-90'}`} style={{ marginTop: (size / 2) + 15 }}>
-                    <p className={`leading-relaxed text-[13px] whitespace-nowrap transition-colors duration-1000 ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>
+                  <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 ease-in-out z-30 ${showGlow ? 'scale-105' : 'scale-90'}`} style={{ marginTop: (size / 2) + 15 }}>
+                    <p className={`leading-relaxed text-[13px] whitespace-nowrap transition-colors duration-1000 ${showGlow ? 'text-slate-200' : 'text-slate-500'}`}>
                       {step.desc}
                     </p>
                   </div>
