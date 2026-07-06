@@ -710,7 +710,8 @@ function HeroSection() {
                         </motion.div>
 
                         {/* Roaming Cards with varied paths - constrained to stay within safe bounds */}
-                        {orbitingCards.map((card, index) => {
+                        {/* COMMENTED OUT - Floating photo cards animation */}
+                        {/* {orbitingCards.map((card, index) => {
                             // Create varied paths for each card - much more constrained
                             // Reduced radii to keep cards well within the container
                             const pathVariations = [
@@ -775,7 +776,6 @@ function HeroSection() {
                                         }}
                                         className="relative -translate-x-1/2 -translate-y-1/2"
                                     >
-                                        {/* Card with float animation */}
                                         <motion.div
                                             animate={{
                                                 y: [-2, 2, -2],
@@ -798,7 +798,7 @@ function HeroSection() {
                                     </motion.div>
                                 </motion.div>
                             );
-                        })}
+                        })} */}
 
                         {/* Orbital rings with pulse - adjusted to match constrained paths */}
                         <motion.div
