@@ -104,7 +104,7 @@ export const aboutContent = {
                 title: "Director of Application Delivery",
                 image: "/images/leadership images/Ramarao.png",
                 linkedin: "",
-                description: "Application Delivery Leader with 18+ years of experience delivering enterprise solutions across banking, wealth management and education.",
+                description: "18+ years of experience delivering enterprise solutions across banking, wealth management and education.",
             },
             {
                 name: "Srinivas Thumati",
