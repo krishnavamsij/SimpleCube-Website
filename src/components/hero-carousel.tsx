@@ -1,29 +1,18 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ArrowUpRightIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { heroSlides, heroCtas } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 import { HeroPuzzle } from "@/components/hero-puzzle";
-
-// GIF per slide — removed as unused in current high-fidelity 3D hero
-
-
-// Triangle layout: card 0 = top full-width, card 1 = bottom-left, card 2 = bottom-right
-const cardPositions = [
-    { top: 0, left: 0, right: 0, height: "54%", bottom: "auto", width: "auto" },
-    { bottom: 0, left: 0, top: "auto", height: "43%", width: "48.5%", right: "auto" },
-    { bottom: 0, right: 0, top: "auto", height: "43%", width: "48.5%", left: "auto" },
-];
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function HeroCarousel() {
     const slides = heroSlides;
     // Set to the 'Build in Weeks, Not Months' slide index
     const currentSlide = 1;
-    const slide = slides[currentSlide];
 
     return (
         <section id="hero-section" className="relative min-h-screen overflow-hidden bg-[#030b1e]">
@@ -39,8 +28,8 @@ export function HeroCarousel() {
             />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
-            {/* Two-column layout */}
-            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-6 lg:flex-row lg:gap-0">
+            {/* Two-column layout with standardized container */}
+            <div className={`relative z-10 flex min-h-screen flex-col items-center lg:flex-row lg:gap-0 ${CONTAINER_CLASS}`}>
                 {/* ── LHS: Text ── */}
                 <div className="flex w-full flex-col justify-center pb-2 pt-24 sm:pb-4 sm:pt-28 md:pb-4 md:pt-32 lg:w-1/2 lg:pb-6 lg:pr-10 lg:pt-20 xl:pt-24 2xl:pt-28">
                     <AnimatePresence mode="wait">

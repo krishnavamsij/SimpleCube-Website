@@ -7,6 +7,7 @@ import { footerContent, ctaContent } from "@/content/site-content";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function Footer() {
   const { label, headline, sub, cta } = ctaContent;
@@ -124,7 +125,7 @@ export function Footer() {
         className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
       />
 
-      <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 py-[30px] sm:py-[40px] lg:py-[50px] flex flex-col min-h-screen justify-center">
+      <div className={`relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] ${CONTAINER_CLASS}`}>
         {/* ── LET'S TALK CTA SECTION ── */}
         <motion.div
           variants={scrollReveal}

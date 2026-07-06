@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     const [scrolled, setScrolled] = useState(false);
@@ -57,12 +58,15 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         },
     ];
 
+    // Get the max-width from CONTAINER_CLASS for navbar width calculation
+    const maxContainerWidth = "1400px";
+
     return (
         <motion.header
             initial={false}
             animate={{
                 width: scrolled ? "82%" : "100%",
-                maxWidth: scrolled ? "820px" : "1400px",
+                maxWidth: scrolled ? "820px" : maxContainerWidth,
                 height: scrolled ? 52 : 64,
                 top: scrolled ? 16 : 0,
                 borderRadius: scrolled ? "9999px" : "0px",
@@ -79,7 +83,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             style={{ position: "fixed" }}
         >
             <div className="relative w-full h-full">
-            <nav className="mx-auto flex h-full w-full items-center px-6">
+            <nav className="flex h-full w-full items-center px-6 sm:px-8 lg:px-12">
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
                     <Image

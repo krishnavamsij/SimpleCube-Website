@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { scrollReveal, viewportRepeat } from "@/lib/animations";
 import { approachContent } from "@/content/site-content";
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
@@ -19,7 +20,7 @@ export function Approach() {
             <motion.div style={{ y: bgY }} className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
 
-            <div className="relative z-10 mx-auto max-w-[1400px] px-6 sm:px-10">
+            <div className={`relative z-10 ${CONTAINER_CLASS}`}>
 
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
