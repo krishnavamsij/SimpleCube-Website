@@ -66,50 +66,22 @@ function DigitalTransformationHero() {
                         </motion.div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        {/* Abstract CSS Neon Ribbon Illustration - Premium Glass/Linear Style */}
-                        <div className="absolute right-[-15%] lg:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
-                            
-                            {/* Ambient background glow (increased visibility) */}
-                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
-                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
-                            
-                            {/* Soft radial illumination inside center */}
-                            <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
-
-                            {/* Base Glass Ring */}
-                            <div className="absolute inset-0 rounded-full border border-white/5 bg-gradient-to-tr from-white/10 to-transparent backdrop-blur-md transform -rotate-12" />
-
-                            {/* Crisp Indigo/Cyan Outer Edge */}
-                            <div className="absolute inset-0 rounded-full border-l-[8px] border-t-[3px] border-[#06b6d4]/100 shadow-[-10px_0_30px_rgba(6,182,212,0.6)] transform -rotate-12 scale-y-105" />
-
-                            {/* Solid Bright Core Line */}
-                            <div className="absolute inset-[10px] rounded-full border-l-[5px] border-[#ffffff]/100 shadow-[-5px_0_15px_rgba(255,255,255,0.8)] transform -rotate-6 scale-x-95" />
-
-                            {/* Deep Magenta/Indigo Sweep */}
-                            <div className="absolute inset-[25px] rounded-full border-l-[16px] border-b-[6px] border-[#6366f1]/100 shadow-[-15px_10px_40px_rgba(99,102,241,0.7)] transform rotate-15" />
-                            
-                            {/* Inner Specular Highlight */}
-                            <div className="absolute inset-[30px] rounded-full border-l-[3px] border-white/100 shadow-[-2px_0_5px_rgba(255,255,255,0.9)] transform rotate-[18deg] scale-y-110" />
-
-                            {/* Smooth Magenta Accent */}
-                            <div className="absolute inset-[45px] rounded-full border-l-[10px] border-t-[3px] border-[#d946ef]/100 shadow-[-10px_-5px_30px_rgba(217,70,239,0.7)] transform -rotate-25 scale-x-105" />
-
-                            {/* Crisp Cyan Inner Border */}
-                            <div className="absolute inset-[60px] rounded-full border-l-[8px] border-[#22d3ee]/100 shadow-[-5px_0_20px_rgba(34,211,238,0.7)] transform rotate-5 scale-y-105" />
-                            
-                            {/* Deep Indigo Core Layer */}
-                            <div className="absolute inset-[80px] rounded-full border-l-[24px] border-[#4f46e5]/80 blur-[3px] shadow-[-10px_0_30px_rgba(79,70,229,0.6)] transform -rotate-[8deg]" />
-                            <div className="absolute inset-[82px] rounded-full border-l-[3px] border-white/80 transform -rotate-[8deg]" />
-
-                            {/* Minimal crossing thread for elegance */}
-                            <div className="absolute inset-[100px] rounded-[45%] border-l-[3px] border-cyan-200/80 transform rotate-[35deg] scale-110" />
-
+                        <div className="absolute right-[-10%] lg:right-[-10%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
+                            <div className="w-full h-full relative">
+                                <Image
+                                    src="/images/Our_Services/video/strategy-hero-illustration-nobg.png"
+                                    alt="Strategy Consulting Gyroscope"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
                         </div>
                     </motion.div>
                 </div>
@@ -202,9 +174,9 @@ function WhatWeTransform() {
         <section className="bg-[#f8fafc] pt-16 pb-24 lg:pt-20 lg:pb-24 relative overflow-hidden">
             {/* Dotted background pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-50" />
-            
+
             <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-                <motion.div 
+                <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
@@ -221,7 +193,7 @@ function WhatWeTransform() {
                         Why Right Strategy Matters
                     </motion.h2>
                     <motion.p variants={animations.fadeInUp} className="mt-6 text-[17px] text-slate-600 leading-relaxed w-full">
-                        Execution loses momentum when decisions are made in isolation, priorities continually shift <br className="hidden md:block"/>and teams lack a shared direction. The right strategy brings alignment before action.
+                        Execution loses momentum when decisions are made in isolation, priorities continually shift <br className="hidden md:block" />and teams lack a shared direction. The right strategy brings alignment before action.
                     </motion.p>
                 </motion.div>
 
@@ -281,10 +253,10 @@ function EnterpriseEnablement() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.05)_0%,transparent_60%)]" />
 
             <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-                
+
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
                     {/* Left Sidebar Text */}
-                    <motion.div 
+                    <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
@@ -364,7 +336,7 @@ function TransformationInAction() {
             <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
                 <div>
                     {/* Case Studies */}
-                    <motion.div 
+                    <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
@@ -382,10 +354,10 @@ function TransformationInAction() {
                                 Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.
                             </p>
                         </motion.div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {caseStudies.map((study, idx) => (
-                                <motion.div 
+                                <motion.div
                                     key={idx}
                                     variants={animations.fadeInUp}
                                     className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full"
@@ -473,10 +445,10 @@ function WhyHynivaDT() {
         <section className="bg-white px-6 py-[30px] sm:py-[40px] lg:py-[50px] lg:px-8">
             <div className="mx-auto max-w-[1200px] flex flex-col gap-4">
                 {/* ── Top Box: Dark Glowing Container ── */}
-                <motion.div 
+                <motion.div
                     variants={animations.fadeInUp}
-                    initial="hidden" 
-                    whileInView="visible" 
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
                     className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px]"
                 >
@@ -491,8 +463,8 @@ function WhyHynivaDT() {
                                 THE DIFFERENCE
                             </div>
                             <h2 className="text-[28px] sm:text-[36px] lg:text-[40px] font-[900] text-[#ffffff] tracking-tight leading-[1.2] mb-0 font-display">
-                                <span className="text-white">Why Organizations</span><br/>
-                                <span className="text-white">Choose Hyniva for</span> <br/>
+                                <span className="text-white">Why Organizations</span><br />
+                                <span className="text-white">Choose Hyniva for</span> <br />
                                 <span className="text-[#00D4AA]">Strategy Consulting?</span>
                             </h2>
                         </div>
@@ -502,20 +474,20 @@ function WhyHynivaDT() {
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8 mb-10">
                                 <div className="flex flex-col">
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">220+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Solutions<br/>Delivered</div>
+                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Solutions<br />Delivered</div>
                                 </div>
                                 <div className="flex flex-col">
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">18+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Years of Tech<br/>Consulting</div>
+                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Years of Tech<br />Consulting</div>
                                 </div>
                                 <div className="flex flex-col">
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">45+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Enterprise<br/>Clients</div>
+                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Enterprise<br />Clients</div>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-start">
-                                <Link 
+                                <Link
                                     href="/about-us"
                                     className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
                                 >
@@ -527,10 +499,10 @@ function WhyHynivaDT() {
                 </motion.div>
 
                 {/* ── Bottom Box: Subtle Features Container ── */}
-                <motion.div 
+                <motion.div
                     variants={animations.fadeInUp}
-                    initial="hidden" 
-                    whileInView="visible" 
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[30px] sm:p-[40px] lg:p-[50px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
@@ -559,25 +531,25 @@ const strategySteps = [
     {
         num: "01",
         title: "Discover",
-        desc: <>Evaluate the current business<br/>landscape, opportunities and constraints<br/>to establish a clear starting point.</>,
+        desc: <>Evaluate the current business<br />landscape, opportunities and constraints<br />to establish a clear starting point.</>,
         angle: 45
     },
     {
         num: "02",
         title: "Align",
-        desc: <>Bring stakeholders, priorities<br/>and technology decisions together<br/>around a shared strategic direction.</>,
+        desc: <>Bring stakeholders, priorities<br />and technology decisions together<br />around a shared strategic direction.</>,
         angle: -30
     },
     {
         num: "03",
         title: "Plan",
-        desc: <>Define practical roadmaps,<br/>governance models and measurable<br/>milestones for successful execution.</>,
+        desc: <>Define practical roadmaps,<br />governance models and measurable<br />milestones for successful execution.</>,
         angle: 120
     },
     {
         num: "04",
         title: "Guide",
-        desc: <>Provide ongoing strategic advisory<br/>that helps initiatives stay aligned as<br/>priorities and business conditions evolve.</>,
+        desc: <>Provide ongoing strategic advisory<br />that helps initiatives stay aligned as<br />priorities and business conditions evolve.</>,
         angle: -80
     }
 ];
@@ -591,9 +563,9 @@ export default function StrategyConsultingPage() {
                 <DigitalTransformationHero />
                 <WhyHyniva />
                 <WhatWeTransform />
-                <TimelineProcess 
+                <TimelineProcess
                     eyebrow="OUR APPROACH"
-                    title="From Strategy to Execution" 
+                    title="From Strategy to Execution"
                     description={
                         <>
                             Every successful transformation begins with informed decisions. Our approach helps organizations<br className="hidden md:block" /> create alignment, establish direction and maintain momentum from planning through execution.
