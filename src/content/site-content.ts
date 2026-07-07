@@ -565,7 +565,7 @@ export const vocContent = {
             author: "Gustavo Lasala",
             designation: "President and CEO",
             company: "PeopleFund",
-            image: "/images/voc/gustavo_new.jpg",
+            image: "/images/voc/gustavo_transparent.png",
             logo: "/logos/Additional/People_fund.png",
             result: "Built an intelligent lending platform that reduced loan prequalification from <span class='text-[#1e90ff] font-semibold'>days to minutes.</span>",
             caseStudyHref: "/insights/case-studies/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",

@@ -148,12 +148,12 @@ export function VoiceOfCustomer() {
                                             />
                                         ))}
 
-                                        <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-slate-900/5 z-10">
+                                        <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-slate-100 z-10">
                                             <Image 
                                                 src={active.image} 
                                                 alt={active.author} 
                                                 fill 
-                                                className="object-contain object-top scale-100" 
+                                                className="object-cover object-bottom scale-105" 
                                                 priority
                                             />
                                         </div>
