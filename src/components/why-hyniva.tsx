@@ -52,7 +52,7 @@ export function WhyHyniva() {
                             </h2>
                             
                             <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
-                                <div className="flex gap-6 sm:grid sm:grid-cols-2 lg:flex lg:gap-16 overflow-x-auto pb-2 sm:pb-0">
+                                <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-10 xl:gap-16">
                                     {topBox.stats.map((stat, idx) => (
                                         <div key={idx} className="flex flex-col flex-shrink-0">
                                             <div className="flex items-baseline gap-1 mb-2">
@@ -104,7 +104,7 @@ export function WhyHyniva() {
                                 <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className={`text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line ${idx === 3 ? "lg:max-w-[190px]" : ""}`}>
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
                                     {card.description}
                                 </p>
                             </div>

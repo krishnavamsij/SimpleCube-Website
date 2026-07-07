@@ -31,7 +31,7 @@ export function VoiceOfCustomer() {
     const active = testimonials[current];
 
     return (
-        <section className="bg-white pt-[10px] pb-[30px] sm:pt-[20px] sm:pb-[40px] lg:pt-[20px] lg:pb-[50px] relative overflow-hidden min-h-[750px] flex flex-col justify-center">
+        <section className="bg-white pt-[10px] pb-[30px] sm:pt-[20px] sm:pb-[40px] lg:pt-[20px] lg:pb-[50px] relative overflow-hidden min-h-0 lg:min-h-[600px] xl:min-h-[750px] flex flex-col justify-center">
             
             {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -58,7 +58,7 @@ export function VoiceOfCustomer() {
                 </div>
             </div>
 
-            <div className="mx-auto max-w-[1400px] px-6 w-full relative z-10 pb-8">
+            <div className="mx-auto max-w-[1400px] px-6 w-full relative z-10 pb-16 lg:pb-8">
                 
                 {/* Header */}
                 <motion.div
@@ -94,10 +94,10 @@ export function VoiceOfCustomer() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.5, ease: EASE_OUT_QUART }}
-                            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+                            className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start"
                         >
                             {/* Left Side: Industry & Quote (Strictly Left Aligned to Logo Margin) */}
-                            <div className="flex flex-col items-start space-y-10 pt-4 lg:col-span-7">
+                            <div className="flex flex-col items-start space-y-10 pt-4 md:col-span-7">
                                 <div className="inline-flex items-center gap-2.5 rounded-full bg-[#1e90ff]/5 border border-[#1e90ff]/20 px-6 py-3 text-xs font-semibold text-[#1e90ff] tracking-wide">
                                     {getTagIcon(active.industry)}
                                     {active.industry}
@@ -127,7 +127,7 @@ export function VoiceOfCustomer() {
                             </div>
 
                             {/* Right Side: Profile & Branding (Strictly Right Aligned to Contact Us Margin) */}
-                            <div className="relative flex flex-col items-center lg:items-end w-full lg:-mt-12 lg:col-span-5">
+                            <div className="relative flex flex-col items-center lg:items-end w-full md:col-span-5 lg:max-w-[420px] lg:ml-auto">
                                 {/* Wrapper to ensure image and text align perfectly to each other's center and prevent horizontal scrollbar */}
                                 <div className="flex flex-col items-center lg:mr-12">
                                     <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
@@ -187,7 +187,7 @@ export function VoiceOfCustomer() {
                 </div>
 
                 {/* Pagination Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+                <div className="relative lg:absolute mt-8 lg:mt-0 bottom-4 left-1/2 lg:-translate-x-1/2 flex justify-center gap-3 z-30">
                     {testimonials.map((_, i) => (
                         <button
                             key={i}
