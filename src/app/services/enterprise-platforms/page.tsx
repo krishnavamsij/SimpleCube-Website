@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2 } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, LayoutGrid } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -164,6 +164,11 @@ function WhyHyniva() {
                             fill
                             className="object-contain scale-100 lg:scale-110 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05] lg:group-hover:scale-[1.15] group-hover:-translate-y-2"
                         />
+                        {/* Gradient masks to bury image edges when zoomed */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10" />
                     </motion.div>
                     <motion.div
                         initial="hidden"
@@ -281,24 +286,27 @@ function EnterpriseEnablement() {
     const enablers = [
         {
             title: "Salesforce",
-            icon: BrainCircuit,
+            icon: Users,
             iconBg: "bg-blue-50 group-hover:bg-blue-500",
             iconColor: "text-blue-600 group-hover:text-white",
-            description: "Create connected customer experiences with CRM, Financial Services Cloud, Service Cloud, Experience Cloud and AI-powered automation."
+            description: "Create connected customer experiences with CRM, Financial Services Cloud, Service Cloud, Experience Cloud and AI-powered automation.",
+            href: "/services/enterprise-platforms/salesforce"
         },
         {
             title: "Microsoft Services",
-            icon: BarChart3,
+            icon: LayoutGrid,
             iconBg: "bg-teal-50 group-hover:bg-teal-500",
             iconColor: "text-teal-600 group-hover:text-white",
-            description: "Empower employees with modern workplace solutions, business applications, data platforms and intelligent productivity tools across the Microsoft ecosystem."
+            description: "Empower employees with modern workplace solutions, business applications, data platforms and intelligent productivity tools across the Microsoft ecosystem.",
+            href: "/services/enterprise-platforms/microsoft-services"
         },
         {
             title: "AWS Cloud",
             icon: Cloud,
             iconBg: "bg-sky-50 group-hover:bg-sky-500",
             iconColor: "text-sky-600 group-hover:text-white",
-            description: "Build secure, scalable cloud environments that accelerate innovation, improve resilience and support enterprise applications at scale."
+            description: "Build secure, scalable cloud environments that accelerate innovation, improve resilience and support enterprise applications at scale.",
+            href: "/services/enterprise-platforms/aws-cloud-services"
         }
     ];
 
@@ -350,7 +358,7 @@ function EnterpriseEnablement() {
                                 <p className="text-[14px] text-slate-600 leading-relaxed mb-8 flex-grow">
                                     {item.description}
                                 </p>
-                                <Link href="#" className="inline-flex items-center gap-2 text-[#00D4AA] font-semibold text-[14px] hover:text-[#00b38f] transition-colors mt-auto">
+                                <Link href={item.href} className="inline-flex items-center gap-2 text-[#00D4AA] font-semibold text-[14px] hover:text-[#00b38f] transition-colors mt-auto">
                                     Learn More <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </motion.div>

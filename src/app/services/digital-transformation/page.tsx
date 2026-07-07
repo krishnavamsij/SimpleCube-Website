@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2 } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Bot, LineChart, CloudUpload } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -72,39 +72,42 @@ function DigitalTransformationHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        {/* Abstract CSS Neon Ribbon Illustration - Premium Glass/Linear Style */}
+                        {/* Identical Ambient Glow Container from Enterprise Platforms */}
                         <div className="absolute right-[-15%] lg:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
-                            
                             {/* Ambient background glow (increased visibility) */}
                             <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
                             <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             
                             {/* Soft radial illumination inside center */}
                             <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
+                        </div>
+
+                        {/* Abstract CSS Neon Ribbon Illustration - Premium Glass/Linear Style */}
+                        <div className="absolute right-[-15%] lg:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center z-10">
 
                             {/* Base Glass Ring */}
-                            <div className="absolute inset-0 rounded-full border border-white/5 bg-gradient-to-tr from-white/10 to-transparent backdrop-blur-md transform -rotate-12" />
+                            <div className="absolute inset-0 rounded-full border border-white/5 transform -rotate-12" />
 
                             {/* Crisp Indigo/Cyan Outer Edge */}
-                            <div className="absolute inset-0 rounded-full border-l-[8px] border-t-[3px] border-[#06b6d4]/100 shadow-[-10px_0_30px_rgba(6,182,212,0.6)] transform -rotate-12 scale-y-105" />
+                            <div className="absolute inset-0 rounded-full border-l-[8px] border-t-[3px] border-[#06b6d4]/100 transform -rotate-12 scale-y-105" />
 
                             {/* Solid Bright Core Line */}
-                            <div className="absolute inset-[10px] rounded-full border-l-[5px] border-[#ffffff]/100 shadow-[-5px_0_15px_rgba(255,255,255,0.8)] transform -rotate-6 scale-x-95" />
+                            <div className="absolute inset-[10px] rounded-full border-l-[5px] border-[#ffffff]/100 transform -rotate-6 scale-x-95" />
 
                             {/* Deep Magenta/Indigo Sweep */}
-                            <div className="absolute inset-[25px] rounded-full border-l-[16px] border-b-[6px] border-[#6366f1]/100 shadow-[-15px_10px_40px_rgba(99,102,241,0.7)] transform rotate-15" />
+                            <div className="absolute inset-[25px] rounded-full border-l-[16px] border-b-[6px] border-[#6366f1]/100 transform rotate-15" />
                             
                             {/* Inner Specular Highlight */}
-                            <div className="absolute inset-[30px] rounded-full border-l-[3px] border-white/100 shadow-[-2px_0_5px_rgba(255,255,255,0.9)] transform rotate-[18deg] scale-y-110" />
+                            <div className="absolute inset-[30px] rounded-full border-l-[3px] border-white/100 transform rotate-[18deg] scale-y-110" />
 
                             {/* Smooth Magenta Accent */}
-                            <div className="absolute inset-[45px] rounded-full border-l-[10px] border-t-[3px] border-[#d946ef]/100 shadow-[-10px_-5px_30px_rgba(217,70,239,0.7)] transform -rotate-25 scale-x-105" />
+                            <div className="absolute inset-[45px] rounded-full border-l-[10px] border-t-[3px] border-[#d946ef]/100 transform -rotate-25 scale-x-105" />
 
                             {/* Crisp Cyan Inner Border */}
-                            <div className="absolute inset-[60px] rounded-full border-l-[8px] border-[#22d3ee]/100 shadow-[-5px_0_20px_rgba(34,211,238,0.7)] transform rotate-5 scale-y-105" />
+                            <div className="absolute inset-[60px] rounded-full border-l-[8px] border-[#22d3ee]/100 transform rotate-5 scale-y-105" />
                             
                             {/* Deep Indigo Core Layer */}
-                            <div className="absolute inset-[80px] rounded-full border-l-[24px] border-[#4f46e5]/80 blur-[3px] shadow-[-10px_0_30px_rgba(79,70,229,0.6)] transform -rotate-[8deg]" />
+                            <div className="absolute inset-[80px] rounded-full border-l-[24px] border-[#4f46e5]/80 transform -rotate-[8deg]" />
                             <div className="absolute inset-[82px] rounded-full border-l-[3px] border-white/80 transform -rotate-[8deg]" />
 
                             {/* Minimal crossing thread for elegance */}
@@ -137,6 +140,11 @@ function WhyHyniva() {
                             fill
                             className="object-contain scale-110 lg:scale-125 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.15] lg:group-hover:scale-[1.35] group-hover:-translate-y-2"
                         />
+                        {/* Gradient masks to bury image edges when zoomed */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10" />
                     </motion.div>
                     <motion.div
                         initial="hidden"
@@ -254,24 +262,27 @@ function EnterpriseEnablement() {
     const enablers = [
         {
             title: "Applied AI",
-            icon: BrainCircuit,
+            icon: Bot,
             iconBg: "bg-blue-50 group-hover:bg-blue-500",
             iconColor: "text-blue-600 group-hover:text-white",
-            description: "Embed intelligence across business operations with AI-powered automation, intelligent workflows, document processing and enterprise agents that improve productivity and decision-making."
+            description: "Embed intelligence across business operations with AI-powered automation, intelligent workflows, document processing and enterprise agents that improve productivity and decision-making.",
+            href: "/services/digital-transformation/applied-ai"
         },
         {
             title: "Data Intelligence",
-            icon: Database,
+            icon: LineChart,
             iconBg: "bg-teal-50 group-hover:bg-teal-500",
             iconColor: "text-teal-600 group-hover:text-white",
-            description: "Build trusted data foundations that improve visibility, governance and analytics while enabling AI-ready enterprises capable of making faster, smarter business decisions."
+            description: "Build trusted data foundations that improve visibility, governance and analytics while enabling AI-ready enterprises capable of making faster, smarter business decisions.",
+            href: "/services/digital-transformation/data-intelligence"
         },
         {
             title: "Cloud Migration",
-            icon: Cloud,
+            icon: CloudUpload,
             iconBg: "bg-sky-50 group-hover:bg-sky-500",
             iconColor: "text-sky-600 group-hover:text-white",
-            description: "Modernize legacy infrastructure and applications through secure cloud migration strategies that improve scalability, resilience and operational efficiency."
+            description: "Modernize legacy infrastructure and applications through secure cloud migration strategies that improve scalability, resilience and operational efficiency.",
+            href: "/services/digital-transformation/cloud-migration"
         }
     ];
 
@@ -323,7 +334,7 @@ function EnterpriseEnablement() {
                                 <p className="text-[14px] text-slate-600 leading-relaxed mb-8 flex-grow">
                                     {item.description}
                                 </p>
-                                <Link href="#" className="inline-flex items-center gap-2 text-[#00D4AA] font-semibold text-[14px] hover:text-[#00b38f] transition-colors mt-auto">
+                                <Link href={item.href} className="inline-flex items-center gap-2 text-[#00D4AA] font-semibold text-[14px] hover:text-[#00b38f] transition-colors mt-auto">
                                     Learn More <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </motion.div>

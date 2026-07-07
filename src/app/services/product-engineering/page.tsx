@@ -83,7 +83,7 @@ function ProductEngineeringHero() {
                         </div>
 
                         {/* Geometric Wireframe Illustration - High Fidelity */}
-                        <div className="absolute right-[-20%] lg:right-[-20%] top-[25%] lg:top-[30%] w-[550px] h-[350px] lg:w-[750px] lg:h-[450px] pointer-events-none flex items-center justify-center">
+                        <div className="absolute right-[-10%] lg:right-[-10%] top-[10%] lg:top-[15%] w-[600px] h-[400px] lg:w-[850px] lg:h-[600px] pointer-events-none flex items-center justify-center z-10">
 
                             <svg viewBox="-50 -50 1100 600" className="w-full h-full relative z-10 overflow-visible" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
@@ -93,11 +93,17 @@ function ProductEngineeringHero() {
                                         <stop offset="65%" stopColor="#2563EB" />
                                         <stop offset="100%" stopColor="#D946EF" />
                                     </linearGradient>
+                                    <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.1" />
+                                        <stop offset="20%" stopColor="#FFFFFF" stopOpacity="1" />
+                                        <stop offset="80%" stopColor="#FFFFFF" stopOpacity="1" />
+                                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.1" />
+                                    </linearGradient>
                                 </defs>
 
-                                <g transform="translate(500, 250) rotate(-45) scale(1.1, 1.3) translate(-500, -250)">
+                                <g transform="translate(500, 250) rotate(-45) scale(1.15, 1.35) translate(-500, -250)">
                                     {/* Axis Line - Wavy Path */}
-                                    <path d="M 50 250 C 130 250, 180 250, 210 250 C 285 250, 285 150, 360 150 C 470 150, 470 350, 580 350 C 732 350, 732 150, 885 150 C 932 150, 980 150, 980 150" stroke="url(#globalGrad)" strokeWidth="2" strokeDasharray="6 8" fill="none" opacity="0.9" />
+                                    <path d="M 50 250 C 130 250, 180 250, 210 250 C 285 250, 285 150, 360 150 C 500 150, 500 350, 640 350 C 725 350, 725 150, 810 150 C 895 150, 980 150, 980 150" stroke="url(#whiteGrad)" strokeWidth="2" strokeDasharray="6 8" fill="none" opacity="0.9" />
 
                                     {/* Main Shapes */}
                                     <g stroke="url(#globalGrad)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round">
@@ -120,12 +126,12 @@ function ProductEngineeringHero() {
                                             <line x1="350" y1="235" x2="370" y2="235" />
                                         </g>
 
-                                        {/* Cylinder (Y=350) */}
+                                        {/* Cylinder (Y=350) - Moved Right (+60px) */}
                                         <g fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
-                                            <ellipse cx="670" cy="350" rx="35" ry="70" />
-                                            <ellipse cx="490" cy="350" rx="35" ry="70" />
-                                            <line x1="490" y1="280" x2="670" y2="280" />
-                                            <line x1="490" y1="420" x2="670" y2="420" />
+                                            <ellipse cx="730" cy="350" rx="35" ry="70" />
+                                            <ellipse cx="550" cy="350" rx="35" ry="70" />
+                                            <line x1="550" y1="280" x2="730" y2="280" />
+                                            <line x1="550" y1="420" x2="730" y2="420" />
                                         </g>
 
                                         {/* Cone (Y=150) */}
@@ -147,8 +153,9 @@ function ProductEngineeringHero() {
                                         <line x1="356" y1="150" x2="364" y2="150" />
                                         <line x1="360" y1="146" x2="360" y2="154" />
 
-                                        <line x1="576" y1="350" x2="584" y2="350" />
-                                        <line x1="580" y1="346" x2="580" y2="354" />
+                                        {/* Cylinder Marker (Moved Right) */}
+                                        <line x1="636" y1="350" x2="644" y2="350" />
+                                        <line x1="640" y1="346" x2="640" y2="354" />
 
                                         <line x1="806" y1="150" x2="814" y2="150" />
                                         <line x1="810" y1="146" x2="810" y2="154" />
@@ -184,6 +191,11 @@ function WhyHyniva() {
                             fill
                             className="object-contain scale-110 lg:scale-125 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.15] lg:group-hover:scale-[1.35] group-hover:-translate-y-2"
                         />
+                        {/* Gradient masks to bury image edges when zoomed */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10" />
                     </motion.div>
                     <motion.div
                         initial="hidden"

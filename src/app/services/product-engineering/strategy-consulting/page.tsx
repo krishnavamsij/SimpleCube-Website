@@ -72,12 +72,11 @@ function DigitalTransformationHero() {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
                     >
-                        <div className="absolute right-[-10%] lg:right-[-10%] top-[-5%] lg:top-[-5%] w-[450px] h-[450px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
-                            {/* Ambient background glow */}
+                        <div className="absolute right-[-5%] lg:right-[0%] top-[0%] lg:top-[5%] w-[500px] h-[500px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
+                            {/* Ambient background glow (matching enterprise platforms) */}
                             <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
-                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#c026d3]/30 blur-[80px] rounded-full" />
-                            <div className="absolute inset-[20%] bg-gradient-to-tr from-[#3b82f6]/10 to-[#22d3ee]/10 blur-[50px] rounded-full mix-blend-screen" />
-
+                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
+                            <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
                             <div className="strategy-visual">
                                 <div className="gyro">
                                     <div className="gyro-ring ring-1">
@@ -132,6 +131,11 @@ function WhyHyniva() {
                             fill
                             className="object-contain scale-110 lg:scale-125 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.15] lg:group-hover:scale-[1.35] group-hover:-translate-y-2"
                         />
+                        {/* Gradient masks to bury image edges when zoomed */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10" />
                     </motion.div>
                     <motion.div
                         initial="hidden"
@@ -335,22 +339,22 @@ function EnterpriseEnablement() {
 function TransformationInAction() {
     const caseStudies = [
         {
-            title: "Rapid <span class='text-[#3B82F6]'>Reverse-Engineered</span> Website Migration",
-            image: "/images/Case_Studies/Optimized/cs-14.png",
+            title: "Rapid Reverse-Engineered <span class='text-[#3B82F6]'>Website Migration</span>",
+            image: "/images/Case_Studies/Optimized/cs-6.png",
             description: "A fast-paced migration and modernization of a complex website using reverse engineering strategies.",
-            href: "#"
+            href: "/insights/case-studies/aem-migration"
         },
         {
             title: "Turning Enterprise Data into a <span class='text-[#3B82F6]'>Strategic Intelligence Engine</span>",
-            image: "/images/Case_Studies/Optimized/cs-5.png",
+            image: "/images/Case_Studies/Optimized/cs-9.png",
             description: "Built a strategic intelligence engine powered by scalable data architectures.",
-            href: "#"
+            href: "/insights/case-studies/enterprise-data-intelligence"
         },
         {
-            title: "Modernizing Case Management for a <span class='text-[#3B82F6]'>Community Healthcare Provider</span>",
-            image: "/images/Case_Studies/Optimized/cs-3.png",
+            title: "<span class='text-[#3B82F6]'>Modernizing Case Management</span> for a Community Healthcare Provider",
+            image: "/images/Case_Studies/Optimized/cs-12.png",
             description: "Delivered a modern, compliant case management system for a healthcare provider.",
-            href: "#"
+            href: "/insights/case-studies/modernizing-case-management-for-a-community-healthcare-provider-stop"
         }
     ];
 

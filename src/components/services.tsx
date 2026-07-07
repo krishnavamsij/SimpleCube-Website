@@ -167,7 +167,7 @@ export function Services() {
                                             {/* left fade */}
                                             <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent lg:block z-10" />
 
-                                            <div className="relative flex h-full items-center justify-center p-6 sm:p-8 lg:p-14">
+                                            <div className="relative flex flex-col h-full items-center justify-center p-6 sm:p-8 lg:p-14">
                                                 <div className="relative h-[260px] w-full sm:h-[320px] lg:h-full">
 
                                                     <Image
@@ -186,6 +186,12 @@ export function Services() {
                                                         }
                                                     `}
                                                     />
+                                                </div>
+                                                <div className="pointer-events-none absolute -bottom-5 right-0 z-20 text-[60px] sm:text-[90px] lg:text-[110px] font-black leading-none text-slate-300/30 text-right tracking-tight">
+                                                    {svc.num === "01" ? "Transform" : 
+                                                     svc.num === "02" ? "Connect" : 
+                                                     svc.num === "03" ? "Build" : 
+                                                     svc.num === "04" ? "Guide" : ""}
                                                 </div>
                                             </div>
                                         </div>
