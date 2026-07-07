@@ -89,29 +89,29 @@ function DigitalTransformationHero() {
                             <div className="absolute inset-0 rounded-full border border-white/5 transform -rotate-12" />
 
                             {/* Crisp Indigo/Cyan Outer Edge */}
-                            <div className="absolute inset-0 rounded-full border-l-[8px] border-t-[3px] border-[#06b6d4]/100 transform -rotate-12 scale-y-105" />
+                            <div className="absolute inset-0 rounded-full border-l-[5px] border-t-[2px] border-[#06b6d4]/100 transform -rotate-12 scale-y-105" />
 
                             {/* Solid Bright Core Line */}
-                            <div className="absolute inset-[10px] rounded-full border-l-[5px] border-[#ffffff]/100 transform -rotate-6 scale-x-95" />
+                            <div className="absolute inset-[10px] rounded-full border-l-[3px] border-[#ffffff]/100 transform -rotate-6 scale-x-95" />
 
                             {/* Deep Magenta/Indigo Sweep */}
-                            <div className="absolute inset-[25px] rounded-full border-l-[16px] border-b-[6px] border-[#6366f1]/100 transform rotate-15" />
+                            <div className="absolute inset-[25px] rounded-full border-l-[11px] border-b-[4px] border-[#6366f1]/100 transform rotate-15" />
                             
                             {/* Inner Specular Highlight */}
-                            <div className="absolute inset-[30px] rounded-full border-l-[3px] border-white/100 transform rotate-[18deg] scale-y-110" />
+                            <div className="absolute inset-[30px] rounded-full border-l-[2px] border-white/100 transform rotate-[18deg] scale-y-110" />
 
                             {/* Smooth Magenta Accent */}
-                            <div className="absolute inset-[45px] rounded-full border-l-[10px] border-t-[3px] border-[#d946ef]/100 transform -rotate-25 scale-x-105" />
+                            <div className="absolute inset-[45px] rounded-full border-l-[7px] border-t-[2px] border-[#d946ef]/100 transform -rotate-25 scale-x-105" />
 
                             {/* Crisp Cyan Inner Border */}
-                            <div className="absolute inset-[60px] rounded-full border-l-[8px] border-[#22d3ee]/100 transform rotate-5 scale-y-105" />
+                            <div className="absolute inset-[60px] rounded-full border-l-[5px] border-[#22d3ee]/100 transform rotate-5 scale-y-105" />
                             
                             {/* Deep Indigo Core Layer */}
-                            <div className="absolute inset-[80px] rounded-full border-l-[24px] border-[#4f46e5]/80 transform -rotate-[8deg]" />
-                            <div className="absolute inset-[82px] rounded-full border-l-[3px] border-white/80 transform -rotate-[8deg]" />
+                            <div className="absolute inset-[80px] rounded-full border-l-[17px] border-[#4f46e5]/80 transform -rotate-[8deg]" />
+                            <div className="absolute inset-[82px] rounded-full border-l-[2px] border-white/80 transform -rotate-[8deg]" />
 
                             {/* Minimal crossing thread for elegance */}
-                            <div className="absolute inset-[100px] rounded-[45%] border-l-[3px] border-cyan-200/80 transform rotate-[35deg] scale-110" />
+                            <div className="absolute inset-[100px] rounded-[45%] border-l-[2px] border-cyan-200/80 transform rotate-[35deg] scale-110" />
 
                         </div>
                     </motion.div>

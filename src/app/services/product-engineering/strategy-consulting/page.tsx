@@ -77,30 +77,41 @@ function DigitalTransformationHero() {
                             <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
                             <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
-                            <div className="strategy-visual">
-                                <div className="gyro">
-                                    <div className="gyro-ring ring-1">
-                                    <span className="ring-highlight"></span>
+                            <div className="strategy-visual w-full h-full relative flex items-center justify-center">
+                                <div className="atom">
+                                    {/* Orbit 1 */}
+                                    <div className="atom-orbit orbit-1">
+                                        <div className="orbit-path">
+                                            <div className="atom-electron"></div>
+                                        </div>
                                     </div>
 
-                                    <div className="gyro-ring ring-2">
-                                    <span className="ring-highlight"></span>
+                                    {/* Orbit 2 */}
+                                    <div className="atom-orbit orbit-2">
+                                        <div className="orbit-path">
+                                            <div className="atom-electron"></div>
+                                        </div>
                                     </div>
 
-                                    <div className="gyro-ring ring-3">
-                                    <span className="ring-highlight"></span>
+                                    {/* Orbit 3 */}
+                                    <div className="atom-orbit orbit-3">
+                                        <div className="orbit-path">
+                                            <div className="atom-electron"></div>
+                                        </div>
                                     </div>
 
-                                    <div className="gyro-ring ring-4">
-                                    <span className="ring-highlight"></span>
+                                    {/* Orbit 4 Force Refresh */}
+                                    <div className="atom-orbit orbit-4">
+                                        <div className="orbit-path">
+                                            <div className="atom-electron"></div>
+                                        </div>
                                     </div>
 
-                                    <div className="gyro-axis"></div>
-
-                                    <div className="gyro-hub">
-                                    <div className="hub-ring hub-ring-1"></div>
-                                    <div className="hub-ring hub-ring-2"></div>
-                                    <div className="hub-core"></div>
+                                    {/* Nucleus */}
+                                    <div className="atom-nucleus">
+                                        <div className="nucleus-ring-2"></div>
+                                        <div className="nucleus-ring"></div>
+                                        <div className="nucleus-core"></div>
                                     </div>
                                 </div>
                             </div>

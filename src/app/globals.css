@@ -1268,15 +1268,16 @@ html {
   transform-style: preserve-3d;
 }
 
-.gyro {
+/* --- ATOM SCIENCE ILLUSTRATION --- */
+.atom {
   position: relative;
   width: 320px;
   height: 320px;
   transform-style: preserve-3d;
-  transform: translateX(40px) translateY(-30px) rotateX(15deg) rotateY(-15deg) scale(1.8);
+  transform: translateX(40px) translateY(-60px) scale(1.8);
 }
 
-.gyro-ring {
+.atom-orbit {
   position: absolute;
   top: 0;
   left: 0;
@@ -1286,109 +1287,113 @@ html {
   border-style: solid;
   border-color: transparent;
   transform-style: preserve-3d;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-.ring-1 {
-  border-color: rgba(34, 211, 238, 0.9);
-  border-width: 1px 5px 1px 5px;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25) 0%, rgba(34, 211, 238, 0.05) 40%, transparent 80%);
-  transform: rotateZ(45deg) rotateX(78deg) scale(1.1);
-  box-shadow: inset 1px 1.5px 0px rgba(34, 211, 238, 0.6), inset -1px -1.5px 0px rgba(34, 211, 238, 0.2);
+.orbit-1 {
+  border-width: 4px;
+  border-color: #22d3ee;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2) 0%, transparent 70%);
+  transform: rotateZ(0deg) rotateX(75deg);
 }
 
-.ring-2 {
-  border-style: solid;
-  border-color: rgba(232, 121, 249, 0.9);
-  border-width: 1px 5px 1px 5px;
-  background: linear-gradient(225deg, rgba(232, 121, 249, 0.25) 0%, rgba(232, 121, 249, 0.05) 40%, transparent 80%);
-  transform: rotateZ(-5deg) rotateX(78deg) scale(1.1);
-  box-shadow: inset 1px -1.5px 0px rgba(232, 121, 249, 0.6), inset -1px 1.5px 0px rgba(232, 121, 249, 0.2);
+.orbit-2 {
+  border-width: 4px;
+  border-color: #e879f9;
+  background: linear-gradient(225deg, rgba(232, 121, 249, 0.2) 0%, transparent 70%);
+  transform: rotateZ(45deg) rotateX(75deg);
 }
 
-.ring-3 {
-  border-color: rgba(59, 130, 246, 0.9);
-  border-width: 1px 4px 1px 4px;
-  background: linear-gradient(315deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 80%);
-  transform: rotateZ(135deg) rotateX(78deg) scale(0.85);
-  box-shadow: inset -1px 1.5px 0px rgba(59, 130, 246, 0.6), inset 1px -1.5px 0px rgba(59, 130, 246, 0.2);
+.orbit-3 {
+  border-width: 4px;
+  border-color: #3b82f6;
+  background: linear-gradient(315deg, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  transform: rotateZ(90deg) rotateX(75deg);
 }
 
-.ring-4 {
-  border-color: rgba(34, 211, 238, 0.6);
-  border-width: 1px 2px 1px 4px;
-  background: linear-gradient(45deg, rgba(34, 211, 238, 0.25) 0%, transparent 70%);
-  transform: rotateZ(15deg) rotateX(90deg) scale(1.2);
-  box-shadow: inset -1.5px -1.5px 0px rgba(34, 211, 238, 0.4), inset 1px 1px 0px rgba(34, 211, 238, 0.2);
+.orbit-4 {
+  border-width: 4px;
+  border-color: #ffffff;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  transform: rotateZ(135deg) rotateX(75deg);
 }
 
-.ring-highlight {
-  display: none;
-}
-
-.gyro-axis {
+.orbit-path {
   position: absolute;
-  top: -5%;
-  left: 50%;
-  width: 1px;
-  height: 110%;
-  background: linear-gradient(to bottom, #94a3b8, #e0f2fe, #ffffff, #e0f2fe, #94a3b8);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-  border-radius: 1px;
-  transform: translateX(-50%) rotateZ(55deg) rotateX(15deg);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(34, 211, 238, 0.3);
-  z-index: 10;
-}
-
-.gyro-hub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  transform: translate(-50%, -50%) rotateX(60deg);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: rotate-orbit linear infinite;
   transform-style: preserve-3d;
 }
 
-.hub-ring {
+.orbit-1 .orbit-path { animation-duration: 4s; }
+.orbit-2 .orbit-path { animation-duration: 3s; animation-direction: reverse; }
+.orbit-3 .orbit-path { animation-duration: 5s; }
+.orbit-4 .orbit-path { animation-duration: 4.5s; animation-direction: reverse; }
+
+.atom-electron {
+  position: absolute;
+  top: -4px;
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.orbit-1 .atom-electron { color: #22d3ee; background: #22d3ee; }
+.orbit-2 .atom-electron { color: #e879f9; background: #e879f9; }
+.orbit-3 .atom-electron { color: #3b82f6; background: #3b82f6; }
+.orbit-4 .atom-electron { color: #ffffff; background: #ffffff; }
+
+@keyframes rotate-orbit {
+  100% { transform: rotateZ(360deg); }
+}
+
+.atom-nucleus {
   position: absolute;
   top: 50%;
   left: 50%;
-  border-radius: 50%;
   transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hub-ring-1 {
-  width: 60px;
-  height: 60px;
-  border-style: solid;
-  border-color: rgba(34, 211, 238, 0.7);
-  border-width: 3px 1px 2px 1px;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25) 0%, transparent 60%);
-  box-shadow: inset 1px 1px 0px rgba(34, 211, 238, 0.5), inset -1px -1px 0px rgba(34, 211, 238, 0.2);
+.nucleus-core {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, #ffffff 0%, #22d3ee 30%, transparent 80%);
+  border-radius: 50%;
+  animation: pulse-nucleus 2s ease-in-out infinite alternate;
 }
 
-.hub-ring-2 {
-  width: 30px;
-  height: 30px;
-  border-style: solid;
-  border-color: rgba(232, 121, 249, 0.9);
-  border-width: 1px 3px 1px 2px;
-  background: linear-gradient(225deg, rgba(232, 121, 249, 0.3) 0%, transparent 60%);
-  box-shadow: inset 1px -1px 0px rgba(232, 121, 249, 0.5), inset -1px 1px 0px rgba(232, 121, 249, 0.2);
-}
-
-.hub-core {
+.nucleus-ring {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  background: #22d3ee;
+  width: 70px;
+  height: 70px;
+  border: 1px dashed rgba(232, 121, 249, 0.6);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: none;
+  animation: spin-nucleus-ring 6s linear infinite;
+}
+
+.nucleus-ring-2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px dashed rgba(34, 211, 238, 0.4);
+  border-radius: 50%;
+  animation: spin-nucleus-ring 10s linear infinite reverse;
+}
+
+@keyframes pulse-nucleus {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes spin-nucleus-ring {
+  0% { transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(70deg) rotateY(360deg) rotateZ(360deg); }
 }
