@@ -174,7 +174,7 @@ export const challengesContent = {
         {
             icon: "DollarSign",
             title: "Rising Engineering Costs",
-            description: "Growing technology stacks increase development overhead. Our efficient delivery models improve productivity while\nreducing costs.",
+            description: "Growing technology stacks increase development overhead. Our efficient delivery models improve productivity while reducing costs.",
         },
         {
             icon: "Scale",
@@ -184,7 +184,7 @@ export const challengesContent = {
         {
             icon: "Brain",
             title: "Untapped AI Potential",
-            description: "Fragmented data and disconnected systems\nlimit AI adoption. Our enterprise-ready AI\nturns insights into\nbusiness outcomes.",
+            description: "Fragmented data and disconnected systems limit AI adoption. Our enterprise-ready AI turns insights\ninto business outcomes.",
         },
     ],
 };
@@ -565,7 +565,7 @@ export const vocContent = {
             author: "Gustavo Lasala",
             designation: "President and CEO",
             company: "PeopleFund",
-            image: "/images/voc/gustavo_transparent.png",
+            image: "/images/voc/gustavo_new.jpg",
             logo: "/logos/Additional/People_fund.png",
             result: "Built an intelligent lending platform that reduced loan prequalification from <span class='text-[#1e90ff] font-semibold'>days to minutes.</span>",
             caseStudyHref: "/insights/case-studies/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",

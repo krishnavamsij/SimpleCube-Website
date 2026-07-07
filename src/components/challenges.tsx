@@ -27,7 +27,7 @@ export function Challenges() {
 
     return (
         <section id="challenges-section" className="bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
+            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-4 xl:px-6">
                 {/* Section header — Accenture-style label above cards */}
                 <motion.div
                     variants={scrollReveal}
@@ -50,7 +50,7 @@ export function Challenges() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+                    className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 lg:gap-4 xl:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
                 >
                     {challenges.map((challenge) => {
                         const Icon = iconMap[challenge.icon];
@@ -58,7 +58,7 @@ export function Challenges() {
                             <motion.div
                                 key={challenge.title}
                                 variants={scrollReveal}
-                                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200"
+                                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 lg:p-5 xl:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200"
                             >
                                 {/* Top accent bar on hover */}
                                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
