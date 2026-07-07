@@ -148,7 +148,7 @@ export function VoiceOfCustomer() {
                                             />
                                         ))}
 
-                                        <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-slate-100 z-10">
+                                        <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-transparent z-10">
                                             <Image 
                                                 src={active.image} 
                                                 alt={active.author} 
