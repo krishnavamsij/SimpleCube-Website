@@ -93,45 +93,45 @@ function DigitalTransformationHero() {
                             >
                                 {/* Block 1 (Large Base Platform) - Crisp Cyan */}
                                 <motion.div 
-                                    initial={{ z: 0, opacity: 0 }}
-                                    animate={{ z: 20, opacity: 1 }}
-                                    transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ z: [20, 35, 20], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0 }}
                                     className="absolute top-[20%] left-[20%] w-[35%] h-[35%] rounded-2xl border border-[#06b6d4]/60 border-l-[5px] border-t-[3px] border-l-[#06b6d4] border-t-[#06b6d4]/80 bg-[#06b6d4]/10"
                                 >
                                 </motion.div>
 
                                 {/* Block 2 (Medium Accent Block) - Deep Magenta */}
                                 <motion.div 
-                                    initial={{ z: 0, opacity: 0 }}
-                                    animate={{ z: 60, opacity: 1 }}
-                                    transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ z: [60, 75, 60], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                                     className="absolute bottom-[25%] right-[25%] w-[25%] h-[25%] rounded-xl border border-[#d946ef]/60 border-l-[6px] border-t-[3px] border-l-[#d946ef] border-t-[#d946ef]/80 bg-[#d946ef]/10"
                                 >
                                 </motion.div>
 
                                 {/* Block 3 (Floating Core Slabs) - Bright White */}
                                 <motion.div 
-                                    initial={{ z: 0, opacity: 0 }}
-                                    animate={{ z: 100, opacity: 1 }}
-                                    transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ z: [100, 120, 100], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
                                     className="absolute top-[35%] left-[45%] w-[20%] h-[20%] rounded-xl border border-white/60 border-l-[5px] border-t-[3px] border-l-[#ffffff] border-t-white/80 bg-white/10"
                                 >
                                 </motion.div>
 
                                 {/* Block 4 (High Floating Small Cube) - Deep Indigo */}
                                 <motion.div 
-                                    initial={{ z: 0, opacity: 0 }}
-                                    animate={{ z: 140, opacity: 1 }}
-                                    transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ z: [140, 155, 140], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
                                     className="absolute bottom-[20%] left-[30%] w-[12%] h-[12%] rounded-lg border border-[#4f46e5]/60 border-l-[8px] border-b-[3px] border-l-[#4f46e5] border-b-[#4f46e5]/80 bg-[#4f46e5]/20"
                                 >
                                 </motion.div>
 
                                 {/* Block 5 (Additional Blue Accent) - Bright Blue */}
                                 <motion.div 
-                                    initial={{ z: 0, opacity: 0 }}
-                                    animate={{ z: 80, opacity: 1 }}
-                                    transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ z: [80, 95, 80], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
                                     className="absolute top-[15%] right-[20%] w-[18%] h-[18%] rounded-xl border border-[#3b82f6]/60 border-l-[5px] border-t-[3px] border-l-[#3b82f6] border-t-[#3b82f6]/80 bg-[#3b82f6]/10"
                                 >
                                 </motion.div>

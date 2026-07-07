@@ -103,42 +103,52 @@ function ProductEngineeringHero() {
 
                                 <g transform="translate(500, 250) rotate(-45) scale(1.15, 1.35) translate(-500, -250)">
                                     {/* Axis Line - Wavy Path */}
-                                    <path d="M 50 250 C 130 250, 180 250, 210 250 C 285 250, 285 150, 360 150 C 500 150, 500 350, 640 350 C 725 350, 725 150, 810 150 C 895 150, 980 150, 980 150" stroke="url(#whiteGrad)" strokeWidth="2" strokeDasharray="6 8" fill="none" opacity="0.9" />
+                                    <path className="pe-path-flow" d="M 50 250 C 210 250, 260 250, 290 250 C 365 250, 355 150, 440 150 C 540 150, 530 325, 670 325 C 755 325, 725 150, 810 150 C 895 150, 980 150, 980 150" stroke="url(#whiteGrad)" strokeWidth="2" strokeDasharray="6 8" fill="none" opacity="0.9" />
 
                                     {/* Main Shapes */}
-                                    <g stroke="url(#globalGrad)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round">
+                                    <g stroke="url(#globalGrad)" strokeLinejoin="round" strokeLinecap="round">
                                         
-                                        {/* Square Box (Y=250) */}
-                                        <g fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
-                                            <polygon points="190,145 190,305 250,325 250,165" />
-                                            <polygon points="170,160 170,320 230,340 230,180" />
-                                            <line x1="170" y1="160" x2="190" y2="145" />
-                                            <line x1="170" y1="320" x2="190" y2="305" />
-                                            <line x1="230" y1="340" x2="250" y2="325" />
-                                            <line x1="230" y1="180" x2="250" y2="165" />
+                                        {/* Square Box (Y=250) - Moved Right (+120px X) */}
+                                        <g className="pe-shape-1" fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+                                            <polygon points="270,145 270,305 330,325 330,165" strokeWidth="1.5" />
+                                            <polygon points="250,160 250,320 310,340 310,180" strokeWidth="4" />
+                                            <line x1="250" y1="160" x2="270" y2="145" strokeWidth="1.5" />
+                                            <line x1="250" y1="320" x2="270" y2="305" strokeWidth="1.5" />
+                                            <line x1="310" y1="340" x2="330" y2="325" strokeWidth="4" />
+                                            <line x1="310" y1="180" x2="330" y2="165" strokeWidth="1.5" />
                                         </g>
 
-                                        {/* Disk (Y=150) */}
-                                        <g fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
-                                            <ellipse cx="370" cy="150" rx="30" ry="85" />
-                                            <ellipse cx="350" cy="150" rx="30" ry="85" />
-                                            <line x1="350" y1="65" x2="370" y2="65" />
-                                            <line x1="350" y1="235" x2="370" y2="235" />
+                                        {/* Disk (Y=150) - Moved Right (+40px X) */}
+                                        <g className="pe-shape-2" fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+                                            {/* Front Ellipse */}
+                                            <path d="M 450,65 A 30,85 0 0,0 450,235" strokeWidth="4" />
+                                            <path d="M 450,65 A 30,85 0 0,1 450,235" strokeWidth="1.5" />
+                                            {/* Back Ellipse */}
+                                            <path d="M 430,65 A 30,85 0 0,0 430,235" strokeWidth="4" />
+                                            <path d="M 430,65 A 30,85 0 0,1 430,235" strokeWidth="1.5" />
+                                            <line x1="430" y1="65" x2="450" y2="65" strokeWidth="1.5" />
+                                            <line x1="430" y1="235" x2="450" y2="235" strokeWidth="4" />
                                         </g>
 
-                                        {/* Cylinder (Y=350) - Moved Right (+60px) */}
-                                        <g fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
-                                            <ellipse cx="730" cy="350" rx="35" ry="70" />
-                                            <ellipse cx="550" cy="350" rx="35" ry="70" />
-                                            <line x1="550" y1="280" x2="730" y2="280" />
-                                            <line x1="550" y1="420" x2="730" y2="420" />
+                                        {/* Cylinder (Y=325) - Moved Right (+90px X) and Up Right (-25px Y) */}
+                                        <g className="pe-shape-3" fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+                                            {/* Right Ellipse */}
+                                            <path d="M 760,255 A 35,70 0 0,0 760,395" strokeWidth="4" />
+                                            <path d="M 760,255 A 35,70 0 0,1 760,395" strokeWidth="1.5" />
+                                            {/* Left Ellipse */}
+                                            <path d="M 580,255 A 35,70 0 0,0 580,395" strokeWidth="4" />
+                                            <path d="M 580,255 A 35,70 0 0,1 580,395" strokeWidth="1.5" />
+                                            <line x1="580" y1="255" x2="760" y2="255" strokeWidth="1.5" />
+                                            <line x1="580" y1="395" x2="760" y2="395" strokeWidth="4" />
                                         </g>
 
                                         {/* Cone (Y=150) */}
-                                        <g fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
-                                            <ellipse cx="810" cy="150" rx="35" ry="70" />
-                                            <line x1="810" y1="80" x2="960" y2="150" />
-                                            <line x1="810" y1="220" x2="960" y2="150" />
+                                        <g className="pe-shape-4" fill="url(#globalGrad)" fillOpacity="0.35" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+                                            {/* Base Ellipse */}
+                                            <path d="M 810,80 A 35,70 0 0,0 810,220" strokeWidth="4" />
+                                            <path d="M 810,80 A 35,70 0 0,1 810,220" strokeWidth="1.5" />
+                                            <line x1="810" y1="80" x2="960" y2="150" strokeWidth="1.5" />
+                                            <line x1="810" y1="220" x2="960" y2="150" strokeWidth="4" />
                                             {/* Inner detail */}
                                             <ellipse cx="890" cy="150" rx="15" ry="32" fill="none" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.6" />
                                         </g>
@@ -147,20 +157,27 @@ function ProductEngineeringHero() {
 
                                     {/* Markers on Axis */}
                                     <g stroke="url(#globalGrad)" strokeWidth="2.5" opacity="1">
-                                        <line x1="206" y1="250" x2="214" y2="250" />
-                                        <line x1="210" y1="246" x2="210" y2="254" />
+                                        <g className="pe-shape-1">
+                                            <line x1="286" y1="250" x2="294" y2="250" />
+                                            <line x1="290" y1="246" x2="290" y2="254" />
+                                        </g>
                                         
-                                        <line x1="356" y1="150" x2="364" y2="150" />
-                                        <line x1="360" y1="146" x2="360" y2="154" />
+                                        <g className="pe-shape-2">
+                                            <line x1="436" y1="150" x2="444" y2="150" />
+                                            <line x1="440" y1="146" x2="440" y2="154" />
+                                        </g>
 
-                                        {/* Cylinder Marker (Moved Right) */}
-                                        <line x1="636" y1="350" x2="644" y2="350" />
-                                        <line x1="640" y1="346" x2="640" y2="354" />
+                                        {/* Cylinder Marker (Moved Up Right) */}
+                                        <g className="pe-shape-3">
+                                            <line x1="666" y1="325" x2="674" y2="325" />
+                                            <line x1="670" y1="321" x2="670" y2="329" />
+                                        </g>
 
-                                        <line x1="806" y1="150" x2="814" y2="150" />
-                                        <line x1="810" y1="146" x2="810" y2="154" />
-
-                                        <circle cx="960" cy="150" r="4" fill="url(#globalGrad)" stroke="none" />
+                                        <g className="pe-shape-4">
+                                            <line x1="806" y1="150" x2="814" y2="150" />
+                                            <line x1="810" y1="146" x2="810" y2="154" />
+                                            <circle cx="960" cy="150" r="4" fill="url(#globalGrad)" stroke="none" />
+                                        </g>
                                     </g>
                                 </g>
                             </svg>
@@ -189,7 +206,7 @@ function WhyHyniva() {
                             src="/images/Our_Services/Product_Engineering_no_BG.png"
                             alt="Product Engineering UI"
                             fill
-                            className="object-contain scale-110 lg:scale-125 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.15] lg:group-hover:scale-[1.35] group-hover:-translate-y-2"
+                            className="object-contain scale-100 lg:scale-110 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-105 lg:group-hover:scale-[1.15] group-hover:-translate-y-2"
                         />
                         {/* Gradient masks to bury image edges when zoomed */}
                         <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
@@ -385,9 +402,7 @@ function EnterpriseEnablement() {
                                 <p className="text-[14px] text-slate-600 leading-relaxed mb-8 flex-grow">
                                     {item.description}
                                 </p>
-                                <Link href="#" className="inline-flex items-center gap-2 text-[#00D4AA] font-semibold text-[14px] hover:text-[#00b38f] transition-colors mt-auto">
-                                    Learn More <ArrowRight className="h-4 w-4" />
-                                </Link>
+
                             </motion.div>
                         ))}
                     </div>
