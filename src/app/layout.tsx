@@ -95,22 +95,6 @@ export default function RootLayout({
         </Suspense>
         <AskAiraWidget />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
-        {/* DUNS Registered Seal - Fixed position on page */}
-        <iframe
-          id="Iframe1"
-          src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=874090808"
-          width="114"
-          height="97"
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            zIndex: 9999,
-            border: 'none',
-            backgroundColor: 'transparent'
-          }}
-          title="DUNS Registered Seal"
-        />
       </body>
     </html>
   );
