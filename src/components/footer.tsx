@@ -286,18 +286,17 @@ export function Footer() {
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                   {/* DUNS Registered Seal */}
-                  <div className="h-16 sm:h-20 w-[95px] sm:w-[114px] flex items-center justify-center overflow-hidden">
+                  <div className="flex items-center justify-center" style={{ width: '95px', height: '81px' }}>
                     <iframe
                       id="Iframe1"
                       src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=874090808"
-                      width="114"
-                      height="97"
+                      width="95"
+                      height="81"
                       scrolling="no"
                       style={{ 
                         border: 'none', 
                         backgroundColor: 'transparent',
-                        transform: 'scale(0.83)',
-                        transformOrigin: 'center center'
+                        display: 'block'
                       }}
                       title="DUNS Registered Seal"
                     />
