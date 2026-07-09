@@ -185,7 +185,7 @@ export function Footer() {
         <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
 
         {/* ── FOOTER LINKS & BRAND ── */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8 pb-4 mt-auto">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8 pb-4 mt-auto">
           {/* Brand */}
           <div className="w-full lg:max-w-sm">
             <Link href="/" className="inline-flex items-center">
@@ -234,7 +234,7 @@ export function Footer() {
           </div>
 
           {/* Link columns area */}
-          <div className="flex flex-col gap-8 lg:w-auto lg:ml-auto">
+          <div className="flex flex-col gap-8 lg:w-auto lg:ml-72">
             <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
               {sections.map((section) => (
                 <div key={section.title} className="min-w-[120px] text-left">
@@ -285,8 +285,8 @@ export function Footer() {
                   Certified By
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                  {/* DUNS Registered Seal */}
-                  <iframe
+                  {/* DUNS Registered Seal - Commented Out */}
+                  {/* <iframe
                     id="Iframe1"
                     src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=874090808"
                     width="114"
@@ -298,6 +298,14 @@ export function Footer() {
                       display: 'block'
                     }}
                     title="DUNS Registered Seal"
+                  /> */}
+                  {/* D&B Certified Logo */}
+                  <Image
+                    src="/images/Footer/D&B Certified.webp"
+                    alt="D&B Certified"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/SOC.png"
@@ -307,18 +315,18 @@ export function Footer() {
                     className="h-16 sm:h-20 w-auto object-contain"
                   />
                   <Image
-                    src="/images/Footer/ISO.png"
+                    src="/images/Footer/ISO_cropped.png"
                     alt="ISO Certification"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-14 sm:h-[4.5rem] w-auto object-contain -mt-2"
                   />
                   <Image
                     src="/images/Footer/Certification_Badge_without_Background.png"
                     alt="Great Place to Work Certification"
                     width={100}
                     height={100}
-                    className="h-20 sm:h-24 w-auto object-contain"
+                    className="h-16 sm:h-20 w-auto object-contain"
                   />
                 </div>
               </div>
