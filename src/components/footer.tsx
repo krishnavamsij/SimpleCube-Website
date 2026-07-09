@@ -301,11 +301,11 @@ export function Footer() {
                   /> */}
                   {/* D&B Certified Logo */}
                   <Image
-                    src="/images/Footer/D&B Certified.webp"
+                    src="/images/Footer/D&b_cropped.png"
                     alt="D&B Certified"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-16 sm:h-20 w-auto object-contain -mt-3"
                   />
                   <Image
                     src="/images/Footer/SOC.png"
