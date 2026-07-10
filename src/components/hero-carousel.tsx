@@ -50,7 +50,7 @@ export function HeroCarousel() {
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-8 xl:mt-10 2xl:mt-14 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[68px] font-display"
+                                className="mt-8 xl:mt-10 2xl:mt-14 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[68px] font-display text-balance"
                             >
                                 Build in <span className="text-[#00D4AA]">weeks,</span><br />
                                 not <span className="text-[#00D4AA]">months.</span>
@@ -59,7 +59,7 @@ export function HeroCarousel() {
                             {/* Subheadline */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-6 xl:mt-8 2xl:mt-12 w-full text-base sm:text-lg lg:text-lg 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-xl"
+                                className="mt-6 xl:mt-8 2xl:mt-12 w-full text-base sm:text-lg lg:text-lg 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-3xl"
                             >
                                 Powered by 20+ years of experience across multiple industries, we focus on delivering business outcomes without adding complexity or overhead.
                             </motion.p>

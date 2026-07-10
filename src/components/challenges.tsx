@@ -73,7 +73,7 @@ export function Challenges() {
 
                                 {/* Description */}
                                 {/* @ts-ignore */}
-                                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-slate-500 whitespace-pre-line">
+                                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-slate-500 min-h-[5.5rem] lg:min-h-[6.5rem]">
                                     {/* @ts-ignore */}
                                     {challenge.description}
                                 </p>

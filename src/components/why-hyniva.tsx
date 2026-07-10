@@ -104,7 +104,7 @@ export function WhyHyniva() {
                                 <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed min-h-[6rem] line-clamp-4">
                                     {card.description}
                                 </p>
                             </div>

@@ -134,8 +134,8 @@ export function Industries() {
                             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                             INDUSTRIES WE SERVE
                         </div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight text-[#030B3B] leading-[1.1] font-display">
-                            Deep domain expertise,<br />
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-[900] tracking-tight text-[#030B3B] leading-[1.1] font-display text-balance">
+                            Deep domain expertise,
                             built over <span className="text-[#00D4AA]">decades.</span>
                         </h2>
                     </motion.div>

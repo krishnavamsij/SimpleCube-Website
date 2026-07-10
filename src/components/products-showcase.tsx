@@ -93,8 +93,8 @@ export function ProductsShowcase() {
                     <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 relative">
                         {/* Left Side: Headline and Subheadline */}
                         <div className="lg:pr-12">
-                            <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight leading-[1.1] text-white mb-8">
-                                Product innovation<br />
+                            <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight leading-[1.1] text-white mb-8 text-balance">
+                                Product innovation
                                 is in our <span className="text-[#00D4AA]">DNA.</span>
                             </h2>
                             <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-xl">

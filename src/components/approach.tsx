@@ -51,8 +51,8 @@ export function Approach() {
                         <div className="text-[56px] sm:text-[64px] lg:text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
                             40<span className="text-white text-[40px] sm:text-[48px] lg:text-[52px]">%</span>
                         </div>
-                        <div className="text-[13px] sm:text-[14px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 eyebrow">
-                            faster delivery<br />vs. traditional model
+                        <div className="text-[13px] sm:text-[14px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 eyebrow text-balance">
+                            faster delivery vs. traditional model
                         </div>
                     </div>
                 </motion.div>

@@ -164,12 +164,12 @@ export const challengesContent = {
         {
             icon: "Construction",
             title: "Slow Kickoffs",
-            description: "Lengthy setup and integration dependencies delay project starts.\nOur pre-configured accelerators help teams start building in days.",
+            description: "Lengthy setup and integration dependencies delay project starts. Our pre-configured accelerators help teams start building in days.",
         },
         {
             icon: "Clock",
             title: "Missed Milestones",
-            description: "Competing priorities and complex systems derail delivery timelines. Our\nAI-powered workflows accelerate execution and keep releases on track.",
+            description: "Competing priorities and complex systems derail delivery timelines. Our AI-powered workflows accelerate execution and keep releases on track.",
         },
         {
             icon: "DollarSign",
@@ -184,7 +184,7 @@ export const challengesContent = {
         {
             icon: "Brain",
             title: "Untapped AI Potential",
-            description: "Fragmented data and disconnected systems limit AI adoption. Our enterprise-ready AI turns insights\ninto business outcomes.",
+            description: "Fragmented data and disconnected systems limit AI adoption. Our enterprise-ready AI turns insights into business outcomes.",
         },
     ],
 };
@@ -380,12 +380,12 @@ export const whyHynivaContent = {
         {
             icon: "UsersRound",
             title: "Zero Handoff",
-            description: "One team owns your\nengagement from strategy\nto production. No handoffs,\nno context loss."
+            description: "One team owns your engagement from strategy to production. No handoffs, no context loss."
         },
         {
             icon: "Globe2",
             title: "Industry Depth",
-            description: "15+ years inside regulated\nindustries. We spend less\ntime learning and more\ntime building."
+            description: "15+ years inside regulated industries. We spend less time learning and more time building."
         },
         {
             icon: "Zap",
