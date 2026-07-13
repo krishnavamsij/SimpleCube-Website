@@ -258,9 +258,9 @@ export function Footer() {
             </div>
 
             {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
-            <div className="flex flex-row flex-wrap gap-10 sm:gap-20 border-t border-white/10 pt-6 mt-2 w-full text-left">
-              <div className="text-left">
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60 text-left">
+            <div className="flex flex-row flex-wrap items-start gap-8 border-t border-white/10 pt-6 mt-2 w-full text-left">
+              <div className="flex flex-col text-left min-w-0">
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Proud Member
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -280,8 +280,8 @@ export function Footer() {
                   />
                 </div>
               </div>
-              <div className="ml-0 sm:ml-4 text-left">
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60 text-left">
+              <div className="flex flex-col text-left min-w-0">
+                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Certified By
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
