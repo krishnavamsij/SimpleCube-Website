@@ -125,7 +125,7 @@ export function Footer() {
         className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
       />
 
-      <div className={`relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] ${CONTAINER_CLASS}`}>
+      <div className={`relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] pb-[100px] sm:pb-[120px] ${CONTAINER_CLASS}`}>
         {/* ── LET'S TALK CTA SECTION ── */}
         <motion.div
           variants={scrollReveal}
@@ -185,7 +185,7 @@ export function Footer() {
         <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
 
         {/* ── FOOTER LINKS & BRAND ── */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8 pb-4 mt-auto">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between pb-4 mt-auto">
           {/* Brand */}
           <div className="w-full lg:max-w-sm">
             <Link href="/" className="inline-flex items-center">
@@ -234,7 +234,7 @@ export function Footer() {
           </div>
 
           {/* Link columns area */}
-          <div className="flex flex-col gap-8 lg:w-auto lg:ml-72">
+          <div className="flex flex-col gap-8 lg:pr-16 xl:pr-20">
             <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
               {sections.map((section) => (
                 <div key={section.title} className="min-w-[120px] text-left">
@@ -257,9 +257,9 @@ export function Footer() {
               ))}
             </div>
 
-            {/* Footer Badges & Certifications - starts exactly from Services left align to right */}
-            <div className="flex flex-row flex-wrap items-start gap-8 border-t border-white/10 pt-6 mt-2 w-full text-left">
-              <div className="flex flex-col text-left min-w-0">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 border-t border-white/10 pt-6 mt-2 w-full text-left">
+              {/* Proud Member Section */}
+              <div className="flex flex-col text-left min-w-[120px]">
                 <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Proud Member
                 </h4>
@@ -280,11 +280,13 @@ export function Footer() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col text-left min-w-0">
+              
+              {/* Certified By Section */}
+              <div className="flex flex-col text-left min-w-[120px]">
                 <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Certified By
                 </h4>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 pr-[100px] 2xl:pr-0">
                   {/* DUNS Registered Seal - Commented Out */}
                   {/* <iframe
                     id="Iframe1"
