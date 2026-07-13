@@ -154,10 +154,10 @@ export function ProductsShowcase() {
                     </div>
 
                     {/* Desktop: static centered layout with acquired-by badges */}
-                    <div className="hidden lg:flex flex-row items-start justify-start xl:justify-center flex-nowrap gap-6 xl:gap-4 pb-12 w-full pt-4">
+                    <div className="hidden lg:flex flex-row items-start justify-center flex-nowrap gap-4 lg:gap-3 xl:gap-4 pb-12 w-full pt-4 overflow-x-auto overflow-y-visible px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-start relative flex-shrink-0">
-                                <div className="h-12 lg:h-16 relative w-[160px] lg:w-[180px] xl:w-[185px] opacity-95 transition-opacity">
+                                <div className="h-12 lg:h-14 relative w-[140px] lg:w-[150px] xl:w-[185px] opacity-95 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
                                 {logo.acquiredBy && (
