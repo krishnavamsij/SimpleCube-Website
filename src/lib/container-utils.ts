@@ -7,25 +7,25 @@
 
 /**
  * Standard container class for consistent width and padding
- * - Max width: 1400px (optimal reading width for content)
+ * - Max width: 87.5rem (1400px at 16px base)
  * - Horizontal padding: 24px on mobile, 32px on tablet, 48px on desktop
  * - Centered with mx-auto
  */
-export const CONTAINER_CLASS = "mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12";
+export const CONTAINER_CLASS = "mx-auto w-full max-w-[87.5rem] px-6 sm:px-8 lg:px-12";
 
 /**
  * Narrow container for text-heavy content
- * - Max width: 1200px
+ * - Max width: 75rem (1200px at 16px base)
  * - Same padding as standard container
  */
-export const CONTAINER_NARROW_CLASS = "mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-12";
+export const CONTAINER_NARROW_CLASS = "mx-auto w-full max-w-[75rem] px-6 sm:px-8 lg:px-12";
 
 /**
  * Wide container for full-width sections
- * - Max width: 1600px
+ * - Max width: 100rem (1600px at 16px base)
  * - Same padding as standard container
  */
-export const CONTAINER_WIDE_CLASS = "mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12";
+export const CONTAINER_WIDE_CLASS = "mx-auto w-full max-w-[100rem] px-6 sm:px-8 lg:px-12";
 
 /**
  * Full-bleed container (no max-width, but consistent padding)
