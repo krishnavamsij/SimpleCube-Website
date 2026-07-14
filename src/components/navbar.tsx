@@ -59,7 +59,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     ];
 
     // Get the max-width from CONTAINER_CLASS for navbar width calculation
-    const maxContainerWidth = "1400px";
+    const maxContainerWidth = "87.5rem";
 
     return (
         <motion.header
