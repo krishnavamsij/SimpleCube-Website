@@ -26,7 +26,7 @@ export function TrustBar() {
             {/* Marquee container */}
             <div className="marquee-fade overflow-hidden">
                 <div className="animate-marquee flex w-max items-center gap-14 px-6" style={{ "--marquee-duration": "40s" } as React.CSSProperties}>
-                    {logos.map((logo, i) => (
+                    {[...logos, ...logos].map((logo, i) => (
                         <div
                             key={`${logo.name}-${i}`}
                             className="flex h-20 flex-shrink-0 items-center justify-center"

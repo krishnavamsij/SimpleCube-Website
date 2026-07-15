@@ -152,6 +152,7 @@ export const trustContent = {
         { name: "Sarojini School", src: "/Final client logos_Eazyschool/Final client logos_Eazyschool/sarojini.png", scale: 1.8 },
         { name: "Westcare", src: "/logos/Westcare.png", scale: 1.6 },
         { name: "Delta", src: "/logos/delta.png", scale: 1.4 },
+        { name: "Allcat", src: "/logos/Allcat.png" },
     ],
 };
 
