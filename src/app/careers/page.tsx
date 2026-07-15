@@ -855,7 +855,7 @@ const jobOpenings: JobPosition[] = [
     id: "salesforce-solution-architect",
     requestId: "HYU2026005",
     title: "Salesforce Solution Architect",
-    location: "Tyson, VA",
+    location: "Tysons, VA",
     type: "Full-Time",
     description: "We are seeking an experienced Solution Architect with a strong background in Salesforce platforms, MuleSoft integration services, Financial Services Cloud, Data Cloud, and Service Cloud. The ideal candidate will possess deep expertise in designing scalable enterprise solutions and a solid understanding of Agentic Architecture and AI-driven business processes.",
     jobDuties: [

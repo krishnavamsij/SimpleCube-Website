@@ -20,12 +20,33 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 function isUsLocation(location: string, role: string) {
   const value = `${location} ${role}`.toLowerCase();
-  return (
+  
+  // Check for explicit USA mentions
+  if (
     value.includes(" usa") ||
     value.includes(" us ") ||
     value.includes("united states") ||
     value.includes("america")
-  );
+  ) {
+    return true;
+  }
+  
+  // Check for US state abbreviations (common ones)
+  const usStateAbbreviations = [
+    ' al', ' ak', ' az', ' ar', ' ca', ' co', ' ct', ' de', ' fl', ' ga',
+    ' hi', ' id', ' il', ' in', ' ia', ' ks', ' ky', ' la', ' me', ' md',
+    ' ma', ' mi', ' mn', ' ms', ' mo', ' mt', ' ne', ' nv', ' nh', ' nj',
+    ' nm', ' ny', ' nc', ' nd', ' oh', ' ok', ' or', ' pa', ' ri', ' sc',
+    ' sd', ' tn', ' tx', ' ut', ' vt', ' va', ' wa', ' wv', ' wi', ' wy',
+    ',al', ',ak', ',az', ',ar', ',ca', ',co', ',ct', ',de', ',fl', ',ga',
+    ',hi', ',id', ',il', ',in', ',ia', ',ks', ',ky', ',la', ',me', ',md',
+    ',ma', ',mi', ',mn', ',ms', ',mo', ',mt', ',ne', ',nv', ',nh', ',nj',
+    ',nm', ',ny', ',nc', ',nd', ',oh', ',ok', ',or', ',pa', ',ri', ',sc',
+    ',sd', ',tn', ',tx', ',ut', ',vt', ',va', ',wa', ',wv', ',wi', ',wy'
+  ];
+  
+  // Check if location contains any US state abbreviation
+  return usStateAbbreviations.some(state => value.includes(state));
 }
 
 function sanitizeFileName(fileName: string) {
