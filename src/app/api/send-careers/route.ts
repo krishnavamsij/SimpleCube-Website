@@ -18,11 +18,15 @@ const ALLOWED_TYPES = new Set([
 const ALLOWED_EXTENSIONS = new Set(["pdf", "doc", "docx"]);
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-function isIndiaLocation(location: string, role: string) {
-  const value = `${location} ${role}`.toLowerCase();
+function isIndiaLocation(jobLocation: string, jobRegion: string) {
+  // First check if region is explicitly set to "india"
+  if (jobRegion && jobRegion.toLowerCase() === 'india') {
+    return true;
+  }
   
-  // Check if location contains "India"
-  return value.includes('india');
+  // Otherwise check if job location contains "India"
+  const location = jobLocation.toLowerCase();
+  return location.includes('india');
 }
 
 function sanitizeFileName(fileName: string) {
@@ -141,7 +145,9 @@ export async function POST(request: Request) {
     const jobId = formData.get("jobId") as string;
     const ctc = formData.get("ctc") as string;
     const skills = formData.get("skills") as string;
-    const location = formData.get("location") as string;
+    const location = formData.get("location") as string; // Applicant's location
+    const jobLocation = formData.get("jobLocation") as string; // Job posting location
+    const jobRegion = formData.get("jobRegion") as string; // Job region (us/india)
     const resumeFile = formData.get("resume") as File | null;
 
     console.log("Form data received:", {
@@ -151,7 +157,9 @@ export async function POST(request: Request) {
       jobId: jobId ? "✅" : "❌",
       ctc: ctc ? "✅" : "❌",
       skills: skills ? "✅" : "❌",
-      location: location ? "✅" : "❌",
+      applicantLocation: location ? "✅" : "❌",
+      jobLocation: jobLocation ? "✅" : "❌",
+      jobRegion: jobRegion ? "✅" : "❌",
       resume: resumeFile ? "✅" : "❌ (optional)",
     });
 
@@ -237,16 +245,18 @@ export async function POST(request: Request) {
       });
     }
 
-    const isIndia = isIndiaLocation(location, role);
+    const isIndia = isIndiaLocation(jobLocation || "", jobRegion || "");
     const targetEmail = isIndia ? SES_RECIPIENT_CAREERS_NONUS : SES_RECIPIENT_CAREERS_US;
     const subject = isIndia
       ? `[Job Application - India] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
       : `[Job Application - Onsite] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
 
     console.log("Email routing:", {
+      jobLocation,
+      jobRegion,
       applicantLocation: location,
       applicantRole: role,
-      isIndiaLocation: isIndia,
+      isIndiaJob: isIndia,
       senderEmail: sourceEmail,
       targetEmail,
     });

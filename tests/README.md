@@ -21,8 +21,8 @@ node tests/email-routing.test.js
 - Edge cases
 
 **Expected Results:**
-- Onsite locations (US, Canada, etc.) → `careers@hyniva.com`
-- India locations → `hr@hyniva.com`
+- Jobs posted in other countries (US, Canada, etc.) → `careers@hyniva.com`
+- Jobs posted in India → `hr@hyniva.com`
 
 ---
 
@@ -61,17 +61,23 @@ node tests/send-test-applications.js
 
 ### Current Rules:
 
-**India Applications → hr@hyniva.com:**
-- Any location containing "India" (Bangalore, India / Hyderabad, India / Mumbai, India, etc.)
+**Routing is based on JOB POSTING LOCATION (where the job is located), NOT applicant location!**
 
-**Onsite Applications → careers@hyniva.com:**
-- All other locations (US, Canada, UK, etc.)
+**India Job Postings → hr@hyniva.com:**
+- Any job posted in India (Bangalore, India / Hyderabad, India / Mumbai, India, etc.)
+- Jobs with region="india"
+
+**Onsite Job Postings → careers@hyniva.com:**
+- All jobs posted in other countries (US, Canada, UK, etc.)
 - Examples: Tysons, VA / Toronto, ON / London, UK / Remote (USA)
 
 ### Email Recipients:
 
-- **Onsite Applications (US, Canada, etc.):** `careers@hyniva.com`
-- **India Applications:** `hr@hyniva.com`
+- **Onsite Jobs (US, Canada, etc.):** `careers@hyniva.com`
+- **India Jobs:** `hr@hyniva.com`
+
+### Important Note:
+An applicant from India can apply for a US job, and it will go to `careers@hyniva.com` (US hiring team) because the **job** is posted in the US.
 
 ---
 

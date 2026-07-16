@@ -1526,6 +1526,14 @@ export default function CareersPage() {
       formDataToSend.append("ctc", formData.currentCTC);
       formDataToSend.append("skills", formData.skills);
       formDataToSend.append("location", formData.location);
+      
+      // Get the job's region/location for email routing
+      const job = jobOpenings.find(j => j.title === selectedJob);
+      if (job) {
+        formDataToSend.append("jobLocation", job.location); // Job posting location
+        formDataToSend.append("jobRegion", job.region || ""); // Job region (us/india)
+      }
+      
       formDataToSend.append("resume", resumeFile);
 
       const response = await fetch("/api/send-careers", {
