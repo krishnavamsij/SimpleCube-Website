@@ -21,8 +21,8 @@ node tests/email-routing.test.js
 - Edge cases
 
 **Expected Results:**
-- US locations → `careers@hyniva.com`
-- Non-US locations → `hr@hyniva.com`
+- Onsite locations (US, Canada, etc.) → `careers@hyniva.com`
+- India locations → `hr@hyniva.com`
 
 ---
 
@@ -61,59 +61,46 @@ node tests/send-test-applications.js
 
 ### Current Rules:
 
-1. **Explicit US mentions** → US email
-   - Contains "USA", "United States", "(US)", etc.
+**India Applications → hr@hyniva.com:**
+- Any location containing "India" (Bangalore, India / Hyderabad, India / Mumbai, India, etc.)
 
-2. **Non-US keywords** → Non-US email (priority check)
-   - Contains "Canada", "India", "Toronto", "Bengaluru", etc.
-
-3. **US state names** → US email
-   - Contains full state names like "Virginia", "Texas", etc.
-
-4. **US state abbreviations** → US email
-   - Matches pattern: `, VA` or `(VA)` or similar with 2-letter state code
+**Onsite Applications → careers@hyniva.com:**
+- All other locations (US, Canada, UK, etc.)
+- Examples: Tysons, VA / Toronto, ON / London, UK / Remote (USA)
 
 ### Email Recipients:
 
-- **US Applications:** `careers@hyniva.com`
-- **Non-US Applications:** `hr@hyniva.com`
+- **Onsite Applications (US, Canada, etc.):** `careers@hyniva.com`
+- **India Applications:** `hr@hyniva.com`
 
 ---
 
 ## Test Coverage
 
-### US Locations Tested:
+### Onsite Locations Tested:
 - ✅ Tysons, VA
 - ✅ San Antonio, TX  
 - ✅ Los Angeles, CA
 - ✅ New York, NY
-- ✅ Chicago, IL
-- ✅ Boston, MA
-- ✅ Seattle, WA
-- ✅ Austin, TX
-- ✅ Miami, FL
-- ✅ Dallas, Texas (full state name)
-- ✅ Phoenix, Arizona
-- ✅ Denver, Colorado
-- ✅ Remote (USA)
-
-### Non-US Locations Tested:
 - ✅ Toronto, ON (Canada)
 - ✅ Calgary, AB (Canada)
 - ✅ Vancouver, BC (Canada)
-- ✅ Montreal, Quebec (Canada)
+- ✅ Remote (USA)
+
+### India Locations Tested:
 - ✅ Bengaluru, India
 - ✅ Bangalore, India
-- ✅ Remote (Canada)
+- ✅ Hyderabad, India
+- ✅ Mumbai, India
 
 ---
 
 ## Troubleshooting
 
 ### If unit tests fail:
-1. Check the `isUsLocation` function in `/src/app/api/send-careers/route.ts`
-2. Verify state abbreviation patterns match correctly
-3. Ensure non-US keyword filtering happens before US checks
+1. Check the `isIndiaLocation` function in `/src/app/api/send-careers/route.ts`
+2. Verify India keyword detection is working correctly
+3. Ensure all non-India locations default to careers@hyniva.com
 
 ### If integration tests fail:
 1. Ensure the Next.js dev server is running (`npm run dev`)
@@ -136,8 +123,8 @@ node tests/send-test-applications.js
 - Invalid email format
 
 **Wrong recipient receives email**
-- Location format doesn't match detection patterns
-- Add test case and update `isUsLocation` function
+- Location format doesn't contain "India" keyword
+- Add test case and update `isIndiaLocation` function
 
 ---
 
@@ -149,9 +136,9 @@ To add new location tests, edit `email-routing.test.js`:
 const testSuite = {
   "Your Category": [
     { 
-      location: "City, State", 
+      location: "City, Country", 
       role: "Job Title", 
-      expected: true  // true for US, false for Non-US
+      expected: true  // true for India, false for Onsite
     },
   ],
 };

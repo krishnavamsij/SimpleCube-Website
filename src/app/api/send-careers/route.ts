@@ -18,46 +18,11 @@ const ALLOWED_TYPES = new Set([
 const ALLOWED_EXTENSIONS = new Set(["pdf", "doc", "docx"]);
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-function isUsLocation(location: string, role: string) {
+function isIndiaLocation(location: string, role: string) {
   const value = `${location} ${role}`.toLowerCase();
   
-  // Check for explicit USA mentions
-  if (
-    value.includes("usa") ||
-    value.includes("united states") ||
-    value.includes(" us)") ||
-    value.includes("(us")
-  ) {
-    return true;
-  }
-  
-  // Check for explicit non-US countries/regions first
-  const nonUSKeywords = ['canada', 'india', 'toronto', 'bengaluru', 'bangalore', 'ontario', 'quebec', 'alberta', 'british columbia'];
-  if (nonUSKeywords.some(keyword => value.includes(keyword))) {
-    return false;
-  }
-  
-  // List of US state abbreviations with clear boundaries
-  const usStates = [
-    'alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 
-    'delaware', 'florida', 'georgia', 'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 
-    'kansas', 'kentucky', 'louisiana', 'maine', 'maryland', 'massachusetts', 'michigan', 
-    'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 
-    'new hampshire', 'new jersey', 'new mexico', 'new york', 'north carolina', 
-    'north dakota', 'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'rhode island', 
-    'south carolina', 'south dakota', 'tennessee', 'texas', 'utah', 'vermont', 
-    'virginia', 'washington', 'west virginia', 'wisconsin', 'wyoming', 'tysons'
-  ];
-  
-  // Check for full state names
-  if (usStates.some(state => value.includes(state))) {
-    return true;
-  }
-  
-  // Check for state abbreviations with clear delimiters (comma or parenthesis before)
-  const stateAbbrevPattern = /[,(]\s*(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy)[\s,)]/i;
-  
-  return stateAbbrevPattern.test(value);
+  // Check if location contains "India"
+  return value.includes('india');
 }
 
 function sanitizeFileName(fileName: string) {
@@ -272,16 +237,16 @@ export async function POST(request: Request) {
       });
     }
 
-    const usRole = isUsLocation(location, role);
-    const targetEmail = usRole ? SES_RECIPIENT_CAREERS_US : SES_RECIPIENT_CAREERS_NONUS;
-    const subject = usRole
-      ? `[Job Application - US] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
-      : `[Job Application] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
+    const isIndia = isIndiaLocation(location, role);
+    const targetEmail = isIndia ? SES_RECIPIENT_CAREERS_NONUS : SES_RECIPIENT_CAREERS_US;
+    const subject = isIndia
+      ? `[Job Application - India] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
+      : `[Job Application - Onsite] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
 
     console.log("Email routing:", {
       applicantLocation: location,
       applicantRole: role,
-      isUSRole: usRole,
+      isIndiaLocation: isIndia,
       senderEmail: sourceEmail,
       targetEmail,
     });

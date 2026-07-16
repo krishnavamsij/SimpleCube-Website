@@ -50,10 +50,10 @@ export const SES_RECIPIENT_CONTACT = process.env.SES_RECIPIENT_CONTACT || "conne
 // Case Study Inquiry → connect@hyniva.com
 export const SES_RECIPIENT_CASESTUDY = process.env.SES_RECIPIENT_CASESTUDY || "connect@hyniva.com";
 
-// Careers: US Applications → careers@hyniva.com
+// Careers: Onsite Applications (US, Canada, etc.) → careers@hyniva.com
 export const SES_RECIPIENT_CAREERS_US = process.env.SES_RECIPIENT_CAREERS_US || "careers@hyniva.com";
 
-// Careers: Non-US Applications → hr@hyniva.com
+// Careers: India Applications → hr@hyniva.com
 export const SES_RECIPIENT_CAREERS_NONUS = process.env.SES_RECIPIENT_CAREERS_NONUS || "hr@hyniva.com";
 
 /**
@@ -65,8 +65,8 @@ export const SES_RECIPIENT_CAREERS_NONUS = process.env.SES_RECIPIENT_CAREERS_NON
  * RECIPIENTS:
  * - Contact inquiries → connect@hyniva.com
  * - Case study requests → connect@hyniva.com
- * - US job applications → careers@hyniva.com
- * - Non-US job applications → hr@hyniva.com
+ * - Onsite job applications (US, Canada, etc.) → careers@hyniva.com
+ * - India job applications → hr@hyniva.com
  */
 
 export const EMAIL_CONFIG = {
@@ -76,7 +76,7 @@ export const EMAIL_CONFIG = {
   recipients: {
     contact: SES_RECIPIENT_CONTACT,
     caseStudy: SES_RECIPIENT_CASESTUDY,
-    careersUS: SES_RECIPIENT_CAREERS_US,
-    careersNonUS: SES_RECIPIENT_CAREERS_NONUS,
+    careersOnsite: SES_RECIPIENT_CAREERS_US,
+    careersIndia: SES_RECIPIENT_CAREERS_NONUS,
   },
 };

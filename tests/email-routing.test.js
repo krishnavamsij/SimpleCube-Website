@@ -1,83 +1,52 @@
 /**
  * Email Routing Test Suite
- * Tests the isUsLocation function for proper email routing
+ * Tests the isIndiaLocation function for proper email routing
+ * 
+ * New Routing Logic:
+ * - India locations → hr@hyniva.com
+ * - All other onsite locations (US, Canada, etc.) → careers@hyniva.com
  */
 
-function isUsLocation(location, role) {
+function isIndiaLocation(location, role) {
   const value = `${location} ${role}`.toLowerCase();
   
-  // Check for explicit USA mentions
-  if (
-    value.includes("usa") ||
-    value.includes("united states") ||
-    value.includes(" us)") ||
-    value.includes("(us")
-  ) {
-    return true;
-  }
-  
-  // Check for explicit non-US countries/regions first
-  const nonUSKeywords = ['canada', 'india', 'toronto', 'bengaluru', 'bangalore', 'ontario', 'quebec', 'alberta', 'british columbia'];
-  if (nonUSKeywords.some(keyword => value.includes(keyword))) {
-    return false;
-  }
-  
-  // List of US state names
-  const usStates = [
-    'alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 
-    'delaware', 'florida', 'georgia', 'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 
-    'kansas', 'kentucky', 'louisiana', 'maine', 'maryland', 'massachusetts', 'michigan', 
-    'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 
-    'new hampshire', 'new jersey', 'new mexico', 'new york', 'north carolina', 
-    'north dakota', 'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'rhode island', 
-    'south carolina', 'south dakota', 'tennessee', 'texas', 'utah', 'vermont', 
-    'virginia', 'washington', 'west virginia', 'wisconsin', 'wyoming', 'tysons'
-  ];
-  
-  // Check for full state names
-  if (usStates.some(state => value.includes(state))) {
-    return true;
-  }
-  
-  // Check for state abbreviations with clear delimiters (comma or parenthesis before)
-  const stateAbbrevPattern = /[,(]\s*(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy)[\s,)]/i;
-  
-  return stateAbbrevPattern.test(value);
+  // Check if location contains "India"
+  return value.includes('india');
 }
 
-const US_EMAIL = "careers@hyniva.com";
-const NON_US_EMAIL = "hr@hyniva.com";
+const CAREERS_EMAIL = "careers@hyniva.com";
+const INDIA_HR_EMAIL = "hr@hyniva.com";
 
 // Test suite
 const testSuite = {
   "US Locations - State Abbreviations": [
-    { location: "Tysons, VA", role: "Salesforce Solution Architect", expected: true },
-    { location: "Tyson, VA", role: "Senior Salesforce Developer", expected: true },
-    { location: "San Antonio, TX", role: "Genesys Cloud CX Admin", expected: true },
-    { location: "New York, NY", role: "Software Engineer", expected: true },
-    { location: "Los Angeles, CA", role: "Full Stack Developer", expected: true },
-    { location: "Chicago, IL", role: "Data Engineer", expected: true },
-    { location: "Boston, MA", role: "DevOps Engineer", expected: true },
-    { location: "Seattle, WA", role: "Cloud Architect", expected: true },
-    { location: "Austin, TX", role: "Product Manager", expected: true },
-    { location: "Miami, FL", role: "UI/UX Designer", expected: true },
+    { location: "Tysons, VA", role: "Salesforce Solution Architect", expected: false },
+    { location: "Tyson, VA", role: "Senior Salesforce Developer", expected: false },
+    { location: "San Antonio, TX", role: "Genesys Cloud CX Admin", expected: false },
+    { location: "New York, NY", role: "Software Engineer", expected: false },
+    { location: "Los Angeles, CA", role: "Full Stack Developer", expected: false },
+    { location: "Chicago, IL", role: "Data Engineer", expected: false },
+    { location: "Boston, MA", role: "DevOps Engineer", expected: false },
+    { location: "Seattle, WA", role: "Cloud Architect", expected: false },
+    { location: "Austin, TX", role: "Product Manager", expected: false },
+    { location: "Miami, FL", role: "UI/UX Designer", expected: false },
   ],
   
   "US Locations - Full State Names": [
-    { location: "Tysons, Virginia (Onsite – 5 Days/Week)", role: "Engagement Manager", expected: true },
-    { location: "Dallas, Texas", role: "Backend Developer", expected: true },
-    { location: "Phoenix, Arizona", role: "QA Engineer", expected: true },
-    { location: "Denver, Colorado", role: "Scrum Master", expected: true },
-    { location: "Portland, Oregon", role: "Technical Lead", expected: true },
+    { location: "Tysons, Virginia (Onsite – 5 Days/Week)", role: "Engagement Manager", expected: false },
+    { location: "Dallas, Texas", role: "Backend Developer", expected: false },
+    { location: "Phoenix, Arizona", role: "QA Engineer", expected: false },
+    { location: "Denver, Colorado", role: "Scrum Master", expected: false },
+    { location: "Portland, Oregon", role: "Technical Lead", expected: false },
   ],
   
   "US Locations - With USA/US Keywords": [
-    { location: "Remote (USA)", role: "Software Engineer", expected: true },
-    { location: "United States (Remote)", role: "Developer", expected: true },
-    { location: "Anywhere in USA", role: "Consultant", expected: true },
+    { location: "Remote (USA)", role: "Software Engineer", expected: false },
+    { location: "United States (Remote)", role: "Developer", expected: false },
+    { location: "Anywhere in USA", role: "Consultant", expected: false },
   ],
   
-  "Non-US Locations - Canada": [
+  "Canada Locations": [
     { location: "Toronto, ON", role: "PEGA Developer", expected: false },
     { location: "Toronto, ON (Onsite)", role: "Developer", expected: false },
     { location: "Calgary, AB", role: "RADAR Rating Expert", expected: false },
@@ -86,17 +55,18 @@ const testSuite = {
     { location: "Montreal, Quebec", role: "Tech Lead", expected: false },
   ],
   
-  "Non-US Locations - India": [
-    { location: "Bengaluru, India", role: "Salesforce Developer", expected: false },
-    { location: "Bangalore, India", role: "Genesys Integration Specialist", expected: false },
-    { location: "Hyderabad, India", role: "Java Developer", expected: false },
-    { location: "Mumbai, India", role: "React Developer", expected: false },
+  "India Locations": [
+    { location: "Bengaluru, India", role: "Salesforce Developer", expected: true },
+    { location: "Bangalore, India", role: "Genesys Integration Specialist", expected: true },
+    { location: "Hyderabad, India", role: "Java Developer", expected: true },
+    { location: "Mumbai, India", role: "React Developer", expected: true },
   ],
   
   "Edge Cases": [
-    { location: "Remote", role: "Developer in USA", expected: true },
-    { location: "Remote", role: "Developer (US)", expected: true },
+    { location: "Remote", role: "Developer in USA", expected: false },
+    { location: "Remote", role: "Developer (US)", expected: false },
     { location: "Remote", role: "Developer", expected: false },
+    { location: "Remote, India", role: "Developer", expected: true },
   ],
 };
 
@@ -119,9 +89,9 @@ function runTests() {
 
     tests.forEach(({ location, role, expected }, index) => {
       totalTests++;
-      const result = isUsLocation(location, role);
-      const recipient = result ? US_EMAIL : NON_US_EMAIL;
-      const expectedRecipient = expected ? US_EMAIL : NON_US_EMAIL;
+      const result = isIndiaLocation(location, role);
+      const recipient = result ? INDIA_HR_EMAIL : CAREERS_EMAIL;
+      const expectedRecipient = expected ? INDIA_HR_EMAIL : CAREERS_EMAIL;
       const passed = result === expected;
 
       if (passed) {
@@ -164,7 +134,7 @@ function runTests() {
       console.log(`\n${index + 1}. ${failure.category}`);
       console.log(`   Location: ${failure.location}`);
       console.log(`   Role: ${failure.role}`);
-      console.log(`   Expected US: ${failure.expected}, Got: ${failure.got}`);
+      console.log(`   Expected India: ${failure.expected}, Got: ${failure.got}`);
     });
   }
 
@@ -172,10 +142,12 @@ function runTests() {
   
   if (totalFailed === 0) {
     console.log("✅ ALL TESTS PASSED! Email routing is working correctly.");
+    console.log("  - India locations → hr@hyniva.com");
+    console.log("  - All other onsite locations → careers@hyniva.com");
     console.log("=".repeat(80) + "\n");
     return true;
   } else {
-    console.log("❌ SOME TESTS FAILED! Please review the isUsLocation function.");
+    console.log("❌ SOME TESTS FAILED! Please review the isIndiaLocation function.");
     console.log("=".repeat(80) + "\n");
     return false;
   }
