@@ -23,30 +23,41 @@ function isUsLocation(location: string, role: string) {
   
   // Check for explicit USA mentions
   if (
-    value.includes(" usa") ||
-    value.includes(" us ") ||
+    value.includes("usa") ||
     value.includes("united states") ||
-    value.includes("america")
+    value.includes(" us)") ||
+    value.includes("(us")
   ) {
     return true;
   }
   
-  // Check for US state abbreviations (common ones)
-  const usStateAbbreviations = [
-    ' al', ' ak', ' az', ' ar', ' ca', ' co', ' ct', ' de', ' fl', ' ga',
-    ' hi', ' id', ' il', ' in', ' ia', ' ks', ' ky', ' la', ' me', ' md',
-    ' ma', ' mi', ' mn', ' ms', ' mo', ' mt', ' ne', ' nv', ' nh', ' nj',
-    ' nm', ' ny', ' nc', ' nd', ' oh', ' ok', ' or', ' pa', ' ri', ' sc',
-    ' sd', ' tn', ' tx', ' ut', ' vt', ' va', ' wa', ' wv', ' wi', ' wy',
-    ',al', ',ak', ',az', ',ar', ',ca', ',co', ',ct', ',de', ',fl', ',ga',
-    ',hi', ',id', ',il', ',in', ',ia', ',ks', ',ky', ',la', ',me', ',md',
-    ',ma', ',mi', ',mn', ',ms', ',mo', ',mt', ',ne', ',nv', ',nh', ',nj',
-    ',nm', ',ny', ',nc', ',nd', ',oh', ',ok', ',or', ',pa', ',ri', ',sc',
-    ',sd', ',tn', ',tx', ',ut', ',vt', ',va', ',wa', ',wv', ',wi', ',wy'
+  // Check for explicit non-US countries/regions first
+  const nonUSKeywords = ['canada', 'india', 'toronto', 'bengaluru', 'bangalore', 'ontario', 'quebec', 'alberta', 'british columbia'];
+  if (nonUSKeywords.some(keyword => value.includes(keyword))) {
+    return false;
+  }
+  
+  // List of US state abbreviations with clear boundaries
+  const usStates = [
+    'alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 
+    'delaware', 'florida', 'georgia', 'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 
+    'kansas', 'kentucky', 'louisiana', 'maine', 'maryland', 'massachusetts', 'michigan', 
+    'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 
+    'new hampshire', 'new jersey', 'new mexico', 'new york', 'north carolina', 
+    'north dakota', 'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'rhode island', 
+    'south carolina', 'south dakota', 'tennessee', 'texas', 'utah', 'vermont', 
+    'virginia', 'washington', 'west virginia', 'wisconsin', 'wyoming', 'tysons'
   ];
   
-  // Check if location contains any US state abbreviation
-  return usStateAbbreviations.some(state => value.includes(state));
+  // Check for full state names
+  if (usStates.some(state => value.includes(state))) {
+    return true;
+  }
+  
+  // Check for state abbreviations with clear delimiters (comma or parenthesis before)
+  const stateAbbrevPattern = /[,(]\s*(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy)[\s,)]/i;
+  
+  return stateAbbrevPattern.test(value);
 }
 
 function sanitizeFileName(fileName: string) {
