@@ -65,8 +65,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         <motion.header
             initial={false}
             animate={{
-                width: scrolled ? "82%" : "100%",
-                maxWidth: scrolled ? "820px" : maxContainerWidth,
+                width: scrolled ? "90%" : "100%",
+                maxWidth: scrolled ? "900px" : maxContainerWidth,
                 height: scrolled ? 52 : 64,
                 top: scrolled ? 16 : 0,
                 borderRadius: scrolled ? "9999px" : "0px",
@@ -251,7 +251,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className={cn(
                             "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
-                            scrolled ? "left-0 w-full" : "left-1/2 -translate-x-1/2 w-[82%] max-w-[820px]"
+                            scrolled ? "left-0 w-full" : "left-1/2 -translate-x-1/2 w-[90%] max-w-[900px]"
                         )}
                         onMouseEnter={() => handleMouseEnter("Services")}
                         onMouseLeave={handleMouseLeave}
