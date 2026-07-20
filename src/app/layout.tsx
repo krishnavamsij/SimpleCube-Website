@@ -77,6 +77,18 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-MJWKM7QC');
           `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18306532184"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18306532184');
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${bricolage.variable} ${geistMono.variable} antialiased`}
