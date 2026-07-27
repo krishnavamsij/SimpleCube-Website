@@ -44,28 +44,34 @@ const ProductImageContainer = ({ p }: { p: any }) => {
         }
     }, [isInView, p.image]);
 
-    return (
-        <div ref={ref} className="hidden lg:flex w-full lg:w-[55%] relative items-center justify-center overflow-visible h-full">
+    const mediaNode = p.image.includes('.mp4') ? (
+        <video
+            ref={videoRef}
+            src={p.image}
+            muted
+            loop
+            playsInline
+            className="max-w-full max-h-full object-contain"
+        />
+    ) : p.image.includes('.gif') ? (
+        gifSrc ? (
+            <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain" />
+        ) : (
+            <div className="w-full h-full" /> /* Placeholder while GIF src resets */
+        )
+    ) : (
+        <Image src={p.image} alt={p.title} fill className="object-contain" />
+    );
 
-            <div className="relative w-full h-[350px] lg:h-full flex items-center justify-center p-[30px] sm:p-[40px] lg:py-[20px] lg:pl-[20px] lg:pr-0 hover:scale-[1.02] transition-transform duration-700 ease-out">
-                {p.image.includes('.mp4') ? (
-                    <video
-                        ref={videoRef}
-                        src={p.image}
-                        muted
-                        loop
-                        playsInline
-                        className="max-w-full max-h-full object-contain"
-                    />
-                ) : p.image.includes('.gif') ? (
-                    gifSrc ? (
-                        <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain" />
-                    ) : (
-                        <div className="w-full h-full" /> // Placeholder while reset
-                    )
-                ) : (
-                    <Image src={p.image} alt={p.title} fill className="object-contain" />
-                )}
+    return (
+        <div ref={ref} className="w-full lg:w-[55%] relative flex items-center justify-center overflow-visible h-full">
+            {/*
+             * Mobile / tablet (< lg): render a compact image strip above the text column.
+             * The outer card is flex-col on small screens, so this renders first (top).
+             * Desktop (≥ lg): this container is part of the side-by-side flex-row layout.
+             */}
+            <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full flex items-center justify-center p-[20px] sm:p-[30px] lg:py-[20px] lg:pl-[20px] lg:pr-0 hover:scale-[1.02] transition-transform duration-700 ease-out">
+                {mediaNode}
             </div>
         </div>
     );
@@ -76,7 +82,7 @@ export function ProductsShowcase() {
 
     return (
         <section className="relative bg-[#030B3B] text-white pt-[30px] pb-[20px] sm:pt-[40px] sm:pb-[30px] lg:pt-[50px] lg:pb-[30px]">
-            <div className="mx-auto max-w-[1400px] px-6">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* ── Section header ── */}
                 <motion.div
                     variants={scrollReveal}
@@ -90,23 +96,28 @@ export function ProductsShowcase() {
                         {label}
                     </div>
 
-                    <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 relative">
-                        {/* Left Side: Headline and Subheadline */}
-                        <div className="lg:pr-12">
-                            <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight leading-[1.1] text-white mb-8 text-balance">
-                                Product innovation
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative items-start">
+                        {/* Left Side: Headline and Subheadline — spans 7 cols */}
+                        <div className="lg:col-span-7">
+                            <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[50px] font-extrabold tracking-tight leading-[1.08] text-white mb-5">
+                                Product innovation<br />
                                 is in our <span className="text-[#00D4AA]">DNA.</span>
                             </h2>
-                            <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-xl">
+                            <p className="text-sm sm:text-base lg:text-[13.5px] xl:text-[14px] text-slate-400 font-normal leading-[1.5] max-w-[460px] xl:max-w-[480px]">
                                 {subheadline}
                             </p>
                         </div>
 
-                        {/* Right Side: Callout text */}
-                        <div className="flex flex-col justify-center lg:items-end w-full">
-                            <div className="border-l-[2px] border-[#00D4AA] pl-6 py-2 lg:max-w-[480px] w-full mr-auto lg:mr-0">
-                                <p className="text-xl sm:text-2xl text-slate-400 font-medium leading-[1.6] max-w-[480px]">
-                                    Two of our flagship products were acquired by industry leaders — <span className="font-black text-white px-0.5">Fiserv</span> and <span className="font-black text-white px-0.5">SavvyMoney</span>. A testament to what enterprise depth produces when it becomes a product.
+                        {/* Right Side: Callout text — spans 5 cols, aligned to right grid line with 5 lines */}
+                        <div className="lg:col-span-5 lg:col-start-8 flex justify-start lg:justify-end w-full">
+                            <div className="relative pl-6 w-fit">
+                                <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#00D4AA] rounded-full" />
+                                <p className="text-base sm:text-lg lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed lg:leading-[1.7] xl:leading-[1.75]">
+                                    Two of our flagship products were<br className="hidden lg:inline" />
+                                    acquired by industry leaders — <span className="font-bold text-white">Fiserv</span><br className="hidden lg:inline" />
+                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to<br className="hidden lg:inline" />
+                                    what enterprise depth produces when<br className="hidden lg:inline" />
+                                    it becomes a product.
                                 </p>
                             </div>
                         </div>
@@ -123,18 +134,18 @@ export function ProductsShowcase() {
                             style={{ "--marquee-duration": "28s" } as React.CSSProperties}
                         >
                             {[...logos, ...logos].map((logo, i) => (
-                                <div key={i} className="flex-shrink-0 flex flex-col items-center justify-start w-[120px]">
+                                <div key={i} className="flex-shrink-0 flex flex-col items-center justify-start w-[130px]">
                                     {/* Logo Image */}
-                                    <div className="h-10 relative w-full opacity-95 mb-2.5">
+                                    <div className="h-[50px] relative w-full opacity-95 mb-2.5">
                                         <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                     </div>
                                     {/* Conditionally Render Badge underneath matching logo */}
                                     {logo.acquiredBy ? (
                                         logo.acquiredByUrl ? (
-                                            <a 
-                                                href={logo.acquiredByUrl} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
+                                            <a
+                                                href={logo.acquiredByUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap mt-1 hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
                                             >
                                                 <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
@@ -154,18 +165,18 @@ export function ProductsShowcase() {
                     </div>
 
                     {/* Desktop: static centered layout with acquired-by badges */}
-                    <div className="hidden lg:flex flex-row items-start justify-center flex-nowrap gap-4 lg:gap-3 xl:gap-4 pb-12 w-full pt-4 overflow-x-auto overflow-y-visible px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <div className="hidden lg:flex flex-row items-start justify-between pb-12 w-full pt-4">
                         {logos.map((logo, i) => (
                             <div key={i} className="flex flex-col items-center justify-start relative flex-shrink-0">
-                                <div className="h-12 lg:h-14 relative w-[140px] lg:w-[150px] xl:w-[185px] opacity-95 transition-opacity">
+                                <div className="h-14 lg:h-[66px] xl:h-[72px] relative w-[8.25rem] lg:w-[9.5rem] xl:w-[10.75rem] opacity-95 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
                                 {logo.acquiredBy && (
                                     logo.acquiredByUrl ? (
-                                        <a 
-                                            href={logo.acquiredByUrl} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
+                                        <a
+                                            href={logo.acquiredByUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="absolute top-full mt-2 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
                                         >
                                             <ArrowUpRightIcon className="w-3 h-3" /> {logo.acquiredBy}
@@ -184,7 +195,11 @@ export function ProductsShowcase() {
             </div>
 
             {/* ── Stacked Products Sticky Layout (All Screens - Overlapping) ── */}
-            <div className="w-full pl-6 pr-6 lg:pr-0 lg:pl-[calc(max(1.5rem,(100%-1400px)/2+1.5rem))]">
+            {/*
+             * lg:pl-[calc(max(4rem,(100%-1536px)/2+4rem))]
+             * The 1536px here mirrors max-w-[96rem].
+             */}
+            <div className="w-full pl-6 md:pl-10 lg:pr-0 lg:pl-[calc(max(4rem,(100%-1536px)/2+4rem))]">
                 <div className="relative w-full overflow-visible pb-6 lg:pb-4 mt-10 lg:mt-0">
                     {products.map((p, i) => (
                         <div
@@ -208,10 +223,21 @@ export function ProductsShowcase() {
                                     width: '100%'
                                 }}
                             >
+                                {/*
+                                 * On mobile/tablet (< lg): ProductImageContainer renders first (top strip)
+                                 * because the card is flex-col. The content column sits below it.
+                                 * On desktop (≥ lg): card is flex-row — image is on the right, content left.
+                                 */}
 
                                 {/* Left: Content */}
-                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[40px] sm:pt-[50px] sm:pb-[50px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-[45%]">
-                                    <h3 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
+                                {/*
+                                 * overflow-y-auto guard: if a card's content (title + tags + description + CTA)
+                                 * intrinsically exceeds 75vh − 20vh padding (≈ 55vh), the content scrolls
+                                 * within the column rather than forcing the card taller and breaking the
+                                 * sticky-stacking scroll effect.
+                                 */}
+                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[40px] sm:pt-[50px] sm:pb-[50px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-[45%] lg:overflow-y-auto">
+                                    <h3 className="text-3xl sm:text-4xl lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
                                         {p.title}
                                     </h3>
 
@@ -228,7 +254,7 @@ export function ProductsShowcase() {
                                         ))}
                                     </div>
 
-                                    <p className="text-lg sm:text-xl lg:text-[22px] text-slate-300 leading-relaxed max-w-xl mb-14 lg:mb-16">
+                                    <p className="text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-300 max-w-xl mb-14 lg:mb-16">
                                         {p.description}
                                     </p>
 
@@ -240,7 +266,7 @@ export function ProductsShowcase() {
                                     </Link>
                                 </div>
 
-                                {/* Right: Seamless Image Container with Lazy Load GIF player */}
+                                {/* Right (lg+) / Top (< lg): Seamless Image Container with Lazy Load GIF / video player */}
                                 <ProductImageContainer p={p} />
 
                             </div>

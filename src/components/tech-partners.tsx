@@ -53,7 +53,7 @@ export function TechPartners() {
     return (
         <section className="relative overflow-hidden bg-white pt-[24px] sm:pt-[50px] lg:pt-[70px] pb-[8px] sm:pb-[15px] lg:pb-[20px]">
 
-            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
 

@@ -11,14 +11,14 @@
  * - Horizontal padding: 24px on mobile, 32px on tablet, 48px on desktop
  * - Centered with mx-auto
  */
-export const CONTAINER_CLASS = "mx-auto w-full max-w-[87.5rem] px-6 sm:px-8 lg:px-12";
+export const CONTAINER_CLASS = "mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16";
 
 /**
  * Narrow container for text-heavy content
  * - Max width: 75rem (1200px at 16px base)
  * - Same padding as standard container
  */
-export const CONTAINER_NARROW_CLASS = "mx-auto w-full max-w-[75rem] px-6 sm:px-8 lg:px-12";
+export const CONTAINER_NARROW_CLASS = "mx-auto w-full max-w-5xl px-6 md:px-10 lg:px-16";
 
 /**
  * Wide container for full-width sections

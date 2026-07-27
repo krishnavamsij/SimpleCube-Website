@@ -125,7 +125,7 @@ export function Footer() {
         className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
       />
 
-      <div className={`relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] pb-[100px] sm:pb-[120px] ${CONTAINER_CLASS}`}>
+      <div className="relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] pb-[100px] sm:pb-[120px] mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
         {/* ── LET'S TALK CTA SECTION ── */}
         <motion.div
           variants={scrollReveal}
@@ -257,9 +257,9 @@ export function Footer() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 border-t border-white/10 pt-6 mt-2 w-full text-left">
+            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-16 xl:gap-20 border-t border-white/10 pt-6 mt-2 w-full text-left">
               {/* Proud Member Section */}
-              <div className="flex flex-col text-left min-w-[120px]">
+              <div className="flex flex-col text-left min-w-[120px] shrink-0">
                 <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Proud Member
                 </h4>
@@ -280,52 +280,37 @@ export function Footer() {
                   />
                 </div>
               </div>
-              
+
               {/* Certified By Section */}
-              <div className="flex flex-col text-left min-w-[120px]">
+              <div className="flex flex-col text-left min-w-[120px] shrink-0">
                 <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Certified By
                 </h4>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 pr-[100px] 2xl:pr-0">
-                  {/* DUNS Registered Seal - Commented Out */}
-                  {/* <iframe
-                    id="Iframe1"
-                    src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=874090808"
-                    width="114"
-                    height="97"
-                    scrolling="no"
-                    style={{ 
-                      border: 'none', 
-                      backgroundColor: 'transparent',
-                      display: 'block'
-                    }}
-                    title="DUNS Registered Seal"
-                  /> */}
-                  {/* D&B Certified Logo */}
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                   <Image
                     src="/images/Footer/D&b.png"
-                    alt="D&B Certified"
-                    width={100}
-                    height={100}
-                    className="h-16 sm:h-20 w-auto object-contain -mt-1"
-                  />
-                  <Image
-                    src="/images/Footer/SOC.png"
-                    alt="SOC"
+                    alt="D&B Registered"
                     width={100}
                     height={100}
                     className="h-16 sm:h-20 w-auto object-contain"
                   />
                   <Image
-                    src="/images/Footer/ISO_cropped.png"
-                    alt="ISO Certification"
+                    src="/images/Footer/SOC.png"
+                    alt="SOC 2 Type II Certified"
                     width={100}
                     height={100}
-                    className="h-14 sm:h-[4.5rem] w-auto object-contain -mt-2"
+                    className="h-16 sm:h-20 w-auto object-contain"
+                  />
+                  <Image
+                    src="/images/Footer/ISO.png"
+                    alt="ISO Certified"
+                    width={100}
+                    height={100}
+                    className="h-16 sm:h-20 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/Certification_Badge_without_Background.png"
-                    alt="Great Place to Work Certification"
+                    alt="Great Place to Work Certified"
                     width={100}
                     height={100}
                     className="h-16 sm:h-20 w-auto object-contain"

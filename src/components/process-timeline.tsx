@@ -9,7 +9,7 @@ export function ProcessTimeline() {
 
     return (
         <section className="bg-background py-20 sm:py-28">
-            <div className="mx-auto max-w-[1400px] px-6">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* Header */}
                 <motion.div
                     variants={scrollReveal}
@@ -34,10 +34,20 @@ export function ProcessTimeline() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="relative mt-16 grid gap-0 sm:grid-cols-2 lg:grid-cols-4"
+                    className={`relative mt-16 grid gap-0 sm:grid-cols-2 ${
+                        steps.length === 3 ? "lg:grid-cols-3" : 
+                        steps.length === 5 ? "lg:grid-cols-5" : 
+                        "lg:grid-cols-4"
+                    }`}
                 >
                     {/* Connecting line (desktop) */}
-                    <div className="pointer-events-none absolute top-7 left-[10%] right-[10%] hidden h-0.5 bg-gradient-to-r from-blue-600 to-emerald-500 lg:block" />
+                    <div 
+                        className="pointer-events-none absolute top-7 hidden h-0.5 bg-gradient-to-r from-blue-600 to-emerald-500 lg:block"
+                        style={{
+                            left: `${(0.5 / Math.max(1, steps.length)) * 100}%`,
+                            right: `${(0.5 / Math.max(1, steps.length)) * 100}%`
+                        }}
+                    />
 
                     {steps.map((step) => (
                         <motion.div

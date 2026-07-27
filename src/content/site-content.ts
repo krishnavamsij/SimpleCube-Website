@@ -165,7 +165,7 @@ export const challengesContent = {
         {
             icon: "Construction",
             title: "Slow Kickoffs",
-            description: "Lengthy setup and integration dependencies delay project starts. Our pre-configured accelerators help teams start building in days.",
+            description: "Lengthy initial setup and integration dependencies delay project starts. Our pre-configured accelerators help teams start building in days.",
         },
         {
             icon: "Clock",
@@ -381,22 +381,22 @@ export const whyHynivaContent = {
         {
             icon: "UsersRound",
             title: "Zero Handoff",
-            description: "One team owns your engagement from strategy to production. No handoffs, no context loss."
+            description: "One team owns your\nengagement from strategy to\nproduction with zero handoffs\nand context loss."
         },
         {
             icon: "Globe2",
             title: "Industry Depth",
-            description: "15+ years inside regulated industries. We spend less time learning and more time building."
+            description: "15+ years inside regulated\nindustries means less time\nlearning and more time building\nwhat matters."
         },
         {
             icon: "Zap",
             title: "Delivery at Speed",
-            description: "Our 8×8×8 formula and Digital Factory model consistently deliver outcomes 40% faster than traditional approaches."
+            description: "Our 8\u00D78\u00D78 formula and Digital\nFactory model deliver outcomes\n40% faster than traditional\npaths."
         },
         {
             icon: "Activity",
             title: "Built for Outcomes",
-            description: "Combining industry expertise, product thinking, and execution discipline in every engagement."
+            description: "Combining industry expertise,\nproduct thinking, and execution\ndiscipline for measurable\nresults."
         }
     ]
 };
@@ -581,6 +581,17 @@ export const vocContent = {
             logo: "/logos/Additional/Always_Track.png",
             result: "Reduced manual freight paperwork through Intelligent Document Processing with <span class='text-[#1e90ff] font-semibold'>99.69% accuracy.</span>",
             caseStudyHref: "/insights/case-studies/autonomous-freight-operations",
+        },
+        {
+            industry: "Education",
+            quote: "Hyniva demonstrated exceptional ownership and consistently delivered high\u2011quality work even as our requirements evolved. Their focus on creating a modular, future\u2011ready architecture has enabled us to grow the platform without significant rework. They have truly become a trusted long\u2011term product partner.",
+            author: "Rob Kraft",
+            designation: "Founder and CEO",
+            company: "CA Infosec",
+            image: "/images/voc/Rob_kraft_transparent.png",
+            logo: "/logos/Additional/CA_infosec.png",
+            result: "Transformed fragmented academic operations into a <span class='text-[#1e90ff] font-semibold'>single unified education platform</span> that connected every stakeholder.",
+            caseStudyHref: "https://www.hyniva.com/insights/case-studies/education-platform-engineering",
         },
     ]
 };

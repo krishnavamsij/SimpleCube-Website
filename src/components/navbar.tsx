@@ -59,7 +59,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     ];
 
     // Get the max-width from CONTAINER_CLASS for navbar width calculation
-    const maxContainerWidth = "87.5rem";
+    const maxContainerWidth = CONTAINER_CLASS.includes("max-w-[96rem]") ? "96rem" 
+        : CONTAINER_CLASS.includes("max-w-6xl") ? "72rem" 
+        : CONTAINER_CLASS.includes("max-w-5xl") ? "64rem"
+        : CONTAINER_CLASS.match(/max-w-\[([^\]]+)\]/)?.[1] || "96rem";
 
     return (
         <motion.header
@@ -83,7 +86,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             style={{ position: "fixed" }}
         >
             <div className="relative w-full h-full">
-            <nav className="flex h-full w-full items-center px-6 sm:px-8 lg:px-12">
+            <nav className="flex h-full w-full items-center px-6 md:px-10 lg:px-16">
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
                     <Image
@@ -146,8 +149,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                         exit={{ opacity: 0, y: 12, scale: 0.95 }}
                                         transition={{ duration: 0.2, ease: "easeOut" }}
                                         className={cn(
-                                            "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
-                                            group.label === "Services" ? "left-[-24px] right-[-24px] px-8 py-6" : "left-1/2 -translate-x-1/2 p-2.5 w-[260px]",
+                                            "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] p-2.5 max-w-[90vw]",
+                                            group.label === "About" ? "left-auto right-0 translate-x-0 w-[260px]" : "left-1/2 -translate-x-1/2 w-[260px]",
                                             group.label === "Products" && "w-[340px]"
                                         )}
                                     >

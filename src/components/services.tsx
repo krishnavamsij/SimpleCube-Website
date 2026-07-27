@@ -15,7 +15,7 @@ export function Services() {
 
     return (
         <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] text-slate-900">
-            <div className="mx-auto max-w-[1400px] px-6">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
                 {/* ── Section Header ── */}
                 <motion.div
@@ -27,7 +27,7 @@ export function Services() {
                 >
                     {/* Left Side */}
                     <div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900">
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900">
                             End-to-end
                             <br />
                             technology
@@ -40,7 +40,7 @@ export function Services() {
 
                     {/* Right Side */}
                     <div className="flex flex-col justify-center border-l-[3px] border-[#00D4AA] pl-8 lg:pl-12 py-2">
-                        <p className="text-xl sm:text-2xl text-slate-700 font-medium leading-[1.6] mb-12 max-w-2xl">
+                        <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-12 max-w-2xl">
                             {callOutContent.split("—").map(
                                 (
                                     part: string,
@@ -125,12 +125,12 @@ export function Services() {
 
 
                                             {/* Title */}
-                                            <h3 className="relative z-10 text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-tight tracking-tight text-slate-900">
+                                            <h3 className="relative z-10 text-2xl sm:text-3xl lg:text-[30px] font-extrabold leading-tight tracking-tight text-slate-900">
                                                 {svc.title}
                                             </h3>
 
                                             {/* Description */}
-                                            <p className="relative z-10 mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600">
+                                            <p className="relative z-10 mt-6 max-w-xl text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-600">
                                                 {svc.description}
                                             </p>
 

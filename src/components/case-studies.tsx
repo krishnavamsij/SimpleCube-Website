@@ -38,13 +38,13 @@ export function CaseStudies() {
             <div className="mx-auto w-full">
                 
                 {/* ── Section header ── */}
-                <div className="mx-auto w-full max-w-4xl px-6 mb-16 text-center flex flex-col items-center">
+                <div className="mx-auto w-full max-w-5xl px-6 mb-16 text-center flex flex-col items-center">
                     <div className="inline-flex items-center gap-2 text-[0.6875rem] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         {label}
                     </div>
                     
-                    <h2 className="text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6">
+                    <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[44px] 2xl:text-[52px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6 sm:whitespace-nowrap">
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
@@ -53,7 +53,7 @@ export function CaseStudies() {
                         ))}
                     </h2>
 
-                    <p className="text-[1rem] sm:text-[1.125rem] font-medium text-slate-500 leading-[1.7] max-w-2xl">
+                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] font-medium text-slate-500 leading-[1.7] whitespace-nowrap">
                         {sub}
                     </p>
                 </div>

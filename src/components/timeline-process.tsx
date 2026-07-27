@@ -97,7 +97,7 @@ export function TimelineProcess({
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
       
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -121,7 +121,7 @@ export function TimelineProcess({
         </motion.div>
 
         {/* Desktop Timeline */}
-        <div className="hidden lg:block relative w-full h-[550px] mx-auto max-w-[1400px]">
+        <div className="hidden lg:block relative w-full h-[550px] mx-auto max-w-[96rem]">
           
           {/* Base Horizontal Timeline Line */}
           <div className="absolute top-[50%] left-0 right-0 h-[1px] bg-white/20 border-t border-dashed border-white/30 z-0" />

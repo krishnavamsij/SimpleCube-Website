@@ -34,7 +34,7 @@ export function VoiceOfCustomer() {
         <section className="bg-white pt-[10px] pb-[30px] sm:pt-[20px] sm:pb-[40px] lg:pt-[20px] lg:pb-[50px] relative overflow-hidden min-h-0 lg:min-h-[600px] xl:min-h-[750px] flex flex-col justify-center">
             
             {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
-            <div className="absolute inset-0 pointer-events-none z-0">
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                 <div className="absolute top-[55%] left-[70%] -translate-y-1/2 w-full h-full flex items-center justify-center">
                     {[1, 2, 3, 4, 5].map((i) => (
                         <motion.div
@@ -50,15 +50,15 @@ export function VoiceOfCustomer() {
                             }}
                             className="absolute rounded-full border-[2px] border-[#1e90ff]/30"
                             style={{ 
-                                width: `${i * 380}px`, 
-                                height: `${i * 380}px` 
+                                width: `min(${i * 380}px, 90vw)`, 
+                                height: `min(${i * 380}px, 90vw)` 
                             }}
                         />
                     ))}
                 </div>
             </div>
 
-            <div className="mx-auto max-w-[1400px] px-6 w-full relative z-10 pb-16 lg:pb-8">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 w-full relative z-10 pb-16 lg:pb-8">
                 
                 {/* Header */}
                 <motion.div
@@ -94,22 +94,22 @@ export function VoiceOfCustomer() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.5, ease: EASE_OUT_QUART }}
-                            className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start"
+                            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
                         >
                             {/* Left Side: Industry & Quote (Strictly Left Aligned to Logo Margin) */}
-                            <div className="flex flex-col items-start space-y-10 pt-4 md:col-span-7">
+                            <div className="flex flex-col items-start space-y-8 pt-4 lg:col-span-8">
                                 <div className="inline-flex items-center gap-2.5 rounded-full bg-[#1e90ff]/5 border border-[#1e90ff]/20 px-6 py-3 text-xs font-semibold text-[#1e90ff] tracking-wide">
                                     {getTagIcon(active.industry)}
                                     {active.industry}
                                 </div>
                                 
                                 <div className="relative">
-                                    <p className="text-xl sm:text-2xl font-normal leading-relaxed text-[#030B3B] relative z-10 text-left">
+                                    <p className="text-lg md:text-xl lg:text-2xl xl:text-[26px] font-medium leading-relaxed text-[#030B3B] relative z-10 text-left max-w-[88%]">
                                         &ldquo;{active.quote}&rdquo;
                                     </p>
                                 </div>
 
-                                <div className="pt-2 w-full">
+                                <div className="pt-2 w-full max-w-[88%]">
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-[#1e90ff]/5 border border-[#1e90ff]/20 w-full">
                                         <p 
                                             className="text-sm sm:text-base text-[#030B3B] font-medium leading-relaxed flex-1"
@@ -126,16 +126,16 @@ export function VoiceOfCustomer() {
                                 </div>
                             </div>
 
-                            {/* Right Side: Profile & Branding (Strictly Right Aligned to Contact Us Margin) */}
-                            <div className="relative flex flex-col items-center lg:items-end w-full md:col-span-5 lg:max-w-[420px] lg:ml-auto">
+                            {/* Right Side: Profile & Branding */}
+                            <div className="relative flex flex-col items-center w-full lg:col-span-4 lg:pl-8 lg:pr-8">
                                 {/* Wrapper to ensure image and text align perfectly to each other's center and prevent horizontal scrollbar */}
-                                <div className="flex flex-col items-center lg:mr-12">
-                                    <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                                <div className="flex flex-col items-center w-full">
+                                    <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] aspect-square">
                                         
                                         {/* ── Radiating Image Glow (Synced with Background) ── */}
                                         {[0, 1].map((i) => (
                                             <motion.div
-                                                key={i}
+                                                key={`glow-${current}-${i}`}
                                                 initial={{ scale: 1, opacity: 0.5 }}
                                                 animate={{ scale: 1.4, opacity: 0 }}
                                                 transition={{ 
@@ -168,14 +168,13 @@ export function VoiceOfCustomer() {
                                             </p>
                                         </div>
                                         
-                                        {/* Company logo — Minimized gap */}
+                                        {/* Company logo */}
                                         {active.logo && (
-                                            <div className="relative h-14 sm:h-16 w-48 sm:w-52 mt-0 transition-all duration-300 opacity-90 group-hover:opacity-100">
-                                                <Image 
-                                                    src={active.logo} 
-                                                    alt={active.company} 
-                                                    fill 
-                                                    className="object-contain object-center"
+                                            <div className="mt-2 flex items-center justify-center">
+                                                <img
+                                                    src={active.logo}
+                                                    alt={active.company}
+                                                    className="h-10 sm:h-12 w-auto max-w-[150px] object-contain opacity-90"
                                                 />
                                             </div>
                                         )}

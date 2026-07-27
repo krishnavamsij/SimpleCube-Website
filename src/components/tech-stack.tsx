@@ -10,7 +10,7 @@ export function TechStack() {
 
     return (
         <section className="bg-background py-20 sm:py-28">
-            <div className="mx-auto max-w-[1400px] px-6">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div className="grid gap-14 lg:grid-cols-[1fr_2fr] lg:gap-16">
                     {/* Left column — text */}
                     <motion.div

@@ -26,31 +26,31 @@ export function Challenges() {
     const { challenges } = challengesContent;
 
     return (
-        <section id="challenges-section" className="bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-4 xl:px-6">
-                {/* Section header — Accenture-style label above cards */}
+        <section id="challenges-section" className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
+                {/* Section header */}
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
                 >
-                    <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 sm:px-5 py-1.5 mb-4 sm:mb-6">
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 sm:px-5 py-1.5 mb-4 sm:mb-6">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         THE ENTERPRISE REALITY
                     </div>
-                    <h2 className="text-[28px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                    <h2 className="text-[28px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1]">
                         Challenges we <span className="text-[#00D4AA]">solve.</span>
                     </h2>
                 </motion.div>
 
-                {/* Responsive card grid: 1 col mobile, 2 cols tablet, 5 cols desktop */}
+                {/* Card grid */}
                 <motion.div
                     variants={scrollStaggerContainer}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 lg:gap-4 xl:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+                    className="mt-8 sm:mt-10 grid gap-3 sm:gap-4 lg:gap-3.5 xl:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
                 >
                     {challenges.map((challenge) => {
                         const Icon = iconMap[challenge.icon];
@@ -58,22 +58,23 @@ export function Challenges() {
                             <motion.div
                                 key={challenge.title}
                                 variants={scrollReveal}
-                                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 lg:p-5 xl:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200"
+                                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-4 xl:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200 h-full"
                             >
                                 {/* Top accent bar on hover */}
                                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                                 {/* Icon */}
-                                <div className="mb-4 sm:mb-5 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-blue-50">
-                                    {Icon && <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-[#1e90ff]" />}
+                                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 flex-shrink-0">
+                                    {Icon && <Icon className="h-6 w-6 text-[#1e90ff]" />}
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-base sm:text-sm font-bold text-slate-800 leading-snug">{challenge.title}</h3>
+                                <h3 className="text-[12.5px] sm:text-[13px] lg:text-[12px] xl:text-[13.5px] 2xl:text-[14px] font-black text-[#030B3B] leading-tight mb-2 tracking-tight whitespace-nowrap flex-shrink-0 font-display">
+                                    {challenge.title}
+                                </h3>
 
                                 {/* Description */}
-                                {/* @ts-ignore */}
-                                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-slate-500 min-h-[5.5rem] lg:min-h-[6.5rem]">
+                                <p className="text-sm font-medium leading-[1.7] text-slate-500 flex-grow max-w-[195px] xl:max-w-[205px]">
                                     {/* @ts-ignore */}
                                     {challenge.description}
                                 </p>

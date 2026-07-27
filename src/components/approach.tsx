@@ -8,6 +8,50 @@ import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
+const steps = [
+    {
+        number: "01",
+        title: "Discovery & Planning",
+        description: "Developer captures scope directly.",
+        color: "text-[#00D4AA]",
+        bgColor: "bg-[#00D4AA]/10",
+        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+    },
+    {
+        number: "02",
+        title: "Dev Project Planning",
+        description: "Developer writes the user stories.",
+        color: "text-[#1e90ff]",
+        bgColor: "bg-[#1e90ff]/10",
+        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+    },
+    {
+        number: "03",
+        title: "Engineering Dev & Quality Automation",
+        description: "One engineer owns scope, code & quality.",
+        color: "text-[#00A8FF]",
+        bgColor: "bg-[#00A8FF]/10",
+        borderColor: "border-[#00A8FF]/30 shadow-[0_0_10px_rgba(0,168,255,0.15)]",
+        isHero: true,
+    },
+    {
+        number: "04",
+        title: "Launch & Iterations",
+        description: "Same developer drives every release.",
+        color: "text-[#00D4AA]",
+        bgColor: "bg-[#00D4AA]/10",
+        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+    },
+    {
+        number: "05",
+        title: "Support & Product Evolution",
+        description: "Product knowledge stays with the team.",
+        color: "text-[#1e90ff]",
+        bgColor: "bg-[#1e90ff]/10",
+        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+    },
+];
+
 export function Approach() {
     const { label, headline } = approachContent;
     const ref = useRef<HTMLElement>(null);
@@ -20,7 +64,7 @@ export function Approach() {
             <motion.div style={{ y: bgY }} className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
 
-            <div className={`relative z-10 ${CONTAINER_CLASS}`}>
+            <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
 
                 {/* ── Header Row: left title + right stat ── */}
                 <motion.div
@@ -29,11 +73,11 @@ export function Approach() {
                 >
                     {/* Left: Headline & Callout */}
                     <div className="flex-1 w-full lg:max-w-2xl">
-                        <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-4 sm:mb-6">
-                            <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 sm:px-5 py-1.5 mb-4 sm:mb-6 font-display">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             {label}
                         </div>
-                        <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
+                        <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] 2xl:text-[52px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
                             {headline.split("Model").map((part, i, arr) => (
                                 <span key={i}>
                                     {part}
@@ -41,7 +85,7 @@ export function Approach() {
                                 </span>
                             ))}
                         </h2>
-                        <p className="text-[13px] sm:text-[14px] md:text-[15px] font-medium leading-[1.6] sm:leading-[1.7] text-white/70">
+                        <p className="text-[15px] font-medium leading-[1.7] text-white/70">
                             The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead&nbsp;and&nbsp;increasing accountability at every stage.
                         </p>
                     </div>
@@ -51,7 +95,7 @@ export function Approach() {
                         <div className="text-[56px] sm:text-[64px] lg:text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
                             40<span className="text-white text-[40px] sm:text-[48px] lg:text-[52px]">%</span>
                         </div>
-                        <div className="text-[13px] sm:text-[14px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 eyebrow text-balance">
+                        <div className="text-[10px] sm:text-[11px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 font-display tracking-[2px] uppercase text-balance">
                             faster delivery vs. traditional model
                         </div>
                     </div>
@@ -60,16 +104,16 @@ export function Approach() {
                 {/* ── Roles Eliminated Row (Moved directly above spheres) ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
-                    className="mt-6 lg:mt-8 mb-6 lg:mb-8 flex flex-col items-center justify-center gap-6 pt-1"
+                    className="mt-10 lg:mt-12 mb-8 lg:mb-10 flex flex-col items-center justify-center gap-5 pt-1"
                 >
-                    <span className="text-[11.5px] eyebrow text-white/70 text-center">
+                    <span className="font-display text-[10px] sm:text-[11px] font-bold tracking-[2px] uppercase text-white/70 text-center">
                         Roles you no longer need to staff
                     </span>
                     <div className="flex flex-wrap justify-center gap-2.5">
                         {roles.map((role) => (
                             <span
                                 key={role}
-                                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[12.5px] font-semibold text-white/90 shadow-sm font-display uppercase tracking-wider"
+                                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[11px] font-semibold text-white/90 shadow-sm font-display uppercase tracking-wider"
                             >
                                 <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-red-500/50 bg-red-500/20 text-[10px] font-black text-red-400 leading-none flex-shrink-0">✕</span>
                                 {role}
@@ -78,10 +122,37 @@ export function Approach() {
                     </div>
                 </motion.div>
 
+                {/* ── Mobile/Tablet Stacked List ── */}
+                <motion.div
+                    variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
+                    className="lg:hidden w-full max-w-xl mx-auto mt-12 flex flex-col gap-6 px-4"
+                >
+                    <div className="relative flex flex-col gap-8">
+                        {/* Connecting line */}
+                        <div className="absolute left-[19px] sm:left-[23px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#00D4AA]/40 via-[#00A8FF]/40 to-[#1e90ff]/40" />
+
+                        {steps.map((step) => (
+                            <div key={step.number} className="relative flex gap-4 sm:gap-6 items-start group">
+                                <div className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 ${step.bgColor} ${step.borderColor} ${step.color} font-bold text-sm sm:text-base font-display flex-shrink-0 z-10 transition-transform duration-300 group-hover:scale-110`}>
+                                    {step.number}
+                                </div>
+                                <div className="flex-1 pt-1 sm:pt-2">
+                                    <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>
+                                        {step.title}
+                                    </h3>
+                                    <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/70 font-medium">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
+
                 {/* ── Planet Wave SVG ── */}
                 <motion.div
                     variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportRepeat}
-                    className="w-full flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
+                    className="w-full hidden lg:flex justify-center mt-20 lg:mt-32 mb-[-30px] lg:mb-[-50px]"
                 >
                     <style>{`
                         @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -186,20 +257,20 @@ export function Approach() {
 
                         {/* ── Planet 1: Discovery & Planning (teal, small, high) ── */}
                         <g className="hpg hfloat-0" style={{ transformOrigin: "88px 82px" }}>
-                            <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Discovery &amp; Planning</text>
+                            <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Discovery &amp; Planning</text>
                             <circle cx="88" cy="82" r="30" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="88" cy="90" rx="28" ry="5.5" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc1)"/>
-                            <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer captures</text>
-                            <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">scope directly.</text>
+                            <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer captures</text>
+                            <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">scope directly.</text>
                         </g>
 
                         {/* ── Planet 2: Dev Project Planning (navy, medium, low) ── */}
                         <g className="hpg hfloat-1" style={{ transformOrigin: "272px 195px" }}>
-                            <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Dev Project Planning</text>
+                            <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Dev Project Planning</text>
                             <circle cx="272" cy="195" r="50" fill="url(#hs2)" className="hs"/>
                             <ellipse cx="272" cy="206" rx="47" ry="9" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc2)"/>
-                            <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer writes</text>
-                            <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">the user stories.</text>
+                            <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer writes</text>
+                            <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">the user stories.</text>
                         </g>
 
                         {/* ── Planet 3: Engineering Dev & Quality Automation (cyan, large, peak center) ── */}
@@ -207,26 +278,26 @@ export function Approach() {
                             <text x="500" y="-20" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
                             <circle cx="500" cy="68" r="78" fill="url(#hs3)" className="hs"/>
                             <ellipse cx="500" cy="82" rx="74" ry="14" fill="none" stroke="rgba(100,160,255,0.25)" strokeWidth="1.5" clipPath="url(#hc3)"/>
-                            <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">One engineer owns scope,</text>
-                            <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">code &amp; quality.</text>
+                            <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">One engineer owns scope,</text>
+                            <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">code &amp; quality.</text>
                         </g>
 
                         {/* ── Planet 4: Launch & Iterations (teal, medium, low) ── */}
                         <g className="hpg hfloat-3" style={{ transformOrigin: "728px 218px" }}>
-                            <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Launch &amp; Iterations</text>
+                            <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Launch &amp; Iterations</text>
                             <circle cx="728" cy="218" r="42" fill="url(#hs1)" className="hs"/>
                             <ellipse cx="728" cy="228" rx="39" ry="7.5" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc4)"/>
-                            <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Same developer</text>
-                            <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">drives every release.</text>
+                            <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Same developer</text>
+                            <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">drives every release.</text>
                         </g>
 
                         {/* ── Planet 5: Support & Product Evolution (navy, small, high) ── */}
                         <g className="hpg hfloat-4" style={{ transformOrigin: "922px 134px" }}>
-                            <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
+                            <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Support &amp; Product Evolution</text>
                             <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs"/>
-                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="hc5)"/>
-                            <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
-                            <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
+                            <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)"/>
+                            <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Product knowledge</text>
+                            <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">stays with the team.</text>
                         </g>
                     </svg>
                 </motion.div>
