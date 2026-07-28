@@ -81,7 +81,7 @@ function CloudMigrationHero() {
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/50 via-[#020918]/30 to-transparent" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -123,7 +123,7 @@ function CloudMigrationHero() {
 function CloudMigrationIntro() {
     return (
         <section className="bg-white py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -150,7 +150,7 @@ function ServicesGrid() {
 
     return (
         <section className="bg-[#f3f3f3] py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -185,7 +185,7 @@ function DeliveryEnablers() {
 
     return (
         <section className="bg-white py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"

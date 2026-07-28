@@ -361,14 +361,14 @@ function EnterpriseEnablement() {
 
             <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
                 
-                <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-[30%_1fr] xl:grid-cols-[28%_1fr] 2xl:grid-cols-[25%_1fr] gap-10 lg:gap-12 items-stretch">
                     {/* Left Sidebar Text */}
                     <motion.div 
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={animations.fadeInUp}
-                        className="lg:w-[25%] flex flex-col pt-4"
+                        className="flex flex-col pt-4"
                     >
                         <div className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
@@ -385,7 +385,7 @@ function EnterpriseEnablement() {
                     </motion.div>
 
                     {/* Right Grid */}
-                    <div className="lg:w-[75%] grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {enablers.map((item, idx) => (
                             <motion.div
                                 key={item.title}

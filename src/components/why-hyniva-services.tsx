@@ -132,7 +132,7 @@ export function WhyHynivaServices() {
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display">
+                                <h3 className="text-[18px] font-bold text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
                                 <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">

@@ -7,25 +7,25 @@ const defaultProcessSteps = [
   {
     num: "01",
     title: "Understand",
-    desc: <>Gain a clear view of<br/>business priorities, operational challenges<br/>and customer expectations.</>,
+    desc: <>Gain a clear view of business priorities, operational challenges and customer expectations.</>,
     angle: 45
   },
   {
     num: "02",
     title: "Modernize",
-    desc: <>Redesign processes and modernize<br/>enterprise systems to improve<br/>agility and operational efficiency.</>,
+    desc: <>Redesign processes and modernize enterprise systems to improve agility and operational efficiency.</>,
     angle: -30
   },
   {
     num: "03",
     title: "Enable",
-    desc: <>Introduce intelligent capabilities through<br/>AI, trusted data and cloud technologies<br/>where they create measurable impact.</>,
+    desc: <>Introduce intelligent capabilities through AI, trusted data and cloud technologies where they create measurable impact.</>,
     angle: 120
   },
   {
     num: "04",
     title: "Evolve",
-    desc: <>Continuously optimize, expand and<br/>refine digital capabilities as your<br/>business grows and market demands change.</>,
+    desc: <>Continuously optimize, expand and refine digital capabilities as your business grows and market demands change.</>,
     angle: -80
   }
 ];
@@ -90,10 +90,10 @@ export function TimelineProcess({
   }, [activeStep, steps.length, isInView, isPaused, resumeAnimation]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
-  const sizeMap = [400, 300, 260, 240];
+  const sizeMap = [300, 230, 200, 180];
 
   return (
-    <section ref={containerRef} className="bg-[#030b1e] py-24 relative overflow-hidden text-white font-sans select-none">
+    <section ref={containerRef} className="bg-[#030b1e] pt-16 pb-10 lg:pb-16 relative overflow-hidden text-white font-sans select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
       
@@ -121,10 +121,10 @@ export function TimelineProcess({
         </motion.div>
 
         {/* Desktop Timeline */}
-        <div className="hidden lg:block relative w-full h-[550px] mx-auto max-w-[96rem]">
+        <div className="hidden lg:block relative w-full h-[500px] mx-auto max-w-[96rem] mt-6">
           
           {/* Base Horizontal Timeline Line */}
-          <div className="absolute top-[50%] left-0 right-0 h-[1px] bg-white/20 border-t border-dashed border-white/30 z-0" />
+          <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-white/20 border-t border-dashed border-white/30 z-0" />
           
           <div className="flex flex-row items-center justify-center relative w-full h-full">
             {steps.map((step, idx) => {
@@ -155,7 +155,7 @@ export function TimelineProcess({
                 >
                   
                   {/* Outer Large Circle Container */}
-                  <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none transition-all duration-1000 ease-in-out"
+                  <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none transition-all duration-1000 ease-in-out"
                        style={{ width: size, height: size }}>
                     
                     {/* Main Circle - with overflow visible for soft bleeding glow */}
@@ -222,15 +222,18 @@ export function TimelineProcess({
                   </div>
 
                   {/* Title Above the middle line */}
-                  <div className={`absolute bottom-[50%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 z-30 ${showGlow ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
+                  <div className={`absolute bottom-[60%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 z-30 ${showGlow ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
                     <h3 className={`font-bold tracking-wide transition-colors duration-1000 ${showGlow ? 'text-white drop-shadow-md' : 'text-slate-300'}`}>
                       {step.title}
                     </h3>
                   </div>
 
                   {/* Description below the circle */}
-                  <div className={`absolute top-[50%] left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 ease-in-out z-30 ${showGlow ? 'scale-105' : 'scale-90'}`} style={{ marginTop: (size / 2) + 15 }}>
-                    <p className={`leading-relaxed text-[13px] whitespace-nowrap transition-colors duration-1000 ${showGlow ? 'text-slate-200' : 'text-slate-500'}`}>
+                  <div
+                    className={`absolute top-[40%] left-1/2 -translate-x-1/2 text-center transition-all duration-1000 ease-in-out z-30 ${showGlow ? 'scale-105' : 'scale-90'}`}
+                    style={{ marginTop: (size / 2) + 10, width: Math.min(Math.max(size * 0.95, 185), 260) }}
+                  >
+                    <p className={`leading-snug text-[12px] line-clamp-4 transition-colors duration-1000 ${showGlow ? 'text-slate-200' : 'text-slate-400'}`}>
                       {step.desc}
                     </p>
                   </div>

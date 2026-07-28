@@ -506,8 +506,8 @@ function WhyHynivaDT() {
                         </div>
 
                         {/* Right Side: Metrics & CTA */}
-                        <div className="flex flex-col lg:pl-16 lg:mt-[72px]">
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8 mb-10">
+                        <div className="flex flex-col items-start lg:pl-16">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8 mb-8">
                                 <div className="flex flex-col">
                                     <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">220+</div>
                                     <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Solutions<br />Delivered</div>
