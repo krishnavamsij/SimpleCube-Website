@@ -525,7 +525,7 @@ function WhyHynivaDT() {
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
                                 Why Organizations<br />
                                 Choose <span className="text-white">Hyniva</span> for<br />
-                                <span className="text-[#00D4AA]">Digital Transformation?</span>
+                                <span className="text-[#00D4AA]">Digital Transformation</span><span className="text-white">?</span>
                             </h2>
                         </div>
 
