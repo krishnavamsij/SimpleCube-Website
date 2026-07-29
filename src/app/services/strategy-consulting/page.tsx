@@ -28,8 +28,8 @@ function DigitalTransformationHero() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
-            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] xl:grid-cols-[60%_40%] gap-8 lg:gap-12 items-center pb-10 pt-16 sm:pb-12 sm:pt-20 lg:pb-16 lg:pt-24">
+            <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -37,23 +37,23 @@ function DigitalTransformationHero() {
                         className="max-w-3xl"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
+                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 STRATEGY CONSULTING
                             </div>
                         </motion.div>
                         <motion.h1
                             variants={animations.fadeInUp}
-                            className="mt-6 text-4xl font-[900] leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[54px] lg:text-[60px] xl:text-[64px] lg:mt-8 font-display"
+                            className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
                             <span className="whitespace-nowrap">Shape <span className="text-[#00D4AA]">direction.</span></span><br />
                             <span className="whitespace-nowrap">Accelerate <span className="text-[#00D4AA]">execution.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
-                            className="mt-8 w-full text-lg leading-relaxed text-slate-300 sm:text-xl lg:mt-10"
+                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-2xl lg:mt-10"
                         >
-                            Businesses define strategies to align business priorities, guide technology<br className="hidden lg:block" /> investments and create a practical path forward.
+                            Businesses define strategies to align business priorities, guide technology investments and create a practical path forward.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -70,15 +70,15 @@ function DigitalTransformationHero() {
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
+                        className="relative hidden lg:flex items-center justify-end h-[380px] lg:h-[420px] w-full"
                     >
-                        <div className="absolute right-[-5%] lg:right-[0%] top-[0%] lg:top-[5%] w-[500px] h-[500px] lg:w-[650px] lg:h-[650px] pointer-events-none flex items-center justify-center">
+                        <div className="absolute right-[-3%] lg:right-[-6%] xl:right-[-8%] top-[2%] lg:top-[5%] w-[360px] h-[360px] lg:w-[460px] lg:h-[460px] pointer-events-none flex items-center justify-center">
                             {/* Ambient background glow (matching enterprise platforms) */}
-                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
-                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[15%] top-[20%] w-[240px] h-[350px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[30%] top-[30%] w-[160px] h-[260px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
                             <div className="strategy-visual w-full h-full relative flex items-center justify-center">
-                                <div className="atom">
+                                <div className="atom" style={{ transform: "translateX(20px) translateY(-20px) scale(1.35)" }}>
                                     {/* Orbit 1 */}
                                     <div className="atom-orbit orbit-1">
                                         <div className="orbit-path">
@@ -126,45 +126,40 @@ function DigitalTransformationHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white pt-5 pb-0 lg:pt-5 lg:pb-0">
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="bg-white py-5 lg:py-8">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.fadeInUp}
-                        className="relative h-[450px] lg:h-[600px] w-full rounded-2xl overflow-hidden p-[20px] group mt-8 lg:mt-12"
+                        className="relative h-[280px] sm:h-[320px] lg:h-[380px] w-full flex items-center justify-center"
                     >
                         <Image
                             src="/images/Our_Services/Strategy_Consulting_no_BG.svg"
                             alt="Connected Enterprise UI"
                             fill
-                            className="object-contain scale-110 lg:scale-125 transform-gpu origin-center transition-transform duration-700 ease-out group-hover:scale-[1.15] lg:group-hover:scale-[1.35] group-hover:-translate-y-2"
+                            className="object-contain transform-gpu transition-transform duration-700 ease-out hover:scale-105"
                         />
-                        {/* Gradient masks to bury image edges when zoomed */}
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
-                        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
-                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10" />
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10" />
                     </motion.div>
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.staggerContainer}
-                        className="flex flex-col justify-center h-full -mt-8 lg:-mt-12"
+                        className="flex flex-col items-start justify-center"
                     >
-                        <motion.div variants={animations.fadeInUp} className="flex mb-4">
+                        <motion.div variants={animations.fadeInUp} className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 OUR PHILOSOPHY
                             </div>
                         </motion.div>
-                        <motion.h2 variants={animations.fadeInUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                        <motion.h2 variants={animations.fadeInUp} className="text-2xl sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6">
                             Strategy with Purpose
                         </motion.h2>
-                        <motion.div variants={animations.fadeInUp} className="mt-6 space-y-6 text-lg text-slate-600 leading-relaxed">
+                        <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
                                 The most successful organizations don't move faster because they do more. They move faster because they focus on the right priorities at the right time.
                             </p>
@@ -213,25 +208,25 @@ function WhatWeTransform() {
             {/* Dotted background pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-50" />
 
-            <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-                <motion.div
+            <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
+                <motion.div 
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={animations.staggerContainer}
-                    className="text-center max-w-[1200px] mx-auto mb-10"
+                    className="text-center max-w-[1240px] mx-auto mb-10 sm:mb-12"
                 >
                     <motion.div variants={animations.fadeInUp} className="flex justify-center mb-6">
-                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
+                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
                             <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
-                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl font-bold text-slate-900">
+                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#030B3B] font-display text-center leading-tight mb-6">
                         Why Right Strategy Matters
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="mt-6 text-[17px] text-slate-600 leading-relaxed w-full">
-                        Execution loses momentum when decisions are made in isolation, priorities continually shift <br className="hidden md:block" />and teams lack a shared direction. The right strategy brings alignment before action.
+                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
+                        Execution loses momentum when decisions are made in isolation, priorities continually shift and teams lack a shared direction. The right strategy brings alignment before action.
                     </motion.p>
                 </motion.div>
 
@@ -286,59 +281,57 @@ function EnterpriseEnablement() {
     ];
 
     return (
-        <section className="bg-white py-24 relative overflow-hidden border-t border-slate-100">
-            {/* Subtle background accents for white theme */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.05)_0%,transparent_60%)]" />
+        <section className="bg-white py-20 lg:py-24 relative overflow-hidden border-t border-slate-100">
+            {/* Subtle background accents */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.04)_0%,transparent_60%)] pointer-events-none" />
 
-            <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
-                <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
                     {/* Left Sidebar Text */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={animations.fadeInUp}
-                        className="lg:w-[25%] flex flex-col pt-4"
+                        className="lg:w-[28%] flex flex-col pt-2"
                     >
-                        <div className="flex mb-6">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
+                        <div className="flex mb-5">
+                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 THE ENABLERS
                             </div>
                         </div>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                            Expertise That <br className="hidden lg:block" />Informs Every <br className="hidden lg:block" />Strategy
+                        <h2 className="text-2xl lg:text-[30px] font-bold text-[#030B3B] font-display mb-4 leading-[1.2]">
+                            Expertise <br className="hidden lg:block" />That Informs <br className="hidden lg:block" />Strategy
                         </h2>
-                        <p className="text-[17px] text-slate-600 leading-relaxed">
-                            Effective strategy requires more than planning. Our capabilities help organizations make informed technology decisions with practical guidance grounded in execution.
+                        <p className="text-[13px] text-slate-500 leading-relaxed max-w-[280px]">
+                            Strategic advice is only as good as the expertise behind it. We bring practical knowledge in engineering, integration and automation to help shape roadmaps that are technically feasible and focused on business value.
                         </p>
                     </motion.div>
 
                     {/* Right Grid */}
-                    <div className="lg:w-[75%] grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="lg:w-[72%] grid grid-cols-1 md:grid-cols-3 gap-5 xl:gap-6">
                         {enablers.map((item, idx) => (
                             <motion.div
                                 key={item.title}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_10px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
+                                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                                className="bg-white rounded-2xl p-6 xl:p-7 shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100/80 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group"
                             >
-                                <div className={`h-24 w-24 rounded-2xl ${item.iconBg} flex items-center justify-center mb-8 transition-colors duration-500`}>
-                                    <item.icon strokeWidth={1.5} className={`h-12 w-12 ${item.iconColor} transition-colors duration-500`} />
+                                <div className={`h-16 w-16 rounded-2xl ${item.iconBg} flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110`}>
+                                    <item.icon strokeWidth={1.5} className={`h-7 w-7 ${item.iconColor} transition-colors duration-300`} />
                                 </div>
-                                <h3 className="text-[20px] font-bold text-slate-900 mb-4">{item.title}</h3>
-                                <p className="text-[14px] text-slate-600 leading-relaxed mb-8 flex-grow">
+                                <h3 className="text-[17px] font-bold text-[#030B3B] mb-2.5 transition-colors duration-300">{item.title}</h3>
+                                <p className="text-[12.5px] text-slate-500 leading-relaxed mb-6 flex-grow">
                                     {item.description}
                                 </p>
-
                             </motion.div>
                         ))}
                     </div>
                 </div>
-
             </div>
         </section>
     );
@@ -368,10 +361,10 @@ function TransformationInAction() {
     ];
 
     return (
-        <section className="bg-[#f8fafc] py-24">
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#f8fafc] py-20 lg:py-24">
+            <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div>
-                    {/* Case Studies */}
+                    {/* Case Studies Header */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -381,54 +374,53 @@ function TransformationInAction() {
                     >
                         <motion.div
                             variants={animations.fadeInUp}
-                            className="mb-16"
+                            className="mb-14 lg:mb-16"
                         >
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
                                 CASE STUDIES
                             </h2>
-                            <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
+                            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
                                 Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.
                             </p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {caseStudies.map((study, idx) => (
                                 <motion.div
                                     key={idx}
                                     variants={animations.fadeInUp}
-                                    className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full"
+                                    className="group flex flex-col rounded-[28px] bg-[#EEF5FF] border border-blue-100/60 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl relative h-full justify-between"
                                 >
                                     {/* Card Image */}
-                                    <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
+                                    <div className="aspect-[1.75/1] overflow-hidden relative rounded-[20px] bg-white mb-5 shadow-xs">
                                         {study.image && (
                                             <Image
                                                 src={study.image}
                                                 alt={study.title.replace(/<[^>]*>/g, "")}
                                                 fill
-                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
                                         )}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
+                                    <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
                                         <h3
-                                            className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4 flex-1"
+                                            className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3"
                                             dangerouslySetInnerHTML={{ __html: study.title }}
                                         />
 
-                                        <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
+                                        <p className="text-[12.5px] font-normal text-slate-500 leading-relaxed mb-6 flex-1">
                                             {study.description}
                                         </p>
 
                                         <Link
                                             href={study.href}
-                                            className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
+                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#2563EB] border border-blue-200/70 rounded-xl text-[13px] font-bold shadow-xs transition-all duration-300 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] group-hover:text-white mt-auto"
                                         >
                                             Read Case Study
                                             <svg
-                                                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -478,56 +470,74 @@ function WhyHynivaDT() {
     ];
 
     return (
-        <section className="bg-white px-6 py-[30px] sm:py-[40px] lg:py-[50px] lg:px-8">
-            <div className="mx-auto max-w-[1200px] flex flex-col gap-4">
+        <section className="bg-white py-[14px] sm:py-[20px] lg:py-[26px]">
+            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col">
                 {/* ── Top Box: Dark Glowing Container ── */}
                 <motion.div
                     variants={animations.fadeInUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[30px] sm:p-[40px] lg:p-[50px]"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[32px] lg:p-[42px]"
                 >
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-12 lg:gap-16 lg:grid-cols-2 items-start">
-                        {/* Left Side */}
+                    <div className="relative z-10 grid gap-8 lg:gap-12 lg:grid-cols-[1fr_auto] items-start">
+                        {/* ── LEFT: Badge + Heading ── */}
                         <div className="flex flex-col items-start">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-6 px-3.5 py-1 text-[10px]">
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 THE DIFFERENCE
                             </div>
-                            <h2 className="text-[28px] sm:text-[36px] lg:text-[40px] font-[900] text-[#ffffff] tracking-tight leading-[1.2] mb-0 font-display">
-                                <span className="text-white">Why Organizations</span><br />
-                                <span className="text-white">Choose Hyniva for</span> <br />
+                            <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
+                                Why Organizations<br />
+                                Choose <span className="text-white">Hyniva</span> for<br />
                                 <span className="text-[#00D4AA]">Strategy Consulting?</span>
                             </h2>
                         </div>
 
                         {/* Right Side: Metrics & CTA */}
-                        <div className="flex flex-col items-start lg:pl-16">
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8 mb-8">
-                                <div className="flex flex-col">
-                                    <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">220+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Solutions<br />Delivered</div>
+                        <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
+                            {/* Stats */}
+                            <div className="flex items-start justify-start gap-8 sm:gap-10 lg:gap-12 xl:gap-14 w-full">
+                                <div className="flex flex-col items-start flex-shrink-0">
+                                    <div className="flex items-baseline gap-0.5 mb-1">
+                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
+                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                    </div>
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                        {"Solutions\nDelivered"}
+                                    </span>
                                 </div>
-                                <div className="flex flex-col">
-                                    <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">18+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Years of Tech<br />Consulting</div>
+                                <div className="flex flex-col items-start flex-shrink-0">
+                                    <div className="flex items-baseline gap-0.5 mb-1">
+                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">18</span>
+                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                    </div>
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                        {"Years of Tech\nConsulting"}
+                                    </span>
                                 </div>
-                                <div className="flex flex-col">
-                                    <div className="text-[36px] lg:text-[44px] font-black text-white leading-none mb-3 font-display">45+</div>
-                                    <div className="text-slate-300 text-[15px] sm:text-base font-medium leading-snug">Enterprise<br />Clients</div>
+                                <div className="flex flex-col items-start flex-shrink-0">
+                                    <div className="flex items-baseline gap-0.5 mb-1">
+                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
+                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                    </div>
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                        {"Enterprise\nClients"}
+                                    </span>
                                 </div>
                             </div>
 
-                            <div className="flex items-start">
+                            {/* CTA */}
+                            <div className="pt-2 sm:pt-3 w-full flex justify-start">
                                 <Link
                                     href="/about-us"
-                                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
+                                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold tracking-wider text-[11px] sm:text-[12px] uppercase px-4.5 sm:px-5.5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] shadow-[0_0_12px_rgba(59,130,246,0.4)] border border-[#3B82F6]/30 w-full sm:w-auto"
                                 >
-                                    KNOW MORE <ArrowRight className="h-4 w-4" />
+                                    <span>KNOW MORE</span>
+                                    <ArrowRight className="w-3.5 h-3.5" />
                                 </Link>
                             </div>
                         </div>
@@ -540,18 +550,18 @@ function WhyHynivaDT() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[30px] sm:p-[40px] lg:p-[50px] border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] py-[24px] sm:py-[32px] lg:py-[42px] px-[24px] sm:px-[32px] lg:px-[42px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
-                                <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
-                                    <card.icon className="w-5 h-5 text-[#3B82F6]" />
+                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
+                                    <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
                                 </div>
-                                <h3 className="text-[18px] font-black text-[#030B3B] mb-3 leading-tight font-display whitespace-pre-line">
+                                <h3 className="text-[14px] font-black text-[#030B3B] mb-3.5 leading-tight font-display whitespace-pre-line">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-pre-line">
+                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/75 font-normal leading-[1.6]">
                                     {card.description}
                                 </p>
                             </div>
@@ -567,25 +577,25 @@ const strategySteps = [
     {
         num: "01",
         title: "Discover",
-        desc: <>Evaluate the current business<br />landscape, opportunities and constraints<br />to establish a clear starting point.</>,
+        desc: "Evaluate current business landscape, opportunities and constraints to establish a clear starting point.",
         angle: 45
     },
     {
         num: "02",
         title: "Align",
-        desc: <>Bring stakeholders, priorities<br />and technology decisions together<br />around a shared strategic direction.</>,
+        desc: "Bring stakeholders, priorities and technology decisions together around a shared strategic direction.",
         angle: -30
     },
     {
         num: "03",
         title: "Plan",
-        desc: <>Define practical roadmaps,<br />governance models and measurable<br />milestones for successful execution.</>,
+        desc: "Define practical roadmaps, governance models and measurable milestones for successful execution.",
         angle: 120
     },
     {
         num: "04",
         title: "Guide",
-        desc: <>Provide ongoing strategic advisory<br />that helps initiatives stay aligned as<br />priorities and business conditions evolve.</>,
+        desc: "Provide ongoing strategic advisory that helps initiatives stay aligned as priorities and conditions evolve.",
         angle: -80
     }
 ];

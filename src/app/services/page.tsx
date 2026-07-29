@@ -316,7 +316,7 @@ function ServicesHero() {
 
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
+            <div className="relative z-10 w-full max-w-[96rem] mx-auto px-6 md:px-10 lg:px-16 text-center">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -391,7 +391,7 @@ function CertificationsScroll() {
                 <div className="marquee-fade overflow-hidden">
                     <div 
                         className="animate-marquee flex w-max items-center gap-8 sm:gap-10 lg:gap-14 px-6" 
-                        style={{ "--marquee-duration": "20s" } as React.CSSProperties}
+                        style={{ "--marquee-duration": "30s" } as React.CSSProperties}
                     >
                         {duplicatedCertifications.map((cert, i) => (
                             <div
@@ -485,7 +485,7 @@ function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
 function DataSecuritySection() {
     return (
         <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
-            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
                     {/* ── LEFT — text content ── */}
@@ -556,19 +556,19 @@ function WorkThatSpeaks() {
 
     return (
         <section className="bg-white py-10 sm:py-14 lg:py-16">
-            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* ── Header ── */}
                 <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-16 mb-12">
-                    <div className="w-full lg:w-[55%] flex items-center">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight">
+                    <div className="w-full lg:w-[52%] flex items-center">
+                        <h2 className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] tracking-tight font-display leading-[1.12]">
                             Enterprise <span className="text-[#00D4AA]">Impact</span><br className="hidden sm:block" />
-                            Delivered By Our <span className="text-[#00D4AA]">Experts<span className="text-[#00D4AA]">.</span></span>
+                            Delivered By Our <span className="text-[#00D4AA]">Experts.</span>
                         </h2>
                     </div>
-                    <div className="w-full lg:w-[45%] flex items-stretch">
+                    <div className="w-full lg:w-[48%] flex items-stretch">
                         <div className="w-[3px] sm:w-1 bg-[#00D4AA] shrink-0 mr-6 rounded-full"></div>
                         <div className="flex items-center">
-                            <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight leading-tight">
+                            <h3 className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] tracking-tight leading-tight font-display">
                                 Over 220 Projects<br />
                                 Delivered Successfully
                             </h3>
@@ -580,7 +580,7 @@ function WorkThatSpeaks() {
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
                     
                     {/* LHS Text Content with Fade Animation */}
-                    <div className="w-full lg:w-[55%] relative">
+                    <div className="w-full lg:w-[52%] relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={current}
@@ -595,7 +595,7 @@ function WorkThatSpeaks() {
                                     return (
                                         <>
                                             <div>
-                                                <h3 className="whitespace-pre-line text-[22px] sm:text-[28px] font-bold text-slate-900 leading-snug mb-6">
+                                                <h3 className="whitespace-pre-line text-[19px] sm:text-[23px] font-bold text-slate-900 leading-snug mb-5">
                                                     {study.title}
                                                 </h3>
                                                 <div className="mb-6">
@@ -641,7 +641,7 @@ function WorkThatSpeaks() {
                     </div>
 
                     {/* RHS Image Carousel */}
-                    <div className="w-full lg:w-[45%] flex flex-col justify-between">
+                    <div className="w-full lg:w-[48%] flex flex-col justify-between">
                         <div className="overflow-hidden relative w-full" ref={emblaRef}>
                             <div className="flex h-full -ml-4">
                                 {servicesProjectsData.map((study, idx) => (
@@ -714,7 +714,7 @@ function TechPartnersSection() {
 
     return (
         <section className="bg-[#ECF6FF] pt-12 sm:pt-16 lg:pt-20 pb-8 lg:pb-10">
-            <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-12">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
                 {/* Header */}
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">

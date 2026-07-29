@@ -29,7 +29,7 @@ function DigitalTransformationHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-10 pt-16 sm:pb-12 sm:pt-20 lg:pb-16 lg:pt-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -70,20 +70,20 @@ function DigitalTransformationHero() {
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="relative hidden lg:flex items-center justify-end h-[450px] w-full"
+                        className="relative hidden lg:flex items-center justify-end h-[380px] lg:h-[420px] w-full"
                     >
                         {/* Identical Ambient Glow Container from Enterprise Platforms */}
-                        <div className="absolute right-[-12%] lg:right-[-18%] xl:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[600px] lg:h-[600px] pointer-events-none flex items-center justify-center">
+                        <div className="absolute right-[-6%] lg:right-[-10%] xl:right-[-12%] top-[5%] lg:top-[8%] w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] pointer-events-none flex items-center justify-center">
                             {/* Ambient background glow (increased visibility) */}
-                            <div className="absolute left-[15%] top-[20%] w-[300px] h-[450px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
-                            <div className="absolute left-[30%] top-[30%] w-[200px] h-[350px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[15%] top-[20%] w-[280px] h-[400px] bg-[#06b6d4]/30 blur-[80px] rounded-full" />
+                            <div className="absolute left-[30%] top-[30%] w-[180px] h-[300px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             
                             {/* Soft radial illumination inside center */}
                             <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
                         </div>
 
                         {/* Abstract CSS Neon Ribbon Illustration - Premium Glass/Linear Style */}
-                        <div className="absolute right-[-12%] lg:right-[-18%] xl:right-[-20%] top-[5%] lg:top-[10%] w-[450px] h-[450px] lg:w-[600px] lg:h-[600px] pointer-events-none flex items-center justify-center z-10">
+                        <div className="absolute right-[-6%] lg:right-[-10%] xl:right-[-12%] top-[5%] lg:top-[8%] w-[380px] h-[380px] lg:w-[480px] lg:h-[480px] pointer-events-none flex items-center justify-center z-10">
 
                             {/* Base Glass Ring */}
                             <div className="absolute inset-0 rounded-full border border-white/5 animate-[spin_20s_linear_infinite]" />
@@ -142,8 +142,8 @@ function DigitalTransformationHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white py-12 lg:py-16">
-            <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
+        <section className="bg-white py-5 lg:py-8">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Left: Illustration Image */}
                     <motion.div
@@ -151,7 +151,7 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.fadeInUp}
-                        className="relative h-[380px] sm:h-[450px] lg:h-[500px] w-full flex items-center justify-center"
+                        className="relative h-[280px] sm:h-[320px] lg:h-[380px] w-full flex items-center justify-center"
                     >
                         <Image
                             src="/images/Our_Services/Digital_Transformation_no_BG.svg"
@@ -199,32 +199,32 @@ function WhatWeTransform() {
     const challenges = [
         {
             icon: Server,
-            description: "Legacy systems slow innovation and\nlimit business agility."
+            description: "Legacy systems slow innovation and limit business agility."
         },
         {
             icon: Users,
-            description: "Fragmented customer experiences\nweaken engagement and loyalty."
+            description: "Fragmented customer experiences weaken engagement and loyalty."
         },
         {
             icon: Database,
-            description: "Disconnected enterprise data delays\ninformed decision-making."
+            description: "Disconnected enterprise data delays informed decision-making."
         },
         {
             icon: Settings,
-            description: "Manual processes reduce efficiency\nand increase operational effort."
+            description: "Manual processes reduce efficiency and increase operational effort."
         },
         {
             icon: TrendingUp,
-            description: "Rising technology costs limit\ninvestment in innovation."
+            description: "Rising technology costs limit investment in innovation."
         },
         {
             icon: BrainCircuit,
-            description: "AI initiatives struggle without trusted\ndata and modern foundations."
+            description: "AI initiatives struggle without trusted data and modern foundations."
         }
     ];
 
     return (
-        <section className="bg-[#f8fafc] min-h-screen py-16 lg:py-24 flex flex-col justify-center relative overflow-hidden">
+        <section className="bg-[#f8fafc] py-16 lg:py-24 relative overflow-hidden">
             {/* Subtle Dotted background pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
             
@@ -234,7 +234,7 @@ function WhatWeTransform() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={animations.staggerContainer}
-                    className="text-center max-w-[1240px] mx-auto mb-8 sm:mb-10"
+                    className="text-center max-w-[1240px] mx-auto mb-10 sm:mb-12"
                 >
                     <motion.div variants={animations.fadeInUp} className="flex justify-center mb-6">
                         <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
@@ -242,15 +242,15 @@ function WhatWeTransform() {
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
-                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#030B3B] font-display text-center leading-tight mb-8 sm:mb-10">
+                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#030B3B] font-display text-center leading-tight mb-6">
                         Why Businesses Must Transform
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-xs sm:text-sm lg:text-[13.5px] xl:text-[14px] leading-relaxed text-center max-w-[1240px] mx-auto whitespace-pre-line">
-                        {"Change is no longer driven by technology alone. It's driven by evolving customer expectations, faster market shifts and increasing competitive pressure.\nOrganizations that fail to adapt often find themselves constrained by operational complexity rather than market opportunity."}
+                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
+                        Change is no longer driven by technology alone. It's driven by evolving customer expectations, faster market shifts and increasing competitive pressure. Organizations that fail to adapt often find themselves constrained by operational complexity rather than market opportunity.
                     </motion.p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {challenges.map((card, idx) => (
                         <motion.div
                             key={idx}
@@ -258,12 +258,12 @@ function WhatWeTransform() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.08, duration: 0.5 }}
-                            className="bg-white rounded-2xl p-5.5 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group"
+                            className="bg-white rounded-[20px] p-5.5 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-4.5 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group"
                         >
-                            <div className="flex-shrink-0 h-11 w-11 rounded-xl flex items-center justify-center bg-[#EFF6FF] text-[#3B82F6] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110">
+                            <div className="flex-shrink-0 h-11 w-11 rounded-xl flex items-center justify-center bg-[#EFF6FF] text-[#3B82F6] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-105">
                                 <card.icon className="h-5 w-5 transition-colors duration-300" />
                             </div>
-                            <p className="text-[13px] sm:text-[13.5px] font-normal text-[#030B3B]/80 leading-[1.35] whitespace-pre-line">
+                            <p className="text-[13.5px] sm:text-[14px] font-medium text-[#030B3B]/80 leading-relaxed">
                                 {card.description}
                             </p>
                         </motion.div>
@@ -409,7 +409,7 @@ function TransformationInAction() {
                             <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
                                 CASE STUDIES
                             </h2>
-                            <p className="text-[13.5px] sm:text-sm text-slate-500 font-normal leading-relaxed max-w-2xl">
+                            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
                                 Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.
                             </p>
                         </motion.div>
@@ -501,7 +501,7 @@ function WhyHynivaDT() {
 
     return (
         <section className="bg-white py-[14px] sm:py-[20px] lg:py-[26px]">
-            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col gap-4">
+            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col">
 
                 {/* ── TOP BOX ── */}
                 <motion.div
@@ -525,7 +525,7 @@ function WhyHynivaDT() {
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
                                 Why Organizations<br />
                                 Choose <span className="text-white">Hyniva</span> for<br />
-                                <span className="text-[#00D4AA]">Digital Transformation</span><span className="text-white">?</span>
+                                <span className="text-[#00D4AA]">Digital Transformation?</span>
                             </h2>
                         </div>
 
@@ -582,19 +582,19 @@ function WhyHynivaDT() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] py-5 px-6 sm:py-6 sm:px-8 lg:py-6 lg:px-10 border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] py-[24px] sm:py-[32px] lg:py-[42px] px-[24px] sm:px-[32px] lg:px-[42px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12">
                         {bottomBox.map((card, idx) => (
                             /* Box hover animation commented out per request while preserving layout & spacing */
-                            <div key={idx} className="flex flex-col p-3 sm:p-4 rounded-2xl">
-                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3 flex-shrink-0">
+                            <div key={idx} className="flex flex-col">
+                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
                                     <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
                                 </div>
                                 <h3 className="text-[14px] font-black text-[#030B3B] mb-3.5 leading-tight font-display whitespace-pre-line">
                                     {card.title}
                                 </h3>
-                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/75 font-normal leading-[1.6] max-w-[215px] xl:max-w-[225px]">
+                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/75 font-normal leading-[1.6]">
                                     {card.description}
                                 </p>
                             </div>

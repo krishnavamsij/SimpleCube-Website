@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/it-strategy',
     '/services/product-development',
     '/services/product-engineering',
-    '/services/product-engineering/strategy-consulting',
+    '/services/strategy-consulting',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

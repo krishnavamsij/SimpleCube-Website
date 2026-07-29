@@ -1581,7 +1581,7 @@ export default function CareersPage() {
             }}
           />
 
-          <div className="relative z-10 w-full max-w-full mx-auto text-center px-4">
+          <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 text-center">
             <div className="flex justify-center mb-6">
               <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                 <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
@@ -1589,11 +1589,11 @@ export default function CareersPage() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
+            <h1 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
               Join the team where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
             </h1>
 
-            <p className="text-base leading-relaxed text-slate-300 sm:text-lg font-normal max-w-3xl mx-auto mb-14">
+            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto mb-14">
               Be part of a team that solves complex problems, builds intelligent systems and drives real transformation across industries.
             </p>
 
