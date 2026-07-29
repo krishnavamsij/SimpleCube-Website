@@ -43,7 +43,7 @@ export const navContent = {
             isBold: true,
             href: "/services/product-engineering",
             items: [
-                { title: "Strategy Consulting", href: "/services/product-engineering/strategy-consulting", isBold: true },
+                { title: "Strategy Consulting", href: "/services/strategy-consulting", isBold: true },
             ]
         },
     ],
@@ -641,7 +641,7 @@ export const footerContent = {
                 { title: "Digital Transformation", href: "/services/digital-transformation" },
                 { title: "Enterprise Platforms", href: "/services/enterprise-platforms" },
                 { title: "Product Engineering", href: "/services/product-engineering" },
-                { title: "Strategy Consulting", href: "/services/product-engineering/strategy-consulting" },
+                { title: "Strategy Consulting", href: "/services/strategy-consulting" },
             ],
         },
         {
