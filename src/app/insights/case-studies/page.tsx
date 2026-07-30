@@ -89,16 +89,16 @@ export default function CaseStudiesPage() {
     <div className="min-h-screen bg-white font-sans text-[#030B3B]">
       <Navbar forceDarkText={true} />
 
-      <main className="pt-32 pb-24 mx-auto w-full max-w-[1400px] px-6">
+      <main className="pt-28 lg:pt-32 pb-24 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
         {/* ── Page Header ── */}
         <motion.div
           animate="visible"
           variants={staggerContainer}
-          className="mb-20"
+          className="mb-16 lg:mb-20"
         >
           <motion.div
             variants={fadeInUp}
-            className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit"
+            className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-6 sm:mb-8 w-fit"
           >
             <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
             CASE STUDIES
@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
             <div className="lg:w-2/3">
               <motion.h1
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-6 font-display"
+                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display text-balance"
               >
                 Real <span className="text-[#00D4AA]">Results.</span>
                 <br />
@@ -118,11 +118,9 @@ export default function CaseStudiesPage() {
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
+                className="w-full text-base sm:text-lg lg:text-[18.5px] xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl whitespace-pre-line"
               >
-                Discover how Hyniva enables enterprises to modernize
-                <br className="hidden sm:block" />
-                operations and deliver measurable business impact.
+                {"Discover how Hyniva enables enterprises to modernize\noperations and deliver measurable business impact."}
               </motion.p>
             </div>
 
@@ -242,65 +240,73 @@ export default function CaseStudiesPage() {
               {/* Card Body */}
               <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                 {/* Tags */}
-                {study.tags && study.tags.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-2 mb-4">
-                    {study.tags.slice(0, 2).map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {study.tags.length > 2 && (
-                      <div
-                        className="relative inline-flex"
-                        data-tag-overflow
-                        onMouseEnter={() => setExpandedCardTags(cardKey)}
-                        onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
-                      >
-                        <button
-                          type="button"
-                          aria-label={`Show ${study.tags.length - 2} more tags`}
-                          aria-expanded={expandedCardTags === cardKey}
-                          onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
-                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                <div className="min-h-[38px] flex-shrink-0 mb-4 flex items-center">
+                  {study.tags && study.tags.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2">
+                      {study.tags.slice(0, 2).map((tag, tagIdx) => (
+                        <span
+                          key={tagIdx}
+                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
                         >
-                          +{study.tags.length - 2}
-                        </button>
-                        {/* Popup */}
-                        <AnimatePresence>
-                          {expandedCardTags === cardKey && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 6, scale: 0.96 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                              transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                              className="absolute bottom-full left-1/2 -translate-x-1/2 z-50 mb-2 w-auto max-w-[280px] p-1"
-                            >
-                              <div className="absolute left-1/2 -translate-x-1/2 top-full h-2 w-full" />
-                              <div className="relative flex flex-col gap-1.5 items-center">
-                                {study.tags.slice(2).map((tag, tagIdx) => (
-                                  <span
-                                    key={tagIdx}
-                                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
-                                  >
-                                    {tag}
-                                  </span>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )}
-                  </div>
-                )}
-                <h3
-                  className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-4"
-                  dangerouslySetInnerHTML={{ __html: study.title }}
-                />
-                <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
+                          {tag}
+                        </span>
+                      ))}
+                      {study.tags.length > 2 && (
+                        <div
+                          className="relative inline-flex"
+                          data-tag-overflow
+                          onMouseEnter={() => setExpandedCardTags(cardKey)}
+                          onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
+                        >
+                          <button
+                            type="button"
+                            aria-label={`Show ${study.tags.length - 2} more tags`}
+                            aria-expanded={expandedCardTags === cardKey}
+                            onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
+                            className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                          >
+                            +{study.tags.length - 2}
+                          </button>
+                          {/* Popup */}
+                          <AnimatePresence>
+                            {expandedCardTags === cardKey && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                                transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute bottom-full left-1/2 -translate-x-1/2 z-50 mb-2 w-auto max-w-[280px] p-1"
+                              >
+                                <div className="absolute left-1/2 -translate-x-1/2 top-full h-2 w-full" />
+                                <div className="relative flex flex-col gap-1.5 items-center">
+                                  {study.tags.slice(2).map((tag, tagIdx) => (
+                                    <span
+                                      key={tagIdx}
+                                      className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
+                                    >
+                                      {tag}
+                                    </span>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Title Wrapper */}
+                <div className="min-h-[52px] flex-shrink-0 mb-3 flex items-start overflow-hidden">
+                  <h3
+                    className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight line-clamp-2"
+                    dangerouslySetInnerHTML={{ __html: study.title }}
+                  />
+                </div>
+
+                {/* Callout Content */}
+                <p className="text-[13.5px] sm:text-[14px] font-medium text-slate-600 leading-[1.6] mb-6 flex-1 line-clamp-2">
                   {study.description}
                 </p>
 

@@ -56,136 +56,136 @@ export default function PodcastPage() {
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
             <Navbar forceDarkText={true} />
 
-            <main className="pt-28 sm:pt-32 pb-16 sm:pb-24 mx-auto w-full max-w-[1400px] px-4 sm:px-6">
-                {/* Header */}
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={staggerContainer}
-                    className="mb-10"
+            <main className="pt-24 lg:pt-28 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
+        {/* Header */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="mb-10 lg:mb-12"
+        >
+          {/* Eyebrow */}
+          <motion.div
+            variants={fadeInUp}
+            className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-3 w-fit"
+          >
+            <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
+            PODCAST
+          </motion.div>
+
+          {/* Header Content */}
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              {/* Logo + LinkedIn Icon */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center gap-3"
+              >
+                <Image
+                  src="/images/Podcast/CU_Next_Podcast_logo.png"
+                  alt="CU NEXT Podcast"
+                  width={400}
+                  height={150}
+                  priority
+                  className="h-32 sm:h-40 lg:h-48 xl:h-52 w-auto object-contain max-h-[230px] -ml-3 sm:-ml-4"
+                />
+
+                <a
+                  href="https://www.linkedin.com/company/cu-next/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit CU Next on LinkedIn"
+                  className="inline-flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(10,106,194,0.25)]"
                 >
-                    {/* Eyebrow */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-0 w-fit"
-                    >
-                        <span className="dot bg-[#1e90ff] shadow-[#1e90ff] animate-pulse" />
-                        PODCAST
-                    </motion.div>
+                  <Image
+                    src="/images/linkedin (3).png"
+                    alt=""
+                    width={36}
+                    height={36}
+                    className="h-full w-full object-contain"
+                  />
+                </a>
+              </motion.div>
 
-                    {/* Header Content */}
-                    <div className="flex flex-col gap-4">
-                        <div className="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
-                            {/* Logo */}
-                            <motion.div
-                                variants={fadeInUp}
-                                className="-mt-4 flex flex-wrap items-center gap-2 sm:-mt-6 sm:gap-3"
-                            >
-                                <Image
-                                    src="/images/Podcast/CU_Next_Podcast_logo.png"
-                                    alt="CU NEXT Podcast"
-                                    width={400}
-                                    height={150}
-                                    priority
-                                    className="w-auto max-w-[250px] sm:max-w-[320px] lg:max-w-[380px] h-auto object-contain -ml-2"
-                                />
+              {/* Button */}
+              <motion.div
+                variants={fadeInUp}
+                className="shrink-0"
+              >
+                <a
+                  href="https://www.youtube.com/@hynivapodcast1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-3 text-sm font-bold text-[#1e90ff] transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] sm:px-6"
+                >
+                  Visit Podcast Channel
+                </a>
+              </motion.div>
+            </div>
 
-                                <a
-                                    href="https://www.linkedin.com/company/cu-next/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit CU Next on LinkedIn"
-                                    className="relative top-6 inline-flex h-6 w-6 items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(10,102,194,0.25)] sm:top-7 sm:h-7 sm:w-7"
-                                >
-                                    <Image
-                                        src="/images/linkedin (3).png"
-                                        alt=""
-                                        width={36}
-                                        height={36}
-                                        className="h-full w-full object-contain"
-                                    />
-                                </a>
-                            </motion.div>
+            {/* Description */}
+            <motion.p
+              variants={fadeInUp}
+              className="w-full text-base sm:text-lg lg:text-[18.5px] xl:text-xl leading-relaxed text-slate-600 font-medium max-w-[800px] -mt-2 sm:-mt-4"
+            >
+              {podcastContent.hero.description}
+            </motion.p>
+          </div>
+        </motion.div>
 
-                            {/* Button */}
-                            <motion.div
-                                variants={fadeInUp}
-                                className="relative top-3 shrink-0 sm:top-3"
-                            >
-                                <a
-                                    href="https://www.youtube.com/@hynivapodcast1"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-3 text-sm font-bold text-[#1e90ff] transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] sm:min-h-14 sm:px-6"
-                                >
-                                    Visit Podcast Channel
-                                </a>
-                            </motion.div>
-                        </div>
+        {/* Podcast Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {podcastContent.episodes.map((episode) => (
+            <motion.div
+              key={episode.id}
+              variants={scrollReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              onClick={() => setSelectedEpisode(episode)}
+              className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative cursor-pointer"
+            >
+              {/* Thumbnail */}
+              <div className="aspect-[1.8/1] overflow-hidden relative m-1 rounded-[24px] bg-white">
+                <div
+                  className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url('${encodeURI(
+                      episode.image
+                    )}')`,
+                  }}
+                />
 
-                        {/* Description */}
-                        <motion.p
-                            variants={fadeInUp}
-                            className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl -mt-4 sm:-mt-6"
-                        >
-                            {podcastContent.hero.description}
-                        </motion.p>
-                    </div>
-                </motion.div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
 
-                {/* Podcast Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {podcastContent.episodes.map((episode) => (
-                        <motion.div
-                            key={episode.id}
-                            variants={scrollReveal}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={viewportOnce}
-                            onClick={() => setSelectedEpisode(episode)}
-                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative cursor-pointer"
-                        >
-                            {/* Thumbnail */}
-                            <div className="aspect-[1.8/1] overflow-hidden relative m-1 rounded-[24px] bg-white">
-                                <div
-                                    className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
-                                    style={{
-                                        backgroundImage: `url('${encodeURI(
-                                            episode.image
-                                        )}')`,
-                                    }}
-                                />
-
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#ECF6FF]/20 to-transparent opacity-40" />
-
-                                {/* Play Button */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-500 scale-90 group-hover:scale-100 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:shadow-[0_0_30px_rgba(30,144,255,0.6)]">
-                                        <Play className="w-5 h-5 fill-white stroke-none ml-1 transition-transform duration-300 group-hover:scale-110" />
-                                    </div>
-                                </div>
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-500 scale-90 group-hover:scale-100 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:shadow-[0_0_30px_rgba(30,144,255,0.6)]">
+                    <Play className="w-5 h-5 fill-white stroke-none ml-1 transition-transform duration-300 group-hover:scale-110" />
+                  </div>
+                </div>
 
 
-                            </div>
+              </div>
 
-                            {/* Card Content */}
-                            <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
-                                {/* Meta */}
-                                <div className="flex items-center gap-3 mb-4 text-[11px] font-medium text-slate-500 uppercase tracking-wider">
-                                    <span className="text-[#1e90ff] font-bold">
-                                        {episode.category}
-                                    </span>
+              {/* Card Content */}
+              <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
+                {/* Meta */}
+                <div className="flex items-center gap-3 mb-4 text-[11px] font-medium text-slate-500 uppercase tracking-wider">
+                  <span className="text-[#1e90ff] font-bold">
+                    {episode.category}
+                  </span>
 
-                                    <span className="text-slate-300">•</span>
+                  <span className="text-slate-300">•</span>
 
-                                    <span>{episode.date}</span>
-                                </div>
+                  <span>{episode.date}</span>
+                </div>
 
-                                {/* Title */}
-                                <h3 className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-8 flex-1">
-                                    {episode.title}
-                                </h3>
+                {/* Title */}
+                <h3 className="font-display text-[18px] sm:text-xl font-bold text-[#030B3B] leading-[1.3] tracking-tight mb-8 flex-1">
+                  {episode.title}
+                </h3>
 
                                 {/* Button */}
                                 <div className="mt-auto">

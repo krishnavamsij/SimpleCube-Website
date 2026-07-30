@@ -19,7 +19,7 @@ export const contactContent = {
             },
             india: {
                 title: "INDIA",
-                address: "The Cube, Karle Town<br />Center, 5th Floor,<br />Nagavara Village,<br />Bengaluru – 560045"
+                address: "The Cube, Karle Town Center,<br />5th Floor, Nagavara Village,<br />Bengaluru – 560045"
             }
         }
     },

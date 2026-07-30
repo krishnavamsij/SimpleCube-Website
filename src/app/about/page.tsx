@@ -44,7 +44,7 @@ const viewportOnce = { once: true, margin: "-100px" };
 
 function AboutHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] h-screen min-h-[700px] w-full flex items-center pt-16">
+        <section className="relative overflow-hidden bg-[#030b1e] min-h-dvh w-full flex items-center pt-24 pb-12 lg:pt-28 lg:pb-16">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -64,12 +64,12 @@ function AboutHero() {
             </div>
 
 
-            <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6">
+            <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="w-full lg:w-[60%] max-w-[750px]"
+                    className="w-full lg:w-[50%] max-w-[750px]"
                 >
                     <motion.div variants={fadeInUp} className="mb-12">
                         <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
@@ -79,14 +79,14 @@ function AboutHero() {
                     </motion.div>
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-4xl sm:text-5xl md:text-[68px] font-[900] leading-[1.08] tracking-tight text-white mb-12 font-display"
+                        className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white mb-12 lg:mb-16 font-display text-balance"
                     >
                         Product Thinking.<br />
                         Enterprise Impact.
                     </motion.h1>
                     <motion.p
                         variants={fadeInUp}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-medium mb-20 lg:mb-28"
+                        className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl whitespace-pre-line mb-14 lg:mb-20"
                     >
                         {aboutContent.hero.description}
                     </motion.p>
@@ -95,11 +95,11 @@ function AboutHero() {
                     <motion.div variants={fadeInUp}>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0 sm:divide-x divide-blue-900/50 w-full">
                             {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-2 sm:pr-4 lg:pr-6' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-2 sm:pl-4 lg:pl-6' : 'px-2 sm:px-4 lg:px-6'}`}>
-                                    <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-3">{metric.value}</div>
-                                    <div className="text-sm lg:text-base font-medium text-slate-300 leading-tight">
+                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-2 sm:pr-4' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-2 sm:pl-4' : 'px-2 sm:px-4'}`}>
+                                    <div className="text-4xl lg:text-[44px] font-black text-blue-400 mb-2 font-display">{metric.value}</div>
+                                    <div className="text-[10px] lg:text-[11px] font-bold text-slate-400 uppercase tracking-[1.5px] leading-tight font-display max-w-[125px] sm:max-w-none">
                                         {metric.label.split('\n').map((line, lIdx) => (
-                                            <span key={lIdx} className="block whitespace-nowrap">{line}</span>
+                                            <span key={lIdx} className="block">{line}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -116,37 +116,37 @@ function AboutHero() {
 
 function ApiSection() {
     return (
-        <section className="bg-white relative py-16 lg:py-24 overflow-hidden">
+        <section className="bg-white relative pt-8 lg:pt-12 pb-16 lg:pb-24 overflow-hidden">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23f1f5f9\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50 z-0"></div>
 
-            <div className="mx-auto max-w-[1400px] px-6 w-full flex flex-col lg:flex-row relative z-20">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 w-full flex flex-col lg:flex-row relative z-20">
                 
                 {/* Left Hand Side - Content */}
-                <div className="w-full lg:w-[35%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
+                <div className="w-full lg:w-[40%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
                     <div className="mb-10 lg:mb-14">
                         <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                             <span className="dot bg-[#2563eb]" />
                             OUR FOUNDATION
                         </span>
                     </div>
-                    <h2 className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
+                    <h2 className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
                         At the core of Hyniva are three defining strengths: <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
                     </h2>
-                    <p className="text-[32px] sm:text-[38px] md:text-4xl lg:text-[46px] font-extrabold text-[#0f172a] leading-[1.15] tracking-tight font-display">
+                    <p className="text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#0f172a] leading-[1.12] tracking-tight font-display">
                         We call it the <br className="hidden lg:block"/>
                         <span className="text-[#1e90ff]">Hyniva API.</span>
                     </p>
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
-                <div className="w-full lg:w-[65%] relative flex items-center justify-center mt-12 lg:mt-0 min-h-[500px] lg:min-h-[600px]">
+                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-12 lg:mt-0 min-h-[500px] lg:min-h-[600px]">
                     
                     <motion.div 
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="relative w-full h-[500px] lg:h-[600px] flex items-center justify-center"
+                        className="relative w-full h-[500px] lg:h-[600px] flex items-center justify-center translate-y-10 lg:translate-y-20"
                     >
                         {/* SVG DNA Canvas */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none -translate-y-16 lg:-translate-y-36">
@@ -363,8 +363,8 @@ function ApiSection() {
 
 function LeadershipSection() {
     return (
-        <section id="leadership" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#030b1e] py-16 sm:py-24 lg:py-32 text-white scroll-mt-24">
-            <div className="mx-auto max-w-[1400px] px-6 relative z-10">
+        <section id="leadership" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#030b1e] pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-white scroll-mt-24">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 relative z-10">
                 
                 {/* Header Area */}
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16 lg:mb-20">
@@ -382,7 +382,7 @@ function LeadershipSection() {
                                 OUR LEADERSHIP TEAM
                             </span>
                         </div>
-                        <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] tracking-tight text-white leading-[1.35]">
+                        <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-[900] tracking-tight text-white leading-[1.15] font-display">
                             Built by Practitioners<span className="text-white">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-white">.</span>
                         </h2>
                     </motion.div>
@@ -427,6 +427,8 @@ function LeadershipSection() {
                                                 ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.30) translateY(-2%)', transformOrigin: 'top center' }
                                                 : leader.name === 'Ramarao Jadapolu'
                                                 ? { objectFit: 'cover', objectPosition: 'center 20%', transform: 'scale(1.18)', transformOrigin: 'center top' }
+                                                : leader.name === 'Sathish Manchirala'
+                                                ? { objectFit: 'cover', objectPosition: '35% 0%', transform: 'scale(1.28)', transformOrigin: 'top center' }
                                                 : leader.name === 'Ramesh Gujarathi' || leader.name === 'Sowburniga' || leader.name === 'Ravi Kumar Kanaka'
                                                 ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.15) translateY(-2%)', transformOrigin: 'top center' }
                                                 : { objectPosition: 'top' }
@@ -477,7 +479,7 @@ function ValuesSection() {
     return (
         <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px] relative overflow-hidden">
 
-            <div className="mx-auto max-w-[1400px] px-6 relative z-10">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
                     {/* Left Column - Text */}
@@ -494,10 +496,10 @@ function ValuesSection() {
                                 OUR VALUES
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold mb-10 lg:mb-14 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line">
+                        <h2 className="text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold mb-10 lg:mb-14 text-slate-900 leading-[1.15] tracking-tight whitespace-pre-line font-display">
                             {aboutContent.values.title}
                         </h2>
-                        <p className="text-lg text-slate-600 leading-relaxed max-w-md">
+                        <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-md">
                             {aboutContent.values.description}
                         </p>
                     </motion.div>
@@ -518,8 +520,8 @@ function ValuesSection() {
                                     <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 ${item.iconBgClass} ${item.textColorClass}`}>
                                         <IconComponent className="w-7 h-7" />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
-                                    <p className="text-slate-600 text-[13px] leading-relaxed whitespace-pre-line">{item.description}</p>
+                                    <h3 className="text-[18px] sm:text-xl font-bold mb-3 text-slate-900 font-display">{item.title}</h3>
+                                    <p className="text-slate-600 text-[13.5px] sm:text-[14px] leading-relaxed font-medium">{item.description}</p>
                                 </motion.div>
                             );
                         })}
@@ -536,8 +538,8 @@ function OperationsSection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-[30px] sm:pt-[40px] lg:pt-[50px] pb-0">
-            <div className="mx-auto max-w-[1400px]">
+        <section className="bg-white pt-[30px] sm:pt-[40px] lg:pt-[50px] pb-0">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <motion.div
                     variants={fadeInUp}
                     initial="hidden"
@@ -547,17 +549,17 @@ function OperationsSection() {
                 >
                     {/* Inner Content - How We Work Section */}
                     <div className="px-6 sm:px-8 lg:px-12 py-[30px] sm:py-[40px] lg:py-[50px]">
-                        <div className="text-center mb-16 max-w-4xl mx-auto">
+                        <div className="text-center mb-10 max-w-4xl mx-auto">
                             <div className="mb-6 flex justify-center">
                                 <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                                     <span className="dot bg-[#2563eb]" />
                                     HOW WE WORK
                                 </span>
                             </div>
-                            <h2 className="text-[26px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display">
+                            <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display whitespace-pre-line">
                                 {aboutContent.operations.howWeOperate.title}
                             </h2>
-                            <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+                            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
                                 {aboutContent.operations.howWeOperate.description}
                             </p>
                         </div>
@@ -575,7 +577,7 @@ function OperationsSection() {
                                         <h4 className="font-black text-[16px] text-[#030B3B] mb-3 font-display tracking-tight">
                                             {item.title}
                                         </h4>
-                                        <div className="text-[13.5px] text-slate-500 font-medium leading-[1.6] w-full max-w-[280px] px-2">
+                                        <div className="text-[13px] sm:text-[13.5px] text-slate-500 font-medium leading-[1.5] w-full max-w-[280px] px-1.5">
                                             <p className="block whitespace-pre-line">
                                                 {item.description}
                                             </p>
@@ -597,8 +599,8 @@ function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
     return (
-        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-6 pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-            <div className="mx-auto max-w-[1400px] flex flex-col gap-4">
+        <section className="bg-white pt-6 pb-[10px] sm:pb-[15px] lg:pb-[20px]">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 flex flex-col gap-4">
                 <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pb-[10px] sm:pb-[15px] lg:pb-[20px] text-white">
                     {/* Background glow effects */}
                     <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
@@ -612,10 +614,10 @@ function DigitalFactorySection() {
                         >
                             {/* Left: Headline & Callout */}
                             <div className="flex-1 w-full lg:max-w-2xl">
-                                <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
+                                <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
                                     Digital Factory <span className="text-[#00D4AA]">Model.</span>
                                 </h2>
-                                <p className="text-[13px] sm:text-[14px] md:text-[15px] font-medium leading-[1.6] sm:leading-[1.7] text-white/70">
+                                <p className="text-[15px] font-medium leading-[1.7] text-white/70">
                                     The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br /> reducing overhead and increasing accountability at every stage.
                                 </p>
                             </div>
@@ -625,7 +627,7 @@ function DigitalFactorySection() {
                                 <div className="text-[56px] sm:text-[64px] lg:text-[72px] font-black leading-[0.85] tracking-[-3px] text-white font-display">
                                     40<span className="text-white text-[40px] sm:text-[48px] lg:text-[52px]">%</span>
                                 </div>
-                                <div className="text-[13px] sm:text-[14px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 tracking-widest uppercase">
+                                <div className="text-[10px] sm:text-[11px] font-bold mt-2 lg:mt-3 leading-[1.3] text-white/70 font-display tracking-[2px] uppercase text-balance">
                                     faster delivery<br />vs. traditional model
                                 </div>
                             </div>
@@ -636,14 +638,14 @@ function DigitalFactorySection() {
                             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
                             className="mt-8 lg:mt-10 mb-8 lg:mb-10 flex flex-col items-center justify-center gap-6 pt-1"
                         >
-                            <span className="text-[11.5px] font-bold tracking-widest text-white/70 text-center uppercase">
+                            <span className="font-display text-[10px] sm:text-[11px] font-bold tracking-[2px] uppercase text-white/70 text-center">
                                 Roles you no longer need to staff
                             </span>
                             <div className="flex flex-wrap justify-center gap-2.5">
                                 {roles.map((role) => (
                                     <span
                                         key={role}
-                                        className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[12.5px] font-semibold text-white/90 shadow-sm font-display uppercase tracking-wider"
+                                        className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-[11px] font-semibold text-white/90 shadow-sm font-display uppercase tracking-wider"
                                     >
                                         <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-red-500/50 bg-red-500/20 text-[10px] font-black text-red-400 leading-none flex-shrink-0">✕</span>
                                         {role}
@@ -760,20 +762,20 @@ function DigitalFactorySection() {
 
                                 {/* ── Planet 1: Discovery & Planning (teal, small, high) ── */}
                                 <g className="hpg hfloat-0" style={{ transformOrigin: "88px 82px" }}>
-                                    <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Discovery &amp; Planning</text>
+                                    <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Discovery &amp; Planning</text>
                                     <circle cx="88" cy="82" r="30" fill="url(#hs1)" className="hs" />
                                     <ellipse cx="88" cy="90" rx="28" ry="5.5" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc1)" />
-                                    <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer captures</text>
-                                    <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">scope directly.</text>
+                                    <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer captures</text>
+                                    <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">scope directly.</text>
                                 </g>
 
                                 {/* ── Planet 2: Dev Project Planning (navy, medium, low) ── */}
                                 <g className="hpg hfloat-1" style={{ transformOrigin: "272px 195px" }}>
-                                    <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Dev Project Planning</text>
+                                    <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Dev Project Planning</text>
                                     <circle cx="272" cy="195" r="50" fill="url(#hs2)" className="hs" />
                                     <ellipse cx="272" cy="206" rx="47" ry="9" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc2)" />
-                                    <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Developer writes</text>
-                                    <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">the user stories.</text>
+                                    <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer writes</text>
+                                    <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">the user stories.</text>
                                 </g>
 
                                 {/* ── Planet 3: Engineering Dev & Quality Automation (cyan, large, peak center) ── */}
@@ -781,26 +783,26 @@ function DigitalFactorySection() {
                                     <text x="500" y="-20" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
                                     <circle cx="500" cy="68" r="78" fill="url(#hs3)" className="hs" />
                                     <ellipse cx="500" cy="82" rx="74" ry="14" fill="none" stroke="rgba(100,160,255,0.25)" strokeWidth="1.5" clipPath="url(#hc3)" />
-                                    <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">One engineer owns scope,</text>
-                                    <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">code &amp; quality.</text>
+                                    <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">One engineer owns scope,</text>
+                                    <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">code &amp; quality.</text>
                                 </g>
 
                                 {/* ── Planet 4: Launch & Iterations (teal, medium, low) ── */}
                                 <g className="hpg hfloat-3" style={{ transformOrigin: "728px 218px" }}>
-                                    <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Launch &amp; Iterations</text>
+                                    <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Launch &amp; Iterations</text>
                                     <circle cx="728" cy="218" r="42" fill="url(#hs1)" className="hs" />
                                     <ellipse cx="728" cy="228" rx="39" ry="7.5" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc4)" />
-                                    <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Same developer</text>
-                                    <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">drives every release.</text>
+                                    <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Same developer</text>
+                                    <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">drives every release.</text>
                                 </g>
 
                                 {/* ── Planet 5: Support & Product Evolution (navy, small, high) ── */}
                                 <g className="hpg hfloat-4" style={{ transformOrigin: "922px 134px" }}>
-                                    <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00D4AA" className="hlabel">Support &amp; Product Evolution</text>
+                                    <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Support &amp; Product Evolution</text>
                                     <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs" />
                                     <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)" />
-                                    <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">Product knowledge</text>
-                                    <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.85)">stays with the team.</text>
+                                    <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Product knowledge</text>
+                                    <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">stays with the team.</text>
                                 </g>
                             </svg>
                         </motion.div>
@@ -878,16 +880,16 @@ function TimelineSection() {
     }, [activeYear]);
 
     return (
-        <section className="bg-white py-[30px] sm:py-[40px] lg:py-[50px]">
+        <section className="bg-white pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
             <style jsx>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
                 }
             `}</style>
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
                 {/* Title */}
-                <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-[900] text-slate-900 leading-[1.2] tracking-tight text-center whitespace-pre-line mb-12 lg:mb-16">
+                <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-[900] text-slate-900 leading-[1.15] tracking-tight text-center whitespace-pre-line mb-12 lg:mb-16 font-display">
                     {aboutContent.journey.sectionTitle}
                 </h2>
 

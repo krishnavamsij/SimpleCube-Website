@@ -168,7 +168,7 @@ export function Services() {
                                             <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent lg:block z-10" />
 
                                             <div className="relative flex flex-col h-full items-center justify-center p-6 sm:p-8 lg:p-14">
-                                                <div className="relative h-[260px] w-full sm:h-[320px] lg:h-full">
+                                                <div className="relative h-[260px] w-full sm:h-[320px] lg:h-full z-10">
 
                                                     <Image
                                                         src={svc.image}
@@ -179,7 +179,7 @@ export function Services() {
                                                             i === 1
                                                                 ? "lg:scale-125"
                                                                 : i === 2
-                                                                ? "lg:scale-[1.15]"
+                                                                ? "lg:scale-[1.02] lg:-translate-y-4"
                                                                 : i === 3
                                                                 ? "lg:scale-125"
                                                                 : "lg:scale-[1.35]"
@@ -187,7 +187,7 @@ export function Services() {
                                                     `}
                                                     />
                                                 </div>
-                                                <div className="pointer-events-none absolute -bottom-5 right-0 z-20 text-[60px] sm:text-[90px] lg:text-[110px] font-black leading-none text-slate-300/30 text-right tracking-tight">
+                                                <div className="pointer-events-none absolute bottom-8 right-6 lg:bottom-10 lg:right-10 z-20 text-[50px] sm:text-[72px] lg:text-[82px] xl:text-[92px] font-black leading-none text-slate-400/35 text-right tracking-tight">
                                                     {svc.num === "01" ? "Transform" : 
                                                      svc.num === "02" ? "Connect" : 
                                                      svc.num === "03" ? "Build" : 

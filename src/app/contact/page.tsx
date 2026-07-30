@@ -129,7 +129,7 @@ export default function ContactPage() {
                         }}
                     />
                     
-                    <div className="relative z-10 mx-auto max-w-[1400px] px-6 text-center">
+                    <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 text-center">
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
@@ -144,7 +144,7 @@ export default function ContactPage() {
                             
                             <motion.h1 
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-8 font-display text-left sm:text-center"
+                                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-10 lg:mb-12 font-display text-left sm:text-center"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
                             
@@ -160,7 +160,7 @@ export default function ContactPage() {
 
                 {/* ── Content Section (White Background) ── */}
                 <section className="py-20 bg-white">
-                    <div className="mx-auto max-w-[1400px] px-8 lg:px-12">
+                    <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
                             
                             {/* Left Column: Details */}
@@ -173,50 +173,50 @@ export default function ContactPage() {
                                 >
                                     <motion.h2 
                                         variants={fadeInUp}
-                                        className="text-3xl lg:text-[42px] font-[900] text-foreground tracking-tight leading-tight mb-8 font-display"
+                                        className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[34px] font-[900] text-foreground tracking-tight leading-[1.2] mb-6 font-display"
                                         dangerouslySetInnerHTML={{ __html: contactContent.body.title }}
                                     />
                                     
                                     <motion.p 
                                         variants={fadeInUp}
-                                        className="text-lg text-slate-600 font-medium leading-relaxed mb-12"
+                                        className="text-base text-slate-600 font-medium leading-relaxed mb-10"
                                     >
                                         {contactContent.body.description}
                                     </motion.p>
 
                                     {/* Contact Methods */}
                                     <motion.div variants={fadeInUp} className="space-y-6 mb-16">
-                                        <div className="flex items-center gap-5 group cursor-pointer p-2 rounded-2xl hover:bg-slate-50 transition-all">
-                                            <div className="w-12 h-12 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                        <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Mail className="w-5 h-5" />
                                             </div>
-                                            <div>
+                                            <div className="flex-1 min-w-0">
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMAIL</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors">
+                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
                                                     {contactContent.body.contactInfo.email}
                                                 </a>
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-5 group cursor-pointer p-2 rounded-2xl hover:bg-slate-50 transition-all">
-                                            <div className="w-12 h-12 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                        <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Phone className="w-5 h-5" />
                                             </div>
-                                            <div>
+                                            <div className="flex-1 min-w-0">
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR & CAREERS</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors">
+                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
                                                     {contactContent.body.contactInfo.hr}
                                                 </a>
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-5 group cursor-pointer p-2 rounded-2xl hover:bg-slate-50 transition-all">
-                                            <div className="w-12 h-12 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                        <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Linkedin className="w-5 h-5" />
                                             </div>
-                                            <div>
+                                            <div className="flex-1 min-w-0">
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">LINKEDIN</p>
-                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors">
+                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
                                                     {contactContent.body.contactInfo.linkedin}
                                                 </a>
                                             </div>
@@ -224,25 +224,25 @@ export default function ContactPage() {
                                     </motion.div>
 
                                     {/* Address Cards */}
-                                    <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div className="p-10 rounded-[32px] bg-accent border border-border h-full flex flex-col justify-center hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <span className="text-2xl group-hover:scale-125 transition-transform">🇺🇸</span>
-                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.us.title}</h4>
+                                    <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
+                                        <div className="p-6 rounded-[32px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                            <div className="flex items-center gap-2 mb-4 h-[18px]">
+                                                <span className="text-sm font-bold text-[#030B3B] leading-[18px]">US</span>
+                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
                                             </div>
                                             <p 
-                                                className="text-[15px] font-medium text-foreground leading-relaxed"
+                                                className="text-[14px] font-medium text-foreground leading-[1.6]"
                                                 dangerouslySetInnerHTML={{ __html: contactContent.body.offices.us.address }}
                                             />
                                         </div>
 
-                                        <div className="p-10 rounded-[32px] bg-accent border border-border h-full flex flex-col justify-center hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <span className="text-2xl group-hover:scale-125 transition-transform">🇮🇳</span>
-                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest">{contactContent.body.offices.india.title}</h4>
+                                        <div className="p-6 rounded-[32px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                            <div className="flex items-center gap-2 mb-4 h-[18px]">
+                                                <span className="text-sm font-bold text-[#030B3B] leading-[18px]">IN</span>
+                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.india.title}</h4>
                                             </div>
                                             <p 
-                                                className="text-[15px] font-medium text-foreground leading-relaxed"
+                                                className="text-[14px] font-medium text-foreground leading-[1.6]"
                                                 dangerouslySetInnerHTML={{ __html: contactContent.body.offices.india.address }}
                                             />
                                         </div>
@@ -257,10 +257,10 @@ export default function ContactPage() {
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={viewportOnce}
-                                    className="p-10 lg:p-14 rounded-[40px] border border-border bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)] h-full flex flex-col"
+                                    className="p-8 lg:p-10 rounded-[40px] border border-border bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)] h-full flex flex-col"
                                 >
-                                    <div className="mb-10">
-                                        <h3 className="text-3xl font-[900] text-foreground mb-3 font-display leading-tight">
+                                    <div className="mb-6">
+                                        <h3 className="text-2xl sm:text-3xl font-[900] text-foreground mb-3 font-display leading-[1.2]">
                                             {contactContent.form.title}
                                         </h3>
                                         <p className="text-[15px] font-medium text-slate-500 leading-relaxed">

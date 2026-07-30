@@ -88,13 +88,13 @@ function RelatedNews({ currentSlug, currentTag }: { currentSlug: string; current
                         </button>
                     </div>
                 </div>
-                <div className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory -mx-6 px-6 sm:px-0"
+                <div className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory"
                     ref={containerRef}
                 >
                     {related.map((post, idx) => (
                         <div
                             key={idx}
-                            className="group flex-shrink-0 w-full sm:w-[calc(33.333%-16px)] bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 snap-start"
+                            className="group flex-shrink-0 w-full sm:w-[calc(33.333%-16px)] bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 snap-start flex flex-col justify-between"
                         >
                             <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
                                 <img
@@ -109,18 +109,20 @@ function RelatedNews({ currentSlug, currentTag }: { currentSlug: string; current
                                     </span>
                                 </div>
                             </div>
-                            <div className="p-5 sm:p-6">
-                                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-3">
-                                    <Clock className="w-3.5 h-3.5" />
-                                    {post.date}
+                            <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+                                <div>
+                                    <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-3">
+                                        <Clock className="w-3.5 h-3.5" />
+                                        {post.date}
+                                    </div>
+                                    <h5
+                                        className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 min-h-[2.8em] mb-4 group-hover:text-[#1e90ff] transition-colors flex items-start"
+                                        dangerouslySetInnerHTML={{ __html: post.title }}
+                                    />
                                 </div>
-                                <h5
-                                    className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 mb-4 group-hover:text-[#1e90ff] transition-colors"
-                                    dangerouslySetInnerHTML={{ __html: post.title }}
-                                />
                                 <Link
                                     href={post.href}
-                                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md"
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md w-fit mt-auto"
                                 >
                                     Read News
                                     <ChevronRight className="w-4 h-4" />

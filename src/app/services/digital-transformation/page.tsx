@@ -142,7 +142,7 @@ function DigitalTransformationHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white py-5 lg:py-8">
+        <section className="bg-white py-3 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Left: Illustration Image */}
@@ -151,13 +151,13 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.fadeInUp}
-                        className="relative h-[280px] sm:h-[320px] lg:h-[380px] w-full flex items-center justify-center"
+                        className="relative h-[300px] sm:h-[360px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-8 lg:mt-12"
                     >
                         <Image
                             src="/images/Our_Services/Digital_Transformation_no_BG.svg"
                             alt="Transformation with Purpose"
                             fill
-                            className="object-contain transform-gpu transition-transform duration-700 ease-out hover:scale-105"
+                            className="object-contain object-center transform-gpu transition-transform duration-700 ease-out hover:scale-105"
                         />
                     </motion.div>
 
@@ -167,7 +167,7 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.staggerContainer}
-                        className="flex flex-col items-start justify-center"
+                        className="flex flex-col items-start justify-center self-center"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">

@@ -25,7 +25,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "autonomous-lending-experiences": {
         "slug": "autonomous-lending-experiences",
         "eyebrow": "AI-Driven Lending & Agentforce",
-        "title": "Autonomous Lending Experience with<br>\n      <em>FinXServe and Agentforce</em>",
+        "title": "Autonomous Lending Experience<br>\n      <em>with FinXServe and Agentforce</em>",
         "summary": "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
         "metrics": [
             {
@@ -173,7 +173,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "instant-loan-processing": {
         "slug": "instant-loan-processing",
         "eyebrow": "Agentforce Document Intelligence",
-        "title": "Faster Loan Processing with<br>\n      <em>Agentforce Document Intelligence</em>",
+        "title": "Faster Loan Processing<br>\n      <em>with Agentforce Document Intelligence</em>",
         "summary": "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
         "metrics": [
             {
@@ -970,7 +970,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "solution",
                 "title": "Hyniva's Solution",
                 "type": "text",
-                "content": "<p>Hyniva designed and implemented a real-time, cloud-native data platform to unify disparate data sources into a single, scalable foundation.</p>\n        <p>The engagement began with a comprehensive assessment of existing systems and data flows to define a long-term data strategy.</p>\n        <p>Leveraging AWS serverless technologies, Hyniva built an automated data pipeline architecture:</p>\n        <div class=\"tech-bullets\">\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span><strong>AWS Glue &amp; PySpark</strong> for large-scale data processing and transformation</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span><strong>AWS Lambda</strong> to orchestrate and trigger workflows</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span>Seamless integration across mainframe systems, flat files, and modern platforms</span>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>This enabled the creation of a centralized data warehouse supporting a Customer 360 view, capturing complete lifecycle insights — from account creation to transaction behavior.</p>\n        <p>The platform was designed to be real-time, automated, and future-ready.</p>\n      </div>\n      <div class=\"tech-tags\">\n        <span class=\"tech-tag\">AWS Glue</span>\n        <span class=\"tech-tag\">PySpark</span>\n        <span class=\"tech-tag\">AWS Lambda</span>\n        <span class=\"tech-tag\">AWS Serverless</span>\n        <span class=\"tech-tag\">Data Warehouse</span>\n        <span class=\"tech-tag\">Customer 360</span>\n      </div>"
+                "content": "<p>Hyniva designed and implemented a real-time, cloud-native data platform to unify disparate data sources into a single, scalable foundation.</p>\n        <p>The engagement began with a comprehensive assessment of existing systems and data flows to define a long-term data strategy.</p>\n        <p>Leveraging AWS serverless technologies, Hyniva built an automated data pipeline architecture:</p>\n        <div class=\"tech-bullets\">\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span>AWS Glue &amp; PySpark for large-scale data processing and transformation</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span>AWS Lambda to orchestrate and trigger workflows</span>\n        </div>\n        <div class=\"tech-bullet\">\n          <div class=\"tech-bullet__dot\"></div>\n          <span>Seamless integration across mainframe systems, flat files, and modern platforms</span>\n        </div>\n      </div>\n      <div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>This enabled the creation of a centralized data warehouse supporting a Customer 360 view, capturing complete lifecycle insights — from account creation to transaction behavior.</p>\n        <p>The platform was designed to be real-time, automated, and future-ready.</p>\n      </div>\n      <div class=\"tech-tags\">\n        <span class=\"tech-tag\">AWS Glue</span>\n        <span class=\"tech-tag\">PySpark</span>\n        <span class=\"tech-tag\">AWS Lambda</span>\n        <span class=\"tech-tag\">AWS Serverless</span>\n        <span class=\"tech-tag\">Data Warehouse</span>\n        <span class=\"tech-tag\">Customer 360</span>\n      </div>"
             },
             {
                 "id": "benefits",
@@ -1630,7 +1630,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "modernizing-a-legacy-platform": {
         "slug": "legacy-crm-modernization",
         "eyebrow": "CRM Modernization & Lending Platform",
-        "title": "<em>Legacy CRM to</em> Modern Lending Platform",
+        "title": "<em>Legacy CRM to</em><br> Modern Lending Platform",
         "summary": "Re-architected an outdated CRM into a modern platform, enabling better usability, streamlined workflows, and integration with external systems.",
         "metrics": [
             {
@@ -1717,7 +1717,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "transforming-insurance-claims-operations-with-a-scalable-digital-platform": {
         "slug": "insurance-claims-platform",
         "eyebrow": "Insurance Claims Transformation",
-        "title": "Transforming Insurance Claims Operations\n      <em>with a Scalable Digital Platform</em>",
+        "title": "Transforming Insurance Claims Operations<br><em>with a Scalable Digital Platform</em>",
         "summary": "Digital platform that unified fragmented claims workflows, enabled real-time processing, and improved visibility across the claims lifecycle — driving faster settlements.",
         "metrics": [
             {
@@ -2290,10 +2290,10 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "content": {
                     "body": "<p>Our engineering-led approach translated directly into measurable business outcomes:</p>",
                     "items": [
-                        "<strong>Zero-Defect Delivery</strong> — Maintained a flawless delivery record with no client complaints since project inception",
-                        "<strong>Reduced Operational Overhead</strong> — Reduced client coordination effort significantly by moving from daily syncs to bi-weekly check-ins",
-                        "<strong>Scalable Platform Foundation</strong> — Enabled seamless expansion from basic features to a full-scale multi-portal system without rework",
-                        "<strong>Improved Productivity for End Users</strong> — Automated workflows and intuitive UI significantly reduced manual administrative effort for administrators and SSAs"
+                        "Zero-Defect Delivery — Maintained a flawless delivery record with no client complaints since project inception",
+                        "Reduced Operational Overhead — Reduced client coordination effort significantly by moving from daily syncs to bi-weekly check-ins",
+                        "Scalable Platform Foundation — Enabled seamless expansion from basic features to a full-scale multi-portal system without rework",
+                        "Improved Productivity for End Users — Automated workflows and intuitive UI significantly reduced manual administrative effort for administrators and SSAs"
                     ]
                 }
             },
@@ -2946,7 +2946,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-admin": {
         "slug": "eazyschool-admin",
         "eyebrow": "Education Technology",
-        "title": "Intelligent School Administration <span style='color: white;'>for</span> <em>Modern Institutions</em>",
+        "title": "Intelligent School Administration<br><span style='color: white;'>for</span> <em>Modern Institutions</em>",
         "summary": "Eliminated manual school administration with a centralized platform that automates workflows, delivers real-time operational visibility and drives stronger accountability across institutions.",
         "metrics": [
             {
@@ -2986,7 +2986,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Hyniva's Solution",
                 "type": "approach-list",
                 "content": {
-                    "body": "<p>Hyniva implemented the admin-focused capabilities of <strong>EazySchool</strong> to create a centralized digital administration ecosystem, unifying all operational workflows into a single intelligent platform.</p>",
+                    "body": "<p>Hyniva implemented the admin-focused capabilities of EazySchool to create a centralized digital administration ecosystem, unifying all operational workflows into a single intelligent platform.</p>",
                     "items": [
                         {
                             "num": "a",

@@ -93,7 +93,7 @@ export function TimelineProcess({
   const sizeMap = [300, 230, 200, 180];
 
   return (
-    <section ref={containerRef} className="bg-[#030b1e] pt-16 pb-10 lg:pb-16 relative overflow-hidden text-white font-sans select-none">
+    <section ref={containerRef} className="bg-[#030b1e] pt-14 pb-2 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
       
@@ -121,7 +121,7 @@ export function TimelineProcess({
         </motion.div>
 
         {/* Desktop Timeline */}
-        <div className="hidden lg:block relative w-full h-[500px] mx-auto max-w-[96rem] mt-6">
+        <div className="hidden lg:block relative w-full h-[400px] mx-auto max-w-[96rem] mt-4">
           
           {/* Base Horizontal Timeline Line */}
           <div className="absolute top-[40%] left-0 right-0 h-[1px] bg-white/20 border-t border-dashed border-white/30 z-0" />
@@ -245,7 +245,7 @@ export function TimelineProcess({
         </div>
 
         {/* Mobile / Tablet Vertical Timeline */}
-        <div className="lg:hidden relative border-l border-white/10 ml-6 pl-8 space-y-16 mt-16">
+        <div className="lg:hidden relative border-l border-white/10 ml-6 pl-8 space-y-12 mt-10 mb-4">
           {steps.map((step, idx) => {
              const isActive = activeStep === idx;
              return (

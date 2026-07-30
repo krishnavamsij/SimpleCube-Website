@@ -127,13 +127,19 @@
   letter-spacing: 0.2em !important;
 }
 
-h1.cs-line-clamp-2 {
+h1.cs-line-clamp-2,
+.cs-line-clamp-2 {
   font-family: var(--font-display), system-ui, sans-serif !important;
   color: #ffffff !important;
   font-weight: 900 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
 }
 
-h1.cs-line-clamp-2 em {
+h1.cs-line-clamp-2 em,
+.cs-line-clamp-2 em {
   color: #ffffff !important;
   font-style: normal !important;
 }

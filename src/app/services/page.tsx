@@ -391,7 +391,7 @@ function CertificationsScroll() {
                 <div className="marquee-fade overflow-hidden">
                     <div 
                         className="animate-marquee flex w-max items-center gap-8 sm:gap-10 lg:gap-14 px-6" 
-                        style={{ "--marquee-duration": "30s" } as React.CSSProperties}
+                        style={{ "--marquee-duration": "15s" } as React.CSSProperties}
                     >
                         {duplicatedCertifications.map((cert, i) => (
                             <div
@@ -512,8 +512,8 @@ function DataSecuritySection() {
                             highest standards so your data, your clients, and your reputation stay protected.
                         </p>
 
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">Trusted by 45+ Enterprise Clients</h3>
-                        <p className="text-sm text-slate-500 max-w-xl">
+                        <h3 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 mb-3">Trusted by 45+ Enterprise Clients</h3>
+                        <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
                             From financial institutions to Fortune 500s, organizations trust Hyniva to handle
                             their most sensitive workloads securely and compliantly.
                         </p>

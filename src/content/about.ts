@@ -7,11 +7,11 @@
 export const aboutContent = {
     hero: {
         title: "Product Thinking.\nEnterprise Impact.",
-        description: "Our mission is to simplify enterprise complexity through product engineering services that enable organizations to modernize faster, innovate continuously and deliver lasting value.",
+        description: "Our mission is to simplify enterprise complexity through\nproduct engineering services that enable organizations to\nmodernize faster, innovate continuously and deliver lasting value.",
         metrics: [
             { value: "220+", label: "Applications\nDelivered" },
             { value: "45+", label: "Enterprise\nClients" },
-            { value: "15+", label: "Years of Partners\nTeamed Up" },
+            { value: "15+", label: "Years\nPartnered" },
             { value: "7", label: "Products\nBuilt" }
         ]
     },
@@ -100,10 +100,17 @@ export const aboutContent = {
                 description: "30+ years of expertise guiding enterprise modernization with architecture strategies balancing innovation and reliability.",
             },
             {
+                name: "Sathish Manchirala",
+                title: "VP, Head of Salesforce Practice",
+                image: "/images/leadership images/Sathish_Manchirala.png",
+                linkedin: "https://www.linkedin.com/in/vmanchirala/",
+                description: "Enterprise Salesforce leader with 18+ years of experience delivering complex solutions and driving agile execution.",
+            },
+            {
                 name: "Ramarao Jadapolu",
                 title: "Director of Application Delivery",
                 image: "/images/leadership images/Ramarao.png",
-                linkedin: "",
+                linkedin: "https://www.linkedin.com/in/ramaraojadapolu/",
                 description: "18+ years of experience delivering enterprise solutions across banking, wealth management and education.",
             },
             {
@@ -151,7 +158,7 @@ export const aboutContent = {
             },
             {
                 title: "Transparency & Trust",
-                description: "We operate with clarity and candor. From opportunities \nto risks, we communicate proactively to enable better decisions and stronger partnerships.",
+                description: "We operate with clarity and candor. From opportunities to risks, we communicate proactively to enable better decisions and stronger partnerships.",
                 icon: "Shield",
                 colorClass: "bg-[#faf5ff] border-[#f3e8ff]",
                 textColorClass: "text-[#a855f7]",
@@ -159,7 +166,7 @@ export const aboutContent = {
             },
             {
                 title: "Agility with Impact",
-                description: "Our lean structure creates a distinct competitive \nedge, enabling focused execution and delivering \noutsized impact.",
+                description: "Our lean structure creates a distinct competitive edge, enabling focused execution and delivering outsized impact.",
                 icon: "Rocket",
                 colorClass: "bg-[#fff7ed] border-[#ffedd5]",
                 textColorClass: "text-[#f97316]",
@@ -169,24 +176,24 @@ export const aboutContent = {
     },
     operations: {
         howWeOperate: {
-            title: "From discovery to delivery — no surprises.",
+            title: "From discovery to delivery —\nno surprises.",
             description: "We say what we do and do what we say. Our structured delivery model eliminates bureaucracy and keeps you directly connected to our experts.",
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your business goals, \nexisting systems and constraints\nbefore proposing anything."
+                    description: "We understand your goals,\nexisting systems & constraints\nbefore proposing anything."
                 },
                 {
                     title: "Strategy & Scope",
-                    description: "A clear roadmap with transparent cost, timeline and risk — no padded estimates, no surprises."
+                    description: "A clear roadmap with\ntransparent cost and timeline —\nno padded estimates or surprises."
                 },
                 {
                     title: "Agile Delivery",
-                    description: "Direct access to our engineers\nand SMEs. Weekly demos.\nDecisions made fast."
+                    description: "Direct access to our developers.\nWeekly progress demos.\nDecisions made fast."
                 },
                 {
                     title: "Launch & Scale",
-                    description: "We don't hand off and\ndisappear — we support, optimize\nand grow with you."
+                    description: "We don't hand off and disappear\n— we support, optimize\nand grow alongside you."
                 }
             ]
         },

@@ -1457,3 +1457,15 @@ html {
 .pe-shape-4 {
   animation: pe-float-shape-reverse 6s ease-in-out infinite;
 }
+
+/* Strict 2-line clamping for hero banners, headings, callouts, and cards */
+.cs-line-clamp-2,
+.line-clamp-2 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  box-orient: vertical !important;
+  overflow: hidden !important;
+}
+

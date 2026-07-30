@@ -35,15 +35,15 @@ export default function NewsPage() {
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
             <Navbar forceDarkText={true} />
             
-            <main className="pt-28 sm:pt-32 pb-16 sm:pb-24 mx-auto w-full max-w-[1400px] px-4 sm:px-6">
+            <main className="pt-24 lg:pt-28 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* ── Page Header ── */}
                 <motion.div 
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
-                    className="mb-20"
+                    className="mb-12 lg:mb-16"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-8 w-fit">
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-6 sm:mb-8 w-fit">
                         <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                         NEWS
                     </motion.div>
@@ -52,15 +52,14 @@ export default function NewsPage() {
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title & Description */}
                         <div className="lg:w-2/3">
-                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[72px] font-[900] text-[#030B3B] tracking-tight leading-[1.05] mb-6 font-display">
+                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display text-balance">
                                 Highlights that <span className='text-[#00D4AA]'>matter.</span>
                             </motion.h1>
                             <motion.p 
                                 variants={fadeInUp} 
-                                className="w-full text-lg leading-relaxed text-slate-600 sm:text-xl font-medium max-w-4xl"
+                                className="w-full text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl whitespace-pre-line"
                             >
-                                Explore the latest news, strategic announcements, technology updates <br className="hidden sm:block" />
-                                and milestones from Hyniva.
+                                {"Explore the latest news, strategic announcements,\ntechnology updates and milestones from Hyniva."}
                             </motion.p>
                         </div>
 
@@ -147,15 +146,18 @@ export default function NewsPage() {
 
                             {/* Card Body */}
                             <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
-                                {/* Meta Row: Date Only (Tags removed as per request) */}
-                                <div className="flex items-center gap-3 mb-4">
+                                {/* Meta Row: Date Only */}
+                                <div className="flex items-center gap-3 mb-4 min-h-[24px]">
                                     <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">{post.date}</span>
                                 </div>
 
-                                <h3 
-                                    className="font-display text-[21px] font-bold text-[#030B3B] leading-[1.4] tracking-tight mb-8 flex-1"
-                                    dangerouslySetInnerHTML={{ __html: post.title }}
-                                />
+                                {/* Title Wrapper */}
+                                <div className="h-[52px] flex-shrink-0 mb-6 flex items-start overflow-hidden">
+                                    <h3 
+                                        className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight"
+                                        dangerouslySetInnerHTML={{ __html: post.title }}
+                                    />
+                                </div>
                                 
                                 {/* CTA Button */}
                                 <Link

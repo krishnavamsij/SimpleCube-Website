@@ -64,38 +64,19 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
 
   return (
     <section className="bg-[#F8FAFC] border-t border-[#030B3B]/10 py-16 sm:py-20">
-      <div className="mx-auto w-full max-w-[1400px] px-6">
+      <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#030B3B] leading-snug">Related Articles</h3>
-            <p className="text-slate-400 mt-2 font-medium text-sm sm:text-base">Continue exploring insights from the {/* spell-checker:disable */}Hyniva{/* spell-checker:enable */} team</p>
-          </div>
-          <div className="flex gap-3">
-            <button
-              onClick={() => scroll('left')}
-              disabled={!canScrollLeft}
-              className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              disabled={!canScrollRight}
-              className="w-12 h-12 rounded-full border border-[#030B3B]/10 flex items-center justify-center hover:bg-[#030B3B] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+            <p className="text-slate-500 mt-2 font-medium text-sm sm:text-base">Continue exploring insights from the {/* spell-checker:disable */}Hyniva{/* spell-checker:enable */} team</p>
           </div>
         </div>
-        <div className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory -mx-6 px-6 sm:px-0"
-          ref={containerRef}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6"
         >
           {related.map((post, idx) => (
             <div
               key={idx}
-              className="group flex-shrink-0 w-full sm:w-[calc(33.333%-16px)] bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 snap-start"
+              className="group flex-shrink-0 bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
                 <img
@@ -110,18 +91,20 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
                   </span>
                 </div>
               </div>
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-3">
-                  <Clock className="w-3.5 h-3.5" />
-                  {post.date}
+              <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-3">
+                    <Clock className="w-3.5 h-3.5" />
+                    {post.date}
+                  </div>
+                  <h5
+                    className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 min-h-[2.8em] mb-4 group-hover:text-[#1e90ff] transition-colors flex items-start"
+                    dangerouslySetInnerHTML={{ __html: post.title }}
+                  />
                 </div>
-                <h5
-                  className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 mb-4 group-hover:text-[#1e90ff] transition-colors"
-                  dangerouslySetInnerHTML={{ __html: post.title }}
-                />
                 <Link
                   href={post.href}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md w-fit mt-auto"
                 >
                   Read More
                   <ChevronRight className="w-4 h-4" />

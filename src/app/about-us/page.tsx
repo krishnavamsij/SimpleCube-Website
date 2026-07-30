@@ -298,7 +298,7 @@ function LeadershipSection() {
 /* ─────────────── How We Operate Section ─────────────── */
 function HowWeOperateSection() {
     return (
-        <section className="py-20 sm:py-28 md:py-32 bg-slate-50">
+        <section className="pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-14 md:pb-16 bg-slate-50">
             <div className="mx-auto max-w-6xl px-6 sm:px-8">
                 <motion.div
                     variants={fadeInUp}

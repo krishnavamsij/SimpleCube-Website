@@ -198,7 +198,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.15 }}
-                        className="text-[32px] sm:text-[34px] md:text-[38px] lg:text-[48px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2"
+                        className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[46px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2 max-w-5xl mx-auto"
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
 
@@ -281,9 +281,13 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     51%  { transform:scaleY(1); transform-origin:bottom; }
                     100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
                 }
-                /* Case study title color overrides - only target h1 title */
+                /* Case study title color & line-clamp overrides */
                 h1.cs-line-clamp-2 {
                     color: #1e90ff !important; /* Blue for regular text */
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 2 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
                 }
                 h1.cs-line-clamp-2 em {
                     color: #ffffff !important; /* White for emphasized parts */
@@ -304,17 +308,21 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                 }
                 /* Summary text - enforce 2 line clamp */
                 p.cs-line-clamp-2 {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 2 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
                 }
-                /* Metric labels - allow wrapping to 2 lines naturally */
+                /* Metric labels - strictly formatted to 2 lines max */
                 .cs-force-2-lines-safe {
-                    display: block;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 2 !important;
+                    -webkit-box-orient: vertical !important;
+                    overflow: hidden !important;
                     word-wrap: break-word;
                     overflow-wrap: break-word;
                     line-height: 1.3;
+                    max-height: 2.6em;
                 }
                 `
             }} />
