@@ -203,7 +203,7 @@ export default function ClaimPioneerPage() {
         <div className={CONTAINER_CLASS}>
           <header className="text-center mb-8 -mt-4 lg:-mt-6">
             <h2
-              className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white leading-tight mb-8"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white leading-tight mb-8"
             >
               Capabilities That Drive Growth
             </h2>

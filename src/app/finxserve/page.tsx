@@ -231,7 +231,7 @@ export default function FinxservePage() {
                 <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[60px]`} >
                     {/* LEFT FIXED CONTENT */}
                     <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left -mt-3 lg:-mt-5">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white mb-6 leading-tight">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-6 leading-tight">
                             Capabilities That Drive Growth
                         </h2>
                         <p className="text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm">
@@ -369,7 +369,7 @@ export default function FinxservePage() {
                             <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-white mb-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Tangible Business Value
                             </h2>
-                            <p className="text-base sm:text-lg font-normal leading-relaxed text-white/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <p className="text-lg sm:text-xl font-normal leading-relaxed text-white/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 FinXServe transforms results at every stage of the member and lender journey
                             </p>
                         </header>

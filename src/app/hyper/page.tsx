@@ -231,7 +231,7 @@ export default function HyperPage() {
 
                     {/* Heading */}
                     <header className="text-center mb-10">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white leading-tight mb-6">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white leading-tight mb-6">
                             Capabilities That Drive Growth
                         </h2>
                     </header>
