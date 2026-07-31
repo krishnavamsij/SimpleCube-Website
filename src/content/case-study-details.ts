@@ -173,7 +173,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "instant-loan-processing": {
         "slug": "instant-loan-processing",
         "eyebrow": "Agentforce Document Intelligence",
-        "title": "Faster Loan Processing<br>\n      <em>with Agentforce Document Intelligence</em>",
+        "title": "Faster Loan Processing<br>\n      <em>with Agentforce Document AI</em>",
         "summary": "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
         "metrics": [
             {
@@ -1126,7 +1126,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "modernizing-case-management-for-a-community-healthcare-provider-stop",
         "eyebrow": "Healthcare System Modernization",
         "title": "Modernizing Case Management<br>\n      <em>for a Community Healthcare Provider</em>",
-        "summary": "Streamlined case intake, tracking, and resolution workflows —enabling real-time visibility, <br> improved coordination, and more efficient service delivery for community healthcare programs.",
+        "summary": "Streamlined case intake, tracking, and resolution workflows — enabling real-time visibility, improved coordination, and more efficient service delivery for community healthcare programs.",
         "metrics": [
             {
                 "icon": "🗂️",
@@ -1502,8 +1502,8 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
         "slug": "loan-routing-automation",
         "eyebrow": "FinTech Lending Automation",
-        "title": "Optimizing Loan Routing <br>\n      <em>and Pre-Qualification with Intelligent Automation</em>",
-        "summary": "An automation-driven solution evaluated borrower data in real time and routed applications<br>to the right lenders — reducing friction, improving match quality and accelerating the end-to-end lending journey.",
+        "title": "Optimizing Loan Routing and Pre-Qualification <em>with Intelligent Automation</em>",
+        "summary": "An automation-driven solution evaluated borrower data in real time and routed applications to the right lenders — reducing friction, improving match quality and accelerating the end-to-end lending journey.",
         "metrics": [
             {
                 "icon": "⚡",
@@ -1960,7 +1960,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "aws-blue-green-deployment": {
         "slug": "aws-blue-green-deployment",
         "eyebrow": "AWS Blue-Green Deployment & DevOps",
-        "title": "<em>Enabling</em> Zero-Downtime Deployments <em>with</em><br>\n      <em>AWS</em>",
+        "title": "<em>Enabling</em> Zero-Downtime Deployments<br>\n      <em>with AWS</em>",
         "summary": "Implemented AWS blue-green deployment to ensure seamless releases, instant rollback capabilities, and uninterrupted system availability.",
         "metrics": [
             {

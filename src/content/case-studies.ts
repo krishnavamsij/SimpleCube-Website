@@ -15,7 +15,7 @@ export const caseStudiesContent = {
             tags: ["Salesforce", "Applied AI", "Product Engineering", "Banking"],
         },
         {
-            title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce Document Intelligence",
+            title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce Document AI",
             image: "/images/Case_Studies/Optimized/cs-2.png",
             description: "Built an AI-powered lending concierge that accelerates loan processing and approvals.",
             href: "/insights/case-studies/instant-loan-processing",

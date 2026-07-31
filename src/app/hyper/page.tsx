@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { motion } from "framer-motion"
+import { CONTAINER_CLASS } from '@/lib/container-utils'
 import { fadeInUp, staggerContainer, scrollReveal, viewportOnce } from "@/lib/animations"
 
 const capabilities = [
@@ -91,7 +92,7 @@ export default function HyperPage() {
             
             {/* Hero Section */}
              <section className="pt-[120px] pb-[70px] bg-white">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <div className={CONTAINER_CLASS}>
 
                     <div className="flex flex-col lg:flex-row items-center gap-10">
 
@@ -121,26 +122,23 @@ export default function HyperPage() {
                                 <header className="mb-6">
                                     <motion.h2
                                         variants={fadeInUp}
-                                        className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-5"
+                                        className="text-[26px] sm:text-[30px] lg:text-[34px] font-bold leading-[1.25] mb-5"
                                         style={{
                                             fontFamily: 'Poppins, sans-serif',
                                             color: '#345195'
                                         }}
                                     >
-                                        Personalized, Scalable
-                                        <br />
+                                        Personalized, Scalable<br />
                                         Digital Investment Journeys.
                                     </motion.h2>
 
                                     {/* Description */}
                                     <motion.p
                                         variants={fadeInUp}
-                                        className="text-[18px] sm:text-[20px] leading-[1.8] text-[#6f6f6f]"
+                                        className="text-[16px] sm:text-[17px] leading-[1.75] text-[#6f6f6f]"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
-                                        A modern portfolio planning platform that empowers
-                                        advisors and investors with personalized recommendations,
-                                        compliance-friendly flows, and seamless digital onboarding.
+                                        A modern portfolio planning platform that empowers advisors and investors with personalized recommendations, compliance-friendly flows, and seamless digital onboarding.
                                     </motion.p>
                                 </header>
 
@@ -185,7 +183,7 @@ export default function HyperPage() {
 
             {/* Intro Section */}
              <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-                <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
+                <div className={CONTAINER_CLASS}>
                     <div className="flex justify-center">
                         <div className="w-full lg:w-9/12">
                             <motion.div
@@ -228,17 +226,12 @@ export default function HyperPage() {
             </section>
 
             {/* Capabilities That Drive Growth */}
-            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
-                <div className="max-w-[1250px] mx-auto px-6">
+             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
+                <div className={CONTAINER_CLASS}>
 
                     {/* Heading */}
                     <header className="text-center mb-10">
-                        <h2
-                            className="text-[30px] sm:text-[36px] font-bold text-white"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif'
-                            }}
-                        >
+                        <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white leading-tight mb-6">
                             Capabilities That Drive Growth
                         </h2>
                     </header>
@@ -264,24 +257,14 @@ export default function HyperPage() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="bg-[#040c31] text-left md:text-center px-5 py-6 min-h-[220px]">
+                                <div className="bg-[#040c31] text-left md:text-center px-5 pt-6 pb-4 min-h-[200px] flex flex-col">
 
-                                    <h3
-                                        className="text-[17px] font-bold leading-[1.5] text-white mb-3"
-                                        style={{
-                                            fontFamily: 'Poppins, sans-serif'
-                                        }}
-                                    >
+                                    <h3 className="text-[15px] sm:text-[16px] font-bold leading-tight text-white mb-3 line-clamp-2 min-h-[2.5em]">
                                         {cap.title}
                                     </h3>
 
-                                    <p
-                                        className="text-[14px] leading-[1.8] text-white"
-                                        style={{
-                                            fontFamily: 'Poppins, sans-serif'
-                                        }}
-                                    >
-                                        {cap.desc}
+                                    <p className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 line-clamp-4 min-h-[6.8em]">
+                                        {cap.desc.replace(/\n/g, ' ')}
                                     </p>
 
                                 </div>
@@ -294,8 +277,8 @@ export default function HyperPage() {
             </section>
 
             {/* CEO Vision */}
-            <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
-                <div className="max-w-[1000px] mx-auto px-6">
+             <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+                <div className={CONTAINER_CLASS}>
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -317,7 +300,7 @@ export default function HyperPage() {
                     </header>
 
                     {/* Content */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
 
                         {/* Image */}
                         <div className="w-[160px] shrink-0">
@@ -375,8 +358,8 @@ export default function HyperPage() {
             </section>
 
             {/* Real Business Outcomes */}
-            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#020844]">
-                <div className="max-w-[1050px] mx-auto px-6">
+             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#020844]">
+                <div className={CONTAINER_CLASS}>
 
                     {/* Heading */}
                     <header className="text-center mb-8">
@@ -440,8 +423,8 @@ export default function HyperPage() {
             </section>
 
             {/* CTA Header */}
-            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
+             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+                <div className={`${CONTAINER_CLASS} text-center`}>
 
                     <motion.div
                         variants={scrollReveal}

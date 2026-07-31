@@ -298,15 +298,15 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Title Wrapper */}
-                <div className="min-h-[52px] flex-shrink-0 mb-3 flex items-start overflow-hidden">
+                <div className="mb-3 flex items-start">
                   <h3
-                    className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight line-clamp-2"
+                    className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight"
                     dangerouslySetInnerHTML={{ __html: study.title }}
                   />
                 </div>
 
                 {/* Callout Content */}
-                <p className="text-[13.5px] sm:text-[14px] font-medium text-slate-600 leading-[1.6] mb-6 flex-1 line-clamp-2">
+                <p className="text-[13.5px] sm:text-[14px] font-medium text-slate-600 leading-[1.6] mb-6 flex-1">
                   {study.description}
                 </p>
 

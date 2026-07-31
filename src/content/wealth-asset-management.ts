@@ -35,7 +35,7 @@ export const wealthAssetManagementContent = {
         }
     ],
     offerings: {
-        title: "OUR OFFERINGS",
+        title: "Our Offerings",
         subtitle: "Our services are designed to address the core operational and experience priorities shaping modern wealth management.",
         items: [
             {

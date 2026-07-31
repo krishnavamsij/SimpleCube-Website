@@ -111,7 +111,7 @@ export const blogContent: {
             href: "/insights/blogs/overcoming-data-integration-challenges-with-salesforce-data-cloud",
         },
         {
-            title: "A Great Place to Work — Two Years<br>Running. Celebrating Success.",
+            title: "A Great Place to Work — Two Years Running. Celebrating Success.",
             date: "Jan 3, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-12.png",

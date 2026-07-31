@@ -35,7 +35,7 @@ export const transportationContent = {
         }
     ],
     offerings: {
-        title: "OUR OFFERINGS",
+        title: "Our Offerings",
         subtitle: "Our services are designed to modernize transportation execution, fleet coordination and real-time logistics operations.",
         items: [
             {

@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { motion } from 'framer-motion'
+import { CONTAINER_CLASS } from '@/lib/container-utils'
+import { ArrowRight } from 'lucide-react'
 
 const capabilities = [
     { img: '/images/products/1-Cross-Sell-Pre-Approval-Offers@2xu.png', title: 'Cross-Sell & Pre-Approval Offers', desc: 'Smart pre-qualifications, contextual ancillary products, and targeted lead generation at the right journey step.' },
@@ -112,12 +114,11 @@ export default function FinxservePage() {
         <main className="min-h-screen bg-white">
             <Navbar />
 
-            {/* Hero Banner Section */}
             <section className="relative pt-[110px] pb-16 bg-[#030b49] overflow-hidden">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <div className={CONTAINER_CLASS}>
                     <div className="flex flex-col md:flex-row items-center min-h-[400px] gap-12">
                         <div className="w-full md:w-1/2 z-10 relative text-center md:text-left">
-                            <Image 
+                            <Image
                                 src="/images/products/Artboard-15@2x-scaled.png"
                                 alt="FinXServe Logo"
                                 width={231}
@@ -125,8 +126,8 @@ export default function FinxservePage() {
                                 className="mb-8 mx-auto md:ml-0"
                             />
                             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-white mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Frictionless Consumer<br/>
-                                Lending Experience.<br/>
+                                Frictionless Consumer<br />
+                                Lending Experience.<br />
                                 Native to Salesforce.
                             </h1>
                             <p className="text-base sm:text-lg font-normal leading-relaxed text-white/90 mb-10 max-w-[500px] mx-auto md:mx-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -188,10 +189,9 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Intro */}
             <section id="intro" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-                    
+                <div className={CONTAINER_CLASS}>
+
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -227,41 +227,43 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Capabilities (Dark Wrapper Grid) */}
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-[60px]" >
+                <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[60px]`} >
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[120px] self-start z-10 text-center lg:text-left">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[43px] font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Capabilities That<br/>Drive Growth
+                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left -mt-3 lg:-mt-5">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white mb-6 leading-tight">
+                            Capabilities That Drive Growth
                         </h2>
-                        <p className="text-left text-lg leading-relaxed text-[#cfd5e2]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Driving faster launches, lower costs, and frictionless journeys across every
-                            channel. Built by banking experts.
+                        <p className="text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm">
+                            Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
                         </p>
                     </div>
-
+ 
                     {/* RIGHT GRID (Scrollable) */}
-                    <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+                    <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[30px] items-stretch">
                         {capabilities.map((cap, idx) => (
-                            <div 
-                                key={idx} 
-                                className="group relative rounded-[18px] p-[30px] min-h-[420px] transition-all duration-300" 
-                                style={{ 
-                                    background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, rgba(94, 181, 70, 0.52), rgba(87, 136, 73, 0.53), rgba(41, 79, 31, 0.56)) border-box', 
-                                    border: '1px solid transparent' 
+                            <div
+                                key={idx}
+                                className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
+                                style={{
+                                    background: 'linear-gradient(#030B49) padding-box, linear-gradient(320deg, rgba(94, 181, 70, 0.52), rgba(87, 136, 73, 0.53), rgba(41, 79, 31, 0.56)) border-box',
+                                    border: '1px solid transparent'
                                 }}
                             >
-                                <h3 className="text-[18px] text-white font-bold mb-[12px] relative z-10" style={{ fontFamily: 'Roboto, sans-serif' }}>{cap.title}</h3>
-                                <p className="text-[16px] leading-[1.6] text-[#cfd5e2] mb-[20px] relative z-10" style={{ fontFamily: 'Roboto, sans-serif' }}>{cap.desc}</p>
-                                
-                                <div className="mt-auto relative z-10 overflow-hidden rounded-[10px]">
-                                    <Image 
-                                        src={cap.img} 
-                                        alt={cap.title} 
-                                        width={400} 
-                                        height={250} 
-                                        className="w-full h-auto rounded-[10px] opacity-80 transition-transform duration-500 group-hover:-translate-y-3" 
+                                {/* Title */}
+                                <h3 className="text-[17px] sm:text-[18px] leading-snug text-white font-bold mb-[12px] relative z-10">{cap.title}</h3>
+
+                                {/* Description */}
+                                <p className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 mb-[20px] relative z-10">{cap.desc}</p>
+
+                                {/* Image — sits directly below description */}
+                                <div className="relative z-10 rounded-[10px] overflow-hidden">
+                                    <Image
+                                        src={cap.img}
+                                        alt={cap.title}
+                                        width={400}
+                                        height={220}
+                                        className="w-full h-auto rounded-[10px] opacity-80 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
                                     />
                                 </div>
 
@@ -273,9 +275,8 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* CEO Vision */}
             <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
-                <div className="max-w-[1000px] mx-auto px-6">
+                <div className={CONTAINER_CLASS}>
 
                     <motion.div
                         variants={scrollReveal}
@@ -298,7 +299,7 @@ export default function FinxservePage() {
                         </header>
 
                         {/* Content */}
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+                        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
 
                             {/* Image */}
                             <div className="w-[160px] shrink-0">
@@ -356,9 +357,8 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Tangible Business Value */}
-            <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B49]">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B3B]">
+                <div className={CONTAINER_CLASS}>
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
@@ -425,10 +425,9 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Two Decades */}
             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-                    <motion.div 
+                <div className={CONTAINER_CLASS}>
+                    <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
@@ -443,7 +442,7 @@ export default function FinxservePage() {
                             <div className="w-full md:w-1/2 text-left">
                                 <header className="mb-6">
                                     <h2
-                                        className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-6"
+                                        className="text-2xl sm:text-3xl font-bold leading-[1.3] mb-6"
                                         style={{
                                             fontFamily: 'Poppins, sans-serif',
                                             color: '#345195'
@@ -463,58 +462,57 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Case Studies */}
-            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f9f9f9]">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <section className="py-20 lg:py-24 bg-[#f8fafc]">
+                <div className={CONTAINER_CLASS}>
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <header className="mb-[40px]">
-                            <h2 className="text-[35px] font-bold leading-[45px] text-[#345195]" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Case Studies
+                        <header className="mb-14 lg:mb-16">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
+                                CASE STUDIES
                             </h2>
+                            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
+                                Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.
+                            </p>
                         </header>
-                        <div className="flex flex-wrap -mx-[15px]">
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {caseStudies.map((cs, idx) => (
-                                <div key={idx} className="w-full md:w-1/3 px-[15px] mb-[30px]">
-                                    <div className="bg-white h-full shadow-md flex flex-col border border-gray-100 rounded-sm overflow-hidden">
-                                        <div className="relative overflow-hidden bg-gray-50">
-                                            <Link href={cs.link}>
-                                                <Image
-                                                    src={cs.img}
-                                                    alt={cs.title}
-                                                    width={400}
-                                                    height={260}
-                                                    className="w-full h-[220px] object-contain md:object-cover transition-transform duration-300 hover:scale-105"
-                                                />
-                                            </Link>
-                                        </div>
-                                        <div className="p-[30px] flex flex-col flex-grow">
-                                            <h5
-                                                className="text-[20px] font-bold leading-[28px] text-[#345195] mb-[14px]"
-                                                style={{ fontFamily: 'Roboto, sans-serif' }}
-                                            >
-                                                {cs.title}
-                                            </h5>
-                                            <p
-                                                className="text-[15px] font-normal leading-[25px] text-[#666666] mb-[24px] flex-grow"
-                                                style={{ fontFamily: 'Roboto, sans-serif' }}
-                                            >
-                                                {cs.desc}
-                                            </p>
-                                            <div className="mt-auto">
-                                                <Link
-                                                    href={cs.link}
-                                                    className="inline-block bg-[#345195] text-white px-[24px] py-[12px] text-[13px] font-bold rounded transition-colors hover:bg-[#283d71] uppercase tracking-widest"
-                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
-                                                >
-                                                    Read More
-                                                </Link>
-                                            </div>
-                                        </div>
+                                <div
+                                    key={idx}
+                                    className="group flex flex-col rounded-[28px] bg-[#EEF5FF] border border-blue-100/60 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl relative h-full justify-between"
+                                >
+                                    {/* Card Image */}
+                                    <div className="aspect-[1.75/1] overflow-hidden relative rounded-[20px] bg-white mb-5 shadow-xs">
+                                        <Image
+                                            src={cs.img}
+                                            alt={cs.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
+                                        <h3
+                                            className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]"
+                                            dangerouslySetInnerHTML={{ __html: cs.title }}
+                                        />
+
+                                        <p className="text-[12.5px] font-normal text-slate-500 leading-relaxed mb-6 flex-1 line-clamp-2 min-h-[3.2em]">
+                                            {cs.desc}
+                                        </p>
+
+                                        <Link
+                                            href={cs.link}
+                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#2563EB] border border-blue-200/70 rounded-xl text-[13px] font-bold shadow-xs transition-all duration-300 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] group-hover:text-white mt-auto"
+                                        >
+                                            Read Case Study
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
@@ -523,10 +521,9 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            {/* Final Section (Reimagined Banking) */}
             <section id="customer" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-                    <motion.div 
+                <div className={CONTAINER_CLASS}>
+                    <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
@@ -535,12 +532,12 @@ export default function FinxservePage() {
                     >
                         <div className="w-full md:w-1/2">
                             <div className="shadow-2xl border border-gray-100 p-1 rounded-xl overflow-hidden">
-                                <Image 
-                                    src="/images/products/fin_con.jpg" 
-                                    alt="FinXServe Reimagined" 
-                                    width={800} 
-                                    height={500} 
-                                    className="w-full h-auto object-cover" 
+                                <Image
+                                    src="/images/products/fin_con.jpg"
+                                    alt="FinXServe Reimagined"
+                                    width={800}
+                                    height={500}
+                                    className="w-full h-auto object-cover"
                                 />
                             </div>
                         </div>
@@ -567,7 +564,8 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            <style dangerouslySetInnerHTML={{__html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 6px;
                 }

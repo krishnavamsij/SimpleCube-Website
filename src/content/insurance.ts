@@ -37,7 +37,7 @@ export const insuranceContent = {
         }
     ],
     offerings: {
-        title: "OUR OFFERINGS",
+        title: "Our Offerings",
         subtitle: "Our services are designed to address the core operational and transformation priorities shaping modern insurance.",
         items: [
             {

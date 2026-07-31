@@ -35,7 +35,7 @@ export const educationContent = {
         }
     ],
     offerings: {
-        title: "OUR OFFERINGS",
+        title: "Our Offerings",
         subtitle: "Our services are designed to support connected learning, academic coordination and modern education delivery.",
         items: [
             {

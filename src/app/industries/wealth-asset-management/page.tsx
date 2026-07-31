@@ -7,6 +7,7 @@ import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { wealthAssetManagementContent } from "@/content/wealth-asset-management";
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 import {
     scrollReveal,
     scrollStaggerContainer,
@@ -45,7 +46,7 @@ function WealthHero() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/85 via-[#040c2c]/80 to-[#02040a]/92" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 text-center">
+            <div className={`relative z-10 ${CONTAINER_CLASS} text-center`}>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -61,13 +62,13 @@ function WealthHero() {
 
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage w-full mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: wealthAssetManagementContent.hero.title }}
                     />
 
                     <motion.p
                         variants={fadeInUp}
-                        className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed w-full lg:whitespace-nowrap mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="mt-4 text-lg text-slate-200 sm:text-xl w-full mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: wealthAssetManagementContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -79,7 +80,7 @@ function WealthHero() {
 function AlternatingSections() {
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1200px] px-6 space-y-32">
+            <div className={`${CONTAINER_CLASS} space-y-32`}>
                 {wealthAssetManagementContent.alternatingSections.map((section, index) => (
                     <motion.div
                         key={index}
@@ -122,19 +123,19 @@ function AlternatingSections() {
 
 function WealthOfferings() {
     return (
-        <section className="py-24 bg-[#ECF6FF]">
-            <div className="mx-auto max-w-[1400px] px-6 text-left md:text-center">
+        <section className="py-16 lg:py-20 bg-[#ECF6FF]">
+            <div className={`${CONTAINER_CLASS} text-left md:text-center`}>
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-5xl mx-auto mb-16"
+                    className="max-w-5xl mx-auto mb-10"
                 >
-                    <h2 className="text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
+                    <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1]">
                         {wealthAssetManagementContent.offerings.title}
                     </h2>
-                    <p className="text-lg text-slate-700 font-medium md:whitespace-nowrap">
+                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6]">
                         {wealthAssetManagementContent.offerings.subtitle}
                     </p>
                 </motion.div>
@@ -178,7 +179,7 @@ function ProvenImpact() {
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-            <div className="mx-auto max-w-[1200px] px-6 text-left md:text-center relative z-10">
+            <div className={`${CONTAINER_CLASS} text-left md:text-center relative z-10`}>
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -227,7 +228,7 @@ function CaseStudies() {
 
     return (
         <section className="py-24 bg-white">
-            <div className="mx-auto max-w-[1400px] px-6">
+            <div className={CONTAINER_CLASS}>
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -275,7 +276,7 @@ function CaseStudies() {
 
                                 {/* Content */}
                                 <div className="flex flex-col flex-1">
-                                    <h3 className="text-[19px] font-extrabold leading-snug mb-4 font-display">
+                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]">
                                         {study.titleHighlightIndex === 1 ? (
                                             <>
                                                 <span className="text-[#1e90ff]">{firstLine}</span>

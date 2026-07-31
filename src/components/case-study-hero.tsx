@@ -183,7 +183,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
             <div className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-[#1e90ff48] z-20" />
 
             <div className="relative z-10 w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 mx-auto text-center">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -198,16 +198,16 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.15 }}
-                        className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[46px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2 max-w-5xl mx-auto"
+                        className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[42px] xl:text-[46px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2 max-w-6xl mx-auto"
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
-
+ 
                     {/* Hero Description - Exactly 2 lines enforced */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-3xl'}`}
+                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-[900px]'}`}
                         dangerouslySetInnerHTML={{ __html: summary }}
                     />
 
@@ -281,13 +281,10 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     51%  { transform:scaleY(1); transform-origin:bottom; }
                     100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
                 }
-                /* Case study title color & line-clamp overrides */
                 h1.cs-line-clamp-2 {
                     color: #1e90ff !important; /* Blue for regular text */
-                    display: -webkit-box !important;
-                    -webkit-line-clamp: 2 !important;
-                    -webkit-box-orient: vertical !important;
-                    overflow: hidden !important;
+                    display: block !important;
+                    overflow: visible !important;
                 }
                 h1.cs-line-clamp-2 em {
                     color: #ffffff !important; /* White for emphasized parts */
@@ -306,13 +303,11 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                 h1.cs-line-clamp-2 span.text-white {
                     color: #ffffff !important; /* White for marked spans */
                 }
-                /* Summary text - enforce 2 line clamp */
                 p.cs-line-clamp-2 {
-                    display: -webkit-box !important;
-                    -webkit-line-clamp: 2 !important;
-                    -webkit-box-orient: vertical !important;
-                    overflow: hidden !important;
+                    display: block !important;
+                    overflow: visible !important;
                 }
+
                 /* Metric labels - strictly formatted to 2 lines max */
                 .cs-force-2-lines-safe {
                     display: -webkit-box !important;

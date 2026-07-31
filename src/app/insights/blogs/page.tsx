@@ -154,9 +154,9 @@ export default function BlogsPage() {
                                 </div>
 
                                 {/* Title Wrapper */}
-                                <div className="min-h-[52px] flex-shrink-0 mb-6 flex items-start overflow-hidden">
+                                <div className="mb-6">
                                     <h3 
-                                        className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight line-clamp-2"
+                                        className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight"
                                         dangerouslySetInnerHTML={{ __html: post.title }}
                                     />
                                 </div>
@@ -164,7 +164,7 @@ export default function BlogsPage() {
                                 {/* CTA Button */}
                                 <Link
                                     href={post.href}
-                                    className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                                    className="mt-auto flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                                 >
                                     Read Article
                                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

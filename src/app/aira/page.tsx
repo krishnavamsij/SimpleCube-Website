@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
+import { CONTAINER_CLASS } from '@/lib/container-utils'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import {
     scrollReveal,
@@ -247,17 +248,15 @@ function AiraHero() {
                             className="
                     text-white
                     font-bold
-                    text-[22px]
-                    leading-[1.25]
+                    text-[19px]
+                    leading-[1.2]
                     mb-5
                     max-w-[310px]
                     mx-auto
                 "
                             style={{ fontFamily: "Poppins, sans-serif" }}
                         >
-                            Autonomous Intelligent
-                            <br />
-                            Reasoning Agent
+                            Autonomous Intelligent<br />Reasoning Agent
                         </motion.h1>
 
                         {/* Paragraph */}
@@ -266,16 +265,15 @@ function AiraHero() {
                             className="
                     text-white/80
                     text-[14px]
-                    leading-[1.9]
+                    leading-[1.7]
                     mb-8
                     max-w-[320px]
                     mx-auto
+                    line-clamp-2
                 "
                             style={{ fontFamily: "Poppins, sans-serif" }}
                         >
-                            The enterprise-ready AI platform built for financial
-                            institutions — delivering accuracy, execution,
-                            and compliance at scale
+                            The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
                         </motion.p>
 
                         {/* Button */}
@@ -341,7 +339,7 @@ function AiraHero() {
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover object-center bg-[#020918]"
+                        className="w-[102%] max-w-none h-full object-cover object-[100%_50%] bg-[#020918] transform translate-x-[8%]"
                     >
                         <source
                             src="/images/products/HERO-PAGE-.mp4"
@@ -366,17 +364,17 @@ function AiraHero() {
 
                 {/* Content */}
                 <div className="relative z-10 flex items-center min-h-screen">
-                    <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-12">
+                    <div className={CONTAINER_CLASS}>
 
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
-                            className="w-[50%] flex flex-col justify-center items-start text-left relative z-20 py-16"
+                            className="w-full max-w-[700px] lg:max-w-[800px] flex flex-col justify-center items-start text-left relative z-20 py-16"
                         >
 
                             {/* Logo */}
-                            <motion.div variants={fadeInUp} className="mb-3">
+                            <motion.div variants={fadeInUp} className="mb-6">
                                 <Image
                                     src="/logos/Artboard.png"
                                     alt="AIRA Logo"
@@ -390,21 +388,19 @@ function AiraHero() {
                             {/* Heading */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-white font-bold leading-[1.05] mb-3 w-full text-[52px]"
+                                className="text-white font-black leading-[1.08] tracking-tight mb-10 w-full text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px]"
                                 style={{ fontFamily: "Poppins, sans-serif" }}
                             >
-                                Autonomous Intelligent <br className="hidden md:block" /> Reasoning Agent
+                                Autonomous Intelligent<br />Reasoning Agent
                             </motion.h1>
 
                             {/* Paragraph */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="text-white/80 leading-relaxed mb-5 w-full text-[18px]"
+                                className="text-slate-300 font-medium leading-relaxed mb-14 w-full text-base sm:text-lg lg:text-[18px] max-w-[640px]"
                                 style={{ fontFamily: "Poppins, sans-serif" }}
                             >
-                                The enterprise-ready AI platform built for financial
-                                institutions — delivering accuracy, execution, and
-                                compliance at scale
+                                The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
                             </motion.p>
 
                             {/* Button */}
@@ -442,7 +438,7 @@ function AiraHero() {
 function AiraIntro() {
     return (
         <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
+            <div className={CONTAINER_CLASS}>
                 <div className="flex justify-center">
                     <div className="w-full lg:w-9/12">
                         <motion.div
@@ -489,7 +485,7 @@ function AiraIntro() {
 function AiraDifferentiators() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
+            <div className={CONTAINER_CLASS}>
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
                     <h2 className="text-[#345195] text-2xl sm:text-3xl font-bold">
                         What Makes AIRA Different
@@ -509,12 +505,12 @@ function AiraDifferentiators() {
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
                                 </div>
-                                <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <h6 className="text-[20px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
                                 <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
@@ -525,12 +521,12 @@ function AiraDifferentiators() {
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
                                 </div>
-                                <h6 className="text-lg font-bold text-[#000000] mb-[15px]">{item.title}</h6>
+                                <h6 className="text-[20px] font-bold text-[#000000] mb-[15px]">{item.title}</h6>
                                 <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
@@ -543,13 +539,13 @@ function AiraDifferentiators() {
 
 function AiraCapabilities() {
     return (
-        <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
+        <section id="capabilities" className="bg-[#0b1021] pt-[15px] sm:pt-[20px] lg:pt-[25px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
+            <div className={CONTAINER_CLASS}>
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
-                    <h2 className="text-white text-2xl sm:text-3xl font-bold mb-2 sm:mb-[10px]">
+                    <h2 className="text-white text-2xl sm:text-3xl lg:text-[34px] font-bold mb-2 sm:mb-[10px] leading-tight">
                         Key Capabilities
                     </h2>
-                    <h6 className="text-white text-base font-normal">
+                    <h6 className="text-white/90 text-lg sm:text-xl font-medium">
                         AIRA brings a financial-services lens to every capability
                     </h6>
                 </motion.div>
@@ -570,9 +566,9 @@ function AiraCapabilities() {
                             <div className="w-full h-auto">
                                 <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover" />
                             </div>
-                            <div className="bg-[#040c31] p-6 sm:p-[30px] text-left md:text-center flex-grow flex flex-col items-start md:items-center">
-                                <h5 className="text-lg sm:text-[20px] font-bold text-white mb-[15px] leading-tight">{cap.title}</h5>
-                                <p className="text-white text-[15px] leading-relaxed m-0">{cap.desc}</p>
+                            <div className="bg-[#040c31] p-5 sm:p-6 text-center flex-grow flex flex-col items-center">
+                                <h5 className="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-white mb-[12px] leading-tight whitespace-nowrap">{cap.title}</h5>
+                                <p className="text-white/90 text-[13px] sm:text-[14px] leading-[1.6] m-0">{cap.desc}</p>
                             </div>
                         </motion.div>
                     ))}
@@ -585,7 +581,7 @@ function AiraCapabilities() {
 function CeoVision() {
     return (
         <section id="ceo" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
-            <div className="max-w-[1000px] mx-auto px-6">
+            <div className={CONTAINER_CLASS}>
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
@@ -607,7 +603,7 @@ function CeoVision() {
                     </header>
 
                     {/* Content */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
 
                         {/* Image */}
                         <div className="w-[160px] shrink-0">
@@ -668,7 +664,7 @@ function CeoVision() {
 function EnterpriseImpact() {
     return (
         <section id="enterprize" className="bg-[#020844] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1050px] px-6">
+            <div className={CONTAINER_CLASS}>
 
                 {/* Heading */}
                 <motion.div
@@ -746,7 +742,7 @@ function EnterpriseImpact() {
 function CustomerCentric() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8 text-center">
+            <div className={`${CONTAINER_CLASS} text-center`}>
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
                     <h2 className="text-3xl font-bold text-[#345195] mb-[30px]">
                         Customer-Centric by Design

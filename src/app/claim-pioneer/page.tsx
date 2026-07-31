@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
+import { CONTAINER_CLASS } from "@/lib/container-utils";
 import {
   fadeInUp,
   staggerContainer,
@@ -85,9 +86,9 @@ export default function ClaimPioneerPage() {
       <Navbar forceDarkText={true} />
 
       {/* Hero Section */}
-      <section className="pt-[150px] pb-16">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-          <div className="flex flex-wrap items-center lg:items-start">
+      <section className="pt-[110px] lg:pt-[120px] pb-8 lg:pb-12">
+        <div className={CONTAINER_CLASS}>
+          <div className="flex flex-wrap items-center">
             {/* Left Content */}
             <div className="w-full lg:w-1/2 px-4 flex flex-col justify-center">
               <motion.div
@@ -95,38 +96,37 @@ export default function ClaimPioneerPage() {
                 animate="visible"
                 variants={staggerContainer}
               >
-                {/* Logo (bigger) */}
-                <motion.div variants={fadeInUp} className="mb-10">
-                  <div className="w-full max-w-[360px] -ml-5 lg:ml-0">
+                {/* Logo */}
+                <motion.div variants={fadeInUp} className="mb-6">
+                  <div className="w-full max-w-[280px] sm:max-w-[320px]">
                     <Image
                       src="/images/Product_Logos/Claim_pioneer.png"
                       alt="Claim Pioneer Logo"
-                      width={360}
-                      height={164}
-                      className="w-full h-auto max-w-[360px] object-contain"
+                      width={320}
+                      height={146}
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </motion.div>
 
                 {/* Heading */}
-                <header className="mb-[32px]">
+                <header className="mb-6">
                   <motion.h2
                     variants={fadeInUp}
-                    className="text-[35px] font-bold leading-[45px] text-[#345195] mb-4"
+                    className="text-[20px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.15] text-[#345195] mb-3 whitespace-nowrap"
                     style={{ fontFamily: "Roboto, sans-serif" }}
                   >
                     AUTOMATE. ADJUST. ACHIEVE.
                   </motion.h2>
 
-                  <motion.h6
+                  <motion.p
                     variants={fadeInUp}
-                    className="text-[17px] sm:text-[19px] font-medium leading-[1.75] text-[#666666]"
+                    className="text-[16px] sm:text-[17px] font-medium leading-[1.7] text-[#666666]"
                     style={{ fontFamily: "Roboto, sans-serif" }}
                   >
-                    Transforming every step of the claims journey with
-                    automation to boost speed, accuracy, and customer
-                    satisfaction.
-                  </motion.h6>
+                    Transforming every step of the claims journey with automation<br />
+                    to boost speed, accuracy, and customer satisfaction.
+                  </motion.p>
                 </header>
 
                 {/* Button */}
@@ -143,12 +143,12 @@ export default function ClaimPioneerPage() {
             </div>
 
             {/* Right Image */}
-            <div className="w-full lg:w-1/2 px-4 flex justify-center mt-10 lg:mt-0">
+            <div className="w-full lg:w-1/2 px-4 flex justify-center mt-8 lg:mt-0">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="w-full -translate-x-5 lg:translate-x-0"
+                className="w-full"
               >
                 <Image
                   src="/images/products/image-2.jpeg"
@@ -166,7 +166,7 @@ export default function ClaimPioneerPage() {
 
       {/* Reimagining Claims */}
       <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8f9fa]">
-        <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
+        <div className={`${CONTAINER_CLASS} text-center`}>
           <motion.div
             variants={scrollReveal}
             initial="hidden"
@@ -174,14 +174,14 @@ export default function ClaimPioneerPage() {
             viewport={viewportOnce}
           >
             <h2
-              className="text-3xl font-bold text-[#345195] mb-[30px]"
+              className="text-2xl sm:text-3xl font-bold text-[#345195] mb-[24px]"
               style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Reimagining Claims with Intelligent Automation
             </h2>
-            <div className="max-w-[1000px] mx-auto text-left md:text-center">
+            <div className="max-w-[860px] mx-auto text-center">
               <p
-                className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0"
+                className="text-[15px] sm:text-[16px] md:text-[17px] font-normal text-gray-700 leading-[1.7] m-0"
                 style={{ fontFamily: "Roboto, sans-serif" }}
               >
                 The future of claims is fast, automated, and intelligence
@@ -200,24 +200,23 @@ export default function ClaimPioneerPage() {
 
       {/* Capabilities That Drive Growth */}
       <section className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px]">
-        <div className="mx-auto w-full max-w-[1050px] px-6">
-          <header className="text-center mb-8">
+        <div className={CONTAINER_CLASS}>
+          <header className="text-center mb-8 -mt-4 lg:-mt-6">
             <h2
-              className="text-[28px] sm:text-[32px] font-bold text-white"
-              style={{ fontFamily: "Poppins, sans-serif" }}
+              className="text-2xl sm:text-3xl lg:text-[42px] font-black text-white leading-tight mb-8"
             >
               Capabilities That Drive Growth
             </h2>
           </header>
-
+ 
           <div className="flex flex-wrap -mx-[15px]">
             {capabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="w-full md:w-1/3 px-[15px] mb-[64px] last:mb-0 md:last:mb-[64px]"
+                className="w-full md:w-1/3 px-[15px] mb-[30px] md:mb-[36px] md:[&:nth-last-child(-n+3)]:mb-0 last:mb-0"
               >
                 <div className="flex flex-col items-start md:items-center">
-                  <div className="mb-[32px] w-full rounded overflow-hidden">
+                  <div className="mb-4 w-full rounded overflow-hidden">
                     <Image
                       src={cap.img}
                       alt={cap.title}
@@ -228,17 +227,15 @@ export default function ClaimPioneerPage() {
                   </div>
                   <div className="text-left md:text-center">
                     <h3
-                      className="text-[20px] font-medium leading-[30px] text-white mb-2"
-                      style={{ fontFamily: "Roboto, sans-serif" }}
+                      className="text-[17px] sm:text-[18px] font-medium leading-snug text-white mb-2 line-clamp-2 min-h-[2.8rem]"
                     >
                       {cap.title}
                     </h3>
-                    <h6
-                      className="text-[15px] font-medium leading-[25px] text-white whitespace-pre-line"
-                      style={{ fontFamily: "Roboto, sans-serif" }}
+                    <p
+                      className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 line-clamp-4 min-h-[6.8em]"
                     >
-                      {cap.desc}
-                    </h6>
+                      {cap.desc.replace(/\n/g, ' ')}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -252,7 +249,7 @@ export default function ClaimPioneerPage() {
         id="ceo"
         className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]"
       >
-        <div className="max-w-[1000px] mx-auto px-6">
+        <div className={CONTAINER_CLASS}>
           <motion.div
             variants={scrollReveal}
             initial="hidden"
@@ -273,7 +270,7 @@ export default function ClaimPioneerPage() {
             </header>
 
             {/* Content */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-5 max-w-[780px] mx-auto">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
               {/* Image */}
               <div className="w-[160px] shrink-0">
                 <Image
@@ -329,9 +326,9 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* End-to-End Claim Assessment Workflow */}
-      <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
-        <div className="mx-auto w-full max-w-[1400px] px-6">
-          <header className="text-center mb-8">
+      <section className="pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 lg:pb-10 bg-white">
+        <div className={CONTAINER_CLASS}>
+          <header className="text-center mb-1">
             <h2
               className="text-[28px] sm:text-[32px] font-bold text-[#345196]"
               style={{ fontFamily: "Poppins, sans-serif" }}
@@ -339,7 +336,7 @@ export default function ClaimPioneerPage() {
               End-to-End Claim Assessment Workflow
             </h2>
           </header>
-          <div className="flex justify-center">
+          <div className="flex justify-center -mb-8 sm:-mb-12 lg:-mb-16">
             <Image
               src="/images/products/Artboard-1@2x-scaled-1440x900.png"
               alt="Workflow"
@@ -353,7 +350,7 @@ export default function ClaimPioneerPage() {
 
       {/* Business Outcomes */}
       <section className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px]">
-        <div className="mx-auto w-full max-w-[1050px] px-6">
+        <div className={CONTAINER_CLASS}>
           {/* Heading */}
           <div className="text-center mb-8">
             <h2
@@ -405,7 +402,7 @@ export default function ClaimPioneerPage() {
 
       {/* Transforming Every Step */}
       <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8f9fa]">
-        <div className="mx-auto w-full max-w-[1200px] px-6 text-center">
+        <div className={`${CONTAINER_CLASS} text-center`}>
           <motion.div
             variants={scrollReveal}
             initial="hidden"
@@ -419,9 +416,9 @@ export default function ClaimPioneerPage() {
               <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">Transforming Every Step</span>
               <span className="block whitespace-nowrap sm:inline sm:whitespace-normal"> of the Claims Journey</span>
             </h2>
-            <div className="max-w-[1000px] mx-auto text-left md:text-center">
+            <div className="max-w-[860px] mx-auto text-center">
               <p
-                className="text-[19px] sm:text-[21px] font-medium text-gray-700 leading-[1.75] m-0"
+                className="text-[15px] sm:text-[16px] md:text-[17px] font-normal text-gray-700 leading-[1.7] m-0"
                 style={{ fontFamily: "Roboto, sans-serif" }}
               >
                 Claim Pioneer simplifies the complex world of claims by
