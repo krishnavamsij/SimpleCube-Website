@@ -428,7 +428,7 @@ function LeadershipSection() {
                                                 : leader.name === 'Ramarao Jadapolu'
                                                 ? { objectFit: 'cover', objectPosition: 'center 20%', transform: 'scale(1.18)', transformOrigin: 'center top' }
                                                 : leader.name === 'Sathish Manchirala'
-                                                ? { objectFit: 'cover', objectPosition: '35% 0%', transform: 'scale(1.28)', transformOrigin: 'top center' }
+                                                ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.05) translateY(-2%)', transformOrigin: 'top center' }
                                                 : leader.name === 'Ramesh Gujarathi' || leader.name === 'Sowburniga' || leader.name === 'Ravi Kumar Kanaka'
                                                 ? { objectFit: 'cover', objectPosition: 'top', transform: 'scale(1.15) translateY(-2%)', transformOrigin: 'top center' }
                                                 : { objectPosition: 'top' }
