@@ -29,7 +29,7 @@ function ProductEngineeringHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[90px] sm:pb-10 sm:pt-[100px] lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -191,9 +191,9 @@ function ProductEngineeringHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white py-3 lg:py-5">
+        <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -213,7 +213,7 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.staggerContainer}
-                        className="flex flex-col items-start justify-center self-center"
+                        className="flex flex-col items-start justify-center self-center order-first lg:order-last"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
@@ -412,7 +412,7 @@ function TransformationInAction() {
             title: "Autonomous Lending Experience with FinXServe & Agentforce",
             image: "/images/Case_Studies/Optimized/cs-14.png",
             description: "How we helped modernize global infrastructure with robust AWS cloud solutions.",
-            href: "/insights/case-studies/autonomous-lending-experience"
+            href: "/insights/case-studies/autonomous-lending-experiences"
         },
         {
             title: "Scalable Multi-Portal Platform for Complex Education Workflows",
@@ -568,7 +568,7 @@ function WhyHynivaPE() {
                         {/* Right Side: Metrics & CTA */}
                         <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
                             {/* Stats */}
-                            <div className="flex items-start justify-start gap-8 sm:gap-10 lg:gap-12 xl:gap-14 w-full">
+                            <div className="flex flex-wrap items-start justify-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
                                 <div className="flex flex-col items-start flex-shrink-0">
                                     <div className="flex items-baseline gap-0.5 mb-1">
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">17</span>

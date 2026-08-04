@@ -53,7 +53,7 @@ export function CaseStudies() {
                         ))}
                     </h2>
 
-                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] font-medium text-slate-500 leading-[1.7] whitespace-nowrap">
+                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] font-medium text-slate-500 leading-[1.7] md:whitespace-nowrap">
                         {sub}
                     </p>
                 </div>
@@ -117,7 +117,7 @@ export function CaseStudies() {
 
                                             {/* Content */}
                                             <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6 sm:px-10 sm:pb-8 sm:pt-0 z-10 translate-y-2">
-                                                <h3 className={`text-[1.375rem] sm:text-[1.75rem] lg:text-[1.875rem] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100 line-clamp-2 min-h-[3.25rem] sm:min-h-[4rem] lg:min-h-[4.5rem]
+                                                <h3 className={`text-lg sm:text-[1.75rem] lg:text-[1.875rem] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100 line-clamp-none md:line-clamp-2 min-h-[2.6rem] sm:min-h-[4rem] lg:min-h-[4.5rem]
                                                     ${isActive ? "translate-y-0" : "translate-y-3"}`}>
                                                     {study.title.split("*").map((part, i) => (
                                                         <React.Fragment key={i}>
@@ -135,7 +135,7 @@ export function CaseStudies() {
                                                     ))}
                                                 </h3>
                                                 
-                                                <p className={`text-[0.875rem] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200 line-clamp-2 min-h-[3rem]
+                                                <p className={`text-xs sm:text-[0.875rem] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200 line-clamp-none md:line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]
                                                     ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
                                                     {study.description}
                                                 </p>

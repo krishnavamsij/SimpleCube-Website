@@ -29,7 +29,7 @@ function DigitalTransformationHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[90px] sm:pb-10 sm:pt-[100px] lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -51,9 +51,9 @@ function DigitalTransformationHero() {
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
-                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-2xl lg:mt-10 whitespace-pre-line"
+                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-2xl lg:mt-10"
                         >
-                            {"Businesses connect platforms, people and information to build the\ndigital backbone for a more responsive enterprise."}
+                            Businesses connect platforms, people and information to build the digital backbone for a more responsive enterprise.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -148,9 +148,9 @@ function DigitalTransformationHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white py-3 lg:py-5">
+        <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -170,7 +170,7 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.staggerContainer}
-                        className="flex flex-col items-start justify-center self-center"
+                        className="flex flex-col items-start justify-center self-center order-first lg:order-last"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">

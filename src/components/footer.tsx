@@ -153,12 +153,8 @@ export function Footer() {
             ))}
           </h2>
 
-          <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12 text-left sm:text-center">
-            {sub.split("\n").map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
-            ))}
+          <p className="text-[16px] sm:text-[21px] font-medium text-white/70 leading-[1.6] sm:leading-[1.65] max-w-[680px] mb-12 text-left sm:text-center px-2 sm:px-0">
+            {sub}
           </p>
 
           <Link
@@ -257,63 +253,63 @@ export function Footer() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-16 xl:gap-20 border-t border-white/10 pt-6 mt-2 w-full text-left">
+            <div className="flex flex-col md:flex-row flex-wrap lg:flex-nowrap gap-6 sm:gap-8 lg:gap-12 xl:gap-16 border-t border-white/10 pt-6 mt-2 w-full text-left">
               {/* Proud Member Section */}
-              <div className="flex flex-col text-left min-w-[120px] shrink-0">
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+              <div className="flex flex-col text-left shrink-0">
+                <h4 className="mb-3 sm:mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Proud Member
                 </h4>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-5">
                   <Image
                     src="/images/Footer/Greater_San_Antonio_Member_logo.png"
                     alt="Greater San Antonio Chamber"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/North-SA-Chamber.png"
                     alt="North San Antonio Chamber Member"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                 </div>
               </div>
 
               {/* Certified By Section */}
-              <div className="flex flex-col text-left min-w-[120px] shrink-0">
-                <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
+              <div className="flex flex-col text-left shrink-0 max-w-full">
+                <h4 className="mb-3 sm:mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Certified By
                 </h4>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-5">
                   <Image
                     src="/images/Footer/D&b.png"
                     alt="D&B Registered"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/SOC.png"
                     alt="SOC 2 Type II Certified"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/ISO.png"
                     alt="ISO Certified"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                   <Image
                     src="/images/Footer/Certification_Badge_without_Background.png"
                     alt="Great Place to Work Certified"
                     width={100}
                     height={100}
-                    className="h-16 sm:h-20 w-auto object-contain"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                 </div>
               </div>

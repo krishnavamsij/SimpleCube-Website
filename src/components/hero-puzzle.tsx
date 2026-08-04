@@ -27,6 +27,31 @@ const CONFIG = {
     CAMERA_TILT: 0.35,
 };
 
+const updateCameraFov = (camera: any, width: number, height: number) => {
+    const aspect = width / height;
+    camera.aspect = aspect;
+    
+    // We want to ensure a minimum horizontal visible width.
+    // Fit a horizontal span of 9.0 units.
+    const targetWidth = 9.0;
+    const dist = CONFIG.CAMERA_DIST; // 20.0
+    
+    // Standard vertical FOV is 35 degrees.
+    const defaultFov = 35;
+    const radHeightForDefault = 2 * dist * Math.tan((defaultFov * Math.PI) / 360);
+    const defaultWidth = radHeightForDefault * aspect;
+    
+    if (defaultWidth < targetWidth) {
+        // Increase vertical FOV to maintain the target width
+        const requiredHeight = targetWidth / aspect;
+        const requiredFov = 2 * Math.atan(requiredHeight / (2 * dist)) * (180 / Math.PI);
+        camera.fov = Math.min(requiredFov, 75); // Cap at 75 to avoid extreme fisheye/distortion
+    } else {
+        camera.fov = defaultFov;
+    }
+    camera.updateProjectionMatrix();
+};
+
 const SEGMENTS = [
     { blocks: [[0,0,0], [1,0,0], [0,1,0]], color: 0 }, 
     { blocks: [[2,0,0], [2,1,0]], color: 1 },
@@ -73,9 +98,9 @@ export function HeroPuzzle() {
             const height = containerRef.current.clientHeight;
 
             camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 1000);
-            // Re-centered camera for larger container
             camera.position.set(-5.0, 1.0, CONFIG.CAMERA_DIST); 
             camera.lookAt(0, 0, 0);
+            updateCameraFov(camera, width, height);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, precision: 'highp' });
             renderer.setSize(width, height);
@@ -249,8 +274,7 @@ export function HeroPuzzle() {
                 if (!containerRef.current) return;
                 const w = containerRef.current.clientWidth;
                 const h = containerRef.current.clientHeight;
-                camera.aspect = w / h;
-                camera.updateProjectionMatrix();
+                updateCameraFov(camera, w, h);
                 renderer.setSize(w, h);
             };
             window.addEventListener('resize', handleResize);
@@ -280,7 +304,7 @@ export function HeroPuzzle() {
     return (
         <div
             ref={containerRef}
-            className="absolute inset-0 pointer-events-none lg:top-0 lg:right-[-4vw] lg:bottom-auto lg:left-auto lg:h-screen lg:w-[50vw]"
+            className="absolute inset-0 pointer-events-none w-full h-full"
             style={{ zIndex: 1, overflow: 'visible' }}
         >
             {!isLoaded && (

@@ -352,8 +352,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                             key={item.title}
                                                             href={item.href}
                                                             className={cn(
-                                                                "block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-50",
-                                                                item.isBold && "font-semibold"
+                                                                "block rounded-md hover:bg-slate-50",
+                                                                item.isBold 
+                                                                    ? "px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600" 
+                                                                    : "px-3 py-2 text-sm text-slate-700"
                                                             )}
                                                             onClick={() => setMobileOpen(false)}
                                                         >

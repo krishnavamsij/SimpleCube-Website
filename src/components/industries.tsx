@@ -54,26 +54,20 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
             href={industry.href}
             className={`group relative w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col cursor-pointer ${isOffset ? "lg:mt-12" : ""}`}
             style={{ backgroundColor: industry.bgColor }}
+            onTouchStart={() => setIsActive(!isActive)}
             onMouseEnter={() => setIsActive(true)}
             onMouseLeave={() => setIsActive(false)}
-            onClick={(e) => {
-                // On mobile, prevent navigation on first click and show content instead
-                if (!isActive && window.innerWidth < 1024) {
-                    e.preventDefault();
-                    setIsActive(true);
-                }
-            }}
         >
             {/* Industry Title: STATIC (Always Visible) */}
-            <div className="p-4 lg:p-5 xl:p-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
+            <div className="px-4 sm:px-5 lg:px-6 xl:px-7 pt-4 sm:pt-5 lg:pt-5 xl:pt-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
                 <h3 className="text-[15px] sm:text-base lg:text-[18px] font-extrabold text-[#030B3B] leading-[1.2]">
                     {industry.title}
                 </h3>
             </div>
 
-            <div className="relative h-[200px] sm:h-[220px] lg:h-[240px] w-full overflow-hidden" style={{ backgroundColor: industry.bgColor }}>
+            <div className="relative h-[250px] sm:h-[260px] md:h-[250px] lg:h-[240px] w-full overflow-hidden" style={{ backgroundColor: industry.bgColor }}>
                 {/* Front: Image (Always visible, Disappears on Hover/Active) */}
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 group-hover:opacity-0 group-hover:translate-y-4 group-hover:pointer-events-none"}`}>
+                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100"}`}>
                     <div className="relative h-full w-full">
                         {/* Seamless Fog Blend into custom Industry background */}
                         <div 
@@ -94,13 +88,14 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
                             alt={industry.title}
                             fill
                             className="object-cover object-center"
+                            style={{ objectPosition: index === 1 ? 'center 20%' : 'center center' }}
                         />
                     </div>
                 </div>
 
                 {/* Content: Hidden by default, Appears on Hover/Active */}
-                <div className={`absolute inset-0 flex flex-col p-7 pt-2 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                    <p className="text-[#030B3B]/80 text-sm font-medium leading-[1.7]">
+                <div className={`absolute inset-0 flex flex-col px-4 sm:px-5 lg:px-6 xl:px-7 pt-2 pb-4 sm:pb-5 lg:pb-6 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}>
+                    <p className="text-[#030B3B]/90 text-xs sm:text-[13px] lg:text-sm font-medium leading-[1.65]">
                         {industry.description}
                     </p>
                     
@@ -121,21 +116,21 @@ export function Industries() {
         <section className="bg-[#ECF6FF] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 w-full">
                 {/* Hero Content Grid - Increased spacing for better flow */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12 sm:mb-16 lg:mb-28">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start mb-12 sm:mb-16 lg:mb-28">
                     {/* Left: Branding & Headline */}
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:col-span-7"
+                        className="md:col-span-7"
                     >
                         <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                             INDUSTRIES WE SERVE
                         </div>
                         <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-black tracking-tight text-[#030B3B] leading-[1.1] font-display text-balance">
-                            Deep domain expertise,<br className="hidden lg:block" />
+                            Deep domain expertise,<br className="hidden md:block" />
                             built over <span className="text-[#00D4AA]">decades.</span>
                         </h2>
                     </motion.div>
@@ -146,18 +141,18 @@ export function Industries() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:col-span-5 lg:col-start-8 pt-4 lg:pt-[60px]"
+                        className="md:col-span-5 md:col-start-8 pt-4 md:pt-[60px]"
                     >
-                        <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-8">
-                            <p className="text-base lg:text-[18px] 2xl:text-[20px] font-medium leading-relaxed text-slate-600/90 max-w-[460px]">
+                        <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-6 md:pl-8">
+                            <p className="text-base md:text-[16px] lg:text-[18px] 2xl:text-[20px] font-medium leading-relaxed text-slate-600/90 max-w-[460px]">
                                 We know your compliance requirements, your legacy constraints and your competitive pressures — not from research, but from years inside these industries.
                             </p>
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Industries 5-Column Grid with Staggered Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-start">
+                {/* Industries Cards - Mobile: 1 column, Tablet: 3 columns, Desktop: 5 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6 items-start">
                     {INDUSTRIES_DATA.map((industry, index) => (
                         <motion.div
                             key={industry.title}
@@ -165,6 +160,7 @@ export function Industries() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={viewportOnce}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
+                            className={index === 4 ? "sm:col-span-2 md:col-span-1" : ""}
                         >
                             <IndustryCard industry={industry} index={index} />
                         </motion.div>

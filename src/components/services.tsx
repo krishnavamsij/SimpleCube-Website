@@ -23,11 +23,11 @@ export function Services() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-8 grid gap-12 lg:grid-cols-[1fr_1.2fr]"
+                    className="mb-8 grid gap-8 md:gap-10 lg:gap-12 md:grid-cols-12"
                 >
                     {/* Left Side */}
-                    <div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900">
+                    <div className="md:col-span-5">
+                        <h2 className="text-[32px] sm:text-[40px] md:text-[42px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900">
                             End-to-end
                             <br />
                             technology
@@ -39,8 +39,8 @@ export function Services() {
                     </div>
 
                     {/* Right Side */}
-                    <div className="flex flex-col justify-center border-l-[3px] border-[#00D4AA] pl-8 lg:pl-12 py-2">
-                        <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-12 max-w-2xl">
+                    <div className="flex flex-col justify-center md:col-span-7 border-l-[3px] border-[#00D4AA] pl-6 md:pl-8 lg:pl-12 py-2">
+                        <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-8 md:mb-10 max-w-2xl">
                             {callOutContent.split("—").map(
                                 (
                                     part: string,
@@ -61,7 +61,7 @@ export function Services() {
                             )}
                         </p>
 
-                        <div className="grid grid-cols-3 gap-4 sm:gap-8">
+                        <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8">
                             {metrics.map((metric: any, idx: number) => {
                                 const valStr = String(metric.value);
                                 const hasPlus = valStr.includes("+");
@@ -75,18 +75,18 @@ export function Services() {
                                         className="flex flex-col items-start text-left"
                                     >
                                         <div className="flex items-baseline justify-start gap-0.5">
-                                            <span className="text-2xl sm:text-4xl font-extrabold text-slate-900">
+                                            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-slate-900">
                                                 {valNum}
                                             </span>
 
                                             {hasPlus && (
-                                                <span className="text-slate-900 text-xl sm:text-4xl font-extrabold">
+                                                <span className="text-slate-900 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold">
                                                     +
                                                 </span>
                                             )}
                                         </div>
 
-                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-sm text-slate-500 font-semibold leading-snug whitespace-pre-line max-w-[120px] sm:max-w-none">
+                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-slate-500 font-semibold leading-snug whitespace-normal sm:whitespace-pre-line">
                                             {metric.label}
                                         </p>
                                     </div>
@@ -97,7 +97,7 @@ export function Services() {
                 </motion.div>
 
                 {/* ── Stacking Cards ── */}
-                <div className="relative mt-16 lg:mt-20 flex flex-col gap-5 lg:gap-8 pb-[8vh]">
+                <div className="relative mt-12 md:mt-16 lg:mt-20 flex flex-col gap-5 lg:gap-8 pb-[8vh]">
                     {services.map((svc, i) => {
                         return (
                             <div
@@ -113,33 +113,33 @@ export function Services() {
                                     {/* subtle grid bg */}
                                     <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:28px_28px]" />
 
-                                    <div className="relative flex flex-col lg:flex-row min-h-[520px]">
+                                    <div className="relative flex flex-col md:flex-row min-h-[460px] md:min-h-[480px] lg:min-h-[520px]">
 
                                         {/* LEFT CONTENT */}
-                                        <div className="relative flex flex-1 flex-col justify-center p-7 sm:p-10 lg:p-16 overflow-hidden">
+                                        <div className="relative flex flex-1 flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-16 overflow-hidden">
 
                                             {/* Huge Number - GREY */}
-                                            <div className="pointer-events-none absolute -top-10 left-0 text-[120px] sm:text-[160px] lg:text-[240px] font-black leading-none text-slate-300/30">
+                                            <div className="pointer-events-none absolute -top-10 left-0 text-[100px] sm:text-[140px] md:text-[180px] lg:text-[240px] font-black leading-none text-slate-300/30">
                                                 {svc.num}
                                             </div>
 
 
                                             {/* Title */}
-                                            <h3 className="relative z-10 text-2xl sm:text-3xl lg:text-[30px] font-extrabold leading-tight tracking-tight text-slate-900">
+                                            <h3 className="relative z-10 text-2xl sm:text-3xl md:text-3xl lg:text-[30px] font-extrabold leading-tight tracking-tight text-slate-900">
                                                 {svc.title}
                                             </h3>
 
                                             {/* Description */}
-                                            <p className="relative z-10 mt-6 max-w-xl text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-600">
+                                            <p className="relative z-10 mt-4 md:mt-6 max-w-xl text-xs sm:text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-600">
                                                 {svc.description}
                                             </p>
 
                                             {/* Tags */}
-                                            <div className="relative z-10 mt-8 flex flex-wrap gap-2.5">
+                                            <div className="relative z-10 mt-6 md:mt-8 flex flex-wrap gap-2.5">
                                                 {svc.tags.map((tag) => (
                                                     <span
                                                         key={tag}
-                                                        className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-[11px] sm:text-xs font-semibold tracking-wide text-slate-600"
+                                                        className="rounded-full border border-slate-200 bg-slate-50 px-3.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold tracking-wide text-slate-600"
                                                     >
                                                         {tag}
                                                     </span>
@@ -147,10 +147,10 @@ export function Services() {
                                             </div>
 
                                             {/* CTA */}
-                                            <div className="relative z-10 mt-10">
+                                            <div className="relative z-10 mt-8 md:mt-10">
                                                 <Link
                                                     href={svc.href}
-                                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] px-6 py-3 text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_35px_rgba(37,99,235,0.35)]"
+                                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_35px_rgba(37,99,235,0.35)]"
                                                 >
                                                     Explore service
                                                     <ArrowRightIcon className="h-4 w-4" />
@@ -159,35 +159,35 @@ export function Services() {
                                         </div>
 
                                         {/* RIGHT IMAGE */}
-                                        <div className="hidden lg:block relative flex-1 min-h-[280px] lg:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
+                                        <div className="hidden md:block relative flex-1 min-h-[260px] md:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
 
                                             {/* soft glow */}
                                             <div className="absolute right-[-20%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#3b82f6]/10 blur-3xl" />
 
                                             {/* left fade */}
-                                            <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent lg:block z-10" />
+                                            <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent md:block z-10" />
 
-                                            <div className="relative flex flex-col h-full items-center justify-center p-6 sm:p-8 lg:p-14">
-                                                <div className="relative h-[260px] w-full sm:h-[320px] lg:h-full z-10">
+                                            <div className="relative flex flex-col h-full items-center justify-center p-6 sm:p-8 md:p-10 lg:p-14">
+                                                <div className="relative h-[240px] w-full sm:h-[280px] md:h-[320px] lg:h-full z-10">
 
                                                     <Image
                                                         src={svc.image}
                                                         alt={svc.title}
                                                         fill
-                                                        className={`object-contain transition-transform duration-700 lg:group-hover:scale-[1.03]
+                                                        className={`object-contain transition-transform duration-700 md:group-hover:scale-[1.03]
                                                         ${
                                                             i === 1
-                                                                ? "lg:scale-125"
+                                                                ? "md:scale-110 lg:scale-125"
                                                                 : i === 2
-                                                                ? "lg:scale-[1.02] lg:-translate-y-4"
+                                                                ? "md:scale-[1.01] lg:scale-[1.02] lg:-translate-y-4"
                                                                 : i === 3
-                                                                ? "lg:scale-125"
-                                                                : "lg:scale-[1.35]"
+                                                                ? "md:scale-110 lg:scale-125"
+                                                                : "md:scale-[1.2] lg:scale-[1.35]"
                                                         }
                                                     `}
                                                     />
                                                 </div>
-                                                <div className="pointer-events-none absolute bottom-8 right-6 lg:bottom-10 lg:right-10 z-20 text-[50px] sm:text-[72px] lg:text-[82px] xl:text-[92px] font-black leading-none text-slate-400/35 text-right tracking-tight">
+                                                <div className="pointer-events-none absolute bottom-6 right-6 md:bottom-8 md:right-8 lg:bottom-10 lg:right-10 z-20 text-[40px] sm:text-[60px] md:text-[52px] lg:text-[68px] xl:text-[82px] 2xl:text-[92px] font-black leading-none text-slate-400/35 text-right tracking-tight">
                                                     {svc.num === "01" ? "Transform" : 
                                                      svc.num === "02" ? "Connect" : 
                                                      svc.num === "03" ? "Build" : 

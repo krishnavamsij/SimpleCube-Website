@@ -65,7 +65,7 @@ function TransportationHero() {
 
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage w-full mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage w-full mx-auto text-center [&_br]:hidden xl:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: transportationContent.hero.title }}
                     />
 
@@ -203,14 +203,14 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-xs sm:max-w-none mx-auto w-full"
+                    className="grid grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
                 >
                     {transportationContent.impact.stats.map((stat, index) => (
-                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start sm:items-center text-left sm:text-center">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left sm:text-center">
+                        <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start sm:items-center md:items-center text-left sm:text-center md:text-center">
+                            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left sm:text-center md:text-center whitespace-nowrap">
                                 {stat.value}
                             </div>
-                            <div className="text-base text-slate-300 font-medium text-left sm:text-center">
+                            <div className="text-[10px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium leading-[1.3] sm:leading-snug md:leading-relaxed text-left sm:text-center md:text-center">
                                 {stat.label}
                             </div>
                         </motion.div>
@@ -272,7 +272,7 @@ function CaseStudies() {
 
                                 {/* Content */}
                                 <div className="flex flex-col flex-1">
-                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]">
+                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none">
                                         {study.titleHighlightIndex === 1 ? (
                                             <>
                                                 <span className="text-[#1e90ff]">{firstLine}</span>

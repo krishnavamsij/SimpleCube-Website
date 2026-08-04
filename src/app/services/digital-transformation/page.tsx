@@ -29,7 +29,7 @@ function DigitalTransformationHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[90px] sm:pb-10 sm:pt-[100px] lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -51,9 +51,9 @@ function DigitalTransformationHero() {
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
-                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-xl lg:mt-10 whitespace-pre-line"
+                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-xl lg:mt-10"
                         >
-                            {"Businesses transform to remain relevant, adapting faster to\nshifting markets and evolving user needs."}
+                            Businesses transform to remain relevant, adapting faster to<br className="hidden sm:inline" /> shifting markets and evolving user needs.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -142,15 +142,15 @@ function DigitalTransformationHero() {
 /* ------------------- Why Hyniva Section ------------------- */
 function WhyHyniva() {
     return (
-        <section className="bg-white py-3 lg:py-5">
+        <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     {/* Left: Illustration Image */}
                     <motion.div
-                        initial="hidden"
-                        whileInView="visible"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        variants={animations.fadeInUp}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="relative h-[300px] sm:h-[360px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-8 lg:mt-12"
                     >
                         <Image
@@ -161,13 +161,13 @@ function WhyHyniva() {
                         />
                     </motion.div>
 
-                    {/* Right: Content */}
+                    {/* Right: Content — shows first on mobile via order */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.staggerContainer}
-                        className="flex flex-col items-start justify-center self-center"
+                        className="flex flex-col items-start justify-center self-center order-first lg:order-last"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
@@ -316,10 +316,10 @@ function EnableCapabilities() {
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
                     {/* Left Sidebar Text */}
                     <motion.div 
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={animations.fadeInUp}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
                         className="lg:w-[28%] flex flex-col pt-2"
                     >
                         <div className="flex mb-5">
@@ -341,10 +341,10 @@ function EnableCapabilities() {
                         {enablers.map((item, idx) => (
                             <motion.div
                                 key={item.title}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
                                 className="bg-white rounded-2xl p-6 xl:p-7 shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100/80 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group"
                             >
                                 <div className={`h-16 w-16 rounded-2xl ${item.iconBoxStyle} flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 ${item.hoverStyle}`}>
@@ -532,7 +532,7 @@ function WhyHynivaDT() {
                         {/* ── RIGHT: Stats + CTA ── */}
                         <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
                             {/* Stats */}
-                            <div className="flex items-start justify-start gap-8 sm:gap-10 lg:gap-12 xl:gap-14 w-full">
+                            <div className="flex flex-wrap items-start justify-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
                                 <div className="flex flex-col items-start flex-shrink-0">
                                     <div className="flex items-baseline gap-0.5 mb-1">
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>

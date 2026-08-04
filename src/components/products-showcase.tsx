@@ -26,17 +26,12 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     useEffect(() => {
         if (isInView) {
             if (p.image.includes('.gif')) {
-                // Remove the timestamp to allow browser caching. 
-                // GIFs will still play from the beginning if the browser handles it, 
-                // or we can use a more efficient way if needed.
                 setGifSrc(p.image);
             } else if (p.image.includes('.mp4') && videoRef.current) {
                 videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => { });
             }
         } else {
-            // We keep the gifSrc to avoid re-triggering a download when it comes back into view
-            // but we can pause it if we were using a video. 
             if (videoRef.current) {
                 videoRef.current.pause();
                 videoRef.current.currentTime = 0;
@@ -57,20 +52,15 @@ const ProductImageContainer = ({ p }: { p: any }) => {
         gifSrc ? (
             <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain" />
         ) : (
-            <div className="w-full h-full" /> /* Placeholder while GIF src resets */
+            <div className="w-full h-full" />
         )
     ) : (
         <Image src={p.image} alt={p.title} fill className="object-contain" />
     );
 
     return (
-        <div ref={ref} className="w-full lg:w-[55%] relative flex items-center justify-center overflow-visible h-full">
-            {/*
-             * Mobile / tablet (< lg): render a compact image strip above the text column.
-             * The outer card is flex-col on small screens, so this renders first (top).
-             * Desktop (≥ lg): this container is part of the side-by-side flex-row layout.
-             */}
-            <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full flex items-center justify-center p-[20px] sm:p-[30px] lg:py-[20px] lg:pl-[20px] lg:pr-0 hover:scale-[1.02] transition-transform duration-700 ease-out">
+        <div ref={ref} className="w-full md:w-1/2 lg:w-[55%] flex-shrink-0 relative flex items-center justify-center overflow-hidden min-h-[260px] md:min-h-full py-4 md:py-6">
+            <div className="relative w-full h-[240px] sm:h-[280px] md:h-full flex items-center justify-center p-4 sm:p-6 md:p-6 lg:p-8 hover:scale-[1.02] transition-transform duration-700 ease-out">
                 {mediaNode}
             </div>
         </div>
@@ -96,27 +86,27 @@ export function ProductsShowcase() {
                         {label}
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 relative items-start">
                         {/* Left Side: Headline and Subheadline — spans 7 cols */}
-                        <div className="lg:col-span-7">
-                            <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[50px] font-extrabold tracking-tight leading-[1.08] text-white mb-5">
+                        <div className="md:col-span-7">
+                            <h2 className="text-[32px] sm:text-[40px] md:text-[42px] lg:text-[44px] 2xl:text-[50px] font-extrabold tracking-tight leading-[1.08] text-white mb-5">
                                 Product innovation<br />
                                 is in our <span className="text-[#00D4AA]">DNA.</span>
                             </h2>
-                            <p className="text-sm sm:text-base lg:text-[13.5px] xl:text-[14px] text-slate-400 font-normal leading-[1.5] max-w-[460px] xl:max-w-[480px]">
+                            <p className="text-sm sm:text-base md:text-[13.5px] lg:text-[13.5px] xl:text-[14px] text-slate-400 font-normal leading-[1.5] max-w-[460px] xl:max-w-[480px]">
                                 {subheadline}
                             </p>
                         </div>
 
-                        {/* Right Side: Callout text — spans 5 cols, aligned to right grid line with 5 lines */}
-                        <div className="lg:col-span-5 lg:col-start-8 flex justify-start lg:justify-end w-full">
+                        {/* Right Side: Callout text — spans 5 cols, aligned to right grid line */}
+                        <div className="md:col-span-5 md:col-start-8 flex justify-start md:justify-end w-full">
                             <div className="relative pl-6 w-fit">
                                 <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#00D4AA] rounded-full" />
-                                <p className="text-base sm:text-lg lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed lg:leading-[1.7] xl:leading-[1.75]">
-                                    Two of our flagship products were<br className="hidden lg:inline" />
-                                    acquired by industry leaders — <span className="font-bold text-white">Fiserv</span><br className="hidden lg:inline" />
-                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to<br className="hidden lg:inline" />
-                                    what enterprise depth produces when<br className="hidden lg:inline" />
+                                <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75]">
+                                    Two of our flagship products were<br className="hidden xl:inline" />
+                                    acquired by industry leaders — <span className="font-bold text-white">Fiserv</span><br className="hidden xl:inline" />
+                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to<br className="hidden xl:inline" />
+                                    what enterprise depth produces when<br className="hidden xl:inline" />
                                     it becomes a product.
                                 </p>
                             </div>
@@ -127,66 +117,67 @@ export function ProductsShowcase() {
                 {/* ── Logo Ribbon Footprint ── */}
                 <div className="mt-8 lg:mt-12 pt-8 border-t border-white/10 w-full mb-12 lg:mb-16 relative">
 
-                    {/* Mobile: seamless auto-scroll marquee — no scrollbar */}
-                    <div className="lg:hidden marquee-fade overflow-hidden pb-8 pt-4">
+                    {/* Mobile (< sm): seamless auto-scroll marquee — no scrollbar */}
+                    <div className="sm:hidden marquee-fade overflow-hidden pb-6 pt-2">
                         <div
                             className="animate-marquee flex w-max items-start gap-8"
-                            style={{ "--marquee-duration": "28s" } as React.CSSProperties}
+                            style={{ "--marquee-duration": "24s" } as React.CSSProperties}
                         >
                             {[...logos, ...logos].map((logo, i) => (
-                                <div key={i} className="flex-shrink-0 flex flex-col items-center justify-start w-[130px]">
-                                    {/* Logo Image */}
-                                    <div className="h-[50px] relative w-full opacity-95 mb-2.5">
+                                <div key={i} className="flex-shrink-0 flex flex-col items-center justify-between w-[130px] h-[85px]">
+                                    <div className="h-[50px] relative w-full opacity-95">
                                         <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                     </div>
-                                    {/* Conditionally Render Badge underneath matching logo */}
-                                    {logo.acquiredBy ? (
-                                        logo.acquiredByUrl ? (
-                                            <a
-                                                href={logo.acquiredByUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap mt-1 hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
-                                            >
-                                                <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
-                                            </a>
-                                        ) : (
-                                            <div className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap mt-1">
-                                                <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
-                                            </div>
-                                        )
-                                    ) : (
-                                        /* Spacer to keep vertical baseline alignment across elements in the marquee */
-                                        <div className="h-5 w-full" />
-                                    )}
+                                    <div className="h-[22px] flex items-center justify-center">
+                                        {logo.acquiredBy && (
+                                            logo.acquiredByUrl ? (
+                                                <a
+                                                    href={logo.acquiredByUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
+                                                >
+                                                    <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
+                                                </a>
+                                            ) : (
+                                                <div className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                                    <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
+                                                </div>
+                                            )
+                                        )}
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Desktop: static centered layout with acquired-by badges */}
-                    <div className="hidden lg:flex flex-row items-start justify-between pb-12 w-full pt-4">
+                    {/* Tablet & Desktop (≥ sm): static perfectly aligned grid */}
+                    <div className="hidden sm:grid grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6 items-center justify-items-center w-full pt-4 pb-4">
                         {logos.map((logo, i) => (
-                            <div key={i} className="flex flex-col items-center justify-start relative flex-shrink-0">
-                                <div className="h-14 lg:h-[66px] xl:h-[72px] relative w-[8.25rem] lg:w-[9.5rem] xl:w-[10.75rem] opacity-95 transition-opacity">
+                            <div key={i} className="flex flex-col items-center justify-between w-full h-[90px] md:h-[95px] lg:h-[100px]">
+                                {/* Logo Image Slot */}
+                                <div className="h-[52px] sm:h-[56px] md:h-[60px] lg:h-[64px] relative w-full max-w-[130px] opacity-95 transition-opacity">
                                     <Image src={logo.src} alt={logo.name} fill className="object-contain object-center" />
                                 </div>
-                                {logo.acquiredBy && (
-                                    logo.acquiredByUrl ? (
-                                        <a
-                                            href={logo.acquiredByUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="absolute top-full mt-2 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
-                                        >
-                                            <ArrowUpRightIcon className="w-3 h-3" /> {logo.acquiredBy}
-                                        </a>
-                                    ) : (
-                                        <div className="absolute top-full mt-2 inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-3 py-1 text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
-                                            <ArrowUpRightIcon className="w-3 h-3" /> {logo.acquiredBy}
-                                        </div>
-                                    )
-                                )}
+                                {/* Acquisition Badge Slot */}
+                                <div className="h-[24px] flex items-center justify-center">
+                                    {logo.acquiredBy && (
+                                        logo.acquiredByUrl ? (
+                                            <a
+                                                href={logo.acquiredByUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
+                                            >
+                                                <ArrowUpRightIcon className="w-2.5 h-2.5" /> {logo.acquiredBy}
+                                            </a>
+                                        ) : (
+                                            <div className="inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                                <ArrowUpRightIcon className="w-2.5 h-2.5" /> {logo.acquiredBy}
+                                            </div>
+                                        )
+                                    )}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -195,58 +186,33 @@ export function ProductsShowcase() {
             </div>
 
             {/* ── Stacked Products Sticky Layout (All Screens - Overlapping) ── */}
-            {/*
-             * lg:pl-[calc(max(4rem,(100%-1536px)/2+4rem))]
-             * The 1536px here mirrors max-w-[96rem].
-             */}
-            <div className="w-full pl-6 md:pl-10 lg:pr-0 lg:pl-[calc(max(4rem,(100%-1536px)/2+4rem))]">
+            <div className="w-full px-6 md:px-10 lg:pr-0 lg:pl-[calc(max(4rem,(100%-1536px)/2+4rem))]">
                 <div className="relative w-full overflow-visible pb-6 lg:pb-4 mt-10 lg:mt-0">
                     {products.map((p, i) => (
                         <div
                             key={p.num}
-                            className={`sticky relative w-full overflow-hidden rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none mb-0 ${i === products.length - 1 ? 'lg:mb-0' : 'lg:mb-[10vh]'}`}
+                            className={`sticky relative w-full overflow-hidden rounded-[2rem] md:rounded-[2.5rem] lg:rounded-l-[3.5rem] lg:rounded-r-none mb-0 ${i === products.length - 1 ? 'lg:mb-0' : 'md:mb-[5vh] lg:mb-[10vh]'}`}
                             style={{
                                 top: "0",
                                 zIndex: i * 10,
                                 paddingBottom: "0",
                             }}
                         >
-                            {/* 
-                                Card Wrapper
-                                - Solid background bg-[#081236], preventing transparency overlap
-                                - Overflow hidden to clip any peeking content
-                                - Proper z-index layering for complete coverage
-                            */}
                             <div
-                                className="bg-[#081236] rounded-[2rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col lg:flex-row min-h-[460px] lg:min-h-[75vh] relative"
-                                style={{
-                                    width: '100%'
-                                }}
+                                className="bg-[#081236] rounded-[2rem] md:rounded-[2.5rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col md:flex-row items-stretch min-h-[460px] md:min-h-[480px] lg:min-h-[75vh] relative w-full"
                             >
-                                {/*
-                                 * On mobile/tablet (< lg): ProductImageContainer renders first (top strip)
-                                 * because the card is flex-col. The content column sits below it.
-                                 * On desktop (≥ lg): card is flex-row — image is on the right, content left.
-                                 */}
-
                                 {/* Left: Content */}
-                                {/*
-                                 * overflow-y-auto guard: if a card's content (title + tags + description + CTA)
-                                 * intrinsically exceeds 75vh − 20vh padding (≈ 55vh), the content scrolls
-                                 * within the column rather than forcing the card taller and breaking the
-                                 * sticky-stacking scroll effect.
-                                 */}
-                                <div className="flex-1 px-[30px] sm:px-[40px] lg:px-[50px] pt-[40px] pb-[40px] sm:pt-[50px] sm:pb-[50px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 w-full lg:w-[45%] lg:overflow-y-auto">
-                                    <h3 className="text-3xl sm:text-4xl lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-white mb-10 lg:mb-12">
+                                <div className="w-full md:w-1/2 lg:w-[45%] flex-shrink-0 px-[24px] sm:px-[35px] md:px-[36px] lg:px-[50px] pt-[28px] pb-[28px] sm:pt-[36px] sm:pb-[36px] md:py-[36px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 md:overflow-y-auto">
+                                    <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-white mb-4 md:mb-6 lg:mb-12">
                                         {p.title}
                                     </h3>
 
                                     {/* Capsule Tags with Icons */}
-                                    <div className="flex flex-wrap gap-3 mb-12 lg:mb-14">
+                                    <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 md:mb-6 lg:mb-14">
                                         {p.tags.map((tag) => (
                                             <div
                                                 key={tag}
-                                                className="rounded-full bg-white/5 border border-white/10 px-6 py-3 text-xs font-semibold text-slate-300 tracking-wide flex items-center gap-2.5 backdrop-blur-sm"
+                                                className="rounded-full bg-white/5 border border-white/10 px-3.5 sm:px-5 py-1.5 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-slate-300 tracking-wide flex items-center gap-2 backdrop-blur-sm"
                                             >
                                                 {getTagIcon(tag)}
                                                 {tag}
@@ -254,19 +220,19 @@ export function ProductsShowcase() {
                                         ))}
                                     </div>
 
-                                    <p className="text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-300 max-w-xl mb-14 lg:mb-16">
+                                    <p className="text-xs sm:text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-300 max-w-xl mb-6 md:mb-8 lg:mb-16">
                                         {p.description}
                                     </p>
 
                                     <Link
                                         href={p.href}
-                                        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
+                                        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs sm:text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
                                     >
                                         Explore Product <ArrowRightIcon className="h-4 w-4" />
                                     </Link>
                                 </div>
 
-                                {/* Right (lg+) / Top (< lg): Seamless Image Container with Lazy Load GIF / video player */}
+                                {/* Right (md+) / Top (< md): Seamless Image Container */}
                                 <ProductImageContainer p={p} />
 
                             </div>

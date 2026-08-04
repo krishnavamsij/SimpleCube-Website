@@ -18,32 +18,32 @@ const capabilities = [
   {
     img: "/images/products/ai-assistant-action-user-interacting-with-futuristic-interface-laptop-scaled-450x250.jpg",
     title: "AI-Driven Claim Assignment",
-    desc: "Assigns claims automatically based on\nadjuster availability, skill, performance, and\nproximity – ensuring fair and efficient distribution",
+    desc: "Assigns claims automatically based on adjuster availability, skill, performance, and proximity – ensuring fair and efficient distribution",
   },
   {
     img: "/images/products/male-influencer-holds-phone-with-chroma-key-screen-online-presence-scaled-450x250.jpg",
     title: "Mobile-First Field Execution",
-    desc: "Adjusters manage assignments,\nroutes, photos, notes, and estimate\nsubmissions from a single mobile app",
+    desc: "Adjusters manage assignments, routes, photos, notes, and estimate submissions from a single mobile app",
   },
   {
     img: "/images/products/businessman-holding-hand-icon-user-man-woman-low-poly-polygon-style-internet-icons-interface-foreground-global-network-media-concept-scaled-450x250.jpg",
     title: "Real-Time Customer Updates",
-    desc: "Customers receive appointment\nconfirmations, adjuster details, ETA, and\nlive tracking updates – reducing follow-up calls.",
+    desc: "Customers receive appointment confirmations, adjuster details, ETA, and live tracking updates – reducing follow-up calls.",
   },
   {
     img: "/images/products/industrial-technology-with-industrial-network-connection-scaled-450x250.jpg",
     title: "Smart Workflow Automation",
-    desc: "From intake to QA review,\nsubmission, and payouts – everything\nruns on an intelligent, connected workflow",
+    desc: "From intake to QA review, submission, and payouts – everything runs on an intelligent, connected workflow",
   },
   {
     img: "/images/products/businessman-studying-infographics-performance-metrics-scaled-450x250.jpg",
     title: "Operations Dashboards",
-    desc: "Real-time visibility into workloads,\nproductivity, SLAs and bottlenecks\nwith insights to improve daily operations",
+    desc: "Real-time visibility into workloads, productivity, SLAs and bottlenecks with insights to improve daily operations",
   },
   {
     img: "/images/products/colleagues-male-entrepreneurs-meeting-room-creative-office-discussing-accounting-trade-scaled-450x250.jpg",
     title: "Financial Management",
-    desc: "Manage carrier invoices, adjuster\npayments, commissions, and financial\nperformance through a unified dashboard",
+    desc: "Manage carrier invoices, adjuster payments, commissions, and financial performance through a unified dashboard",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function ClaimPioneerPage() {
                 <header className="mb-6">
                   <motion.h2
                     variants={fadeInUp}
-                    className="text-[20px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.15] text-[#345195] mb-3 whitespace-nowrap"
+                    className="text-[20px] sm:text-[24px] lg:text-[28px] font-bold leading-[1.15] text-[#345195] mb-3 sm:whitespace-nowrap"
                     style={{ fontFamily: "Roboto, sans-serif" }}
                   >
                     AUTOMATE. ADJUST. ACHIEVE.
@@ -124,8 +124,7 @@ export default function ClaimPioneerPage() {
                     className="text-[16px] sm:text-[17px] font-medium leading-[1.7] text-[#666666]"
                     style={{ fontFamily: "Roboto, sans-serif" }}
                   >
-                    Transforming every step of the claims journey with automation<br />
-                    to boost speed, accuracy, and customer satisfaction.
+                    Transforming every step of the claims journey with automation to boost speed, accuracy, and customer satisfaction.
                   </motion.p>
                 </header>
 
@@ -227,12 +226,12 @@ export default function ClaimPioneerPage() {
                   </div>
                   <div className="text-left md:text-center">
                     <h3
-                      className="text-[17px] sm:text-[18px] font-medium leading-snug text-white mb-2 line-clamp-2 min-h-[2.8rem]"
+                      className="text-[17px] sm:text-[18px] font-medium leading-snug text-white mb-2 line-clamp-none md:line-clamp-2 min-h-[2.8rem]"
                     >
                       {cap.title}
                     </h3>
                     <p
-                      className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 line-clamp-4 min-h-[6.8em]"
+                      className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 line-clamp-none md:line-clamp-4 min-h-[6.8em]"
                     >
                       {cap.desc.replace(/\n/g, ' ')}
                     </p>
@@ -291,13 +290,12 @@ export default function ClaimPioneerPage() {
                     color: "#6f6f6f",
                   }}
                 >
-                  “We envision a future where every Credit Union leads with
-                  intelligence and empathy — where technology doesn’t
-                  complicate, but connects. FinXServe was built to unify digital
-                  banking journeys on Salesforce, transforming complexity into
-                  clarity and every interaction into a personalized experience.
-                  This is how modern finance grows — seamlessly, securely, and
-                  sustainably.”
+                  “With Claim Pioneer, our goal was to bring transparency and efficiency to a process
+                  that has traditionally been slow and frustrating. By automating claim assignment,
+                  enabling mobile-first field execution, and providing real-time updates to customers,
+                  Claim Pioneer transforms claims management from a bottleneck into a competitive
+                  advantage. This is how modern insurance operations scale — through speed, accuracy,
+                  and trust.”
                 </p>
 
                 <h6

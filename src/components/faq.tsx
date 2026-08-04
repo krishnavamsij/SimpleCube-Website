@@ -22,7 +22,7 @@ export function Faq() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         FAQ
                     </div>
-                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] whitespace-nowrap">
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] lg:whitespace-nowrap">
                         Frequently Asked <span className="text-[#00D4AA]">Questions</span>
                     </h2>
                 </div>

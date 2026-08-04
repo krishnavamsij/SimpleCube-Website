@@ -124,5 +124,6 @@ export const heroSlideIn: Variants = {
 };
 
 // Viewport trigger defaults
-export const viewportOnce = { once: true, margin: "-80px" as const };
-export const viewportRepeat = { once: false, margin: "-80px" as const };
+export const viewportOnce = { once: true, amount: 0.15 };
+export const viewportRepeat = { once: false, amount: 0.15 };
+

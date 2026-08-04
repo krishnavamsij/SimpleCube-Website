@@ -125,12 +125,12 @@ export default function FinxservePage() {
                                 height={97}
                                 className="mb-8 mx-auto md:ml-0"
                             />
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-white mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <h1 className="text-2xl sm:text-[26px] md:text-[24px] lg:text-[42px] xl:text-[46px] 2xl:text-[50px] font-bold leading-[1.2] text-white mb-6 tracking-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Frictionless Consumer<br />
                                 Lending Experience.<br />
                                 Native to Salesforce.
                             </h1>
-                            <p className="text-base sm:text-lg font-normal leading-relaxed text-white/90 mb-10 max-w-[500px] mx-auto md:mx-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <p className="text-base sm:text-lg font-normal leading-relaxed text-white/90 mb-10 max-w-[500px] md:max-w-[380px] mx-auto md:mx-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Designed for lenders who believe experience closes more loans than systems.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
@@ -228,10 +228,10 @@ export default function FinxservePage() {
             </section>
 
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
-                <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[60px]`} >
+                <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left -mt-3 lg:-mt-5">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-6 leading-tight">
+                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
                             Capabilities That Drive Growth
                         </h2>
                         <p className="text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm">
@@ -240,7 +240,7 @@ export default function FinxservePage() {
                     </div>
  
                     {/* RIGHT GRID (Scrollable) */}
-                    <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[30px] items-stretch">
+                    <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-0 lg:pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[24px] lg:gap-[30px] items-stretch">
                         {capabilities.map((cap, idx) => (
                             <div
                                 key={idx}
@@ -498,11 +498,11 @@ export default function FinxservePage() {
                                     {/* Content */}
                                     <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
                                         <h3
-                                            className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]"
+                                            className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none"
                                             dangerouslySetInnerHTML={{ __html: cs.title }}
                                         />
 
-                                        <p className="text-[12.5px] font-normal text-slate-500 leading-relaxed mb-6 flex-1 line-clamp-2 min-h-[3.2em]">
+                                        <p className="text-[12.5px] font-normal text-slate-500 leading-relaxed mb-6 flex-1 line-clamp-none">
                                             {cs.desc}
                                         </p>
 

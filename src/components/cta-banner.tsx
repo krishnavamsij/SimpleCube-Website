@@ -123,10 +123,8 @@ export function CtaBanner() {
                             ))}
                         </h2>
 
-                        <p className="text-[18px] sm:text-[21px] font-medium text-white/70 leading-[1.65] max-w-[720px] mb-12">
-                            {sub.split('\n').map((line, i) => (
-                                <span key={i} className="block">{line}</span>
-                            ))}
+                        <p className="text-[16px] sm:text-[21px] font-medium text-white/70 leading-[1.6] sm:leading-[1.65] max-w-[680px] mb-12 px-2 sm:px-0">
+                            {sub}
                         </p>
 
                         <Link

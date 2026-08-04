@@ -200,15 +200,15 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+                    className="grid grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
                 >
                     {insuranceContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start md:items-center text-left md:text-center">
-                            <div className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display text-left md:text-center">
+                            <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left md:text-center whitespace-nowrap">
                                 {stat.value}
                             </div>
                             <div
-                                className="text-base text-slate-300 font-medium text-left md:text-center"
+                                className="text-[10px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium leading-[1.3] sm:leading-snug md:leading-relaxed text-left md:text-center"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}
                             />
                         </motion.div>
@@ -263,14 +263,14 @@ function CaseStudies() {
                                             src={study.image}
                                             alt={study.title.replace("<br />", " ")}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-103"
+                        className="object-cover transition-transform duration-700 group-hover:scale-103"
                                         />
                                     )}
                                 </div>
 
                                 {/* Content */}
                                 <div className="flex flex-col flex-1">
-                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]">
+                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none">
                                         {study.titleHighlightIndex === 1 ? (
                                             <>
                                                 <span className="text-[#1e90ff]">{firstLine}</span>

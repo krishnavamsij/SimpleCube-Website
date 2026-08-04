@@ -486,7 +486,7 @@ function DataSecuritySection() {
     return (
         <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center">
 
                     {/* ── LEFT — text content ── */}
                     <motion.div
@@ -494,7 +494,7 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[52%]"
+                        className="w-full md:w-[50%] lg:w-[52%]"
                     >
                         {/* Eyebrow */}
                         <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 py-1.5 mb-6">
@@ -525,7 +525,7 @@ function DataSecuritySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[48%] relative flex items-center justify-center"
+                        className="w-full md:w-[50%] lg:w-[48%] relative flex items-center justify-center"
                     >
                         <div className="w-full">
                             <CertificationsDiagram />
@@ -558,18 +558,19 @@ function WorkThatSpeaks() {
         <section className="bg-white py-10 sm:py-14 lg:py-16">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* ── Header ── */}
-                <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-16 mb-12">
-                    <div className="w-full lg:w-[52%] flex items-center">
-                        <h2 className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] tracking-tight font-display leading-[1.12]">
-                            Enterprise <span className="text-[#00D4AA]">Impact</span><br className="hidden sm:block" />
+                <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10 lg:gap-16 mb-12">
+                    <div className="w-full md:w-[50%] lg:w-[52%]">
+                        <h2 className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold text-[#0f172a] tracking-tight font-display leading-[1.12]">
+                            Enterprise <span className="text-[#00D4AA]">Impact</span>{" "}
                             Delivered By Our <span className="text-[#00D4AA]">Experts.</span>
                         </h2>
                     </div>
-                    <div className="w-full lg:w-[48%] flex items-stretch">
+                    <div className="w-full md:w-[50%] lg:w-[48%] flex items-stretch">
                         <div className="w-[3px] sm:w-1 bg-[#00D4AA] shrink-0 mr-6 rounded-full"></div>
                         <div className="flex items-center">
-                            <h3 className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] tracking-tight leading-tight font-display">
-                                Over 220 Projects<br />
+                            <h3 className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold text-[#0f172a] tracking-tight leading-tight font-display">
+                                Over 220 Projects
+                                <br />
                                 Delivered Successfully
                             </h3>
                         </div>
@@ -577,10 +578,10 @@ function WorkThatSpeaks() {
                 </div>
 
                 {/* ── Content ── */}
-                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-16 items-stretch">
                     
                     {/* LHS Text Content with Fade Animation */}
-                    <div className="w-full lg:w-[52%] relative">
+                    <div className="w-full md:w-[50%] lg:w-[52%] relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={current}
@@ -600,7 +601,7 @@ function WorkThatSpeaks() {
                                                 </h3>
                                                 <div className="mb-6">
                                                     <p className="text-base font-bold text-slate-900 mb-2">Challenge</p>
-                                                    <p className="whitespace-pre-line text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
+                                                    <p className="text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
                                                 </div>
                                                 <div className="mb-6">
                                                     <p className="text-base font-bold text-slate-900 mb-3">Solution</p>
@@ -641,7 +642,7 @@ function WorkThatSpeaks() {
                     </div>
 
                     {/* RHS Image Carousel */}
-                    <div className="w-full lg:w-[48%] flex flex-col justify-between">
+                    <div className="w-full md:w-[50%] lg:w-[48%] flex flex-col justify-between">
                         <div className="overflow-hidden relative w-full" ref={emblaRef}>
                             <div className="flex h-full -ml-4">
                                 {servicesProjectsData.map((study, idx) => (
@@ -916,7 +917,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Modernizing Contact Centers with\nIntelligent IVR Self-Service",
         image: "/images/Case_Studies/Optimized/cs-3.png",
-        challenge: "A large percentage of inbound calls involved routine account inquiries, increasing\nagent workload and extending customer wait times.",
+        challenge: "A large percentage of inbound calls involved routine account inquiries, increasing agent workload and extending customer wait times.",
         solution: [
             "Automated high-volume inquiries through intelligent self-service IVR workflows.",
             "Created guided IVR journeys for balance inquiries, account information and service requests.",
@@ -929,7 +930,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Autonomous Freight Operations\nwith GenAI",
         image: "/images/Case_Studies/Optimized/cs-4.png",
-        challenge: "Freight teams spent significant time manually reviewing shipment documents, extracting\ndata and creating loads, resulting in delays and operational inefficiencies.",
+        challenge: "Freight teams spent significant time manually reviewing shipment documents, extracting data and creating loads, resulting in delays and operational inefficiencies.",
         solution: [
             "Implemented Intelligent Document Processing to automatically classify freight documents.",
             "Extracted shipment details from rate confirmations, bills of lading and carrier documents.",
@@ -942,7 +943,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Faster Loan Processing with\nAgentforce Document Intelligence",
         image: "/images/Case_Studies/Optimized/cs-2.png",
-        challenge: "Manual document reviews and verification processes delayed loan approvals and\ncreated friction for borrowers.",
+        challenge: "Manual document reviews and verification processes delayed loan approvals and created friction for borrowers.",
         solution: [
             "Deployed AI-powered document intelligence for loan document processing.",
             "Automated document classification, extraction and validation.",
@@ -955,7 +956,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Cost-Optimized Document\nPlatform on AWS",
         image: "/images/Case_Studies/Optimized/cs-22.png",
-        challenge: "An enterprise document management platform faced rising infrastructure costs, limited\nscalability and increasing maintenance overhead.",
+        challenge: "An enterprise document management platform faced rising infrastructure costs, limited scalability and increasing maintenance overhead.",
         solution: [
             "Migrated the document platform to AWS cloud infrastructure.",
             "Optimized storage and compute resources based on usage patterns.",
@@ -968,7 +969,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Frictionless Customer Authentication\nfor Secure Banking",
         image: "/images/Case_Studies/Optimized/cs-7.png",
-        challenge: "A financial institution needed to strengthen security while eliminating the friction of\npasswords, security questions and lengthy verification processes.",
+        challenge: "A financial institution needed to strengthen security while eliminating the friction of passwords, security questions and lengthy verification processes.",
         solution: [
             "Implemented voice biometric authentication for customer verification.",
             "Introduced passive identity verification during customer interactions.",
@@ -981,7 +982,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Intelligent School Administration\nfor Modern Institutions",
         image: "/images/Case_Studies/Eazyschool_admin.png",
-        challenge: "Schools relied on disconnected systems and manual processes that made administration,\nreporting and communication inefficient.",
+        challenge: "Schools relied on disconnected systems and manual processes that made administration, reporting and communication inefficient.",
         solution: [
             "Built a unified platform to centralize school administration activities.",
             "Automated attendance, reporting and academic management workflows.",
@@ -994,7 +995,7 @@ const servicesProjectsData: ProjectStudy[] = [
     {
         title: "Transforming Claims Operations with a\nScalable Digital Platform",
         image: "/images/Case_Studies/Optimized/cs-17.png",
-        challenge: "Claims teams relied on disconnected systems and manual coordination to assign, track\nand process claims, limiting visibility and slowing resolution times.",
+        challenge: "Claims teams relied on disconnected systems and manual coordination to assign, track and process claims, limiting visibility and slowing resolution times.",
         solution: [
             "Built a unified digital platform to manage the end-to-end claims lifecycle.",
             "Automated claim intake, assignment, approvals and workflow orchestration.",

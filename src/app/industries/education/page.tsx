@@ -186,12 +186,12 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="max-w-4xl mx-auto mb-20 text-left md:text-center"
+                    className="max-w-3xl lg:max-w-4xl mx-auto mb-16 md:mb-20 text-left md:text-center px-4"
                 >
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 md:mb-8 uppercase tracking-wide">
                         {educationContent.impact.title}
                     </h2>
-                    <p className="text-lg text-slate-300 font-medium leading-relaxed">
+                    <p className="text-base md:text-lg text-slate-300 font-medium leading-relaxed">
                         {educationContent.impact.subtitle}
                     </p>
                 </motion.div>
@@ -201,15 +201,15 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+                    className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8"
                 >
                     {educationContent.impact.stats.map((stat, index) => (
                         <motion.div key={index} variants={scrollReveal} className="flex flex-col items-start md:items-center text-left md:text-center">
-                            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-display text-left md:text-center">
+                            <div className="text-[15px] sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left md:text-center">
                                 {stat.value}
                             </div>
                             <div
-                                className="text-base text-slate-300 font-medium text-left md:text-center"
+                                className="text-[9px] leading-[1.2] sm:text-[12px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium sm:leading-snug md:leading-relaxed text-left md:text-center"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}
                             />
                         </motion.div>
@@ -271,7 +271,7 @@ function CaseStudies() {
 
                                 {/* Content */}
                                 <div className="flex flex-col flex-1">
-                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-2 min-h-[2.7em]">
+                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none">
                                         {study.titleHighlightIndex === 1 ? (
                                             <>
                                                 <span className="text-[#1e90ff]">{firstLine}</span>

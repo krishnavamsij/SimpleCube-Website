@@ -40,10 +40,10 @@ export function WhyHyniva() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 lg:gap-16 lg:grid-cols-2 items-center">
+                    <div className="relative z-10 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-12 items-center">
                         {/* Left Side: Headline & Stats */}
-                        <div>
-                            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-4 sm:mb-6 lg:mb-8 font-display">
+                        <div className="md:col-span-6 lg:col-span-6">
+                            <h2 className="text-[28px] sm:text-[36px] md:text-[36px] lg:text-[52px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-4 sm:mb-6 lg:mb-8 font-display">
                                 {topBox.headline.split(topBox.highlightedWord).map((part, i, arr) => (
                                     <React.Fragment key={i}>
                                         {part}
@@ -53,18 +53,18 @@ export function WhyHyniva() {
                             </h2>
                             
                             <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
-                                <div className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
+                                <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-6 lg:gap-12 w-full">
                                     {topBox.stats.map((stat, idx) => (
                                         <div key={idx} className="flex flex-col flex-shrink-0">
                                             <div className="flex items-baseline gap-1 mb-2">
-                                                <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                                <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                     {stat.value.replace('+', '')}
                                                 </span>
                                                 {stat.value.includes('+') && (
-                                                    <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                                    <span className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
                                                 )}
                                             </div>
-                                            <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-pre-line leading-tight max-w-[80px] sm:max-w-none">
+                                            <span className="text-[11px] sm:text-[13px] md:text-[13px] lg:text-[15px] text-slate-400 font-medium whitespace-normal leading-tight">
                                                 {stat.label}
                                             </span>
                                         </div>
@@ -74,8 +74,8 @@ export function WhyHyniva() {
                         </div>
 
                         {/* Right Side: Description & CTA */}
-                        <div className="flex flex-col items-start pt-4 lg:pt-0 lg:pl-16">
-                            <p className="text-base sm:text-lg lg:text-lg text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10 max-w-lg">
+                        <div className="flex flex-col items-start pt-4 md:pt-0 md:col-span-6 lg:col-span-6 md:pl-4 lg:pl-6 xl:pl-10">
+                            <p className="text-base sm:text-lg md:text-[17px] lg:text-[19px] text-slate-300 font-medium leading-[1.75] mb-6 sm:mb-8 lg:mb-10 w-full max-w-xl">
                                 {topBox.description}
                             </p>
                             <Link 
@@ -105,7 +105,7 @@ export function WhyHyniva() {
                                 <h3 className="text-[14px] font-black text-[#030B3B] mb-1.5 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/80 font-medium leading-[1.65] whitespace-pre-line">
+                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/80 font-medium leading-[1.65] whitespace-normal lg:whitespace-pre-line">
                                     {card.description}
                                 </p>
                             </div>

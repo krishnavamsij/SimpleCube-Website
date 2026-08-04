@@ -51,17 +51,17 @@ const decorHexagons = [
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white pt-[24px] sm:pt-[50px] lg:pt-[70px] pb-[8px] sm:pb-[15px] lg:pb-[20px]">
+        <section className="relative overflow-hidden bg-white pt-[20px] sm:pt-[70px] lg:pt-[90px] pb-[8px] sm:pb-[15px] lg:pb-[20px]">
 
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 lg:gap-12">
 
                     {/* =========================
                        LEFT SIDE CONTENT
                     ========================= */}
 
-                    <div className="w-full lg:w-[46%] relative z-20">
+                    <div className="w-full md:w-[46%] lg:w-[46%] relative z-20">
 
                         <motion.div
                             variants={scrollReveal}
@@ -77,7 +77,7 @@ export function TechPartners() {
                             </div>
 
                             {/* Heading */}
-                            <h2 className="text-[32px] sm:text-[44px] lg:text-[56px] font-extrabold tracking-tight leading-[1.05] text-slate-900 mb-5 max-w-xl">
+                            <h2 className="text-[32px] sm:text-[40px] md:text-[32px] lg:text-[56px] font-extrabold tracking-tight leading-[1.05] text-slate-900 mb-5 max-w-xl">
                                 Built on the platforms
                                 <br />
                                 you already{" "}
@@ -87,7 +87,7 @@ export function TechPartners() {
                             </h2>
 
                             {/* Description */}
-                            <p className="text-[17px] sm:text-lg text-slate-600 font-medium leading-[1.7] mb-10 max-w-xl">
+                            <p className="text-[17px] sm:text-lg md:text-[15px] lg:text-lg text-slate-600 font-medium leading-[1.7] mb-6 lg:mb-10 max-w-xl">
                                 {techPartnersContent.sub}
                             </p>
 
@@ -100,7 +100,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full lg:w-[52%] flex justify-start overflow-visible -ml-12 sm:-ml-6 md:-ml-8 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-4 lg:pl-0">
+                    <div className="relative w-full md:w-[54%] lg:w-[52%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}
@@ -114,11 +114,12 @@ export function TechPartners() {
                                 sm:max-w-[760px]
                                 h-[290px]
                                 sm:h-[400px]
-                                md:h-[500px]
+                                md:h-[380px]
                                 lg:h-[560px]
                                 xl:h-[640px]
                                 overflow-visible
-                                lg:-translate-x-4
+                                md:-translate-x-10
+                                lg:-translate-x-5
                                 xl:-translate-x-8
                             "
                         >
@@ -139,10 +140,10 @@ export function TechPartners() {
                                         relative
                                         scale-[0.32]
                                         sm:scale-[0.45]
-                                        md:scale-[0.60]
-                                        lg:scale-[0.70]
+                                        md:scale-[0.42]
+                                        lg:scale-[0.55]
                                         xl:scale-[0.80]
-                                        origin-center
+                                        origin-center md:origin-right lg:origin-center
                                         mx-auto
                                     "
                                     style={{

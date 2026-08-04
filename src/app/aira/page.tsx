@@ -110,110 +110,7 @@ const impacts = [
     },
 ]
 
-// function AiraHero() {
-//     return (
-//         <section className="relative min-h-[600px] md:h-[600px] lg:h-[700px] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 md:pt-0 bg-gradient-to-br from-[#030b1e] via-[#061244] to-[#020918]">
 
-//             {/* Background video - hidden on mobile */}
-//             <div className="absolute inset-0 z-0 hidden md:block">
-//                 <video
-//                     autoPlay
-//                     muted
-//                     loop
-//                     playsInline
-//                     className="object-cover w-full h-full"
-//                 >
-//                     <source src="/images/products/HERO-PAGE-.mp4" type="video/mp4" />
-//                 </video>
-//             </div>
-
-//             {/* Mobile gradient overlay */}
-//             <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-[0] md:hidden" />
-
-//             {/* Overlay for desktop */}
-//             <div className="absolute inset-0 bg-black/40 z-[1] hidden md:block" />
-
-//             {/* Content */}
-//             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-0 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-//                 <motion.div
-//                     variants={staggerContainer}
-//                     initial="hidden"
-//                     animate="visible"
-//                     className="max-w-[650px] md:max-w-[600px] text-center md:text-left mx-auto md:mx-0 flex-1"
-//                 >
-
-//                     {/* Logo */}
-//                     <motion.div
-//                         variants={fadeInUp}
-//                         className="mb-4 sm:mb-6 flex justify-center md:justify-start"
-//                     >
-//                         {typeof window !== 'undefined' && (
-//                             <Image
-//                                 src="/logos/Artboard.png"
-//                                 alt="AIRA Logo"
-//                                 width={260}
-//                                 height={90}
-//                                 className="w-[120px] sm:w-[180px] md:w-[280px] h-auto object-contain"
-//                                 priority
-//                                 onError={(e) => {
-//                                     e.currentTarget.style.display = 'none';
-//                                 }}
-//                             />
-//                         )}
-//                     </motion.div>
-
-//                     {/* Heading */}
-//                     <motion.h1
-//                         variants={fadeInUp}
-//                         className="text-white mb-4 sm:mb-5 text-[22px] sm:text-[28px] md:text-5xl leading-[1.2] font-bold text-center md:text-left"
-//                         style={{ fontFamily: "Poppins, sans-serif" }}
-//                     >
-//                         Autonomous Intelligent
-//                         <br />
-//                         Reasoning Agent
-//                     </motion.h1>
-
-//                     {/* Description */}
-//                     <motion.p
-//                         variants={fadeInUp}
-//                         className="text-white mb-6 sm:mb-8 text-[14px] sm:text-[15px] md:text-[19px] font-normal leading-relaxed max-w-[280px] sm:max-w-[400px] md:max-w-[520px] mx-auto md:mx-0 opacity-90 text-center md:text-left"
-//                         style={{ fontFamily: "Poppins, sans-serif" }}
-//                     >
-//                         The enterprise-ready AI platform built for financial institutions —
-//                         delivering accuracy, execution, and compliance at scale
-//                     </motion.p>
-
-//                     {/* Button */}
-//                     <motion.div
-//                         variants={fadeInUp}
-//                         className="flex justify-center md:justify-start mt-2"
-//                     >
-//                         <Button
-//                             asChild
-//                             style={{
-//                                 backgroundColor: "#ffffff",
-//                                 color: "#000000",
-//                                 fontFamily: "Poppins, sans-serif",
-//                                 fontSize: "13px",
-//                                 fontWeight: 600,
-//                                 padding: "8px 20px",
-//                                 borderRadius: "0px",
-//                                 height: "auto"
-//                             }}
-//                             className="hover:bg-gray-100 transition-colors uppercase shadow-lg text-xs sm:text-sm"
-//                         >
-//                             <Link href="/contact">
-//                                 Get Started
-//                             </Link>
-//                         </Button>
-//                     </motion.div>
-
-//                 </motion.div>
-
-//             </div>
-//         </section>
-//     )
-// }
 function AiraHero() {
     return (
         <>
@@ -269,11 +166,12 @@ function AiraHero() {
                     mb-8
                     max-w-[320px]
                     mx-auto
-                    line-clamp-2
                 "
                             style={{ fontFamily: "Poppins, sans-serif" }}
                         >
-                            The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
+                            The enterprise-ready AI platform built<br />
+                            for financial institutions — delivering<br />
+                            accuracy, execution, and compliance at scale
                         </motion.p>
 
                         {/* Button */}
@@ -314,7 +212,12 @@ function AiraHero() {
                         max-w-[320px]
                         h-auto
                         object-contain
+                        mix-blend-screen
                     "
+                                style={{
+                                    maskImage: 'radial-gradient(circle at center, black 50%, transparent 90%)',
+                                    WebkitMaskImage: 'radial-gradient(circle at center, black 50%, transparent 90%)',
+                                }}
                             >
                                 <source
                                     src="/images/Product_Images/AIRA HERO BANNER GRAPHIC.mp4"
@@ -328,67 +231,62 @@ function AiraHero() {
             </section>
 
             {/* ─────────────────────────────────────────────────────────────
-                DESKTOP HERO
+                DESKTOP & TABLET HERO
             ───────────────────────────────────────────────────────────── */}
             <section className="relative w-full overflow-hidden bg-[#020918] hidden md:block">
 
-                {/* Background Video */}
-                <div className="absolute inset-0 z-0 flex justify-end">
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-[102%] max-w-none h-full object-cover object-[100%_50%] bg-[#020918] transform translate-x-[8%]"
-                    >
-                        <source
-                            src="/images/products/HERO-PAGE-.mp4"
-                            type="video/mp4"
-                        />
-                    </video>
+                {/* Animation on right side - small size, no overflow, blended with background */}
+                <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-0 md:pr-4 lg:pr-6 pointer-events-none overflow-hidden">
+                    <div className="relative w-full max-w-[300px] md:max-w-[340px] lg:max-w-[420px] xl:max-w-[480px] aspect-square flex items-center justify-center translate-x-6 md:translate-x-10 lg:translate-x-12">
+                        {/* Ambient soft glow matching page theme */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(52,81,149,0.35)_0%,transparent_65%)] rounded-full blur-2xl pointer-events-none" />
 
-                    {/* Overlay */}
-                    <div
-                        className="absolute inset-0"
-                        style={{
-                            background: `linear-gradient(
-                                to right,
-                                rgba(2,9,24,0.97) 0%,
-                                rgba(2,9,24,0.92) 34%,
-                                rgba(2,9,24,0.45) 68%,
-                                rgba(2,9,24,0.08) 100%
-                            )`,
-                        }}
-                    />
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-contain relative z-10 mix-blend-screen"
+                            style={{
+                                maskImage: 'radial-gradient(circle at 50% 50%, black 20%, transparent 55%)',
+                                WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 20%, transparent 55%)',
+                            }}
+                        >
+                            <source
+                                src="/images/Product_Images/AIRA HERO BANNER GRAPHIC.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </div>
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex items-center min-h-screen">
+                <div className="relative z-10 flex items-center min-h-[520px] md:min-h-[560px] lg:min-h-screen">
                     <div className={CONTAINER_CLASS}>
 
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
-                            className="w-full max-w-[700px] lg:max-w-[800px] flex flex-col justify-center items-start text-left relative z-20 py-16"
+                            className="w-full max-w-[550px] md:max-w-[580px] lg:max-w-[700px] flex flex-col justify-center items-start text-left relative z-20 py-10 md:py-12 lg:py-16"
                         >
 
                             {/* Logo */}
-                            <motion.div variants={fadeInUp} className="mb-6">
+                            <motion.div variants={fadeInUp} className="mb-4 sm:mb-6">
                                 <Image
                                     src="/logos/Artboard.png"
                                     alt="AIRA Logo"
                                     width={260}
                                     height={90}
                                     priority
-                                    className="w-[220px] h-auto object-contain"
+                                    className="w-[160px] md:w-[180px] lg:w-[220px] h-auto object-contain"
                                 />
                             </motion.div>
 
                             {/* Heading */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-white font-black leading-[1.08] tracking-tight mb-10 w-full text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px]"
+                                className="text-white font-black leading-[1.1] tracking-tight mb-6 md:mb-8 w-full text-3xl md:text-[34px] lg:text-[52px] xl:text-[60px]"
                                 style={{ fontFamily: "Poppins, sans-serif" }}
                             >
                                 Autonomous Intelligent<br />Reasoning Agent
@@ -397,7 +295,7 @@ function AiraHero() {
                             {/* Paragraph */}
                             <motion.p
                                 variants={fadeInUp}
-                                className="text-slate-300 font-medium leading-relaxed mb-14 w-full text-base sm:text-lg lg:text-[18px] max-w-[640px]"
+                                className="text-slate-300 font-medium leading-relaxed mb-8 md:mb-10 w-full text-sm md:text-base lg:text-[18px] max-w-[640px]"
                                 style={{ fontFamily: "Poppins, sans-serif" }}
                             >
                                 The enterprise-ready AI platform built for financial institutions — delivering accuracy, execution, and compliance at scale
@@ -414,7 +312,7 @@ function AiraHero() {
                                         uppercase
                                         rounded-none
                                         px-6
-                                        py-4
+                                        py-3.5
                                         text-[12px]
                                         font-semibold
                                         shadow-lg
@@ -492,20 +390,20 @@ function AiraDifferentiators() {
                     </h2>
                 </motion.div>
 
-                <motion.div
-                    variants={scrollStaggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="grid gap-6 sm:gap-[30px]"
-                >
+                <div className="grid gap-6 sm:gap-[30px]">
                     {/* First Row items */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-[30px]">
+                    <motion.div
+                        variants={scrollStaggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-[30px]"
+                    >
                         {whatMakesDiff.slice(0, 2).map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
@@ -514,14 +412,20 @@ function AiraDifferentiators() {
                                 <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                     {/* Remaining items */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-[30px]">
+                    <motion.div
+                        variants={scrollStaggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-[30px]"
+                    >
                         {whatMakesDiff.slice(2).map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                                className="bg-white p-6 sm:p-8 rounded-[15px] shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden"
                             >
                                 <div className="mb-[20px]">
                                     <Image src={item.img} alt={item.title} width={80} height={80} className="object-contain" />
@@ -530,8 +434,8 @@ function AiraDifferentiators() {
                                 <p className="text-[#000000] text-[15px] leading-relaxed m-0">{item.desc}</p>
                             </motion.div>
                         ))}
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     )
@@ -555,19 +459,19 @@ function AiraCapabilities() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid gap-[30px] sm:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-[24px] sm:gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {capabilities.map((cap, idx) => (
                         <motion.div
                             key={idx}
                             variants={scrollReveal}
-                            className="group flex flex-col"
+                            className="group flex flex-col rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-lg"
                         >
-                            <div className="w-full h-auto">
-                                <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover" />
+                            <div className="w-full h-auto overflow-hidden">
+                                <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
                             </div>
                             <div className="bg-[#040c31] p-5 sm:p-6 text-center flex-grow flex flex-col items-center">
-                                <h5 className="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-white mb-[12px] leading-tight whitespace-nowrap">{cap.title}</h5>
+                                <h5 className="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-white mb-[12px] leading-tight">{cap.title}</h5>
                                 <p className="text-white/90 text-[13px] sm:text-[14px] leading-[1.6] m-0">{cap.desc}</p>
                             </div>
                         </motion.div>

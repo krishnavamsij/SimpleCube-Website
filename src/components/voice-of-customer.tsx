@@ -21,7 +21,7 @@ export function VoiceOfCustomer() {
     const [current, setCurrent] = useState(0);
 
     const next = useCallback(() => setCurrent((prev) => (prev + 1) % testimonials.length), [testimonials.length]);
-    
+
     // Auto-rotate every 10 seconds
     useEffect(() => {
         const timer = setInterval(next, 10000);
@@ -32,34 +32,33 @@ export function VoiceOfCustomer() {
 
     return (
         <section className="bg-white pt-[10px] pb-[30px] sm:pt-[20px] sm:pb-[40px] lg:pt-[20px] lg:pb-[50px] relative overflow-hidden min-h-0 lg:min-h-[600px] xl:min-h-[750px] flex flex-col justify-center">
-            
-            {/* ── Background: Prominent Semi-Circles (Reverted) ── */}
+
+            {/* ── Background: Prominent Semi-Circles (Beside Image on Mobile) ── */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="absolute top-[55%] left-[70%] -translate-y-1/2 w-full h-full flex items-center justify-center">
+                <div className="absolute top-[68%] lg:top-[55%] left-[60%] lg:left-[70%] -translate-y-1/2 w-full h-full flex items-center justify-center">
                     {[1, 2, 3, 4, 5].map((i) => (
                         <motion.div
                             key={i}
                             initial={{ scale: 0.7, opacity: 0 }}
                             animate={{ scale: 1, opacity: 0.25 }}
-                            transition={{ 
-                                delay: i * 0.25, 
-                                duration: 3, 
-                                repeat: Infinity, 
+                            transition={{
+                                delay: i * 0.25,
+                                duration: 3,
+                                repeat: Infinity,
                                 repeatType: "reverse",
                                 ease: "easeInOut"
                             }}
                             className="absolute rounded-full border-[2px] border-[#1e90ff]/30"
-                            style={{ 
-                                width: `min(${i * 380}px, 90vw)`, 
-                                height: `min(${i * 380}px, 90vw)` 
+                            style={{
+                                width: `min(${i * 380}px, 90vw)`,
+                                height: `min(${i * 380}px, 90vw)`
                             }}
                         />
                     ))}
                 </div>
             </div>
-
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 w-full relative z-10 pb-16 lg:pb-8">
-                
+
                 {/* Header */}
                 <motion.div
                     variants={scrollReveal}
@@ -74,13 +73,13 @@ export function VoiceOfCustomer() {
                     </div>
                     <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] max-w-2xl relative z-10">
                         {headline.split(" ").map((word, i) => {
-                             const pureWord = word.replace(/[.,]/g, "").toLowerCase();
-                             const isHighlighted = highlightedWords.some(hw => hw.toLowerCase().includes(pureWord));
-                             return (
-                                 <span key={i} className={isHighlighted ? "text-[#00D4AA]" : ""}>
-                                     {word}{" "}
-                                 </span>
-                             );
+                            const pureWord = word.replace(/[.,]/g, "").toLowerCase();
+                            const isHighlighted = highlightedWords.some(hw => hw.toLowerCase().includes(pureWord));
+                            return (
+                                <span key={i} className={isHighlighted ? "text-[#00D4AA]" : ""}>
+                                    {word}{" "}
+                                </span>
+                            );
                         })}
                     </h2>
                 </motion.div>
@@ -102,7 +101,7 @@ export function VoiceOfCustomer() {
                                     {getTagIcon(active.industry)}
                                     {active.industry}
                                 </div>
-                                
+
                                 <div className="relative">
                                     <p className="text-lg md:text-xl lg:text-2xl xl:text-[26px] font-medium leading-relaxed text-[#030B3B] relative z-10 text-left max-w-[88%]">
                                         &ldquo;{active.quote}&rdquo;
@@ -111,11 +110,11 @@ export function VoiceOfCustomer() {
 
                                 <div className="pt-2 w-full max-w-[88%]">
                                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-[#1e90ff]/5 border border-[#1e90ff]/20 w-full">
-                                        <p 
+                                        <p
                                             className="text-sm sm:text-base text-[#030B3B] font-medium leading-relaxed flex-1"
                                             dangerouslySetInnerHTML={{ __html: active.result as string }}
                                         />
-                                        <a 
+                                        <a
                                             href={active.caseStudyHref}
                                             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-xs shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-[#3B82F6]/30 transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] group uppercase tracking-wide shrink-0 whitespace-nowrap"
                                         >
@@ -131,16 +130,16 @@ export function VoiceOfCustomer() {
                                 {/* Wrapper to ensure image and text align perfectly to each other's center and prevent horizontal scrollbar */}
                                 <div className="flex flex-col items-center w-full">
                                     <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] aspect-square">
-                                        
+
                                         {/* ── Radiating Image Glow (Synced with Background) ── */}
                                         {[0, 1].map((i) => (
                                             <motion.div
                                                 key={`glow-${current}-${i}`}
                                                 initial={{ scale: 1, opacity: 0.5 }}
                                                 animate={{ scale: 1.4, opacity: 0 }}
-                                                transition={{ 
-                                                    duration: 2.5, 
-                                                    repeat: Infinity, 
+                                                transition={{
+                                                    duration: 2.5,
+                                                    repeat: Infinity,
                                                     delay: i * 1.25,
                                                     ease: "easeOut"
                                                 }}
@@ -149,16 +148,16 @@ export function VoiceOfCustomer() {
                                         ))}
 
                                         <div className="relative w-full h-full overflow-hidden rounded-full ring-4 ring-white shadow-2xl bg-transparent z-10">
-                                            <Image 
-                                                src={active.image} 
-                                                alt={active.author} 
-                                                fill 
-                                                className="object-cover object-bottom scale-105" 
+                                            <Image
+                                                src={active.image}
+                                                alt={active.author}
+                                                fill
+                                                className="object-cover object-bottom scale-105"
                                                 priority
                                             />
                                         </div>
                                     </div>
-                                    
+
                                     {/* RHS Info — Centered to image */}
                                     <div className="mt-8 text-center flex flex-col items-center">
                                         <div className="space-y-1">
@@ -167,7 +166,7 @@ export function VoiceOfCustomer() {
                                                 {active.designation}
                                             </p>
                                         </div>
-                                        
+
                                         {/* Company logo */}
                                         {active.logo && (
                                             <div className="mt-2 flex items-center justify-center">
@@ -191,9 +190,8 @@ export function VoiceOfCustomer() {
                         <button
                             key={i}
                             onClick={() => setCurrent(i)}
-                            className={`h-1.5 rounded-full transition-all duration-500 ${
-                                i === current ? "w-10 bg-[#1e90ff]" : "w-1.5 bg-[#1e90ff]/20"
-                            }`}
+                            className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-10 bg-[#1e90ff]" : "w-1.5 bg-[#1e90ff]/20"
+                                }`}
                             aria-label={`Go to slide ${i + 1}`}
                         />
                     ))}

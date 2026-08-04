@@ -409,7 +409,7 @@ export const expertiseContent = {
         stats: [
             { value: "250+", label: "Certified\nProfessionals" }
         ],
-        description: "Our experts continuously expand their capabilities\nacross AI, cloud, data and enterprise platforms to\nsolve today's challenges and prepare our clients\nfor tomorrow's opportunities.",
+        description: "Our experts continuously expand their capabilities across AI, cloud, data and enterprise platforms to solve today's challenges and prepare our clients for tomorrow's opportunities.",
         boldWords: [],
         cta: { label: "About Us", href: "/about" },
         imagePlaceholder: "/images/expertise/professionals.png"
@@ -418,25 +418,25 @@ export const expertiseContent = {
         {
             icon: "Brain",
             title: "AI-Ready Talent",
-            description: "Applied expertise in GenAI,\nintelligent automation and\nAI agents to solve complex\nchallenges and accelerate\nbusiness innovation.",
+            description: "Applied expertise in GenAI, intelligent automation and AI agents to solve complex challenges and accelerate business innovation.",
             imagePlaceholder: "/images/expertise/ai-talent.png"
         },
         {
             icon: "Layers",
             title: "Platform Specialists",
-            description: "Certified across Salesforce,\nAWS, Microsoft and leading\nenterprise ecosystems to\naccelerate implementation,\ninnovation, and adoption.",
+            description: "Certified across Salesforce, AWS, Microsoft and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
             imagePlaceholder: "/images/expertise/platform-specialists.png"
         },
         {
             icon: "Briefcase",
             title: "Industry Experience",
-            description: "Hands-on experience delivering\nenterprise solutions that address\noperational, regulatory, and\ncustomer experience challenges\nacross highly regulated industries.",
+            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
             imagePlaceholder: "/images/expertise/industry-experience.png"
         },
         {
             icon: "GraduationCap",
             title: "Learning Ecosystem",
-            description: "Innovation thrives when learning\nnever stops. We invest in emerging\ntechnologies, certifications and\nexperimentation to keep our teams\nahead of what's next.",
+            description: "Innovation thrives when learning never stops. We invest in emerging technologies, certifications and experimentation to keep our teams ahead of what's next.",
             imagePlaceholder: "/images/expertise/learning-culture.png"
         }
     ]
@@ -627,7 +627,7 @@ export const statsContent = {
 export const ctaContent = {
     label: "Let's Talk",
     headline: "Ready to simplify your enterprise?",
-    sub: "Let's start with a 30-minute discovery call. No commitment,\nno sales pitch. Just a real conversation about your challenges.",
+    sub: "Let's start with a 30-minute discovery call. No commitment, no sales pitch. Just a real conversation about your challenges.",
     cta: { label: "Schedule a free consultation", href: "/contact" },
 };
 
