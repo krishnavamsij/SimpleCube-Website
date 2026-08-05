@@ -295,7 +295,7 @@ function CaseStudies() {
                                         )}
                                     </h3>
 
-                                    <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-8 flex-1 line-clamp-3">
+                                    <p className="text-[15px] text-slate-600 font-normal leading-relaxed mb-8 flex-1 line-clamp-3">
                                         {study.description}
                                     </p>
 

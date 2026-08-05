@@ -181,19 +181,19 @@ export const aboutContent = {
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your goals,\nexisting systems & constraints\nbefore proposing anything."
+                    description: "We understand your goals, existing systems & constraints before proposing anything."
                 },
                 {
                     title: "Strategy & Scope",
-                    description: "A clear roadmap with\ntransparent cost and timeline —\nno padded estimates or surprises."
+                    description: "A clear roadmap with transparent cost and timeline — no padded estimates or surprises."
                 },
                 {
                     title: "Agile Delivery",
-                    description: "Direct access to our developers.\nWeekly progress demos.\nDecisions made fast."
+                    description: "Direct access to our developers. Weekly progress demos. Decisions made fast."
                 },
                 {
                     title: "Launch & Scale",
-                    description: "We don't hand off and disappear\n— we support, optimize\nand grow alongside you."
+                    description: "We don't hand off and disappear — we support, optimize and grow alongside you."
                 }
             ]
         },

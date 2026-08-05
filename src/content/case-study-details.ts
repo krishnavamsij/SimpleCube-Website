@@ -1251,7 +1251,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "scaling-service-operations-with-salesforce",
         "eyebrow": "Salesforce Service Cloud & CX Transformation",
         "title": "Intelligent Service Operations <br>\n      <em>on Salesforce</em>",
-        "summary": "Implemented Salesforce Service Cloud to centralize customer support <br> automate workflows,and improve case resolution speed across multiple service channels.",
+        "summary": "Implemented Salesforce Service Cloud to centralize customer support, automate workflows, and improve case resolution speed across multiple service channels.",
         "metrics": [
             {
                 "icon": "⚙️",
@@ -2946,7 +2946,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "eazyschool-admin": {
         "slug": "eazyschool-admin",
         "eyebrow": "Education Technology",
-        "title": "Intelligent School Administration<br><span style='color: white;'>for</span> <em>Modern Institutions</em>",
+        "title": "Intelligent School Administration <br><span style='color: white;'>for</span> <em>Modern Institutions</em>",
         "summary": "Eliminated manual school administration with a centralized platform that automates workflows, delivers real-time operational visibility and drives stronger accountability across institutions.",
         "metrics": [
             {

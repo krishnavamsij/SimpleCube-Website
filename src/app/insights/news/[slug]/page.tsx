@@ -204,7 +204,7 @@ export default function NewsDetailPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="hero-title text-[26px] sm:text-[34px] lg:text-[44px] font-[900] font-display text-white tracking-tight leading-[1.15] mb-6 px-4 sm:px-8 max-w-[1150px] mx-auto"
+                                className="hero-title text-[20px] xs:text-[24px] sm:text-[34px] lg:text-[44px] font-[900] font-display text-white tracking-tight leading-[1.25] sm:leading-[1.15] mb-6 px-3 sm:px-8 max-w-[1150px] mx-auto text-center"
                                 style={{ textTransform: 'none', fontFamily: 'var(--font-display), serif' }}
                                 dangerouslySetInnerHTML={{ __html: post.title }}
                             />
@@ -424,15 +424,16 @@ export default function NewsDetailPage() {
                 .aira-block__body ul li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 300; color: #4a5568; line-height: 1.7; }
                 .aira-block__body ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #1e6fff; flex-shrink: 0; margin-top: 8px; }
 
-                @media (max-width: 768px) {
-                    .type-compare, .benefits, .pillars { grid-template-columns: 1fr; }
+                @media (max-width: 640px) {
+                    .blog-content p { font-size: 15px !important; line-height: 1.75 !important; margin-bottom: 18px !important; }
+                    .blog-content h2 { font-size: 22px !important; margin: 32px 0 14px !important; line-height: 1.35 !important; }
+                    .blog-content h3 { font-size: 18px !important; margin: 24px 0 10px !important; line-height: 1.4 !important; }
+                    .blog-content ul li { font-size: 14.5px !important; line-height: 1.6 !important; gap: 10px !important; }
+                    .type-compare, .benefits, .pillars, .highlights, .milestones, .values, .process, .criteria, .listen-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+                    .listen-card, .type-card, .process-step, .benefit, .benefit-card, .highlight-card, .milestone, .pillar, .value-card, .ongoing, .day-card__header, .day-card__body, .aira-block__header, .aira-block__body, .thankyou, .quote-block { padding: 18px 16px !important; }
                     .milestone { flex-direction: column; gap: 12px; }
-                    .cta { padding: 36px 24px; flex-direction: column; text-align: center; }
+                    .cta { padding: 32px 20px !important; flex-direction: column; text-align: center; }
                     .cta__text { text-align: center; }
-                    .day-card__header { padding: 16px 20px; }
-                    .day-card__body { padding: 18px 20px; }
-                    .aira-block__header { padding: 20px 22px; }
-                    .aira-block__body { padding: 18px 22px; }
                 }
 
                 @keyframes shimmerSweep {

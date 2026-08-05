@@ -281,7 +281,7 @@ export default function BlogsDetailPage() {
 
               <motion.h1
                 variants={fadeInUp}
-                className="hero-title text-[26px] sm:text-[34px] lg:text-[44px] font-black text-white tracking-tight leading-[1.15] mb-6 px-4 sm:px-8 max-w-[1150px] mx-auto cs-line-clamp-2"
+                className="hero-title text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[44px] font-black text-white tracking-tight leading-[1.25] sm:leading-[1.15] mb-6 px-3 sm:px-8 max-w-[1150px] mx-auto"
                 style={{ textTransform: 'none' }}
                 dangerouslySetInnerHTML={{ __html: post.title }}
               />

@@ -269,7 +269,7 @@ function CaseStudies() {
                                         dangerouslySetInnerHTML={{ __html: study.title }}
                                     />
 
-                                    <p className="text-[15px] font-medium text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
+                                    <p className="text-[15px] font-normal text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
                                         {study.description}
                                     </p>
 

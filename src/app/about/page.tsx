@@ -45,6 +45,13 @@ const viewportOnce = { once: true, margin: "-100px" };
 function AboutHero() {
     return (
         <section className="relative overflow-hidden bg-[#030b1e] min-h-dvh w-full flex items-center pt-24 pb-12 lg:pt-28 lg:pb-16">
+            <style dangerouslySetInnerHTML={{ __html: `
+                @media (max-width: 1025px) and (orientation: portrait) {
+                    .ipad-globe-override {
+                        top: calc(10% + 288px) !important;
+                    }
+                }
+            ` }} />
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
@@ -58,55 +65,72 @@ function AboutHero() {
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
             {/* 3D Digital Globe (Canvas) + Floating Photo Cards */}
-            <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
+            <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0 ipad-globe-override">
                 <DigitalGlobe />
                 {/* <FloatingPhotoCards /> */}
             </div>
 
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate="visible"
-                    className="w-full lg:w-[50%] max-w-[750px]"
-                >
-                    <motion.div variants={fadeInUp} className="mb-12">
-                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
-                            <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
-                            WHO WE ARE
-                        </span>
-                    </motion.div>
-                    <motion.h1
-                        variants={fadeInUp}
-                        className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white mb-12 lg:mb-16 font-display text-balance"
+                {/* flex-row at tablet (md), reverts to block at desktop (lg) */}
+                <div className="flex flex-col md:flex-row md:items-start lg:block w-full">
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                        className="w-full md:w-[62%] lg:w-[50%] max-w-[750px]"
                     >
-                        Product Thinking.<br />
-                        Enterprise Impact.
-                    </motion.h1>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl whitespace-pre-line mb-14 lg:mb-20"
-                    >
-                        {aboutContent.hero.description}
-                    </motion.p>
+                        <motion.div variants={fadeInUp} className="mb-12">
+                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
+                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                                WHO WE ARE
+                            </span>
+                        </motion.div>
+                        <motion.h1
+                            variants={fadeInUp}
+                            className="text-4xl sm:text-5xl md:text-[32px] lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white mb-12 lg:mb-16 font-display"
+                        >
+                            Product Thinking.<br />
+                            Enterprise Impact.
+                        </motion.h1>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl mb-14 lg:mb-20"
+                        >
+                            {aboutContent.hero.description.replace(/\n/g, ' ')}
+                        </motion.p>
 
-                    {/* Metrics Bar (Moved to left column) */}
-                    <motion.div variants={fadeInUp}>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0 sm:divide-x divide-blue-900/50 w-full">
-                            {aboutContent.hero.metrics.map((metric, idx) => (
-                                <div key={idx} className={`flex flex-col items-start py-3 ${idx === 0 ? 'pr-2 sm:pr-4' : idx === aboutContent.hero.metrics.length - 1 ? 'pl-2 sm:pl-4' : 'px-2 sm:px-4'}`}>
-                                    <div className="text-4xl lg:text-[44px] font-black text-blue-400 mb-2 font-display">{metric.value}</div>
-                                    <div className="text-[10px] lg:text-[11px] font-bold text-slate-400 uppercase tracking-[1.5px] leading-tight font-display max-w-[125px] sm:max-w-none">
-                                        {metric.label.split('\n').map((line, lIdx) => (
-                                            <span key={lIdx} className="block">{line}</span>
-                                        ))}
+                        {/* Metrics Bar */}
+                        <motion.div variants={fadeInUp}>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 sm:gap-y-0 sm:gap-x-0 sm:divide-x divide-blue-900/50 md:gap-x-6 md:divide-x-0 xl:gap-x-0 xl:divide-x w-full">
+                                {aboutContent.hero.metrics.map((metric, idx) => (
+                                    <div key={idx} className={`flex flex-col items-start py-3 ${
+                                        idx === 0 
+                                            ? 'pr-2 md:pr-4 lg:pr-4' 
+                                            : idx === aboutContent.hero.metrics.length - 1 
+                                                ? 'pl-2 md:pl-4 lg:pl-4' 
+                                                : 'px-2 md:px-4 lg:px-4'
+                                    }`}>
+                                        <div className="text-3xl lg:text-[44px] font-black text-blue-400 mb-2 font-display">{metric.value}</div>
+                                        <div className="text-[10px] lg:text-[11px] font-bold text-slate-400 uppercase tracking-[1.5px] leading-tight font-display max-w-[125px] sm:max-w-none">
+                                            {metric.label.split('\n').map((line, lIdx) => (
+                                                <span key={lIdx} className="block">{line}</span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
+
+                    {/* Tablet-only globe — shown at md, hidden at lg+ (desktop uses the absolute globe above) */}
+                    <div 
+                        className="hidden md:flex lg:hidden w-[38%] relative flex-shrink-0 aspect-square items-center justify-center pointer-events-none self-center"
+                        style={{ top: "288px" }}
+                    >
+                        <DigitalGlobe />
+                    </div>
+                </div>
             </div>
         </section>
     );
@@ -367,14 +391,14 @@ function LeadershipSection() {
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 relative z-10">
                 
                 {/* Header Area */}
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16 lg:mb-20">
+                <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-8 mb-16 lg:mb-20">
                     {/* Left Column - Header Title */}
                     <motion.div
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-1/2"
+                        className="w-full md:w-[55%] xl:w-1/2"
                     >
                         <div className="mb-6 lg:mb-8">
                             <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md inline-flex items-center">
@@ -382,8 +406,8 @@ function LeadershipSection() {
                                 OUR LEADERSHIP TEAM
                             </span>
                         </div>
-                        <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-[900] tracking-tight text-white leading-[1.15] font-display">
-                            Built by Practitioners<span className="text-white">.</span><br className="hidden md:block" />Guided by Visionaries<span className="text-white">.</span>
+                        <h2 className="text-[24px] xs:text-[28px] sm:text-[36px] lg:text-[44px] font-[900] tracking-tight text-white leading-[1.2] sm:leading-[1.15] font-display">
+                            Built by Practitioners.<br className="hidden xs:block" />Guided by Visionaries.
                         </h2>
                     </motion.div>
 
@@ -393,7 +417,7 @@ function LeadershipSection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="w-full lg:w-[40%] lg:ml-auto flex items-center lg:border-l lg:border-slate-800 lg:pl-12 lg:h-[180px] mt-4 lg:mt-8"
+                        className="w-full md:w-[38%] xl:w-[40%] md:ml-auto md:border-l md:border-slate-800 md:pl-8 xl:pl-12 md:mt-16 mt-4"
                     >
                         <p className="text-slate-300 text-base md:text-[17px] leading-relaxed font-medium max-w-[420px]">
                             More than technology executives, our leaders are builders. From launching products to delivering large-scale transformations, they combine strategic vision with execution discipline to help clients move faster and innovate with confidence.
@@ -402,7 +426,7 @@ function LeadershipSection() {
                 </div>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {aboutContent.leadership.team.map((leader, idx) => (
                         <motion.div
                             key={idx}
@@ -556,7 +580,7 @@ function OperationsSection() {
                                     HOW WE WORK
                                 </span>
                             </div>
-                            <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-extrabold text-[#0f172a] mb-6 leading-[1.15] tracking-tight font-display whitespace-pre-line">
+                            <h2 className="text-[22px] xs:text-[26px] sm:text-[36px] lg:text-[42px] font-extrabold text-[#0f172a] mb-6 leading-[1.2] sm:leading-[1.15] tracking-tight font-display whitespace-pre-line">
                                 {aboutContent.operations.howWeOperate.title}
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
@@ -614,11 +638,11 @@ function DigitalFactorySection() {
                         >
                             {/* Left: Headline & Callout */}
                             <div className="flex-1 w-full lg:max-w-2xl">
-                                <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
+                                <h2 className="text-[24px] xs:text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.2] sm:leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
                                     Digital Factory <span className="text-[#00D4AA]">Model.</span>
                                 </h2>
-                                <p className="text-[15px] font-medium leading-[1.7] text-white/70">
-                                    The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br /> reducing overhead and increasing accountability at every stage.
+                                <p className="text-[14px] sm:text-[15px] font-medium leading-[1.65] text-white/70">
+                                    The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br className="hidden sm:inline" /> reducing overhead and increasing accountability at every stage.
                                 </p>
                             </div>
 
@@ -657,7 +681,7 @@ function DigitalFactorySection() {
                         {/* ── Planet Wave SVG ── */}
                         <motion.div
                             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                            className="w-full overflow-x-hidden flex justify-center mt-6 lg:mt-12 mb-[-30px] lg:mb-[-50px]"
+                            className="w-full overflow-x-auto no-scrollbar flex justify-start sm:justify-center mt-6 lg:mt-12 mb-[10px] sm:mb-[-30px] lg:mb-[-50px] pb-4 sm:pb-0"
                         >
                             <style>{`
                                     @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -675,7 +699,7 @@ function DigitalFactorySection() {
                                     .hfloat-4 { animation: hFloat4 4.8s ease-in-out infinite 1.2s; }
                                 `}</style>
 
-                            <svg width="100%" viewBox="0 -40 1020 400" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible", display: "block" }}>
+                            <svg width="100%" viewBox="0 -40 1020 400" xmlns="http://www.w3.org/2000/svg" className="min-w-[680px] sm:min-w-full font-sans" style={{ overflow: "visible", display: "block" }}>
                                 <defs>
                                     {/* Teal sphere */}
                                     <radialGradient id="hs1" cx="33%" cy="28%" r="64%">

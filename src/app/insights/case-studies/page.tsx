@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
             <div className="lg:w-2/3">
               <motion.h1
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display text-balance"
+                className="text-3xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.1] sm:leading-[1.08] tracking-tight text-[#030B3B] mb-4 sm:mb-6 font-display"
               >
                 Real <span className="text-[#00D4AA]">Results.</span>
                 <br />
@@ -118,9 +118,9 @@ export default function CaseStudiesPage() {
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="w-full text-base sm:text-lg lg:text-[18.5px] xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl whitespace-pre-line"
+                className="w-full text-sm sm:text-lg lg:text-[18.5px] xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl"
               >
-                {"Discover how Hyniva enables enterprises to modernize\noperations and deliver measurable business impact."}
+                Discover how Hyniva enables enterprises to modernize operations and deliver measurable business impact.
               </motion.p>
             </div>
 
@@ -229,7 +229,7 @@ export default function CaseStudiesPage() {
               className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
             >
               {/* Card Image */}
-              <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px]">
+              <div className="aspect-[1.8/1] overflow-hidden relative m-2.5 sm:m-3 rounded-[20px] sm:rounded-[24px]">
                 <div
                   className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ backgroundImage: `url('${study.image}')` }}
@@ -238,15 +238,15 @@ export default function CaseStudiesPage() {
               </div>
 
               {/* Card Body */}
-              <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
+              <div className="p-5 sm:p-8 pt-3 sm:pt-4 flex flex-col flex-1 relative z-10">
                 {/* Tags */}
-                <div className="min-h-[38px] flex-shrink-0 mb-4 flex items-center">
+                <div className="min-h-[34px] sm:min-h-[38px] flex-shrink-0 mb-3 sm:mb-4 flex items-center">
                   {study.tags && study.tags.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                       {study.tags.slice(0, 2).map((tag, tagIdx) => (
                         <span
                           key={tagIdx}
-                          className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
+                          className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
                         >
                           {tag}
                         </span>
@@ -263,7 +263,7 @@ export default function CaseStudiesPage() {
                             aria-label={`Show ${study.tags.length - 2} more tags`}
                             aria-expanded={expandedCardTags === cardKey}
                             onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
-                            className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                            className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
                           >
                             +{study.tags.length - 2}
                           </button>
@@ -298,26 +298,26 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Title Wrapper */}
-                <div className="mb-3 flex items-start">
+                <div className="mb-2.5 sm:mb-3 flex items-start">
                   <h3
-                    className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight"
+                    className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.35] tracking-tight"
                     dangerouslySetInnerHTML={{ __html: study.title }}
                   />
                 </div>
 
                 {/* Callout Content */}
-                <p className="text-[13.5px] sm:text-[14px] font-medium text-slate-600 leading-[1.6] mb-6 flex-1">
+                <p className="text-[13.5px] sm:text-[14px] font-normal text-slate-600 leading-[1.65] mb-5 sm:mb-6 flex-1">
                   {study.description}
                 </p>
 
                 {/* CTA Button */}
                 <Link
                   href={study.href}
-                  className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
+                  className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#1e90ff]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                 >
                   Read Case Study
                   <svg
-                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

@@ -24,26 +24,26 @@ export default function ContactPage() {
                 const navbarHeight = 80; // Approximate navbar height
                 const elementPosition = formSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-                
+
                 // Custom slow smooth scroll using requestAnimationFrame
                 const startPosition = window.pageYOffset;
                 const distance = offsetPosition - startPosition;
                 const duration = 1000; // 1.5 seconds for balanced slow scroll (was ~800ms default)
                 let startTime: number | null = null;
-                
+
                 const animationScroll = (currentTime: number) => {
                     if (startTime === null) startTime = currentTime;
                     const timeElapsed = currentTime - startTime;
                     const progress = Math.min(timeElapsed / duration, 1);
-                    
+
                     // Easing function for smooth deceleration
-                    const easeInOutCubic = progress < 0.5 
-                        ? 4 * progress * progress * progress 
+                    const easeInOutCubic = progress < 0.5
+                        ? 4 * progress * progress * progress
                         : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-                    
+
                     const currentPosition = startPosition + (distance * easeInOutCubic);
                     window.scrollTo(0, currentPosition);
-                    
+
                     if (progress < 1) {
                         requestAnimationFrame(animationScroll);
                     } else {
@@ -55,7 +55,7 @@ export default function ContactPage() {
                         }, 200);
                     }
                 };
-                
+
                 requestAnimationFrame(animationScroll);
             }
         }, 500); // Keep initial delay
@@ -66,14 +66,14 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
         try {
             const response = await fetch("/api/send-contact", {
                 method: "POST",
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -108,14 +108,14 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-white font-sans text-foreground">
             <Navbar />
-            
+
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
                 <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
                     {/* Background layers - Matching homepage aesthetics */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
-                    
+
                     {/* Floating Decorative Elements */}
                     <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] hero-float-1" />
                     <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] hero-float-2" />
@@ -128,29 +128,29 @@ export default function ContactPage() {
                             backgroundSize: "40px 40px",
                         }}
                     />
-                    
+
                     <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 text-center">
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
                         >
-                            <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
-                                <span className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
-                                    <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <motion.div variants={fadeInUp} className="mb-6 flex justify-center">
+                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
+                                    <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                                     CONTACT US
                                 </span>
                             </motion.div>
-                            
-                            <motion.h1 
+
+                            <motion.h1
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-[900] text-white tracking-tight leading-[1.08] mb-10 lg:mb-12 font-display text-left sm:text-center"
+                                className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display text-center"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
-                            
-                            <motion.p 
+
+                            <motion.p
                                 variants={fadeInUp}
-                                className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-300 font-medium leading-relaxed mb-8 text-left sm:text-center"
+                                className="text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto mb-14 text-center"
                             >
                                 {contactContent.hero.description}
                             </motion.p>
@@ -161,23 +161,23 @@ export default function ContactPage() {
                 {/* ── Content Section (White Background) ── */}
                 <section className="py-20 bg-white">
                     <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-                            
+                        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+
                             {/* Left Column: Details */}
-                            <div className="w-full lg:w-[42%]">
+                            <div className="w-full lg:w-[45%]">
                                 <motion.div
                                     variants={staggerContainer}
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={viewportOnce}
                                 >
-                                    <motion.h2 
+                                    <motion.h2
                                         variants={fadeInUp}
                                         className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[34px] font-[900] text-foreground tracking-tight leading-[1.2] mb-6 font-display"
                                         dangerouslySetInnerHTML={{ __html: contactContent.body.title }}
                                     />
-                                    
-                                    <motion.p 
+
+                                    <motion.p
                                         variants={fadeInUp}
                                         className="text-base text-slate-600 font-medium leading-relaxed mb-10"
                                     >
@@ -224,25 +224,25 @@ export default function ContactPage() {
                                     </motion.div>
 
                                     {/* Address Cards */}
-                                    <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
-                                        <div className="p-6 rounded-[32px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                    <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4 sm:gap-6">
+                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2 mb-4 h-[18px]">
                                                 <span className="text-sm font-bold text-[#030B3B] leading-[18px]">US</span>
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
                                             </div>
-                                            <p 
-                                                className="text-[14px] font-medium text-foreground leading-[1.6]"
+                                            <p
+                                                className="text-[14px] font-medium text-foreground leading-[1.5]"
                                                 dangerouslySetInnerHTML={{ __html: contactContent.body.offices.us.address }}
                                             />
                                         </div>
 
-                                        <div className="p-6 rounded-[32px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2 mb-4 h-[18px]">
                                                 <span className="text-sm font-bold text-[#030B3B] leading-[18px]">IN</span>
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.india.title}</h4>
                                             </div>
-                                            <p 
-                                                className="text-[14px] font-medium text-foreground leading-[1.6]"
+                                            <p
+                                                className="text-[14px] font-medium text-foreground leading-[1.5]"
                                                 dangerouslySetInnerHTML={{ __html: contactContent.body.offices.india.address }}
                                             />
                                         </div>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                             </div>
 
                             {/* Right Column: Form Card */}
-                            <div className="w-full lg:w-[58%]">
+                            <div className="w-full lg:w-[55%]">
                                 <motion.div
                                     variants={fadeInUp}
                                     initial="hidden"
@@ -267,14 +267,14 @@ export default function ContactPage() {
                                             {isSubmitted ? "Your message has been sent successfully. We'll get back to you soon!" : "Fill in the form below and we'll get in touch with you — no obligations."}
                                         </p>
                                     </div>
-                                    
+
                                     {isSubmitted ? (
-                                        <motion.div 
+                                        <motion.div
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             className="flex flex-col items-center justify-center py-20 text-center flex-1"
                                         >
-                                            <motion.div 
+                                            <motion.div
                                                 initial={{ scale: 0 }}
                                                 animate={{ scale: 1 }}
                                                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -284,7 +284,7 @@ export default function ContactPage() {
                                             </motion.div>
                                             <h4 className="text-3xl font-[900] text-foreground mb-3 font-display">Message Sent Successfully!</h4>
                                             <p className="text-slate-500 mb-10 text-lg max-w-sm">Thank you for reaching out. Our team usually responds within 24 hours.</p>
-                                            <button 
+                                            <button
                                                 onClick={() => setIsSubmitted(false)}
                                                 className="px-8 py-3 rounded-xl border-2 border-[#2563EB] text-[#2563EB] font-bold hover:bg-[#2563EB] hover:text-white transition-all"
                                             >
@@ -296,13 +296,13 @@ export default function ContactPage() {
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                                 <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
-                                                    <input 
+                                                    <input
                                                         ref={nameInputRef}
-                                                        required 
-                                                        name="name" 
-                                                        type="text" 
-                                                        placeholder="Jane Smith" 
-                                                        className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm" 
+                                                        required
+                                                        name="name"
+                                                        type="text"
+                                                        placeholder="Jane Smith"
+                                                        className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-3">
@@ -340,9 +340,9 @@ export default function ContactPage() {
                                                 <textarea required name="message" rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all resize-none placeholder:text-muted-foreground shadow-sm" />
                                             </div>
 
-                                            <button 
+                                            <button
                                                 disabled={isSubmitting}
-                                                type="submit" 
+                                                type="submit"
                                                 className="w-full py-5 rounded-[22px] bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-[0_15px_40px_rgba(37,99,235,0.3)] disabled:opacity-50 disabled:cursor-not-allowed mt-auto"
                                             >
                                                 {isSubmitting ? "Sending..." : contactContent.form.submitButton}

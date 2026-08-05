@@ -53,7 +53,7 @@ export const blogContent: {
             href: "/insights/blogs/reimagining-loan-applications-voice-and-chat-take-center-stage-with-agentforce",
         },
         {
-            title: "Hyniva Showcases AIRA at<br>Cypher 2025 AI Summit",
+            title: "Hyniva Showcases AIRA at Cypher 2025 AI Summit",
             date: "Sep 19, 2025",
             tag: "Company",
             image: "/images/Blogs/Cypher 2025.png",
@@ -68,7 +68,7 @@ export const blogContent: {
             href: "/insights/blogs/empowering-credit-unions-to-thrive-in-a-digital-era",
         },
         {
-            title: "Hyniva Receives<br>SOC 2 Type II Compliance.",
+            title: "Hyniva Receives SOC 2 Type II Compliance.",
             date: "Apr 1, 2025",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-6.png",
@@ -182,7 +182,7 @@ export const blogContent: {
             href: "/insights/blogs/ai-empowering-financial-institutions",
         },
         {
-            title: "Hyniva Celebrates the Launch<br>of Its New Branch.",
+            title: "Hyniva Celebrates the Launch of Its New Branch.",
             date: "Aug 27, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-22.jpg",
@@ -190,7 +190,7 @@ export const blogContent: {
             isNews: true,
         },
         {
-            title: "Hyniva Achieves<br>SOC 2 Certification.",
+            title: "Hyniva Achieves SOC 2 Certification.",
             date: "Apr 11, 2024",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-23.jpeg",
@@ -212,7 +212,7 @@ export const blogContent: {
             href: "/insights/blogs/perpetually-in-motion-the-digital-factory",
         },
         {
-            title: "Hyniva is a Proud Member<br>of GSAC.",
+            title: "Hyniva is a Proud Member of GSAC.",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-26.png",
@@ -220,7 +220,7 @@ export const blogContent: {
             isNews: true,
         },
         {
-            title: "Hyniva is Officially a<br>\"Great Place to Work.\"",
+            title: "Hyniva is Officially a \"Great Place to Work.\"",
             date: "Dec 13, 2023",
             tag: "Company",
             image: "/images/Blogs/Optimized/blog-27.png",

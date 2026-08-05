@@ -52,14 +52,14 @@ export default function NewsPage() {
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title & Description */}
                         <div className="lg:w-2/3">
-                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display text-balance">
+                            <motion.h1 variants={fadeInUp} className="text-3xl xs:text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.1] sm:leading-[1.08] tracking-tight text-[#030B3B] mb-4 sm:mb-6 font-display">
                                 Highlights that <span className='text-[#00D4AA]'>matter.</span>
                             </motion.h1>
                             <motion.p 
                                 variants={fadeInUp} 
-                                className="w-full text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl whitespace-pre-line"
+                                className="w-full text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-600 font-medium max-w-2xl"
                             >
-                                {"Explore the latest news, strategic announcements,\ntechnology updates and milestones from Hyniva."}
+                                Discover the latest news, strategic announcements, technology updates, and milestones from Hyniva.
                             </motion.p>
                         </div>
 

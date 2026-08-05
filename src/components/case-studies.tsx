@@ -135,7 +135,7 @@ export function CaseStudies() {
                                                     ))}
                                                 </h3>
                                                 
-                                                <p className={`text-xs sm:text-[0.875rem] font-medium text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200 line-clamp-none md:line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]
+                                                <p className={`text-xs sm:text-[0.875rem] font-normal text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200 line-clamp-none md:line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]
                                                     ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
                                                     {study.description}
                                                 </p>

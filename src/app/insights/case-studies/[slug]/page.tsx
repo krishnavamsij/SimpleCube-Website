@@ -175,13 +175,13 @@ const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst
     if (hide) return null;
     return (
         <div className="relative">
-            <div className="flex items-center gap-5 mb-8">
+            <div className="flex items-center gap-3 sm:gap-5 mb-5 sm:mb-8">
                 {num && (
-                    <div className="w-8 h-8 rounded-full bg-[#1e90ff] flex items-center justify-center text-white font-normal font-sans text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1e90ff] flex items-center justify-center text-white font-normal font-sans text-[11px] sm:text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
                         {num}
                     </div>
                 )}
-                {tag && <span className="text-[#1e90ff] font-semibold text-[13px] uppercase tracking-[0.3em] font-sans">{tag}</span>}
+                {tag && <span className="text-[#1e90ff] font-semibold text-[11px] sm:text-[13px] uppercase tracking-[0.2em] sm:tracking-[0.3em] font-sans">{tag}</span>}
             </div>
         </div>
     );
@@ -460,6 +460,21 @@ export default function CaseStudyDetailPage() {
                 .cs-content strong {
                     color: #111827 !important;
                     font-weight: 600 !important;
+                }
+
+                @media (max-width: 640px) {
+                    .cs-content,
+                    .cs-content p {
+                        font-size: 15px !important;
+                        line-height: 1.7 !important;
+                    }
+                    .solution-group {
+                        padding: 16px 18px;
+                    }
+                    .solution-card {
+                        padding: 14px 16px;
+                        gap: 12px;
+                    }
                 }
 
                 

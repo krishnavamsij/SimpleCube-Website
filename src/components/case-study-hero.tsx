@@ -198,7 +198,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.15 }}
-                        className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[42px] xl:text-[46px] font-black tracking-tight leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2 max-w-6xl mx-auto"
+                        className="text-[16px] xs:text-[18px] sm:text-[28px] md:text-[36px] lg:text-[42px] xl:text-[46px] font-black tracking-tight leading-[1.25] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 font-sans cs-line-clamp-2 max-w-6xl mx-auto px-3 sm:px-0 text-center"
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
  
@@ -207,7 +207,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        className={`text-[16px] md:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-10 sm:mb-12 md:mb-16 cs-line-clamp-2 ${summaryMaxWidth || 'max-w-[900px]'}`}
+                        className={`text-[14px] sm:text-[16px] text-white/90 font-light leading-relaxed mx-auto mb-8 sm:mb-12 md:mb-16 cs-line-clamp-2 px-2 ${summaryMaxWidth || 'max-w-[900px]'}`}
                         dangerouslySetInnerHTML={{ __html: summary }}
                     />
 
@@ -216,7 +216,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-0 max-w-5xl mx-auto relative pt-8 sm:pt-10 md:pt-12"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-0 max-w-5xl mx-auto relative pt-6 sm:pt-10 md:pt-12"
                     >
                         {/* Top Shimmer Line */}
                         <div className="absolute top-0 left-0 right-0 h-[1px] bg-[#1e90ff20]">
@@ -231,7 +231,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                         </div>
 
                         {metrics.map((metric, idx) => (
-                            <div key={idx} className="relative py-5 sm:py-7 md:py-8 px-1.5 sm:px-3 md:px-4 group cursor-default hover:bg-[#1e90ff0d] transition-all duration-300 rounded-b-xl overflow-hidden">
+                            <div key={idx} className="relative py-4 sm:py-7 md:py-8 px-1.5 sm:px-3 md:px-4 group cursor-default hover:bg-[#1e90ff0d] transition-all duration-300 rounded-b-xl overflow-hidden">
                                 {/* Hover glow wash */}
                                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(30,144,255,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -240,7 +240,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                                     <StandardIcon icon={metric.icon} className="mb-2 sm:mb-3 md:mb-4" />
                                     
                                     {/* Main Number - Centered - Force 1 line with smaller font */}
-                                    <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-bold text-white tracking-tight leading-none mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 text-center px-2 sm:px-1 overflow-hidden">
+                                    <div className="text-[15px] xs:text-[17px] sm:text-[22px] lg:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 text-center px-1 break-words overflow-hidden">
                                         {metric.value}
                                     </div>
                                     
@@ -281,6 +281,7 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                     51%  { transform:scaleY(1); transform-origin:bottom; }
                     100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
                 }
+
                 h1.cs-line-clamp-2 {
                     color: #1e90ff !important; /* Blue for regular text */
                     display: block !important;
