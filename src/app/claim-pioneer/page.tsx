@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Faq } from "@/components/faq";
+import { claimPioneerFaqs } from "@/content/product-faqs";
 import { motion } from "framer-motion";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 import {
@@ -430,6 +432,8 @@ export default function ClaimPioneerPage() {
           </motion.div>
         </div>
       </section>
+
+      <Faq items={claimPioneerFaqs} />
 
       <Footer />
     </div>

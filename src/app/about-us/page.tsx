@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Faq } from "@/components/faq";
+import { aboutUsFaqs } from "@/content/about-faqs";
 import { Testimonials } from "@/components/testimonials";
 import { scrollReveal, fadeInUp, staggerContainer, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
 import { ArrowUpRightIcon, ArrowRight } from "lucide-react";
@@ -851,6 +853,7 @@ export default function AboutUsPage() {
             <TimelineSection />
             <WhatWeBelieveSection />
             <Testimonials />
+            <Faq items={aboutUsFaqs} />
             <Footer />
         </>
     );

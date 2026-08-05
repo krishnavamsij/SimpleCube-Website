@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Faq } from '@/components/faq'
+import { airaFaqs } from '@/content/product-faqs'
 import { Button } from '@/components/ui/button'
 import { CONTAINER_CLASS } from '@/lib/container-utils'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -673,6 +675,7 @@ export default function AiraPage() {
             <CeoVision />
             <EnterpriseImpact />
             <CustomerCentric />
+            <Faq items={airaFaqs} />
             <Footer />
         </main>
     )

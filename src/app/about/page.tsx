@@ -10,6 +10,8 @@ import { FloatingPhotoCards } from "@/components/floating-photo-cards";
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Faq } from "@/components/faq";
+import { aboutUsFaqs } from "@/content/about-faqs";
 import { aboutContent } from "@/content/about";
 import { approachContent } from "@/content/site-content";
 
@@ -904,7 +906,7 @@ function TimelineSection() {
     }, [activeYear]);
 
     return (
-        <section className="bg-white pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
+        <section className="bg-[#f8fafc] pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
             <style jsx>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
@@ -1038,6 +1040,7 @@ export default function AboutPage() {
                 <OperationsSection />
                 <DigitalFactorySection />
                 <TimelineSection />
+                <Faq items={aboutUsFaqs} />
             </main>
             <Footer />
         </>

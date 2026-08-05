@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Faq } from '@/components/faq'
+import { hyperFaqs } from '@/content/product-faqs'
 import { motion } from "framer-motion"
 import { CONTAINER_CLASS } from '@/lib/container-utils'
 import { fadeInUp, staggerContainer, scrollStaggerContainer, scrollReveal, viewportOnce } from "@/lib/animations"
@@ -476,6 +478,7 @@ export default function HyperPage() {
 
                 </div>
             </section>
+            <Faq items={hyperFaqs} />
             <Footer />
         </div>
     )

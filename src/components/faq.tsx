@@ -5,7 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { faqContent } from "@/content/site-content";
 
-export function Faq() {
+export interface FaqItem {
+    question: string;
+    answer: string;
+}
+
+export interface FaqProps {
+    items?: FaqItem[];
+    badgeText?: string;
+    title?: React.ReactNode;
+    className?: string;
+}
+
+export function Faq({ items = faqContent, badgeText = "FAQ", title, className = "" }: FaqProps = {}) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleOpen = (index: number) => {
@@ -13,23 +25,23 @@ export function Faq() {
     };
 
     return (
-        <section className="bg-white py-[60px] sm:py-[80px] lg:py-[100px]">
+        <section className={`bg-white pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-[30px] sm:pb-[40px] lg:pb-[50px] ${className}`}>
             <div className="mx-auto max-w-[800px] px-6">
 
                 {/* Header — centered */}
                 <div className="flex flex-col items-center text-center mb-10 lg:mb-12">
                     <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-5">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
-                        FAQ
+                        {badgeText}
                     </div>
                     <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] lg:whitespace-nowrap">
-                        Frequently Asked <span className="text-[#00D4AA]">Questions</span>
+                        {title || <>Frequently Asked <span className="text-[#00D4AA]">Questions</span></>}
                     </h2>
                 </div>
 
                 {/* Accordion — very light card rows with gaps, matching reference */}
                 <div className="space-y-3">
-                    {faqContent.map((faq, index) => {
+                    {items.map((faq, index) => {
                         const isOpen = openIndex === index;
                         return (
                             <div

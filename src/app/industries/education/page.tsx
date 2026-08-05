@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Faq } from "@/components/faq";
+import { educationFaqs } from "@/content/industry-faqs";
 import { educationContent } from "@/content/education";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 import {
@@ -80,7 +82,7 @@ function EducationHero() {
 
 function AlternatingSections() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-white">
             <div className={`${CONTAINER_CLASS} space-y-32`}>
                 {educationContent.alternatingSections.map((section, index) => (
                     <motion.div
@@ -124,7 +126,7 @@ function AlternatingSections() {
 
 function EducationOfferings() {
     return (
-        <section className="py-16 lg:py-20 bg-[#ECF6FF]">
+        <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#ECF6FF]">
             <div className={`${CONTAINER_CLASS} text-left md:text-center`}>
                 <motion.div
                     variants={scrollReveal}
@@ -176,7 +178,7 @@ function EducationOfferings() {
 
 function ProvenImpact() {
     return (
-        <section className="py-24 bg-[#0A102E] relative overflow-hidden">
+        <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#0A102E] relative overflow-hidden">
             {/* Top Glow matching Why Hyniva */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
@@ -222,7 +224,7 @@ function ProvenImpact() {
 
 function CaseStudies() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8fafc]">
             <div className={CONTAINER_CLASS}>
                 <motion.div
                     variants={scrollReveal}
@@ -328,6 +330,7 @@ export default function EducationPage() {
                 <EducationOfferings />
                 <ProvenImpact />
                 <CaseStudies />
+                <Faq items={educationFaqs} />
             </main>
             <Footer />
         </div>

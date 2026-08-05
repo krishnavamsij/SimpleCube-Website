@@ -7,6 +7,8 @@ import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, Tr
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
+import { Faq } from "@/components/faq";
+import { enterprisePlatformsFaqs } from "@/content/service-faqs";
 
 const animations: any = {
     fadeInUp: {
@@ -394,7 +396,7 @@ function TransformationInAction() {
     ];
 
     return (
-        <section className="bg-[#f8fafc] py-20 lg:py-24">
+        <section className="bg-[#f8fafc] py-[30px] sm:py-[40px] lg:py-[50px]">
             <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 <div>
                     {/* Case Studies Header */}
@@ -651,6 +653,7 @@ export default function EnterprisePlatformsPage() {
                 <EnterpriseEnablement />
                 <WhyHynivaEP />
                 <TransformationInAction />
+                <Faq items={enterprisePlatformsFaqs} />
             </main>
             <Footer />
         </div>
