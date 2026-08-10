@@ -96,10 +96,10 @@ export default function HyperPage() {
              <section className="pt-[120px] pb-[70px] bg-white">
                 <div className={CONTAINER_CLASS}>
 
-                    <div className="flex flex-col lg:flex-row items-center gap-10">
+                    <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12">
 
                         {/* LEFT CONTENT - 50% */}
-                        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                        <div className="w-full lg:w-1/2 flex flex-col justify-start">
 
                             <motion.div
                                 initial="hidden"
@@ -110,34 +110,34 @@ export default function HyperPage() {
                                 {/* Eyebrow - Removed */}
 
                                 {/* Logo */}
-                                <motion.div variants={fadeInUp} className="mb-7">
+                                <motion.div variants={fadeInUp} className="mb-6 sm:mb-8">
                                     <Image
                                         src="/images/Product_Logos/Hyper.png"
                                         alt="Hyper Logo"
                                         width={260}
                                         height={90}
                                         className="w-full h-auto max-w-[250px] object-contain"
+                                        priority
                                     />
                                 </motion.div>
 
                                 {/* Heading */}
                                 <header className="mb-6">
-                                    <motion.h2
+                                    <motion.h1
                                         variants={fadeInUp}
-                                        className="text-[26px] sm:text-[30px] lg:text-[34px] font-bold leading-[1.25] mb-5"
+                                        className="text-[26px] sm:text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] font-bold leading-[1.18] mb-5 tracking-tight text-[#345195]"
                                         style={{
-                                            fontFamily: 'Poppins, sans-serif',
-                                            color: '#345195'
+                                            fontFamily: 'Poppins, sans-serif'
                                         }}
                                     >
-                                        Personalized, Scalable<br />
-                                        Digital Investment Journeys.
-                                    </motion.h2>
+                                        <span className="block">Personalized, Scalable</span>
+                                        <span className="block">Digital Investment Journeys.</span>
+                                    </motion.h1>
 
                                     {/* Description */}
                                     <motion.p
                                         variants={fadeInUp}
-                                        className="text-[16px] sm:text-[17px] leading-[1.75] text-[#6f6f6f]"
+                                        className="text-base sm:text-lg lg:text-[18px] 2xl:text-[19px] leading-relaxed text-[#666666] font-normal"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
                                         A modern portfolio planning platform that empowers advisors and investors with personalized recommendations, compliance-friendly flows, and seamless digital onboarding.
@@ -148,7 +148,7 @@ export default function HyperPage() {
                                 <motion.div variants={fadeInUp}>
                                     <Link
                                         href="/contact"
-                                        className="inline-block bg-[#345195] text-white px-7 py-3 text-[15px] font-semibold rounded-[4px] transition-all duration-300 hover:bg-[#2b437d]"
+                                        className="inline-block bg-[#345195] text-white px-8 py-3.5 text-sm sm:text-base font-bold rounded-lg transition-all duration-300 hover:bg-[#2b437d]"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
                                         Book a Demo
@@ -159,7 +159,7 @@ export default function HyperPage() {
                         </div>
 
                         {/* RIGHT IMAGE - 50% */}
-                        <div className="w-full lg:w-1/2 flex items-center justify-center">
+                        <div className="w-full lg:w-1/2 flex items-start justify-center">
 
                             <motion.div
                                 initial={{ opacity: 0, x: 20 }}
@@ -228,56 +228,51 @@ export default function HyperPage() {
             </section>
 
             {/* Capabilities That Drive Growth */}
-            <section className="bg-[#0b1021] pt-[15px] sm:pt-[20px] lg:pt-[25px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-                <div className={CONTAINER_CLASS}>
-
-                    {/* Heading */}
-                    <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
-                        <h2 className="text-white text-2xl sm:text-3xl lg:text-[34px] font-bold mb-2 sm:mb-[10px] leading-tight">
+            <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
+                <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
+                    {/* LEFT FIXED CONTENT */}
+                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
                             Capabilities That Drive Growth
                         </h2>
-                        <h6 className="text-white/90 text-lg sm:text-xl font-medium">
-                            Empowering financial institutions and advisors with modern digital capabilities
-                        </h6>
-                    </motion.div>
+                        <p className="text-center lg:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto lg:mx-0">
+                            Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
+                        </p>
+                    </div>
 
-                    {/* Grid */}
-                    <motion.div
-                        variants={scrollStaggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={viewportOnce}
-                        className="grid gap-[24px] sm:gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                    >
+                    {/* RIGHT GRID (Scrollable) */}
+                    <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-0 lg:pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[24px] lg:gap-[30px] items-stretch">
                         {capabilities.map((cap, idx) => (
-                            <motion.div
+                            <div
                                 key={idx}
-                                variants={scrollReveal}
-                                className="group flex flex-col rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-lg"
+                                className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
+                                style={{
+                                    background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, rgba(168, 85, 247, 0.52), rgba(59, 130, 246, 0.53), rgba(12, 16, 43, 0.56)) border-box',
+                                    border: '1px solid transparent'
+                                }}
                             >
-                                {/* Image */}
-                                <div className="w-full h-auto overflow-hidden">
+                                {/* Title */}
+                                <h3 className="text-[17px] sm:text-[18px] leading-snug text-white font-bold mb-[12px] relative z-10">{cap.title}</h3>
+
+                                {/* Description */}
+                                <p className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 mb-[20px] relative z-10">{cap.desc}</p>
+
+                                {/* Image — sits directly below description */}
+                                <div className="relative z-10 rounded-[10px] overflow-hidden aspect-[16/9] w-full mt-auto">
                                     <Image
                                         src={cap.img}
                                         alt={cap.title}
-                                        width={800}
-                                        height={450}
-                                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="rounded-[10px] opacity-80 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
                                     />
                                 </div>
 
-                                {/* Content */}
-                                <div className="bg-[#040c31] p-5 sm:p-6 text-center flex-grow flex flex-col items-center">
-                                    <h5 className="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-white mb-[12px] leading-tight">
-                                        {cap.title}
-                                    </h5>
-                                    <p className="text-white/90 text-[13px] sm:text-[14px] leading-[1.6] m-0">
-                                        {cap.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
+                                {/* Hover Effect Gradient Overlay */}
+                                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #a855f7, #3b82f6, #00d4aa) border-box', border: '1px solid transparent' }}></div>
+                            </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -291,71 +286,64 @@ export default function HyperPage() {
                         viewport={viewportOnce}
                     >
 
-                        {/* Heading */}
-                        <header className="text-center mb-8">
-                            <h2
-                                className="text-[28px] sm:text-[32px] font-bold leading-tight"
-                                style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#345195'
-                                }}
-                            >
-                                CEO’s Vision
-                            </h2>
-                        </header>
-
-                        {/* Content */}
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
-
-                            {/* Image */}
-                            <div className="w-[160px] shrink-0">
-                                <Image
-                                    src="/images/products/Sreeram-_Plain-Background-414437.png"
-                                    alt="Sreeram Jadapolu"
-                                    width={160}
-                                    height={200}
-                                    className="w-full h-auto object-cover"
-                                />
-                            </div>
-
-                            {/* Text */}
-                            <div className="flex-1 text-left">
-
-                                <p
-                                    className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
+                        <div className="max-w-[840px] mx-auto text-left">
+                            {/* Heading */}
+                            <header className="mb-6 text-left">
+                                <h2
+                                    className="text-[28px] sm:text-[32px] font-bold leading-tight tracking-tight font-display text-left"
                                     style={{
-                                        fontFamily: 'Poppins, sans-serif',
-                                        color: '#6f6f6f'
-                                    }}
-                                >
-                                    “At Hyniva, our vision is to help wealth managers connect more
-                                    meaningfully with clients by transforming the investment journey
-                                    into a personalized, data-driven experience. With Hyper, we
-                                    empower advisors to scale their reach, build trust through
-                                    consistent recommendations, and deliver transparent insights
-                                    that grow AUM while reducing acquisition efforts.”
-                                </p>
-
-                                <h6
-                                    className="text-[17px] sm:text-[18px] font-bold mb-1"
-                                    style={{
-                                        fontFamily: 'Poppins, sans-serif',
                                         color: '#345195'
                                     }}
                                 >
-                                    Sreeram Jadapolu,
-                                </h6>
+                                    CEO’s Vision
+                                </h2>
+                            </header>
 
-                                <p
-                                    className="text-[15px] font-normal"
-                                    style={{
-                                        fontFamily: 'Poppins, sans-serif',
-                                        color: '#6f6f6f'
-                                    }}
-                                >
-                                    Founder & CEO, Hyniva
-                                </p>
+                            {/* Content */}
+                            <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10 w-full">
 
+                                {/* Image: matching height of content */}
+                                <div className="relative w-full md:w-[260px] lg:w-[280px] shrink-0 self-stretch rounded-[16px] overflow-hidden min-h-[240px]">
+                                    <Image
+                                        src="/images/products/Sreeram-_Plain-Background-414437.png"
+                                        alt="Sreeram Jadapolu"
+                                        fill
+                                        className="object-cover object-top rounded-[16px]"
+                                    />
+                                </div>
+
+                                {/* Text */}
+                                <div className="flex-1 text-left flex flex-col justify-between py-1">
+
+                                    <p
+                                        className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-6 text-[#6f6f6f]"
+                                    >
+                                        “At Hyniva, our vision is to help wealth managers connect more
+                                        meaningfully with clients by transforming the investment journey
+                                        into a personalized, data-driven experience. With Hyper, we
+                                        empower advisors to scale their reach, build trust through
+                                        consistent recommendations, and deliver transparent insights
+                                        that grow AUM while reducing acquisition efforts.”
+                                    </p>
+
+                                    <div>
+                                        <h6
+                                            className="text-[17px] sm:text-[18px] font-bold mb-0.5 tracking-tight font-display"
+                                            style={{
+                                                color: '#345195'
+                                            }}
+                                        >
+                                            Sreeram Jadapolu,
+                                        </h6>
+
+                                        <p
+                                            className="text-[15px] font-medium text-[#6f6f6f]"
+                                        >
+                                            Founder & CEO, Hyniva
+                                        </p>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -391,13 +379,13 @@ export default function HyperPage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
                     >
                         {outcomes.map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={scrollReveal}
-                                className="bg-white rounded-[6px] p-5 min-h-[230px] transition-all duration-300 hover:-translate-y-1 hover:bg-[#345195] group border border-white"
+                                className="bg-white rounded-[10px] p-6 min-h-[230px] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1.5 hover:shadow-2xl border border-white/10 cursor-pointer overflow-hidden"
                             >
                                 {/* Icon */}
                                 <div className="mb-4">
@@ -406,13 +394,13 @@ export default function HyperPage() {
                                         alt={item.title}
                                         width={42}
                                         height={42}
-                                        className="object-contain transition duration-300 group-hover:brightness-0 group-hover:invert"
+                                        className="object-contain"
                                     />
                                 </div>
 
                                 {/* Title */}
                                 <h6
-                                    className="text-[16px] font-bold mb-3 leading-[1.5] text-black group-hover:text-white transition-colors duration-300"
+                                    className="text-[16px] font-bold mb-3 leading-[1.5] text-slate-900"
                                     style={{
                                         fontFamily: 'Poppins, sans-serif'
                                     }}
@@ -422,7 +410,7 @@ export default function HyperPage() {
 
                                 {/* Description */}
                                 <p
-                                    className="text-[14px] leading-[1.8] text-black group-hover:text-white transition-colors duration-300"
+                                    className="text-[14px] leading-[1.8] text-slate-600"
                                     style={{
                                         fontFamily: 'Poppins, sans-serif'
                                     }}
@@ -436,7 +424,7 @@ export default function HyperPage() {
             </section>
 
             {/* CTA Header */}
-             <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#e9e9e9]">
+            <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8f9fa]">
                 <div className={`${CONTAINER_CLASS} text-center`}>
 
                     <motion.div
@@ -448,22 +436,17 @@ export default function HyperPage() {
 
                         {/* Heading */}
                         <h2
-                            className="text-[30px] sm:text-[38px] font-bold leading-[1.3] mb-6"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif',
-                                color: '#345195'
-                            }}
+                            className="text-[28px] sm:text-[32px] font-bold leading-tight tracking-tight font-display text-[#345195] mb-6 text-center"
                         >
                             Take Control Of Your Growth Digitally
                         </h2>
 
                         {/* Description */}
-                        <div className="max-w-[1050px] mx-auto text-left md:text-center">
+                        <div className="max-w-[960px] mx-auto text-center">
                             <p
-                                className="text-[17px] sm:text-[19px] leading-[1.9]"
+                                className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal leading-relaxed text-gray-700 m-0"
                                 style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#6f6f6f'
+                                    fontFamily: 'Poppins, sans-serif'
                                 }}
                             >
                                 With Hyper, you’re not just getting software — you’re adopting

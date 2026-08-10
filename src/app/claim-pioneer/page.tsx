@@ -90,7 +90,7 @@ export default function ClaimPioneerPage() {
       {/* Hero Section */}
       <section className="pt-[110px] lg:pt-[120px] pb-8 lg:pb-12">
         <div className={CONTAINER_CLASS}>
-          <div className="flex flex-wrap items-center">
+          <div className="flex flex-wrap items-start">
             {/* Left Content */}
             <div className="w-full lg:w-1/2 px-4 flex flex-col justify-center">
               <motion.div
@@ -99,7 +99,7 @@ export default function ClaimPioneerPage() {
                 variants={staggerContainer}
               >
                 {/* Logo */}
-                <motion.div variants={fadeInUp} className="mb-6">
+                <motion.div variants={fadeInUp} className="mb-6 -mt-12 sm:-mt-14 lg:-mt-[58px]">
                   <div className="w-full max-w-[280px] sm:max-w-[320px]">
                     <Image
                       src="/images/Product_Logos/Claim_pioneer.png"
@@ -175,15 +175,13 @@ export default function ClaimPioneerPage() {
             viewport={viewportOnce}
           >
             <h2
-              className="text-2xl sm:text-3xl font-bold text-[#345195] mb-[24px]"
-              style={{ fontFamily: "Roboto, sans-serif" }}
+              className="text-[28px] sm:text-[32px] font-bold text-[#345195] mb-[24px] leading-tight font-display tracking-tight"
             >
               Reimagining Claims with Intelligent Automation
             </h2>
-            <div className="max-w-[860px] mx-auto text-center">
+            <div className="max-w-[960px] mx-auto text-center">
               <p
-                className="text-[15px] sm:text-[16px] md:text-[17px] font-normal text-gray-700 leading-[1.7] m-0"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0"
               >
                 The future of claims is fast, automated, and intelligence
                 driven. Traditional manual assignment and follow-ups create
@@ -200,45 +198,48 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* Capabilities That Drive Growth */}
-      <section className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px]">
-        <div className={CONTAINER_CLASS}>
-          <header className="text-center mb-8 -mt-4 lg:-mt-6">
-            <h2
-              className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white leading-tight mb-8"
-            >
+      <section id="capabilities" className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
+        <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
+          {/* LEFT FIXED CONTENT */}
+          <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
               Capabilities That Drive Growth
             </h2>
-          </header>
- 
-          <div className="flex flex-wrap -mx-[15px]">
+            <p className="text-center lg:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto lg:mx-0">
+              Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
+            </p>
+          </div>
+
+          {/* RIGHT GRID (Scrollable) */}
+          <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-0 lg:pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[24px] lg:gap-[30px] items-stretch">
             {capabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="w-full md:w-1/3 px-[15px] mb-[30px] md:mb-[36px] md:[&:nth-last-child(-n+3)]:mb-0 last:mb-0"
+                className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(#030B3B, #030B3B) padding-box, linear-gradient(320deg, rgba(30, 144, 255, 0.52), rgba(0, 82, 155, 0.53), rgba(3, 11, 59, 0.56)) border-box',
+                  border: '1px solid transparent'
+                }}
               >
-                <div className="flex flex-col items-start md:items-center">
-                  <div className="mb-4 w-full rounded overflow-hidden">
-                    <Image
-                      src={cap.img}
-                      alt={cap.title}
-                      width={450}
-                      height={250}
-                      className="w-full h-auto rounded"
-                    />
-                  </div>
-                  <div className="text-left md:text-center">
-                    <h3
-                      className="text-[17px] sm:text-[18px] font-medium leading-snug text-white mb-2 line-clamp-none md:line-clamp-2 min-h-[2.8rem]"
-                    >
-                      {cap.title}
-                    </h3>
-                    <p
-                      className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 line-clamp-none md:line-clamp-4 min-h-[6.8em]"
-                    >
-                      {cap.desc.replace(/\n/g, ' ')}
-                    </p>
-                  </div>
+                {/* Title */}
+                <h3 className="text-[17px] sm:text-[18px] leading-snug text-white font-bold mb-[12px] relative z-10">{cap.title}</h3>
+
+                {/* Description */}
+                <p className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 mb-[20px] relative z-10">{cap.desc}</p>
+
+                {/* Image — sits directly below description */}
+                <div className="relative z-10 rounded-[10px] overflow-hidden aspect-[16/9] w-full mt-auto">
+                  <Image
+                    src={cap.img}
+                    alt={cap.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="rounded-[10px] opacity-80 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
+                  />
                 </div>
+
+                {/* Hover Effect Gradient Overlay */}
+                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#030B3B, #030B3B) padding-box, linear-gradient(320deg, #1e90ff, #00529b, #00d4aa) border-box', border: '1px solid transparent' }}></div>
               </div>
             ))}
           </div>
@@ -257,68 +258,57 @@ export default function ClaimPioneerPage() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            {/* Heading */}
-            <header className="text-center mb-8">
-              <h2
-                className="text-[28px] sm:text-[32px] font-bold leading-tight"
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  color: "#345195",
-                }}
-              >
-                CEO’s Vision
-              </h2>
-            </header>
-
-            {/* Content */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
-              {/* Image */}
-              <div className="w-[160px] shrink-0">
-                <Image
-                  src="/images/products/Sreeram-_Plain-Background-414437.png"
-                  alt="Sreeram Jadapolu"
-                  width={160}
-                  height={200}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Text */}
-              <div className="flex-1 text-left">
-                <p
-                  className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
+            <div className="max-w-[840px] mx-auto text-left">
+              {/* Heading */}
+              <header className="mb-6 text-left">
+                <h2
+                  className="text-[28px] sm:text-[32px] font-bold leading-tight tracking-tight font-display text-left"
                   style={{
-                    fontFamily: "Poppins, sans-serif",
-                    color: "#6f6f6f",
-                  }}
-                >
-                  “With Claim Pioneer, our goal was to bring transparency and efficiency to a process
-                  that has traditionally been slow and frustrating. By automating claim assignment,
-                  enabling mobile-first field execution, and providing real-time updates to customers,
-                  Claim Pioneer transforms claims management from a bottleneck into a competitive
-                  advantage. This is how modern insurance operations scale — through speed, accuracy,
-                  and trust.”
-                </p>
-
-                <h6
-                  className="text-[17px] sm:text-[18px] font-bold mb-1"
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
                     color: "#345195",
                   }}
                 >
-                  Sreeram Jadapolu,
-                </h6>
+                  CEO’s Vision
+                </h2>
+              </header>
 
-                <p
-                  className="text-[15px] font-normal"
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    color: "#6f6f6f",
-                  }}
-                >
-                  Founder & CEO, Hyniva
-                </p>
+              {/* Content */}
+              <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10 w-full">
+                {/* Image: matching height of content */}
+                <div className="relative w-full md:w-[260px] lg:w-[280px] shrink-0 self-stretch rounded-[16px] overflow-hidden min-h-[240px]">
+                  <Image
+                    src="/images/products/Sreeram-_Plain-Background-414437.png"
+                    alt="Sreeram Jadapolu"
+                    fill
+                    className="object-cover object-top rounded-[16px]"
+                  />
+                </div>
+
+                {/* Text */}
+                <div className="flex-1 text-left flex flex-col justify-between py-1">
+                  <p className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-6 text-[#6f6f6f]">
+                    “With Claim Pioneer, our goal was to bring transparency and efficiency to a process
+                    that has traditionally been slow and frustrating. By automating claim assignment,
+                    enabling mobile-first field execution, and providing real-time updates to customers,
+                    Claim Pioneer transforms claims management from a bottleneck into a competitive
+                    advantage. This is how modern insurance operations scale — through speed, accuracy,
+                    and trust.”
+                  </p>
+
+                  <div>
+                    <h6
+                      className="text-[17px] sm:text-[18px] font-bold mb-0.5 tracking-tight font-display"
+                      style={{
+                        color: "#345195",
+                      }}
+                    >
+                      Sreeram Jadapolu,
+                    </h6>
+
+                    <p className="text-[15px] font-medium text-[#6f6f6f]">
+                      Founder & CEO, Hyniva
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -362,11 +352,11 @@ export default function ClaimPioneerPage() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {outcomes.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[6px] p-5 min-h-[230px] transition-all duration-300 hover:-translate-y-1 hover:bg-[#345195] group border border-white"
+                className="bg-white rounded-[10px] p-6 min-h-[230px] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1.5 hover:shadow-2xl border border-white/10 cursor-pointer overflow-hidden"
               >
                 {/* Icon */}
                 <div className="mb-4">
@@ -375,13 +365,13 @@ export default function ClaimPioneerPage() {
                     alt={item.title}
                     width={42}
                     height={42}
-                    className="object-contain transition duration-300 group-hover:brightness-0 group-hover:invert"
+                    className="object-contain"
                   />
                 </div>
 
                 {/* Title */}
                 <h6
-                  className="text-[16px] font-bold mb-3 leading-[1.5] text-black group-hover:text-white transition-colors duration-300"
+                  className="text-[16px] font-bold mb-3 leading-[1.5] text-slate-900"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   {item.title}
@@ -389,7 +379,7 @@ export default function ClaimPioneerPage() {
 
                 {/* Description */}
                 <p
-                  className="text-[14px] leading-[1.8] text-black group-hover:text-white transition-colors duration-300"
+                  className="text-[14px] leading-[1.8] text-slate-600"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   {item.desc}
@@ -410,16 +400,13 @@ export default function ClaimPioneerPage() {
             viewport={viewportOnce}
           >
             <h2
-              className="text-[26px] sm:text-3xl font-bold text-[#345195] mb-[30px]"
-              style={{ fontFamily: "Roboto, sans-serif" }}
+              className="text-[28px] sm:text-[32px] font-bold text-[#345195] mb-[24px] leading-tight font-display tracking-tight"
             >
-              <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">Transforming Every Step</span>
-              <span className="block whitespace-nowrap sm:inline sm:whitespace-normal"> of the Claims Journey</span>
+              Transforming Every Step of the Claims Journey
             </h2>
-            <div className="max-w-[860px] mx-auto text-center">
+            <div className="max-w-[960px] mx-auto text-center">
               <p
-                className="text-[15px] sm:text-[16px] md:text-[17px] font-normal text-gray-700 leading-[1.7] m-0"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0"
               >
                 Claim Pioneer simplifies the complex world of claims by
                 combining automation, mobility, intelligence, and transparency

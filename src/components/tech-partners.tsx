@@ -61,7 +61,7 @@ export function TechPartners() {
                        LEFT SIDE CONTENT
                     ========================= */}
 
-                    <div className="w-full md:w-[46%] lg:w-[46%] relative z-20">
+                    <div className="w-full md:w-[52%] lg:w-[50%] xl:w-[52%] relative z-20">
 
                         <motion.div
                             variants={scrollReveal}
@@ -77,17 +77,21 @@ export function TechPartners() {
                             </div>
 
                             {/* Heading */}
-                            <h2 className="text-[32px] sm:text-[40px] md:text-[32px] lg:text-[56px] font-extrabold tracking-tight leading-[1.05] text-slate-900 mb-5 max-w-xl">
-                                Built on the platforms
+                            <h2 className="text-[32px] sm:text-[40px] md:text-[38px] lg:text-[48px] xl:text-[52px] font-extrabold tracking-tight leading-[1.05] text-slate-900 mb-5 max-w-2xl">
+                                <span className="inline-block md:whitespace-nowrap">
+                                    Built on the platforms
+                                </span>
                                 <br />
-                                you already{" "}
-                                <span className="text-[#00D4AA]">
-                                    trust.
+                                <span className="inline-block md:whitespace-nowrap">
+                                    you already{" "}
+                                    <span className="text-[#00D4AA]">
+                                        trust.
+                                    </span>
                                 </span>
                             </h2>
 
                             {/* Description */}
-                            <p className="text-[17px] sm:text-lg md:text-[15px] lg:text-lg text-slate-600 font-medium leading-[1.7] mb-6 lg:mb-10 max-w-xl">
+                            <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-6 lg:mb-10 max-w-2xl">
                                 {techPartnersContent.sub}
                             </p>
 
@@ -100,7 +104,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full md:w-[54%] lg:w-[52%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0">
+                    <div className="relative w-full md:w-[48%] lg:w-[50%] xl:w-[48%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0">
 
                         <motion.div
                             variants={scrollReveal}

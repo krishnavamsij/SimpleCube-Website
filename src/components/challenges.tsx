@@ -69,12 +69,12 @@ export function Challenges() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-[12.5px] sm:text-[13px] lg:text-[12px] xl:text-[13.5px] 2xl:text-[14px] font-black text-[#030B3B] leading-tight mb-2 tracking-tight lg:whitespace-nowrap flex-shrink-0 font-display">
+                                <h3 className="text-[14px] lg:text-[15px] font-black text-[#030B3B] leading-tight mb-2 tracking-tight whitespace-nowrap flex-shrink-0 font-display">
                                     {challenge.title}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-sm font-medium leading-[1.7] text-slate-500 flex-grow max-w-none lg:max-w-[195px] xl:max-w-[205px]">
+                                <p className="text-[12px] lg:text-[13px] text-slate-500 font-medium leading-relaxed flex-grow max-w-none">
                                     {/* @ts-ignore */}
                                     {challenge.description}
                                 </p>

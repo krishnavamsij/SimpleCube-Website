@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -11,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
+    const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -68,15 +70,15 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         <motion.header
             initial={false}
             animate={{
-                width: scrolled ? "90%" : "100%",
-                maxWidth: scrolled ? "900px" : maxContainerWidth,
-                height: scrolled ? 52 : 64,
-                top: scrolled ? 16 : 0,
+                width: scrolled ? "85%" : "100%",
+                maxWidth: scrolled ? "660px" : maxContainerWidth,
+                height: scrolled ? 46 : 64,
+                top: scrolled ? 14 : 0,
                 borderRadius: scrolled ? "9999px" : "0px",
-                backgroundColor: scrolled || forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)",
+                backgroundColor: scrolled ? "rgba(255, 255, 255, 0.75)" : forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)",
                 borderWidth: scrolled || forceDarkText ? "1px" : "0px",
-                borderColor: "rgba(255, 255, 255, 0.12)",
-                boxShadow: scrolled ? "0 15px 30px rgba(0,0,0,0.1)" : "none",
+                borderColor: scrolled ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.12)",
+                boxShadow: scrolled ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)" : "none",
             }}
             transition={{
                 duration: 0.5,
@@ -86,7 +88,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             style={{ position: "fixed" }}
         >
             <div className="relative w-full h-full">
-            <nav className="flex h-full w-full items-center px-6 md:px-10 lg:px-16">
+            <nav className={cn(
+                "flex h-full w-full items-center transition-all duration-500",
+                scrolled ? "px-4" : "px-6 md:px-10 lg:px-16"
+            )}>
                 {/* Logo */}
                 <Link href="/" className="flex items-center shrink-0">
                     <Image
@@ -96,7 +101,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         height={32}
                         className={cn(
                             "transition-all duration-500",
-                            scrolled ? "h-[26px] w-auto" : "h-9 w-auto",
+                            scrolled ? "h-[22px] w-auto" : "h-9 w-auto",
                             !(scrolled || forceDarkText) && "brightness-0 invert"
                         )}
                         priority
@@ -106,41 +111,49 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 {/* Spacer 1 */}
                 <motion.div
                     className="flex-1"
-                    animate={{ width: scrolled ? 16 : "auto" }}
+                    animate={{ width: scrolled ? 12 : "auto" }}
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                 />
 
                 {/* Desktop nav */}
                 <div className="hidden items-center lg:flex gap-0 relative">
-                    {dropdownItems.map((group) => (
-                        <div
-                            key={group.label}
-                            className={group.label === "Services" ? "static" : "relative"}
-                            onMouseEnter={() => handleMouseEnter(group.label)}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            {group.href ? (
-                                <Link
-                                    href={group.href}
-                                    className={cn(
-                                        "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
-                                        scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
+                    {dropdownItems.map((group) => {
+                        const isServices = group.label === "Services";
+                        const isServicesActive = isServices && (pathname === "/services" || pathname?.startsWith("/services"));
+
+                        return (
+                            <div
+                                key={group.label}
+                                className={group.label === "Services" ? "static" : "relative"}
+                                onMouseEnter={() => handleMouseEnter(group.label)}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                {group.href ? (
+                                    <Link
+                                        href={group.href}
+                                        className={cn(
+                                            "flex items-center gap-1 rounded-full transition-all uppercase tracking-tight",
+                                            scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
+                                            (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
+                                        )}
+                                    >
+                                        {group.label}
+                                        <ChevronDown className={cn(
+                                            scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
+                                            "transition-transform opacity-50",
+                                            openDropdown === group.label && "rotate-180"
+                                        )} />
+                                    </Link>
+                                ) : (
+                                    <button className={cn(
+                                        "flex items-center gap-1 rounded-full transition-colors uppercase tracking-tight",
+                                        scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
                                         (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
-                                    )}
-                                >
-                                    {group.label}
-                                    <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
-                                </Link>
-                            ) : (
-                                <button className={cn(
-                                    "flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors uppercase tracking-tight",
-                                    scrolled ? "text-[12px] font-bold" : "text-sm font-bold",
-                                    (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
-                                )}>
-                                    {group.label}
-                                    <ChevronDown className={cn("h-3 w-3 transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
-                                </button>
-                            )}
+                                    )}>
+                                        {group.label}
+                                        <ChevronDown className={cn(scrolled ? "h-2.5 w-2.5" : "h-3 w-3", "transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
+                                    </button>
+                                )}
                             <AnimatePresence>
                                 {openDropdown === group.label && group.label !== "Services" && (
                                     <motion.div
@@ -197,13 +210,14 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                 )}
                             </AnimatePresence>
                         </div>
-                    ))}
+                    );
+                })}
                 </div>
 
                 {/* Spacer 2 */}
                 <motion.div
                     className="flex-1"
-                    animate={{ width: scrolled ? 16 : "auto" }}
+                    animate={{ width: scrolled ? 12 : "auto" }}
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                 />
 
@@ -213,7 +227,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         <button
                             className={cn(
                                 "relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
-                                scrolled ? "h-8 px-4 text-[11px]" : "h-9 px-5 text-[12px]"
+                                scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]"
                             )}
                             style={{
                                 background: "#2563eb",
@@ -316,7 +330,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                     {group.href ? (
                                         <Link
                                             href={group.href}
-                                            className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block hover:text-[#2563EB]"
+                                            className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-[#2563EB] mb-2 block transition-colors"
                                             onClick={() => setMobileOpen(false)}
                                         >
                                             {group.label}

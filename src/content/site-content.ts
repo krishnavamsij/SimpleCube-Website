@@ -221,7 +221,7 @@ export const servicesContent = {
             title: "Digital Transformation",
             description:
                 "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
-            tags: ["Legacy System Modernization", "Custom App Development", "UI/UX Redesign", "Process Reengineering", "Zero-Downtime Migration", "Digital Strategy"],
+            tags: ["Applied AI", "Data Intelligence", "Cloud Migration", "Legacy Modernization", "Custom App Dev", "Process Optimization"],
             image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
             href: "/services/digital-transformation",
         },
@@ -230,7 +230,7 @@ export const servicesContent = {
             title: "Enterprise Platforms",
             description:
                 "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
-            tags: ["Salesforce", "Microsoft Dynamics 365", "Power Platform", "Cloud (Azure / AWS / GCP)", "ERP & CRM Integration", "Advanced Analytics"],
+            tags: ["Salesforce", "Microsoft Dynamics", "Power Platform", "Cloud Infrastructure", "ERP & CRM Integration", "Advanced Analytics"],
             image: "/images/Our_Services/2_Enterprise_Platforms.png",
             href: "/services/salesforce",
         },
@@ -239,7 +239,7 @@ export const servicesContent = {
             title: "Product Engineering",
             description:
                 "From mobile apps to AI agents, we design, build, test and ship technology products that work in production, not just in demos.",
-            tags: ["Full-Stack Development", "Mobile Engineering", "AI Agents & Automation", "Contact Centre Modernization", "QA & Test Automation", "DevOps"],
+            tags: ["Full-Stack Dev", "Mobile Engineering", "AI Agents & Automation", "Contact Center Tech", "QA & Test Automation", "DevOps"],
             image: "/images/Our_Services/Product_Engineering_no_BG.png",
             href: "/services/product-engineering",
         },
@@ -248,7 +248,7 @@ export const servicesContent = {
             title: "Strategy Consulting",
             description:
                 "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
-            tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Vendor & Platform Selection", "IT Operating Model"],
+            tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Platform Selection", "IT Operating Model"],
             image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
             href: "/services/strategy-consulting",
         },

@@ -71,7 +71,7 @@ function EducationHero() {
 
                     <motion.p
                         variants={fadeInUp}
-                        className="mt-4 text-lg text-slate-200 sm:text-xl w-full mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="mt-4 text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-200 w-full mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
                         dangerouslySetInnerHTML={{ __html: educationContent.hero.subtitle }}
                     />
                 </motion.div>

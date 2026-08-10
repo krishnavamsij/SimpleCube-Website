@@ -506,14 +506,14 @@ function DataSecuritySection() {
                             Your data is safe.<br />
                             <span className="text-[#00D4AA]">We engineer it that way.</span>
                         </h2>
-                        <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-xl">
+                        <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-10 max-w-xl">
                             Security is not an afterthought at Hyniva — it is built into every layer of our
                             delivery model. From SOC 2 compliance to zero-trust architecture, we uphold the
                             highest standards so your data, your clients, and your reputation stay protected.
                         </p>
 
                         <h3 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 mb-3">Trusted by 45+ Enterprise Clients</h3>
-                        <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
+                        <p className="text-[14px] sm:text-[16px] md:text-[15px] lg:text-[16px] 2xl:text-[18px] text-slate-700 font-medium leading-[1.6] max-w-xl">
                             From financial institutions to Fortune 500s, organizations trust Hyniva to handle
                             their most sensitive workloads securely and compliantly.
                         </p>
@@ -561,7 +561,8 @@ function WorkThatSpeaks() {
                 <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10 lg:gap-16 mb-12">
                     <div className="w-full md:w-[50%] lg:w-[52%]">
                         <h2 className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold text-[#0f172a] tracking-tight font-display leading-[1.12]">
-                            Enterprise <span className="text-[#00D4AA]">Impact</span>{" "}
+                            Enterprise <span className="text-[#00D4AA]">Impact</span>
+                            <br />
                             Delivered By Our <span className="text-[#00D4AA]">Experts.</span>
                         </h2>
                     </div>
@@ -596,18 +597,18 @@ function WorkThatSpeaks() {
                                     return (
                                         <>
                                             <div>
-                                                <h3 className="whitespace-pre-line text-[19px] sm:text-[23px] font-bold text-slate-900 leading-snug mb-5">
+                                                <h3 className="whitespace-pre-line text-[19px] sm:text-[23px] font-bold text-slate-900 leading-snug mb-7 sm:mb-8">
                                                     {study.title}
                                                 </h3>
-                                                <div className="mb-6">
-                                                    <p className="text-base font-bold text-slate-900 mb-2">Challenge</p>
+                                                <div className="mb-7 sm:mb-8">
+                                                    <p className="text-lg font-bold text-slate-900 mb-3">Challenge</p>
                                                     <p className="text-slate-600 text-sm leading-relaxed">{study.challenge}</p>
                                                 </div>
-                                                <div className="mb-6">
-                                                    <p className="text-base font-bold text-slate-900 mb-3">Solution</p>
-                                                    <ul className="space-y-2">
+                                                <div className="mb-7 sm:mb-8">
+                                                    <p className="text-lg font-bold text-slate-900 mb-3">Solution</p>
+                                                    <ul className="space-y-3">
                                                         {study.solution.map((item, i) => (
-                                                            <li key={i} className="flex items-start gap-2 text-slate-600 text-sm leading-relaxed">
+                                                            <li key={i} className="flex items-start gap-2.5 text-slate-600 text-sm leading-relaxed">
                                                                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
                                                                 {item}
                                                             </li>
@@ -725,7 +726,7 @@ function TechPartnersSection() {
                         </h2>
                     </div>
                     <div className="ml-auto md:w-[62%]">
-                        <p className="text-base text-slate-600 leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6]">
                             Each project requires a tailored approach and the appropriate tech stack to ensure timely delivery and clean code. So here&apos;s what our engineers use to bring product ideas to life.
                         </p>
                     </div>

@@ -153,7 +153,7 @@ export function Footer() {
             ))}
           </h2>
 
-          <p className="text-[16px] sm:text-[21px] font-medium text-white/70 leading-[1.6] sm:leading-[1.65] max-w-[680px] mb-12 text-left sm:text-center px-2 sm:px-0">
+          <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-12 text-left sm:text-center px-2 sm:px-0">
             {sub}
           </p>
 

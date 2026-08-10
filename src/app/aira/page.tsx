@@ -114,12 +114,37 @@ const impacts = [
 
 
 function AiraHero() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const videoMobileRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        const playVideos = () => {
+            if (videoRef.current) {
+                videoRef.current.play().catch((err) => {
+                    console.log("Desktop video play failed:", err);
+                });
+            }
+            if (videoMobileRef.current) {
+                videoMobileRef.current.play().catch((err) => {
+                    console.log("Mobile video play failed:", err);
+                });
+            }
+        };
+
+        // Play on mount
+        playVideos();
+
+        // Fallback delay to ensure DOM is fully ready
+        const timer = setTimeout(playVideos, 150);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <>
             {/* ─────────────────────────────────────────────────────────────
                 MOBILE HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="w-full bg-[#081138] pt-[95px] pb-8 px-4 md:hidden overflow-hidden">
+            <section className="w-full bg-[#000000] pt-[95px] pb-8 px-4 md:hidden overflow-hidden">
                 <div className="w-full max-w-[100%] mx-auto">
 
                     <motion.div
@@ -205,6 +230,7 @@ function AiraHero() {
                             className="mt-10 w-full flex justify-center"
                         >
                             <video
+                                ref={videoMobileRef}
                                 autoPlay
                                 muted
                                 loop
@@ -213,12 +239,13 @@ function AiraHero() {
                         w-full
                         max-w-[320px]
                         h-auto
-                        object-contain
+                        aspect-video
+                        object-cover
                         mix-blend-screen
                     "
                                 style={{
-                                    maskImage: 'radial-gradient(circle at center, black 50%, transparent 90%)',
-                                    WebkitMaskImage: 'radial-gradient(circle at center, black 50%, transparent 90%)',
+                                    maskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
+                                    WebkitMaskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
                                 }}
                             >
                                 <source
@@ -235,23 +262,23 @@ function AiraHero() {
             {/* ─────────────────────────────────────────────────────────────
                 DESKTOP & TABLET HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="relative w-full overflow-hidden bg-[#020918] hidden md:block">
-
-                {/* Animation on right side - small size, no overflow, blended with background */}
-                <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-0 md:pr-4 lg:pr-6 pointer-events-none overflow-hidden">
-                    <div className="relative w-full max-w-[300px] md:max-w-[340px] lg:max-w-[420px] xl:max-w-[480px] aspect-square flex items-center justify-center translate-x-6 md:translate-x-10 lg:translate-x-12">
-                        {/* Ambient soft glow matching page theme */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(52,81,149,0.35)_0%,transparent_65%)] rounded-full blur-2xl pointer-events-none" />
+            <section className="relative w-full overflow-hidden bg-[#000000] hidden md:block">
+                {/* Animation on right side */}
+                <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-4 md:pr-8 lg:pr-12 pointer-events-none">
+                    <div className="relative w-full max-w-[380px] md:max-w-[460px] lg:max-w-[680px] xl:max-w-[780px] 2xl:max-w-[860px] aspect-square flex items-center justify-center scale-110 lg:scale-120 origin-right translate-x-6 md:translate-x-12 lg:translate-x-[60px] xl:translate-x-[90px]">
+                        {/* Soft subtle ambient glow */}
+                        <div className="absolute inset-2 bg-[#1e90ff]/20 rounded-full blur-3xl pointer-events-none scale-110" />
 
                         <video
+                            ref={videoRef}
                             autoPlay
                             muted
                             loop
                             playsInline
-                            className="w-full h-full object-contain relative z-10 mix-blend-screen"
+                            className="w-full h-auto aspect-video relative z-10 mix-blend-screen"
                             style={{
-                                maskImage: 'radial-gradient(circle at 50% 50%, black 20%, transparent 55%)',
-                                WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 20%, transparent 55%)',
+                                maskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
+                                WebkitMaskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
                             }}
                         >
                             <source
@@ -445,40 +472,51 @@ function AiraDifferentiators() {
 
 function AiraCapabilities() {
     return (
-        <section id="capabilities" className="bg-[#0b1021] pt-[15px] sm:pt-[20px] lg:pt-[25px] pb-[30px] sm:pb-[40px] lg:pb-[50px]">
-            <div className={CONTAINER_CLASS}>
-                <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce} className="text-center mb-8 sm:mb-[50px]">
-                    <h2 className="text-white text-2xl sm:text-3xl lg:text-[34px] font-bold mb-2 sm:mb-[10px] leading-tight">
+        <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
+            <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
+                {/* LEFT FIXED CONTENT */}
+                <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+                    <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
                         Key Capabilities
                     </h2>
-                    <h6 className="text-white/90 text-lg sm:text-xl font-medium">
-                        AIRA brings a financial-services lens to every capability
-                    </h6>
-                </motion.div>
+                    <p className="text-center lg:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto lg:mx-0">
+                        Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
+                    </p>
+                </div>
 
-                <motion.div
-                    variants={scrollStaggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="grid gap-[24px] sm:gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                >
+                {/* RIGHT GRID (Scrollable) */}
+                <div className="lg:w-[68%] lg:max-h-[660px] lg:overflow-y-auto pr-[10px] pt-0 lg:pt-[20px] custom-scrollbar grid grid-cols-1 md:grid-cols-2 gap-[24px] lg:gap-[30px] items-stretch">
                     {capabilities.map((cap, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
-                            variants={scrollReveal}
-                            className="group flex flex-col rounded-[12px] overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-lg"
+                            className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
+                            style={{
+                                background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, rgba(30, 144, 255, 0.52), rgba(79, 70, 229, 0.53), rgba(12, 16, 43, 0.56)) border-box',
+                                border: '1px solid transparent'
+                            }}
                         >
-                            <div className="w-full h-auto overflow-hidden">
-                                <Image src={cap.img} alt={cap.title} width={800} height={450} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+                            {/* Title */}
+                            <h3 className="text-[17px] sm:text-[18px] leading-snug text-white font-bold mb-[12px] relative z-10">{cap.title}</h3>
+
+                            {/* Description */}
+                            <p className="text-[15px] sm:text-base font-medium leading-[1.7] text-slate-300 mb-[20px] relative z-10">{cap.desc}</p>
+
+                            {/* Image — sits directly below description */}
+                            <div className="relative z-10 rounded-[10px] overflow-hidden aspect-[16/9] w-full mt-auto">
+                                <Image
+                                    src={cap.img}
+                                    alt={cap.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="rounded-[10px] opacity-80 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
+                                />
                             </div>
-                            <div className="bg-[#040c31] p-5 sm:p-6 text-center flex-grow flex flex-col items-center">
-                                <h5 className="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-white mb-[12px] leading-tight">{cap.title}</h5>
-                                <p className="text-white/90 text-[13px] sm:text-[14px] leading-[1.6] m-0">{cap.desc}</p>
-                            </div>
-                        </motion.div>
+
+                            {/* Hover Effect Gradient Overlay */}
+                            <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #1e90ff, #4f46e5, #9333ea) border-box', border: '1px solid transparent' }}></div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     )
@@ -495,71 +533,64 @@ function CeoVision() {
                     viewport={viewportOnce}
                 >
 
-                    {/* Heading */}
-                    <header className="text-center mb-8">
-                        <h2
-                            className="text-[28px] sm:text-[32px] font-bold leading-tight"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif',
-                                color: '#345195'
-                            }}
-                        >
-                            CEO’s Vision
-                        </h2>
-                    </header>
-
-                    {/* Content */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 max-w-[780px] mx-auto">
-
-                        {/* Image */}
-                        <div className="w-[160px] shrink-0">
-                            <Image
-                                src="/images/products/Sreeram-_Plain-Background-414437.png"
-                                alt="Sreeram Jadapolu"
-                                width={160}
-                                height={200}
-                                className="w-full h-auto object-cover"
-                            />
-                        </div>
-
-                        {/* Text */}
-                        <div className="flex-1 text-left">
-
-                            <p
-                                className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-5"
+                    <div className="max-w-[840px] mx-auto text-left">
+                        {/* Heading */}
+                        <header className="mb-6 text-left">
+                            <h2
+                                className="text-[28px] sm:text-[32px] font-bold leading-tight tracking-tight font-display text-left"
                                 style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#6f6f6f'
-                                }}
-                            >
-                                “When we built AIRA, our vision was clear: AI that financial institutions
-                                can finally trust with mission-critical decisions. AIRA combines
-                                reasoning, compliance, and OneAPI-powered integration into a single,
-                                scalable platform. It’s not just about solving today’s challenges — it’s
-                                about empowering the industry to reimagine what’s possible with GenAI
-                                for customers, regulators, and institutions alike.”
-                            </p>
-
-                            <h6
-                                className="text-[17px] sm:text-[18px] font-bold mb-1"
-                                style={{
-                                    fontFamily: 'Poppins, sans-serif',
                                     color: '#345195'
                                 }}
                             >
-                                Sreeram Jadapolu,
-                            </h6>
+                                CEO’s Vision
+                            </h2>
+                        </header>
 
-                            <p
-                                className="text-[15px] font-normal"
-                                style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#6f6f6f'
-                                }}
-                            >
-                                Founder & CEO, Hyniva
-                            </p>
+                        {/* Content */}
+                        <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10 w-full">
 
+                            {/* Image: matching height of content */}
+                            <div className="relative w-full md:w-[260px] lg:w-[280px] shrink-0 self-stretch rounded-[16px] overflow-hidden min-h-[240px]">
+                                <Image
+                                    src="/images/products/Sreeram-_Plain-Background-414437.png"
+                                    alt="Sreeram Jadapolu"
+                                    fill
+                                    className="object-cover object-top rounded-[16px]"
+                                />
+                            </div>
+
+                            {/* Text */}
+                            <div className="flex-1 text-left flex flex-col justify-between py-1">
+
+                                <p
+                                    className="text-[17px] sm:text-[19px] leading-[1.75] font-medium mb-6 text-[#6f6f6f]"
+                                >
+                                    “When we built AIRA, our vision was clear: AI that financial institutions
+                                    can finally trust with mission-critical decisions. AIRA combines
+                                    reasoning, compliance, and OneAPI-powered integration into a single,
+                                    scalable platform. It’s not just about solving today’s challenges — it’s
+                                    about empowering the industry to reimagine what’s possible with GenAI
+                                    for customers, regulators, and institutions alike.”
+                                </p>
+
+                                <div>
+                                    <h6
+                                        className="text-[17px] sm:text-[18px] font-bold mb-0.5 tracking-tight font-display"
+                                        style={{
+                                            color: '#345195'
+                                        }}
+                                    >
+                                        Sreeram Jadapolu,
+                                    </h6>
+
+                                    <p
+                                        className="text-[15px] font-medium text-[#6f6f6f]"
+                                    >
+                                        Founder & CEO, Hyniva
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </motion.div>
@@ -597,13 +628,13 @@ function EnterpriseImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
                     {impacts.map((item, index) => (
                         <motion.div
                             key={index}
                             variants={scrollReveal}
-                            className="bg-white rounded-[6px] p-5 min-h-[230px] transition-all duration-300 hover:-translate-y-1 hover:bg-[#345195] group border border-white"
+                            className="bg-white rounded-[10px] p-6 min-h-[230px] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1.5 hover:shadow-2xl border border-white/10 cursor-pointer overflow-hidden"
                         >
 
                             {/* Icon */}
@@ -613,13 +644,13 @@ function EnterpriseImpact() {
                                     alt={item.title}
                                     width={42}
                                     height={42}
-                                    className="object-contain transition duration-300 group-hover:brightness-0 group-hover:invert"
+                                    className="object-contain"
                                 />
                             </div>
 
                             {/* Title */}
                             <h6
-                                className="text-[16px] font-bold mb-3 leading-[1.5] text-black group-hover:text-white transition-colors duration-300"
+                                className="text-[16px] font-bold mb-3 leading-[1.5] text-slate-900"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif'
                                 }}
@@ -629,7 +660,7 @@ function EnterpriseImpact() {
 
                             {/* Description */}
                             <p
-                                className="text-[14px] leading-[1.8] m-0 text-black group-hover:text-white transition-colors duration-300"
+                                className="text-[14px] leading-[1.8] text-slate-600"
                                 style={{
                                     fontFamily: 'Poppins, sans-serif'
                                 }}
@@ -648,14 +679,14 @@ function EnterpriseImpact() {
 function CustomerCentric() {
     return (
         <section className="bg-[#f8f9fa] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className={`${CONTAINER_CLASS} text-center`}>
+            <div className={`${CONTAINER_CLASS} text-center flex flex-col items-center justify-center`}>
                 <motion.div variants={scrollReveal} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-                    <h2 className="text-3xl font-bold text-[#345195] mb-[30px]">
+                    <h2 className="text-[28px] sm:text-[32px] font-bold text-[#345195] mb-[24px] leading-tight font-display tracking-tight text-center">
                         Customer-Centric by Design
                     </h2>
-                    <div className="max-w-[800px] mx-auto text-left">
-                        <p className="text-[15px] text-[#6d6d6d] leading-[26px] m-0">
-                            "At Hyniva, we know AI adoption in financial services is not a one-time project — it's an ongoing journey. AIRA was designed to scale with that journey, adapting to evolving regulations, shifting customer expectations, and expanding technology landscapes. With modular agents, built-in compliance, and no-code configurability, institutions can start with targeted use cases and expand seamlessly — without re-engineering legacy systems or risking regulatory setbacks."
+                    <div className="max-w-[960px] mx-auto text-center">
+                        <p className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0 text-center">
+                            At Hyniva, we know AI adoption in financial services is not a one-time project — it's an ongoing journey. AIRA was designed to scale with that journey, adapting to evolving regulations, shifting customer expectations, and expanding technology landscapes. With modular agents, built-in compliance, and no-code configurability, institutions can start with targeted use cases and expand seamlessly — without re-engineering legacy systems or risking regulatory setbacks.
                         </p>
                     </div>
                 </motion.div>

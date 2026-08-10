@@ -17,11 +17,6 @@ const getIcon = (name: string) => {
     }
 };
 
-const preventWidow = (text: string) => {
-    const lastSpaceIndex = text.lastIndexOf(" ");
-    if (lastSpaceIndex === -1) return text;
-    return text.substring(0, lastSpaceIndex) + "\u00a0" + text.substring(lastSpaceIndex + 1);
-};
 
 
 export function WhyHynivaServices() {
@@ -126,17 +121,17 @@ export function WhyHynivaServices() {
                     viewport={viewportOnce}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[24px] sm:p-[32px] lg:p-[40px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 xl:gap-14">
                         {bottomBox.map((card, idx) => (
-                            <div key={idx} className={`flex flex-col ${idx === 3 ? 'lg:ml-4' : ''}`}>
+                            <div key={idx} className="flex flex-col">
                                 <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
                                 <h3 className="text-[18px] font-bold text-[#030B3B] mb-3 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed whitespace-normal">
-                                    {preventWidow(card.description)}
+                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed">
+                                    {card.description}
                                 </p>
                             </div>
                         ))}

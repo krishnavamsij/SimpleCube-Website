@@ -103,10 +103,15 @@ export function ProductsShowcase() {
                             <div className="relative pl-6 w-fit">
                                 <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#00D4AA] rounded-full" />
                                 <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75]">
-                                    Two of our flagship products were<br className="hidden xl:inline" />
-                                    acquired by industry leaders — <span className="font-bold text-white">Fiserv</span><br className="hidden xl:inline" />
-                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to<br className="hidden xl:inline" />
-                                    what enterprise depth produces when<br className="hidden xl:inline" />
+                                    Two of our flagship products were{" "}
+                                    <br className="hidden xl:inline" />
+                                    acquired by industry leaders —{" "}
+                                    <span className="font-bold text-white">Fiserv</span>{" "}
+                                    <br className="hidden xl:inline" />
+                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to{" "}
+                                    <br className="hidden xl:inline" />
+                                    what enterprise depth produces when{" "}
+                                    <br className="hidden xl:inline" />
                                     it becomes a product.
                                 </p>
                             </div>
@@ -202,17 +207,17 @@ export function ProductsShowcase() {
                                 className="bg-[#081236] rounded-[2rem] md:rounded-[2.5rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col md:flex-row items-stretch min-h-[460px] md:min-h-[480px] lg:min-h-[75vh] relative w-full"
                             >
                                 {/* Left: Content */}
-                                <div className="w-full md:w-1/2 lg:w-[45%] flex-shrink-0 px-[24px] sm:px-[35px] md:px-[36px] lg:px-[50px] pt-[28px] pb-[28px] sm:pt-[36px] sm:pb-[36px] md:py-[36px] lg:pt-[10vh] lg:pb-[10vh] lg:pl-[50px] lg:pr-[40px] xl:pl-[70px] xl:pr-[50px] flex flex-col justify-center relative z-10 md:overflow-y-auto">
-                                    <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-white mb-4 md:mb-6 lg:mb-12">
+                                <div className="w-full md:w-1/2 lg:w-[45%] flex-shrink-0 px-[24px] sm:px-[35px] md:px-[36px] lg:px-[50px] pt-[32px] pb-[32px] sm:pt-[44px] sm:pb-[44px] lg:py-[10vh] lg:pl-[60px] lg:pr-[40px] xl:pl-[80px] xl:pr-[50px] flex flex-col justify-center relative z-10 md:overflow-y-auto">
+                                    <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-[42px] 2xl:text-[50px] font-extrabold tracking-tight text-white mb-6 sm:mb-8 lg:mb-12">
                                         {p.title}
                                     </h3>
 
                                     {/* Capsule Tags with Icons */}
-                                    <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 md:mb-6 lg:mb-14">
+                                    <div className="flex flex-wrap gap-2.5 sm:gap-3.5 mb-8 sm:mb-10 lg:mb-14">
                                         {p.tags.map((tag) => (
                                             <div
                                                 key={tag}
-                                                className="rounded-full bg-white/5 border border-white/10 px-3.5 sm:px-5 py-1.5 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-slate-300 tracking-wide flex items-center gap-2 backdrop-blur-sm"
+                                                className="rounded-full bg-white/5 border border-white/10 px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-slate-300 tracking-wide flex items-center gap-2 backdrop-blur-sm"
                                             >
                                                 {getTagIcon(tag)}
                                                 {tag}
@@ -220,13 +225,13 @@ export function ProductsShowcase() {
                                         ))}
                                     </div>
 
-                                    <p className="text-xs sm:text-sm lg:text-[15px] font-medium leading-[1.7] text-slate-300 max-w-xl mb-6 md:mb-8 lg:mb-16">
+                                    <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] font-medium leading-[1.75] text-slate-300 max-w-xl mb-10 sm:mb-12 lg:mb-16">
                                         {p.description}
                                     </p>
 
                                     <Link
                                         href={p.href}
-                                        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs sm:text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
+                                        className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs sm:text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
                                     >
                                         Explore Product <ArrowRightIcon className="h-4 w-4" />
                                     </Link>

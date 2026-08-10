@@ -22,8 +22,8 @@ export function WhyHyniva() {
     const { topBox, bottomBox } = whyHynivaContent;
 
     return (
-        <section className="bg-white py-[14px] sm:py-[20px] lg:py-[26px]">
-            <div className="mx-auto w-full max-w-[82rem] px-6 md:px-10 lg:px-16 flex flex-col gap-4">
+        <section className="bg-white py-[16px] sm:py-[24px] lg:py-[32px]">
+            <div className="mx-auto w-full max-w-[90rem] px-6 md:px-10 lg:px-16 flex flex-col gap-6">
                 
                 {/* ── Top Box: Dark Glowing Container ── */}
                 <motion.div 
@@ -31,7 +31,7 @@ export function WhyHyniva() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[20px] sm:p-[28px] lg:p-[36px]"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[36px] lg:p-[48px]"
                 >
                     <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
@@ -75,7 +75,7 @@ export function WhyHyniva() {
 
                         {/* Right Side: Description & CTA */}
                         <div className="flex flex-col items-start pt-4 md:pt-0 md:col-span-6 lg:col-span-6 md:pl-4 lg:pl-6 xl:pl-10">
-                            <p className="text-base sm:text-lg md:text-[17px] lg:text-[19px] text-slate-300 font-medium leading-[1.75] mb-6 sm:mb-8 lg:mb-10 w-full max-w-xl">
+                            <p className="text-base sm:text-lg md:text-[17px] lg:text-[18.5px] text-slate-300 font-medium leading-[1.7] mb-6 sm:mb-8 lg:mb-10 max-w-[460px] lg:max-w-[480px]">
                                 {topBox.description}
                             </p>
                             <Link 
@@ -94,19 +94,19 @@ export function WhyHyniva() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] pt-[20px] pb-[16px] px-[20px] sm:pt-[28px] sm:pb-[20px] sm:px-[28px] lg:pt-[36px] lg:pb-[20px] lg:px-[36px] border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] pt-[24px] pb-[20px] px-[24px] sm:pt-[32px] sm:pb-[24px] sm:px-[36px] lg:pt-[40px] lg:pb-[32px] lg:px-[48px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 xl:gap-16">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
-                                <div className="h-8 w-8 bg-white shadow-sm flex items-center justify-center rounded-lg mb-2 flex-shrink-0">
+                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3 flex-shrink-0 border border-[#3B82F6]/10">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[14px] font-black text-[#030B3B] mb-1.5 leading-tight font-display">
+                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/80 font-medium leading-[1.65] whitespace-normal lg:whitespace-pre-line">
-                                    {card.description}
+                                <p className="text-[12px] lg:text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">
+                                    {card.description.replace(/\n/g, ' ')}
                                 </p>
                             </div>
                         ))}

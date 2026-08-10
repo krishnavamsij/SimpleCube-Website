@@ -95,7 +95,7 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
 
                 {/* Content: Hidden by default, Appears on Hover/Active */}
                 <div className={`absolute inset-0 flex flex-col px-4 sm:px-5 lg:px-6 xl:px-7 pt-2 pb-4 sm:pb-5 lg:pb-6 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}>
-                    <p className="text-[#030B3B]/90 text-xs sm:text-[13px] lg:text-sm font-medium leading-[1.65]">
+                    <p className="text-[#030B3B]/90 text-[12px] sm:text-[13px] lg:text-[14px] font-medium leading-[1.6]">
                         {industry.description}
                     </p>
                     

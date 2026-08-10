@@ -75,18 +75,18 @@ export function Services() {
                                         className="flex flex-col items-start text-left"
                                     >
                                         <div className="flex items-baseline justify-start gap-0.5">
-                                            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-slate-900">
+                                            <span className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl font-black text-slate-900 font-display">
                                                 {valNum}
                                             </span>
 
                                             {hasPlus && (
-                                                <span className="text-slate-900 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold">
+                                                <span className="text-slate-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-black font-display">
                                                     +
                                                 </span>
                                             )}
                                         </div>
 
-                                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-slate-500 font-semibold leading-snug whitespace-normal sm:whitespace-pre-line">
+                                        <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-base text-slate-500 font-semibold leading-snug whitespace-normal sm:whitespace-pre-line">
                                             {metric.label}
                                         </p>
                                     </div>
@@ -134,12 +134,12 @@ export function Services() {
                                                 {svc.description}
                                             </p>
 
-                                            {/* Tags */}
-                                            <div className="relative z-10 mt-6 md:mt-8 flex flex-wrap gap-2.5">
+                                             {/* Tags */}
+                                            <div className="relative z-10 mt-6 md:mt-8 flex flex-wrap gap-1.5 sm:gap-2">
                                                 {svc.tags.map((tag) => (
                                                     <span
                                                         key={tag}
-                                                        className="rounded-full border border-slate-200 bg-slate-50 px-3.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold tracking-wide text-slate-600"
+                                                        className="rounded-full border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs lg:text-[13px] font-semibold tracking-normal text-slate-600"
                                                     >
                                                         {tag}
                                                     </span>
@@ -187,7 +187,11 @@ export function Services() {
                                                     `}
                                                     />
                                                 </div>
-                                                <div className="pointer-events-none absolute bottom-6 right-6 md:bottom-8 md:right-8 lg:bottom-10 lg:right-10 z-20 text-[40px] sm:text-[60px] md:text-[52px] lg:text-[68px] xl:text-[82px] 2xl:text-[92px] font-black leading-none text-slate-400/35 text-right tracking-tight">
+                                                <div
+                                                    className={`pointer-events-none absolute bottom-0 right-0 z-20 text-[40px] sm:text-[60px] md:text-[52px] lg:text-[68px] xl:text-[82px] 2xl:text-[92px] font-black leading-[0.82] text-slate-400/35 text-right tracking-tight select-none ${
+                                                        svc.num === "03" ? "-translate-y-3 sm:-translate-y-4 md:-translate-y-5 lg:-translate-y-6" : ""
+                                                    }`}
+                                                >
                                                     {svc.num === "01" ? "Transform" : 
                                                      svc.num === "02" ? "Connect" : 
                                                      svc.num === "03" ? "Build" : 
