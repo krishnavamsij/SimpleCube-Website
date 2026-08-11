@@ -52,7 +52,7 @@ export default function BlogsPage() {
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title Side */}
                         <div className="lg:w-2/3">
-                            <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display text-balance md:whitespace-nowrap" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
+                            <motion.h1 variants={fadeInUp} className="text-[28px] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display whitespace-nowrap" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
                             <motion.p 
                                 variants={fadeInUp} 
                                 className="w-full text-base sm:text-lg lg:text-[19px] 2xl:text-[21px] leading-relaxed text-slate-600 font-medium max-w-[820px]"

@@ -29,9 +29,9 @@ export function Services() {
                     <div className="md:col-span-5">
                         <h2 className="text-[32px] sm:text-[40px] md:text-[42px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight leading-[1.1] text-slate-900">
                             End-to-end
-                            <br />
+                            <br className="hidden md:block" />{" "}
                             technology
-                            <br />
+                            <br className="hidden md:block" />{" "}
                             <span className="text-[#00D4AA]">
                                 partnership.
                             </span>

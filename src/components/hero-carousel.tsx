@@ -17,8 +17,8 @@ export function HeroCarousel() {
     return (
         <section id="hero-section" className="relative min-h-dvh flex items-center overflow-hidden bg-[#030b1e]">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(30,144,255,0.08)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -26,7 +26,7 @@ export function HeroCarousel() {
                         "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
                 }}
             />
-            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
+            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/90 to-transparent" />
 
             {/* Two-column layout with standardized container */}
             <div className="relative z-10 flex flex-col items-center lg:flex-row lg:gap-0 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">

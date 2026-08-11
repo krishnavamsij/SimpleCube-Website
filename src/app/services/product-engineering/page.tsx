@@ -570,7 +570,7 @@ function WhyHynivaPE() {
                         {/* Right Side: Metrics & CTA */}
                         <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
                             {/* Stats */}
-                            <div className="flex flex-wrap items-start justify-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
+                            <div className="flex items-start justify-start gap-8 sm:gap-10 lg:gap-12 xl:gap-14 w-full">
                                 <div className="flex flex-col items-start flex-shrink-0">
                                     <div className="flex items-baseline gap-0.5 mb-1">
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">17</span>
@@ -592,7 +592,7 @@ function WhyHynivaPE() {
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">2</span>
                                     </div>
                                     <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
-                                        {"Products Successfully\nAcquired"}
+                                        {"Successfully\nAcquired Products"}
                                     </span>
                                 </div>
                             </div>

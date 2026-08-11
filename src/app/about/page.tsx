@@ -166,7 +166,7 @@ function ApiSection() {
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
-                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-12 lg:mt-0 h-[420px] xs:h-[460px] sm:h-[520px] lg:h-[580px] overflow-visible">
+                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-12 lg:mt-0 h-[500px] xs:h-[550px] sm:h-[600px] lg:h-[580px] overflow-visible">
                     
                     <motion.div 
                         initial="hidden"
@@ -175,7 +175,7 @@ function ApiSection() {
                         className="relative w-full h-full flex items-center justify-center scale-[0.82] xs:scale-[0.88] sm:scale-100 origin-center"
                     >
                         {/* SVG DNA Canvas */}
-                        <div className="absolute inset-x-0 top-0 h-[380px] xs:h-[400px] sm:h-[440px] lg:h-[400px] xl:h-[420px] flex items-center justify-center pointer-events-none">
+                        <div className="absolute inset-x-0 top-[4%] xs:top-[5%] h-[340px] xs:h-[380px] sm:h-[420px] lg:h-[400px] xl:h-[420px] flex items-center justify-center pointer-events-none">
                             <svg viewBox="0 0 800 750" className="w-full h-full overflow-visible max-h-full">
                                 <defs>
                                     <clipPath id="dna-reveal">
@@ -329,15 +329,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[51%] sm:top-[53%] lg:top-[52%] left-[2%] sm:left-[8%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[185px] sm:w-[245px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[52%] sm:top-[49%] lg:top-[52%] left-[1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[2px]"></div>
-                                    <Lightbulb className="w-4 h-4 text-[#7c3aed]" strokeWidth={2} />
+                                    <Lightbulb className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#7c3aed]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">Innovation</h4>
-                                <p className="text-[11px] sm:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-left">
-                                    Innovation reflects our<br />technical depth, enabling us<br />to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
+                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Innovation</h4>
+                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    Innovation reflects our{" "}<br className="hidden sm:block" />technical depth, enabling us{" "}<br className="hidden sm:block" />to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
                                 </p>
                             </motion.div>
 
@@ -347,15 +347,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.0, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[32%] sm:top-[34%] lg:top-[33%] right-[2%] sm:right-[8%] lg:right-[-2%] xl:right-[2%] 2xl:right-[6%] w-[185px] sm:w-[245px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[32%] sm:top-[33%] lg:top-[33%] right-[1%] sm:right-[1%] lg:right-[-2%] xl:right-[2%] 2xl:right-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[2px]"></div>
-                                    <Users className="w-4 h-4 text-[#16a34a]" strokeWidth={2} />
+                                    <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16a34a]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">People</h4>
-                                <p className="text-[11px] sm:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-left">
-                                    People drive outcomes with<br />a deep commitment to<br /><span className="text-[#16a34a] font-bold">customer success.</span>
+                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">People</h4>
+                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    People drive outcomes with{" "}<br className="hidden sm:block" />a deep commitment to{" "}<br className="hidden sm:block" /><span className="text-[#16a34a] font-bold">customer success.</span>
                                 </p>
                             </motion.div>
 
@@ -365,15 +365,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[13%] sm:top-[15%] lg:top-[14%] left-[2%] sm:left-[8%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[185px] sm:w-[245px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[12%] sm:top-[14%] lg:top-[14%] left-[1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-2 relative transition-transform hover:-translate-y-1">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[2px]"></div>
-                                    <Gauge className="w-4 h-4 text-[#2563eb]" strokeWidth={2} />
+                                    <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2563eb]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-xs sm:text-sm mb-2 uppercase">Agility</h4>
-                                <p className="text-[11px] sm:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 text-left">
-                                    Agility powers speed and<br />precision through our<br /><span className="text-[#2563eb] font-bold">Digital Factory</span> model.
+                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Agility</h4>
+                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    Agility powers speed and{" "}<br className="hidden sm:block" />precision through our{" "}<br className="hidden sm:block" /><span className="text-[#2563eb] font-bold">Digital Factory</span> model.
                                 </p>
                             </motion.div>
 

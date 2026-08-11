@@ -40,7 +40,7 @@ export function WhyHyniva() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-12 items-center">
+                    <div className="relative z-10 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-12 items-start">
                         {/* Left Side: Headline & Stats */}
                         <div className="md:col-span-6 lg:col-span-6">
                             <h2 className="text-[28px] sm:text-[36px] md:text-[36px] lg:text-[52px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-4 sm:mb-6 lg:mb-8 font-display">
@@ -96,7 +96,7 @@ export function WhyHyniva() {
                     viewport={viewportOnce}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] pt-[24px] pb-[20px] px-[24px] sm:pt-[32px] sm:pb-[24px] sm:px-[36px] lg:pt-[40px] lg:pb-[32px] lg:px-[48px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 lg:gap-12 xl:gap-16">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3 flex-shrink-0 border border-[#3B82F6]/10">

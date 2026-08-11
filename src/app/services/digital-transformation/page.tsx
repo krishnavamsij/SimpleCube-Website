@@ -53,9 +53,9 @@ function DigitalTransformationHero() {
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
-                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-xl lg:mt-10"
+                            className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-2xl lg:mt-10"
                         >
-                            Businesses transform to remain relevant, adapting faster to<br className="hidden sm:inline" /> shifting markets and evolving user needs.
+                            Businesses transform to remain relevant, adapting faster to shifting markets and evolving user needs.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link

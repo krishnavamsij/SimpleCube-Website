@@ -33,6 +33,7 @@
 }
 
 @layer base {
+
   /* Reset box-sizing and remove default margins/paddings */
   *,
   *::before,
@@ -47,29 +48,36 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
       display: none;
     }
+
     /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 
     /* 15" and 14" Windows Laptops with 125% scaling (Effective width ~1536px) */
     @media (max-width: 1600px) {
-      font-size: 85%; /* ~13.6px */
+      font-size: 85%;
+      /* ~13.6px */
     }
-    
+
     /* 13" Laptops, smaller MacBooks, or Windows laptops at 150% scaling */
     @media (max-width: 1366px) {
-      font-size: 80%; /* ~12.8px */
+      font-size: 80%;
+      /* ~12.8px */
     }
 
     /* Short screens (like 14" Windows laptops) need aggressive scaling to fit tall sections */
     @media (max-height: 850px) and (max-width: 1600px) {
-      font-size: 75%; /* ~12px */
+      font-size: 75%;
+      /* ~12px */
     }
-    
+
     /* TABLET & MOBILE: Revert to 100% so text remains normal size and existing breakpoints work perfectly */
     @media (max-width: 1024px) {
       font-size: 100%;
@@ -86,13 +94,17 @@
     padding: 0;
     width: 100%;
     overflow-x: hidden;
+
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
       display: none;
     }
+
     /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   h1,
@@ -220,8 +232,13 @@ html {
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Hide scrollbar while keeping scroll functionality */
@@ -1204,10 +1221,13 @@ html {
    AIRA Chatbot Sparkle Animation
    ============================================================ */
 @keyframes sparkle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.2);
@@ -1215,10 +1235,13 @@ html {
 }
 
 @keyframes twinkle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
+
   50% {
     opacity: 0.4;
     transform: scale(0.8) rotate(45deg);
@@ -1229,10 +1252,13 @@ html {
    AIRA Glow Pulse Animation
    ============================================================ */
 @keyframes airaGlowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: translate(-50%, -50%) scale(1);
   }
+
   50% {
     opacity: 0.7;
     transform: translate(-50%, -50%) scale(1.1);
@@ -1246,9 +1272,11 @@ html {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -1257,6 +1285,7 @@ html {
 .animate-border-spin {
   animation: border-spin 3s ease-in-out infinite;
 }
+
 /* Strategy Gyroscope Illustration */
 .strategy-visual {
   position: relative;
@@ -1329,10 +1358,23 @@ html {
   transform-style: preserve-3d;
 }
 
-.orbit-1 .orbit-path { animation-duration: 4s; }
-.orbit-2 .orbit-path { animation-duration: 3s; animation-direction: reverse; }
-.orbit-3 .orbit-path { animation-duration: 5s; }
-.orbit-4 .orbit-path { animation-duration: 4.5s; animation-direction: reverse; }
+.orbit-1 .orbit-path {
+  animation-duration: 4s;
+}
+
+.orbit-2 .orbit-path {
+  animation-duration: 3s;
+  animation-direction: reverse;
+}
+
+.orbit-3 .orbit-path {
+  animation-duration: 5s;
+}
+
+.orbit-4 .orbit-path {
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+}
 
 .atom-electron {
   position: absolute;
@@ -1343,13 +1385,30 @@ html {
   border-radius: 50%;
 }
 
-.orbit-1 .atom-electron { color: #22d3ee; background: #22d3ee; }
-.orbit-2 .atom-electron { color: #e879f9; background: #e879f9; }
-.orbit-3 .atom-electron { color: #3b82f6; background: #3b82f6; }
-.orbit-4 .atom-electron { color: #ffffff; background: #ffffff; }
+.orbit-1 .atom-electron {
+  color: #22d3ee;
+  background: #22d3ee;
+}
+
+.orbit-2 .atom-electron {
+  color: #e879f9;
+  background: #e879f9;
+}
+
+.orbit-3 .atom-electron {
+  color: #3b82f6;
+  background: #3b82f6;
+}
+
+.orbit-4 .atom-electron {
+  color: #ffffff;
+  background: #ffffff;
+}
 
 @keyframes rotate-orbit {
-  100% { transform: rotateZ(360deg); }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 .atom-nucleus {
@@ -1390,29 +1449,44 @@ html {
 }
 
 @keyframes pulse-nucleus {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  100% { transform: scale(1.1); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 @keyframes spin-nucleus-ring {
-  0% { transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg); }
-  100% { transform: rotateX(70deg) rotateY(360deg) rotateZ(360deg); }
+  0% {
+    transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateX(70deg) rotateY(360deg) rotateZ(360deg);
+  }
 }
 
 @keyframes ribbon-sweep {
-  0% { 
-    transform: rotate(-120deg); 
-    opacity: 0; 
+  0% {
+    transform: rotate(-120deg);
+    opacity: 0;
   }
-  20% { 
-    opacity: 1; 
+
+  20% {
+    opacity: 1;
   }
-  70% { 
-    opacity: 1; 
+
+  70% {
+    opacity: 1;
   }
-  100% { 
-    transform: rotate(120deg); 
-    opacity: 0; 
+
+  100% {
+    transform: rotate(120deg);
+    opacity: 0;
   }
 }
 
@@ -1422,20 +1496,41 @@ html {
 
 /* Product Engineering Hero Animations */
 @keyframes pe-float-shape {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(15px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes pe-float-shape-reverse {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-15px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes pe-dash-flow {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -140; }
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -140;
+  }
 }
 
 .pe-path-flow {
@@ -1469,3 +1564,16 @@ html {
   overflow: hidden !important;
 }
 
+/* Tablet view for the honeycomb */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .honeycomb-container {
+    margin-right: 125px;
+  }
+}
+
+/* Tablet view for the honeycomb */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .honeycomb-container {
+    margin-right: 125px;
+  }
+}

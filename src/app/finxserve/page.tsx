@@ -139,8 +139,8 @@ export default function FinxservePage() {
                                     height={97}
                                     className="mb-8 mx-auto md:ml-0"
                                 />
-                                <h1 className="text-2xl sm:text-[26px] md:text-[24px] lg:text-[42px] xl:text-[46px] 2xl:text-[50px] font-bold leading-[1.2] text-white mb-6 tracking-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    Frictionless Consumer<br />
+                                <h1 className="text-2xl sm:text-[26px] md:text-[28px] lg:text-[36px] xl:text-[46px] 2xl:text-[50px] font-bold leading-[1.2] text-white mb-6 tracking-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    <span className="whitespace-nowrap">Frictionless Consumer</span><br />
                                     Lending Experience.<br />
                                     Native to Salesforce.
                                 </h1>
@@ -450,7 +450,7 @@ export default function FinxservePage() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <div className="flex flex-col md:flex-row items-center gap-12">
+                        <div className="flex flex-col md:flex-row items-start xl:items-center gap-12">
                             <div className="w-full md:w-1/2">
                                 <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
                                     <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
@@ -459,12 +459,12 @@ export default function FinxservePage() {
                             <div className="w-full md:w-1/2 text-left">
                                 <header className="mb-6">
                                     <h2
-                                        className="text-[32px] sm:text-[40px] font-bold leading-[1.3] mb-6 tracking-tight font-display"
+                                        className="text-[28px] md:text-[30px] lg:text-[34px] xl:text-[40px] font-bold leading-[1.3] mb-6 tracking-tight font-display"
                                         style={{
                                             color: '#345195'
                                         }}
                                     >
-                                        Two Decades of Financial &
+                                        <span className="whitespace-nowrap">Two Decades of Financial &</span>
                                         <br />
                                         Salesforce Expertise
                                     </h2>
@@ -521,14 +521,14 @@ export default function FinxservePage() {
                                                         {study.tags.slice(0, 2).map((tag, tagIdx) => (
                                                             <span
                                                                 key={tagIdx}
-                                                                className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
+                                                                className={`px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full ${tagIdx === 0 ? 'order-1' : 'order-3 xl:order-2'}`}
                                                             >
                                                                 {tag}
                                                             </span>
                                                         ))}
                                                         {study.tags.length > 2 && (
                                                             <div
-                                                                className="relative inline-flex"
+                                                                className="relative inline-flex order-2 xl:order-3"
                                                                 data-tag-overflow
                                                                 onMouseEnter={() => setExpandedCardTags(cardKey)}
                                                                 onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
@@ -609,7 +609,7 @@ export default function FinxservePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-col md:flex-row items-center gap-12"
+                        className="flex flex-col md:flex-row items-start xl:items-center gap-12"
                     >
                         <div className="w-full md:w-1/2">
                             <div className="shadow-2xl border border-gray-100 p-1 rounded-xl overflow-hidden">
@@ -623,8 +623,8 @@ export default function FinxservePage() {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2 text-left">
-                            <header className="mb-10">
-                                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                            <header className="mb-8 lg:mb-10">
+                                <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     We didn’t just remove friction from lending — we reimagined how people experience banking.
                                 </h2>
                                 <p className="text-lg sm:text-xl font-medium leading-relaxed text-[#666666]" style={{ fontFamily: 'Roboto, sans-serif' }}>

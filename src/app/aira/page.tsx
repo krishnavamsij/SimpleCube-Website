@@ -263,11 +263,14 @@ function AiraHero() {
                 DESKTOP & TABLET HERO
             ───────────────────────────────────────────────────────────── */}
             <section className="relative w-full overflow-hidden bg-[#000000] hidden md:block">
+                {/* Ambient background glow matching animation */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(30,144,255,0.08)_0%,rgba(0,0,0,1)_75%)] pointer-events-none" />
+
                 {/* Animation on right side */}
-                <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-4 md:pr-8 lg:pr-12 pointer-events-none">
-                    <div className="relative w-full max-w-[380px] md:max-w-[460px] lg:max-w-[680px] xl:max-w-[780px] 2xl:max-w-[860px] aspect-square flex items-center justify-center scale-110 lg:scale-120 origin-right translate-x-6 md:translate-x-12 lg:translate-x-[60px] xl:translate-x-[90px]">
+                <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-2 md:pr-4 lg:pr-8 xl:pr-12 pointer-events-none">
+                    <div className="relative w-full max-w-[380px] md:max-w-[460px] lg:max-w-[680px] xl:max-w-[780px] 2xl:max-w-[860px] aspect-square flex items-center justify-center scale-110 lg:scale-120 origin-right translate-x-12 md:translate-x-24 lg:translate-x-[110px] xl:translate-x-[90px]">
                         {/* Soft subtle ambient glow */}
-                        <div className="absolute inset-2 bg-[#1e90ff]/20 rounded-full blur-3xl pointer-events-none scale-110" />
+                        <div className="absolute inset-2 bg-[#1e90ff]/10 rounded-full blur-3xl pointer-events-none scale-100" />
 
                         <video
                             ref={videoRef}
@@ -277,8 +280,8 @@ function AiraHero() {
                             playsInline
                             className="w-full h-auto aspect-video relative z-10 mix-blend-screen"
                             style={{
-                                maskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
-                                WebkitMaskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
+                                maskImage: 'radial-gradient(circle closest-side, black 60%, transparent 98%)',
+                                WebkitMaskImage: 'radial-gradient(circle closest-side, black 60%, transparent 98%)',
                             }}
                         >
                             <source

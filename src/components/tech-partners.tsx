@@ -51,7 +51,7 @@ const decorHexagons = [
 
 export function TechPartners() {
     return (
-        <section className="relative overflow-hidden bg-white pt-[20px] sm:pt-[70px] lg:pt-[90px] pb-[8px] sm:pb-[15px] lg:pb-[20px]">
+        <section className="relative overflow-hidden bg-white pt-0 pb-0">
 
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
 
@@ -104,7 +104,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="relative w-full md:w-[48%] lg:w-[50%] xl:w-[48%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0">
+                    <div className="honeycomb-container relative w-full md:w-[48%] lg:w-[50%] xl:w-[48%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0 sm:max-lg:translate-y-[192px]">
 
                         <motion.div
                             variants={scrollReveal}

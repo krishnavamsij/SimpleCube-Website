@@ -181,8 +181,7 @@ function WhyHyniva() {
                             </div>
                         </motion.div>
                         <motion.h2 variants={animations.fadeInUp} className="text-2xl sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6">
-                            Connect with<br />
-                            Purpose
+                            Connect with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
@@ -622,7 +621,15 @@ export default function EnterprisePlatformsPage() {
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
                     title="From Platforms to Performance"
-                    description={<>Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows <br/>into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment.</>}
+                    description={
+                        <>
+                            Successful platform initiatives extend beyond implementation.{" "}
+                            <br className="hidden md:inline" />
+                            Our approach aligns platforms, integrations and workflows into a cohesive operating environment{" "}
+                            <br className="hidden md:inline" />
+                            that simplifies operations and maximizes the value of every technology investment.
+                        </>
+                    }
                     steps={[
                         {
                             num: "01",

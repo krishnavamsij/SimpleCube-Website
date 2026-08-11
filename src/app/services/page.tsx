@@ -720,8 +720,8 @@ function TechPartnersSection() {
 
                 {/* Header */}
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">
-                    <div className="shrink-0 md:w-[25%]">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                    <div className="shrink-0 md:w-auto">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
                             Our <span className="text-[#00D4AA]">Tech Stack</span>
                         </h2>
                     </div>
