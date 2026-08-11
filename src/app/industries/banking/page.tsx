@@ -128,7 +128,7 @@ function BankingOfferings() {
                     viewport={viewportOnce}
                     className="max-w-5xl mx-auto mb-10"
                 >
-                    <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1]">
+                    <h2 className="text-[29px] sm:text-[45px] lg:text-[45px] 2xl:text-[53px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1] sm:whitespace-nowrap">
                         {bankingContent.offerings.title}
                     </h2>
                     <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6]">
@@ -141,7 +141,7 @@ function BankingOfferings() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 text-left"
                 >
                     {bankingContent.offerings.items.map((item, index) => {
                         const IconComponent = iconMap[item.icon] || Bot;
@@ -149,15 +149,18 @@ function BankingOfferings() {
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="bg-white rounded-[24px] p-8 border border-[#030B3B]/10 hover:border-[#1e90ff]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#030B3B]/06 shadow-[0_10px_35px_rgba(3,11,59,0.03)] hover:border-[#1e90ff]/20 hover:shadow-[0_20px_50px_rgba(3,11,59,0.06)] transition-all duration-300 group flex flex-col h-full"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/10 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300">
+                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/20 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300 flex-shrink-0">
                                     <IconComponent className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-[19px] font-bold text-[#030B3B] mb-4">
+                                <h3 
+                                    className="text-[16px] sm:text-[17px] lg:text-[15px] xl:text-[18px] 2xl:text-[19px] font-bold text-[#030B3B] mb-4 w-full"
+                                    title={item.title}
+                                >
                                     {item.title}
                                 </h3>
-                                <p className="text-[15px] text-slate-600 font-medium leading-relaxed">
+                                <p className="text-[15px] xl:text-[16px] text-slate-600 font-medium leading-relaxed flex-1">
                                     {item.description}
                                 </p>
                             </motion.div>
@@ -204,12 +207,14 @@ function ProvenImpact() {
                             variants={scrollReveal} 
                             className={`flex flex-col items-start md:items-center text-left md:text-center ${index === 1 ? '-ml-4 sm:ml-0' : ''}`}
                         >
-                            <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left md:text-center whitespace-nowrap">
-                                {stat.value}
-                            </div>
-                            <div className="text-[10px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium tracking-wide leading-[1.3] sm:leading-snug md:leading-relaxed text-left md:text-center">
-                                {stat.label}
-                            </div>
+                            <div 
+                                className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left md:text-center whitespace-nowrap"
+                                dangerouslySetInnerHTML={{ __html: stat.value }}
+                            />
+                            <div 
+                                className="text-[10px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium tracking-wide leading-[1.3] sm:leading-snug md:leading-relaxed text-left md:text-center"
+                                dangerouslySetInnerHTML={{ __html: stat.label }}
+                            />
                         </motion.div>
                     ))}
                 </motion.div>

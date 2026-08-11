@@ -46,10 +46,21 @@ const updateCameraFov = (camera: any, width: number, height: number) => {
         const requiredHeight = targetWidth / aspect;
         const requiredFov = 2 * Math.atan(requiredHeight / (2 * dist)) * (180 / Math.PI);
         camera.fov = Math.min(requiredFov, 75); // Cap at 75 to avoid extreme fisheye/distortion
+        
+        // Shift camera left on narrow screens to push puzzle right and avoid text overlap
+        const baseCamX = -5.0;
+        const aspectDiff = 0.85 - aspect;
+        if (aspectDiff > 0) {
+            camera.position.x = baseCamX - (aspectDiff * 5.5);
+        } else {
+            camera.position.x = baseCamX;
+        }
     } else {
         camera.fov = defaultFov;
+        camera.position.x = -5.0;
     }
     camera.updateProjectionMatrix();
+    camera.lookAt(0, 0, 0); // Re-orient to look at center after position updates
 };
 
 const SEGMENTS = [
@@ -97,9 +108,11 @@ export function HeroPuzzle() {
             const width = containerRef.current.clientWidth;
             const height = containerRef.current.clientHeight;
 
+            let aspect = width / height;
+            let scaleFactor = Math.max(0.85, Math.min(1.0, aspect * 1.15));
+
             camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 1000);
             camera.position.set(-5.0, 1.0, CONFIG.CAMERA_DIST); 
-            camera.lookAt(0, 0, 0);
             updateCameraFov(camera, width, height);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, precision: 'highp' });
@@ -223,7 +236,7 @@ export function HeroPuzzle() {
                     });
                     // Subtle rotation
                     scene.rotation.y = t * Math.PI * 0.25;
-                    scene.scale.set(1, 1, 1);
+                    scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
                 }
                 else if (elapsed < CONVERGE + CLIMAX) {
                     const tRaw = (elapsed - CONVERGE) / CLIMAX;
@@ -231,7 +244,8 @@ export function HeroPuzzle() {
                     
                     // ENLARGE: Scale up to 1.75x
                     const zoom = 1 + (0.45 * Math.sin(tRaw * Math.PI)); 
-                    scene.scale.set(zoom, zoom, zoom);
+                    const currentScale = scaleFactor * zoom;
+                    scene.scale.set(currentScale, currentScale, currentScale);
                     
                     // ROTATE: Full rotation cycle
                     scene.rotation.y = Math.PI * 0.25 + (tRaw * Math.PI * 1.5); 
@@ -252,7 +266,7 @@ export function HeroPuzzle() {
                     
                     // REVERSE: Rotation completes back to original scatter orientation
                     scene.rotation.y = (Math.PI * 0.25 + Math.PI * 1.5) * mt;
-                    scene.scale.set(1, 1, 1);
+                    scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
                     pieceGroups.forEach(p => {
                         // PERFECT INVERSE PATH: From 0,0,0 -> controlPoint -> initialPos
@@ -274,6 +288,8 @@ export function HeroPuzzle() {
                 if (!containerRef.current) return;
                 const w = containerRef.current.clientWidth;
                 const h = containerRef.current.clientHeight;
+                aspect = w / h;
+                scaleFactor = Math.max(0.85, Math.min(1.0, aspect * 1.15));
                 updateCameraFov(camera, w, h);
                 renderer.setSize(w, h);
             };

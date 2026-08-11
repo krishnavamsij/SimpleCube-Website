@@ -597,7 +597,7 @@ function WorkThatSpeaks() {
                                     return (
                                         <>
                                             <div>
-                                                <h3 className="whitespace-pre-line text-[19px] sm:text-[23px] font-bold text-slate-900 leading-snug mb-7 sm:mb-8">
+                                                <h3 className="whitespace-pre-line text-[16px] sm:text-[23px] font-bold text-slate-900 leading-snug mb-7 sm:mb-8">
                                                     {study.title}
                                                 </h3>
                                                 <div className="mb-7 sm:mb-8">

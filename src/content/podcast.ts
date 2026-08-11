@@ -89,7 +89,7 @@ export const podcastContent: {
         {
             id: "cu-next-podcast-5",
             seriesTitle: "CU Next: Conversations shaping the NEXT era of Credit Unions",
-            title: "On the Shoulder of Giant",
+            title: "On the Shoulders of Giants",
             date: "28th July 2026",
             duration: "35 minutes",
             category: "Podcast",
@@ -98,8 +98,8 @@ export const podcastContent: {
             guest: "Jim Phillips",
             guestRole: "EVP & CIO at SchoolsFirst Federal Credit Union",
             image: "/images/Podcast/Episode5poster.png",
-            videoUrl: "https://www.youtube.com/watch?v=zS2zRYjXztwoutside",
-            description: "Episode #05 On the Shoulder of Giant",
+            videoUrl: "https://www.youtube.com/watch?v=zS2zRYjXztw",
+            description: "Episode #05 On the Shoulders of Giants",
         },
     ],
 };

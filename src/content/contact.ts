@@ -1,6 +1,6 @@
 export const contactContent = {
     hero: {
-        title: "Ready to Start Your <span class='text-[#00D4AA]'>Digital Transformation?</span>",
+        title: "Ready to Start Your <br /><span class='text-[#00D4AA]'>Digital Transformation?</span>",
         description: "Give us a call or drop by anytime — we endeavour to answer all enquiries within 24 hours on business days.",
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
@@ -15,11 +15,11 @@ export const contactContent = {
         offices: {
             us: {
                 title: "UNITED STATES",
-                address: "13333 Blanco Road,<br />Suite 206, San Antonio,<br />Texas – 78216"
+                address: "13333 Blanco Road, Suite 206, San Antonio, Texas – 78216"
             },
             india: {
                 title: "INDIA",
-                address: "The Cube, Karle Town Center,<br />5th Floor, Nagavara Village,<br />Bengaluru – 560045"
+                address: "The Cube, Karle Town Center, 5th Floor, Nagavara Village, Bengaluru – 560045"
             }
         }
     },

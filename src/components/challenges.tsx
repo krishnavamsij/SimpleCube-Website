@@ -39,7 +39,7 @@ export function Challenges() {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
                         THE ENTERPRISE REALITY
                     </div>
-                    <h2 className="text-[28px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                    <h2 className="text-[28px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-extrabold tracking-tight text-slate-900 leading-[1.1] whitespace-normal break-words max-w-full">
                         Challenges we <span className="text-[#00D4AA]">solve.</span>
                     </h2>
                 </motion.div>
@@ -58,7 +58,7 @@ export function Challenges() {
                             <motion.div
                                 key={challenge.title}
                                 variants={scrollReveal}
-                                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-4 xl:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200 h-full"
+                                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-4 lg:p-3 xl:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200 h-full"
                             >
                                 {/* Top accent bar on hover */}
                                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -69,7 +69,7 @@ export function Challenges() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-[14px] lg:text-[15px] font-black text-[#030B3B] leading-tight mb-2 tracking-tight whitespace-nowrap flex-shrink-0 font-display">
+                                <h3 className="text-[14px] lg:text-[15px] font-black text-[#030B3B] leading-tight mb-2 tracking-tight xl:whitespace-nowrap flex-shrink-0 font-display">
                                     {challenge.title}
                                 </h3>
 

@@ -92,13 +92,6 @@ export const insuranceContent = {
                 description: "Unified claims workflows with real-time processing and visibility for faster settlements.",
                 href: "/insights/case-studies/transforming-insurance-claims-operations-with-a-scalable-digital-platform",
                 image: "/images/Case_Studies/Optimized/cs-17.png"
-            },
-            {
-                title: "AI-Powered Customer Support<br />Automation",
-                titleHighlightIndex: 1,
-                description: "Deployed an AI chatbot to improve response times and reduce support effort.",
-                href: "/insights/case-studies/ai-customer-support-automation",
-                image: "/images/Case_Studies/23. AI-PoweredCustomerSupportAutomation.png"
             }
         ]
     }

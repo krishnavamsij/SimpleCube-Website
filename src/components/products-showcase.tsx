@@ -204,10 +204,10 @@ export function ProductsShowcase() {
                             }}
                         >
                             <div
-                                className="bg-[#081236] rounded-[2rem] md:rounded-[2.5rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col md:flex-row items-stretch min-h-[460px] md:min-h-[480px] lg:min-h-[75vh] relative w-full"
+                                className="bg-[#081236] rounded-[2rem] md:rounded-[2.5rem] lg:rounded-l-[3.5rem] lg:rounded-r-none shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border border-white/5 lg:border-r-0 overflow-hidden flex flex-col md:flex-row items-stretch min-h-[460px] md:min-h-[480px] lg:min-h-[560px] xl:min-h-[75vh] relative w-full"
                             >
                                 {/* Left: Content */}
-                                <div className="w-full md:w-1/2 lg:w-[45%] flex-shrink-0 px-[24px] sm:px-[35px] md:px-[36px] lg:px-[50px] pt-[32px] pb-[32px] sm:pt-[44px] sm:pb-[44px] lg:py-[10vh] lg:pl-[60px] lg:pr-[40px] xl:pl-[80px] xl:pr-[50px] flex flex-col justify-center relative z-10 md:overflow-y-auto">
+                                <div className="w-full md:w-1/2 lg:w-[45%] flex-shrink-0 px-[24px] sm:px-[35px] md:px-[36px] lg:pl-[40px] lg:pr-[30px] pt-[32px] pb-[32px] sm:pt-[44px] sm:pb-[44px] lg:py-[44px] xl:py-[10vh] xl:pl-[80px] xl:pr-[50px] flex flex-col justify-center relative z-10 md:overflow-y-auto">
                                     <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-[42px] 2xl:text-[50px] font-extrabold tracking-tight text-white mb-6 sm:mb-8 lg:mb-12">
                                         {p.title}
                                     </h3>

@@ -1,14 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
 import { educationFaqs } from "@/content/industry-faqs";
 import { educationContent } from "@/content/education";
+import { caseStudiesContent } from "@/content/case-studies";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 import {
     scrollReveal,
@@ -135,7 +137,7 @@ function EducationOfferings() {
                     viewport={viewportOnce}
                     className="max-w-5xl mx-auto mb-10"
                 >
-                    <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1]">
+                    <h2 className="text-[29px] sm:text-[45px] lg:text-[45px] 2xl:text-[53px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1] sm:whitespace-nowrap">
                         {educationContent.offerings.title}
                     </h2>
                     <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6]">
@@ -148,7 +150,7 @@ function EducationOfferings() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 text-left"
                 >
                     {educationContent.offerings.items.map((item, index) => {
                         const IconComponent = iconMap[item.icon] || BookOpen;
@@ -156,15 +158,18 @@ function EducationOfferings() {
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="bg-white rounded-[24px] p-8 border border-[#030B3B]/10 hover:border-[#1e90ff]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#030B3B]/06 shadow-[0_10px_35px_rgba(3,11,59,0.03)] hover:border-[#1e90ff]/20 hover:shadow-[0_20px_50px_rgba(3,11,59,0.06)] transition-all duration-300 group flex flex-col h-full"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/10 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300">
+                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/20 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300 flex-shrink-0">
                                     <IconComponent className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-[19px] font-bold text-[#030B3B] mb-4">
+                                <h3 
+                                    className="text-[16px] sm:text-[17px] lg:text-[15px] xl:text-[18px] 2xl:text-[19px] font-bold text-[#030B3B] mb-4 w-full"
+                                    title={item.title}
+                                >
                                     {item.title}
                                 </h3>
-                                <p className="text-[15px] text-slate-600 font-medium leading-relaxed">
+                                <p className="text-[15px] xl:text-[16px] text-slate-600 font-medium leading-relaxed flex-1">
                                     {item.description}
                                 </p>
                             </motion.div>
@@ -222,98 +227,144 @@ function ProvenImpact() {
     );
 }
 
+const educationCaseStudySlugs = [
+    'eazyschool-admin',
+    'education-platform-engineering',
+    'eazyschool-government-education-management',
+]
+
+const caseStudies = educationCaseStudySlugs
+    .map(slug => caseStudiesContent.studies.find(study => study.href.includes(slug)))
+    .filter((study): study is NonNullable<typeof study> => Boolean(study))
+
 function CaseStudies() {
+    const [expandedCardTags, setExpandedCardTags] = useState<string | null>(null);
+
+    if (!caseStudies || caseStudies.length === 0) {
+        return null;
+    }
+
     return (
-        <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#f8fafc]">
+        <section className="py-20 lg:py-24 bg-[#f8fafc]">
             <div className={CONTAINER_CLASS}>
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
-                        {educationContent.caseStudies.title}
-                    </h2>
-                    <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
-                        {educationContent.caseStudies.subtitle}
-                    </p>
-                </motion.div>
+                    <header className="mb-14 lg:mb-16">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
+                            {educationContent.caseStudies.title}
+                        </h2>
+                        <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
+                            {educationContent.caseStudies.subtitle}
+                        </p>
+                    </header>
 
-                <motion.div
-                    variants={scrollStaggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
-                >
-                    {educationContent.caseStudies.studies.map((study, index) => {
-                        const parts = study.title.split("<br />");
-                        const firstLine = parts[0] || "";
-                        const secondLine = parts[1] || "";
-
-                        return (
-                            <motion.div
-                                key={index}
-                                variants={scrollReveal}
-                                className="group flex flex-col rounded-[32px] bg-[#ECF5FF] p-6 border border-[#030B3B]/5 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(30,144,255,0.08)] hover:-translate-y-1 h-full"
-                            >
-                                {/* Rounded Image container */}
-                                <div className="h-[230px] w-full relative rounded-[24px] overflow-hidden bg-white mb-6">
-                                    {study.image && (
-                                        <Image
-                                            src={study.image}
-                                            alt={study.title.replace("<br />", " ")}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-103"
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {caseStudies.map((study, idx) => {
+                            const cardKey = `${study.href}-${idx}`;
+                            return (
+                                <div
+                                    key={cardKey}
+                                    className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full justify-between"
+                                >
+                                    {/* Card Image */}
+                                    <div className="aspect-[1.8/1] overflow-hidden relative m-2.5 sm:m-3 rounded-[20px] sm:rounded-[24px]">
+                                        <div
+                                            className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110"
+                                            style={{ backgroundImage: `url('${study.image}')` }}
                                         />
-                                    )}
-                                </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-40" />
+                                    </div>
 
-                                {/* Content */}
-                                <div className="flex flex-col flex-1">
-                                    <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none">
-                                        {study.titleHighlightIndex === 1 ? (
-                                            <>
-                                                <span className="text-[#1e90ff]">{firstLine}</span>
-                                                {secondLine && (
-                                                    <>
-                                                        <br />
-                                                        <span className="text-[#030B3B]">{secondLine}</span>
-                                                    </>
-                                                )}
-                                            </>
-                                        ) : (
-                                            <>
-                                                <span className="text-[#030B3B]">{firstLine}</span>
-                                                {secondLine && (
-                                                    <>
-                                                        <br />
-                                                        <span className="text-[#1e90ff]">{secondLine}</span>
-                                                    </>
-                                                )}
-                                            </>
-                                        )}
-                                    </h3>
+                                    {/* Card Body */}
+                                    <div className="p-5 sm:p-8 pt-3 sm:pt-4 flex flex-col flex-1 relative z-10">
+                                        {/* Tags */}
+                                        <div className="min-h-[34px] sm:min-h-[38px] flex-shrink-0 mb-3 sm:mb-4 flex items-center">
+                                            {study.tags && study.tags.length > 0 && (
+                                                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                                                    {study.tags.slice(0, 2).map((tag, tagIdx) => (
+                                                        <span
+                                                            key={tagIdx}
+                                                            className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                    {study.tags.length > 2 && (
+                                                        <div
+                                                            className="relative inline-flex"
+                                                            data-tag-overflow
+                                                            onMouseEnter={() => setExpandedCardTags(cardKey)}
+                                                            onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
+                                                        >
+                                                            <button
+                                                                type="button"
+                                                                aria-label={`Show ${study.tags.length - 2} more tags`}
+                                                                aria-expanded={expandedCardTags === cardKey}
+                                                                onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
+                                                                className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                                                            >
+                                                                +{study.tags.length - 2}
+                                                            </button>
+                                                            {/* Popup */}
+                                                            <AnimatePresence>
+                                                                {expandedCardTags === cardKey && (
+                                                                    <motion.div
+                                                                        initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                                                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                                        exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                                                                        transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                                                                        className="absolute bottom-full left-1/2 -translate-x-1/2 z-50 mb-2 w-auto max-w-[280px] p-1"
+                                                                    >
+                                                                        <div className="absolute left-1/2 -translate-x-1/2 top-full h-2 w-full" />
+                                                                        <div className="relative flex flex-col gap-1.5 items-center">
+                                                                            {study.tags.slice(2).map((tag, tagIdx) => (
+                                                                                <span
+                                                                                    key={tagIdx}
+                                                                                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
+                                                                                >
+                                                                                    {tag}
+                                                                                </span>
+                                                                            ))}
+                                                                        </div>
+                                                                    </motion.div>
+                                                                )}
+                                                            </AnimatePresence>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
 
-                                    <p className="text-[15px] text-slate-600 font-normal leading-relaxed mb-8 flex-1 line-clamp-3">
-                                        {study.description}
-                                    </p>
+                                        {/* Title Wrapper */}
+                                        <div className="mb-2.5 sm:mb-3 flex items-start">
+                                            <h3
+                                                className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.35] tracking-tight"
+                                                dangerouslySetInnerHTML={{ __html: study.title }}
+                                            />
+                                        </div>
 
-                                    <Link
-                                        href={study.href}
-                                        className="bg-white rounded-[20px] py-4 px-6 flex justify-between items-center border border-white shadow-sm hover:shadow-md transition-all group"
-                                    >
-                                        <span className="text-[14px] font-extrabold text-[#1e90ff]">
+                                        {/* Callout Content */}
+                                        <p className="text-[13.5px] sm:text-[14px] font-normal text-slate-600 leading-[1.65] mb-5 sm:mb-6 flex-1">
+                                            {study.description}
+                                        </p>
+
+                                        {/* CTA Button */}
+                                        <Link
+                                            href={study.href}
+                                            className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#1e90ff]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] mt-auto"
+                                        >
                                             Read Case Study
-                                        </span>
-                                        <ArrowRightIcon className="w-5 h-5 text-[#1e90ff] transition-transform duration-300 group-hover:translate-x-1" />
-                                    </Link>
+                                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                        </Link>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </motion.div>
             </div>
         </section>

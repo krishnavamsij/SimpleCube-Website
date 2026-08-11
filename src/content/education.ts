@@ -83,14 +83,6 @@ export const educationContent = {
     caseStudies: {
         title: "CASE STUDIES",
         subtitle: "Real-world implementations that demonstrate how we have enabled educational institutions to transform experiences and modernize operations at scale.",
-        studies: [
-            {
-                title: "Scalable Multi-Portal Platform<br />for Complex Education Workflows",
-                titleHighlightIndex: 1,
-                description: "Streamlined academic workflows for real-time visibility and seamless interactions.",
-                href: "/insights/case-studies/education-platform-engineering",
-                image: "/images/Case_Studies/Optimized/cs-20.png"
-            }
-        ]
+        studies: []
     }
 };

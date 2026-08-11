@@ -111,8 +111,8 @@ export default function ContactPage() {
 
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
-                    {/* Background layers - Matching homepage aesthetics */}
+                <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-[500px] md:min-h-[600px] flex flex-col justify-center items-center overflow-hidden bg-[#030b1e]">
+                    {/* Background layers */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
                     <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
 
@@ -134,8 +134,9 @@ export default function ContactPage() {
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
+                            className="max-w-4xl mx-auto flex flex-col items-center space-y-6 sm:space-y-10 md:space-y-12"
                         >
-                            <motion.div variants={fadeInUp} className="mb-6 flex justify-center">
+                            <motion.div variants={fadeInUp} className="flex justify-center">
                                 <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                                     <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                                     CONTACT US
@@ -144,21 +145,36 @@ export default function ContactPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display text-center"
+                                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white font-display text-center"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
 
                             <motion.p
                                 variants={fadeInUp}
-                                className="text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto mb-14 text-center"
+                                className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-3xl mx-auto text-center"
                             >
                                 {contactContent.hero.description}
                             </motion.p>
                         </motion.div>
                     </div>
+
+                    {/* Scroll Indicator */}
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+                        <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
+                        <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
+                    </div>
+
+                    <style dangerouslySetInnerHTML={{ __html: `
+                        @keyframes scrollLine {
+                            0%   { transform:scaleY(0); transform-origin:top;    opacity:1; }
+                            50%  { transform:scaleY(1); transform-origin:top;    opacity:1; }
+                            51%  { transform:scaleY(1); transform-origin:bottom; }
+                            100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+                        }
+                    `}} />
                 </section>
 
-                {/* ── Content Section (White Background) ── */}
+                {/* ── Content Section ── */}
                 <section className="py-20 bg-white">
                     <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -203,7 +219,7 @@ export default function ContactPage() {
                                                 <Phone className="w-5 h-5" />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR & CAREERS</p>
+                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR &amp; CAREERS</p>
                                                 <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
                                                     {contactContent.body.contactInfo.hr}
                                                 </a>
@@ -226,8 +242,8 @@ export default function ContactPage() {
                                     {/* Address Cards */}
                                     <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4 sm:gap-6">
                                         <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
-                                            <div className="flex items-center gap-2 mb-4 h-[18px]">
-                                                <span className="text-sm font-bold text-[#030B3B] leading-[18px]">US</span>
+                                            <div className="flex items-center gap-2.5 mb-4 h-[18px]">
+                                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="United States flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
                                             </div>
                                             <p
@@ -237,8 +253,8 @@ export default function ContactPage() {
                                         </div>
 
                                         <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
-                                            <div className="flex items-center gap-2 mb-4 h-[18px]">
-                                                <span className="text-sm font-bold text-[#030B3B] leading-[18px]">IN</span>
+                                            <div className="flex items-center gap-2.5 mb-4 h-[18px]">
+                                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/in.svg" alt="India flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
                                                 <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.india.title}</h4>
                                             </div>
                                             <p
@@ -302,23 +318,23 @@ export default function ContactPage() {
                                                         name="name"
                                                         type="text"
                                                         placeholder="Jane Smith"
-                                                        className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm"
+                                                        className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-slate-300 shadow-sm"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Organization *</label>
-                                                    <input required name="organization" type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm" />
+                                                    <input required name="organization" type="text" placeholder="Your company or institution" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-slate-300 shadow-sm" />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                                 <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Email *</label>
-                                                    <input required name="email" type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm" />
+                                                    <input required name="email" type="email" placeholder="jane@company.com" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-slate-300 shadow-sm" />
                                                 </div>
                                                 <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
-                                                    <input name="phone" type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-muted-foreground shadow-sm" />
+                                                    <input name="phone" type="tel" placeholder="+1 (000) 000-0000" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all placeholder:text-slate-300 shadow-sm" />
                                                 </div>
                                             </div>
 
@@ -327,9 +343,9 @@ export default function ContactPage() {
                                                 <select name="industry" className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all appearance-none cursor-pointer shadow-sm">
                                                     <option value="">Select your industry</option>
                                                     <option>Banking</option>
-                                                    <option>Wealth & Asset Management</option>
+                                                    <option>Wealth &amp; Asset Management</option>
                                                     <option>Insurance</option>
-                                                    <option>Transportation & Logistics</option>
+                                                    <option>Transportation &amp; Logistics</option>
                                                     <option>Education</option>
                                                     <option>Others</option>
                                                 </select>
@@ -337,7 +353,7 @@ export default function ContactPage() {
 
                                             <div className="flex flex-col gap-3">
                                                 <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">What do you need help with? *</label>
-                                                <textarea required name="message" rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all resize-none placeholder:text-muted-foreground shadow-sm" />
+                                                <textarea required name="message" rows={4} placeholder="Tell us about your goals, challenges, or what you'd like to achieve..." className="w-full px-6 py-4 bg-white border border-border rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none font-medium text-[15px] text-foreground transition-all resize-none placeholder:text-slate-300 shadow-sm" />
                                             </div>
 
                                             <button
