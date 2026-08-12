@@ -2583,7 +2583,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "cost-optimized-document-platform-on-aws": {
         "slug": "cost-optimized-document-platform-on-aws",
         "eyebrow": "AWS Serverless & Document Management",
-        "title": "Cost-Optimized Document<br>\n      <em>Platform on AWS</em>",
+        "title": "<em>Cost-Optimized</em> Document<br>\n      Platform <em>on AWS</em>",
         "summary": "Designed a serverless AWS-based document management system to eliminate legacy costs, enhance performance, and support large-scale data operations.",
         "metrics": [
             {

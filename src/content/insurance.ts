@@ -1,4 +1,4 @@
-import { LucideIcon, Monitor, Calculator, Shield, Bot, Users, Cloud, RefreshCw, BarChart } from "lucide-react";
+import { LucideIcon, Monitor, Calculator, Shield, Bot, Users, Cloud, RefreshCw, BarChart, Workflow } from "lucide-react";
 
 export const insuranceContent = {
     hero: {
@@ -41,7 +41,7 @@ export const insuranceContent = {
         subtitle: "Our services are designed to address the core operational and transformation priorities shaping modern insurance.",
         items: [
             {
-                icon: "Network",
+                icon: "Workflow",
                 title: "Claims Orchestration",
                 description: "We streamline and automate claims coordination across intake, assignment, assessment, review and settlement workflows."
             },

@@ -450,13 +450,13 @@ export default function FinxservePage() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <div className="flex flex-col md:flex-row items-start xl:items-center gap-12">
+                        <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="w-full md:w-1/2">
                                 <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
                                     <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
                                 </div>
                             </div>
-                            <div className="w-full md:w-1/2 text-left">
+                            <div className="w-full md:w-1/2 text-center md:text-left">
                                 <header className="mb-6">
                                     <h2
                                         className="text-[28px] md:text-[30px] lg:text-[34px] xl:text-[40px] font-bold leading-[1.3] mb-6 tracking-tight font-display"
@@ -464,7 +464,7 @@ export default function FinxservePage() {
                                             color: '#345195'
                                         }}
                                     >
-                                        <span className="whitespace-nowrap">Two Decades of Financial &</span>
+                                        <span className="lg:whitespace-nowrap">Two Decades of Financial &</span>
                                         <br />
                                         Salesforce Expertise
                                     </h2>
@@ -609,7 +609,7 @@ export default function FinxservePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-col md:flex-row items-start xl:items-center gap-12"
+                        className="flex flex-col md:flex-row items-center gap-12"
                     >
                         <div className="w-full md:w-1/2">
                             <div className="shadow-2xl border border-gray-100 p-1 rounded-xl overflow-hidden">
@@ -622,7 +622,7 @@ export default function FinxservePage() {
                                 />
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2 text-left">
+                        <div className="w-full md:w-1/2 text-center md:text-left">
                             <header className="mb-8 lg:mb-10">
                                 <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl font-medium leading-tight text-[#222222] mb-6" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     We didn’t just remove friction from lending — we reimagined how people experience banking.
@@ -656,7 +656,7 @@ export default function FinxservePage() {
                 }
             `}} />
 
-            <Faq items={finxserveFaqs} />
+            <Faq items={finxserveFaqs} containerClassName="max-w-[900px]" />
 
             <Footer />
         </main>

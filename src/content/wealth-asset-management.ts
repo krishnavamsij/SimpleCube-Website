@@ -49,7 +49,7 @@ export const wealthAssetManagementContent = {
                 description: "We unify client data and interactions to provide a connected view across advisory, servicing and portfolio operations."
             },
             {
-                icon: "Monitor",
+                icon: "Workflow",
                 title: "Portfolio & Workflow Automation",
                 description: "We streamline portfolio management, reporting and operational workflows to improve efficiency and responsiveness."
             },
@@ -64,7 +64,7 @@ export const wealthAssetManagementContent = {
                 description: "We modernize investor servicing experiences through integrated portals, communication channels and self-service capabilities."
             },
             {
-                icon: "TrendingUp",
+                icon: "Shield",
                 title: "Operational Visibility & Compliance",
                 description: "We provide connected operational visibility, workflow monitoring and compliance-ready processes across investment operations."
             }

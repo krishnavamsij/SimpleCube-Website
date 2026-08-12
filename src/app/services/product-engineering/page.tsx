@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Layers, Activity, LayoutDashboard, BrainCircuit, Workflow, Rocket, Server, Users, Database, Target, Globe2 } from "lucide-react";
+import { ArrowRight, Code, Layers, Activity, LayoutDashboard, BrainCircuit, Workflow, Rocket, Server, Users, Database, Target, Globe2, Clock, Wrench, UserMinus, Bug, Shuffle } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -248,15 +248,15 @@ function WhyHyniva() {
 function WhatWeTransform() {
     const challenges = [
         {
-            icon: Activity,
+            icon: Clock,
             description: "Slow product releases delay market opportunities."
         },
         {
-            icon: Code,
+            icon: Wrench,
             description: "Technical debt limits product evolution."
         },
         {
-            icon: Users,
+            icon: UserMinus,
             description: "Inconsistent user experiences reduce adoption."
         },
         {
@@ -264,11 +264,11 @@ function WhatWeTransform() {
             description: "Legacy architectures restrict scalability."
         },
         {
-            icon: LayoutDashboard,
+            icon: Bug,
             description: "Quality issues impact customer confidence."
         },
         {
-            icon: BrainCircuit,
+            icon: Shuffle,
             description: "Growing product complexity slows innovation."
         }
     ];
@@ -296,7 +296,12 @@ function WhatWeTransform() {
                         Why Product Engineering Matters
                     </motion.h2>
                     <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
-                        Building products requires balancing speed with long-term engineering rigor. When product development is fragmented, execution slows and user experience suffers.
+                        <span className="block">
+                            Building products requires balancing speed with long-term engineering rigor.
+                        </span>
+                        <span className="block mt-1">
+                            When product development is fragmented, execution slows and user experience suffers.
+                        </span>
                     </motion.p>
                 </motion.div>
 

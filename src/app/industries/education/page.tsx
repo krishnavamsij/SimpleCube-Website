@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen } from "lucide-react";
+import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen, GraduationCap } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
@@ -37,7 +37,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     BrainCircuit,
     Zap,
     LineChart,
-    BookOpen
+    BookOpen,
+    GraduationCap
 };
 
 function EducationHero() {

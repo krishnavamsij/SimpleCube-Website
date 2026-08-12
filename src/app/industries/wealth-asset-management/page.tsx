@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart } from "lucide-react";
+import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, Workflow } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
@@ -36,7 +36,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Route,
     BrainCircuit,
     Zap,
-    LineChart
+    LineChart,
+    Workflow
 };
 
 function WealthHero() {

@@ -23,7 +23,7 @@ export function WhyHynivaServices() {
     const { topBox, bottomBox } = expertiseContent;
 
     return (
-        <section className="bg-white pt-[24px] sm:pt-[32px] lg:pt-[40px] pb-2">
+        <section className="bg-white pt-[16px] sm:pt-[24px] lg:pt-[32px] pb-2">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 flex flex-col gap-3">
                 
                 {/* ── Top Box: Dark Glowing Container ── */}
@@ -32,9 +32,9 @@ export function WhyHynivaServices() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[32px] lg:p-[40px]"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[20px] sm:p-[28px] lg:p-[32px]"
                 >
-                    <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
+                    <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-6">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                         OUR STRENGTH
                     </div>
@@ -44,7 +44,7 @@ export function WhyHynivaServices() {
                     <div className="relative z-10 grid gap-8 lg:gap-12 xl:gap-24 lg:grid-cols-2 xl:grid-cols-[1fr_1.3fr] items-start">
                         {/* Left Side: Headline & Stats */}
                         <div>
-                            <h2 className="whitespace-pre-line text-[24px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-6 sm:mb-8 lg:mb-12 font-display">
+                            <h2 className="whitespace-pre-line text-[22px] sm:text-[28px] md:text-[32px] lg:text-[34px] xl:text-[38px] font-[900] text-[#ffffff] tracking-tight leading-[1.1] mb-4 sm:mb-6 lg:mb-8 font-display">
                                 {topBox.headline.split(topBox.highlightedWord).map((part, i, arr) => (
                                     <React.Fragment key={i}>
                                         {part}
@@ -60,34 +60,34 @@ export function WhyHynivaServices() {
                                             {/* Text Block */}
                                             <div className="flex flex-col">
                                                 <div className="flex items-baseline gap-1 mb-1">
-                                                    <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                                    <span className="text-xl sm:text-2xl lg:text-3xl font-[900] text-white leading-none font-display">
                                                         {stat.value.replace('+', '')}
                                                     </span>
                                                     {stat.value.includes('+') && (
-                                                        <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                                        <span className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-none">+</span>
                                                     )}
                                                 </div>
-                                                <span className="text-[12px] sm:text-[14px] lg:text-[15px] text-slate-400 font-medium whitespace-normal sm:whitespace-pre-line leading-tight max-w-[120px] sm:max-w-none mt-0">
+                                                <span className="text-[11px] sm:text-[13px] lg:text-[14px] text-slate-400 font-medium whitespace-normal sm:whitespace-pre-line leading-tight max-w-[120px] sm:max-w-none mt-0">
                                                     {stat.label}
                                                 </span>
                                             </div>
                                             
                                             {/* Avatars Block */}
-                                            <div className="flex -space-x-3 sm:-space-x-4 lg:-space-x-4 xl:-space-x-5 ml-5 sm:ml-8 lg:ml-6 xl:ml-12">
+                                            <div className="flex -space-x-2.5 sm:-space-x-3 lg:-space-x-3 xl:-space-x-4 ml-4 sm:ml-6 lg:ml-5 xl:ml-8">
                                                 {/* 1 - Hidu (Zoomed 20%, top aligned) */}
-                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[60px] lg:h-[60px] xl:w-[76px] xl:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-10 relative shadow-lg">
+                                                <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-10 relative shadow-lg">
                                                     <img src="/images/Our_Services/Experts/Hidu.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                                 {/* 2 - Madhavi (Zoomed 20%, top aligned) */}
-                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[60px] lg:h-[60px] xl:w-[76px] xl:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-20 relative shadow-lg">
+                                                <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-20 relative shadow-lg">
                                                     <img src="/images/Our_Services/Experts/Madhavi.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                                 {/* 3 - Madhumalathi (Original) */}
-                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[60px] lg:h-[60px] xl:w-[76px] xl:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-30 relative shadow-lg">
+                                                <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-30 relative shadow-lg">
                                                     <img src="/images/Our_Services/Experts/Madhumalathi.png" alt="Expert" className="w-full h-full object-cover grayscale transition-all duration-300" />
                                                 </div>
                                                 {/* 4 - suraj (Zoomed 20%, top aligned) */}
-                                                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-[60px] lg:h-[60px] xl:w-[76px] xl:h-[76px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-40 relative shadow-lg">
+                                                <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-40 relative shadow-lg">
                                                     <img src="/images/Our_Services/Experts/suraj.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                             </div>
@@ -99,12 +99,12 @@ export function WhyHynivaServices() {
 
                         {/* Right Side: Description & CTA */}
                         <div className="flex flex-col items-start pt-0 lg:pt-0 lg:pl-0 xl:pl-8">
-                            <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-semibold leading-relaxed mb-6 sm:mb-8 lg:mb-10">
+                            <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-semibold leading-relaxed mb-4 sm:mb-6 lg:mb-8">
                                 {topBox.description}
                             </p>
                             <Link 
                                 href={topBox.cta.href}
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
                             >
                                 {topBox.cta.label}
                                 <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -119,18 +119,18 @@ export function WhyHynivaServices() {
                     initial="hidden" 
                     whileInView="visible" 
                     viewport={viewportOnce}
-                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[24px] sm:p-[32px] lg:p-[40px] border border-[#ECF6FF]/80 drop-shadow-sm"
+                    className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] p-[20px] sm:p-[28px] lg:p-[32px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 xl:gap-14">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 xl:gap-10">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
-                                <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-6 flex-shrink-0">
+                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-4 flex-shrink-0">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[18px] font-bold text-[#030B3B] mb-3 leading-tight font-display">
+                                <h3 className="text-[16px] font-bold text-[#030B3B] mb-2 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-[#030B3B]/80 font-medium leading-relaxed">
+                                <p className="text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>

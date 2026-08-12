@@ -1,4 +1,4 @@
-import { LucideIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp } from "lucide-react";
+import { LucideIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Coins } from "lucide-react";
 
 export const bankingContent = {
     hero: {
@@ -61,7 +61,7 @@ export const bankingContent = {
                 description: "We help financial institutions modernize infrastructure through secure and scalable cloud transformation strategies that improve agility, operational efficiency and resilience."
             },
             {
-                icon: "Smartphone",
+                icon: "Coins",
                 title: "Digital Lending",
                 description: "We streamline digital lending journeys across pre-qualification, onboarding, documentation and approval workflows to accelerate decisioning and reduce friction across the lifecycle."
             },

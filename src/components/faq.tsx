@@ -15,9 +15,10 @@ export interface FaqProps {
     badgeText?: string;
     title?: React.ReactNode;
     className?: string;
+    containerClassName?: string;
 }
 
-export function Faq({ items = faqContent, badgeText = "FAQ", title, className = "" }: FaqProps = {}) {
+export function Faq({ items = faqContent, badgeText = "FAQ", title, className = "", containerClassName = "max-w-[800px]" }: FaqProps = {}) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleOpen = (index: number) => {
@@ -26,7 +27,7 @@ export function Faq({ items = faqContent, badgeText = "FAQ", title, className = 
 
     return (
         <section className={`bg-white pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-[30px] sm:pb-[40px] lg:pb-[50px] ${className}`}>
-            <div className="mx-auto max-w-[800px] px-6">
+            <div className={`mx-auto px-6 ${containerClassName}`}>
 
                 {/* Header — centered */}
                 <div className="flex flex-col items-center text-center mb-10 lg:mb-12">

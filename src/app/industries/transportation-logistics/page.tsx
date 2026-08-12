@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, Truck, Wifi, Package } from "lucide-react";
+import { ArrowRightIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, Truck, Wifi, Package, MapPin } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
@@ -37,7 +37,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     LineChart,
     Truck,
     Wifi,
-    Package
+    Package,
+    MapPin
 };
 
 function TransportationHero() {

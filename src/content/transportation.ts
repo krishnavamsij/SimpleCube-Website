@@ -49,7 +49,7 @@ export const transportationContent = {
                 description: "We modernize fleet operations through live vehicle tracking, route optimization, maintenance monitoring and driver coordination."
             },
             {
-                icon: "Wifi",
+                icon: "MapPin",
                 title: "IoT & Real-Time Tracking",
                 description: "We implement IoT-enabled tracking systems that provide real-time visibility into vehicle movement, shipment status and asset utilization."
             },

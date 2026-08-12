@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, LayoutGrid } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, LayoutGrid, Link2Off, EyeOff, Clock, UserMinus, GitFork, Unplug } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -202,27 +202,27 @@ function WhyHyniva() {
 function WhatWeTransform() {
     const challenges = [
         {
-            icon: Server,
+            icon: Link2Off,
             description: "Disconnected platforms create fragmented business processes."
         },
         {
-            icon: Database,
+            icon: EyeOff,
             description: "Data spread across systems limits enterprise visibility."
         },
         {
-            icon: Settings,
+            icon: Clock,
             description: "Manual handoffs slow business operations and productivity."
         },
         {
-            icon: Users,
+            icon: UserMinus,
             description: "Inconsistent user experiences reduce platform adoption."
         },
         {
-            icon: BrainCircuit,
+            icon: GitFork,
             description: "Point-to-point integrations increase technical complexity."
         },
         {
-            icon: TrendingUp,
+            icon: Unplug,
             description: "Platform investments deliver less value when systems remain isolated."
         }
     ];
@@ -250,7 +250,12 @@ function WhatWeTransform() {
                         Why Connected Platforms Matter
                     </motion.h2>
                     <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
-                        Enterprise platforms deliver maximum value when they work seamlessly together. When platforms operate in silos, processes slow down and decision-making becomes fragmented.
+                        <span className="block">
+                            Enterprise platforms deliver maximum value when they work seamlessly together.
+                        </span>
+                        <span className="block mt-1">
+                            When platforms operate in silos, processes slow down and decision-making becomes fragmented.
+                        </span>
                     </motion.p>
                 </motion.div>
 

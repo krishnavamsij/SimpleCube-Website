@@ -44,7 +44,7 @@ export const educationContent = {
                 description: "We enable seamless access to content, assignments, assessments and collaboration tools across digital learning environments."
             },
             {
-                icon: "Bot",
+                icon: "GraduationCap",
                 title: "Automated Academic Administration",
                 description: "We simplify registration, grading, scheduling, reporting and academic workflows to reduce manual effort and improve efficiency."
             },

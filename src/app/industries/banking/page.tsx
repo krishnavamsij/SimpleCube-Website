@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp } from "lucide-react";
+import { Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Coins } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
@@ -26,6 +26,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     Cloud,
     Smartphone,
     TrendingUp,
+    Coins,
 };
 
 function BankingHero() {

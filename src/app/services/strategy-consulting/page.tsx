@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2 } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Compass, Link2Off, Map, ShieldAlert, Shield } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -184,23 +184,23 @@ function WhatWeTransform() {
             description: "Business priorities compete for limited resources."
         },
         {
-            icon: Cloud,
+            icon: Compass,
             description: "Technology investments lack strategic alignment."
         },
         {
-            icon: Layers,
+            icon: Link2Off,
             description: "Disconnected initiatives create duplicated effort."
         },
         {
-            icon: TrendingUp,
+            icon: Map,
             description: "Unclear roadmaps slow decision-making."
         },
         {
-            icon: Settings,
+            icon: ShieldAlert,
             description: "Shifting priorities increase execution risk."
         },
         {
-            icon: BarChart3,
+            icon: Shield,
             description: "Lack of governance reduces execution momentum."
         }
     ];
@@ -228,7 +228,12 @@ function WhatWeTransform() {
                         Why Right Strategy Matters
                     </motion.h2>
                     <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
-                        Execution loses momentum when decisions are made in isolation, priorities continually shift and teams lack a shared direction. The right strategy brings alignment before action.
+                        <span className="block">
+                            Execution loses momentum when decisions are made in isolation, priorities continually shift,
+                        </span>
+                        <span className="block mt-1">
+                            and teams lack a shared direction. The right strategy brings alignment before action.
+                        </span>
                     </motion.p>
                 </motion.div>
 
@@ -451,7 +456,7 @@ function WhyHynivaDT() {
     const bottomBox = [
         {
             title: "Strategy Grounded\nin Delivery",
-            description: "Our recommendations are shaped by real implementation experience, ensuring every strategy is practical, achievable and aligned with execution realities.",
+            description: "Our recommendations are shaped by real experience, ensuring every strategy is practical, achievable and aligned with execution realities.",
             icon: Target
         },
         {

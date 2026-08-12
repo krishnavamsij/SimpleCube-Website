@@ -368,45 +368,26 @@ function AiraHero() {
 function AiraIntro() {
     return (
         <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-            <div className={CONTAINER_CLASS}>
-                <div className="flex justify-center">
-                    <div className="w-full lg:w-9/12">
-                        <motion.div
-                            variants={scrollReveal}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={viewportOnce}
-                            className="bg-white rounded-[18px] px-6 py-6 sm:px-7 sm:py-7 lg:px-9 lg:py-8 shadow-sm text-left"
-                        >
-                            <h2
-                                className="text-[24px] sm:text-[36px] font-bold mb-4 leading-tight"
-                                style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#345195',
-                                    margin: '0 0 15px'
-                                }}
-                            >
-                                Introducing AIRA
-                            </h2>
-
-                            <p
-                                className="text-[14px] sm:text-[18px] leading-[1.6] font-normal"
-                                style={{
-                                    fontFamily: 'Poppins, sans-serif',
-                                    color: '#6f6f6f',
-                                    textAlign: 'left',
-                                    margin: 0
-                                }}
-                            >
-                                AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI
-                                platform for financial services that unifies autonomous reasoning, compliance-first
-                                design, and OneAPI integration. By combining these capabilities in a single solution,
-                                AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to
-                                innovate at speed while maintaining trust and regulatory rigor.
-                            </p>
-                        </motion.div>
+            <div className={`${CONTAINER_CLASS} text-center flex flex-col items-center justify-center`}>
+                <motion.div 
+                    variants={scrollReveal} 
+                    initial="hidden" 
+                    whileInView="visible" 
+                    viewport={viewportOnce}
+                >
+                    <h2 className="text-[28px] sm:text-[32px] font-bold text-[#345195] mb-[24px] leading-tight font-display tracking-tight text-center">
+                        Introducing AIRA
+                    </h2>
+                    <div className="max-w-[960px] mx-auto text-center">
+                        <p className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0 text-center">
+                            AIRA (Autonomous Intelligent Reasoning Agent) is the first enterprise-ready AI
+                            platform for financial services that unifies autonomous reasoning, compliance-first
+                            design, and OneAPI integration. By combining these capabilities in a single solution,
+                            AIRA delivers safe, explainable, and scalable intelligence—empowering institutions to
+                            innovate at speed while maintaining trust and regulatory rigor.
+                        </p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     )

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Bot, LineChart, CloudUpload } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Bot, LineChart, CloudUpload, History, HeartCrack, Unplug, Hourglass, Coins } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
@@ -200,23 +200,23 @@ function WhyHyniva() {
 function WhatWeTransform() {
     const challenges = [
         {
-            icon: Server,
+            icon: History,
             description: "Legacy systems slow innovation and limit business agility."
         },
         {
-            icon: Users,
+            icon: HeartCrack,
             description: "Fragmented customer experiences weaken engagement and loyalty."
         },
         {
-            icon: Database,
+            icon: Unplug,
             description: "Disconnected enterprise data delays informed decision-making."
         },
         {
-            icon: Settings,
+            icon: Hourglass,
             description: "Manual processes reduce efficiency and increase operational effort."
         },
         {
-            icon: TrendingUp,
+            icon: Coins,
             description: "Rising technology costs limit investment in innovation."
         },
         {
@@ -480,22 +480,22 @@ function TransformationInAction() {
 function WhyHynivaDT() {
     const bottomBox = [
         {
-            title: "Business Before\nTechnology",
+            title: "Business Before Technology",
             description: "Every engagement starts with understanding the business outcomes you're trying to achieve. Technology follows purpose, not the other way around.",
             icon: Target
         },
         {
-            title: "Product Thinking in\nEvery Engagement",
+            title: "Product Thinking in Every Engagement",
             description: "Having built enterprise platforms ourselves, we approach transformation with the mindset of product builders, balancing scalability, usability and long-term evolution.",
             icon: Layers
         },
         {
-            title: "Designed for\nAI Adoption",
+            title: "Designed for AI Adoption",
             description: "We build transformation programs that establish the data, integration and cloud foundations required to support intelligent automation and future AI initiatives.",
             icon: BrainCircuit
         },
         {
-            title: "Industry Context\nThat Matters",
+            title: "Industry Context That Matters",
             description: "Our teams bring deep domain knowledge across Banking, Insurance, Wealth Management, Education and Logistics, enabling faster delivery with reduced implementation risk.",
             icon: Globe2
         }
@@ -525,9 +525,7 @@ function WhyHynivaDT() {
                                 THE DIFFERENCE
                             </div>
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
-                                Why Organizations<br />
-                                Choose <span className="text-white">Hyniva</span> for<br />
-                                <span className="text-[#00D4AA]">Digital Transformation?</span>
+                                Why Organizations Choose <span className="text-white">Hyniva</span> for <span className="text-[#00D4AA]">Digital Transformation?</span>
                             </h2>
                         </div>
 
@@ -540,8 +538,8 @@ function WhyHynivaDT() {
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
                                         <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
-                                        {"Applications\nDelivered"}
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                        {"Applications Delivered"}
                                     </span>
                                 </div>
                                 <div className="flex flex-col items-start flex-shrink-0">
@@ -549,8 +547,8 @@ function WhyHynivaDT() {
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
                                         <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
-                                        {"Enterprise\nClients"}
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                        {"Enterprise Clients"}
                                     </span>
                                 </div>
                                 <div className="flex flex-col items-start flex-shrink-0">
@@ -558,8 +556,8 @@ function WhyHynivaDT() {
                                         <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">5</span>
                                         <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-black text-white leading-none ml-1">Yrs</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
-                                        {"Average Tenure\nof Clients"}
+                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                        {"Average Tenure of Clients"}
                                     </span>
                                 </div>
                             </div>
@@ -593,7 +591,7 @@ function WhyHynivaDT() {
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
                                     <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
                                 </div>
-                                <h3 className="text-[14px] font-black text-[#030B3B] mb-3.5 leading-tight font-display whitespace-pre-line">
+                                <h3 className="text-[14px] font-black text-[#030B3B] mb-3.5 leading-tight font-display">
                                     {card.title}
                                 </h3>
                                 <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/75 font-normal leading-[1.6]">

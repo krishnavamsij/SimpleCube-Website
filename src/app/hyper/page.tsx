@@ -184,46 +184,27 @@ export default function HyperPage() {
             </section>
 
             {/* Intro Section */}
-             <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
-                <div className={CONTAINER_CLASS}>
-                    <div className="flex justify-center">
-                        <div className="w-full lg:w-9/12">
-                            <motion.div
-                                variants={scrollReveal}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={viewportOnce}
-                                className="bg-white rounded-[18px] px-6 py-6 sm:px-7 sm:py-7 lg:px-9 lg:py-8 shadow-sm text-left"
-                            >
-                                <h2
-                                    className="text-[36px] font-bold mb-5 leading-tight text-center"
-                                    style={{
-                                        fontFamily: 'Poppins, sans-serif',
-                                        color: '#345195',
-                                        margin: '0 0 20px'
-                                    }}
-                                >
-                                    Introducing Hyper
-                                </h2>
-
-                                <p
-                                    className="text-[18px] sm:text-[20px] leading-[1.7] font-normal"
-                                    style={{
-                                        fontFamily: 'Poppins, sans-serif',
-                                        color: '#6f6f6f',
-                                        textAlign: 'left',
-                                        margin: 0
-                                    }}
-                                >
-                                    Hyper empowers financial institutions and advisors to deliver
-                                    investment experiences that are transparent, personalized, and
-                                    built for today's digital-first investor. From guided discovery
-                                    to tailored portfolio suggestions, Hyper accelerates growth,
-                                    enhances trust, and simplifies decision-making.
-                                </p>
-                            </motion.div>
+            <section className="bg-[#e9e9e9] py-[30px] sm:py-[40px] lg:py-[50px]">
+                <div className={`${CONTAINER_CLASS} text-center flex flex-col items-center justify-center`}>
+                    <motion.div 
+                        variants={scrollReveal} 
+                        initial="hidden" 
+                        whileInView="visible" 
+                        viewport={viewportOnce}
+                    >
+                        <h2 className="text-[28px] sm:text-[32px] font-bold text-[#345195] mb-[24px] leading-tight font-display tracking-tight text-center">
+                            Introducing Hyper
+                        </h2>
+                        <div className="max-w-[960px] mx-auto text-center">
+                            <p className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0 text-center">
+                                Hyper empowers financial institutions and advisors to deliver
+                                investment experiences that are transparent, personalized, and
+                                built for today's digital-first investor. From guided discovery
+                                to tailored portfolio suggestions, Hyper accelerates growth,
+                                enhances trust, and simplifies decision-making.
+                            </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
