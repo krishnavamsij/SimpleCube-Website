@@ -488,7 +488,7 @@ function LeadershipSection() {
                                 <div className="w-full h-px bg-slate-800/80 mb-5"></div>
                                 
                                 {/* @ts-ignore */}
-                                <p className="text-[13px] text-slate-400 leading-relaxed font-medium">{leader.description}</p>
+                                <p className="text-[13px] text-slate-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: leader.description }} />
                             </div>
                         </motion.div>
                     ))}
