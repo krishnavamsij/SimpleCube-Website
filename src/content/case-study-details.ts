@@ -590,7 +590,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                         },
                         {
                             "value": "25%",
-                            "label": "SEO<br>Improvement",
+                            "label": "SEO Improvement",
                             "desc": "In SEO, accessibility, and long-term maintainability through cleaner markup and modern web standards"
                         },
                         {
@@ -1502,7 +1502,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     "scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation": {
         "slug": "loan-routing-automation",
         "eyebrow": "FinTech Lending Automation",
-        "title": "Optimizing Loan Routing and Pre-Qualification <em>with Intelligent Automation</em>",
+        "title": "Optimizing Loan Routing <em>and Pre-Qualification with Intelligent Automation</em>",
         "summary": "An automation-driven solution evaluated borrower data in real time and routed applications to the right lenders — reducing friction, improving match quality and accelerating the end-to-end lending journey.",
         "metrics": [
             {
