@@ -1173,12 +1173,12 @@ const jobOpenings: JobPosition[] = [
     region: "india",
   },
   {
-    id: "backend-integration-engineer-tech-lead",
+    id: "backend-integration-tech-lead",
     requestId: "HYI2026005",
-    title: "Backend Integration Engineer Tech Lead",
+    title: "Backend Integration Tech Lead",
     location: "Bangalore, India",
     type: "Full-Time",
-    description: "We are looking for a Backend Integration Engineer / Tech Lead to design, develop, and lead cloud-native integration solutions on Microsoft Azure. The role focuses on building APIs, backend services, infrastructure automation, secure configuration management, and technical leadership across enterprise integration projects.",
+    description: "We are looking for a Backend Integration Tech Lead to design, develop, and lead cloud-native integration solutions on Microsoft Azure. The role focuses on building APIs, backend services, infrastructure automation, secure configuration management, and technical leadership across enterprise integration projects.",
     jobDuties: [
       "Design and develop backend APIs and services using Azure Functions and .NET/C#",
       "Expose and manage APIs through Azure API Management (APIM)",
