@@ -1134,7 +1134,7 @@ const jobOpenings: JobPosition[] = [
   {
     id: "backend-integration-engineer",
     requestId: "HYI2026004",
-    title: "Backend Integration Engineer",
+    title: "Backend Integration Engineer (.Net)",
     location: "Bangalore, India",
     type: "Full-Time",
     description: "We are looking for a Backend Integration Engineer to design, develop, and lead cloud-native integration solutions on Microsoft Azure. The role focuses on building APIs, backend services, infrastructure automation, secure configuration management, and technical leadership across enterprise integration projects.",
@@ -1175,7 +1175,7 @@ const jobOpenings: JobPosition[] = [
   {
     id: "backend-integration-tech-lead",
     requestId: "HYI2026005",
-    title: "Backend Integration Tech Lead",
+    title: "Backend Integration Tech Lead (.Net)",
     location: "Bangalore, India",
     type: "Full-Time",
     description: "We are looking for a Backend Integration Tech Lead to design, develop, and lead cloud-native integration solutions on Microsoft Azure. The role focuses on building APIs, backend services, infrastructure automation, secure configuration management, and technical leadership across enterprise integration projects.",
@@ -1672,7 +1672,7 @@ export default function CareersPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
-              Join the team where<br /><span className="text-[#00D4AA]">Talent meets Purpose</span>
+              Join the team where<br className="hidden sm:block" />{" "}<span className="text-[#00D4AA]">Talent meets Purpose</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto mb-14">
