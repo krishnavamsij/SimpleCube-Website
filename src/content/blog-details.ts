@@ -128,7 +128,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "hyniva-achieves-soc-2-type-ii-compliance-security-first": {
-    "title": "Hyniva Receives<br>SOC 2 Type II Compliance.",
+    "title": "Hyniva Receives SOC 2 Type II Compliance.",
     "subtitle": "SOC 2 Type II Compliance.",
     "date": "Apr 1, 2025",
     "author": "Hyniva",
@@ -254,7 +254,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "hyniva-celebrating-success-as-a-great-place-to-work-for-the-second-consecutive-year": {
-    "title": "A Great Place to Work — Two Years<br>Running. Celebrating Success.",
+    "title": "A Great Place to Work — Two Years Running. Celebrating Success.",
     "subtitle": "A Great Place to Work — Two Years Running.",
     "date": "Jan 3, 2025",
     "author": "Hyniva",
@@ -548,7 +548,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "hyniva-is-officially-a-great-place-to-work": {
-    "title": "Hyniva is Officially a<br>\"Great Place to Work.\"",
+    "title": "Hyniva is Officially a \"Great Place to Work.\"",
     "subtitle": "Great Place to Work.",
     "date": "Dec 13, 2023",
     "author": "Hyniva",
@@ -605,7 +605,7 @@ export const blogDetails: Record<string, BlogDetail> = {
     }
   },
   "cu-next-podcast-voices-driving-credit-union-innovation": {
-    "title": "CU NEXT Podcast: Voices Driving<br>Credit Union Innovation",
+    "title": "CU NEXT Podcast: Voices Driving Credit Union Innovation",
     "subtitle": "",
     "date": "Apr 23, 2026",
     "author": "Hyniva",

@@ -2,9 +2,9 @@ import { LucideIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Coin
 
 export const bankingContent = {
     hero: {
-        badge: "BANKING",
-        title: "Redefining banking through <br />connected, intelligent experiences",
-        subtitle: "We help financial institutions deliver real-time, seamless <br />and context-aware journeys across every interaction.",
+        badge: "BANKING & FINANCIAL SERVICES",
+        title: "Redefining banking through connected, intelligent experiences",
+        subtitle: "We help financial institutions deliver real-time, seamless and context-aware journeys across every interaction.",
         backgroundImage: "/images/Industries_Section/Banking_Subpage/herobanneroption.png",
     },
     alternatingSections: [

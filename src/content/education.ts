@@ -1,9 +1,9 @@
 export const educationContent = {
     hero: {
-        badge: "EDUCATION",
-        title: "Redefining education through <br />connected and digital-first learning experiences",
-        subtitle: "Flexible learning platforms, seamless collaboration and <br />connected academic experiences across modern education environments.",
-        backgroundImage: "/images/Industries_Section/education subpage/Hero banner.png",
+        badge: "EDUCATION & LEARNING",
+        title: "Redefining education through connected and digital-first learning experiences",
+        subtitle: "Flexible learning platforms, seamless collaboration and connected academic experiences across modern education environments.",
+        backgroundImage: "/images/Industries_Section/Education subpage/Hero banner.png",
     },
     alternatingSections: [
         {

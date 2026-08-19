@@ -125,14 +125,14 @@ export function Footer() {
         className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
       />
 
-      <div className="relative z-10 flex flex-col min-h-screen justify-center py-[30px] sm:py-[40px] lg:py-[50px] pb-[100px] sm:pb-[120px] mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 flex flex-col min-h-0 lg:min-h-screen lg:justify-center py-8 sm:py-10 lg:py-[50px] pb-10 sm:pb-16 lg:pb-[120px] mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
         {/* ── LET'S TALK CTA SECTION ── */}
         <motion.div
           variants={scrollReveal}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="flex flex-col items-center w-full mb-8 sm:mb-12 mt-auto"
+          className="flex flex-col items-center w-full mb-8 sm:mb-12 lg:mt-auto"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3B82F6] bg-[#0A123A] border border-[#1E3A8A] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
@@ -140,7 +140,7 @@ export function Footer() {
             {label}
           </div>
 
-          <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight mb-8 text-left sm:text-center">
+          <h2 className="text-[30px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 text-center">
             {headline.split("simplify").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>
@@ -153,17 +153,11 @@ export function Footer() {
             ))}
           </h2>
 
-          <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-12 text-left sm:text-center px-2 sm:px-0">
-            {sub.split("Just a real conversation about your challenges.").map((part, i, arr) => (
-              <React.Fragment key={i}>
-                {part}
-                {i < arr.length - 1 && (
-                  <span className="block mt-1">
-                    Just a real conversation about your challenges.
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
+          <p className="text-sm sm:text-base md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-6 sm:mb-12 text-center px-4 sm:px-0">
+            Let&apos;s start with a 30-minute discovery call. No commitment, no sales pitch.{" "}
+            <span className="inline md:block md:mt-1">
+              Just a real conversation about your challenges.
+            </span>
           </p>
 
           <Link
@@ -190,7 +184,7 @@ export function Footer() {
         <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
 
         {/* ── FOOTER LINKS & BRAND ── */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between pb-4 mt-auto">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between pb-4 lg:mt-auto">
           {/* Brand */}
           <div className="w-full lg:max-w-sm">
             <Link href="/" className="inline-flex items-center">
@@ -240,9 +234,9 @@ export function Footer() {
 
           {/* Link columns area */}
           <div className="flex flex-col gap-8 lg:pr-16 xl:pr-20">
-            <div className="flex flex-wrap gap-12 sm:gap-16 lg:gap-16 xl:gap-24 w-full">
+            <div className="grid grid-cols-2 gap-8 sm:flex sm:flex-wrap sm:gap-16 lg:gap-16 xl:gap-24 w-full">
               {sections.map((section) => (
-                <div key={section.title} className="min-w-[120px] text-left">
+                <div key={section.title} className="min-w-0 sm:min-w-[120px] text-left">
                   <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white text-left">
                     {section.title}
                   </h5>

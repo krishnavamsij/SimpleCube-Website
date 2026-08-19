@@ -15,7 +15,7 @@ export const contactContent = {
         offices: {
             us: {
                 title: "UNITED STATES",
-                address: "13333 Blanco Road, Suite 206, San Antonio, Texas – 78216"
+                address: "13333 Blanco Road, Suite 206, San\u00A0Antonio, Texas – 78216"
             },
             india: {
                 title: "INDIA",

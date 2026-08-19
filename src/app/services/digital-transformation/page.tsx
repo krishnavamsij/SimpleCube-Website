@@ -31,7 +31,7 @@ function DigitalTransformationHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[90px] sm:pb-10 sm:pt-[100px] lg:pb-12 lg:pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[110px] sm:pb-10 sm:pt-[120px] lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -48,8 +48,8 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            <span className="whitespace-nowrap">Modernize <span className="text-[#00D4AA]">operations.</span></span><br />
-                            <span className="whitespace-nowrap">Elevate <span className="text-[#00D4AA]">experiences.</span></span>
+                            <span className="inline-block sm:whitespace-nowrap">Modernize <span className="text-[#00D4AA]">operations.</span></span><br className="hidden sm:block" />{" "}
+                            <span className="inline-block sm:whitespace-nowrap">Elevate <span className="text-[#00D4AA]">experiences.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
@@ -153,7 +153,7 @@ function WhyHyniva() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="relative h-[300px] sm:h-[360px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-8 lg:mt-12"
+                        className="relative h-[180px] sm:h-[320px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-3 sm:mt-8 lg:mt-12"
                     >
                         <Image
                             src="/images/Our_Services/Digital_Transformation_no_BG.svg"
@@ -177,9 +177,8 @@ function WhyHyniva() {
                                 OUR PHILOSOPHY
                             </div>
                         </motion.div>
-                        <motion.h2 variants={animations.fadeInUp} className="text-2xl sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6">
-                            Transformation with<br />
-                            Purpose
+                        <motion.h2 variants={animations.fadeInUp} className="text-[20px] sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6 whitespace-nowrap sm:whitespace-normal">
+                            Transformation with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
@@ -226,7 +225,7 @@ function WhatWeTransform() {
     ];
 
     return (
-        <section className="bg-[#f8fafc] py-16 lg:py-24 relative overflow-hidden">
+        <section className="bg-[#f8fafc] pt-20 pb-16 lg:py-24 relative overflow-hidden">
             {/* Subtle Dotted background pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
             
@@ -236,19 +235,19 @@ function WhatWeTransform() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={animations.staggerContainer}
-                    className="text-center max-w-[1240px] mx-auto mb-10 sm:mb-12"
+                    className="text-left lg:text-center max-w-[1240px] lg:mx-auto mb-10 sm:mb-12"
                 >
-                    <motion.div variants={animations.fadeInUp} className="flex justify-center mb-6">
+                    <motion.div variants={animations.fadeInUp} className="flex justify-start lg:justify-center mb-6">
                         <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
                             <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
-                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#030B3B] font-display text-center leading-tight mb-6">
+                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#030B3B] font-display text-left lg:text-center mb-6">
                         Why Businesses Must Transform
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
-                        Change is no longer driven by technology alone. It's driven by evolving customer expectations, faster market shifts and increasing competitive pressure. Organizations that fail to adapt often find themselves constrained by operational complexity rather than market opportunity.
+                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-left lg:text-center max-w-3xl lg:mx-auto">
+                        Change is no longer driven by technology alone. It&apos;s driven by evolving customer expectations, faster market shifts and increasing competitive pressure. Organizations that fail to adapt often find themselves constrained by operational complexity rather than market opportunity.
                     </motion.p>
                 </motion.div>
 
@@ -532,31 +531,31 @@ function WhyHynivaDT() {
                         {/* ── RIGHT: Stats + CTA ── */}
                         <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
                             {/* Stats */}
-                            <div className="flex flex-wrap items-start justify-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
-                                <div className="flex flex-col items-start flex-shrink-0">
+                            <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-wrap items-start justify-start sm:gap-8 lg:gap-10 xl:gap-12 w-full">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
-                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
+                                        <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
                                         {"Applications Delivered"}
                                     </span>
                                 </div>
-                                <div className="flex flex-col items-start flex-shrink-0">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
-                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
+                                        <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
                                         {"Enterprise Clients"}
                                     </span>
                                 </div>
-                                <div className="flex flex-col items-start flex-shrink-0">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">5</span>
-                                        <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-black text-white leading-none ml-1">Yrs</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">5</span>
+                                        <span className="text-[14px] xs:text-[18px] sm:text-[20px] lg:text-[22px] font-black text-white leading-none ml-0.5">Yrs</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
                                         {"Average Tenure of Clients"}
                                     </span>
                                 </div>

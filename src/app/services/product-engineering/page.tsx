@@ -31,7 +31,7 @@ function ProductEngineeringHero() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[90px] sm:pb-10 sm:pt-[100px] lg:pb-12 lg:pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-10 pt-[110px] sm:pb-10 sm:pt-[120px] lg:pb-12 lg:pt-20">
                     <motion.div
                         variants={animations.staggerContainer}
                         initial="hidden"
@@ -48,8 +48,8 @@ function ProductEngineeringHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            <span className="whitespace-nowrap">Engineer <span className="text-[#00D4AA]">products.</span></span><br />
-                            <span className="whitespace-nowrap">Deliver <span className="text-[#00D4AA]">lasting value.</span></span>
+                            <span className="inline-block sm:whitespace-nowrap">Engineer <span className="text-[#00D4AA]">products.</span></span><br className="hidden sm:block" />{" "}
+                            <span className="inline-block sm:whitespace-nowrap">Deliver <span className="text-[#00D4AA]">lasting value.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
@@ -201,7 +201,7 @@ function WhyHyniva() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={animations.fadeInUp}
-                        className="relative h-[300px] sm:h-[360px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-8 lg:mt-12"
+                        className="relative h-[180px] sm:h-[320px] lg:h-[420px] w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto flex items-center justify-center my-auto self-center mt-3 sm:mt-8 lg:mt-12"
                     >
                         <Image
                             src="/images/Our_Services/Product_Engineering_no_BG.png"
@@ -223,7 +223,7 @@ function WhyHyniva() {
                                 OUR PHILOSOPHY
                             </div>
                         </motion.div>
-                        <motion.h2 variants={animations.fadeInUp} className="text-2xl sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6">
+                        <motion.h2 variants={animations.fadeInUp} className="text-[20px] sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6 whitespace-nowrap sm:whitespace-normal">
                             Build with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
@@ -274,7 +274,7 @@ function WhatWeTransform() {
     ];
 
     return (
-        <section className="bg-[#f8fafc] py-16 lg:py-24 relative overflow-hidden">
+        <section className="bg-[#f8fafc] pt-20 pb-16 lg:py-24 relative overflow-hidden">
             {/* Subtle Dotted background pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
             
@@ -284,24 +284,19 @@ function WhatWeTransform() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={animations.staggerContainer}
-                    className="text-center max-w-[1240px] mx-auto mb-10 sm:mb-12"
+                    className="text-left lg:text-center max-w-[1240px] lg:mx-auto mb-10 sm:mb-12"
                 >
-                    <motion.div variants={animations.fadeInUp} className="flex justify-center mb-6">
+                    <motion.div variants={animations.fadeInUp} className="flex justify-start lg:justify-center mb-6">
                         <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
                             <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
-                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#030B3B] font-display text-center leading-tight mb-6">
+                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#030B3B] font-display text-left lg:text-center mb-6">
                         Why Product Engineering Matters
                     </motion.h2>
-                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-[1100px] mx-auto">
-                        <span className="block">
-                            Building products requires balancing speed with long-term engineering rigor.
-                        </span>
-                        <span className="block mt-1">
-                            When product development is fragmented, execution slows and user experience suffers.
-                        </span>
+                    <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-left lg:text-center max-w-3xl lg:mx-auto">
+                        Digital products lose competitive edge when technical debt accumulates, user experiences fragment and development cycles slow down. Building products that scale requires balancing speed of delivery with long-term architecture.
                     </motion.p>
                 </motion.div>
 
@@ -566,9 +561,7 @@ function WhyHynivaPE() {
                                 THE DIFFERENCE
                             </div>
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
-                                Why Organizations<br />
-                                Choose <span className="text-white">Hyniva</span> for<br />
-                                <span className="text-[#00D4AA]">Product Engineering?</span>
+                                Why Organizations Choose <span className="text-white">Hyniva</span> for <span className="text-[#00D4AA]">Product Engineering?</span>
                             </h2>
                         </div>
 

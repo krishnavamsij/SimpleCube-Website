@@ -43,9 +43,9 @@ import {
 
 export const servicesListingContent = {
     hero: {
-        title: "Services",
-        subtitle: "From legacy modernization to AI-powered innovation, Hyniva delivers comprehensive <br /> technology services that transform businesses and accelerate growth.",
-        subtitleMobile: "From legacy modernization to AI-powered innovation, <br /> Hyniva delivers comprehensive technology services that <br /> transform businesses and accelerate growth.",
+        title: "ENTERPRISE-GRADE TECHNOLOGY SERVICES",
+        subtitle: "From legacy modernization to AI-powered innovation, Hyniva delivers comprehensive technology services that transform businesses and accelerate growth.",
+        subtitleMobile: "From legacy modernization to AI-powered innovation, Hyniva delivers comprehensive technology services that transform businesses and accelerate growth.",
         backgroundImage: "/images/Our_Services/Digital_Transformation_no_BG.svg",
     },
     intro: {

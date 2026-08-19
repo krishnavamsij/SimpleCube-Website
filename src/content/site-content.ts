@@ -42,9 +42,13 @@ export const navContent = {
             category: "Product Engineering", 
             isBold: true,
             href: "/services/product-engineering",
-            items: [
-                { title: "Strategy Consulting", href: "/services/strategy-consulting", isBold: true },
-            ]
+            items: []
+        },
+        { 
+            category: "Strategy Consulting", 
+            isBold: true,
+            href: "/services/strategy-consulting",
+            items: []
         },
     ],
     insights: [
@@ -666,7 +670,7 @@ export const footerContent = {
         },
     ],
     offices: [
-        { country: "United States", address: "13333 Blanco Road, Suite 206, San Antonio,\nTexas - 78216" },
+        { country: "United States", address: "13333 Blanco Road, Suite 206,\nSan\u00A0Antonio, Texas - 78216" },
         { country: "India", address: "The Cube Karle Town Center, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
     ],
     linkedin: "https://www.linkedin.com/company/hyniva/",

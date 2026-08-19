@@ -93,7 +93,7 @@ export function TimelineProcess({
   const sizeMap = [300, 230, 200, 180];
 
   return (
-    <section ref={containerRef} className="bg-[#030b1e] pt-14 pb-2 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
+    <section ref={containerRef} className="bg-[#030b1e] pt-20 sm:pt-24 lg:pt-14 pb-4 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
       
@@ -104,18 +104,18 @@ export function TimelineProcess({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="text-left lg:text-center"
         >
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-start lg:justify-center mb-6">
             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
               <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
               {eyebrow}
             </div>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold max-w-3xl mx-auto leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold max-w-3xl text-left lg:text-center lg:mx-auto leading-tight tracking-tight">
             {title}
           </h2>
-          <p className="mt-6 text-slate-400 text-[17px] max-w-[1200px] mx-auto leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-slate-400 text-base sm:text-[17px] max-w-[1200px] text-left lg:text-center lg:mx-auto leading-relaxed">
             {description}
           </p>
         </motion.div>

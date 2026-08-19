@@ -119,7 +119,7 @@ export function Services() {
                                         <div className="relative flex flex-1 flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-16 overflow-hidden">
 
                                             {/* Huge Number - GREY */}
-                                            <div className="pointer-events-none absolute -top-10 left-0 text-[100px] sm:text-[140px] md:text-[180px] lg:text-[240px] font-black leading-none text-slate-300/30">
+                                            <div className="pointer-events-none absolute -top-3 sm:-top-5 md:-top-10 left-4 sm:left-6 md:left-8 text-[95px] sm:text-[140px] md:text-[180px] lg:text-[240px] font-black leading-none text-slate-300/25">
                                                 {svc.num}
                                             </div>
 

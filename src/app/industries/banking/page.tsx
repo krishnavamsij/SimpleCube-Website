@@ -59,13 +59,13 @@ function BankingHero() {
 
                     <motion.h1
                         variants={fadeInUp}
-                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage w-full mx-auto text-center [&_br]:hidden xl:[&_br]:inline"
+                        className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage w-full max-w-5xl mx-auto text-center"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.title }}
                     />
 
                     <motion.p
                         variants={fadeInUp}
-                        className="mt-4 text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-200 w-full mx-auto pt-2 text-center [&_br]:hidden sm:[&_br]:inline"
+                        className="mt-4 text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-200 w-full max-w-3xl mx-auto pt-2 text-center"
                         dangerouslySetInnerHTML={{ __html: bankingContent.hero.subtitle }}
                     />
                 </motion.div>
@@ -98,9 +98,8 @@ function AlternatingSections() {
                             </div>
                         </div>
 
-                        {/* Content Side */}
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-3xl font-extrabold text-[#030B3B] mb-8 uppercase tracking-wide">
+                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 uppercase tracking-wide leading-[1.25]">
                                 {section.title}
                             </h2>
                             <div className="space-y-6">
@@ -200,20 +199,20 @@ function ProvenImpact() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="grid grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
                 >
                     {bankingContent.impact.stats.map((stat, index) => (
                         <motion.div 
                             key={index} 
                             variants={scrollReveal} 
-                            className={`flex flex-col items-start md:items-center text-left md:text-center ${index === 1 ? '-ml-4 sm:ml-0' : ''}`}
+                            className="flex flex-col items-center text-center p-5 sm:p-6 bg-white/[0.04] sm:bg-transparent rounded-2xl border border-white/10 sm:border-none backdrop-blur-sm"
                         >
                             <div 
-                                className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-left md:text-center whitespace-nowrap"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 sm:mb-3 md:mb-4 font-display text-center whitespace-nowrap"
                                 dangerouslySetInnerHTML={{ __html: stat.value }}
                             />
                             <div 
-                                className="text-[10px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium tracking-wide leading-[1.3] sm:leading-snug md:leading-relaxed text-left md:text-center"
+                                className="text-xs sm:text-[13px] md:text-[14px] lg:text-[15px] text-slate-300 font-medium tracking-wide leading-relaxed text-center [&_br]:hidden sm:[&_br]:inline"
                                 dangerouslySetInnerHTML={{ __html: stat.label }}
                             />
                         </motion.div>

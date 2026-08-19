@@ -146,7 +146,7 @@ function ApiSection() {
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23f1f5f9\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50 z-0"></div>
 
-            <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 w-full flex flex-col lg:flex-row relative z-20">
+            <div className="mx-auto max-w-[96rem] px-2 xs:px-4 md:px-10 lg:px-16 w-full flex flex-col lg:flex-row relative z-20">
                 
                 {/* Left Hand Side - Content */}
                 <div className="w-full lg:w-[40%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
@@ -166,16 +166,16 @@ function ApiSection() {
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
-                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-12 lg:mt-0 h-[500px] xs:h-[550px] sm:h-[600px] lg:h-[580px] overflow-visible">
+                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-8 lg:mt-0 h-[480px] xs:h-[530px] sm:h-[600px] lg:h-[580px] overflow-visible">
                     
                     <motion.div 
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="relative w-full h-full flex items-center justify-center scale-[0.82] xs:scale-[0.88] sm:scale-100 origin-center"
+                        className="relative w-full h-full flex items-center justify-center origin-center"
                     >
                         {/* SVG DNA Canvas */}
-                        <div className="absolute inset-x-0 top-[4%] xs:top-[5%] h-[340px] xs:h-[380px] sm:h-[420px] lg:h-[400px] xl:h-[420px] flex items-center justify-center pointer-events-none">
+                        <div className="absolute inset-x-0 top-[2%] xs:top-[4%] sm:top-[5%] h-[340px] xs:h-[380px] sm:h-[420px] lg:h-[400px] xl:h-[420px] w-full flex items-center justify-center pointer-events-none">
                             <svg viewBox="0 0 800 750" className="w-full h-full overflow-visible max-h-full">
                                 <defs>
                                     <clipPath id="dna-reveal">
@@ -291,33 +291,33 @@ function ApiSection() {
                         <div className="absolute inset-0 w-full h-full pointer-events-auto">
                             
                             {/* API Base */}
-                            <div className="absolute bottom-[1%] sm:bottom-[2%] lg:bottom-[2%] left-1/2 -translate-x-1/2 flex flex-col items-center z-30">
+                            <div className="absolute bottom-[0%] sm:bottom-[2%] left-1/2 -translate-x-1/2 flex flex-col items-center z-30">
                                 {/* Dynamic Glow */}
                                 <motion.div 
                                     variants={{
                                         hidden: { opacity: 0, scale: 0.8 },
                                         visible: { opacity: 1, scale: 1, transition: { duration: 1 } }
                                     }}
-                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[150px] bg-blue-500/10 blur-[50px] rounded-full pointer-events-none"
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[300px] h-[110px] sm:h-[150px] bg-blue-500/10 blur-[40px] sm:blur-[50px] rounded-full pointer-events-none"
                                 />
-                                <div className="relative z-30 mb-2">
-                                    <h3 className="text-[36px] sm:text-[44px] lg:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_4px_8px_rgba(37,99,235,0.2)] font-display uppercase">
+                                <div className="relative z-30 mb-1 sm:mb-2">
+                                    <h3 className="text-[32px] xs:text-[36px] sm:text-[44px] lg:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_4px_8px_rgba(37,99,235,0.2)] font-display uppercase">
                                         API
                                     </h3>
                                 </div>
-                                <div className="relative w-[180px] sm:w-[240px] md:w-[280px] h-[40px] sm:h-[50px] md:h-[60px] z-20">
-                                    <div className="absolute -bottom-3 left-[10%] w-[80%] h-[12px] sm:h-[16px] bg-slate-900/15 blur-xl rounded-[100%] z-0"></div>
-                                    <div className="absolute bottom-0 left-0 w-full h-[32px] sm:h-[40px] md:h-[48px] bg-gradient-to-b from-slate-100 to-slate-300 rounded-[100%] shadow-[0_10px_20px_rgba(15,23,42,0.12)] border-b-2 border-slate-300 z-10"></div>
-                                    <div className="absolute bottom-[8px] sm:bottom-[10px] md:bottom-[12px] left-0 w-full h-[32px] sm:h-[40px] md:h-[48px] bg-gradient-to-b from-white via-slate-50 to-slate-100 rounded-[100%] shadow-[inset_0_3px_10px_rgba(255,255,255,1),inset_0_-2px_4px_rgba(15,23,42,0.04)] border border-slate-200 flex items-center justify-center z-20">
+                                <div className="relative w-[160px] xs:w-[190px] sm:w-[240px] md:w-[280px] h-[34px] xs:h-[42px] sm:h-[50px] md:h-[60px] z-20">
+                                    <div className="absolute -bottom-3 left-[10%] w-[80%] h-[10px] sm:h-[16px] bg-slate-900/15 blur-xl rounded-[100%] z-0"></div>
+                                    <div className="absolute bottom-0 left-0 w-full h-[28px] xs:h-[34px] sm:h-[40px] md:h-[48px] bg-gradient-to-b from-slate-100 to-slate-300 rounded-[100%] shadow-[0_10px_20px_rgba(15,23,42,0.12)] border-b-2 border-slate-300 z-10"></div>
+                                    <div className="absolute bottom-[6px] xs:bottom-[8px] sm:bottom-[10px] md:bottom-[12px] left-0 w-full h-[28px] xs:h-[34px] sm:h-[40px] md:h-[48px] bg-gradient-to-b from-white via-slate-50 to-slate-100 rounded-[100%] shadow-[inset_0_3px_10px_rgba(255,255,255,1),inset_0_-2px_4px_rgba(15,23,42,0.04)] border border-slate-200 flex items-center justify-center z-20">
                                         <motion.div 
                                             animate={{ opacity: [0.4, 0.8, 0.4] }}
                                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                            className="w-[60px] sm:w-[80px] md:w-[100px] h-[10px] sm:h-[12px] md:h-[16px] bg-blue-500/20 blur-md rounded-[100%]"
+                                            className="w-[55px] xs:w-[65px] sm:w-[80px] md:w-[100px] h-[8px] xs:h-[10px] sm:h-[12px] md:h-[16px] bg-blue-500/20 blur-md rounded-[100%]"
                                         />
                                     </div>
                                 </div>
-                                <div className="mt-4 sm:mt-5 flex items-center justify-center">
-                                    <p className="text-[9px] sm:text-[10px] lg:text-[11px] text-slate-600 font-bold tracking-widest text-center uppercase relative z-30 bg-white/90 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-slate-200/80 shadow-[0_4px_12px_rgba(15,23,42,0.04)] backdrop-blur-md whitespace-nowrap">
+                                <div className="mt-2.5 sm:mt-5 flex items-center justify-center">
+                                    <p className="text-[8px] xs:text-[9px] sm:text-[10px] lg:text-[11px] text-slate-600 font-bold tracking-widest text-center uppercase relative z-30 bg-white/90 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full border border-slate-200/80 shadow-[0_4px_12px_rgba(15,23,42,0.04)] backdrop-blur-md whitespace-nowrap">
                                         OUR FOUNDATION. ENABLING EVERYTHING WE DO.
                                     </p>
                                 </div>
@@ -329,15 +329,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[52%] sm:top-[49%] lg:top-[52%] left-[1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[52%] sm:top-[49%] lg:top-[52%] left-[-1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
-                                    <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[2px]"></div>
-                                    <Lightbulb className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#7c3aed]" strokeWidth={2} />
+                                <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(124,58,237,0.2)] sm:shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[1.5px] sm:m-[2px]"></div>
+                                    <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-[#7c3aed]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#7c3aed] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Innovation</h4>
-                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    Innovation reflects our{" "}<br className="hidden sm:block" />technical depth, enabling us{" "}<br className="hidden sm:block" />to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
+                                <h4 className="text-[#7c3aed] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Innovation</h4>
+                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    Innovation reflects technical depth to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
                                 </p>
                             </motion.div>
 
@@ -347,15 +347,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.0, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[32%] sm:top-[33%] lg:top-[33%] right-[1%] sm:right-[1%] lg:right-[-2%] xl:right-[2%] 2xl:right-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[30%] sm:top-[33%] lg:top-[33%] right-[-1%] sm:right-[1%] lg:right-[-2%] xl:right-[2%] 2xl:right-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
-                                    <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[2px]"></div>
-                                    <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16a34a]" strokeWidth={2} />
+                                <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(22,163,74,0.2)] sm:shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[1.5px] sm:m-[2px]"></div>
+                                    <Users className="w-3 h-3 sm:w-4 sm:h-4 text-[#16a34a]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#16a34a] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">People</h4>
-                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    People drive outcomes with{" "}<br className="hidden sm:block" />a deep commitment to{" "}<br className="hidden sm:block" /><span className="text-[#16a34a] font-bold">customer success.</span>
+                                <h4 className="text-[#16a34a] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">People</h4>
+                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    People drive outcomes with deep commitment to <span className="text-[#16a34a] font-bold">customer success.</span>
                                 </p>
                             </motion.div>
 
@@ -365,15 +365,15 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[12%] sm:top-[14%] lg:top-[14%] left-[1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[8%] sm:top-[14%] lg:top-[14%] left-[-1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-1.5 sm:mb-2 relative transition-transform hover:-translate-y-1">
-                                    <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[2px]"></div>
-                                    <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2563eb]" strokeWidth={2} />
+                                <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(37,99,235,0.2)] sm:shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[1.5px] sm:m-[2px]"></div>
+                                    <Gauge className="w-3 h-3 sm:w-4 sm:h-4 text-[#2563eb]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#2563eb] font-bold tracking-[0.2em] text-[10px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Agility</h4>
-                                <p className="text-[9.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.5] font-medium bg-white/90 p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    Agility powers speed and{" "}<br className="hidden sm:block" />precision through our{" "}<br className="hidden sm:block" /><span className="text-[#2563eb] font-bold">Digital Factory</span> model.
+                                <h4 className="text-[#2563eb] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Agility</h4>
+                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 text-center">
+                                    Agility powers speed &amp; precision through our <span className="text-[#2563eb] font-bold">Digital Factory</span> model.
                                 </p>
                             </motion.div>
 
@@ -621,6 +621,50 @@ function OperationsSection() {
 
 /* ─────────────── Digital Factory Section ─────────────── */
 
+const digitalFactorySteps = [
+    {
+        number: "01",
+        title: "Discovery & Planning",
+        description: "Developer captures scope directly.",
+        color: "text-[#00D4AA]",
+        bgColor: "bg-[#00D4AA]/10",
+        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+    },
+    {
+        number: "02",
+        title: "Dev Project Planning",
+        description: "Developer writes the user stories.",
+        color: "text-[#1e90ff]",
+        bgColor: "bg-[#1e90ff]/10",
+        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+    },
+    {
+        number: "03",
+        title: "Engineering Dev & Quality Automation",
+        description: "One engineer owns scope, code & quality.",
+        color: "text-[#00A8FF]",
+        bgColor: "bg-[#00A8FF]/10",
+        borderColor: "border-[#00A8FF]/30 shadow-[0_0_10px_rgba(0,168,255,0.15)]",
+        isHero: true,
+    },
+    {
+        number: "04",
+        title: "Launch & Iterations",
+        description: "Same developer drives every release.",
+        color: "text-[#00D4AA]",
+        bgColor: "bg-[#00D4AA]/10",
+        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+    },
+    {
+        number: "05",
+        title: "Support & Product Evolution",
+        description: "Product knowledge stays with the team.",
+        color: "text-[#1e90ff]",
+        bgColor: "bg-[#1e90ff]/10",
+        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+    },
+];
+
 function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
@@ -680,10 +724,37 @@ function DigitalFactorySection() {
                             </div>
                         </motion.div>
 
-                        {/* ── Planet Wave SVG ── */}
+                        {/* ── Mobile/Tablet Stacked List ── */}
                         <motion.div
                             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
-                            className="w-full overflow-x-auto no-scrollbar flex justify-start sm:justify-center mt-6 lg:mt-12 mb-[10px] sm:mb-[-30px] lg:mb-[-50px] pb-4 sm:pb-0"
+                            className="lg:hidden w-full max-w-xl mx-auto mt-8 mb-6 flex flex-col gap-6 px-2"
+                        >
+                            <div className="relative flex flex-col gap-8">
+                                {/* Connecting line */}
+                                <div className="absolute left-[19px] sm:left-[23px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#00D4AA]/40 via-[#00A8FF]/40 to-[#1e90ff]/40" />
+
+                                {digitalFactorySteps.map((step) => (
+                                    <div key={step.number} className="relative flex gap-4 sm:gap-6 items-start group">
+                                        <div className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 ${step.bgColor} ${step.borderColor} ${step.color} font-bold text-sm sm:text-base font-display flex-shrink-0 z-10 transition-transform duration-300 group-hover:scale-110`}>
+                                            {step.number}
+                                        </div>
+                                        <div className="flex-1 pt-1 sm:pt-2">
+                                            <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>
+                                                {step.title}
+                                            </h3>
+                                            <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/70 font-medium">
+                                                {step.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* ── Planet Wave SVG (Desktop only) ── */}
+                        <motion.div
+                            variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportOnce}
+                            className="w-full hidden lg:flex justify-center mt-6 lg:mt-12 mb-[10px] sm:mb-[-30px] lg:mb-[-50px] pb-4 sm:pb-0"
                         >
                             <style>{`
                                     @keyframes hFloat0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }

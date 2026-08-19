@@ -116,6 +116,24 @@
     font-family: var(--font-inter), system-ui, sans-serif !important;
   }
 
+  /* Convert hardcoded line breaks to spaces on mobile viewports so words don't merge */
+  @media (max-width: 767px) {
+    h1 br,
+    h2 br,
+    h3 br,
+    h4 br,
+    h5 br,
+    h6 br,
+    p br,
+    .hero-title br,
+    .news-title br,
+    .blog-title br,
+    .case-study-title br {
+      content: ' ' !important;
+      display: inline !important;
+    }
+  }
+
   /* Standardizing all eyebrows to Display font */
   .eyebrow {
     font-family: var(--font-inter), system-ui, sans-serif !important;
