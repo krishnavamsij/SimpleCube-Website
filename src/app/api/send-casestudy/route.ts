@@ -17,25 +17,6 @@ const ses = new SESClient({
 
 export async function POST(request: Request) {
   try {
-    // Log the client IP for debugging
-    const xForwardedFor = request.headers.get("x-forwarded-for");
-    const xRealIp = request.headers.get("x-real-ip");
-    const cfConnectingIp = request.headers.get("cf-connecting-ip");
-
-    const clientIp = xForwardedFor
-      ? xForwardedFor.split(",")[0].trim()
-      : xRealIp ||
-        cfConnectingIp ||
-        "unknown";
-
-    console.log("=== REQUEST IP INFO ===");
-    console.log("Client IP:", clientIp);
-    console.log("IP Format: IPv4");
-    console.log("x-forwarded-for:", xForwardedFor);
-    console.log("x-real-ip:", xRealIp);
-    console.log("cf-connecting-ip:", cfConnectingIp);
-    console.log("========================");
-
     const sourceEmail = getSesSourceEmail();
     if (!sourceEmail) {
       console.error("SES_SOURCE_EMAIL is not configured");
@@ -108,8 +89,7 @@ export async function POST(request: Request) {
       ReplyToAddresses: [email],
     });
 
-    const response = await ses.send(command);
-    console.log("Case study email sent successfully via SES:", response);
+    await ses.send(command);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending case study email:", error);

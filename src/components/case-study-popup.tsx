@@ -37,48 +37,23 @@ export function CaseStudyPopup() {
 
     // Listen for custom events from navigation hook
     useEffect(() => {
-        console.log('🔧 Popup component mounting, setting up event listeners...');
-        
         const handleThirdSectionReached = (event: CustomEvent) => {
-            console.log('🎯 thirdSectionReached event received:', event);
             if (!isVisible && !hasBeenDismissed && !isSubmitted) {
-                console.log('✅ Third section reached - showing popup');
                 setIsVisible(true);
-            } else {
-                console.log('❌ Popup conditions not met for thirdSectionReached');
             }
         };
 
         const handleThirdTabClicked = (event: CustomEvent) => {
-            console.log('🎯 thirdTabClicked event received:', event);
             if (!isVisible && !hasBeenDismissed && !isSubmitted) {
-                console.log('✅ Third tab clicked - showing popup');
                 setIsVisible(true);
-            } else {
-                console.log('❌ Popup conditions not met for thirdTabClicked');
             }
         };
-
-        // Test if CustomEvent is available
-        console.log('🔧 CustomEvent available:', typeof CustomEvent);
 
         // Add event listeners for custom events with proper typing
         window.addEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
         window.addEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
 
-        console.log('🔧 Event listeners added. Total listeners should be:', 2);
-
-        // Test event dispatching
-        (window as any).testDispatch = () => {
-            console.log('🧪 Testing event dispatch...');
-            const event = new CustomEvent('thirdSectionReached', { bubbles: true });
-            console.log('🧪 Event created:', event);
-            const dispatched = window.dispatchEvent(event);
-            console.log('🧪 Event dispatched:', dispatched);
-        };
-
         return () => {
-            console.log('🔧 Cleaning up event listeners...');
             window.removeEventListener('thirdSectionReached', handleThirdSectionReached as EventListener);
             window.removeEventListener('thirdTabClicked', handleThirdTabClicked as EventListener);
         };

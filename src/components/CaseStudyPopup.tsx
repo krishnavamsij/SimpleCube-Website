@@ -49,7 +49,6 @@ export function CaseStudyPopup({
 
   // Reset state when navigating to a different page
   useEffect(() => {
-    console.log('🔄 Page changed - resetting popup component state');
     setIsVisible(false);
     setHasBeenDismissed(false);
     setIsSubmitted(false);
@@ -73,13 +72,11 @@ export function CaseStudyPopup({
     if (!mounted || hasBeenDismissed || isSubmitted) return;
 
     const handleThirdSectionReached = (event: CustomEvent) => {
-      console.log('📍 Third section reached event - showing popup');
       setIsVisible(true);
       onThirdSectionReached?.();
     };
 
     const handleThirdTabClicked = (event: CustomEvent) => {
-      console.log('📍 Third tab clicked - showing popup');
       if (!hasBeenDismissed && !isSubmitted) {
         setIsVisible(true);
       }

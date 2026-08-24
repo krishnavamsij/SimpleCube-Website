@@ -96,8 +96,7 @@ export async function POST(request: Request) {
       ReplyToAddresses: [email],
     });
 
-    const response = await ses.send(command);
-    console.log("Contact email sent successfully via SES:", response);
+    await ses.send(command);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending contact email:", error);

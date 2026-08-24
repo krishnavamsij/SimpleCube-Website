@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligent Claims Orchestration with Claim Pioneer | Hyniva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#05070f;
+    --navy-900:#0b1024;
+    --navy-800:#131a3a;
+    --navy-700:#1c2a59;
+    --blue-500:#2f8aff;
+    --blue-600:#1f6fe0;
+    --teal-400:#1fd8ae;
+    --white:#ffffff;
+    --ink-900:#10131a;
+    --ink-700:#4a5262;
+    --ink-500:#6b7383;
+    --line:#e7ebf1;
+    --num-tint:#c7deff;
+    --max-w:1120px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink-900);
+    background:var(--white);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Manrope',sans-serif;letter-spacing:-0.01em;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  .nav{padding:22px 0;}
+  .nav-inner{
+    max-width:1280px;margin:0 auto;padding:0 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo-wrap{display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:30px;height:22px;flex-shrink:0;}
+  .logo-text{color:var(--white);font-weight:700;font-size:19px;letter-spacing:0.08em;line-height:1;}
+  .logo-sub{color:rgba(255,255,255,0.5);font-size:9px;letter-spacing:0.06em;margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{color:rgba(255,255,255,0.8);font-size:13.5px;font-weight:500;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{
+    background:var(--blue-500);color:var(--white)!important;
+    padding:11px 22px;border-radius:24px;font-weight:700;font-size:12.5px;
+    letter-spacing:0.03em;
+  }
+  @media(max-width:860px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 55%, rgba(47,138,255,0.28), transparent 65%),
+      linear-gradient(180deg,var(--navy-950) 0%, var(--navy-900) 45%, var(--navy-800) 100%);
+    color:var(--white);
+    padding-bottom:70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-content{text-align:center;padding:38px 32px 0;}
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11.5px;font-weight:700;letter-spacing:0.12em;
+    color:var(--blue-500);text-transform:uppercase;
+    border:1px solid rgba(47,138,255,0.4);
+    background:rgba(47,138,255,0.08);
+    padding:8px 18px;border-radius:20px;
+    margin-bottom:28px;
+  }
+  .eyebrow-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-500);display:inline-block;}
+  .hero h1{
+    font-size:clamp(30px,4.6vw,50px);
+    font-weight:800;
+    line-height:1.18;
+    max-width:900px;
+    margin:0 auto 22px;
+  }
+  .hero h1 .line-accent{
+    display:block;
+    background:linear-gradient(90deg,var(--teal-400),#4fc3e0);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    font-size:18px;
+    color:rgba(255,255,255,0.62);
+    max-width:620px;
+    font-weight:400;
+    margin:0 auto 52px;
+  }
+  .stats{
+    display:flex;
+    justify-content:center;
+    gap:64px;
+    flex-wrap:wrap;
+    max-width:960px;
+    margin:0 auto;
+    padding-top:36px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .stat{text-align:center;}
+  .stat .icon{
+    width:52px;height:52px;border-radius:14px;
+    background:rgba(47,138,255,0.14);
+    border:1px solid rgba(47,138,255,0.25);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;
+    color:var(--blue-500);
+  }
+  .stat .icon svg{width:22px;height:22px;}
+  .stat .num{
+    font-size:32px;
+    font-weight:800;
+    color:var(--white);
+    font-family:'Manrope',sans-serif;
+    line-height:1;
+    margin-bottom:12px;
+  }
+  .stat .label{
+    font-size:13.5px;
+    color:rgba(255,255,255,0.6);
+    font-weight:500;
+    line-height:1.4;
+  }
+  .scroll-hint{
+    text-align:center;color:rgba(255,255,255,0.35);
+    font-size:11px;letter-spacing:0.2em;font-weight:600;
+    margin-top:44px;
+  }
+
+  /* ANCHOR NAV BAR */
+  .anchor-bar{background:var(--white);border-bottom:1px solid var(--line);}
+  .anchor-nav{
+    max-width:var(--max-w);margin:0 auto;padding:0 32px;
+    display:flex;gap:8px;flex-wrap:wrap;
+    padding-top:18px;padding-bottom:18px;
+  }
+  .anchor-nav a{
+    font-size:14px;font-weight:600;color:var(--ink-700);
+    padding:11px 22px;border-radius:24px;
+    border:1px solid transparent;
+  }
+  .anchor-nav a.active{background:var(--blue-500);color:var(--white);}
+  .anchor-nav a:not(.active):hover{background:#f2f5fa;}
+
+  /* SECTIONS */
+  section.block{padding:76px 0;border-bottom:1px solid var(--line);}
+  .block-head{
+    display:flex;gap:14px;align-items:center;margin-bottom:32px;
+  }
+  .block-num{
+    font-family:'Manrope',sans-serif;
+    font-size:14px;font-weight:800;color:var(--white);
+    background:var(--blue-500);
+    width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .block-title{
+    font-size:14px;font-weight:800;color:var(--blue-500);
+    letter-spacing:0.14em;text-transform:uppercase;
+  }
+  .block-body{max-width:800px;}
+  .block-body p{color:var(--ink-700);font-size:16.5px;margin-bottom:18px;max-width:760px;}
+  .lede{font-size:19px;font-weight:700;color:var(--ink-900);margin-bottom:18px;}
+
+  /* single-column numbered capability cards */
+  .num-card-list{display:flex;flex-direction:column;gap:16px;margin-top:28px;max-width:760px;}
+  .num-card{
+    display:flex;align-items:flex-start;gap:24px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:24px 28px;
+  }
+  .num-card .n{
+    font-family:'Manrope',sans-serif;font-size:30px;font-weight:800;
+    color:var(--num-tint);line-height:1;flex-shrink:0;width:28px;
+  }
+  .num-card h4{font-size:16px;font-weight:700;color:var(--ink-900);margin-bottom:6px;}
+  .num-card p{font-size:14.5px;color:var(--ink-500);margin:0;}
+  .num-card .title-only{font-size:16px;font-weight:700;color:var(--ink-900);margin:0;padding-top:2px;}
+
+  /* implementation steps - reuse num-card style with description */
+  .impl-note{
+    margin-top:28px;max-width:760px;
+    color:var(--ink-700);font-size:15px;
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+
+  /* impact bullet list */
+  .bullet-list{list-style:none;margin:22px 0;max-width:760px;}
+  .bullet-list li{
+    position:relative;padding-left:22px;margin-bottom:14px;
+    font-size:16px;color:var(--ink-700);
+  }
+  .bullet-list li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:6px;height:6px;border-radius:50%;background:var(--blue-500);
+  }
+
+  /* impact stat cards (2x2) */
+  .impact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    margin-top:28px;max-width:800px;
+  }
+  .impact-card{
+    background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px 28px;
+  }
+  .impact-card .stat-num{
+    font-family:'Manrope',sans-serif;font-size:30px;font-weight:800;color:var(--blue-500);
+    margin-bottom:4px;line-height:1;
+  }
+  .impact-card .stat-title{font-size:16px;font-weight:700;color:var(--ink-900);margin-bottom:10px;}
+  .impact-card p{font-size:14.5px;color:var(--ink-500);margin:0;}
+  @media(max-width:700px){.impact-grid{grid-template-columns:1fr;}}
+
+  /* road ahead pill tags */
+  .pill-grid{
+    display:flex;flex-wrap:wrap;gap:14px;margin:26px 0;max-width:760px;
+  }
+  .pill-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--line);border-radius:24px;
+    padding:14px 22px;font-size:14.5px;font-weight:600;color:var(--ink-900);
+  }
+  .pill-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-500);flex-shrink:0;}
+
+  /* CTA */
+  .cta{
+    background:
+      radial-gradient(ellipse 700px 400px at 50% 30%, rgba(47,138,255,0.22), transparent 65%),
+      linear-gradient(180deg,var(--navy-950),var(--navy-800));
+    color:var(--white);text-align:center;padding:90px 32px;
+  }
+  .cta .eyebrow-pill{margin-bottom:26px;}
+  .cta h2{font-size:clamp(30px,4.2vw,46px);font-weight:800;margin-bottom:20px;}
+  .cta h2 .accent{
+    background:linear-gradient(90deg,var(--teal-400),var(--blue-500));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .cta p{color:rgba(255,255,255,0.65);font-size:16.5px;margin-bottom:38px;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-600));
+    color:var(--white);
+    font-weight:700;font-size:15px;padding:17px 32px;border-radius:30px;
+  }
+  .cta-btn:hover{filter:brightness(1.08);}
+
+  /* FOOTER */
+  footer{background:var(--navy-950);color:rgba(255,255,255,0.55);padding:64px 0 32px;font-size:14px;}
+  .footer-top{
+    display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;
+  }
+  .footer-logo-wrap{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .footer-logo-text{color:var(--white);font-weight:700;font-size:19px;letter-spacing:0.06em;}
+  .foot-addr{display:flex;gap:10px;margin-bottom:16px;font-size:13.5px;color:rgba(255,255,255,0.55);}
+  .foot-addr b{color:rgba(255,255,255,0.85);display:block;margin-bottom:2px;font-size:13.5px;}
+  .foot-social{display:flex;gap:10px;margin-top:20px;}
+  .foot-social a{
+    width:36px;height:36px;border:1px solid rgba(255,255,255,0.2);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .footer-top h5{color:rgba(255,255,255,0.9);font-size:12.5px;font-weight:700;letter-spacing:0.06em;margin-bottom:18px;text-transform:uppercase;}
+  .footer-top a.flink{display:block;color:rgba(255,255,255,0.55);margin-bottom:12px;font-size:14px;}
+  .footer-top a.flink:hover{color:var(--blue-500);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:13px;}
+  @media(max-width:760px){.footer-top{grid-template-columns:1fr 1fr;}.stats{gap:32px;}}
+</style>
+</head>
+<body>
+
+<div style="background:var(--navy-950);">
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <svg class="logo-mark" viewBox="0 0 30 22" fill="none"><path d="M2 2 L14 11 L2 20" stroke="#2f8aff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2 L24 11 L12 20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <div class="logo-text">HYNIVA</div>
+        <div class="logo-sub">SIMPLIFY ENTERPRISE</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Products</a>
+      <a href="#">Services</a>
+      <a href="#">Industries</a>
+      <a href="#">Insights</a>
+      <a href="#">About</a>
+      <a class="nav-cta" href="#">CONTACT US</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow-pill">Case Study</div>
+    <h1><span class="line-accent">Intelligent Claims Orchestration</span> with Claim Pioneer</h1>
+    <p class="hero-sub">How Hyniva transformed fragmented field claims into an intelligent, connected journey from intake to resolution.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="num">40%</div>
+        <div class="label">Faster Claim<br>Settlement</div>
+      </div>
+      <div class="stat">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="num">30%</div>
+        <div class="label">Higher Claim<br>Intake</div>
+      </div>
+      <div class="stat">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="num">25%</div>
+        <div class="label">Improved Adjuster<br>Productivity</div>
+      </div>
+      <div class="stat">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2 4 4 8-9 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="num">20%</div>
+        <div class="label">Lower Agency<br>Operational Cost</div>
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
+  </div>
+</header>
+</div>
+
+<div class="anchor-bar">
+  <nav class="anchor-nav">
+    <a href="#challenge" class="active">Challenge</a>
+    <a href="#solution">Solution</a>
+    <a href="#implementation">Implementation Approach</a>
+    <a href="#impact">Impact</a>
+    <a href="#future">Road Ahead</a>
+  </nav>
+</div>
+
+<!-- 01 CHALLENGE -->
+<section class="block" id="challenge">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="block-num">01</div>
+      <div class="block-title">Challenge</div>
+    </div>
+    <div class="block-body">
+      <p>Insurance claims operations are under pressure to move faster while managing growing claim volumes, distributed field teams, demanding service levels, and rising customer expectations.</p>
+      <p>Yet many field claims operations still depend on spreadsheets, phone calls, messages, and disconnected systems to coordinate assignments and move claims forward.</p>
+      <p>Adjuster availability and workload can be difficult to track in real time. Assignments may require manual intervention. Scheduling creates unnecessary back-and-forth. Field assessments, QA, estimation, invoicing, and payments often operate as disconnected steps.</p>
+      <p>When catastrophe events drive claim volumes higher, these challenges become even more difficult to manage.</p>
+      <p>The result is an operating model where teams spend too much time coordinating individual claims and not enough time managing the operation strategically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SOLUTION -->
+<section class="block" id="solution">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="block-num">02</div>
+      <div class="block-title">Solution</div>
+    </div>
+    <div class="block-body">
+      <p class="lede">One intelligent platform for the entire claims journey</p>
+      <p>Hyniva built Claim Pioneer, an AI-powered claims orchestration platform that connects agencies, adjusters, and policyholders through one intelligent ecosystem.</p>
+      <p>Instead of automating isolated tasks, Claim Pioneer coordinates the critical workflows that move a claim from intake through assessment, QA, submission, payment, and closure.</p>
+      <p>Key capabilities include:</p>
+    </div>
+
+    <div class="num-card-list">
+      <div class="num-card">
+        <div class="n">1</div>
+        <div><h4>Intelligent Claim Assignment</h4><p>Incoming claims are evaluated against factors such as adjuster availability, specialization, geographic proximity, workload, performance, SLA urgency, and other operational considerations. The platform identifies suitable adjusters and initiates the assignment process through real-time notifications.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">2</div>
+        <div><h4>Predictive CAT Response</h4><p>Weather intelligence and predictive surge capabilities help agencies prepare for catastrophe-driven claim volumes. Agencies can proactively expand field capacity and reach local adjusters and brokers when additional resources are needed.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">3</div>
+        <div><h4>Intelligent Scheduling &amp; Route Optimization</h4><p>Confirmed appointments can be locked into schedules while route optimization helps adjusters manage their daily field activity. Customers and agencies can also gain visibility into the adjuster's journey.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">4</div>
+        <div><h4>Mobile-First Field Execution</h4><p>Adjusters can receive and accept assignments, manage routes, communicate with customers and agencies, capture photos and notes, update claim status, and submit assessment information directly through the mobile experience.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">5</div>
+        <div><h4>Automated Workflow Orchestration</h4><p>Claim intake, appointment coordination, QA assignment, SLA tracking, notifications, estimation, documentation, and payment workflows move through a connected process, reducing the need for manual intervention.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">6</div>
+        <div><h4>Real-Time Operational Intelligence</h4><p>Centralized dashboards provide visibility into claim status, adjuster performance, workload, assignment distribution, SLA adherence, customer feedback, and financial activity.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">7</div>
+        <div><h4>Connected Customer Communication</h4><p>Automated SMS and email notifications, appointment coordination, live adjuster tracking, and claim status updates keep policyholders informed throughout the journey.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 IMPLEMENTATION -->
+<section class="block" id="implementation">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="block-num">03</div>
+      <div class="block-title">Implementation Approach</div>
+    </div>
+    <div class="block-body">
+      <p>Claim Pioneer brings the entire field claims workflow into one connected operating model.</p>
+    </div>
+
+    <div class="num-card-list">
+      <div class="num-card">
+        <div class="n">1</div>
+        <div><h4>Claim Intake</h4><p>Claims are automatically ingested and prepared for assignment.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">2</div>
+        <div><h4>Smart Assignment</h4><p>The platform identifies suitable adjusters and initiates the assignment through real-time notifications.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">3</div>
+        <div><h4>Pre-Visit Coordination</h4><p>Customers receive appointment information, adjuster details, and live route visibility.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">4</div>
+        <div><h4>On-Site Assessment</h4><p>Adjusters manage routes, capture photos and notes, update claim status, and submit assessment information through the mobile experience.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">5</div>
+        <div><h4>QA &amp; Estimation</h4><p>QA reviewers are assigned based on availability, while estimates, invoices, documents, and follow-ups move through the connected workflow.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">6</div>
+        <div><h4>Submission &amp; Payment</h4><p>Final estimates, documentation, invoices, and payment activities are coordinated through the platform.</p></div>
+      </div>
+      <div class="num-card">
+        <div class="n">7</div>
+        <div><h4>Claim Closure</h4><p>Carrier approval, agency payment, and claim closure complete the journey.</p></div>
+      </div>
+    </div>
+
+    <p class="impl-note">The platform is designed for no-code configuration, open APIs, event-based integration, scalable architecture, document intelligence, real-time analytics, and multi-entity operations.</p>
+  </div>
+</section>
+
+<!-- 04 IMPACT -->
+<section class="block" id="impact">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="block-num">04</div>
+      <div class="block-title">Impact</div>
+    </div>
+    <div class="block-body">
+      <p>The transformation extends across the ecosystem: agencies gain control and visibility, adjusters gain a more structured way to manage their work, and policyholders gain a more transparent claims experience.</p>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="stat-num">40%</div>
+        <div class="stat-title">Faster Claim Settlement</div>
+        <p>A connected claims lifecycle helps move claims through assessment, review, submission, and closure faster.</p>
+      </div>
+      <div class="impact-card">
+        <div class="stat-num">30%</div>
+        <div class="stat-title">Higher Claim Intake</div>
+        <p>Greater operational capacity enables agencies to handle increased claim volumes while improving revenue potential.</p>
+      </div>
+      <div class="impact-card">
+        <div class="stat-num">25%</div>
+        <div class="stat-title">Improved Adjuster Productivity</div>
+        <p>Intelligent assignment, mobile execution, scheduling, and route visibility help adjusters spend more time completing claims.</p>
+      </div>
+      <div class="impact-card">
+        <div class="stat-num">20%</div>
+        <div class="stat-title">Lower Agency Operational Cost</div>
+        <p>Automation reduces the manual effort required to coordinate claims and manage repetitive operational tasks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ROAD AHEAD -->
+<section class="block" id="future" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="block-num">05</div>
+      <div class="block-title">Road Ahead</div>
+    </div>
+    <div class="block-body">
+      <p class="lede">Toward an increasingly autonomous claims operation</p>
+      <p>Claim Pioneer is evolving beyond workflow orchestration into deeper claims intelligence.</p>
+      <p>Future capabilities include:</p>
+    </div>
+
+    <div class="pill-grid">
+      <div class="pill-tag">AI-assisted damage severity scoring from field photos</div>
+      <div class="pill-tag">Automated reserve estimation</div>
+      <div class="pill-tag">Proactive fraud signal detection</div>
+    </div>
+
+    <div class="block-body">
+      <p>Cross-agency analytics can help organizations identify trends in adjuster performance, regional responsiveness, and SLA adherence.</p>
+      <p>On the customer side, self-service claim experiences and AI-powered support can further reduce manual touchpoints throughout the claims journey.</p>
+      <p>The vision is a claims operation where intelligence continuously improves how work is assigned, executed, reviewed, and resolved.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="eyebrow-pill">Let's Talk</div>
+  <h2>Ready to <span class="accent">simplify</span> your enterprise?</h2>
+  <p>Let's start with a 30-minute discovery call. No commitment, no sales pitch.<br>Just a real conversation about your challenges.</p>
+  <a class="cta-btn" href="#">Schedule a free consultation →</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-wrap">
+          <svg class="logo-mark" viewBox="0 0 30 22" fill="none" width="26" height="19"><path d="M2 2 L14 11 L2 20" stroke="#2f8aff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2 L24 11 L12 20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="footer-logo-text">HYNIVA</span>
+        </div>
+        <div class="foot-addr"><span>📍</span><div><b>United States</b>13333 Blanco Road, Suite 206,<br>San Antonio, Texas - 78216</div></div>
+        <div class="foot-addr"><span>📍</span><div><b>India</b>The Cube Karle Town Center, 5th Floor,<br>Nagavara Village, Bengaluru, KA - 560045</div></div>
+        <div class="foot-social">
+          <a href="#">in</a>
+          <a href="#">✉</a>
+        </div>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a class="flink" href="#">Digital Transformation</a>
+        <a class="flink" href="#">Enterprise Platforms</a>
+        <a class="flink" href="#">Product Engineering</a>
+        <a class="flink" href="#">Strategy Consulting</a>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <a class="flink" href="#">FinXServe</a>
+        <a class="flink" href="#">Claim Pioneer</a>
+        <a class="flink" href="#">AIRA</a>
+        <a class="flink" href="#">Hyper</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a class="flink" href="#">About Hyniva</a>
+        <a class="flink" href="#">Case Studies</a>
+        <a class="flink" href="#">Careers</a>
+        <a class="flink" href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Hyniva. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

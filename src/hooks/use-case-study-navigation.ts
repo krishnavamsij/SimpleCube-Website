@@ -33,31 +33,13 @@ export function useCaseStudyNavigation(sections: any[]) {
                         const allSectionElements = Array.from(document.querySelectorAll("section[id]"));
                         const triggerSectionIndex = Math.min(2, allSectionElements.length - 1); // 3rd section or last available
                         
-                        console.log('🔍 Checking popup trigger conditions:');
-                        console.log('  - Section elements found:', allSectionElements.length);
-                        console.log('  - Trigger section index:', triggerSectionIndex);
-                        console.log('  - Trigger section element exists:', !!allSectionElements[triggerSectionIndex]);
-                        console.log('  - Entry target matches trigger section:', entry.target === allSectionElements[triggerSectionIndex]);
-                        console.log('  - Popup already triggered:', popupTriggered);
-                        
                         if (allSectionElements[triggerSectionIndex] && 
                             entry.target === allSectionElements[triggerSectionIndex] && 
                             !popupTriggered) {
                             
-                            console.log('✅ Third section reached by scroll, triggering popup');
                             setPopupTriggered(true);
-                            
-                            // Dispatch custom event for popup component
-                            console.log('📤 Dispatching thirdSectionReached event...');
                             const customEvent = new CustomEvent('thirdSectionReached', { bubbles: true, detail: { source: 'scroll' } });
-                            console.log('📤 Event details:', customEvent);
-                            const dispatched = window.dispatchEvent(customEvent);
-                            console.log('📥 Event dispatched successfully:', dispatched);
-                        } else {
-                            console.log('❌ Third section conditions not met');
-                            console.log('  - Section exists:', !!allSectionElements[triggerSectionIndex]);
-                            console.log('  - Target matches:', entry.target === allSectionElements[triggerSectionIndex]);
-                            console.log('  - Popup already triggered:', popupTriggered);
+                            window.dispatchEvent(customEvent);
                         }
                     }
                 });
@@ -100,7 +82,6 @@ export function useCaseStudyNavigation(sections: any[]) {
 
                     // Only trigger popup if clicking 3rd navigation tab (Impact) specifically
                     if (navLink === triggerNavLink && !popupTriggered) {
-                        console.log('✅ Impact nav tab clicked, triggering popup');
                         setPopupTriggered(true);
                         
                         // Dispatch custom event for popup component

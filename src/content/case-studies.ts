@@ -29,6 +29,13 @@ export const caseStudiesContent = {
             tags: ["Salesforce", "Applied AI", "Banking"],
         },
         {
+            title: "<span class='text-[#3B82F6]'>Intelligent Claims Orchestration</span> with Claim Pioneer",
+            image: "/images/Case_Studies/casestudy2.png",
+            description: "An AI-powered claims orchestration platform that connects assignment, field execution, customer engagement, and financial workflows.",
+            href: "/insights/case-studies/intelligent-claims-orchestration-with-claim-pioneer",
+            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
+        },
+        {
             title: "<span class='text-[#3B82F6]'>Autonomous Freight Operations</span> with GenAI",
             image: "/images/Case_Studies/Optimized/cs-4.png",
             description: "Reduced load creation time by 98% and costs by 99.5% using GenAI-driven automation.",
@@ -48,6 +55,13 @@ export const caseStudiesContent = {
             description: "Delivered a full website migration in 2 months with zero downtime and zero data loss without backend access.",
             href: "/insights/case-studies/aem-migration",
             tags: ["Microsoft", "Digital Transformation", "Wealth & Asset Management"],
+        },
+        {
+            title: "<span class='text-[#3B82F6]'>Transforming Claims Operations</span> with Intelligent Assignment",
+            image: "/images/Case_Studies/casestudy4.png",
+            description: "Automated assignment and real-time operational visibility for faster, more controlled claims management.",
+            href: "/insights/case-studies/transforming-claims-operations-with-intelligent-assignment",
+            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
         },
         {
             title: "<span class='text-[#3B82F6]'>Frictionless Customer Authentication</span> for Secure Banking",
@@ -78,6 +92,13 @@ export const caseStudiesContent = {
             tags: ["AWS", "Data Intelligence", "Banking"],
         },
         {
+            title: "<span class='text-[#3B82F6]'>Streamlining Field Claims</span> with Mobile-First Execution",
+            image: "/images/Case_Studies/casestudy3.png",
+            description: "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
+            href: "/insights/case-studies/streamlining-field-claims-with-mobile-first-execution",
+            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
+        },
+        {
             title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span> Platform Transformation",
             image: "/images/Case_Studies/Optimized/cs-10.png",
             description: "Saved $500K annually and improved performance by 5× with serverless AWS modernization.",
@@ -104,6 +125,13 @@ export const caseStudiesContent = {
             description: "Enabled faster, smarter customer support through unified service operations on Salesforce.",
             href: "/insights/case-studies/scaling-service-operations-with-salesforce",
             tags: ["Salesforce", "Enterprise Platforms", "Banking"],
+        },
+        {
+            title: "<span class='text-[#3B82F6]'>Transforming Claims</span> with a Connected Customer Experience",
+            image: "/images/Case_Studies/casestudy1.png",
+            description: "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
+            href: "/insights/case-studies/transforming-claims-with-a-connected-customer-experience",
+            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
         },
         {
             title: "<span class='text-[#3B82F6]'>Elevating Member Engagement</span> in Modern Banking Operations",

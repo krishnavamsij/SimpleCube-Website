@@ -1574,8 +1574,6 @@ export default function CareersPage() {
 
     // Validate form
     const isValid = validateForm();
-    console.log('Form validation result:', isValid);
-    console.log('Form errors:', errors);
 
     if (!isValid) {
       // Scroll to first error

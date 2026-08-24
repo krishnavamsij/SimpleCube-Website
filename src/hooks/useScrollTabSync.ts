@@ -38,7 +38,6 @@ export function useScrollTabSync({
   // Reset state when pathname changes (user navigated to different page)
   useEffect(() => {
     // User navigated to a new page - reset everything
-    console.log('🔄 Page changed - resetting popup state');
     setHasTriggeredThirdSection(false);
     setActiveTabIndex(0);
     hasUserInteractedRef.current = false;
@@ -108,7 +107,6 @@ export function useScrollTabSync({
             !hasTriggeredThirdSection &&
             hasUserInteractedRef.current
           ) {
-            console.log('✨ Third section reached - triggering popup');
             setHasTriggeredThirdSection(true);
             onThirdSectionReached?.();
             
@@ -141,7 +139,6 @@ export function useScrollTabSync({
 
   // Manual reset function
   const resetThirdSectionTrigger = useCallback(() => {
-    console.log('🔄 Manually resetting popup trigger');
     setHasTriggeredThirdSection(false);
   }, []);
 

@@ -3058,5 +3058,546 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 }
             }
         ]
+    },
+    "intelligent-claims-orchestration-with-claim-pioneer": {
+        "slug": "intelligent-claims-orchestration-with-claim-pioneer",
+        "eyebrow": "Insurance & Data Intelligence",
+        "title": "Intelligent Claims Orchestration<br>\n      <em>with Claim Pioneer</em>",
+        "summary": "An AI-powered claims orchestration platform that connects assignment, field execution, customer engagement, and financial workflows.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "40%",
+                "label": "Faster Claim<br>Settlement",
+                "sub": ""
+            },
+            {
+                "icon": "📈",
+                "value": "30%",
+                "label": "Higher Claim<br>Intake",
+                "sub": ""
+            },
+            {
+                "icon": "🎯",
+                "value": "25%",
+                "label": "Improved Adjuster<br>Productivity",
+                "sub": ""
+            },
+            {
+                "icon": "💰",
+                "value": "20%",
+                "label": "Lower Agency<br>Operational Cost",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Insurance claims operations are under pressure to move faster while managing growing claim volumes, distributed field teams, demanding service levels, and rising customer expectations.</p>\n<p>Yet many field claims operations still depend on spreadsheets, phone calls, messages, and disconnected systems to coordinate assignments and move claims forward.</p>\n<p>Adjuster availability and workload can be difficult to track in real time. Assignments may require manual intervention. Scheduling creates unnecessary back-and-forth. Field assessments, QA, estimation, invoicing, and payments often operate as disconnected steps.</p>\n<p>When catastrophe events drive claim volumes higher, these challenges become even more difficult to manage.</p>\n<p>The result is an operating model where teams spend too much time coordinating individual claims and not enough time managing the operation strategically.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p><strong style=\"color:#111827; font-weight:600;\">One intelligent platform for the entire claims journey</strong></p><p style=\"margin-top:8px; margin-bottom:16px;\">Hyniva built Claim Pioneer, an AI-powered claims orchestration platform that connects agencies, adjusters, and policyholders through one intelligent ecosystem.</p><p style=\"margin-bottom:16px;\">Instead of automating isolated tasks, Claim Pioneer coordinates the critical workflows that move a claim from intake through assessment, QA, submission, payment, and closure.</p><p style=\"margin-bottom:16px;\">Key capabilities include:</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Intelligent Claim Assignment",
+                            "desc": "Incoming claims are evaluated against factors such as adjuster availability, specialization, geographic proximity, workload, performance, SLA urgency, and other operational considerations. The platform identifies suitable adjusters and initiates the assignment process through real-time notifications."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Predictive CAT Response",
+                            "desc": "Weather intelligence and predictive surge capabilities help agencies prepare for catastrophe-driven claim volumes. Agencies can proactively expand field capacity and reach local adjusters and brokers when additional resources are needed."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Intelligent Scheduling & Route Optimization",
+                            "desc": "Confirmed appointments can be locked into schedules while route optimization helps adjusters manage their daily field activity. Customers and agencies can also gain visibility into the adjuster's journey."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Mobile-First Field Execution",
+                            "desc": "Adjusters can receive and accept assignments, manage routes, communicate with customers and agencies, capture photos and notes, update claim status, and submit assessment information directly through the mobile experience."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Automated Workflow Orchestration",
+                            "desc": "Claim intake, appointment coordination, QA assignment, SLA tracking, notifications, estimation, documentation, and payment workflows move through a connected process, reducing the need for manual intervention."
+                        },
+                        {
+                            "num": "6",
+                            "title": "Real-Time Operational Intelligence",
+                            "desc": "Centralized dashboards provide visibility into claim status, adjuster performance, workload, assignment distribution, SLA adherence, customer feedback, and financial activity."
+                        },
+                        {
+                            "num": "7",
+                            "title": "Connected Customer Communication",
+                            "desc": "Automated SMS and email notifications, appointment coordination, live adjuster tracking, and claim status updates keep policyholders informed throughout the journey."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "implementation",
+                "title": "Implementation Approach",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Claim Pioneer brings the entire field claims workflow into one connected operating model.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Claim Intake",
+                            "desc": "Claims are automatically ingested and prepared for assignment."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Smart Assignment",
+                            "desc": "The platform identifies suitable adjusters and initiates the assignment through real-time notifications."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Pre-Visit Coordination",
+                            "desc": "Customers receive appointment information, adjuster details, and live route visibility."
+                        },
+                        {
+                            "num": "4",
+                            "title": "On-Site Assessment",
+                            "desc": "Adjusters manage routes, capture photos and notes, update claim status, and submit assessment information through the mobile experience."
+                        },
+                        {
+                            "num": "5",
+                            "title": "QA & Estimation",
+                            "desc": "QA reviewers are assigned based on availability, while estimates, invoices, documents, and follow-ups move through the connected workflow."
+                        },
+                        {
+                            "num": "6",
+                            "title": "Submission & Payment",
+                            "desc": "Final estimates, documentation, invoices, and payment activities are coordinated through the platform."
+                        },
+                        {
+                            "num": "7",
+                            "title": "Claim Closure",
+                            "desc": "Carrier approval, agency payment, and claim closure complete the journey."
+                        }
+                    ],
+                    "footer": "<div class=\"cs-content mt-6\"><p>The platform is designed for no-code configuration, open APIs, event-based integration, scalable architecture, document intelligence, real-time analytics, and multi-entity operations.</p></div>"
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>The transformation extends across the ecosystem: agencies gain control and visibility, adjusters gain a more structured way to manage their work, and policyholders gain a more transparent claims experience.</p>",
+                    "items": [
+                        {
+                            "value": "40%",
+                            "label": "Faster Claim Settlement",
+                            "desc": "A connected claims lifecycle helps move claims through assessment, review, submission, and closure faster."
+                        },
+                        {
+                            "value": "30%",
+                            "label": "Higher Claim Intake",
+                            "desc": "Greater operational capacity enables agencies to handle increased claim volumes while improving revenue potential."
+                        },
+                        {
+                            "value": "25%",
+                            "label": "Improved Adjuster Productivity",
+                            "desc": "Intelligent assignment, mobile execution, scheduling, and route visibility help adjusters spend more time completing claims."
+                        },
+                        {
+                            "value": "20%",
+                            "label": "Lower Agency Operational Cost",
+                            "desc": "Automation reduces the manual effort required to coordinate claims and manage repetitive operational tasks."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>Looking ahead, Claim Pioneer continues to expand its intelligence capabilities across the claims ecosystem:</p>",
+                    "items": [
+                        "Advanced AI-assisted damage estimation",
+                        "Predictive claims routing & fraud detection",
+                        "Automated multi-carrier API integrations",
+                        "Continuous machine learning SLA optimization"
+                    ]
+                }
+            }
+        ]
+    },
+    "transforming-claims-operations-with-intelligent-assignment": {
+        "slug": "transforming-claims-operations-with-intelligent-assignment",
+        "eyebrow": "Insurance & Data Intelligence",
+        "title": "Transforming Claims Operations<br>\n      <em>with Intelligent Assignment</em>",
+        "summary": "Automated assignment and real-time operational visibility for faster, more controlled claims management.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "Reduced",
+                "label": "Manual<br>Coordination",
+                "sub": ""
+            },
+            {
+                "icon": "📈",
+                "value": "Improved",
+                "label": "Adjuster<br>Utilization",
+                "sub": ""
+            },
+            {
+                "icon": "🛡️",
+                "value": "Stronger",
+                "label": "SLA<br>Adherence",
+                "sub": ""
+            },
+            {
+                "icon": "🌟",
+                "value": "Higher",
+                "label": "Customer<br>Satisfaction",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>For claims operations teams, assigning a claim is rarely as simple as finding an available adjuster.</p>\n<p>The team needs to consider availability, skill, location, workload, performance, and SLA requirements while also keeping track of what is happening across the broader operation.</p>\n<p>Traditionally, much of this coordination happens through spreadsheets, calls, messages, and manual follow-ups.</p>\n<p>As volumes increase, the lack of a real-time operational view makes it difficult to identify overloaded adjusters, unused capacity, delayed claims, or emerging SLA risks.</p>\n<p>QA reviews, estimates, invoices, and payments introduce additional handoffs, while CAT events can quickly overwhelm a process built around manual coordination.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"We're constantly struggling to assign claims efficiently — there's no visibility into who's free, who's overloaded, or how we're performing overall.\"</blockquote>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Claim Pioneer gives claims operations teams a centralized environment to manage the operational side of the claims business.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Intelligent Assignment",
+                            "desc": "New claims are evaluated against available adjusters based on operational criteria such as availability, skill, location, workload, and performance. The platform identifies suitable resources and initiates the assignment process through real-time notifications."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Centralized Operations Dashboard",
+                            "desc": "Instead of relying on calls or manually compiled reports, operations teams can monitor assignments, workloads, performance, claim status, SLAs, and customer feedback from a single dashboard."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Automated QA & Estimation",
+                            "desc": "Once a field assessment is completed, the claim moves into the next stage without requiring the operations team to manually coordinate every handoff. QA reviewers can be assigned based on availability, while estimates, invoices, documents, and follow-ups move through the workflow."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Financial Visibility",
+                            "desc": "Carrier invoices, adjuster payments, commissions, and related financial information are brought into the same operational environment, connecting financial activity with claims performance."
+                        },
+                        {
+                            "num": "5",
+                            "title": "CAT Capacity Management",
+                            "desc": "Weather intelligence and CAT response capabilities help agencies prepare for spikes in claim volume and expand available field capacity when needed."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>Claim Pioneer changes the role of the operations team from constantly chasing updates to actively managing the health of the claims operation.</p>",
+                    "items": [
+                        {
+                            "value": "⚡",
+                            "label": "Reduced Manual Coordination",
+                            "desc": "Automated assignment, notifications, QA workflows, and operational handoffs reduce repetitive coordination."
+                        },
+                        {
+                            "value": "📈",
+                            "label": "Improved Adjuster Utilization",
+                            "desc": "Real-time visibility into availability and workload helps distribute assignments more effectively."
+                        },
+                        {
+                            "value": "🛡️",
+                            "label": "Stronger SLA Adherence",
+                            "desc": "Centralized monitoring makes it easier to identify delays and address operational bottlenecks before they affect service levels."
+                        },
+                        {
+                            "value": "20%",
+                            "label": "Lower Agency Operational Cost",
+                            "desc": "Reducing manual tasks across the operation helps lower the cost of managing claims."
+                        }
+                    ],
+                    "footer": "<div class=\"cs-content mt-6\"><p>The result is an operation that can manage more complexity without requiring the same level of manual oversight. Moved from reactive coordination to proactive management.</p></div>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>The next opportunity is to turn operational data into increasingly proactive decision-making.</p>\n<p>Cross-agency analytics can help leadership compare adjuster performance, regional responsiveness, workload distribution, and SLA trends.</p>\n<p>As Claim Pioneer extends its intelligence capabilities, operations teams can move beyond monitoring what has happened toward identifying what requires attention before it becomes a bottleneck.</p>\n<p>The goal is an operation that continuously learns, adapts, and improves.</p>",
+                    "items": [
+                        "Proactive Bottleneck Detection",
+                        "Cross-Agency Operational Analytics",
+                        "Automated Capacity Optimization",
+                        "Predictive SLA Guardrails"
+                    ]
+                }
+            }
+        ]
+    },
+    "streamlining-field-claims-with-mobile-first-execution": {
+        "slug": "streamlining-field-claims-with-mobile-first-execution",
+        "eyebrow": "Insurance & Product Engineering",
+        "title": "Streamlining Field Claims<br>\n      <em>with Mobile-First Execution</em>",
+        "summary": "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
+        "metrics": [
+            {
+                "icon": "📈",
+                "value": "25%",
+                "label": "Higher<br>Productivity",
+                "sub": ""
+            },
+            {
+                "icon": "⏱️",
+                "value": "Fewer",
+                "label": "Missed<br>Schedules",
+                "sub": ""
+            },
+            {
+                "icon": "🎯",
+                "value": "Better",
+                "label": "Workload<br>Distribution",
+                "sub": ""
+            },
+            {
+                "icon": "👁️",
+                "value": "Clearer",
+                "label": "Earnings<br>Visibility",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>Field adjusters are responsible for moving claims from assignment to completed assessment, but the tools supporting that work often leave them managing the coordination themselves.</p>\n<p>Some days bring more assignments than they can reasonably handle. Other days bring limited work.</p>\n<p>Schedules can change through calls and messages, appointments can overlap, and communication with agencies and customers happens across separate channels.</p>\n<p>Once in the field, adjusters also need to capture photos, notes, assessment information, and claim updates while keeping the agency informed.</p>\n<p>And when working across multiple agencies, understanding assignments, payments, and earnings can become another administrative task.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"Some weeks I'm overloaded, others I have barely any assignments — and I'm left guessing what's next.\"</blockquote>\n<p>The need was not simply for more assignments. It was for better-matched work and a more predictable way to execute it.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Claim Pioneer brings the adjuster's core activities into one mobile-first experience.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Intelligent Assignment",
+                            "desc": "Claims are matched with adjusters based on availability, location, skill, workload, and performance. Adjusters receive assignments in real time and can accept or decline them directly."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Smart Scheduling",
+                            "desc": "Confirmed appointments can be locked into the calendar, reducing overlapping assignments and avoidable scheduling conflicts. Customers can also select available time slots or request alternate appointments."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Route & Location Sharing",
+                            "desc": "Adjusters can manage their routes through the mobile experience and share live location information with customers and the agency."
+                        },
+                        {
+                            "num": "4",
+                            "title": "On-Site Assessment",
+                            "desc": "The mobile app allows adjusters to capture photos, add notes, update claim status, prepare assessment information, and submit their work directly from the field."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Earnings & Assignment Visibility",
+                            "desc": "Adjusters can view assignment history, payments, and earnings through their dashboard, providing greater visibility into their work and performance."
+                        },
+                        {
+                            "num": "6",
+                            "title": "Multi-Agency Access",
+                            "desc": "Adjusters working with multiple agencies can manage their relationships and assignments through a single login."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>Claim Pioneer gives adjusters greater control over how they receive, schedule, execute, and track their work.</p>",
+                    "items": [
+                        {
+                            "value": "25%",
+                            "label": "Higher Productivity",
+                            "desc": "Better-matched assignments, streamlined field execution, and reduced coordination help adjusters spend more time completing claims."
+                        },
+                        {
+                            "value": "⏱️",
+                            "label": "Fewer Missed Schedules",
+                            "desc": "Confirmed appointments and calendar locking reduce avoidable overlaps and scheduling conflicts."
+                        },
+                        {
+                            "value": "🎯",
+                            "label": "Better Workload Distribution",
+                            "desc": "Assignment intelligence helps align claims with adjuster availability, location, coverage, and capacity."
+                        },
+                        {
+                            "value": "💰",
+                            "label": "Increased Earnings Visibility",
+                            "desc": "A unified dashboard provides clearer access to assignment history, payments, and earnings."
+                        }
+                    ],
+                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"Now I only get the jobs I can actually handle. I can plan my day and earn more.\"</blockquote><div class=\"cs-content mt-4\"><p>The result is a field experience where adjusters spend less time coordinating the work and more time completing it.</p></div>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>The next evolution is to bring intelligence directly into the assessment itself.</p>\n<p>AI-assisted analysis of field photos and richer assessment intelligence can help adjusters capture better information while enabling downstream teams to make faster decisions.</p>\n<p>Combined with the existing assignment, scheduling, route, and analytics capabilities, the field workforce can become a more connected source of real-time claims intelligence.</p>\n<p>The adjuster moves from being a disconnected endpoint to an intelligent participant in the claims ecosystem.</p>",
+                    "items": [
+                        "AI-Assisted Field Photo Analysis",
+                        "Real-Time Claims Intelligence",
+                        "Automated Damage Tagging",
+                        "Offline Mobile Assessment Sync"
+                    ]
+                }
+            }
+        ]
+    },
+    "transforming-claims-with-a-connected-customer-experience": {
+        "slug": "transforming-claims-with-a-connected-customer-experience",
+        "eyebrow": "Insurance & Customer Experience",
+        "title": "Transforming Claims<br>\n      <em>with a Connected Customer Experience</em>",
+        "summary": "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
+        "metrics": [
+            {
+                "icon": "⚡",
+                "value": "40%",
+                "label": "Faster Claim<br>Resolution",
+                "sub": ""
+            },
+            {
+                "icon": "⏱️",
+                "value": "Reduced",
+                "label": "Claim<br>Wait Time",
+                "sub": ""
+            },
+            {
+                "icon": "📍",
+                "value": "Real-Time",
+                "label": "Claim<br>Visibility",
+                "sub": ""
+            },
+            {
+                "icon": "🌟",
+                "value": "Better",
+                "label": "NPS & Customer<br>Outcomes",
+                "sub": ""
+            }
+        ],
+        "sections": [
+            {
+                "id": "challenge",
+                "title": "Challenge",
+                "type": "text",
+                "content": "<p>For a policyholder, the stress of a claim doesn't end when the claim is submitted.</p>\n<p>Customers need to know whether their claim has been received, when an adjuster will arrive, who is handling the assessment, and what happens next.</p>\n<p>Without proactive communication, customers are often left waiting for appointment confirmation or calling the agency for basic updates.</p>\n<p>Traditional processes can create delayed scheduling, unclear next steps, limited arrival visibility, and unnecessary follow-up.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"I've already gone through the stress of damage. Now I'm stuck waiting, guessing when someone will show up — or if they even will.\"</blockquote>\n<p>The opportunity was to make the claims experience more transparent without adding more work for the agency.</p>"
+            },
+            {
+                "id": "solution",
+                "title": "Solution",
+                "type": "approach-list",
+                "content": {
+                    "body": "<p>Claim Pioneer brings customer communication directly into the claims workflow, replacing uncertainty with timely information.</p>",
+                    "items": [
+                        {
+                            "num": "1",
+                            "title": "Automated Appointment Alerts",
+                            "desc": "Customers receive SMS and email notifications with available appointment times and confirmation details."
+                        },
+                        {
+                            "num": "2",
+                            "title": "Flexible Rescheduling",
+                            "desc": "If the original appointment doesn't work, customers can request an alternate time based on available slots."
+                        },
+                        {
+                            "num": "3",
+                            "title": "Live Adjuster Tracking",
+                            "desc": "Customers receive a live tracking link so they can see when the adjuster is on the way instead of calling the agency for an ETA."
+                        },
+                        {
+                            "num": "4",
+                            "title": "Instant Status Updates",
+                            "desc": "Claim progress and assessment updates are communicated proactively, keeping the customer informed as the claim moves forward."
+                        },
+                        {
+                            "num": "5",
+                            "title": "Direct Communication",
+                            "desc": "Chat and call options allow customers to coordinate access directly with the adjuster when needed."
+                        }
+                    ],
+                    "footer": "<div class=\"cs-content mt-6\"><p>The result is a customer experience designed around visibility rather than waiting.</p></div>"
+                }
+            },
+            {
+                "id": "impact",
+                "title": "Impact",
+                "type": "impact-strip",
+                "content": {
+                    "body": "<p>Claim Pioneer reduces the uncertainty that typically surrounds the field assessment experience.</p>",
+                    "items": [
+                        {
+                            "value": "40%",
+                            "label": "Faster Claim Resolution",
+                            "desc": "A more connected claims journey helps move the process toward resolution faster."
+                        },
+                        {
+                            "value": "⏱️",
+                            "label": "Reduced Claim Wait Time",
+                            "desc": "Faster appointment coordination and proactive communication reduce unnecessary waiting between key stages."
+                        },
+                        {
+                            "value": "📍",
+                            "label": "Real-Time Claim Visibility",
+                            "desc": "Customers can see appointment information, claim updates, and adjuster arrival status without repeatedly contacting the agency."
+                        },
+                        {
+                            "value": "🌟",
+                            "label": "Better NPS & Customer Outcomes",
+                            "desc": "A more transparent and responsive experience helps build trust throughout the claims journey."
+                        }
+                    ],
+                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"I got the appointment, live tracking, and confirmation — all without a single follow-up call.\"</blockquote>"
+                }
+            },
+            {
+                "id": "future",
+                "title": "Road Ahead",
+                "type": "future-tags",
+                "content": {
+                    "body": "<p>The next step in the customer journey is greater self-service.</p>\n<p>Claim Pioneer is positioned to extend customer engagement through self-service claim experiences and AI-powered support, giving policyholders more ways to access information and interact with their claim without relying on manual assistance.</p>\n<p>As more of the journey becomes digital, policyholders can move from simply receiving updates to actively managing their claims experience.</p>\n<p>The goal is a claims journey where customers always know where they stand and what happens next.</p>",
+                    "items": [
+                        "Self-Service Policyholder Portal",
+                        "AI-Powered Customer Assistant",
+                        "Instant Digital Claim Verification",
+                        "Automated Settlement Notifications"
+                    ]
+                }
+            }
+        ]
     }
 };

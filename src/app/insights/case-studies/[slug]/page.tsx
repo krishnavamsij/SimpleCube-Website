@@ -355,6 +355,7 @@ export default function CaseStudyDetailPage() {
                 summary={study.summary}
                 metrics={study.metrics}
                 summaryMaxWidth={slug === 'modernizing-case-management-for-a-community-healthcare-provider-stop' ? 'max-w-[900px]' : slug === 'scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation' ? 'max-w-[900px]' : slug === 'aem-migration' ? 'max-w-[900px]' : slug === 'eazyschool-admin' ? 'max-w-[780px]' : undefined}
+                theme={study.eyebrow.toLowerCase().includes("insurance") ? "insurance" : "default"}
             />
 
             {/* ── Content Navigator ── */}

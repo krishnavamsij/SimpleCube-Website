@@ -122,11 +122,6 @@ const ses = new SESClient({
 
 export async function POST(request: Request) {
   try {
-    console.log("=== CAREERS EMAIL REQUEST START ===");
-    console.log("Timestamp:", new Date().toISOString());
-    console.log("Region:", REGION);
-    console.log("Sender: ravi@hyniva.com");
-
     const sourceEmail = getSesSourceEmail();
     if (!sourceEmail) {
       console.error("❌ SES_SOURCE_EMAIL is not configured");
@@ -135,8 +130,6 @@ export async function POST(request: Request) {
         { status: 500 },
       );
     }
-
-    console.log("✅ Source email configured:", sourceEmail);
 
     const formData = await request.formData();
     const name = formData.get("name") as string;
@@ -149,19 +142,6 @@ export async function POST(request: Request) {
     const jobLocation = formData.get("jobLocation") as string; // Job posting location
     const jobRegion = formData.get("jobRegion") as string; // Job region (us/india)
     const resumeFile = formData.get("resume") as File | null;
-
-    console.log("Form data received:", {
-      name: name ? "✅" : "❌",
-      email: email ? "✅" : "❌",
-      role: role ? "✅" : "❌",
-      jobId: jobId ? "✅" : "❌",
-      ctc: ctc ? "✅" : "❌",
-      skills: skills ? "✅" : "❌",
-      applicantLocation: location ? "✅" : "❌",
-      jobLocation: jobLocation ? "✅" : "❌",
-      jobRegion: jobRegion ? "✅" : "❌",
-      resume: resumeFile ? "✅" : "❌ (optional)",
-    });
 
     if (!name || !email || !role || !ctc || !skills || !location) {
       console.warn("❌ Validation failed: Missing required fields");
@@ -190,12 +170,6 @@ export async function POST(request: Request) {
           { status: 400 },
         );
       }
-
-      console.log("Resume file received:", {
-        name: resumeFile.name,
-        size: `${(resumeFile.size / 1024).toFixed(2)} KB`,
-        type: resumeFile.type,
-      });
 
       const fileExtension = resumeFile.name.split(".").pop()?.toLowerCase();
       if (!fileExtension || !ALLOWED_EXTENSIONS.has(fileExtension)) {
@@ -237,12 +211,6 @@ export async function POST(request: Request) {
         content: base64,
         mimeType,
       };
-
-      console.log("✅ Resume attachment prepared:", {
-        fileName: attachmentData.name,
-        mimeType: attachmentData.mimeType,
-        contentLength: `${(attachmentData.content.length / 1024).toFixed(2)} KB`,
-      });
     }
 
     const isIndia = isIndiaLocation(jobLocation || "", jobRegion || "");
@@ -250,16 +218,6 @@ export async function POST(request: Request) {
     const subject = isIndia
       ? `[Job Application - India] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
       : `[Job Application - Onsite] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
-
-    console.log("Email routing:", {
-      jobLocation,
-      jobRegion,
-      applicantLocation: location,
-      applicantRole: role,
-      isIndiaJob: isIndia,
-      senderEmail: sourceEmail,
-      targetEmail,
-    });
 
     const htmlContent = `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; color: #333;">
@@ -333,8 +291,6 @@ export async function POST(request: Request) {
       `Reply to the applicant at ${email}`,
     ].join("\n");
 
-    console.log("Attempting to send email via SES...");
-    
     let response;
     try {
       if (attachmentData) {
@@ -353,7 +309,6 @@ export async function POST(request: Request) {
             },
           }),
         );
-        console.log("✅ Email with attachment sent successfully");
       } else {
         response = await ses.send(
           new SendEmailCommand({
@@ -371,11 +326,7 @@ export async function POST(request: Request) {
             ReplyToAddresses: [email],
           }),
         );
-        console.log("✅ Email without attachment sent successfully");
       }
-
-      console.log("SES Response ID:", response.MessageId);
-      console.log("=== CAREERS EMAIL REQUEST SUCCESS ===\n");
 
       return NextResponse.json({ 
         success: true,

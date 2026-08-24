@@ -72,6 +72,7 @@ interface CaseStudyHeroProps {
     summary: string;
     metrics: CaseStudyMetric[];
     summaryMaxWidth?: string;
+    theme?: "insurance" | "default";
 }
 
 const iconMap: Record<string, any> = {
@@ -164,7 +165,7 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
     );
 };
 
-export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth, theme = "default" }: CaseStudyHeroProps) {
     return (
         <section className="relative z-40 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
             {/* Reference-accurate Background - Standardized with Contact Us */}
@@ -239,8 +240,8 @@ export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: Case
                                     {/* Top Icon - Single Line */}
                                     <StandardIcon icon={metric.icon} className="mb-2 sm:mb-3 md:mb-4" />
                                     
-                                    {/* Main Number - Centered - Force 1 line with smaller font */}
-                                    <div className="text-[15px] xs:text-[17px] sm:text-[22px] lg:text-[28px] font-bold text-white tracking-tight leading-tight mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 text-center px-1 break-words overflow-hidden">
+                                    {/* Main Number - Centered - Uniform font size and min-height to ensure perfect horizontal alignment of dividers/labels */}
+                                    <div className="text-[15px] xs:text-[17px] sm:text-[22px] lg:text-[28px] font-bold text-white tracking-tight leading-none mb-2 sm:mb-3 font-display group-hover:text-[#63c2ff] group-hover:drop-shadow-[0_0_30px_#63c2ff80] transition-all duration-300 text-center px-1 break-words overflow-hidden min-h-[1.5em] flex items-center justify-center">
                                         {metric.value}
                                     </div>
                                     
