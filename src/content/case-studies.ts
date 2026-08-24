@@ -93,7 +93,7 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Streamlining Field Claims</span> with Mobile-First Execution",
-            image: "/images/Case_Studies/casestudy3.png",
+            image: "/images/Case_Studies/casestudy1.png",
             description: "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
             href: "/insights/case-studies/streamlining-field-claims-with-mobile-first-execution",
             tags: ["Product Engineering", "Insurance", "Data Intelligence"],
@@ -128,7 +128,7 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Transforming Claims</span> with a Connected Customer Experience",
-            image: "/images/Case_Studies/casestudy1.png",
+            image: "/images/Case_Studies/casestudy3.png",
             description: "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
             href: "/insights/case-studies/transforming-claims-with-a-connected-customer-experience",
             tags: ["Product Engineering", "Insurance", "Data Intelligence"],

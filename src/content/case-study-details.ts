@@ -3063,7 +3063,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "intelligent-claims-orchestration-with-claim-pioneer",
         "eyebrow": "Insurance & Data Intelligence",
         "title": "Intelligent Claims Orchestration<br>\n      <em>with Claim Pioneer</em>",
-        "summary": "An AI-powered claims orchestration platform that connects assignment, field execution, customer engagement, and financial workflows.",
+        "summary": "How Hyniva transformed fragmented field claims into an intelligent, connected journey from intake to resolution.",
         "metrics": [
             {
                 "icon": "⚡",
@@ -3238,7 +3238,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "transforming-claims-operations-with-intelligent-assignment",
         "eyebrow": "Insurance & Data Intelligence",
         "title": "Transforming Claims Operations<br>\n      <em>with Intelligent Assignment</em>",
-        "summary": "Automated assignment and real-time operational visibility for faster, more controlled claims management.",
+        "summary": "How Claim Pioneer gave claims operations teams real-time control over assignment, workload, SLAs, performance, and financial activity.",
         "metrics": [
             {
                 "icon": "⚡",
@@ -3344,12 +3344,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "type": "future-tags",
                 "content": {
                     "body": "<p>The next opportunity is to turn operational data into increasingly proactive decision-making.</p>\n<p>Cross-agency analytics can help leadership compare adjuster performance, regional responsiveness, workload distribution, and SLA trends.</p>\n<p>As Claim Pioneer extends its intelligence capabilities, operations teams can move beyond monitoring what has happened toward identifying what requires attention before it becomes a bottleneck.</p>\n<p>The goal is an operation that continuously learns, adapts, and improves.</p>",
-                    "items": [
-                        "Proactive Bottleneck Detection",
-                        "Cross-Agency Operational Analytics",
-                        "Automated Capacity Optimization",
-                        "Predictive SLA Guardrails"
-                    ]
+                    "items": []
                 }
             }
         ]
@@ -3358,7 +3353,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "streamlining-field-claims-with-mobile-first-execution",
         "eyebrow": "Insurance & Product Engineering",
         "title": "Streamlining Field Claims<br>\n      <em>with Mobile-First Execution</em>",
-        "summary": "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
+        "summary": "How Claim Pioneer gave field adjusters a connected mobile experience for assignments, schedules, routes, assessments, and earnings.",
         "metrics": [
             {
                 "icon": "📈",
@@ -3469,12 +3464,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "type": "future-tags",
                 "content": {
                     "body": "<p>The next evolution is to bring intelligence directly into the assessment itself.</p>\n<p>AI-assisted analysis of field photos and richer assessment intelligence can help adjusters capture better information while enabling downstream teams to make faster decisions.</p>\n<p>Combined with the existing assignment, scheduling, route, and analytics capabilities, the field workforce can become a more connected source of real-time claims intelligence.</p>\n<p>The adjuster moves from being a disconnected endpoint to an intelligent participant in the claims ecosystem.</p>",
-                    "items": [
-                        "AI-Assisted Field Photo Analysis",
-                        "Real-Time Claims Intelligence",
-                        "Automated Damage Tagging",
-                        "Offline Mobile Assessment Sync"
-                    ]
+                    "items": []
                 }
             }
         ]
@@ -3483,7 +3473,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
         "slug": "transforming-claims-with-a-connected-customer-experience",
         "eyebrow": "Insurance & Customer Experience",
         "title": "Transforming Claims<br>\n      <em>with a Connected Customer Experience</em>",
-        "summary": "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
+        "summary": "How Claim Pioneer transformed the policyholder journey with faster scheduling, proactive updates, and live adjuster visibility.",
         "metrics": [
             {
                 "icon": "⚡",
@@ -3590,12 +3580,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "type": "future-tags",
                 "content": {
                     "body": "<p>The next step in the customer journey is greater self-service.</p>\n<p>Claim Pioneer is positioned to extend customer engagement through self-service claim experiences and AI-powered support, giving policyholders more ways to access information and interact with their claim without relying on manual assistance.</p>\n<p>As more of the journey becomes digital, policyholders can move from simply receiving updates to actively managing their claims experience.</p>\n<p>The goal is a claims journey where customers always know where they stand and what happens next.</p>",
-                    "items": [
-                        "Self-Service Policyholder Portal",
-                        "AI-Powered Customer Assistant",
-                        "Instant Digital Claim Verification",
-                        "Automated Settlement Notifications"
-                    ]
+                    "items": []
                 }
             }
         ]
