@@ -3223,13 +3223,13 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>Looking ahead, Claim Pioneer continues to expand its intelligence capabilities across the claims ecosystem:</p>",
+                    "body": "<p class=\"lede\">Toward an increasingly autonomous claims operation</p>\n<p>Claim Pioneer is evolving beyond workflow orchestration into deeper claims intelligence.</p>\n<p>Future capabilities include:</p>",
                     "items": [
-                        "Advanced AI-assisted damage estimation",
-                        "Predictive claims routing & fraud detection",
-                        "Automated multi-carrier API integrations",
-                        "Continuous machine learning SLA optimization"
-                    ]
+                        "AI-assisted damage severity scoring from field photos",
+                        "Automated reserve estimation",
+                        "Proactive fraud signal detection"
+                    ],
+                    "footer": "<p>Cross-agency analytics can help organizations identify trends in adjuster performance, regional responsiveness, and SLA adherence.</p>\n<p>On the customer side, self-service claim experiences and AI-powered support can further reduce manual touchpoints throughout the claims journey.</p>\n<p>The vision is a claims operation where intelligence continuously improves how work is assigned, executed, reviewed, and resolved.</p>"
                 }
             }
         ]
@@ -3270,7 +3270,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "challenge",
                 "title": "Challenge",
                 "type": "text",
-                "content": "<p>For claims operations teams, assigning a claim is rarely as simple as finding an available adjuster.</p>\n<p>The team needs to consider availability, skill, location, workload, performance, and SLA requirements while also keeping track of what is happening across the broader operation.</p>\n<p>Traditionally, much of this coordination happens through spreadsheets, calls, messages, and manual follow-ups.</p>\n<p>As volumes increase, the lack of a real-time operational view makes it difficult to identify overloaded adjusters, unused capacity, delayed claims, or emerging SLA risks.</p>\n<p>QA reviews, estimates, invoices, and payments introduce additional handoffs, while CAT events can quickly overwhelm a process built around manual coordination.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"We're constantly struggling to assign claims efficiently — there's no visibility into who's free, who's overloaded, or how we're performing overall.\"</blockquote>"
+                "content": "<p>For claims operations teams, assigning a claim is rarely as simple as finding an available adjuster.</p>\n<p>The team needs to consider availability, skill, location, workload, performance, and SLA requirements while also keeping track of what is happening across the broader operation.</p>\n<p>Traditionally, much of this coordination happens through spreadsheets, calls, messages, and manual follow-ups.</p>\n<p>As volumes increase, the lack of a real-time operational view makes it difficult to identify overloaded adjusters, unused capacity, delayed claims, or emerging SLA risks.</p>\n<p>QA reviews, estimates, invoices, and payments introduce additional handoffs, while CAT events can quickly overwhelm a process built around manual coordination.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; color:#111827;\">\"We're constantly struggling to assign claims efficiently — there's no visibility into who's free, who's overloaded, or how we're performing overall.\"</blockquote>"
             },
             {
                 "id": "solution",
@@ -3385,7 +3385,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "challenge",
                 "title": "Challenge",
                 "type": "text",
-                "content": "<p>Field adjusters are responsible for moving claims from assignment to completed assessment, but the tools supporting that work often leave them managing the coordination themselves.</p>\n<p>Some days bring more assignments than they can reasonably handle. Other days bring limited work.</p>\n<p>Schedules can change through calls and messages, appointments can overlap, and communication with agencies and customers happens across separate channels.</p>\n<p>Once in the field, adjusters also need to capture photos, notes, assessment information, and claim updates while keeping the agency informed.</p>\n<p>And when working across multiple agencies, understanding assignments, payments, and earnings can become another administrative task.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"Some weeks I'm overloaded, others I have barely any assignments — and I'm left guessing what's next.\"</blockquote>\n<p>The need was not simply for more assignments. It was for better-matched work and a more predictable way to execute it.</p>"
+                "content": "<p>Field adjusters are responsible for moving claims from assignment to completed assessment, but the tools supporting that work often leave them managing the coordination themselves.</p>\n<p>Some days bring more assignments than they can reasonably handle. Other days bring limited work.</p>\n<p>Schedules can change through calls and messages, appointments can overlap, and communication with agencies and customers happens across separate channels.</p>\n<p>Once in the field, adjusters also need to capture photos, notes, assessment information, and claim updates while keeping the agency informed.</p>\n<p>And when working across multiple agencies, understanding assignments, payments, and earnings can become another administrative task.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; color:#111827;\">\"Some weeks I'm overloaded, others I have barely any assignments — and I'm left guessing what's next.\"</blockquote>\n<p>The need was not simply for more assignments. It was for better-matched work and a more predictable way to execute it.</p>"
             },
             {
                 "id": "solution",
@@ -3455,7 +3455,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "A unified dashboard provides clearer access to assignment history, payments, and earnings."
                         }
                     ],
-                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"Now I only get the jobs I can actually handle. I can plan my day and earn more.\"</blockquote><div class=\"cs-content mt-4\"><p>The result is a field experience where adjusters spend less time coordinating the work and more time completing it.</p></div>"
+                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; color:#111827;\">\"Now I only get the jobs I can actually handle. I can plan my day and earn more.\"</blockquote><div class=\"cs-content mt-4\"><p>The result is a field experience where adjusters spend less time coordinating the work and more time completing it.</p></div>"
                 }
             },
             {
@@ -3505,7 +3505,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "id": "challenge",
                 "title": "Challenge",
                 "type": "text",
-                "content": "<p>For a policyholder, the stress of a claim doesn't end when the claim is submitted.</p>\n<p>Customers need to know whether their claim has been received, when an adjuster will arrive, who is handling the assessment, and what happens next.</p>\n<p>Without proactive communication, customers are often left waiting for appointment confirmation or calling the agency for basic updates.</p>\n<p>Traditional processes can create delayed scheduling, unclear next steps, limited arrival visibility, and unnecessary follow-up.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"I've already gone through the stress of damage. Now I'm stuck waiting, guessing when someone will show up — or if they even will.\"</blockquote>\n<p>The opportunity was to make the claims experience more transparent without adding more work for the agency.</p>"
+                "content": "<p>For a policyholder, the stress of a claim doesn't end when the claim is submitted.</p>\n<p>Customers need to know whether their claim has been received, when an adjuster will arrive, who is handling the assessment, and what happens next.</p>\n<p>Without proactive communication, customers are often left waiting for appointment confirmation or calling the agency for basic updates.</p>\n<p>Traditional processes can create delayed scheduling, unclear next steps, limited arrival visibility, and unnecessary follow-up.</p>\n<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; color:#111827;\">\"I've already gone through the stress of damage. Now I'm stuck waiting, guessing when someone will show up — or if they even will.\"</blockquote>\n<p>The opportunity was to make the claims experience more transparent without adding more work for the agency.</p>"
             },
             {
                 "id": "solution",
@@ -3571,7 +3571,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "A more transparent and responsive experience helps build trust throughout the claims journey."
                         }
                     ],
-                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; font-style:italic; color:#111827;\">\"I got the appointment, live tracking, and confirmation — all without a single follow-up call.\"</blockquote>"
+                    "footer": "<blockquote style=\"border-left:4px solid #1e90ff; padding-left:16px; margin:24px 0; color:#111827;\">\"I got the appointment, live tracking, and confirmation — all without a single follow-up call.\"</blockquote>"
                 }
             },
             {
