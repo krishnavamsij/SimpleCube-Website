@@ -3223,13 +3223,14 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                 "title": "Road Ahead",
                 "type": "future-tags",
                 "content": {
-                    "body": "<p>Looking ahead, Claim Pioneer continues to expand its intelligence capabilities across the claims ecosystem:</p>",
+                    "lede": "Toward an increasingly autonomous claims operation",
+                    "body": "<p>Claim Pioneer is evolving beyond workflow orchestration into deeper claims intelligence.</p><p>Future capabilities include:</p>",
                     "items": [
-                        "Advanced AI-assisted damage estimation",
-                        "Predictive claims routing & fraud detection",
-                        "Automated multi-carrier API integrations",
-                        "Continuous machine learning SLA optimization"
-                    ]
+                        "AI-assisted damage severity scoring from field photos",
+                        "Automated reserve estimation",
+                        "Proactive fraud signal detection"
+                    ],
+                    "footer": "<p>Cross-agency analytics can help organizations identify trends in adjuster performance, regional responsiveness, and SLA adherence.</p><p>On the customer side, self-service claim experiences and AI-powered support can further reduce manual touchpoints throughout the claims journey.</p><p>The vision is a claims operation where intelligence continuously improves how work is assigned, executed, reviewed, and resolved.</p>"
                 }
             }
         ]
@@ -3315,18 +3316,18 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                     "body": "<p>Claim Pioneer changes the role of the operations team from constantly chasing updates to actively managing the health of the claims operation.</p>",
                     "items": [
                         {
-                            "value": "⚡",
-                            "label": "Reduced Manual Coordination",
+                            "value": "REDUCED",
+                            "label": "Manual Coordination",
                             "desc": "Automated assignment, notifications, QA workflows, and operational handoffs reduce repetitive coordination."
                         },
                         {
-                            "value": "📈",
-                            "label": "Improved Adjuster Utilization",
+                            "value": "IMPROVED",
+                            "label": "Adjuster Utilization",
                             "desc": "Real-time visibility into availability and workload helps distribute assignments more effectively."
                         },
                         {
-                            "value": "🛡️",
-                            "label": "Stronger SLA Adherence",
+                            "value": "STRONGER",
+                            "label": "SLA Adherence",
                             "desc": "Centralized monitoring makes it easier to identify delays and address operational bottlenecks before they affect service levels."
                         },
                         {
@@ -3440,18 +3441,18 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Better-matched assignments, streamlined field execution, and reduced coordination help adjusters spend more time completing claims."
                         },
                         {
-                            "value": "⏱️",
-                            "label": "Fewer Missed Schedules",
+                            "value": "FEWER",
+                            "label": "Missed Schedules",
                             "desc": "Confirmed appointments and calendar locking reduce avoidable overlaps and scheduling conflicts."
                         },
                         {
-                            "value": "🎯",
-                            "label": "Better Workload Distribution",
+                            "value": "BETTER",
+                            "label": "Workload Distribution",
                             "desc": "Assignment intelligence helps align claims with adjuster availability, location, coverage, and capacity."
                         },
                         {
-                            "value": "💰",
-                            "label": "Increased Earnings Visibility",
+                            "value": "INCREASED",
+                            "label": "Earnings Visibility",
                             "desc": "A unified dashboard provides clearer access to assignment history, payments, and earnings."
                         }
                     ],
@@ -3556,18 +3557,18 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "A more connected claims journey helps move the process toward resolution faster."
                         },
                         {
-                            "value": "⏱️",
-                            "label": "Reduced Claim Wait Time",
+                            "value": "REDUCED",
+                            "label": "Claim Wait Time",
                             "desc": "Faster appointment coordination and proactive communication reduce unnecessary waiting between key stages."
                         },
                         {
-                            "value": "📍",
-                            "label": "Real-Time Claim Visibility",
+                            "value": "REAL-TIME",
+                            "label": "Claim Visibility",
                             "desc": "Customers can see appointment information, claim updates, and adjuster arrival status without repeatedly contacting the agency."
                         },
                         {
-                            "value": "🌟",
-                            "label": "Better NPS & Customer Outcomes",
+                            "value": "BETTER",
+                            "label": "NPS & Customer Outcomes",
                             "desc": "A more transparent and responsive experience helps build trust throughout the claims journey."
                         }
                     ],
