@@ -306,7 +306,6 @@ export default function CaseStudyDetailPage() {
             case 'future-tags':
                 return (
                     <div className="space-y-8">
-                        {content.lede && <p className="text-[17px] sm:text-[18px] font-semibold text-[#111827] leading-snug -mt-2 mb-1">{content.lede}</p>}
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="flex flex-wrap gap-3">
                             {content.items.map((item: any, idx: number) => (
