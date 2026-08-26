@@ -154,10 +154,7 @@ export function Footer() {
           </h2>
 
           <p className="text-sm sm:text-base md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-6 sm:mb-12 text-center px-4 sm:px-0">
-            Let&apos;s start with a 30-minute discovery call. No commitment, no sales pitch.{" "}
-            <span className="inline md:block md:mt-1">
-              Just a real conversation about your challenges.
-            </span>
+            Let&apos;s start with a 30-minute discovery call. No commitment, no sales pitch. Just a real conversation about your challenges.
           </p>
 
           <Link

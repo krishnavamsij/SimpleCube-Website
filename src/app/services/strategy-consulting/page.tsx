@@ -413,11 +413,11 @@ function TransformationInAction() {
                                     {/* Content */}
                                     <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
                                         <h3
-                                            className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3"
+                                            className="font-display text-[17px] sm:text-[18px] font-extrabold text-[#030B3B] leading-[1.3] tracking-tight mb-2.5"
                                             dangerouslySetInnerHTML={{ __html: study.title }}
                                         />
 
-                                        <p className="text-[12.5px] font-normal text-slate-500 leading-relaxed mb-6 flex-1">
+                                        <p className="text-[13px] lg:text-[13.5px] font-medium text-slate-500 leading-relaxed mb-6 flex-1">
                                             {study.description}
                                         </p>
 
@@ -563,10 +563,10 @@ function WhyHynivaDT() {
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
                                     <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
                                 </div>
-                                <h3 className="text-[14px] font-black text-[#030B3B] mb-3.5 leading-tight font-display whitespace-pre-line">
+                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display whitespace-pre-line">
                                     {card.title}
                                 </h3>
-                                <p className="text-[11px] lg:text-[11.5px] text-[#030B3B]/75 font-normal leading-[1.6]">
+                                <p className="text-[12px] lg:text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>

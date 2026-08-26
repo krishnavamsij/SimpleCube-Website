@@ -9,7 +9,7 @@ import { Faq } from '@/components/faq'
 import { airaFaqs } from '@/content/product-faqs'
 import { Button } from '@/components/ui/button'
 import { CONTAINER_CLASS } from '@/lib/container-utils'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
     scrollReveal,
     scrollStaggerContainer,
@@ -114,38 +114,12 @@ const impacts = [
 
 
 function AiraHero() {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const videoMobileRef = useRef<HTMLVideoElement>(null);
-
-    useEffect(() => {
-        const playVideos = () => {
-            if (videoRef.current) {
-                videoRef.current.play().catch((err) => {
-                    console.log("Desktop video play failed:", err);
-                });
-            }
-            if (videoMobileRef.current) {
-                videoMobileRef.current.play().catch((err) => {
-                    console.log("Mobile video play failed:", err);
-                });
-            }
-        };
-
-        // Play on mount
-        playVideos();
-
-        // Fallback delay to ensure DOM is fully ready
-        const timer = setTimeout(playVideos, 150);
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <>
             {/* ─────────────────────────────────────────────────────────────
                 MOBILE HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="w-full bg-[#030b1e] pt-[95px] pb-8 px-4 md:hidden overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918] pointer-events-none" />
+            <section className="w-full bg-[#051136] pt-[95px] pb-8 px-4 md:hidden overflow-hidden relative">
                 <div className="w-full max-w-[100%] mx-auto relative z-10">
 
                     <motion.div
@@ -230,30 +204,19 @@ function AiraHero() {
                             variants={fadeInUp}
                             className="mt-10 w-full flex justify-center"
                         >
-                            <video
-                                ref={videoMobileRef}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
+                            <Image
+                                src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.gif"
+                                alt="AIRA Animation"
+                                width={320}
+                                height={320}
+                                unoptimized
                                 className="
                         w-full
                         max-w-[320px]
                         h-auto
-                        aspect-video
                         object-cover
-                        mix-blend-screen
                     "
-                                style={{
-                                    maskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
-                                    WebkitMaskImage: 'radial-gradient(circle closest-side, black 50%, transparent 95%)',
-                                }}
-                            >
-                                <source
-                                    src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.mp4"
-                                    type="video/mp4"
-                                />
-                            </video>
+                            />
                         </motion.div>
 
                     </motion.div>
@@ -263,34 +226,21 @@ function AiraHero() {
             {/* ─────────────────────────────────────────────────────────────
                 DESKTOP & TABLET HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="relative w-full overflow-hidden bg-[#030b1e] hidden md:block">
-                {/* Ambient background glow matching animation */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(30,144,255,0.08)_0%,rgba(3,11,30,1)_75%)] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918] opacity-50 pointer-events-none" />
+            <section className="relative w-full overflow-hidden bg-[#051136] hidden md:block">
 
                 {/* Animation on right side */}
                 <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-2 md:pr-4 lg:pr-8 xl:pr-12 pointer-events-none">
                     <div className="relative w-full max-w-[380px] md:max-w-[460px] lg:max-w-[680px] xl:max-w-[780px] 2xl:max-w-[860px] aspect-square flex items-center justify-center scale-110 lg:scale-120 origin-right translate-x-12 md:translate-x-24 lg:translate-x-[110px] xl:translate-x-[90px]">
-                        {/* Soft subtle ambient glow */}
-                        <div className="absolute inset-2 bg-[#1e90ff]/10 rounded-full blur-3xl pointer-events-none scale-100" />
-
-                        <video
-                            ref={videoRef}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="w-full h-auto aspect-video relative z-10 mix-blend-screen"
-                            style={{
-                                maskImage: 'radial-gradient(circle closest-side, black 60%, transparent 98%)',
-                                WebkitMaskImage: 'radial-gradient(circle closest-side, black 60%, transparent 98%)',
-                            }}
-                        >
-                            <source
-                                src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.mp4"
-                                type="video/mp4"
-                            />
-                        </video>
+                        
+                        <Image
+                            src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.gif"
+                            alt="AIRA Animation"
+                            width={860}
+                            height={860}
+                            unoptimized
+                            priority
+                            className="w-full h-auto relative z-10"
+                        />
                     </div>
                 </div>
 
