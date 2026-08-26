@@ -144,8 +144,9 @@ function AiraHero() {
             {/* ─────────────────────────────────────────────────────────────
                 MOBILE HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="w-full bg-[#000000] pt-[95px] pb-8 px-4 md:hidden overflow-hidden">
-                <div className="w-full max-w-[100%] mx-auto">
+            <section className="w-full bg-[#030b1e] pt-[95px] pb-8 px-4 md:hidden overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918] pointer-events-none" />
+                <div className="w-full max-w-[100%] mx-auto relative z-10">
 
                     <motion.div
                         variants={staggerContainer}
@@ -262,9 +263,10 @@ function AiraHero() {
             {/* ─────────────────────────────────────────────────────────────
                 DESKTOP & TABLET HERO
             ───────────────────────────────────────────────────────────── */}
-            <section className="relative w-full overflow-hidden bg-[#000000] hidden md:block">
+            <section className="relative w-full overflow-hidden bg-[#030b1e] hidden md:block">
                 {/* Ambient background glow matching animation */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(30,144,255,0.08)_0%,rgba(0,0,0,1)_75%)] pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(30,144,255,0.08)_0%,rgba(3,11,30,1)_75%)] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918] opacity-50 pointer-events-none" />
 
                 {/* Animation on right side */}
                 <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-1/2 pr-2 md:pr-4 lg:pr-8 xl:pr-12 pointer-events-none">

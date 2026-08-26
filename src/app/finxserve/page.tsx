@@ -52,14 +52,14 @@ const caseStudies = finxserveCaseStudySlugs
 const heroSlides = [
     {
         image: '/images/products/Third-largestCreditUnion.png',
-        text: 'Large mutual fund company achieved better ROI<br/>using Our Salesforce accelerators',
+        text: 'Large mutual fund company achieved better ROI using Our Salesforce accelerators',
         width: 480,
         height: 530,
         dot: '/images/products/first-1.png'
     },
     {
         image: '/images/products/LargeMutualFund.png',
-        text: 'Third-largest credit union leveraged our Salesforce<br/>expertise to achieve digital transformation goals',
+        text: 'Third-largest credit union leveraged our Salesforce expertise to achieve digital transformation goals',
         width: 480,
         height: 530,
         dot: '/images/products/second-1.png'
@@ -139,10 +139,10 @@ export default function FinxservePage() {
                                     height={97}
                                     className="mb-8 mx-auto md:ml-0"
                                 />
-                                <h1 className="text-2xl sm:text-[26px] md:text-[28px] lg:text-[36px] xl:text-[46px] 2xl:text-[50px] font-bold leading-[1.2] text-white mb-6 tracking-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    <span className="whitespace-nowrap">Frictionless Consumer</span><br />
-                                    Lending Experience.<br />
-                                    Native to Salesforce.
+                                <h1 className="text-2xl sm:text-[26px] md:text-[28px] lg:text-[36px] xl:text-[46px] 2xl:text-[50px] font-bold leading-[1.2] text-white mb-6 tracking-tight font-display" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    <span className="inline-block whitespace-nowrap">Frictionless Consumer</span><br className="hidden sm:block" />{" "}
+                                    <span className="inline-block whitespace-nowrap">Lending Experience.</span><br className="hidden sm:block" />{" "}
+                                    <span className="inline-block whitespace-nowrap">Native to Salesforce.</span>
                                 </h1>
                                 <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[19px] font-normal leading-[1.6] text-white/90 mb-8 max-w-[520px] md:max-w-[460px] lg:max-w-[480px] mx-auto md:mx-0" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                     Designed for lenders who believe experience closes more loans than systems.
@@ -171,7 +171,7 @@ export default function FinxservePage() {
                                 {heroSlides.map((slide, index) => (
                                     <div
                                         key={index}
-                                        className={`absolute inset-0 flex flex-col transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                                        className={`absolute inset-0 flex flex-col transition-all duration-1000 ${index === currentSlide ? 'opacity-100 visible z-10' : 'opacity-0 invisible pointer-events-none z-0'}`}
                                     >
                                         <div className="flex h-full w-full flex-col justify-between px-3 py-2 sm:px-4 md:py-2">
                                             <div className="flex-1 flex items-center justify-center md:items-start md:pt-4">

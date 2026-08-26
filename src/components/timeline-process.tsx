@@ -249,15 +249,23 @@ export function TimelineProcess({
           {steps.map((step, idx) => {
              const isActive = activeStep === idx;
              return (
-               <div key={step.title} className="relative">
+               <div 
+                 key={step.title} 
+                 className="relative cursor-pointer group"
+                 onClick={() => {
+                   setActiveStep(idx);
+                   // Reset the loop timer by triggering the effect
+                   setResumeAnimation(prev => prev + 1);
+                 }}
+               >
                   {/* Node Dot */}
-                  <div className={`absolute -left-[37px] top-2 w-3 h-3 rounded-full transition-all duration-700 ${isActive ? 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] scale-125' : 'bg-white/20'}`} />
+                  <div className={`absolute -left-[37px] top-2 w-3 h-3 rounded-full transition-all duration-700 ${isActive ? 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] scale-125' : 'bg-white/20 group-hover:bg-white/40'}`} />
                   
-                  <div className="text-[10px] font-mono text-white/50 mb-1">{step.num}</div>
-                  <h3 className={`text-xl font-bold mb-3 transition-colors duration-500 ${isActive ? 'text-white' : 'text-slate-400'}`}>
+                  <div className={`text-[10px] font-mono mb-1 transition-colors duration-500 ${isActive ? 'text-blue-400' : 'text-white/50'}`}>{step.num}</div>
+                  <h3 className={`text-xl font-bold mb-3 transition-colors duration-500 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className={`text-sm leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-300' : 'text-slate-400'}`}>
                     {step.desc}
                   </p>
                </div>

@@ -48,8 +48,8 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            <span className="inline-block sm:whitespace-nowrap">Shape <span className="text-[#00D4AA]">direction.</span></span><br className="hidden sm:block" />{" "}
-                            <span className="inline-block sm:whitespace-nowrap">Accelerate <span className="text-[#00D4AA]">execution.</span></span>
+                            <span className="inline-block whitespace-nowrap">Shape <span className="text-[#00D4AA]">direction.</span></span><br className="hidden sm:block" />{" "}
+                            <span className="inline-block whitespace-nowrap">Accelerate <span className="text-[#00D4AA]">execution.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
@@ -505,31 +505,31 @@ function WhyHynivaDT() {
                         {/* Right Side: Metrics & CTA */}
                         <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
                             {/* Stats */}
-                            <div className="flex items-start justify-start gap-8 sm:gap-10 lg:gap-12 xl:gap-14 w-full">
-                                <div className="flex flex-col items-start flex-shrink-0">
+                            <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-wrap items-start justify-start sm:gap-8 lg:gap-10 xl:gap-12 w-full">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
-                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
+                                        <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
                                         {"Solutions\nDelivered"}
                                     </span>
                                 </div>
-                                <div className="flex flex-col items-start flex-shrink-0">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">18</span>
-                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">18</span>
+                                        <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
                                         {"Years of Tech\nConsulting"}
                                     </span>
                                 </div>
-                                <div className="flex flex-col items-start flex-shrink-0">
+                                <div className="flex flex-col items-start">
                                     <div className="flex items-baseline gap-0.5 mb-1">
-                                        <span className="text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
-                                        <span className="text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
+                                        <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
+                                        <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.4]">
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
                                         {"Enterprise\nClients"}
                                     </span>
                                 </div>

@@ -48,8 +48,8 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            <span className="inline-block sm:whitespace-nowrap">Modernize <span className="text-[#00D4AA]">operations.</span></span><br className="hidden sm:block" />{" "}
-                            <span className="inline-block sm:whitespace-nowrap">Elevate <span className="text-[#00D4AA]">experiences.</span></span>
+                            <span className="inline-block whitespace-nowrap">Modernize <span className="text-[#00D4AA]">operations.</span></span><br className="hidden sm:block" />{" "}
+                            <span className="inline-block whitespace-nowrap">Elevate <span className="text-[#00D4AA]">experiences.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
