@@ -58,13 +58,13 @@ export default function PodcastPage() {
         setIsHovered(true);
         if (videoRef.current) {
             videoRef.current.playbackRate = 1.0;
-            videoRef.current.muted = false;
+            videoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
             videoRef.current.play().catch((err) => {
-                console.warn("Unmuted hover play failed, attempting muted:", err);
+                console.warn("Unmuted podcast hover play failed, attempting muted:", err);
                 if (videoRef.current) {
-                    videoRef.current.muted = true;
+                    videoRef.current.muted = true; // Fallback to muted if blocked by browser policy
                     videoRef.current.play().catch((err2) => {
-                        console.error("Muted hover play failed too:", err2);
+                        console.error("Muted podcast hover play failed too:", err2);
                     });
                 }
             });
@@ -200,12 +200,12 @@ export default function PodcastPage() {
                                 }`}
                         />
 
-                        {/* Play Button Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        {/* Play Button Overlay (Visible only on mobile/tablet) */}
+                        <div className="absolute inset-0 flex lg:hidden items-center justify-center pointer-events-none z-10">
                             <div className={`rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-300 ${
                                 isHovered ? "scale-90 opacity-0" : "scale-100 opacity-100"
-                            } w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20`}>
-                                <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-8 lg:h-8 fill-white stroke-none ml-0.5 sm:ml-1" />
+                            } w-12 h-12 sm:w-16 sm:h-16`}>
+                                <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-white stroke-none ml-0.5 sm:ml-1" />
                             </div>
                         </div>
                     </div>

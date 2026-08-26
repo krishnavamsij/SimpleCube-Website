@@ -74,11 +74,11 @@ export function VoiceOfCustomer() {
                     hoverVideoRef.current.currentTime = 4.5;
                 }
                 hoverVideoRef.current.playbackRate = 1.0;
-                hoverVideoRef.current.muted = false;
+                hoverVideoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
                 hoverVideoRef.current.play().catch((err) => {
                     console.warn("Unmuted VOC hover play failed, attempting muted:", err);
                     if (hoverVideoRef.current) {
-                        hoverVideoRef.current.muted = true;
+                        hoverVideoRef.current.muted = true; // Fallback to muted if blocked by browser policy
                         hoverVideoRef.current.play().catch((err2) => {
                             console.error("Muted VOC hover play failed too:", err2);
                         });
@@ -251,7 +251,7 @@ export function VoiceOfCustomer() {
                                             {(active.hoverVideoUrl || active.videoUrl) && (active.hoverVideoUrl || active.videoUrl).toLowerCase().includes(".mp4") && (
                                                 <video
                                                     ref={hoverVideoRef}
-                                                    src={active.hoverVideoUrl || active.videoUrl}
+                                                    src={active.hoverVideoUrl || active.videoUrl ? encodeURI(active.hoverVideoUrl || active.videoUrl) : undefined}
                                                     loop
                                                     muted
                                                     playsInline
