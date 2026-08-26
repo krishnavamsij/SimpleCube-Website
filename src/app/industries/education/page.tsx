@@ -109,7 +109,7 @@ function AlternatingSections() {
 
                         {/* Content Side */}
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 uppercase tracking-wide leading-[1.25]">
+                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 leading-[1.25]">
                                 {section.title}
                             </h2>
                             <div className="space-y-6">
@@ -196,7 +196,7 @@ function ProvenImpact() {
                     viewport={viewportOnce}
                     className="max-w-3xl lg:max-w-4xl mx-auto mb-10 md:mb-16 text-left md:text-center px-4"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 md:mb-6 uppercase tracking-wide">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 md:mb-6">
                         {educationContent.impact.title}
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-slate-300 font-medium leading-relaxed">
@@ -259,7 +259,7 @@ function CaseStudies() {
                     viewport={viewportOnce}
                 >
                     <header className="mb-14 lg:mb-16">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display mb-3">
                             {educationContent.caseStudies.title}
                         </h2>
                         <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">

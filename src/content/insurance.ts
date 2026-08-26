@@ -9,7 +9,7 @@ export const insuranceContent = {
     },
     alternatingSections: [
         {
-            title: "INSURANCE HAS MOVED BEYOND POLICY MANAGEMENT",
+            title: "Insurance Has Moved Beyond Policy Management",
             content: [
                 "Insurance organizations are under increasing pressure to modernize operations amid rising customer expectations, catastrophic event volumes, regulatory complexity and growing operational costs. Yet many insurers still rely on fragmented workflows, manual claim assignment and disconnected field coordination that slow execution and limit operational visibility.",
                 "As AI and automation adoption accelerates, insurers are rethinking how claims operations, servicing and field coordination are managed at scale."
@@ -18,7 +18,7 @@ export const insuranceContent = {
             image: "/images/Industries_Section/Insurance_Subpage/INSURANCEHASMOVEDBEYONDPOLICYMANAGEMENT.png", 
         },
         {
-            title: "WHAT MODERN INSURANCE DEMANDS",
+            title: "What Modern Insurance Demands",
             content: [
                 "Modern insurance requires faster claims resolution, intelligent operational visibility and seamless customer servicing across every stage of the claims lifecycle.",
                 "Insurers must improve adjuster utilization, streamline coordination across distributed teams and enable real-time communication while managing growing claim volumes and increasingly complex workflows. At the same time, customers expect transparent updates, faster resolutions and frictionless digital experiences during critical moments."
@@ -27,7 +27,7 @@ export const insuranceContent = {
             image: "/images/Industries_Section/Insurance_Subpage/WHATMODERNINSURANCEDEMANDS.png", 
         },
         {
-            title: "OUR APPROACH TO CONNECTED INSURANCE OPERATIONS",
+            title: "Our Approach to Connected Insurance Operations",
             content: [
                 "We help insurers modernize claims operations through AI-driven orchestration, intelligent automation and connected operational workflows. Our approach unifies intake, assignment, field coordination, communication, assessment and settlement into a connected ecosystem that improves execution speed and reduces manual effort across the claims lifecycle.",
                 "Using intelligent workload balancing, automated routing, live tracking and real-time communication, we help insurers accelerate claims resolution, improve operational efficiency and deliver more responsive customer experiences."
@@ -73,7 +73,7 @@ export const insuranceContent = {
         ]
     },
     impact: {
-        title: "WHAT WE HAVE DELIVERED",
+        title: "What We Have Delivered",
         subtitle: "Our experience spans connected insurance operations across claims coordination, servicing and operational visibility. We help insurers modernize execution through intelligent claims assignment, automated workflows and real-time communication across the claims lifecycle.",
         stats: [
             { value: "60%", label: "Faster claims<br />processing" },
@@ -83,7 +83,7 @@ export const insuranceContent = {
         ]
     },
     caseStudies: {
-        title: "CASE STUDIES",
+        title: "Case Studies",
         subtitle: "Real-world implementations that demonstrate how we have enabled insurers to transform experiences, accelerate claims and modernize operations at scale.",
         studies: [
             {

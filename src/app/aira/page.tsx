@@ -249,7 +249,7 @@ function AiraHero() {
                                 }}
                             >
                                 <source
-                                    src="/images/Product_Images/AIRA HERO BANNER GRAPHIC.mp4"
+                                    src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.mp4"
                                     type="video/mp4"
                                 />
                             </video>
@@ -285,7 +285,7 @@ function AiraHero() {
                             }}
                         >
                             <source
-                                src="/images/Product_Images/AIRA HERO BANNER GRAPHIC.mp4"
+                                src="/images/Product_Images/AIRA_HERO_BANNER_GRAPHIC.mp4"
                                 type="video/mp4"
                             />
                         </video>

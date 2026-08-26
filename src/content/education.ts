@@ -3,11 +3,11 @@ export const educationContent = {
         badge: "EDUCATION & LEARNING",
         title: "Redefining education through connected and digital-first learning experiences",
         subtitle: "Flexible learning platforms, seamless collaboration and connected academic experiences across modern education environments.",
-        backgroundImage: "/images/Industries_Section/Education subpage/Hero banner.png",
+        backgroundImage: "/images/Industries_Section/education subpage/Hero banner.png",
     },
     alternatingSections: [
         {
-            title: "EDUCATION HAS EVOLVED BEYOND TRADITIONAL LEARNING",
+            title: "Education Has Evolved Beyond Traditional Learning",
             content: [
                 "Education institutions are adapting to digital-first learning models, hybrid classrooms, and growing expectations for accessible and engaging learning experiences.",
                 "As learning environments become more connected, institutions must deliver seamless education experiences across physical and virtual platforms while managing increasing academic and administrative complexity."
@@ -16,7 +16,7 @@ export const educationContent = {
             image: "/images/Industries_Section/education subpage/Education 1.png", 
         },
         {
-            title: "WHAT MODERN EDUCATION DEMANDS",
+            title: "What Modern Education Demands",
             content: [
                 "Modern education depends on learning experiences that are accessible, flexible, and engaging across both digital and physical environments. Institutions expect seamless access to educational resources, real-time collaboration between students and educators, and learning experiences that can adapt to evolving learning models and student needs.",
                 "At the same time, institutions need connected systems that simplify academic operations, improve coordination, and make administrative processes more efficient so educators can focus more on delivering quality education."
@@ -25,7 +25,7 @@ export const educationContent = {
             image: "/images/Industries_Section/education subpage/education 2.png", 
         },
         {
-            title: "OUR APPROACH TO CONNECTED EDUCATION",
+            title: "Our Approach to Connected Education",
             content: [
                 "We help education institutions modernize learning delivery, academic operations, and digital engagement across connected learning environments.",
                 "Our approach brings together learning platforms, institutional websites and portals, communication systems, and academic workflows into a unified digital experience that improves accessibility, collaboration, and operational efficiency for students, educators, and administrators."
@@ -71,7 +71,7 @@ export const educationContent = {
         ]
     },
     impact: {
-        title: "WHAT WE HAVE DELIVERED",
+        title: "What We Have Delivered",
         subtitle: "We help institutions modernize learning environments, simplify academic operations, and create connected digital learning experiences.",
         stats: [
             { value: "Improved", label: "student engagement<br />through connected learning" },
@@ -81,7 +81,7 @@ export const educationContent = {
         ]
     },
     caseStudies: {
-        title: "CASE STUDIES",
+        title: "Case Studies",
         subtitle: "Real-world implementations that demonstrate how we have enabled educational institutions to transform experiences and modernize operations at scale.",
         studies: []
     }

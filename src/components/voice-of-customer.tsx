@@ -302,7 +302,7 @@ export function VoiceOfCustomer() {
                 </div>
 
                 {/* Pagination Indicators */}
-                <div className="relative lg:absolute mt-8 lg:mt-0 bottom-4 left-1/2 lg:-translate-x-1/2 flex justify-center gap-3 z-30">
+                <div className="relative lg:absolute mt-8 lg:mt-0 lg:bottom-4 left-0 lg:left-1/2 w-full lg:w-auto flex justify-center lg:-translate-x-1/2 gap-3 z-30">
                     {testimonials.map((_, i) => (
                         <button
                             key={i}

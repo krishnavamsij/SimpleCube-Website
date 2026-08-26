@@ -281,40 +281,52 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         style={{ pointerEvents: "auto" }}
                     >
                         <div className="grid grid-cols-3 gap-8">
-                            {(dropdownItems.find(d => d.label === "Services")?.categories || []).map((cat) => (
-                                <div key={cat.category} className="space-y-1.5">
-                                    {cat.href ? (
-                                        <Link
-                                            href={cat.href}
-                                            className={cn(
-                                                "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors mb-4",
-                                                cat.isBold && "text-[15px] font-bold"
-                                            )}
-                                        >
-                                            {cat.category}
-                                        </Link>
-                                    ) : (
-                                        <div className={cn(
-                                            "px-0 py-0 text-slate-900 mb-4",
-                                            cat.isBold && "text-[15px] font-bold"
-                                        )}>
-                                            {cat.category}
-                                        </div>
-                                    )}
-                                    {cat.items.map((item) => (
-                                        <Link
-                                            key={item.title}
-                                            href={item.href}
-                                            className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#2563EB]"
-                                        >
-                                            <span className={cn(
-                                                "text-slate-700 group-hover:text-[#2563EB] transition-colors",
-                                                item.isBold ? "text-[15px] font-bold text-slate-900" : "text-[14px]"
-                                            )}>{item.title}</span>
-                                        </Link>
-                                    ))}
-                                </div>
-                            ))}
+                            {(() => {
+                                const categories = dropdownItems.find(d => d.label === "Services")?.categories || [];
+                                const columns = [
+                                    categories[0] ? [categories[0]] : [],
+                                    categories[1] ? [categories[1]] : [],
+                                    [categories[2], categories[3]].filter(Boolean),
+                                ];
+                                return columns.map((col, colIdx) => (
+                                    <div key={colIdx} className="space-y-6">
+                                        {col.map((cat) => (
+                                            <div key={cat.category} className="space-y-1.5">
+                                                {cat.href ? (
+                                                    <Link
+                                                        href={cat.href}
+                                                        className={cn(
+                                                            "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors mb-4",
+                                                            cat.isBold && "text-[15px] font-bold"
+                                                        )}
+                                                    >
+                                                        {cat.category}
+                                                    </Link>
+                                                ) : (
+                                                    <div className={cn(
+                                                        "px-0 py-0 text-slate-900 mb-4",
+                                                        cat.isBold && "text-[15px] font-bold"
+                                                    )}>
+                                                        {cat.category}
+                                                    </div>
+                                                )}
+                                                {cat.items.map((item) => (
+                                                    <Link
+                                                        key={item.title}
+                                                        href={item.href}
+                                                        className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#2563EB]"
+                                                    >
+                                                        <span className={cn(
+                                                            "text-slate-700 group-hover:text-[#2563EB] transition-colors",
+                                                            item.isBold ? "text-[15px] font-bold text-slate-900" : "text-[14px]"
+                                                        )}>{item.title}</span>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        ))}
+                                    </div>
+                                ));
+                            })()}
                         </div>
                     </motion.div>
                 )}
@@ -352,8 +364,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                         <Link
                                                             href={cat.href}
                                                             className={cn(
-                                                                "block px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600 hover:text-[#2563EB]",
-                                                                cat.isBold && "font-extrabold"
+                                                                "block px-2 py-1 text-[10px] uppercase tracking-wide hover:text-[#2563EB]",
+                                                                cat.isBold ? "text-slate-950 font-black" : "text-slate-600 font-bold"
                                                             )}
                                                             onClick={() => setMobileOpen(false)}
                                                         >
@@ -361,8 +373,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                         </Link>
                                                     ) : (
                                                         <div className={cn(
-                                                            "px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600",
-                                                            cat.isBold && "font-extrabold"
+                                                            "px-2 py-1 text-[10px] uppercase tracking-wide",
+                                                            cat.isBold ? "text-slate-950 font-black" : "text-slate-600 font-bold"
                                                         )}>
                                                             {cat.category}
                                                         </div>

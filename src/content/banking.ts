@@ -9,7 +9,7 @@ export const bankingContent = {
     },
     alternatingSections: [
         {
-            title: "Banking has moved beyond transactions",
+            title: "Banking Has Moved Beyond Transactions",
             content: [
                 "Banking is being reshaped by rapid AI adoption, evolving regulatory expectations and the expansion of financial services into embedded ecosystems. As experiences become more fluid and interconnected, traditional operating models are struggling to keep pace.",
                 "Many institutions continue to operate with fragmented data, disconnected platforms and limited readiness for real-time decisioning. The result is slower innovation, inconsistent customer journeys and increasing operational complexity."
@@ -18,7 +18,7 @@ export const bankingContent = {
             image: "/images/Industries_Section/Banking_Subpage/TheShift.png", 
         },
         {
-            title: "WHAT MODERN BANKING DEMANDS",
+            title: "What Modern Banking Demands",
             content: [
                 "Banking today is defined by how effectively it delivers across every moment of interaction. Customers expect journeys that are immediate, intuitive and continuous whether they begin digitally, move to assisted channels or extend into partner ecosystems.",
                 "At the same time, institutions must balance this with the need for security, compliance and operational efficiency, ensuring that every experience is both seamless and trusted."
@@ -27,7 +27,7 @@ export const bankingContent = {
             image: "/images/Industries_Section/Banking_Subpage/WHATMODERNBANKINGDEMANDS.png",
         },
         {
-            title: "Our approach to connected experiences",
+            title: "Our Approach to Connected Experiences",
             content: [
                 "We enable banks to move beyond fragmented transformation by aligning experience, data and platform capabilities into a connected execution model. Instead of addressing these areas in isolation, we bring them together to ensure that every initiative contributes to a unified and measurable outcome.",
                 "This approach reduces complexity, accelerates execution and enables consistent experience delivery across the organization."
@@ -73,7 +73,7 @@ export const bankingContent = {
         ]
     },
     impact: {
-        title: "What we have delivered",
+        title: "What We Have Delivered",
         subtitle: "Our experience spans lending, onboarding, customer engagement and platform modernization across banking ecosystems. We help financial institutions accelerate transformation, reduce operational complexity and deliver more connected customer experiences at scale.",
         stats: [
             { value: "24/7", label: "Intelligent Banking <br /> Operations" },
@@ -83,7 +83,7 @@ export const bankingContent = {
         ]
     },
     caseStudies: {
-        title: "CASE STUDIES",
+        title: "Case Studies",
         subtitle: "Real-world implementations that demonstrate how we have enabled banks to transform experiences, accelerate lending and modernize operations at scale.",
         studies: [
             {

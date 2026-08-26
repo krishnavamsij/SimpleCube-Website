@@ -103,16 +103,9 @@ export function ProductsShowcase() {
                             <div className="relative pl-6 w-fit">
                                 <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#00D4AA] rounded-full" />
                                 <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75]">
-                                    Two of our flagship products were{" "}
-                                    <br className="hidden xl:inline" />
-                                    acquired by industry leaders —{" "}
-                                    <span className="font-bold text-white">Fiserv</span>{" "}
-                                    <br className="hidden xl:inline" />
-                                    and <span className="font-bold text-white">SavvyMoney</span>. A testament to{" "}
-                                    <br className="hidden xl:inline" />
-                                    what enterprise depth produces when{" "}
-                                    <br className="hidden xl:inline" />
-                                    it becomes a product.
+                                    Two of our flagship products were acquired by industry leaders —{" "}
+                                    <span className="font-bold text-white">Fiserv</span> and{" "}
+                                    <span className="font-bold text-white">SavvyMoney</span>. A testament to what enterprise depth produces when it becomes a product.
                                 </p>
                             </div>
                         </div>

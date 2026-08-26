@@ -665,6 +665,13 @@ const digitalFactorySteps = [
     },
 ];
 
+const lineGradients = [
+    "from-[#00D4AA]/40 to-[#1e90ff]/40",
+    "from-[#1e90ff]/40 to-[#00A8FF]/40",
+    "from-[#00A8FF]/40 to-[#00D4AA]/40",
+    "from-[#00D4AA]/40 to-[#1e90ff]/40",
+];
+
 function DigitalFactorySection() {
     const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
 
@@ -730,13 +737,18 @@ function DigitalFactorySection() {
                             className="lg:hidden w-full max-w-xl mx-auto mt-8 mb-6 flex flex-col gap-6 px-2"
                         >
                             <div className="relative flex flex-col gap-8">
-                                {/* Connecting line */}
-                                <div className="absolute left-[19px] sm:left-[23px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#00D4AA]/40 via-[#00A8FF]/40 to-[#1e90ff]/40" />
-
-                                {digitalFactorySteps.map((step) => (
+                                {digitalFactorySteps.map((step, idx) => (
                                     <div key={step.number} className="relative flex gap-4 sm:gap-6 items-start group">
-                                        <div className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 ${step.bgColor} ${step.borderColor} ${step.color} font-bold text-sm sm:text-base font-display flex-shrink-0 z-10 transition-transform duration-300 group-hover:scale-110`}>
-                                            {step.number}
+                                        <div className="flex flex-col items-center flex-shrink-0 self-stretch relative">
+                                            <div className={`relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 ${step.borderColor} ${step.color} font-bold text-sm sm:text-base font-display flex-shrink-0 z-10 transition-transform duration-300 group-hover:scale-110`}>
+                                                <div className="absolute inset-0 bg-[#030B3B] rounded-full -z-10" />
+                                                <div className={`absolute inset-0 ${step.bgColor} rounded-full -z-10`} />
+                                                {step.number}
+                                            </div>
+                                            {/* Connecting line segment */}
+                                            {idx < digitalFactorySteps.length - 1 && (
+                                                <div className={`absolute w-[2px] left-1/2 -translate-x-1/2 top-10 sm:top-12 bottom-[-32px] bg-gradient-to-b z-0 ${lineGradients[idx]}`} />
+                                            )}
                                         </div>
                                         <div className="flex-1 pt-1 sm:pt-2">
                                             <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>

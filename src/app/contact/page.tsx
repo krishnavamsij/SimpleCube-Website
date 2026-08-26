@@ -145,7 +145,7 @@ export default function ContactPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white font-display text-center"
+                                className="text-[32px] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white font-display text-center"
                                 dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
                             />
 
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Scroll Indicator */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 opacity-30">
                         <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
                         <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
                     </div>
@@ -240,7 +240,7 @@ export default function ContactPage() {
                                     </motion.div>
 
                                     {/* Address Cards */}
-                                    <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4 sm:gap-6">
+                                    <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2.5 mb-4 h-[18px]">
                                                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="United States flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
@@ -273,7 +273,7 @@ export default function ContactPage() {
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={viewportOnce}
-                                    className="p-8 lg:p-10 rounded-[40px] border border-border bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)] h-full flex flex-col"
+                                    className="p-5 sm:p-8 lg:p-10 rounded-[28px] sm:rounded-[40px] border border-border bg-white shadow-[0_30px_100px_rgba(0,0,0,0.06)] h-full flex flex-col"
                                 >
                                     <div className="mb-6">
                                         <h3 className="text-2xl sm:text-3xl font-[900] text-foreground mb-3 font-display leading-[1.2]">

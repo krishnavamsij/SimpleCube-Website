@@ -106,7 +106,7 @@ function AlternatingSections() {
 
                         {/* Content Side */}
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 uppercase tracking-wide leading-[1.25]">
+                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 leading-[1.25]">
                                 {section.title}
                             </h2>
                             <div className="space-y-6">
@@ -193,7 +193,7 @@ function ProvenImpact() {
                     viewport={viewportOnce}
                     className="max-w-4xl mx-auto mb-20 text-left md:text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8 uppercase tracking-wide">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8">
                         {insuranceContent.impact.title}
                     </h2>
                     <p className="text-lg text-slate-300 font-medium leading-relaxed">
@@ -240,7 +240,7 @@ function CaseStudies() {
                     viewport={viewportOnce}
                     className="mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6 uppercase tracking-wide">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
                         {insuranceContent.caseStudies.title}
                     </h2>
                     <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">

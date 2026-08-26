@@ -83,7 +83,7 @@ export default function PodcastPage() {
         <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
             <Navbar forceDarkText={true} />
 
-            <main className="pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-4 sm:px-8 lg:px-12">
+            <main className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-4 sm:px-8 lg:px-12">
                 {/* Header Section - Modern Left-Right Aligned Design */}
                 <motion.div
                     initial="hidden"
@@ -199,12 +199,21 @@ export default function PodcastPage() {
                             className={`absolute inset-0 w-full h-full object-cover rounded-[24px] sm:rounded-[28px] pointer-events-none transition-opacity duration-200 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"
                                 }`}
                         />
+
+                        {/* Play Button Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                            <div className={`rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-300 ${
+                                isHovered ? "scale-90 opacity-0" : "scale-100 opacity-100"
+                            } w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20`}>
+                                <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-8 lg:h-8 fill-white stroke-none ml-0.5 sm:ml-1" />
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* Section Header: Latest Episodes (Centered title with right link) */}
-                <div className="relative flex items-center justify-center mb-8 pb-4 border-b border-slate-200 w-full max-w-[1240px] mx-auto">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#030B3B] tracking-tight text-center">
+                {/* Section Header: Latest Episodes (Flex row layout to prevent overlap on mobile) */}
+                <div className="relative flex flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 w-full max-w-[1240px] mx-auto">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#030B3B] tracking-tight">
                         Latest Episodes
                     </h2>
 
@@ -212,7 +221,7 @@ export default function PodcastPage() {
                         href="https://www.youtube.com/@hynivapodcast1"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute right-0 flex items-center gap-1.5 text-sm font-bold text-[#1e90ff] hover:text-[#0066cc] transition-colors"
+                        className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1e90ff] hover:text-[#0066cc] transition-colors shrink-0"
                     >
                         <span>View all Episodes</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
