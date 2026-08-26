@@ -18,8 +18,8 @@ export const navContent = {
         { title: "Education", href: "/industries/education" },
     ],
     services: [
-        { 
-            category: "Digital Transformation", 
+        {
+            category: "Digital Transformation",
             isBold: true,
             href: "/services/digital-transformation",
             items: [
@@ -28,8 +28,8 @@ export const navContent = {
                 { title: "Cloud Migration", href: "/services/digital-transformation/cloud-migration" },
             ]
         },
-        { 
-            category: "Enterprise Platforms", 
+        {
+            category: "Enterprise Platforms",
             isBold: true,
             href: "/services/enterprise-platforms",
             items: [
@@ -38,14 +38,14 @@ export const navContent = {
                 { title: "AWS Cloud", href: "/services/enterprise-platforms/aws-cloud-services" },
             ]
         },
-        { 
-            category: "Product Engineering", 
+        {
+            category: "Product Engineering",
             isBold: true,
             href: "/services/product-engineering",
             items: []
         },
-        { 
-            category: "Strategy Consulting", 
+        {
+            category: "Strategy Consulting",
             isBold: true,
             href: "/services/strategy-consulting",
             items: []
@@ -566,6 +566,19 @@ export const vocContent = {
     headline: "In their own words.",
     highlightedWords: ["own words."],
     testimonials: [
+        {
+            industry: "Credit Union",
+            quote: "Hyniva does a really good job of integrating with the folks they work with. They’re more focused, they’re realizing what you need, and they’re helping you meet your goals. Some of the smaller, more boutique-type companies can add real value to you, and Hyniva is a great example of that kind of partnership.",
+            author: "Rickey Burks",
+            designation: "Former SVP, CTO & CIO",
+            company: "USAA",
+            image: "/images/voc/rickey_burks.jpg",
+            logo: "/images/voc/USAA_logo.png",
+            result: "Shared strategic insights on technology partnerships and ecosystem integration on <span class='text-[#1e90ff] font-semibold'>CU NEXT Podcast.</span>",
+            videoUrl: "/videos/rickey_burks_testimonial.mp4",
+            hoverVideoUrl: "/videos/Rickey's_testimonial_version .mp4",
+            videoQuote: "Big is not always better. What matters is finding the right strategic partner, one that integrates seamlessly with your existing ecosystem and grows with you.",
+        },
         {
             industry: "Lending & Fintech",
             quote: "Hyniva demonstrated a clear understanding of our goals and helped us transform a manual, fragmented prequalification process into an intuitive, algorithm-driven experience. The resulting loan application process is not only faster but built on\u00A0a\u00A0scalable, cost-efficient stack that positions us perfectly for\u00A0future\u00A0growth.",

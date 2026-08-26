@@ -18,11 +18,22 @@ export const podcastContent: {
     hero: {
         description: string;
     };
+    trailer: {
+        title: string;
+        videoUrl: string;
+        description: string;
+    };
     episodes: PodcastEpisode[];
 } = {
     hero: {
         description:
             "Bringing together Credit Union leaders who are driving real transformation to share insights, experiences and strategies shaping the industry’s future.",
+    },
+    trailer: {
+        title: "What's Next in Credit Unions?",
+        videoUrl: "https://www.youtube.com/watch?v=w_bhmjRtS3s",
+        description:
+            "Real Conversations. Real Impact. A preview of the insights, ideas and inspiration waiting on CUNEXT.",
     },
 
     episodes: [
