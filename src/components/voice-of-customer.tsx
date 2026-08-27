@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoveRight, Landmark, Shield, TrendingUp, GraduationCap, Truck, Play, X } from "lucide-react";
+import { MoveRight, Landmark, Shield, TrendingUp, GraduationCap, Truck, Play, X, Volume2, VolumeX } from "lucide-react";
 import { scrollReveal, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
 import { vocContent } from "@/content/site-content";
 import Image from "next/image";
@@ -48,13 +48,15 @@ export function VoiceOfCustomer() {
     const [current, setCurrent] = useState(0);
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
     const hoverVideoRef = useRef<HTMLVideoElement>(null);
 
     const next = useCallback(() => setCurrent((prev) => (prev + 1) % testimonials.length), [testimonials.length]);
 
-    // Reset hover state on slide change
+    // Reset hover and muted state on slide change
     useEffect(() => {
         setIsHovered(false);
+        setIsMuted(true);
     }, [current]);
 
     // Auto-rotate every 10 seconds unless video modal is open or image is hovered
@@ -75,11 +77,15 @@ export function VoiceOfCustomer() {
                 }
                 hoverVideoRef.current.playbackRate = 1.0;
                 hoverVideoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
-                hoverVideoRef.current.play().catch((err) => {
+                hoverVideoRef.current.play().then(() => {
+                    setIsMuted(false);
+                }).catch((err) => {
                     console.warn("Unmuted VOC hover play failed, attempting muted:", err);
                     if (hoverVideoRef.current) {
                         hoverVideoRef.current.muted = true; // Fallback to muted if blocked by browser policy
-                        hoverVideoRef.current.play().catch((err2) => {
+                        hoverVideoRef.current.play().then(() => {
+                            setIsMuted(true);
+                        }).catch((err2) => {
                             console.error("Muted VOC hover play failed too:", err2);
                         });
                     }
@@ -94,7 +100,17 @@ export function VoiceOfCustomer() {
             if (hoverVideoRef.current) {
                 hoverVideoRef.current.pause();
                 hoverVideoRef.current.muted = true;
+                setIsMuted(true);
             }
+        }
+    };
+
+    const toggleMute = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (hoverVideoRef.current) {
+            const newMuted = !hoverVideoRef.current.muted;
+            hoverVideoRef.current.muted = newMuted;
+            setIsMuted(newMuted);
         }
     };
 
@@ -253,12 +269,27 @@ export function VoiceOfCustomer() {
                                                     ref={hoverVideoRef}
                                                     src={active.hoverVideoUrl || active.videoUrl ? encodeURI(active.hoverVideoUrl || active.videoUrl) : undefined}
                                                     loop
-                                                    muted
+                                                    muted={isMuted}
                                                     playsInline
                                                     preload="metadata"
                                                     className={`absolute inset-0 w-full h-full object-cover rounded-full transition-opacity duration-300 ${isHovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
                                                         }`}
                                                 />
+                                            )}
+
+                                            {/* Volume Button Overlay */}
+                                            {isHovered && (active.hoverVideoUrl || active.videoUrl) && (
+                                                <button
+                                                    onClick={toggleMute}
+                                                    className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 p-2 rounded-full bg-black/60 text-white/90 hover:bg-black/85 hover:text-white transition-all duration-200 border border-white/20 backdrop-blur-md shadow-lg hover:scale-110"
+                                                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                                                >
+                                                    {isMuted ? (
+                                                        <VolumeX className="w-4 h-4" />
+                                                    ) : (
+                                                        <Volume2 className="w-4 h-4" />
+                                                    )}
+                                                </button>
                                             )}
 
                                             {/* Play Button Overlay (fades out while video plays on hover) */}

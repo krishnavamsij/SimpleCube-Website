@@ -6,7 +6,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { podcastContent, PodcastEpisode } from "@/content/podcast";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Clock, X, User, Users } from "lucide-react";
+import { Play, Clock, X, User, Users, Volume2, VolumeX } from "lucide-react";
 import {
     scrollReveal,
     viewportOnce,
@@ -52,6 +52,7 @@ export default function PodcastPage() {
     const [selectedEpisode, setSelectedEpisode] = useState<PodcastEpisode | null>(null);
     const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const handleMouseEnter = () => {
@@ -59,11 +60,15 @@ export default function PodcastPage() {
         if (videoRef.current) {
             videoRef.current.playbackRate = 1.0;
             videoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
-            videoRef.current.play().catch((err) => {
+            videoRef.current.play().then(() => {
+                setIsMuted(false);
+            }).catch((err) => {
                 console.warn("Unmuted podcast hover play failed, attempting muted:", err);
                 if (videoRef.current) {
                     videoRef.current.muted = true; // Fallback to muted if blocked by browser policy
-                    videoRef.current.play().catch((err2) => {
+                    videoRef.current.play().then(() => {
+                        setIsMuted(true);
+                    }).catch((err2) => {
                         console.error("Muted podcast hover play failed too:", err2);
                     });
                 }
@@ -76,6 +81,16 @@ export default function PodcastPage() {
         if (videoRef.current) {
             videoRef.current.pause();
             videoRef.current.muted = true;
+            setIsMuted(true);
+        }
+    };
+
+    const toggleMute = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (videoRef.current) {
+            const newMuted = !videoRef.current.muted;
+            videoRef.current.muted = newMuted;
+            setIsMuted(newMuted);
         }
     };
 
@@ -190,7 +205,7 @@ export default function PodcastPage() {
                             ref={videoRef}
                             src="/videos/podcast_trailer_recap.mp4"
                             loop
-                            muted
+                            muted={isMuted}
                             playsInline
                             preload="metadata"
                             onLoadedMetadata={(e) => {
@@ -199,6 +214,21 @@ export default function PodcastPage() {
                             className={`absolute inset-0 w-full h-full object-cover rounded-[24px] sm:rounded-[28px] pointer-events-none transition-opacity duration-200 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"
                                 }`}
                         />
+
+                        {/* Volume Button Overlay */}
+                        {isHovered && (
+                            <button
+                                onClick={toggleMute}
+                                className="absolute bottom-6 right-6 z-30 p-2 rounded-full bg-black/60 text-white/90 hover:bg-black/85 hover:text-white transition-all duration-200 border border-white/20 backdrop-blur-md shadow-lg hover:scale-110"
+                                aria-label={isMuted ? "Unmute trailer" : "Mute trailer"}
+                            >
+                                {isMuted ? (
+                                    <VolumeX className="w-4 h-4" />
+                                ) : (
+                                    <Volume2 className="w-4 h-4" />
+                                )}
+                            </button>
+                        )}
 
                         {/* Play Button Overlay (Visible only on mobile/tablet) */}
                         <div className="absolute inset-0 flex lg:hidden items-center justify-center pointer-events-none z-10">
