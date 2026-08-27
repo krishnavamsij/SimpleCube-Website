@@ -410,8 +410,8 @@ function TransformationInAction() {
                             variants={animations.fadeInUp}
                             className="mb-14 lg:mb-16"
                         >
-                            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
-                                CASE STUDIES
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
+                                Case Studies
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
                                 Real implementations demonstrating how modern enterprise platforms unlock operational efficiency, integration, and business resilience.
@@ -527,7 +527,9 @@ function WhyHynivaEP() {
                                 THE DIFFERENCE
                             </div>
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
-                                Why Organizations Choose <span className="text-white">Hyniva</span> for <span className="text-[#00D4AA]">Enterprise Platforms?</span>
+                                <span className="block">Why Organizations</span>
+                                <span className="block">Choose Hyniva for</span>
+                                <span className="text-[#00D4AA] block">Enterprise Platforms?</span>
                             </h2>
                         </div>
 
@@ -618,15 +620,7 @@ export default function EnterprisePlatformsPage() {
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
                     title="From Platforms to Performance"
-                    description={
-                        <>
-                            Successful platform initiatives extend beyond implementation.{" "}
-                            <br className="hidden md:inline" />
-                            Our approach aligns platforms, integrations and workflows into a cohesive operating environment{" "}
-                            <br className="hidden md:inline" />
-                            that simplifies operations and maximizes the value of every technology investment.
-                        </>
-                    }
+                    description="Successful platform initiatives extend beyond implementation. Our approach aligns platforms, integrations and workflows into a cohesive operating environment that simplifies operations and maximizes the value of every technology investment."
                     steps={[
                         {
                             num: "01",

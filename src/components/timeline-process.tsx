@@ -45,11 +45,7 @@ interface TimelineProcessProps {
 export function TimelineProcess({
   eyebrow = "OUR APPROACH",
   title = "Transform with Purpose",
-  description = (
-    <>
-      Every organization follows a different transformation journey, but lasting change comes from balancing <br className="hidden md:block" />business priorities with modern engineering. Our approach creates a structured path from strategy to measurable outcomes.
-    </>
-  ),
+  description = "Every organization follows a different transformation journey, but lasting change comes from balancing business priorities with modern engineering. Our approach creates a structured path from strategy to measurable outcomes.",
   steps = defaultProcessSteps
 }: TimelineProcessProps) {
   const [activeStep, setActiveStep] = useState(0);

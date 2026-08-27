@@ -109,13 +109,13 @@ function AlternatingSections() {
                             <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 leading-[1.25]">
                                 {section.title}
                             </h2>
-                            <div className="space-y-6">
-                                {section.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="text-[17px] text-slate-600 font-medium leading-relaxed">
-                                        {paragraph}
-                                    </p>
-                                ))}
-                            </div>
+                             <div className="space-y-6">
+                                 {section.content.map((paragraph, pIndex) => (
+                                     <p key={pIndex} className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
+                                         {paragraph}
+                                     </p>
+                                 ))}
+                             </div>
                         </div>
                     </motion.div>
                 ))}

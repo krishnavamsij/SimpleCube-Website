@@ -104,7 +104,7 @@ function AlternatingSections() {
                             </h2>
                             <div className="space-y-6">
                                 {section.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="text-[17px] text-slate-600 font-medium leading-relaxed">
+                                    <p key={pIndex} className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
                                         {paragraph}
                                     </p>
                                 ))}

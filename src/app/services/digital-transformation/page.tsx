@@ -407,8 +407,8 @@ function TransformationInAction() {
                             variants={animations.fadeInUp}
                             className="mb-14 lg:mb-16"
                         >
-                            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display uppercase tracking-wider mb-3">
-                                CASE STUDIES
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
+                                Case Studies
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
                                 Real-world implementations demonstrating how we help enterprises evolve through comprehensive digital and cloud transformation.

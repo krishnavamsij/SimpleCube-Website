@@ -113,7 +113,7 @@ function AlternatingSections() {
                             </h2>
                             <div className="space-y-6">
                                 {section.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="text-[17px] text-slate-600 font-medium leading-relaxed">
+                                    <p key={pIndex} className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
                                         {paragraph}
                                     </p>
                                 ))}
@@ -260,7 +260,7 @@ function CaseStudies() {
                     viewport={viewportOnce}
                 >
                     <header className="mb-14 lg:mb-16">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#030B3B] font-display mb-3">
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
                             {wealthAssetManagementContent.caseStudies.title}
                         </h2>
                         <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
