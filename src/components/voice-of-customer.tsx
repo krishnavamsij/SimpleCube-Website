@@ -372,9 +372,12 @@ export function VoiceOfCustomer() {
                             <div className="relative w-full aspect-video bg-black flex items-center justify-center">
                                 {active.videoUrl.toLowerCase().includes(".mp4") ? (
                                     <video
-                                        src={active.videoUrl}
+                                        key={active.videoUrl}
+                                        src={encodeURI(active.videoUrl)}
                                         controls
                                         autoPlay
+                                        playsInline
+                                        preload="auto"
                                         className="w-full h-full object-contain"
                                     />
                                 ) : (

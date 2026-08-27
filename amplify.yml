@@ -3,6 +3,24 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Amplify clones with GIT_LFS_SKIP_SMUDGE=1, so .mp4 files would otherwise
+        # be deployed as tiny Git LFS pointer text files (breaks video playback).
+        - |
+          if ! command -v git-lfs >/dev/null 2>&1; then
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash
+            yum install -y git-lfs
+          fi
+        - git lfs install
+        - GIT_LFS_SKIP_SMUDGE=0 git lfs pull
+        - |
+          for f in public/videos/*.mp4 public/images/Product_Images/*.mp4 public/images/products/*.mp4; do
+            [ -f "$f" ] || continue
+            if head -c 80 "$f" | grep -q "git-lfs.github.com"; then
+              echo "ERROR: $f is still a Git LFS pointer — aborting build"
+              exit 1
+            fi
+            echo "OK LFS object: $f ($(wc -c < "$f") bytes)"
+          done
         - nvm use 20
         - npm install -g pnpm@9.15.4
         - pnpm install --frozen-lockfile
