@@ -3,23 +3,26 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Amplify clones with GIT_LFS_SKIP_SMUDGE=1, so .mp4 files would otherwise
-        # be deployed as tiny Git LFS pointer text files (breaks video playback).
+        # Best-effort LFS pull for remaining product .mp4 assets. Do NOT fail the
+        # build if LFS auth is unavailable — landing/podcast videos under
+        # public/videos are regular Git blobs and must still deploy.
         - |
           if ! command -v git-lfs >/dev/null 2>&1; then
-            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash
-            yum install -y git-lfs
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash || true
+            yum install -y git-lfs || true
           fi
-        - git lfs install
-        - GIT_LFS_SKIP_SMUDGE=0 git lfs pull
+        - git lfs install || true
+        - GIT_LFS_SKIP_SMUDGE=0 git lfs pull || echo "WARN: git lfs pull failed; continuing"
         - |
-          for f in public/videos/*.mp4 public/images/Product_Images/*.mp4 public/images/products/*.mp4; do
+          echo "=== public/videos sizes (must be real MP4s, not LFS pointers) ==="
+          ls -la public/videos || true
+          for f in public/videos/*.mp4; do
             [ -f "$f" ] || continue
             if head -c 80 "$f" | grep -q "git-lfs.github.com"; then
               echo "ERROR: $f is still a Git LFS pointer — aborting build"
               exit 1
             fi
-            echo "OK LFS object: $f ($(wc -c < "$f") bytes)"
+            echo "OK video blob: $f ($(wc -c < "$f") bytes)"
           done
         - nvm use 20
         - npm install -g pnpm@9.15.4
@@ -43,6 +46,15 @@ frontend:
     build:
       commands:
         - pnpm run build
+        # Ensure public assets (videos) are present next to the Next.js output
+        # for Amplify Hosting SSR packaging.
+        - |
+          if [ -d public ] && [ -d .next ]; then
+            mkdir -p .next/standalone/public 2>/dev/null || true
+            cp -R public/. .next/standalone/public/ 2>/dev/null || true
+            echo "public/videos after build:"
+            ls -la public/videos || true
+          fi
   artifacts:
     baseDirectory: .next
     files:

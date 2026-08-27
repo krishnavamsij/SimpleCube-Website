@@ -575,7 +575,8 @@ export const vocContent = {
             image: "/images/voc/rickey_burks.jpg",
             logo: "/images/voc/USAA_logo.png",
             result: "Shared strategic insights on technology partnerships and ecosystem integration on <span class='text-[#1e90ff] font-semibold'>CU NEXT Podcast.</span>",
-            videoUrl: "/videos/rickey_burks_testimonial.mp4",
+            // Modal uses YouTube (reliable in production). Local MP4 is hover preview only.
+            videoUrl: "https://www.youtube.com/watch?v=dgVirnkI5Us",
             hoverVideoUrl: "/videos/rickey-testimonial.mp4",
             videoQuote: "Big is not always better. What matters is finding the right strategic partner, one that integrates seamlessly with your existing ecosystem and grows with you.",
         },
