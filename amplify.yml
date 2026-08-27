@@ -46,15 +46,9 @@ frontend:
     build:
       commands:
         - pnpm run build
-        # Ensure public assets (videos) are present next to the Next.js output
-        # for Amplify Hosting SSR packaging.
         - |
-          if [ -d public ] && [ -d .next ]; then
-            mkdir -p .next/standalone/public 2>/dev/null || true
-            cp -R public/. .next/standalone/public/ 2>/dev/null || true
-            echo "public/videos after build:"
-            ls -la public/videos || true
-          fi
+          echo "Verify videos landed in Next static output:"
+          ls -la .next/static/videos || (echo "MISSING .next/static/videos" && exit 1)
   artifacts:
     baseDirectory: .next
     files:

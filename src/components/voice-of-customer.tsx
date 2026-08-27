@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MoveRight, Landmark, Shield, TrendingUp, GraduationCap, Truck, Play, X, Volume2, VolumeX } from "lucide-react";
 import { scrollReveal, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
 import { vocContent } from "@/content/site-content";
+import { resolveSiteVideoUrl } from "@/lib/site-videos";
 import Image from "next/image";
 
 const getYouTubeEmbedUrl = (url: string): string => {
@@ -67,6 +68,8 @@ export function VoiceOfCustomer() {
     }, [next, isVideoModalOpen, isHovered]);
 
     const active = testimonials[current] as any;
+    const modalVideoUrl = resolveSiteVideoUrl(active.videoUrl) ?? active.videoUrl;
+    const hoverVideoSrc = resolveSiteVideoUrl(active.hoverVideoUrl || active.videoUrl);
 
     const handleMouseEnter = () => {
         if (active.hoverVideoUrl || active.videoUrl) {
@@ -264,7 +267,7 @@ export function VoiceOfCustomer() {
                                             {(active.hoverVideoUrl || active.videoUrl) && (active.hoverVideoUrl || active.videoUrl).toLowerCase().includes(".mp4") && (
                                                 <video
                                                     ref={hoverVideoRef}
-                                                    src={active.hoverVideoUrl || active.videoUrl ? encodeURI(active.hoverVideoUrl || active.videoUrl) : undefined}
+                                                    src={hoverVideoSrc ? encodeURI(hoverVideoSrc) : undefined}
                                                     loop
                                                     muted={isMuted}
                                                     playsInline
@@ -370,10 +373,10 @@ export function VoiceOfCustomer() {
                             className="relative w-full max-w-4xl bg-slate-900 rounded-[28px] overflow-hidden border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.8)] max-h-[90vh] flex flex-col cursor-default"
                         >
                             <div className="relative w-full aspect-video bg-black flex items-center justify-center">
-                                {active.videoUrl.toLowerCase().includes(".mp4") ? (
+                                {(modalVideoUrl || "").toLowerCase().includes(".mp4") || (active.videoUrl || "").toLowerCase().includes(".mp4") ? (
                                     <video
-                                        key={active.videoUrl}
-                                        src={encodeURI(active.videoUrl)}
+                                        key={modalVideoUrl}
+                                        src={encodeURI(modalVideoUrl)}
                                         controls
                                         autoPlay
                                         playsInline

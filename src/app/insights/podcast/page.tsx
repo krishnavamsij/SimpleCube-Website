@@ -13,6 +13,7 @@ import {
     fadeInUp,
     staggerContainer,
 } from "@/lib/animations";
+import { resolveSiteVideoUrl } from "@/lib/site-videos";
 
 // Helper to convert YouTube URL to embed format
 const getYouTubeEmbedUrl = (url: string): string => {
@@ -200,7 +201,7 @@ export default function PodcastPage() {
                         {/* Video Layer (Plays cleanly on hover with 0 shift & 0 grey border) */}
                         <video
                             ref={videoRef}
-                            src="/videos/podcast_trailer_recap.mp4"
+                            src={resolveSiteVideoUrl("/videos/podcast_trailer_recap.mp4") || "/videos/podcast_trailer_recap.mp4"}
                             loop
                             muted={isMuted}
                             playsInline
@@ -362,13 +363,15 @@ export default function PodcastPage() {
                             onClick={(e) => e.stopPropagation()}
                             className="relative w-full max-w-4xl bg-slate-900 rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.8)] max-h-[90vh] cursor-default"
                         >
-                            <div className="relative w-full aspect-video bg-black">
-                                <iframe
-                                    src={`${getYouTubeEmbedUrl(podcastContent.trailer?.videoUrl || "https://www.youtube.com/watch?v=w_bhmjRtS3s")}?autoplay=1`}
-                                    title={podcastContent.trailer?.title || "What's Next in Credit Unions?"}
-                                    className="absolute inset-0 w-full h-full border-0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
+                            <div className="relative w-full aspect-video bg-black flex items-center justify-center">
+                                <video
+                                    key="podcast-trailer-modal"
+                                    src={resolveSiteVideoUrl("/videos/podcast_trailer_recap.mp4") || "/videos/podcast_trailer_recap.mp4"}
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                    preload="auto"
+                                    className="w-full h-full object-contain"
                                 />
                             </div>
 
