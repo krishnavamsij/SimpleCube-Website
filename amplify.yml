@@ -3,27 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Best-effort LFS pull for remaining product .mp4 assets. Do NOT fail the
-        # build if LFS auth is unavailable — landing/podcast videos under
-        # public/videos are regular Git blobs and must still deploy.
-        - |
-          if ! command -v git-lfs >/dev/null 2>&1; then
-            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash || true
-            yum install -y git-lfs || true
-          fi
+        # Best-effort LFS pull for product .mp4 assets only. Landing/podcast
+        # videos are served from S3 and do not depend on this step.
         - git lfs install || true
         - GIT_LFS_SKIP_SMUDGE=0 git lfs pull || echo "WARN: git lfs pull failed; continuing"
-        - |
-          echo "=== public/videos sizes (must be real MP4s, not LFS pointers) ==="
-          ls -la public/videos || true
-          for f in public/videos/*.mp4; do
-            [ -f "$f" ] || continue
-            if head -c 80 "$f" | grep -q "git-lfs.github.com"; then
-              echo "ERROR: $f is still a Git LFS pointer — aborting build"
-              exit 1
-            fi
-            echo "OK video blob: $f ($(wc -c < "$f") bytes)"
-          done
         - nvm use 20
         - npm install -g pnpm@9.15.4
         - pnpm install --frozen-lockfile
@@ -46,9 +29,6 @@ frontend:
     build:
       commands:
         - pnpm run build
-        - |
-          echo "Verify videos landed in Next static output:"
-          ls -la .next/static/videos || (echo "MISSING .next/static/videos" && exit 1)
   artifacts:
     baseDirectory: .next
     files:
