@@ -273,7 +273,7 @@ function CaseStudies() {
                                 <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                     <h3
                                         className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none"
-                                        dangerouslySetInnerHTML={{ __html: study.title }}
+                                        dangerouslySetInnerHTML={{ __html: study.title.replace(/<br\s*\/?>/gi, " ") }}
                                     />
 
                                     <p className="text-[15px] font-normal text-[#030B3B]/70 leading-relaxed mb-8 flex-1">

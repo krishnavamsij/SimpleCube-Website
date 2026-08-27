@@ -3061,7 +3061,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
     },
     "intelligent-claims-orchestration-with-claim-pioneer": {
         "slug": "intelligent-claims-orchestration-with-claim-pioneer",
-        "eyebrow": "Insurance & Data Intelligence",
+        "eyebrow": "Insurance & Digital Transformation",
         "title": "Intelligent Claims Orchestration<br>\n      <em>with Claim Pioneer</em>",
         "summary": "How Hyniva transformed fragmented field claims into an intelligent, connected journey from intake to resolution.",
         "metrics": [

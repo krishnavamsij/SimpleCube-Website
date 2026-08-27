@@ -44,7 +44,7 @@ export function CaseStudies() {
                         {label}
                     </div>
                     
-                    <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[44px] 2xl:text-[52px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6 sm:whitespace-nowrap">
+                    <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[44px] 2xl:text-[52px] font-extrabold text-[#0f172a] leading-[1.1] tracking-tight mb-6 lg:whitespace-nowrap">
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
@@ -53,13 +53,13 @@ export function CaseStudies() {
                         ))}
                     </h2>
 
-                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] font-medium text-slate-500 leading-[1.7] md:whitespace-nowrap">
+                    <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] font-medium text-slate-500 leading-[1.7] lg:whitespace-nowrap">
                         {sub}
                     </p>
                 </div>
 
                 {/* ── Carousel wrapper ── */}
-                <div className="relative w-full">
+                <div className="relative w-full px-4 sm:px-0">
                     {/* Embla Viewport */}
                     <div className="overflow-hidden" ref={emblaRef}>
                         <div className="flex select-none touch-pan-y" style={{ WebkitTapHighlightColor: "transparent" }}>
@@ -69,14 +69,14 @@ export function CaseStudies() {
                                 return (
                                     <div
                                         key={index}
-                                        className="relative flex-none w-full sm:w-[max(58.75rem,70vw)] lg:w-[58.75rem] px-3 sm:px-4 cursor-pointer"
+                                        className="relative flex-none w-full px-1 sm:px-3 md:w-[min(42rem,calc(100vw-2.5rem))] md:px-3 lg:w-[58.75rem] lg:px-4 cursor-pointer"
                                         onClick={() => scrollTo(index)}
                                     >
                                         <div 
-                                            className={`relative w-full h-[23.75rem] sm:h-[27.5rem] lg:h-[31.25rem] rounded-[1.25rem] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
+                                            className={`relative w-full h-[23.75rem] sm:h-[26rem] md:h-[28rem] lg:h-[31.25rem] rounded-[1.25rem] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center will-change-transform
                                             ${isActive 
                                                 ? "scale-100 opacity-100 brightness-100 shadow-[0_28px_72px_rgba(0,0,0,0.2),0_0_0_1px_rgba(30,144,255,0.12)]" 
-                                                : "scale-[0.88] opacity-55 brightness-75 shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
+                                                : "scale-[0.92] md:scale-[0.9] lg:scale-[0.88] opacity-55 brightness-75 shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
                                             }`}
                                         >
                                             {/* Background Image */}
@@ -108,21 +108,21 @@ export function CaseStudies() {
                                             <div className={`absolute bottom-4 right-4 w-[1.125rem] h-[1.125rem] border-b border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
 
                                             {/* Top Right CTA */}
-                                            <div className={`absolute top-6 right-6 sm:top-8 sm:right-8 z-20 transition-all duration-400 delay-[300ms]
+                                            <div className={`absolute top-4 right-4 sm:top-8 sm:right-8 z-20 max-w-[calc(100%-2rem)] transition-all duration-400 delay-[300ms]
                                                 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
-                                                <a href={study.href} className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 bg-[#030b3b]/60 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold uppercase tracking-wider text-white hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:gap-3.5 transition-all shadow-lg">
-                                                    Read Case Study <ArrowRightIcon className="w-3.5 h-3.5" />
+                                                <a href={study.href} className="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-[#030b3b]/60 backdrop-blur-md border border-white/20 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:gap-3.5 transition-all shadow-lg whitespace-nowrap">
+                                                    Read Case Study <ArrowRightIcon className="w-3.5 h-3.5 shrink-0" />
                                                 </a>
                                             </div>
 
-                                            {/* Content */}
-                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6 sm:px-10 sm:pb-8 sm:pt-0 z-10 translate-y-2">
-                                                <h3 className={`text-lg sm:text-[1.75rem] lg:text-[1.875rem] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 transition-transform duration-500 delay-100 line-clamp-none md:line-clamp-2 min-h-[2.6rem] sm:min-h-[4rem] lg:min-h-[4.5rem]
+                                            {/* Content — padded so title/desc never clip on mobile/tablet */}
+                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col px-5 pb-5 pt-8 sm:px-8 sm:pb-7 md:px-8 lg:px-10 lg:pb-8 sm:pt-0 z-10">
+                                                <h3 className={`text-lg sm:text-[1.5rem] md:text-[1.625rem] lg:text-[1.875rem] font-extrabold text-[#edf5ff] leading-[1.18] tracking-tight mb-3 break-words transition-transform duration-500 delay-100 line-clamp-3 lg:line-clamp-2 min-h-0 lg:min-h-[4.5rem]
                                                     ${isActive ? "translate-y-0" : "translate-y-3"}`}>
                                                     {study.title.split("*").map((part, i) => (
                                                         <React.Fragment key={i}>
                                                             {i % 2 !== 0 ? (
-                                                                <span className="text-[#63c2ff] drop-shadow-[0_0_30px_rgba(99,194,255,0.28)]">{part}</span>
+                                                                <span className="text-[#63c2ff] sm:drop-shadow-[0_0_30px_rgba(99,194,255,0.28)]">{part}</span>
                                                             ) : (
                                                                 part.split("\n").map((line, j, arr) => (
                                                                     <React.Fragment key={j}>
@@ -135,7 +135,7 @@ export function CaseStudies() {
                                                     ))}
                                                 </h3>
                                                 
-                                                <p className={`text-xs sm:text-[17px] lg:text-[15px] xl:text-[0.875rem] font-normal text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] transition-all duration-400 delay-200 line-clamp-none md:line-clamp-2 min-h-[2.5rem] sm:min-h-[3.25rem] xl:min-h-[3rem]
+                                                <p className={`text-xs sm:text-[15px] md:text-[16px] lg:text-[15px] xl:text-[0.875rem] font-normal text-[#b4d2f8]/80 leading-[1.7] mb-0 sm:mb-2 max-w-[35rem] break-words transition-all duration-400 delay-200 line-clamp-3 lg:line-clamp-2 min-h-0 lg:min-h-[3rem]
                                                     ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
                                                     {study.description}
                                                 </p>

@@ -46,17 +46,10 @@ const viewportOnce = { once: true, margin: "-100px" };
 
 function AboutHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] min-h-dvh w-full flex items-center pt-24 pb-12 lg:pt-28 lg:pb-16">
-            <style dangerouslySetInnerHTML={{ __html: `
-                @media (max-width: 1025px) and (orientation: portrait) {
-                    .ipad-globe-override {
-                        top: calc(10% + 288px) !important;
-                    }
-                }
-            ` }} />
+        <section className="relative overflow-hidden bg-[#030b1e] min-h-dvh w-full flex items-start lg:items-center pt-20 sm:pt-24 md:pt-24 lg:pt-0 pb-12 lg:pb-0">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_50%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -66,23 +59,29 @@ function AboutHero() {
             />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
-            {/* 3D Digital Globe (Canvas) + Floating Photo Cards */}
-            <div className="hidden lg:block absolute top-[10%] right-[-10%] w-[60%] max-w-[900px] aspect-square pointer-events-none z-0 ipad-globe-override">
+            {/* Tablet background radial glow (md to lg) */}
+            <div className="hidden md:block lg:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[520px] md:w-[680px] h-[280px] md:h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.22)_0%,transparent_70%)] pointer-events-none" />
+
+            {/* 3D Digital Globe — Positioned on Right for Desktop / Laptop (>= lg) */}
+            <div className="hidden lg:block absolute top-[55%] -translate-y-[42%] right-[-10%] w-[58%] xl:w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
                 <DigitalGlobe />
                 {/* <FloatingPhotoCards /> */}
             </div>
 
+            {/* Tablet Only (md to < lg) 3D Digital Globe — Centered Half Globe at Bottom (Disabled on mobile < md) */}
+            <div className="hidden md:block lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[-160px] md:bottom-[-180px] w-[500px] md:w-[620px] aspect-square pointer-events-none z-0">
+                <DigitalGlobe />
+            </div>
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
-                {/* flex-row at tablet (md), reverts to block at desktop (lg) */}
-                <div className="flex flex-col md:flex-row md:items-start lg:block w-full">
+                <div className="w-full">
                     <motion.div
                         variants={staggerContainer}
                         initial="hidden"
                         animate="visible"
-                        className="w-full md:w-[62%] lg:w-[50%] max-w-[750px]"
+                        className="w-full lg:w-[54%] xl:w-[50%] max-w-[750px]"
                     >
-                        <motion.div variants={fadeInUp} className="mb-12">
+                        <motion.div variants={fadeInUp} className="mb-8 sm:mb-10 lg:mb-10 xl:mb-12">
                             <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
                                 <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
                                 WHO WE ARE
@@ -90,31 +89,31 @@ function AboutHero() {
                         </motion.div>
                         <motion.h1
                             variants={fadeInUp}
-                            className="text-4xl sm:text-5xl md:text-[32px] lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white mb-12 lg:mb-16 font-display"
+                            className="text-4xl sm:text-5xl lg:text-[44px] xl:text-[54px] 2xl:text-[62px] font-black leading-[1.08] tracking-tight text-white mb-8 sm:mb-10 lg:mb-10 xl:mb-14 font-display"
                         >
-                            Product Thinking.<br />
-                            Enterprise Impact.
+                            <span className="block whitespace-nowrap">Product Thinking.</span>
+                            <span className="block whitespace-nowrap">Enterprise Impact.</span>
                         </motion.h1>
                         <motion.p
                             variants={fadeInUp}
-                            className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl mb-14 lg:mb-20"
+                            className="text-base sm:text-lg lg:text-[17px] xl:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl mb-10 sm:mb-12 lg:mb-12 xl:mb-14"
                         >
                             {aboutContent.hero.description.replace(/\n/g, ' ')}
                         </motion.p>
 
                         {/* Metrics Bar */}
                         <motion.div variants={fadeInUp}>
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 sm:gap-y-0 sm:gap-x-0 sm:divide-x divide-blue-900/50 md:gap-x-6 md:divide-x-0 xl:gap-x-0 xl:divide-x w-full">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 sm:gap-y-0 sm:divide-x divide-blue-900/50 w-full max-w-[340px] sm:max-w-[500px] md:max-w-[540px] lg:max-w-[490px] xl:max-w-[540px]">
                                 {aboutContent.hero.metrics.map((metric, idx) => (
-                                    <div key={idx} className={`flex flex-col items-start py-3 ${
+                                    <div key={idx} className={`flex flex-col items-start py-2 ${
                                         idx === 0 
-                                            ? 'pr-2 md:pr-4 lg:pr-4' 
+                                            ? 'pr-3 sm:pr-4 md:pr-5 lg:pr-3.5 xl:pr-5' 
                                             : idx === aboutContent.hero.metrics.length - 1 
-                                                ? 'pl-2 md:pl-4 lg:pl-4' 
-                                                : 'px-2 md:px-4 lg:px-4'
+                                                ? 'pl-3 sm:pl-4 md:pl-5 lg:pl-3.5 xl:pl-5' 
+                                                : 'px-3 sm:px-4 md:px-5 lg:px-3.5 xl:px-5'
                                     }`}>
-                                        <div className="text-3xl lg:text-[44px] font-black text-blue-400 mb-2 font-display">{metric.value}</div>
-                                        <div className="text-[10px] lg:text-[11px] font-bold text-slate-400 leading-tight font-display max-w-[125px] sm:max-w-none">
+                                        <div className="text-3xl sm:text-3xl lg:text-[34px] xl:text-[42px] font-black text-blue-400 mb-1.5 font-display tracking-tight leading-none">{metric.value}</div>
+                                        <div className="text-[10px] sm:text-[10.5px] lg:text-[10.5px] xl:text-[11px] font-bold text-slate-400 leading-tight font-display whitespace-nowrap">
                                             {metric.label.split('\n').map((line, lIdx) => (
                                                 <span key={lIdx} className="block">{line}</span>
                                             ))}
@@ -124,14 +123,6 @@ function AboutHero() {
                             </div>
                         </motion.div>
                     </motion.div>
-
-                    {/* Tablet-only globe — shown at md, hidden at lg+ (desktop uses the absolute globe above) */}
-                    <div 
-                        className="hidden md:flex lg:hidden w-[38%] relative flex-shrink-0 aspect-square items-center justify-center pointer-events-none self-center"
-                        style={{ top: "288px" }}
-                    >
-                        <DigitalGlobe />
-                    </div>
                 </div>
             </div>
         </section>

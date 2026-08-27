@@ -92,6 +92,27 @@ export const insuranceContent = {
                 description: "Unified claims workflows with real-time processing and visibility for faster settlements.",
                 href: "/insights/case-studies/transforming-insurance-claims-operations-with-a-scalable-digital-platform",
                 image: "/images/Case_Studies/Optimized/cs-17.png"
+            },
+            {
+                title: "Intelligent Claims Orchestration<br />with Claim Pioneer",
+                titleHighlightIndex: 1,
+                description: "An AI-powered claims orchestration platform that connects assignment, field execution, customer engagement, and financial workflows.",
+                href: "/insights/case-studies/intelligent-claims-orchestration-with-claim-pioneer",
+                image: "/images/Case_Studies/casestudy2.png"
+            },
+            {
+                title: "Streamlining Field Claims<br />with Mobile-First Execution",
+                titleHighlightIndex: 1,
+                description: "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
+                href: "/insights/case-studies/streamlining-field-claims-with-mobile-first-execution",
+                image: "/images/Case_Studies/casestudy3.png"
+            },
+            {
+                title: "Transforming Claims<br />with a Connected Customer Experience",
+                titleHighlightIndex: 1,
+                description: "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
+                href: "/insights/case-studies/transforming-claims-with-a-connected-customer-experience",
+                image: "/images/Case_Studies/casestudy4.png"
             }
         ]
     }

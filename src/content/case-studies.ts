@@ -33,7 +33,7 @@ export const caseStudiesContent = {
             image: "/images/Case_Studies/casestudy2.png",
             description: "An AI-powered claims orchestration platform that connects assignment, field execution, customer engagement, and financial workflows.",
             href: "/insights/case-studies/intelligent-claims-orchestration-with-claim-pioneer",
-            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
+            tags: ["Product Engineering", "Insurance", "Digital Transformation"],
         },
         {
             title: "<span class='text-[#3B82F6]'>Autonomous Freight Operations</span> with GenAI",
@@ -58,7 +58,7 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Transforming Claims Operations</span> with Intelligent Assignment",
-            image: "/images/Case_Studies/casestudy4.png",
+            image: "/images/Case_Studies/casestudy2_new.png",
             description: "Automated assignment and real-time operational visibility for faster, more controlled claims management.",
             href: "/insights/case-studies/transforming-claims-operations-with-intelligent-assignment",
             tags: ["Product Engineering", "Insurance", "Data Intelligence"],
@@ -93,10 +93,10 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Streamlining Field Claims</span> with Mobile-First Execution",
-            image: "/images/Case_Studies/casestudy1.png",
+            image: "/images/Case_Studies/casestudy3.png",
             description: "A mobile-first claims experience that helps adjusters manage the right work, at the right time, with the right information.",
             href: "/insights/case-studies/streamlining-field-claims-with-mobile-first-execution",
-            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
+            tags: ["Product Engineering", "Insurance", "Digital Transformation"],
         },
         {
             title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span> Platform Transformation",
@@ -128,10 +128,10 @@ export const caseStudiesContent = {
         },
         {
             title: "<span class='text-[#3B82F6]'>Transforming Claims</span> with a Connected Customer Experience",
-            image: "/images/Case_Studies/casestudy3.png",
+            image: "/images/Case_Studies/casestudy4.png",
             description: "A transparent claims experience that keeps policyholders informed from appointment to assessment and resolution.",
             href: "/insights/case-studies/transforming-claims-with-a-connected-customer-experience",
-            tags: ["Product Engineering", "Insurance", "Data Intelligence"],
+            tags: ["Product Engineering", "Insurance", "Applied AI"],
         },
         {
             title: "<span class='text-[#3B82F6]'>Elevating Member Engagement</span> in Modern Banking Operations",

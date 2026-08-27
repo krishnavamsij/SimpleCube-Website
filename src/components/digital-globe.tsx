@@ -310,12 +310,14 @@ export function DigitalGlobe() {
         nodes: NetworkNode[];
         stars: Star[];
         particles: Particle[];
+        lastRadius: number;
         frame: number;
         initialized: boolean;
     }>({
         nodes: [],
         stars: [],
         particles: [],
+        lastRadius: 0,
         frame: 0,
         initialized: false,
     });
@@ -333,6 +335,11 @@ export function DigitalGlobe() {
         const w = rect.width;
         const h = rect.height;
 
+        if (w <= 10 || h <= 10) {
+            animRef.current = requestAnimationFrame(render);
+            return;
+        }
+
         if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
             canvas.width = Math.round(w * dpr);
             canvas.height = Math.round(h * dpr);
@@ -346,10 +353,11 @@ export function DigitalGlobe() {
         const cx = w * 0.5;
         const cy = h * 0.5;
 
-        if (!state.initialized) {
+        if (!state.initialized || Math.abs(state.lastRadius - globeRadius) > 5) {
             state.nodes = createNetwork(globeRadius);
             state.stars = createStars(250, w, h);
             state.particles = createParticles(150, globeRadius);
+            state.lastRadius = globeRadius;
             state.initialized = true;
         }
 

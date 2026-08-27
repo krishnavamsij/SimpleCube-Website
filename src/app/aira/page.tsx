@@ -411,11 +411,11 @@ function AiraCapabilities() {
         <section id="capabilities" className="bg-[#0b1021] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
             <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
                 {/* LEFT FIXED CONTENT */}
-                <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+                <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center md:text-left">
                     <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
                         Key Capabilities
                     </h2>
-                    <p className="text-center lg:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto lg:mx-0">
+                    <p className="text-center md:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto md:mx-0">
                         Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
                     </p>
                 </div>

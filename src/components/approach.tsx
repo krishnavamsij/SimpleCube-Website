@@ -148,11 +148,11 @@ export function Approach() {
                                         <div className={`absolute w-[2px] left-1/2 -translate-x-1/2 top-10 sm:top-12 bottom-[-32px] bg-gradient-to-b z-0 ${lineGradients[idx]}`} />
                                     )}
                                 </div>
-                                <div className="flex-1 pt-1 sm:pt-2">
-                                    <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>
+                                <div className="flex-1 pt-1 sm:pt-2 min-w-0 text-left">
+                                    <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 text-left ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>
                                         {step.title}
                                     </h3>
-                                    <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/70 font-medium">
+                                    <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/70 font-medium text-left">
                                         {step.description}
                                     </p>
                                 </div>

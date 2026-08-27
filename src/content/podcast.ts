@@ -112,5 +112,20 @@ export const podcastContent: {
             videoUrl: "https://www.youtube.com/watch?v=zS2zRYjXztw",
             description: "Episode #05 On the Shoulders of Giants",
         },
+        {
+            id: "cu-next-podcast-6",
+            seriesTitle: "CU Next: Conversations shaping the NEXT era of Credit Unions",
+            title: "Lose on your own Terms",
+            date: "26th Aug 2026",
+            duration: "30 minutes",
+            category: "Podcast",
+            host: "Joseph Thomas",
+            hostRole: "Advisor, Hyniva | Retired PenFed CIO",
+            guest: "Bill Hills",
+            guestRole: "Former EVP, Navy Fed, Layfette CU Board Member",
+            image: "/images/Podcast/Episode6poster.png",
+            videoUrl: "https://www.youtube.com/watch?v=teX7rQKOINE",
+            description: "Episode #06 Lose on your own Terms",
+        },
     ],
-};
+};

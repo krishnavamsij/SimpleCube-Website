@@ -477,7 +477,7 @@ function WhyHynivaDT() {
 
     return (
         <section className="bg-white py-[14px] sm:py-[20px] lg:py-[26px]">
-            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col">
+            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col gap-6">
                 {/* ── Top Box: Dark Glowing Container ── */}
                 <motion.div
                     variants={animations.fadeInUp}
@@ -489,14 +489,14 @@ function WhyHynivaDT() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 lg:gap-12 lg:grid-cols-[1fr_auto] items-start">
+                    <div className="relative z-10 grid gap-8 md:gap-12 md:grid-cols-[1fr_auto] items-start">
                         {/* ── LEFT: Badge + Heading ── */}
                         <div className="flex flex-col items-start">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-6 px-3.5 py-1 text-[10px]">
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 THE DIFFERENCE
                             </div>
-                            <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
+                            <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
                                 <span className="block">Why Organizations</span>
                                 <span className="block">Choose Hyniva for</span>
                                 <span className="text-[#00D4AA] block">Strategy Consulting?</span>
@@ -504,7 +504,7 @@ function WhyHynivaDT() {
                         </div>
 
                         {/* Right Side: Metrics & CTA */}
-                        <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
+                        <div className="flex flex-col items-start justify-between gap-5 md:gap-6 md:pl-8 w-full pt-0 md:pt-[44px]">
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-wrap items-start justify-start sm:gap-8 lg:gap-10 xl:gap-12 w-full">
                                 <div className="flex flex-col items-start">
@@ -558,7 +558,7 @@ function WhyHynivaDT() {
                     viewport={{ once: true }}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] py-[24px] sm:py-[32px] lg:py-[42px] px-[24px] sm:px-[32px] lg:px-[42px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 sm:gap-6 xl:gap-10 xl:gap-12">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">

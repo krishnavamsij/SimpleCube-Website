@@ -411,19 +411,19 @@ function EnterpriseEnablement() {
 function TransformationInAction() {
     const caseStudies = [
         {
-            title: "Autonomous Lending Experience with FinXServe & Agentforce",
+            title: "<span class='text-[#3B82F6]'>Autonomous Lending Experience</span> with FinXServe & Agentforce",
             image: "/images/Case_Studies/Optimized/cs-14.png",
             description: "How we helped modernize global infrastructure with robust AWS cloud solutions.",
             href: "/insights/case-studies/autonomous-lending-experiences"
         },
         {
-            title: "Scalable Multi-Portal Platform for Complex Education Workflows",
+            title: "<span class='text-[#3B82F6]'>Scalable Multi-Portal Platform</span> for Complex Education Workflows",
             image: "/images/Case_Studies/Optimized/cs-1.png",
             description: "Implementing AI-driven document intelligence to streamline manufacturing workflows.",
             href: "/insights/case-studies/scalable-multi-portal-platform"
         },
         {
-            title: "Transforming Claims Operations with a Scalable Digital Platform",
+            title: "<span class='text-[#3B82F6]'>Transforming Claims Operations</span> with a Scalable Digital Platform",
             image: "/images/Case_Studies/Optimized/cs-10.png",
             description: "Driving operational excellence and cloud transformation on Microsoft Azure.",
             href: "/insights/case-studies/transforming-claims-operations"
@@ -541,7 +541,7 @@ function WhyHynivaPE() {
 
     return (
         <section className="bg-white py-[14px] sm:py-[20px] lg:py-[26px]">
-            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col">
+            <div className="mx-auto w-full max-w-[84rem] xl:max-w-[86rem] px-6 md:px-10 lg:px-16 flex flex-col gap-6">
                 {/* ── Top Box: Dark Glowing Container ── */}
                 <motion.div 
                     variants={animations.fadeInUp}
@@ -553,7 +553,7 @@ function WhyHynivaPE() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 lg:gap-12 lg:grid-cols-[1fr_auto] items-start">
+                    <div className="relative z-10 grid gap-8 md:gap-12 md:grid-cols-[1fr_auto] items-start">
                         {/* ── LEFT: Badge + Heading ── */}
                         <div className="flex flex-col items-start">
                             <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-6 px-3.5 py-1 text-[10px]">
@@ -568,7 +568,7 @@ function WhyHynivaPE() {
                         </div>
 
                         {/* Right Side: Metrics & CTA */}
-                        <div className="flex flex-col items-start justify-between gap-5 lg:gap-6 lg:pl-8 w-full pt-0 lg:pt-[44px]">
+                        <div className="flex flex-col items-start justify-between gap-5 md:gap-6 md:pl-8 w-full pt-0 md:pt-[44px]">
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-wrap items-start justify-start sm:gap-8 lg:gap-10 xl:gap-12 w-full">
                                 <div className="flex flex-col items-start">

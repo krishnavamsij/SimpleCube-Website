@@ -290,7 +290,7 @@ function CaseStudies() {
                                                 <span className="text-[#1e90ff]">{firstLine}</span>
                                                 {secondLine && (
                                                     <>
-                                                        <br />
+                                                        {" "}
                                                         <span className="text-[#030B3B]">{secondLine}</span>
                                                     </>
                                                 )}
@@ -300,7 +300,7 @@ function CaseStudies() {
                                                 <span className="text-[#030B3B]">{firstLine}</span>
                                                 {secondLine && (
                                                     <>
-                                                        <br />
+                                                        {" "}
                                                         <span className="text-[#1e90ff]">{secondLine}</span>
                                                     </>
                                                 )}

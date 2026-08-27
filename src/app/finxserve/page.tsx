@@ -222,9 +222,9 @@ export default function FinxservePage() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="flex flex-col md:flex-row items-center gap-12"
+                        className="flex flex-col lg:flex-row items-center gap-12"
                     >
-                        <div className="w-full md:w-1/2 text-left">
+                        <div className="w-full lg:w-1/2 text-center md:text-left">
                             <header className="mb-6">
                                 <h2
                                     className="text-[32px] sm:text-[40px] font-bold leading-[1.3] tracking-tight font-display"
@@ -242,8 +242,8 @@ export default function FinxservePage() {
                                 FinXServe’s vision is to deliver deeply personalized member experiences that fuel responsible growth, strengthen compliance and trust, and accelerate innovation at lower operational cost on a trusted, scalable platform. Built by banking experts with over two decades of transformation experience, FinXServe helps institutions turn digital experiences into seamless connected journey — without disruption.
                             </p>
                         </div>
-                        <div className="w-full md:w-1/2 flex items-center justify-center">
-                            <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
+                        <div className="w-full lg:w-1/2 flex items-center justify-center">
+                            <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden max-w-xl mx-auto lg:mx-0 w-full">
                                 <Image src="/images/products/Artboard-1@2x-1.png" alt="FinXServe Intro" width={600} height={400} className="w-full h-auto" />
                             </div>
                         </div>
@@ -254,11 +254,11 @@ export default function FinxservePage() {
             <section id="capabilities" className="bg-[#030B49] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
                 <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
                     {/* LEFT FIXED CONTENT */}
-                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center lg:text-left">
+                    <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center md:text-left">
                         <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black text-white mb-4 lg:mb-6 leading-tight">
                             Capabilities That Drive Growth
                         </h2>
-                        <p className="text-center lg:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto lg:mx-0">
+                        <p className="text-center md:text-left text-[15px] sm:text-[16px] leading-[1.6] text-slate-300 max-w-sm mx-auto md:mx-0">
                             Driving faster launches, lower costs, and frictionless journeys across every channel. Built by banking experts.
                         </p>
                     </div>
@@ -450,13 +450,8 @@ export default function FinxservePage() {
                         whileInView="visible"
                         viewport={viewportOnce}
                     >
-                        <div className="flex flex-col md:flex-row items-center gap-12">
-                            <div className="w-full md:w-1/2">
-                                <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden">
-                                    <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
-                                </div>
-                            </div>
-                            <div className="w-full md:w-1/2 text-center md:text-left">
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            <div className="w-full lg:w-1/2 text-center lg:text-left order-1 lg:order-2">
                                 <header className="mb-6">
                                     <h2
                                         className="text-[28px] md:text-[30px] lg:text-[34px] xl:text-[40px] font-bold leading-[1.3] mb-6 tracking-tight font-display"
@@ -465,13 +460,18 @@ export default function FinxservePage() {
                                         }}
                                     >
                                         <span className="lg:whitespace-nowrap">Two Decades of Financial &</span>
-                                        <br />
+                                        <br className="hidden lg:block" />
                                         Salesforce Expertise
                                     </h2>
                                     <p className="text-base sm:text-lg font-medium leading-relaxed text-[#666666]">
                                         FinXServe was born from Hyniva’s deep legacy in building banking platforms and transforming Credit Unions and Banks on Salesforce. With proven cross-cloud expertise — Financial Services, Experience, Data, Marketing, and Loyalty Clouds — our certified teams architect secure, scalable, and compliant Salesforce ecosystems that power FinXServe’s speed, intelligence, and reliability.
                                     </p>
                                 </header>
+                            </div>
+                            <div className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1">
+                                <div className="border border-gray-100 shadow-xl p-1 rounded-lg overflow-hidden max-w-xl mx-auto lg:mx-0 w-full">
+                                    <Image src="/images/products/twodecades.png" alt="Two Decades" width={600} height={400} className="w-full h-auto" />
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -513,64 +513,7 @@ export default function FinxservePage() {
                                         </div>
 
                                         {/* Card Body */}
-                                        <div className="p-5 sm:p-8 pt-3 sm:pt-4 flex flex-col flex-1 relative z-10">
-                                            {/* Tags */}
-                                            <div className="min-h-[34px] sm:min-h-[38px] flex-shrink-0 mb-3 sm:mb-4 flex items-center">
-                                                {study.tags && study.tags.length > 0 && (
-                                                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                                                        {study.tags.slice(0, 2).map((tag, tagIdx) => (
-                                                            <span
-                                                                key={tagIdx}
-                                                                className={`px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full ${tagIdx === 0 ? 'order-1' : 'order-3 xl:order-2'}`}
-                                                            >
-                                                                {tag}
-                                                            </span>
-                                                        ))}
-                                                        {study.tags.length > 2 && (
-                                                            <div
-                                                                className="relative inline-flex order-2 xl:order-3"
-                                                                data-tag-overflow
-                                                                onMouseEnter={() => setExpandedCardTags(cardKey)}
-                                                                onMouseLeave={() => setExpandedCardTags((current) => current === cardKey ? null : current)}
-                                                            >
-                                                                <button
-                                                                    type="button"
-                                                                    aria-label={`Show ${study.tags.length - 2} more tags`}
-                                                                    aria-expanded={expandedCardTags === cardKey}
-                                                                    onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
-                                                                    className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
-                                                                >
-                                                                    +{study.tags.length - 2}
-                                                                </button>
-                                                                {/* Popup */}
-                                                                <AnimatePresence>
-                                                                    {expandedCardTags === cardKey && (
-                                                                        <motion.div
-                                                                            initial={{ opacity: 0, y: 6, scale: 0.96 }}
-                                                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                                            exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                                                                            transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                                                                            className="absolute bottom-full left-1/2 -translate-x-1/2 z-50 mb-2 w-auto max-w-[280px] p-1"
-                                                                        >
-                                                                            <div className="absolute left-1/2 -translate-x-1/2 top-full h-2 w-full" />
-                                                                            <div className="relative flex flex-col gap-1.5 items-center">
-                                                                                {study.tags.slice(2).map((tag, tagIdx) => (
-                                                                                    <span
-                                                                                        key={tagIdx}
-                                                                                        className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
-                                                                                    >
-                                                                                        {tag}
-                                                                                    </span>
-                                                                                ))}
-                                                                            </div>
-                                                                        </motion.div>
-                                                                    )}
-                                                                </AnimatePresence>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                )}
-                                            </div>
+                                        <div className="p-5 sm:p-8 pt-5 sm:pt-6 flex flex-col flex-1 relative z-10">
 
                                             {/* Title Wrapper */}
                                             <div className="mb-2.5 sm:mb-3 flex items-start">
