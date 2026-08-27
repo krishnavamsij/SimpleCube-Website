@@ -76,19 +76,10 @@ export function VoiceOfCustomer() {
                     hoverVideoRef.current.currentTime = 4.5;
                 }
                 hoverVideoRef.current.playbackRate = 1.0;
-                hoverVideoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
-                hoverVideoRef.current.play().then(() => {
-                    setIsMuted(false);
-                }).catch((err) => {
-                    console.warn("Unmuted VOC hover play failed, attempting muted:", err);
-                    if (hoverVideoRef.current) {
-                        hoverVideoRef.current.muted = true; // Fallback to muted if blocked by browser policy
-                        hoverVideoRef.current.play().then(() => {
-                            setIsMuted(true);
-                        }).catch((err2) => {
-                            console.error("Muted VOC hover play failed too:", err2);
-                        });
-                    }
+                hoverVideoRef.current.muted = true; // Always muted by default on hover
+                setIsMuted(true);
+                hoverVideoRef.current.play().catch((err) => {
+                    // Suppress play rejections gracefully
                 });
             }
         }
@@ -111,6 +102,12 @@ export function VoiceOfCustomer() {
             const newMuted = !hoverVideoRef.current.muted;
             hoverVideoRef.current.muted = newMuted;
             setIsMuted(newMuted);
+            if (!newMuted) {
+                // Ensure video plays when unmuted via user click
+                hoverVideoRef.current.play().catch((err) => {
+                    // Suppress play rejections gracefully
+                });
+            }
         }
     };
 

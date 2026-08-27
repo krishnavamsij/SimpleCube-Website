@@ -59,19 +59,10 @@ export default function PodcastPage() {
         setIsHovered(true);
         if (videoRef.current) {
             videoRef.current.playbackRate = 1.0;
-            videoRef.current.muted = false; // Try playing unmuted so the voice plays on hover
-            videoRef.current.play().then(() => {
-                setIsMuted(false);
-            }).catch((err) => {
-                console.warn("Unmuted podcast hover play failed, attempting muted:", err);
-                if (videoRef.current) {
-                    videoRef.current.muted = true; // Fallback to muted if blocked by browser policy
-                    videoRef.current.play().then(() => {
-                        setIsMuted(true);
-                    }).catch((err2) => {
-                        console.error("Muted podcast hover play failed too:", err2);
-                    });
-                }
+            videoRef.current.muted = true; // Always muted by default on hover
+            setIsMuted(true);
+            videoRef.current.play().catch((err) => {
+                // Suppress play rejections gracefully
             });
         }
     };
@@ -91,6 +82,12 @@ export default function PodcastPage() {
             const newMuted = !videoRef.current.muted;
             videoRef.current.muted = newMuted;
             setIsMuted(newMuted);
+            if (!newMuted) {
+                // Ensure video plays when unmuted via user click
+                videoRef.current.play().catch((err) => {
+                    // Suppress play rejections gracefully
+                });
+            }
         }
     };
 
