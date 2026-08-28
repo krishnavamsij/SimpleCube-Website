@@ -1580,18 +1580,4 @@ html {
   -webkit-box-orient: vertical !important;
   box-orient: vertical !important;
   overflow: hidden !important;
-}
-
-/* Tablet view for the honeycomb */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .honeycomb-container {
-    margin-right: 125px;
-  }
-}
-
-/* Tablet view for the honeycomb */
-@media (min-width: 1024px) and (max-width: 1200px) {
-  .honeycomb-container {
-    margin-right: 125px;
-  }
-}
+}

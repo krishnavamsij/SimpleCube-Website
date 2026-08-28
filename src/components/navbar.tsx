@@ -129,7 +129,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     <div className="hidden items-center lg:flex gap-0 relative">
                         {dropdownItems.map((group) => {
                             const isServices = group.label === "Services";
-                            const isServicesActive = isServices && (pathname === "/services" || pathname?.startsWith("/services"));
+                            const isActive = isServices || (group.href && (pathname === group.href || (group.href !== "/" && pathname?.startsWith(group.href))));
 
                             return (
                                 <div
@@ -144,13 +144,18 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                             className={cn(
                                                 "flex items-center gap-1 rounded-full transition-all uppercase tracking-tight",
                                                 scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
-                                                (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
+                                                (isActive || openDropdown === group.label)
+                                                    ? "text-[#2563eb]"
+                                                    : (scrolled || forceDarkText ? "text-slate-600 hover:text-[#2563eb]" : "text-white/90 hover:text-[#2563eb]")
                                             )}
                                         >
                                             {group.label}
                                             <ChevronDown className={cn(
                                                 scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
-                                                "transition-transform opacity-50",
+                                                "transition-transform",
+                                                (isActive || openDropdown === group.label)
+                                                    ? "opacity-100 text-[#2563eb]"
+                                                    : "opacity-50",
                                                 openDropdown === group.label && "rotate-180"
                                             )} />
                                         </Link>
@@ -158,10 +163,19 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                         <button className={cn(
                                             "flex items-center gap-1 rounded-full transition-colors uppercase tracking-tight",
                                             scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
-                                            (scrolled || forceDarkText) ? "text-slate-600 hover:text-[#2563EB]" : "text-white/90 hover:text-white"
+                                            (isActive || openDropdown === group.label)
+                                                ? "text-[#2563eb]"
+                                                : (scrolled || forceDarkText ? "text-slate-600 hover:text-[#2563eb]" : "text-white/90 hover:text-[#2563eb]")
                                         )}>
                                             {group.label}
-                                            <ChevronDown className={cn(scrolled ? "h-2.5 w-2.5" : "h-3 w-3", "transition-transform opacity-50", openDropdown === group.label && "rotate-180")} />
+                                            <ChevronDown className={cn(
+                                                scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
+                                                "transition-transform",
+                                                (isActive || openDropdown === group.label)
+                                                    ? "opacity-100 text-[#2563eb]"
+                                                    : "opacity-50",
+                                                openDropdown === group.label && "rotate-180"
+                                            )} />
                                         </button>
                                     )}
                                 <AnimatePresence>
@@ -343,18 +357,27 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         className="border-t border-slate-100 bg-white lg:hidden overflow-hidden rounded-b-[2rem]"
                     >
                         <div className="max-h-[70vh] overflow-y-auto divide-y divide-slate-100 px-6 py-3">
-                            {dropdownItems.map((group) => (
+                            {dropdownItems.map((group) => {
+                                const isServices = group.label === "Services";
+                                const isActive = isServices || (group.href && (pathname === group.href || (group.href !== "/" && pathname?.startsWith(group.href))));
+                                return (
                                 <div key={group.label} className="py-3">
                                     {group.href ? (
                                         <Link
                                             href={group.href}
-                                            className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-[#2563EB] mb-2 block transition-colors"
+                                            className={cn(
+                                                "text-[10px] font-black uppercase tracking-widest mb-2 block transition-colors",
+                                                isActive ? "text-[#2563eb]" : "text-slate-400 hover:text-[#2563eb]"
+                                            )}
                                             onClick={() => setMobileOpen(false)}
                                         >
                                             {group.label}
                                         </Link>
                                     ) : (
-                                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{group.label}</p>
+                                        <p className={cn(
+                                            "text-[10px] font-black uppercase tracking-widest mb-2",
+                                            isActive ? "text-[#2563eb]" : "text-slate-400"
+                                        )}>{group.label}</p>
                                     )}
                                     {group.categories ? (
                                         <div className="space-y-3">
@@ -412,7 +435,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                         </div>
                                     ) : null}
                                 </div>
-                            ))}
+                            ); })}
                             <div className="pt-3 pb-6">
                                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
                                     <Button className="w-full rounded-full bg-[#2563eb] text-white font-black hover:bg-[#1d4ed8] uppercase text-[12px] tracking-wide">

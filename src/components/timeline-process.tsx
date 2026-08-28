@@ -86,7 +86,7 @@ export function TimelineProcess({
   }, [activeStep, steps.length, isInView, isPaused, resumeAnimation]);
 
   // Sizes based on distance from the active step [distance 0, distance 1, distance 2, distance 3]
-  const sizeMap = [300, 230, 200, 180];
+  const sizeMap = [310, 215, 175, 150];
 
   return (
     <section ref={containerRef} className="bg-[#030b1e] pt-20 sm:pt-24 lg:pt-14 pb-4 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
@@ -124,19 +124,23 @@ export function TimelineProcess({
           
           <div className="flex flex-row items-center justify-center relative w-full h-full">
             {steps.map((step, idx) => {
+              const currentStep = hoveredStep !== null ? hoveredStep : activeStep;
               // When hovering, show gradient on hovered globe; when not hovering, show on active globe
-              const showGlow = hoveredStep !== null ? hoveredStep === idx : activeStep === idx;
-              const isPast = activeStep >= idx;
+              const showGlow = currentStep === idx;
+              const isPast = currentStep >= idx;
               
-              // Calculate distance to the active step
-              const distance = Math.abs(idx - activeStep);
+              // Calculate distance to the active/hovered step
+              const distance = Math.abs(idx - currentStep);
               // Retrieve cascading size based on distance
               const size = sizeMap[distance];
               
+              // Dynamic transition speed: faster on hover for instant visual feedback
+              const durClass = hoveredStep !== null ? "duration-300" : "duration-700";
+
               return (
                 <div 
                   key={step.title} 
-                  className="relative h-full flex flex-col justify-center items-center transition-all duration-1000 ease-in-out cursor-pointer" 
+                  className={`relative h-full flex flex-col justify-center items-center transition-all ${durClass} ease-out cursor-pointer`} 
                   style={{ width: size, flexShrink: 0 }}
                   onMouseEnter={() => {
                     setHoveredStep(idx);
@@ -151,12 +155,12 @@ export function TimelineProcess({
                 >
                   
                   {/* Outer Large Circle Container */}
-                  <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none transition-all duration-1000 ease-in-out"
+                  <div className={`absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none transition-all ${durClass} ease-out`}
                        style={{ width: size, height: size }}>
                     
                     {/* Main Circle - with overflow visible for soft bleeding glow */}
                     <div 
-                      className="rounded-full border transition-all duration-1000 absolute w-full h-full flex justify-center items-center"
+                      className={`rounded-full border transition-all ${durClass} absolute w-full h-full flex justify-center items-center`}
                       style={{
                         borderColor: isPast ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.05)',
                         backgroundColor: showGlow ? 'rgba(255,255,255,0.02)' : 'transparent',
@@ -172,14 +176,14 @@ export function TimelineProcess({
                             scale: isTransitioning && hoveredStep === null ? 0.5 : 1,
                           }}
                           transition={{ 
-                            duration: hoveredStep !== null ? 0.5 : 1.2, 
+                            duration: hoveredStep !== null ? 0.3 : 0.7, 
                             ease: "easeInOut"
                           }}
                         >
                           <motion.div
                             layoutId={`glowOrb-${loopCount}`}
                             className="absolute rounded-full mix-blend-screen"
-                            transition={{ type: "spring", stiffness: 45, damping: 15 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 18 }}
                             style={{
                               width: '110%',
                               height: '110%',
@@ -193,13 +197,13 @@ export function TimelineProcess({
                       )}
 
                       {/* Grid Pattern inside active circle */}
-                      <div className={`absolute inset-0 rounded-full transition-opacity duration-1000 overflow-hidden ${showGlow ? 'opacity-100' : 'opacity-0'}`} 
+                      <div className={`absolute inset-0 rounded-full transition-opacity ${durClass} overflow-hidden ${showGlow ? 'opacity-100' : 'opacity-0'}`} 
                            style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                     </div>
 
                     {/* Secondary Inner Arc / Circle */}
                     <div 
-                      className="rounded-full border-t border-r transition-all duration-1000 absolute"
+                      className={`rounded-full border-t border-r transition-all ${durClass} absolute`}
                       style={{
                         width: size * 0.65,
                         height: size * 0.65,
@@ -209,27 +213,27 @@ export function TimelineProcess({
                     />
 
                     {/* Step Number IN THE TOP INNER BOUNDARY of circle */}
-                    <div className={`absolute top-4 left-1/2 -translate-x-1/2 text-[12px] font-bold tracking-widest font-mono transition-colors duration-1000 ${showGlow ? 'text-white' : 'text-white/40'}`}>
+                    <div className={`absolute top-4 left-1/2 -translate-x-1/2 text-[12px] font-bold tracking-widest font-mono transition-colors ${durClass} ${showGlow ? 'text-white' : 'text-white/40'}`}>
                       {step.num}
                     </div>
 
                     {/* Small Node Dot on the timeline */}
-                    <div className={`absolute w-1.5 h-1.5 rounded-full transition-all duration-700 ${isPast ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'bg-white/30'}`} />
+                    <div className={`absolute w-1.5 h-1.5 rounded-full transition-all ${durClass} ${isPast ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'bg-white/30'}`} />
                   </div>
 
                   {/* Title Above the middle line */}
-                  <div className={`absolute bottom-[60%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all duration-1000 z-30 ${showGlow ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
-                    <h3 className={`font-bold tracking-wide transition-colors duration-1000 ${showGlow ? 'text-white drop-shadow-md' : 'text-slate-300'}`}>
+                  <div className={`absolute bottom-[60%] mb-3 left-1/2 -translate-x-1/2 w-[280px] text-center transition-all ${durClass} z-30 ${showGlow ? 'opacity-100 scale-110' : 'opacity-60 scale-90'}`}>
+                    <h3 className={`font-bold tracking-wide transition-colors ${durClass} ${showGlow ? 'text-white drop-shadow-md' : 'text-slate-300'}`}>
                       {step.title}
                     </h3>
                   </div>
 
                   {/* Description below the circle */}
                   <div
-                    className={`absolute top-[40%] left-1/2 -translate-x-1/2 text-center transition-all duration-1000 ease-in-out z-30 ${showGlow ? 'scale-105' : 'scale-90'}`}
+                    className={`absolute top-[40%] left-1/2 -translate-x-1/2 text-center transition-all ${durClass} ease-out z-30 ${showGlow ? 'scale-105' : 'scale-90'}`}
                     style={{ marginTop: (size / 2) + 10, width: Math.min(Math.max(size * 0.95, 185), 260) }}
                   >
-                    <p className={`leading-snug text-[12px] line-clamp-4 transition-colors duration-1000 ${showGlow ? 'text-slate-200' : 'text-slate-400'}`}>
+                    <p className={`leading-snug text-[12px] line-clamp-4 transition-colors ${durClass} ${showGlow ? 'text-slate-200' : 'text-slate-400'}`}>
                       {step.desc}
                     </p>
                   </div>

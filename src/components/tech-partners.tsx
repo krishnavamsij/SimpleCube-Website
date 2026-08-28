@@ -61,7 +61,7 @@ export function TechPartners() {
                        LEFT SIDE CONTENT
                     ========================= */}
 
-                    <div className="w-full md:w-[52%] lg:w-[50%] xl:w-[52%] relative z-20">
+                    <div className="w-full md:w-[50%] lg:w-[50%] xl:w-[50%] relative z-20">
 
                         <motion.div
                             variants={scrollReveal}
@@ -104,7 +104,7 @@ export function TechPartners() {
                        RIGHT SIDE HONEYCOMB
                     ========================= */}
 
-                    <div className="honeycomb-container relative w-full md:w-[48%] lg:w-[50%] xl:w-[48%] flex justify-start md:justify-end lg:justify-start overflow-visible -ml-12 sm:-ml-6 md:ml-0 lg:-ml-4 xl:-ml-12 2xl:-ml-20 pl-0 sm:pl-2 md:pl-0 lg:pl-0 sm:max-lg:translate-y-[192px]">
+                    <div className="honeycomb-container relative w-full md:w-[50%] lg:w-[50%] xl:w-[50%] flex justify-start md:justify-center lg:justify-center xl:justify-center overflow-visible ml-0 pl-0">
 
                         <motion.div
                             variants={scrollReveal}
@@ -118,13 +118,14 @@ export function TechPartners() {
                                 sm:max-w-[760px]
                                 h-[290px]
                                 sm:h-[400px]
-                                md:h-[380px]
-                                lg:h-[560px]
-                                xl:h-[640px]
+                                md:h-[320px]
+                                lg:h-[380px]
+                                xl:h-[500px]
+                                2xl:h-[580px]
                                 overflow-visible
-                                md:-translate-x-10
-                                lg:-translate-x-5
-                                xl:-translate-x-8
+                                md:-translate-x-6
+                                lg:-translate-x-6
+                                xl:translate-x-0
                             "
                         >
 
@@ -144,10 +145,11 @@ export function TechPartners() {
                                         relative
                                         scale-[0.32]
                                         sm:scale-[0.45]
-                                        md:scale-[0.42]
-                                        lg:scale-[0.55]
-                                        xl:scale-[0.80]
-                                        origin-center md:origin-right lg:origin-center
+                                        md:scale-[0.30]
+                                        lg:scale-[0.38]
+                                        xl:scale-[0.55]
+                                        2xl:scale-[0.68]
+                                        origin-center
                                         mx-auto
                                     "
                                     style={{

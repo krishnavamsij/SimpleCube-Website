@@ -200,7 +200,7 @@ export const challengesContent = {
 export const approachContent = {
     label: "The Hyniva Approach",
     headline: "Digital Factory Model",
-    sub: "The developer owns the full lifecycle enabling Zero Handoff Friction, reducing overhead\u00A0and\u00A0increasing accountability at every stage.",
+    sub: "The developer owns the full lifecycle enabling Zero Handoff Friction, reducing overhead and increasing accountability at every stage.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
         { value: 30, suffix: "%", label: "Faster POC & Prototype Stages" },

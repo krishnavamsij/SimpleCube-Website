@@ -93,7 +93,7 @@ export function Approach() {
                             ))}
                         </h2>
                         <p className="text-[15px] font-medium leading-[1.7] text-white/70">
-                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead&nbsp;and&nbsp;increasing accountability at every stage.
+                            The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead and increasing accountability at every stage.
                         </p>
                     </div>
 

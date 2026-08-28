@@ -133,7 +133,7 @@ function AboutHero() {
 
 function ApiSection() {
     return (
-        <section className="bg-white relative pt-6 lg:pt-8 pb-10 lg:pb-12 overflow-x-hidden">
+        <section className="bg-white relative pt-16 sm:pt-12 lg:pt-8 pb-10 lg:pb-12 overflow-x-hidden">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23f1f5f9\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50 z-0"></div>
 
@@ -141,13 +141,13 @@ function ApiSection() {
                 
                 {/* Left Hand Side - Content */}
                 <div className="w-full lg:w-[40%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
-                    <div className="mb-10 lg:mb-14">
+                    <div className="mb-6 lg:mb-14">
                         <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
                             <span className="dot bg-[#2563eb]" />
                             OUR FOUNDATION
                         </span>
                     </div>
-                    <h2 className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 lg:mb-14 font-medium">
+                    <h2 className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-14 font-medium">
                         At the core of Hyniva are three defining strengths:<br /> <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
                     </h2>
                     <p className="text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#0f172a] leading-[1.12] tracking-tight font-display">
@@ -157,7 +157,7 @@ function ApiSection() {
                 </div>
 
                 {/* Right Hand Side - DNA Diagram */}
-                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-8 lg:mt-0 h-[480px] xs:h-[530px] sm:h-[600px] lg:h-[580px] overflow-visible">
+                <div className="w-full lg:w-[60%] relative flex items-center justify-center mt-6 lg:mt-0 h-[480px] xs:h-[530px] sm:h-[600px] lg:h-[580px] overflow-visible">
                     
                     <motion.div 
                         initial="hidden"
@@ -282,7 +282,7 @@ function ApiSection() {
                         <div className="absolute inset-0 w-full h-full pointer-events-auto">
                             
                             {/* API Base */}
-                            <div className="absolute bottom-[0%] sm:bottom-[2%] left-1/2 -translate-x-1/2 flex flex-col items-center z-30">
+                            <div className="absolute bottom-[12%] xs:bottom-[13%] sm:bottom-[2%] left-1/2 -translate-x-1/2 flex flex-col items-center z-30">
                                 {/* Dynamic Glow */}
                                 <motion.div 
                                     variants={{
@@ -291,8 +291,8 @@ function ApiSection() {
                                     }}
                                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[300px] h-[110px] sm:h-[150px] bg-blue-500/10 blur-[40px] sm:blur-[50px] rounded-full pointer-events-none"
                                 />
-                                <div className="relative z-30 mb-1 sm:mb-2">
-                                    <h3 className="text-[32px] xs:text-[36px] sm:text-[44px] lg:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_4px_8px_rgba(37,99,235,0.2)] font-display uppercase">
+                                <div className="relative z-30 mb-1 sm:mb-2 translate-y-1 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 xl:translate-y-3">
+                                    <h3 className="text-[32px] xs:text-[36px] sm:text-[44px] lg:text-[44px] xl:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_4px_8px_rgba(37,99,235,0.2)] font-display uppercase">
                                         API
                                     </h3>
                                 </div>
@@ -320,14 +320,14 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[52%] sm:top-[49%] lg:top-[52%] left-[-1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[52%] sm:top-[49%] lg:top-[52%] left-[-1%] sm:left-[1%] lg:left-[0%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[210px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
                                 <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(124,58,237,0.2)] sm:shadow-[0_8px_25px_rgba(124,58,237,0.25)] border border-purple-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[1.5px] sm:m-[2px]"></div>
                                     <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-[#7c3aed]" strokeWidth={2} />
                                 </div>
                                 <h4 className="text-[#7c3aed] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Innovation</h4>
-                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
+                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[12.5px] xl:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-3.5 xl:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
                                     Innovation reflects technical depth to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
                                 </p>
                             </motion.div>
@@ -338,14 +338,14 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.0, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[30%] sm:top-[33%] lg:top-[33%] right-[-1%] sm:right-[1%] lg:right-[-2%] xl:right-[2%] 2xl:right-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[30%] sm:top-[33%] lg:top-[33%] right-[-1%] sm:right-[1%] lg:right-[0%] xl:right-[2%] 2xl:right-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[210px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
                                 <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(22,163,74,0.2)] sm:shadow-[0_8px_25px_rgba(22,163,74,0.25)] border border-green-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[1.5px] sm:m-[2px]"></div>
                                     <Users className="w-3 h-3 sm:w-4 sm:h-4 text-[#16a34a]" strokeWidth={2} />
                                 </div>
                                 <h4 className="text-[#16a34a] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">People</h4>
-                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
+                                <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[12.5px] xl:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-3.5 xl:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
                                     People drive outcomes with deep commitment to <span className="text-[#16a34a] font-bold">customer success.</span>
                                 </p>
                             </motion.div>
@@ -356,7 +356,7 @@ function ApiSection() {
                                     hidden: { opacity: 0, y: 20 },
                                     visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6, ease: "easeOut" } }
                                 }}
-                                className="absolute top-[8%] sm:top-[14%] lg:top-[14%] left-[-1%] sm:left-[1%] lg:left-[-2%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[240px] xl:w-[250px] flex flex-col items-center text-center group"
+                                className="absolute top-[8%] sm:top-[14%] lg:top-[14%] left-[-1%] sm:left-[1%] lg:left-[0%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[210px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
                                 <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(37,99,235,0.2)] sm:shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[1.5px] sm:m-[2px]"></div>
@@ -686,7 +686,7 @@ function DigitalFactorySection() {
                                     Digital Factory <span className="text-[#00D4AA]">Model.</span>
                                 </h2>
                                 <p className="text-[14px] sm:text-[15px] font-medium leading-[1.65] text-white/70">
-                                    The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong><br className="hidden sm:inline" /> reducing overhead and increasing accountability at every stage.
+                                    The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead and increasing accountability at every stage.
                                 </p>
                             </div>
 

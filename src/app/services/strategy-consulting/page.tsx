@@ -454,22 +454,22 @@ function TransformationInAction() {
 function WhyHynivaDT() {
     const bottomBox = [
         {
-            title: "Strategy Grounded\nin Delivery",
+            title: "Strategy Grounded in Delivery",
             description: "Our recommendations are shaped by real experience, ensuring every strategy is practical, achievable and aligned with execution realities.",
             icon: Target
         },
         {
-            title: "Technology-Informed\nAdvisory",
+            title: "Technology-Informed Advisory",
             description: "Our consultants work alongside architects, engineers and platform specialists, bringing technical depth to every strategic decision.",
             icon: BrainCircuit
         },
         {
-            title: "Independent\nPerspective",
+            title: "Independent Perspective",
             description: "We recommend technologies, platforms and approaches based on business fit, long-term sustainability and implementation success—not vendor preference.",
             icon: Globe2
         },
         {
-            title: "From Planning\nto Partnership",
+            title: "From Planning to Partnership",
             description: "We stay engaged beyond strategy, helping organizations refine decisions, navigate change and maintain alignment as initiatives move into execution.",
             icon: Users
         }
@@ -496,7 +496,7 @@ function WhyHynivaDT() {
                                 <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
                                 THE DIFFERENCE
                             </div>
-                            <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
+                            <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
                                 <span className="block">Why Organizations</span>
                                 <span className="block">Choose Hyniva for</span>
                                 <span className="text-[#00D4AA] block">Strategy Consulting?</span>
@@ -512,8 +512,8 @@ function WhyHynivaDT() {
                                         <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">220</span>
                                         <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
-                                        {"Solutions\nDelivered"}
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
+                                        {"Solutions Delivered"}
                                     </span>
                                 </div>
                                 <div className="flex flex-col items-start">
@@ -521,8 +521,8 @@ function WhyHynivaDT() {
                                         <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">18</span>
                                         <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
-                                        {"Years of Tech\nConsulting"}
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
+                                        {"Years of Tech Consulting"}
                                     </span>
                                 </div>
                                 <div className="flex flex-col items-start">
@@ -530,8 +530,8 @@ function WhyHynivaDT() {
                                         <span className="text-[22px] xs:text-[26px] sm:text-[30px] lg:text-[32px] font-[900] text-white leading-none font-display">45</span>
                                         <span className="text-[16px] xs:text-[20px] sm:text-[22px] lg:text-[24px] font-black text-white leading-none">+</span>
                                     </div>
-                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium whitespace-pre-line leading-[1.3] sm:leading-[1.4]">
-                                        {"Enterprise\nClients"}
+                                    <span className="text-[10px] xs:text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-400 font-medium leading-[1.3] sm:leading-[1.4]">
+                                        {"Enterprise Clients"}
                                     </span>
                                 </div>
                             </div>
@@ -539,7 +539,7 @@ function WhyHynivaDT() {
                             {/* CTA */}
                             <div className="pt-2 sm:pt-3 w-full flex justify-start">
                                 <Link
-                                    href="/about-us"
+                                    href="/about"
                                     className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold tracking-wider text-[11px] sm:text-[12px] uppercase px-4.5 sm:px-5.5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] shadow-[0_0_12px_rgba(59,130,246,0.4)] border border-[#3B82F6]/30 w-full sm:w-auto"
                                 >
                                     <span>KNOW MORE</span>
@@ -558,13 +558,13 @@ function WhyHynivaDT() {
                     viewport={{ once: true }}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] py-[24px] sm:py-[32px] lg:py-[42px] px-[24px] sm:px-[32px] lg:px-[42px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 sm:gap-6 xl:gap-10 xl:gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
                                     <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
                                 </div>
-                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display whitespace-pre-line">
+                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display">
                                     {card.title}
                                 </h3>
                                 <p className="text-[12px] lg:text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">

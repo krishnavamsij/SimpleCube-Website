@@ -565,7 +565,7 @@ function WhyHynivaDT() {
                             {/* CTA */}
                             <div className="pt-2 sm:pt-3 w-full flex justify-start">
                                 <Link
-                                    href="/contact"
+                                    href="/about"
                                     className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold tracking-wider text-[11px] sm:text-[12px] uppercase px-4.5 sm:px-5.5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] shadow-[0_0_12px_rgba(59,130,246,0.4)] border border-[#3B82F6]/30 w-full sm:w-auto"
                                 >
                                     <span>KNOW MORE</span>
