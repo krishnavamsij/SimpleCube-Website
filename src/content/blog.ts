@@ -17,6 +17,13 @@ export const blogContent: {
     },
     posts: [
         {
+            title: "AI Will Change How Banking Works. But Trust Will Determine Who Wins.",
+            date: "Sep 2, 2026",
+            tag: "AI",
+            image: "/images/Blogs/ai_banking_trust.png",
+            href: "/insights/blogs/ai-will-change-how-banking-works-but-trust-will-determine-who-wins",
+        },
+        {
             title: "CU NEXT Podcast: Voices Driving Credit Union Innovation",
             date: "APR 23, 2026",
             tag: "Company",

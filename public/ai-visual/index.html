@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salesforce Change Framework — Delivery Model & Enablers</title>
+  <meta name="description" content="Salesforce change delivery framework: 8 Weeks, 8 Days, 8 Hours and Core Capabilities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="screen-wrapper">
+    <div class="dashboard-grid">
+
+      <!-- ============================================================
+           LHS: DELIVERY FRAMEWORK (ANIMATED 8 + 3 CAPSULES)
+           ============================================================ -->
+      <div class="panel lhs-panel">
+        <div class="lhs-content">
+          <!-- Animated Figure 8 Visual -->
+          <div class="visual-col">
+            <div class="scene" id="scene">
+              <svg
+                class="main-svg"
+                id="mainSvg"
+                viewBox="0 0 884 1200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <!-- Top Ring Gradient -->
+                  <linearGradient id="topGrad" x1="0%" y1="72%" x2="100%" y2="28%">
+                    <stop offset="0%" stop-color="#1a64f8" />
+                    <stop offset="22%" stop-color="#394af7" />
+                    <stop offset="48%" stop-color="#7233f7" />
+                    <stop offset="74%" stop-color="#9d38f8" />
+                    <stop offset="100%" stop-color="#d55efb" />
+                  </linearGradient>
+
+                  <!-- Bottom Ring Gradient -->
+                  <linearGradient id="botGrad" x1="10%" y1="95%" x2="90%" y2="5%">
+                    <stop offset="0%" stop-color="#00f2bf" />
+                    <stop offset="24%" stop-color="#00d2df" />
+                    <stop offset="52%" stop-color="#0997f4" />
+                    <stop offset="80%" stop-color="#166af6" />
+                    <stop offset="100%" stop-color="#134deb" />
+                  </linearGradient>
+
+                  <!-- Top Mask (Figure-8 waist cut at y=565) -->
+                  <mask id="topRingMask" maskUnits="userSpaceOnUse">
+                    <rect x="-200" y="-200" width="1300" height="765" fill="white" />
+                    <circle cx="442" cy="425" r="145" fill="black" />
+                  </mask>
+
+                  <!-- Bottom Mask (Figure-8 waist cut at y=615) -->
+                  <mask id="botRingMask" maskUnits="userSpaceOnUse">
+                    <rect x="-200" y="615" width="1300" height="1000" fill="white" />
+                    <circle cx="442" cy="755" r="145" fill="black" />
+                  </mask>
+
+                  <!-- Drop Shadows -->
+                  <filter id="topShadow" x="-30%" y="-30%" width="170%" height="170%">
+                    <feDropShadow dx="12" dy="18" stdDeviation="22" flood-color="#5b21b6" flood-opacity="0.26" />
+                  </filter>
+                  <filter id="botShadow" x="-30%" y="-30%" width="170%" height="170%">
+                    <feDropShadow dx="12" dy="18" stdDeviation="22" flood-color="#0274c4" flood-opacity="0.24" />
+                  </filter>
+
+                  <filter id="glowAccent" x="-60%" y="-60%" width="220%" height="220%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Schematics & Dotted Connections -->
+                <g id="decorRings" class="decor-layer">
+                  <path d="M 165 425 A 277 277 0 0 1 442 148" fill="none" stroke="#705bf5" stroke-width="1.2" opacity="0.4" />
+                  <path d="M 132 425 A 310 310 0 0 1 442 115" fill="none" stroke="#5b6cf6" stroke-width="1.0" opacity="0.3" />
+
+                  <!-- Top Dotted Arc joining Top Dot -->
+                  <path d="M 142 340 A 300 300 0 0 1 742 340 L 884 340"
+                    fill="none" stroke="#8b5cf6" stroke-width="1.8"
+                    stroke-dasharray="2 6" stroke-linecap="round" opacity="0.9" />
+
+                  <!-- Middle Dotted Line joining Center Circle to Middle Dot -->
+                  <path d="M 557 590 L 884 590"
+                    fill="none" stroke="#2563eb" stroke-width="1.8"
+                    stroke-dasharray="2 6" stroke-linecap="round" opacity="0.9" />
+
+                  <!-- Bottom Dotted Arc joining Bottom Dot -->
+                  <path d="M 142 840 A 300 300 0 0 0 742 840 L 884 840"
+                    fill="none" stroke="#00c8d6" stroke-width="1.8"
+                    stroke-dasharray="2 6" stroke-linecap="round" opacity="0.9" />
+
+                  <circle cx="195" cy="180" r="5" fill="#256cf8" opacity="0.95" filter="url(#glowAccent)" />
+                  <circle cx="135" cy="495" r="3" fill="#5045ea" opacity="0.8" />
+                  <circle cx="230" cy="685" r="4.5" fill="#00c8d6" opacity="0.9" filter="url(#glowAccent)" />
+                  <circle cx="165" cy="885" r="5" fill="#00e5be" opacity="0.95" filter="url(#glowAccent)" />
+                </g>
+
+                <!-- Top Donut Arch -->
+                <g id="topCircleGroup" class="circle-group" filter="url(#topShadow)">
+                  <circle cx="442" cy="425" r="270" fill="url(#topGrad)" mask="url(#topRingMask)" />
+                  <circle cx="442" cy="425" r="207" fill="rgba(255, 255, 255, 0.08)" mask="url(#topRingMask)" />
+                  <circle cx="442" cy="425" r="145" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.2" mask="url(#topRingMask)" />
+                  <circle cx="442" cy="425" r="207" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.4" mask="url(#topRingMask)" />
+                  <circle cx="442" cy="425" r="270" fill="none" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.0" mask="url(#topRingMask)" />
+                </g>
+
+                <!-- Bottom Donut U-Cup -->
+                <g id="botCircleGroup" class="circle-group" filter="url(#botShadow)">
+                  <circle cx="442" cy="755" r="270" fill="url(#botGrad)" mask="url(#botRingMask)" />
+                  <circle cx="442" cy="755" r="207" fill="rgba(255, 255, 255, 0.08)" mask="url(#botRingMask)" />
+                  <circle cx="442" cy="755" r="145" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.2" mask="url(#botRingMask)" />
+                  <circle cx="442" cy="755" r="207" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.4" mask="url(#botRingMask)" />
+                  <circle cx="442" cy="755" r="270" fill="none" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.0" mask="url(#botRingMask)" />
+                </g>
+              </svg>
+
+              <!-- Stationary Center Glass Orb -->
+              <div class="orb-wrapper" id="orbWrapper">
+                <div class="orb-halo"></div>
+                <div class="orb-glass">
+                  <div class="orb-sheen"></div>
+                  <div class="orb-mid-disc">
+                    <div class="orb-core"></div>
+                    <div class="orb-glint glint-left"></div>
+                    <div class="orb-glint glint-right"></div>
+                  </div>
+                  <div class="orb-rim-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Connected Cards (Single Rounded Box per Tier with Heading & Content Inside) -->
+          <div class="capsules-col" id="capsulesCol">
+            <!-- Vertical Dotted Line strictly between top and bottom dots -->
+            <div class="pointers-vertical-track" aria-hidden="true">
+              <div class="vertical-line-dotted"></div>
+            </div>
+
+            <!-- Card 1: 8 WEEKS -->
+            <div class="capsule-wrapper capsule-row-1">
+              <div class="stem-connector stem-purple">
+                <div class="stem-node">
+                  <div class="stem-tick"></div>
+                  <div class="stem-dot"></div>
+                </div>
+                <div class="stem-line-solid"></div>
+              </div>
+              <div class="dna-card-box border-purple">
+                <h4 class="dna-card-heading heading-purple">8 WEEKS</h4>
+                <p class="dna-card-desc">
+                  Complex Salesforce initiatives and new <span class="highlight-purple">business processes</span>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: 8 DAYS -->
+            <div class="capsule-wrapper capsule-row-2">
+              <div class="stem-connector stem-blue">
+                <div class="stem-node">
+                  <div class="stem-tick"></div>
+                  <div class="stem-dot"></div>
+                </div>
+                <div class="stem-line-solid"></div>
+              </div>
+              <div class="dna-card-box border-blue">
+                <h4 class="dna-card-heading heading-blue">8 DAYS</h4>
+                <p class="dna-card-desc">
+                  New workflows, service processes and <span class="highlight-blue">business enhancements</span>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: 8 HOURS -->
+            <div class="capsule-wrapper capsule-row-3">
+              <div class="stem-connector stem-cyan">
+                <div class="stem-node">
+                  <div class="stem-tick"></div>
+                  <div class="stem-dot"></div>
+                </div>
+                <div class="stem-line-solid"></div>
+              </div>
+              <div class="dna-card-box border-cyan">
+                <h4 class="dna-card-heading heading-cyan">8 HOURS</h4>
+                <p class="dna-card-desc">
+                  Configuration changes, access, reports and <span class="highlight-cyan">platform updates</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           RHS: CORE CAPABILITIES (4 BLOCKS WITHOUT COLOURS)
+           ============================================================ -->
+      <div class="panel rhs-panel">
+        <div class="enablers-grid">
+          <!-- Block 1: Reusable Accelerators -->
+          <div class="enabler-card">
+            <div class="enabler-icon-box icon-box-blue">
+              <svg class="enabler-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="enabler-title">Reusable Accelerators</h3>
+            <p class="enabler-desc">
+              Pre-built Salesforce components, frameworks and connectors reduce repetitive development and speed implementation.
+            </p>
+          </div>
+
+          <!-- Block 2: Low-Code / No-Code -->
+          <div class="enabler-card">
+            <div class="enabler-icon-box icon-box-green">
+              <svg class="enabler-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="enabler-title">Low-Code / No-Code</h3>
+            <p class="enabler-desc">
+              Configurable business processes allow teams to adapt workflows and rules without waiting for extensive development cycles.
+            </p>
+          </div>
+
+          <!-- Block 3: API-First Integration -->
+          <div class="enabler-card">
+            <div class="enabler-icon-box icon-box-purple">
+              <svg class="enabler-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                <path d="M12 12V8"></path>
+              </svg>
+            </div>
+            <h3 class="enabler-title">API-First Integration</h3>
+            <p class="enabler-desc">
+              Reusable connectors and integration frameworks simplify connections across Salesforce and enterprise systems.
+            </p>
+          </div>
+
+          <!-- Block 4: Automated Delivery -->
+          <div class="enabler-card">
+            <div class="enabler-icon-box icon-box-orange">
+              <svg class="enabler-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h3 class="enabler-title">Automated Delivery</h3>
+            <p class="enabler-desc">
+              CI/CD, DevSecOps and automated testing help move changes through development and deployment with greater speed and consistency.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

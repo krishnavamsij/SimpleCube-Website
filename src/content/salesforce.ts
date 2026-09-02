@@ -34,11 +34,12 @@
 
 export const salesforceContent = {
     hero: {
-        title: "Salesforce",
-        subtitle: "Empower your business transformation with Hyniva's Salesforce expertise in CRM, automated workflows, mobile integration, and analytics for maximum ROI.",
+        eyebrow: "SALESFORCE",
+        title: "Go Beyond CRM. Engineer for Growth.",
+        subtitle: "We build Salesforce as a connected, scalable enterprise platform for customer experiences, operations, data and AI.",
         backgroundImage: "/images/2024/09/nature-landscape-background-1-scaled-e1726749512428.jpg",
         contactButton: {
-            text: "Contact us!",
+            text: "Talk to Our Experts",
             href: "/contact",
         },
     },
