@@ -145,8 +145,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                 "flex items-center gap-1 rounded-full transition-all uppercase tracking-tight",
                                                 scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
                                                 (isActive || openDropdown === group.label)
-                                                    ? "text-[#2563eb]"
-                                                    : (scrolled || forceDarkText ? "text-slate-600 hover:text-[#2563eb]" : "text-white/90 hover:text-[#2563eb]")
+                                                    ? (scrolled || forceDarkText
+                                                        ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
+                                                        : "text-white underline underline-offset-4 decoration-2 decoration-white")
+                                                    : (scrolled || forceDarkText ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
                                             )}
                                         >
                                             {group.label}
@@ -154,7 +156,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                 scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
                                                 "transition-transform",
                                                 (isActive || openDropdown === group.label)
-                                                    ? "opacity-100 text-[#2563eb]"
+                                                    ? (scrolled || forceDarkText ? "opacity-70 text-slate-600" : "opacity-100 text-white")
                                                     : "opacity-50",
                                                 openDropdown === group.label && "rotate-180"
                                             )} />
@@ -164,15 +166,17 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                             "flex items-center gap-1 rounded-full transition-colors uppercase tracking-tight",
                                             scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
                                             (isActive || openDropdown === group.label)
-                                                ? "text-[#2563eb]"
-                                                : (scrolled || forceDarkText ? "text-slate-600 hover:text-[#2563eb]" : "text-white/90 hover:text-[#2563eb]")
+                                                ? (scrolled || forceDarkText
+                                                    ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
+                                                    : "text-white underline underline-offset-4 decoration-2 decoration-white")
+                                                : (scrolled || forceDarkText ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
                                         )}>
                                             {group.label}
                                             <ChevronDown className={cn(
                                                 scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
                                                 "transition-transform",
                                                 (isActive || openDropdown === group.label)
-                                                    ? "opacity-100 text-[#2563eb]"
+                                                    ? (scrolled || forceDarkText ? "opacity-70 text-slate-600" : "opacity-100 text-white")
                                                     : "opacity-50",
                                                 openDropdown === group.label && "rotate-180"
                                             )} />
