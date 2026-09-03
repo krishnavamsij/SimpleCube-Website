@@ -886,9 +886,9 @@ const deliveryTiers = [
         unit: "WEEKS",
         heading: "8 WEEKS",
         title: "IMPLEMENTATION",
-        line1: "Complex Salesforce initiatives",
-        line2Prefix: "and new ",
-        line2Bold: "business processes.",
+        part1: "Complex Salesforce initiatives",
+        part2Prefix: "and new ",
+        part2Bold: "business processes.",
         theme: {
             headingColor: "text-[#9333ea]",
             cardBorder: "border-purple-100/80",
@@ -902,9 +902,9 @@ const deliveryTiers = [
         unit: "DAYS",
         heading: "8 DAYS",
         title: "MODIFICATION",
-        line1: "New workflows, service processes",
-        line2Prefix: "and ",
-        line2Bold: "business enhancements.",
+        part1: "New workflows, service processes",
+        part2Prefix: "and ",
+        part2Bold: "business enhancements.",
         theme: {
             headingColor: "text-[#2563eb]",
             cardBorder: "border-blue-100/80",
@@ -918,9 +918,9 @@ const deliveryTiers = [
         unit: "HOURS",
         heading: "8 HOURS",
         title: "ADMINISTRATION",
-        line1: "Configuration changes, access,",
-        line2Prefix: "reports and ",
-        line2Bold: "platform updates.",
+        part1: "Configuration changes, access,",
+        part2Prefix: "reports and ",
+        part2Bold: "platform updates.",
         theme: {
             headingColor: "text-[#0284c7]",
             cardBorder: "border-cyan-100/80",
@@ -969,7 +969,7 @@ const deliveryEnablerBoxes = [
 function SalesforceDeliverySection() {
     return (
         <section className="relative overflow-hidden bg-white pt-6 sm:pt-8 lg:pt-10 pb-16 sm:pb-20 lg:pb-24">
-            <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
+            <div className="relative z-10 mx-auto max-w-[96rem] px-4 sm:px-6 md:px-8 lg:px-8 xl:px-16">
                 {/* Header Container */}
                 <div className="text-left lg:text-center max-w-[1240px] lg:mx-auto mb-10 sm:mb-12">
                     {/* Eyebrow */}
@@ -1010,19 +1010,19 @@ function SalesforceDeliverySection() {
                 </div>
 
                 {/* 2-Column Dashboard Layout: LHS (Delivery Framework Visual) + RHS (Core Capabilities) */}
-                <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 lg:gap-14 xl:gap-10 items-center justify-center max-w-[1240px] mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-2 xl:gap-4 items-center justify-center max-w-[1240px] mx-auto">
                     {/* LHS: Delivery Framework Visual Container */}
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="xl:col-span-6 flex items-center justify-center xl:justify-end relative w-full"
+                        className="lg:col-span-6 flex items-center justify-center lg:justify-end relative w-full"
                     >
                         {/* Visual + 3 Text Items Body */}
-                        <div className="flex flex-col sm:flex-row items-center sm:items-stretch w-full max-w-[500px] sm:max-w-[510px] h-auto sm:h-[460px] relative gap-0">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-stretch w-full max-w-[500px] sm:max-w-[540px] lg:max-w-none xl:max-w-[550px] h-auto sm:h-[460px] relative gap-0">
                             {/* Figure-8 SVG Graphic */}
-                            <div className="relative flex items-center justify-center w-[240px] sm:w-[270px] h-[320px] sm:h-[460px] flex-shrink-0">
+                            <div className="relative flex items-center justify-center w-[240px] sm:w-[250px] lg:w-[220px] xl:w-[260px] h-[320px] sm:h-[460px] flex-shrink-0">
                                 <svg
                                     viewBox="0 0 884 1200"
                                     className="w-full h-full overflow-visible"
@@ -1282,7 +1282,7 @@ function SalesforceDeliverySection() {
                             </div>
 
                             {/* 3 Connected Tiers */}
-                            <div className="w-full sm:w-auto sm:flex-1 sm:min-w-[210px] sm:max-w-[230px] h-auto sm:h-[460px] relative z-10 flex flex-col gap-5 sm:gap-0 mt-6 sm:mt-0 px-2 sm:px-0">
+                            <div className="w-full sm:w-auto sm:flex-1 sm:min-w-[240px] lg:min-w-[230px] xl:min-w-[260px] sm:max-w-[290px] h-auto sm:h-[460px] relative z-10 flex flex-col gap-6 sm:gap-0 mt-8 sm:mt-0 px-4 sm:px-0 max-w-[340px] sm:max-w-none mx-auto sm:mx-0">
                                 {/* Bound Vertical Dotted Track (desktop/tablet only) */}
                                 <div
                                     className="hidden sm:block absolute left-[6px] top-[130px] h-[192px] w-[2px] -translate-x-1/2 border-l-[1.75px] border-dotted border-[#818cf8] pointer-events-none z-[2]"
@@ -1305,19 +1305,19 @@ function SalesforceDeliverySection() {
                                                 <div className={`flex-1 h-[1.5px] border-t-[1.5px] ${tier.theme.stemBorder} opacity-90`} />
                                             </div>
 
-                                            {/* Left-Aligned Text Content in 2 balanced lines */}
+                                            {/* Left-Aligned Text Content */}
                                             <div className="flex-1 relative sm:pl-3 flex flex-col items-start text-left">
                                                 {/* Left-Aligned Heading */}
                                                 <h4 className={`text-[12px] sm:text-[13px] font-extrabold tracking-[0.18em] ${tier.theme.headingColor} uppercase mb-1 font-display text-left`}>
                                                     {tier.heading}
                                                 </h4>
 
-                                                {/* Left-Aligned Description in exactly 2 lines */}
-                                                <div className="text-[12px] sm:text-[12.5px] text-slate-600 leading-[1.4] font-medium text-left">
-                                                    <span className="block sm:whitespace-nowrap">{tier.line1}</span>
-                                                    <span className="block sm:whitespace-nowrap">
-                                                        {tier.line2Prefix}
-                                                        <strong className="font-bold text-slate-800">{tier.line2Bold}</strong>
+                                                {/* Left-Aligned Description in exactly 2 lines across mobile, tablet, and desktop */}
+                                                <div className="text-[12px] sm:text-[12.5px] text-slate-600 leading-[1.45] font-medium text-left">
+                                                    <span className="block">{tier.part1}</span>
+                                                    <span className="block">
+                                                        {tier.part2Prefix}
+                                                        <strong className="font-bold text-slate-800">{tier.part2Bold}</strong>
                                                     </span>
                                                 </div>
                                             </div>
@@ -1329,14 +1329,14 @@ function SalesforceDeliverySection() {
                     </motion.div>
 
                     {/* RHS: Core Capabilities (4 Cards matching About Us page) */}
-                    <div className="xl:col-span-6 flex flex-col justify-center w-full max-w-[640px] mx-auto xl:mx-0">
+                    <div className="lg:col-span-6 flex flex-col justify-center w-full max-w-[620px] xl:max-w-[640px] mx-auto lg:mx-0 lg:-ml-6 xl:-ml-10">
                         {/* 2x2 Grid matching About Us Values */}
                         <motion.div
                             variants={scrollStaggerContainer}
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 h-full"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4 lg:gap-3.5 xl:gap-5 h-full"
                         >
                             {deliveryEnablerBoxes.map((box) => {
                                 const IconComponent = box.icon;
@@ -1344,15 +1344,15 @@ function SalesforceDeliverySection() {
                                     <motion.div
                                         key={box.title}
                                         variants={scrollReveal}
-                                        className={`rounded-2xl p-5 sm:p-5.5 lg:p-6 border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start cursor-default ${box.colorClass}`}
+                                        className={`rounded-2xl p-5 sm:p-5 lg:p-4.5 xl:p-6 border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start cursor-default ${box.colorClass}`}
                                     >
-                                        <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 flex-shrink-0 ${box.iconBgClass} ${box.textColorClass}`}>
+                                        <div className={`w-12 h-12 sm:w-12 lg:w-11 lg:h-11 xl:w-13 xl:h-13 rounded-2xl flex items-center justify-center mb-4 sm:mb-4 lg:mb-3.5 xl:mb-5 flex-shrink-0 ${box.iconBgClass} ${box.textColorClass}`}>
                                             <IconComponent className="w-6 h-6" />
                                         </div>
-                                        <h3 className="text-[17px] sm:text-[18px] font-bold mb-2.5 text-slate-900 font-display tracking-tight leading-snug">
+                                        <h3 className="text-[18px] sm:text-xl font-bold mb-3 text-slate-900 font-display leading-snug">
                                             {box.title}
                                         </h3>
-                                        <p className="text-slate-600 text-[13px] sm:text-[13.5px] leading-[1.6] font-medium">
+                                        <p className="text-slate-600 text-[13.5px] sm:text-[14px] leading-relaxed font-medium">
                                             {box.description}
                                         </p>
                                     </motion.div>
@@ -1521,9 +1521,9 @@ function SalesforceAgentExchangeSection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:col-span-5 flex flex-col justify-center gap-6 sm:gap-7"
+                        className="lg:col-span-5 flex flex-col justify-center gap-8 sm:gap-10 lg:gap-12"
                     >
-                        {/* Heading in exactly 2 lines — font sized to fit within col-span-5 */}
+                        {/* Heading in exactly 2 lines */}
                         <h2 className="text-[26px] sm:text-[28px] md:text-[30px] lg:text-[28px] xl:text-[32px] 2xl:text-[36px] font-extrabold text-[#030B3B] leading-[1.22] tracking-tight font-display">
                             <span className="block">Built for Salesforce.</span>
                             <span className="text-[#2563EB] block">Trusted on AgentExchange.</span>
@@ -1531,13 +1531,15 @@ function SalesforceAgentExchangeSection() {
 
                         {/* Callout content */}
                         <p className="text-[13.5px] sm:text-[14px] lg:text-[15px] text-slate-600 font-medium leading-relaxed">
-                            Hyniva has taken its Salesforce engineering expertise beyond implementations to build and launch a Salesforce-native product on AgentExchange.
+                            <span className="block">Hyniva has taken its Salesforce engineering expertise</span>
+                            <span className="block">beyond implementations to build and launch a</span>
+                            <span className="block">Salesforce-native product on AgentExchange.</span>
                         </p>
 
                         {/* CTA Button */}
                         <div>
                             <Link
-                                href="https://appexchange.salesforce.com"
+                                href="https://appexchange.salesforce.com/appxListingDetail?listingId=382a804b-b9cc-45f0-a24a-2f63229c1438"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-[13px] sm:text-[14px] font-semibold px-6 sm:px-7 py-3 rounded-full transition-all duration-300 hover:opacity-95 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] shadow-[0_4px_12px_rgba(37,99,235,0.3)] border border-[#3B82F6]/30 group w-fit"
