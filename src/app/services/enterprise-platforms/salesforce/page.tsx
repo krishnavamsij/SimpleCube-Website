@@ -399,7 +399,7 @@ function SalesforceIntro() {
                         viewport={viewportOnce}
                         className="text-slate-600 text-base sm:text-lg leading-relaxed text-left lg:text-center max-w-2xl lg:max-w-[800px] lg:mx-auto"
                     >
-                        What starts as a focused Salesforce implementation can evolve into a complex enterprise environment. <br className="hidden md:inline" />Without the right architecture and discipline, that complexity can make Salesforce harder to scale and change.
+                        What starts as a focused Salesforce implementation can evolve into a complex enterprise environment. Without the right architecture and discipline, that complexity can make Salesforce harder to scale and change.
                     </motion.p>
                 </div>
 
@@ -691,7 +691,7 @@ function SalesforceCapabilities() {
                         viewport={viewportOnce}
                         className="text-slate-300 text-base sm:text-lg leading-relaxed text-left lg:text-center max-w-2xl lg:max-w-[800px] lg:mx-auto font-medium"
                     >
-                        From platform strategy and cloud transformation to experiences, integration, data and AI, <br className="hidden md:inline" />we bring the expertise to design and engineer Salesforce around your business.
+                        From platform strategy and cloud transformation to experiences, integration, data and AI, we bring the expertise to design and engineer Salesforce around your business.
                     </motion.p>
                 </div>
 
@@ -776,7 +776,7 @@ function SalesforceOutcomes() {
     return (
         <section className="relative bg-white">
             {/* ── Image + Metrics upper strip ── */}
-            <div className="relative h-[340px] sm:h-[380px] lg:h-[420px] overflow-hidden">
+            <div className="relative h-[430px] sm:h-[380px] lg:h-[420px] overflow-hidden">
                 {/* Background image */}
                 <img
                     src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80"
@@ -793,7 +793,7 @@ function SalesforceOutcomes() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 lg:gap-20 px-6 md:px-10"
+                        className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12 lg:gap-20 px-4 sm:px-6 md:px-10"
                     >
                         {outcomeMetrics.map((m) => {
                             const Icon = m.icon;
@@ -801,15 +801,15 @@ function SalesforceOutcomes() {
                                 <motion.div
                                     key={m.label}
                                     variants={scrollReveal}
-                                    className="flex flex-col items-center gap-2 text-center"
+                                    className="flex flex-col items-center gap-1.5 sm:gap-2 text-center"
                                 >
-                                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 mb-1">
-                                        <Icon className="w-5 h-5 text-[#00D4AA]" />
+                                    <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 mb-0.5 sm:mb-1">
+                                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#00D4AA]" />
                                     </div>
-                                    <span className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none">
+                                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
                                         {m.value}
                                     </span>
-                                    <span className="text-sm sm:text-base font-medium text-slate-300 leading-tight">
+                                    <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-300 leading-tight">
                                         {m.label}
                                     </span>
                                 </motion.div>
@@ -820,22 +820,22 @@ function SalesforceOutcomes() {
             </div>
 
             {/* ── White card overlapping the image ── */}
-            <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-12 -mt-20 pb-4 sm:pb-6">
+            <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-12 -mt-12 sm:-mt-20 pb-4 sm:pb-6">
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="bg-white rounded-[32px] border border-slate-200/70 shadow-[0_4px_32px_rgba(0,0,0,0.08)] px-8 sm:px-12 lg:px-16 pt-12 pb-10 sm:pb-12"
+                    className="bg-white rounded-[24px] sm:rounded-[32px] border border-slate-200/70 shadow-[0_4px_32px_rgba(0,0,0,0.08)] px-5 sm:px-12 lg:px-16 pt-8 sm:pt-12 pb-8 sm:pb-12"
                 >
                     {/* Heading & callout */}
-                    <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+                    <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
                         <motion.h2
                             variants={scrollReveal}
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="text-3xl sm:text-4xl font-extrabold text-[#030B3B] font-display leading-tight"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#030B3B] font-display leading-tight"
                         >
                             See what Salesforce can look like when Hyniva engineers it.
                         </motion.h2>
@@ -847,7 +847,7 @@ function SalesforceOutcomes() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6"
                     >
                         {outcomeBoxes.map((box) => {
                             const Icon = box.icon;
@@ -861,7 +861,7 @@ function SalesforceOutcomes() {
                                         <Icon className="w-5 h-5 text-[#2563EB] transition-transform duration-300 group-hover:scale-110" />
                                     </div>
                                     {/* Title: kept to 1 line via font size — no wrapping */}
-                                    <h3 className="font-display text-[14px] sm:text-[15px] font-bold text-[#030B3B] leading-tight tracking-tight group-hover:text-[#2563EB] transition-colors duration-300 mb-2 whitespace-nowrap">
+                                    <h3 className="font-display text-[14px] sm:text-[15px] font-bold text-[#030B3B] leading-tight tracking-tight group-hover:text-[#2563EB] transition-colors duration-300 mb-2 sm:whitespace-nowrap">
                                         {box.title}
                                     </h3>
                                     {/* Description: consistent 4-line height via line-clamp */}
@@ -1010,19 +1010,19 @@ function SalesforceDeliverySection() {
                 </div>
 
                 {/* 2-Column Dashboard Layout: LHS (Delivery Framework Visual) + RHS (Core Capabilities) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-center justify-center max-w-[1240px] mx-auto">
+                <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 lg:gap-14 xl:gap-10 items-center justify-center max-w-[1240px] mx-auto">
                     {/* LHS: Delivery Framework Visual Container */}
                     <motion.div
                         variants={scrollReveal}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="lg:col-span-6 flex items-center justify-center lg:justify-end relative"
+                        className="xl:col-span-6 flex items-center justify-center xl:justify-end relative w-full"
                     >
                         {/* Visual + 3 Text Items Body */}
                         <div className="flex flex-col sm:flex-row items-center sm:items-stretch w-full max-w-[500px] sm:max-w-[510px] h-auto sm:h-[460px] relative gap-0">
                             {/* Figure-8 SVG Graphic */}
-                            <div className="relative flex items-center justify-center w-full sm:w-[270px] h-[360px] sm:h-[460px] flex-shrink-0">
+                            <div className="relative flex items-center justify-center w-[240px] sm:w-[270px] h-[320px] sm:h-[460px] flex-shrink-0">
                                 <svg
                                     viewBox="0 0 884 1200"
                                     className="w-full h-full overflow-visible"
@@ -1281,22 +1281,22 @@ function SalesforceDeliverySection() {
                                 </svg>
                             </div>
 
-                            {/* 3 Connected Tiers: Left-Aligned, No Card Box Containers */}
-                            <div className="flex-1 w-full min-w-[210px] max-w-[230px] h-[460px] relative z-10 sm:pl-0">
-                                {/* Bound Vertical Dotted Track */}
+                            {/* 3 Connected Tiers */}
+                            <div className="w-full sm:w-auto sm:flex-1 sm:min-w-[210px] sm:max-w-[230px] h-auto sm:h-[460px] relative z-10 flex flex-col gap-5 sm:gap-0 mt-6 sm:mt-0 px-2 sm:px-0">
+                                {/* Bound Vertical Dotted Track (desktop/tablet only) */}
                                 <div
                                     className="hidden sm:block absolute left-[6px] top-[130px] h-[192px] w-[2px] -translate-x-1/2 border-l-[1.75px] border-dotted border-[#818cf8] pointer-events-none z-[2]"
                                     aria-hidden="true"
                                 />
 
                                 {deliveryTiers.map((tier, index) => {
-                                    const yPositions = ["top-[130px]", "top-[226px]", "top-[322px]"];
+                                    const yPositions = ["sm:top-[130px]", "sm:top-[226px]", "sm:top-[322px]"];
                                     return (
                                         <div
                                             key={tier.heading}
-                                            className={`flex items-start sm:items-center w-full relative sm:absolute sm:left-0 sm:right-0 ${yPositions[index]} sm:-translate-y-1/2 mb-6 sm:mb-0`}
+                                            className={`flex items-start sm:items-center w-full relative sm:absolute sm:left-0 sm:right-0 ${yPositions[index]} sm:-translate-y-1/2`}
                                         >
-                                            {/* Stem Connector with Dot */}
+                                            {/* Stem Connector with Dot (desktop/tablet only) */}
                                             <div className="hidden sm:flex items-center w-[24px] flex-shrink-0 relative z-[4] mt-1 sm:mt-0">
                                                 <div className="relative flex items-center justify-center w-3 h-3 flex-shrink-0 z-[5]">
                                                     <div className={`absolute w-[1.2px] h-[14px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${tier.theme.stemBorder} border-l`} />
@@ -1306,16 +1306,16 @@ function SalesforceDeliverySection() {
                                             </div>
 
                                             {/* Left-Aligned Text Content in 2 balanced lines */}
-                                            <div className="flex-1 relative pl-2.5 sm:pl-3 flex flex-col items-start text-left">
+                                            <div className="flex-1 relative sm:pl-3 flex flex-col items-start text-left">
                                                 {/* Left-Aligned Heading */}
                                                 <h4 className={`text-[12px] sm:text-[13px] font-extrabold tracking-[0.18em] ${tier.theme.headingColor} uppercase mb-1 font-display text-left`}>
                                                     {tier.heading}
                                                 </h4>
 
                                                 {/* Left-Aligned Description in exactly 2 lines */}
-                                                <div className="text-[11.5px] sm:text-[12.5px] text-slate-600 leading-[1.4] font-medium text-left">
-                                                    <span className="block whitespace-nowrap">{tier.line1}</span>
-                                                    <span className="block whitespace-nowrap">
+                                                <div className="text-[12px] sm:text-[12.5px] text-slate-600 leading-[1.4] font-medium text-left">
+                                                    <span className="block sm:whitespace-nowrap">{tier.line1}</span>
+                                                    <span className="block sm:whitespace-nowrap">
                                                         {tier.line2Prefix}
                                                         <strong className="font-bold text-slate-800">{tier.line2Bold}</strong>
                                                     </span>
@@ -1329,7 +1329,7 @@ function SalesforceDeliverySection() {
                     </motion.div>
 
                     {/* RHS: Core Capabilities (4 Cards matching About Us page) */}
-                    <div className="lg:col-span-6 flex flex-col justify-center w-full max-w-[600px] mx-auto lg:mx-0">
+                    <div className="xl:col-span-6 flex flex-col justify-center w-full max-w-[640px] mx-auto xl:mx-0">
                         {/* 2x2 Grid matching About Us Values */}
                         <motion.div
                             variants={scrollStaggerContainer}
@@ -1394,14 +1394,14 @@ const whyHynivaSalesforceCards = [
 function SalesforceWhyHyniva() {
     return (
         <section className="bg-white py-[16px] sm:py-[24px] lg:py-[32px]">
-            <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 flex flex-col gap-6">
+            <div className="mx-auto w-full max-w-[96rem] px-4 sm:px-10 lg:px-16 flex flex-col gap-6">
                 {/* ── Top Box: Dark Glowing Container ── */}
                 <motion.div
                     variants={scrollReveal}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[36px] lg:p-[48px]"
+                    className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[20px] sm:p-[36px] lg:p-[48px]"
                 >
                     <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
                         <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
@@ -1410,25 +1410,25 @@ function SalesforceWhyHyniva() {
                     {/* Top Glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
 
-                    <div className="relative z-10 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-12 items-start">
+                    <div className="relative z-10 grid gap-8 lg:gap-16 lg:grid-cols-12 items-start">
                         {/* Left Side: Headline & Stats */}
-                        <div className="md:col-span-6 lg:col-span-6">
-                            <h2 className="text-[26px] sm:text-[32px] md:text-[32px] lg:text-[38px] xl:text-[42px] font-[900] text-white tracking-tight leading-[1.15] mb-4 sm:mb-6 lg:mb-8 font-display">
+                        <div className="lg:col-span-6">
+                            <h2 className="text-[24px] sm:text-[30px] lg:text-[38px] xl:text-[42px] font-[900] text-white tracking-tight leading-[1.15] mb-4 sm:mb-6 lg:mb-8 font-display">
                                 <span className="block">Why Hyniva for</span>
-                                <span className="text-[#00D4AA] block whitespace-nowrap">Salesforce Partnership?</span>
+                                <span className="text-[#00D4AA] block lg:whitespace-nowrap">Salesforce Partnership?</span>
                             </h2>
 
-                            <div className="flex flex-col gap-6 sm:gap-12 lg:gap-16">
-                                <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-4 lg:gap-6 xl:gap-8 w-full">
+                            <div className="flex flex-col gap-6 sm:gap-10 lg:gap-16">
+                                <div className="grid grid-cols-3 gap-3 sm:gap-6 lg:gap-6 xl:gap-8 w-full">
                                     {/* 120+ Delivery Experts */}
                                     <div className="flex flex-col flex-shrink-0">
                                         <div className="flex items-baseline gap-1 mb-2">
-                                            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                 120
                                             </span>
-                                            <span className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
                                         </div>
-                                        <span className="text-[11px] sm:text-[12px] md:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
+                                        <span className="text-[11px] sm:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
                                             Salesforce<br />Delivery Experts
                                         </span>
                                     </div>
@@ -1436,11 +1436,11 @@ function SalesforceWhyHyniva() {
                                     {/* 10 Years Expertise */}
                                     <div className="flex flex-col flex-shrink-0">
                                         <div className="flex items-baseline gap-1 mb-2">
-                                            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                 10
                                             </span>
                                         </div>
-                                        <span className="text-[11px] sm:text-[12px] md:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
+                                        <span className="text-[11px] sm:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
                                             Years of Salesforce<br />Expertise
                                         </span>
                                     </div>
@@ -1448,12 +1448,12 @@ function SalesforceWhyHyniva() {
                                     {/* 30+ Engagements */}
                                     <div className="flex flex-col flex-shrink-0">
                                         <div className="flex items-baseline gap-1 mb-2">
-                                            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
+                                            <span className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-white leading-none font-display">
                                                 30
                                             </span>
-                                            <span className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
+                                            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-none">+</span>
                                         </div>
-                                        <span className="text-[11px] sm:text-[12px] md:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
+                                        <span className="text-[11px] sm:text-[12.5px] lg:text-[13.5px] text-slate-400 font-medium leading-[1.35]">
                                             Salesforce<br />Engagements
                                         </span>
                                     </div>
@@ -1462,8 +1462,8 @@ function SalesforceWhyHyniva() {
                         </div>
 
                         {/* Right Side: Description & CTA */}
-                        <div className="flex flex-col items-start pt-4 md:pt-0 md:col-span-6 lg:col-span-6 md:pl-4 lg:pl-6 xl:pl-10">
-                            <p className="text-base sm:text-lg md:text-[17px] lg:text-[18.5px] text-slate-300 font-medium leading-[1.7] mb-6 sm:mb-8 lg:mb-10 max-w-[540px]">
+                        <div className="flex flex-col items-start pt-2 lg:pt-0 lg:col-span-6 lg:pl-6 xl:pl-10">
+                            <p className="text-base sm:text-lg lg:text-[18.5px] text-slate-300 font-medium leading-[1.7] mb-6 sm:mb-8 lg:mb-10 max-w-[540px]">
                                 An engineering-led Salesforce partner with deep multi-cloud expertise, reusable IP and enterprise-scale delivery capabilities.
                             </p>
                             <Link
@@ -1484,7 +1484,7 @@ function SalesforceWhyHyniva() {
                     viewport={viewportOnce}
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] pt-[28px] pb-[24px] px-[24px] sm:pt-[34px] sm:pb-[28px] sm:px-[36px] lg:pt-[42px] lg:pb-[34px] lg:px-[48px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 lg:gap-10 xl:gap-14">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-12">
                         {whyHynivaSalesforceCards.map((card, idx) => {
                             const Icon = card.icon;
                             return (
