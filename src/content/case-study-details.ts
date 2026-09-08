@@ -2059,7 +2059,7 @@ export const caseStudyDetails: Record<string, CaseStudyDetail> = {
                             "desc": "Users are given access to the latest updates and features promptly ensuring high satisfaction and enhanced user experience."
                         }
                     ],
-                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Our client noticed a nearly zero downtime during deployments due to the implementation of automated approvals with GitHub actions, and the automated switch implementation made the switch between environments less than a minute. The streamlined deployment process also enabled nearly 70% faster deployment times, increasing overall productivity and efficiency. In the event of functional bugs, issues, or disaster recovery scenarios, the seamless rollover feature ensures the client can maintain uninterrupted operations for their users with confidence.</p>\n      </div>"
+                    "footer": "<div class=\"cs-section__body\" style=\"margin-top:24px;\">\n        <p>Our client noticed a nearly zero downtime during deployments due to the implementation of automated approvals with CI/CD pipelines, and the automated switch implementation made the switch between environments less than a minute. The streamlined deployment process also enabled nearly 70% faster deployment times, increasing overall productivity and efficiency. In the event of functional bugs, issues, or disaster recovery scenarios, the seamless rollover feature ensures the client can maintain uninterrupted operations for their users with confidence.</p>\n      </div>"
                 }
             },
             {

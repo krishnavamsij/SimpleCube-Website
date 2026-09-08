@@ -871,7 +871,7 @@ const techShowcaseData: TechCategory[] = [
         category: "Quality Engineering",
         technologies: [
             { name: "Selenium",    logo: "/tech_logos/Selenium.png",    page: "https://www.selenium.dev",    format: "PNG" },
-            { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://pactumjs.github.io",  format: "PNG" },
+            { name: "PactumJS",    logo: "/tech_logos/PactumJS.png",    page: "https://www.npmjs.com/package/pactum",  format: "PNG" },
             { name: "WebdriverIO", logo: "/tech_logos/WebdriverIO.png", page: "https://webdriver.io",        format: "PNG" },
             { name: "ContextQA",   logo: "/tech_logos/ContextQA.svg",   page: "https://contextqa.com",       format: "SVG" },
             { name: "Reflect",     logo: "/images/reflect1.png",        page: "https://reflect.run",         format: "PNG" },
@@ -880,7 +880,7 @@ const techShowcaseData: TechCategory[] = [
     {
         category: "AI / ML",
         technologies: [
-            { name: "Copilot",    logo: "/images/ai-icons/copilot.png",    page: "https://github.com/features/copilot",    format: "PNG" },
+            { name: "Copilot",    logo: "/images/ai-icons/copilot.png",    page: "https://copilot.microsoft.com",    format: "PNG" },
             { name: "ChatGPT",    logo: "/images/ai-icons/chatgpt.png",    page: "https://chatgpt.com",                    format: "PNG" },
             { name: "Claude",     logo: "/images/ai-icons/claude.png",     page: "https://claude.ai",                      format: "PNG" },
             { name: "Antigravity",logo: "/images/ai-icons/antigravity.png",page: "https://antigravity.com",                 format: "PNG" },

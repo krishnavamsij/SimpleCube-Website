@@ -1021,7 +1021,7 @@ const jobOpenings: JobPosition[] = [
       "4+ years experience creating and modifying automation test scripts",
       "3+ years experience preparing automation test plans and automation testing strategies",
       "3+ years experience working with automation testing frameworks",
-      "2+ years experience with GitHub or version control tools",
+      "2+ years experience with version control tools",
       "3+ years experience with performance testing, load testing, security testing, or end-to-end testing",
       "2+ years hands-on coding experience developing automation scripts",
       "Strong experience with QA automation tools and frameworks (Selenium, Cypress, Playwright)",
@@ -1162,7 +1162,7 @@ const jobOpenings: JobPosition[] = [
       "Azure App Configuration",
       "Azure Bicep (Infrastructure as Code)",
       "REST API design and integration",
-      "CI/CD (Azure DevOps or GitHub Actions)",
+      "CI/CD (Azure DevOps)",
       "Azure cloud architecture and security best practices",
       "Experience with enterprise integration platforms (Preferred)",
       "Azure Service Bus / Event Grid (Preferred)",
@@ -1203,7 +1203,7 @@ const jobOpenings: JobPosition[] = [
       "Azure App Configuration",
       "Azure Bicep (Infrastructure as Code)",
       "REST API design and integration",
-      "CI/CD (Azure DevOps or GitHub Actions)",
+      "CI/CD (Azure DevOps)",
       "Azure cloud architecture and security best practices",
       "Experience with enterprise integration platforms (Preferred)",
       "Azure Service Bus / Event Grid (Preferred)",
@@ -1392,7 +1392,7 @@ export default function CareersPage() {
         break;
       case 'portfolio':
         if (value.trim() && !/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/.test(value)) {
-          error = "Please enter a valid portfolio or GitHub URL";
+          error = "Please enter a valid portfolio URL";
         }
         break;
       case 'coverNote':
@@ -1451,7 +1451,7 @@ export default function CareersPage() {
       newErrors.linkedIn = "Please enter a valid LinkedIn profile URL";
     }
     if (formData.portfolio && !/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/.test(formData.portfolio)) {
-      newErrors.portfolio = "Please enter a valid portfolio or GitHub URL";
+      newErrors.portfolio = "Please enter a valid portfolio URL";
     }
 
     setErrors(newErrors);
@@ -2371,7 +2371,7 @@ export default function CareersPage() {
                         </div>
                         <div className="space-y-1.5">
                           <label className="block text-xs font-medium text-gray-700 ml-1">
-                            Portfolio / GitHub (optional)
+                            Portfolio (optional)
                           </label>
                           <input
                             type="url"
@@ -2379,7 +2379,7 @@ export default function CareersPage() {
                             value={formData.portfolio}
                             onChange={handleInputChange}
                             onBlur={handleBlur}
-                            placeholder="github.com/..."
+                            placeholder="yourportfolio.com"
                             className={`w-full h-11 px-4 border rounded-xl bg-white text-sm placeholder:text-xs placeholder:text-gray-400 outline-none transition-all duration-200 ${errors.portfolio ? 'border-red-300 focus:border-red-500 focus:ring-red-500/10' : 'border-gray-200 focus:border-[#1e6fff] hover:border-gray-300'
                               }`}
                           />

@@ -109,7 +109,6 @@ export const microsoftServicesContent = {
             { name: "AWS", src: "/images/2023/11/aws-logocopy120.png" },
             { name: "Microsoft", src: "/images/2023/11/microso-copy120.png" },
             { name: "Jira", src: "/images/2023/11/jiraa-copy120.png" },
-            { name: "GitHub", src: "/images/2023/11/githu-copy120.png" },
             { name: "Genesys", src: "/images/2023/11/gencopy120.png" },
         ],
     },
