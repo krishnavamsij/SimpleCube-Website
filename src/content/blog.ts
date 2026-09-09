@@ -12,7 +12,7 @@ export const blogContent: {
     posts: Post[];
 } = {
     hero: {
-        title: "Our Digital <span class='text-[#00D4AA]'>Thoughts.</span>",
+        title: "Our Digital <span class='text-[#3886CE]'>Thoughts.</span>",
         description: "Insights, perspectives, and expertise from the Hyniva team on AI, Salesforce, AWS, Microsoft, and the future of enterprise transformation.",
     },
     posts: [

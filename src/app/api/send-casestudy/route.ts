@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px;">
-        <h2 style="color: #1e90ff;">New Case Study Lead</h2>
+        <h2 style="color: #3886CE;">New Case Study Lead</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Organization:</strong> ${organization}</p>

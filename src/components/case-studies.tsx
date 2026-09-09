@@ -39,8 +39,8 @@ export function CaseStudies() {
                 
                 {/* ── Section header ── */}
                 <div className="mx-auto w-full max-w-5xl px-6 mb-16 text-center flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 text-[0.6875rem] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-6">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[0.6875rem] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 rounded-full px-5 py-1.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                         {label}
                     </div>
                     
@@ -48,7 +48,7 @@ export function CaseStudies() {
                         {headline.split(highlightedWord || "").map((part, i, arr) => (
                             <React.Fragment key={i}>
                                 {part}
-                                {i < arr.length - 1 && <span className="text-[#00D4AA] pr-1">{highlightedWord}</span>}
+                                {i < arr.length - 1 && <span className="text-[#3886CE] pr-1">{highlightedWord}</span>}
                             </React.Fragment>
                         ))}
                     </h2>
@@ -98,19 +98,19 @@ export function CaseStudies() {
                                             <div 
                                                 className={`absolute left-0 top-[16%] bottom-[16%] w-[0.1875rem] rounded-r-[3px] transition-opacity duration-400
                                                 ${isActive ? "opacity-100" : "opacity-0"}`}
-                                                style={{ background: "linear-gradient(to bottom, transparent, #1e90ff 30%, #63c2ff 65%, transparent)" }}
+                                                style={{ background: "linear-gradient(to bottom, transparent, #3886CE 30%, #63c2ff 65%, transparent)" }}
                                             />
 
                                             {/* Corner brackets */}
-                                            <div className={`absolute top-4 left-4 w-[1.125rem] h-[1.125rem] border-t border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute top-4 right-4 w-[1.125rem] h-[1.125rem] border-t border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute bottom-4 left-4 w-[1.125rem] h-[1.125rem] border-b border-l border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
-                                            <div className={`absolute bottom-4 right-4 w-[1.125rem] h-[1.125rem] border-b border-r border-[#1e90ff]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute top-4 left-4 w-[1.125rem] h-[1.125rem] border-t border-l border-[#3886CE]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute top-4 right-4 w-[1.125rem] h-[1.125rem] border-t border-r border-[#3886CE]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 left-4 w-[1.125rem] h-[1.125rem] border-b border-l border-[#3886CE]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
+                                            <div className={`absolute bottom-4 right-4 w-[1.125rem] h-[1.125rem] border-b border-r border-[#3886CE]/35 transition-opacity duration-400 ${isActive ? "opacity-100" : "opacity-0"}`} />
 
                                             {/* Top Right CTA */}
                                             <div className={`absolute top-4 right-4 sm:top-8 sm:right-8 z-20 max-w-[calc(100%-2rem)] transition-all duration-400 delay-[300ms]
                                                 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
-                                                <a href={study.href} className="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-[#030b3b]/60 backdrop-blur-md border border-white/20 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:gap-3.5 transition-all shadow-lg whitespace-nowrap">
+                                                <a href={study.href} className="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-[#0A2F52]/60 backdrop-blur-md border border-white/20 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white hover:bg-[#3886CE] hover:border-[#3886CE] hover:gap-3.5 transition-all shadow-lg whitespace-nowrap">
                                                     Read Case Study <ArrowRightIcon className="w-3.5 h-3.5 shrink-0" />
                                                 </a>
                                             </div>
@@ -154,13 +154,13 @@ export function CaseStudies() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={scrollPrev}
-                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:scale-105 transition-all opacity-100"
+                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#3886CE] hover:border-[#3886CE] hover:text-white hover:scale-105 transition-all opacity-100"
                         >
                             <ArrowLeftIcon className="w-4 h-4" />
                         </button>
                         <button
                             onClick={scrollNext}
-                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white hover:scale-105 transition-all opacity-100"
+                            className="w-11 h-11 rounded-full bg-[#f3f4f6] border border-[#e5e7eb] text-[#374151] flex items-center justify-center hover:bg-[#3886CE] hover:border-[#3886CE] hover:text-white hover:scale-105 transition-all opacity-100"
                         >
                             <ArrowRightIcon className="w-4 h-4" />
                         </button>
@@ -168,7 +168,7 @@ export function CaseStudies() {
 
                     {/* Count */}
                     <div className="mt-2 text-[0.6875rem] font-light text-[#9ca3af] tracking-[2px]">
-                        <strong className="text-[#00D4AA] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
+                        <strong className="text-[#3886CE] font-medium">{String(selectedIndex + 1).padStart(2, '0')}</strong> / {String(studies.length).padStart(2, '0')}
                     </div>
                 </div>
 

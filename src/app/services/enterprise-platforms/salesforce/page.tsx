@@ -115,7 +115,7 @@ function Salesforce3DCloud() {
                                 viewBox="-10 -10 293 211"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                className={`w-full h-full overflow-visible ${isFront ? "drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)] drop-shadow-[0_4px_12px_rgba(37,99,235,0.2)]" : ""}`}
+                                className={`w-full h-full overflow-visible ${isFront ? "drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)] drop-shadow-[0_4px_12px_rgba(19,84,152,0.2)]" : ""}`}
                             >
                                 <defs>
                                     {/* Front face dark blue theme gradient */}
@@ -124,10 +124,10 @@ function Salesforce3DCloud() {
                                         <stop offset="50%" stopColor="#142560" />
                                         <stop offset="100%" stopColor="#030612" />
                                     </linearGradient>
-                                    {/* 3D Extrusion depth gradient matching 'Talk to Our Experts' CTA button (#3B82F6) */}
+                                    {/* 3D Extrusion depth gradient matching 'Talk to Our Experts' CTA button (#3886CE) */}
                                     <linearGradient id={`depthCloudGrad-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
                                         <stop offset="0%" stopColor="#4382f6" />
-                                        <stop offset="50%" stopColor="#3B82F6" />
+                                        <stop offset="50%" stopColor="#3886CE" />
                                         <stop offset="100%" stopColor="#2e72f0" />
                                     </linearGradient>
                                 </defs>
@@ -135,7 +135,7 @@ function Salesforce3DCloud() {
                                 <path
                                     d="m113 21.3c8.78-9.14 21-14.8 34.5-14.8 18 0 33.6 10 42 24.9a58 58 0 0 1 23.7-5.05c32.4 0 58.7 26.5 58.7 59.2s-26.3 59.2-58.7 59.2c-3.96 0-7.82-0.398-11.6-1.15-7.35 13.1-21.4 22-37.4 22a42.7 42.7 0 0 1-18.8-4.32c-7.45 17.5-24.8 29.8-45 29.8-21.1 0-39-13.3-45.9-32a45.1 45.1 0 0 1-9.34 0.972c-25.1 0-45.4-20.6-45.4-45.9 0-17 9.14-31.8 22.7-39.8a52.6 52.6 0 0 1-4.35-21c0-29.2 23.7-52.8 52.9-52.8 17.1 0 32.4 8.15 42 20.8"
                                     fill={isFront ? `url(#frontCloudGrad-${i})` : `url(#depthCloudGrad-${i})`}
-                                    stroke="#3B82F6"
+                                    stroke="#3886CE"
                                     strokeWidth={isFront ? 1.5 : 0.8}
                                 />
                                 {/* Exact Authentic Salesforce Logo Typography & Exact Scale */}
@@ -158,10 +158,10 @@ function Salesforce3DCloud() {
 
 function SalesforceHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] flex items-center border-b border-[#3B82F6]/30">
+        <section className="relative overflow-hidden bg-[#0A2F52] flex items-center border-b border-[#3886CE]/30">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(19,84,152,0.15)_0%,transparent_60%)]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -173,8 +173,8 @@ function SalesforceHero() {
                         className="max-w-2xl"
                     >
                         <motion.div variants={fadeInUp} className="flex mb-6">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 {salesforceContent.hero.eyebrow}
                             </div>
                         </motion.div>
@@ -182,8 +182,8 @@ function SalesforceHero() {
                             variants={fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            Go Beyond <span className="text-[#00D4AA]">CRM.</span><br className="hidden sm:block" />{" "}
-                            Engineer for <span className="text-[#00D4AA]">Growth.</span>
+                            Go Beyond <span className="text-[#3886CE]">CRM.</span><br className="hidden sm:block" />{" "}
+                            Engineer for <span className="text-[#3886CE]">Growth.</span>
                         </motion.h1>
                         <motion.p
                             variants={fadeInUp}
@@ -194,7 +194,7 @@ function SalesforceHero() {
                         <motion.div variants={fadeInUp} className="mt-10 lg:mt-12">
                             <Link
                                 href={salesforceContent.hero.contactButton.href}
-                                className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-8 h-14 inline-flex items-center justify-center transition-all duration-300"
+                                className="bg-gradient-to-r from-[#3886CE] to-[#135498] text-white hover:opacity-90 shadow-[0_0_15px_rgba(56,134,206,0.5)] hover:shadow-[0_0_25px_rgba(56,134,206,0.8)] border border-[#3886CE]/30 rounded-full font-bold px-8 h-14 inline-flex items-center justify-center transition-all duration-300"
                             >
                                 {salesforceContent.hero.contactButton.text}
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -215,7 +215,7 @@ function SalesforceHero() {
                             <div className="absolute left-[30%] top-[30%] w-[160px] h-[260px] bg-[#8b5cf6]/15 blur-[90px] rounded-full" />
 
                             {/* Soft radial illumination inside center */}
-                            <div className="absolute inset-[25%] bg-gradient-to-tr from-indigo-500/5 to-cyan-400/5 blur-[60px] rounded-full mix-blend-screen" />
+                            <div className="absolute inset-[25%] bg-gradient-to-tr from-[#3886CE]/5 to-cyan-400/5 blur-[60px] rounded-full mix-blend-screen" />
                         </div>
 
                         {/* Interactive 3D Salesforce Cloud */}
@@ -236,11 +236,11 @@ function SalesforceHero() {
 function CloudsIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <path d="M25 65a12 12 0 0 1 2-23.8A16 16 0 0 1 57 33a12 12 0 0 1 18 10 12 12 0 0 1-5 22H25z" fill="#3B82F6" fillOpacity="0.15" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M40 75a10 10 0 0 1 1-19.8A13 13 0 0 1 66 48a10 10 0 0 1 15 8 10 10 0 0 1-4 19H40z" fill="#00D4AA" fillOpacity="0.2" stroke="#00D4AA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M35 50h30" stroke="#3B82F6" strokeWidth="1.5" strokeDasharray="3 3" />
-            <circle cx="35" cy="50" r="3" fill="#3B82F6" />
-            <circle cx="65" cy="50" r="3" fill="#00D4AA" />
+            <path d="M25 65a12 12 0 0 1 2-23.8A16 16 0 0 1 57 33a12 12 0 0 1 18 10 12 12 0 0 1-5 22H25z" fill="#3886CE" fillOpacity="0.15" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M40 75a10 10 0 0 1 1-19.8A13 13 0 0 1 66 48a10 10 0 0 1 15 8 10 10 0 0 1-4 19H40z" fill="#3886CE" fillOpacity="0.2" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M35 50h30" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 3" />
+            <circle cx="35" cy="50" r="3" fill="#3886CE" />
+            <circle cx="65" cy="50" r="3" fill="#3886CE" />
         </svg>
     );
 }
@@ -248,14 +248,14 @@ function CloudsIllustration() {
 function CogIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <circle cx="50" cy="50" r="14" fill="none" stroke="#3B82F6" strokeWidth="3" />
-            <path d="M50 20v10M50 70v10M20 50h10M70 50h10M29 29l7 7M64 64l7 7M71 29l-7 7M36 64l-7 7" stroke="#3B82F6" strokeWidth="3.5" strokeLinecap="round" />
-            <path d="M50 36v-16M36 50H20M50 64v16" stroke="#00D4AA" strokeWidth="2" strokeDasharray="2 2" />
-            <circle cx="50" cy="15" r="4" fill="#00D4AA" />
-            <circle cx="15" cy="50" r="4" fill="#00D4AA" />
-            <circle cx="50" cy="85" r="4" fill="#3B82F6" />
-            <path d="M60 40l18-10v15" fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
-            <circle cx="78" cy="30" r="3.5" fill="#2563EB" />
+            <circle cx="50" cy="50" r="14" fill="none" stroke="#3886CE" strokeWidth="3" />
+            <path d="M50 20v10M50 70v10M20 50h10M70 50h10M29 29l7 7M64 64l7 7M71 29l-7 7M36 64l-7 7" stroke="#3886CE" strokeWidth="3.5" strokeLinecap="round" />
+            <path d="M50 36v-16M36 50H20M50 64v16" stroke="#3886CE" strokeWidth="2" strokeDasharray="2 2" />
+            <circle cx="50" cy="15" r="4" fill="#3886CE" />
+            <circle cx="15" cy="50" r="4" fill="#3886CE" />
+            <circle cx="50" cy="85" r="4" fill="#3886CE" />
+            <path d="M60 40l18-10v15" fill="none" stroke="#135498" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="78" cy="30" r="3.5" fill="#135498" />
         </svg>
     );
 }
@@ -263,15 +263,15 @@ function CogIllustration() {
 function SprawlIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <rect x="15" y="25" width="20" height="12" rx="2" fill="none" stroke="#3B82F6" strokeWidth="2" />
-            <rect x="15" y="44" width="20" height="12" rx="2" fill="none" stroke="#3B82F6" strokeWidth="2" />
-            <rect x="15" y="63" width="20" height="12" rx="2" fill="none" stroke="#3B82F6" strokeWidth="2" />
-            <rect x="65" y="44" width="20" height="12" rx="2" fill="none" stroke="#00D4AA" strokeWidth="2" />
-            <path d="M35 31h15v16h15" fill="none" stroke="#3B82F6" strokeWidth="1.5" strokeDasharray="3 2" />
-            <path d="M35 50h30" fill="none" stroke="#00D4AA" strokeWidth="2" />
-            <path d="M35 69h15V53h15" fill="none" stroke="#3B82F6" strokeWidth="1.5" strokeDasharray="3 2" />
-            <circle cx="50" cy="47" r="3" fill="#2563EB" />
-            <circle cx="50" cy="53" r="3" fill="#00D4AA" />
+            <rect x="15" y="25" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <rect x="15" y="44" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <rect x="15" y="63" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <rect x="65" y="44" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <path d="M35 31h15v16h15" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 2" />
+            <path d="M35 50h30" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <path d="M35 69h15V53h15" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 2" />
+            <circle cx="50" cy="47" r="3" fill="#135498" />
+            <circle cx="50" cy="53" r="3" fill="#3886CE" />
         </svg>
     );
 }
@@ -279,13 +279,13 @@ function SprawlIllustration() {
 function DataIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <ellipse cx="50" cy="25" rx="18" ry="6" fill="none" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M32 25v15c0 3.3 8 6 18 6s18-2.7 18-6V25" fill="none" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M32 40v15c0 3.3 8 6 18 6s18-2.7 18-6V40" fill="none" stroke="#00D4AA" strokeWidth="2" />
-            <ellipse cx="50" cy="72" rx="28" ry="8" fill="none" stroke="#3B82F6" strokeWidth="1.5" strokeDasharray="4 2" />
-            <circle cx="22" cy="72" r="4.5" fill="#3B82F6" />
-            <circle cx="78" cy="72" r="4.5" fill="#00D4AA" />
-            <circle cx="50" cy="80" r="3" fill="#2563EB" />
+            <ellipse cx="50" cy="25" rx="18" ry="6" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <path d="M32 25v15c0 3.3 8 6 18 6s18-2.7 18-6V25" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <path d="M32 40v15c0 3.3 8 6 18 6s18-2.7 18-6V40" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <ellipse cx="50" cy="72" rx="28" ry="8" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="4 2" />
+            <circle cx="22" cy="72" r="4.5" fill="#3886CE" />
+            <circle cx="78" cy="72" r="4.5" fill="#3886CE" />
+            <circle cx="50" cy="80" r="3" fill="#135498" />
             <path d="M50 56v10M22 72l20-8M78 72l-20-8" stroke="#E2E8F0" strokeWidth="1.5" />
         </svg>
     );
@@ -295,11 +295,11 @@ function PressureIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
             <path d="M20 70A35 35 0 0 1 80 70" fill="none" stroke="#E2E8F0" strokeWidth="4" strokeLinecap="round" />
-            <path d="M50 15A35 35 0 0 1 80 70" fill="none" stroke="#00D4AA" strokeWidth="4" strokeLinecap="round" />
-            <circle cx="50" cy="70" r="6" fill="#3B82F6" />
-            <path d="M50 70l20-40" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round" />
-            <path d="M82 25l5 8h-9z" fill="#00D4AA" />
-            <path d="M68 18l7 6-5 4z" fill="#3B82F6" />
+            <path d="M50 15A35 35 0 0 1 80 70" fill="none" stroke="#3886CE" strokeWidth="4" strokeLinecap="round" />
+            <circle cx="50" cy="70" r="6" fill="#3886CE" />
+            <path d="M50 70l20-40" stroke="#3886CE" strokeWidth="3" strokeLinecap="round" />
+            <path d="M82 25l5 8h-9z" fill="#3886CE" />
+            <path d="M68 18l7 6-5 4z" fill="#3886CE" />
         </svg>
     );
 }
@@ -307,13 +307,13 @@ function PressureIllustration() {
 function ShieldIllustration() {
     return (
         <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <path d="M30 20h40v15c0 18-20 35-20 35S30 53 30 35V20z" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M50 20v50M30 35h40M34 50h32" stroke="#3B82F6" strokeWidth="1.5" strokeOpacity="0.3" />
-            <rect x="42" y="38" width="16" height="12" rx="1.5" fill="#00D4AA" />
-            <path d="M46 38v-4c0-2.2 1.8-4 4-4s4 1.8 4 4v4" fill="none" stroke="#00D4AA" strokeWidth="2" />
-            <circle cx="50" cy="14" r="3.5" fill="#3B82F6" />
-            <circle cx="22" cy="35" r="3" fill="#00D4AA" />
-            <circle cx="78" cy="35" r="3" fill="#00D4AA" />
+            <path d="M30 20h40v15c0 18-20 35-20 35S30 53 30 35V20z" fill="none" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M50 20v50M30 35h40M34 50h32" stroke="#3886CE" strokeWidth="1.5" strokeOpacity="0.3" />
+            <rect x="42" y="38" width="16" height="12" rx="1.5" fill="#3886CE" />
+            <path d="M46 38v-4c0-2.2 1.8-4 4-4s4 1.8 4 4v4" fill="none" stroke="#3886CE" strokeWidth="2" />
+            <circle cx="50" cy="14" r="3.5" fill="#3886CE" />
+            <circle cx="22" cy="35" r="3" fill="#3886CE" />
+            <circle cx="78" cy="35" r="3" fill="#3886CE" />
         </svg>
     );
 }
@@ -374,8 +374,8 @@ function SalesforceIntro() {
                         viewport={viewportOnce}
                         className="flex justify-start lg:justify-center mb-6"
                     >
-                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
-                            <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px]">
+                            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
@@ -386,7 +386,7 @@ function SalesforceIntro() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#030B3B] font-display text-left lg:text-center mb-5 leading-tight"
+                        className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0A2F52] font-display text-left lg:text-center mb-5 leading-tight"
                     >
                         Salesforce can scale. So can complexity.
                     </motion.h2>
@@ -417,17 +417,17 @@ function SalesforceIntro() {
                             <motion.div
                                 key={card.id}
                                 variants={scrollReveal}
-                                className="group relative flex flex-col justify-start overflow-hidden rounded-[20px] border border-slate-100 bg-white p-5 sm:p-5.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(37,99,235,0.08)] hover:border-blue-200/80 h-full"
+                                className="group relative flex flex-col justify-start overflow-hidden rounded-[20px] border border-slate-100 bg-white p-5 sm:p-5.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(19,84,152,0.08)] hover:border-blue-200/80 h-full"
                             >
                                 {/* Top accent bar on hover */}
-                                <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#135498] to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                                 {/* Icon beside Heading — both on same line */}
                                 <div className="flex items-center gap-3 sm:gap-3.5 mb-3.5 min-w-0">
-                                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-blue-50/90 border border-blue-100/70 flex-shrink-0 transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-105 shadow-xs">
-                                        <IconComponent className="h-5 w-5 sm:h-5.5 sm:w-5.5 text-blue-600 transition-colors duration-300 group-hover:text-white" />
+                                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-[#e8f1fa]/90 border border-blue-100/70 flex-shrink-0 transition-all duration-300 group-hover:bg-[#135498] group-hover:text-white group-hover:scale-105 shadow-xs">
+                                        <IconComponent className="h-5 w-5 sm:h-5.5 sm:w-5.5 text-[#135498] transition-colors duration-300 group-hover:text-white" />
                                     </div>
-                                    <h3 className="text-[#030B3B] text-[14.5px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] font-bold font-display leading-tight tracking-tight transition-colors duration-300 group-hover:text-blue-600 whitespace-nowrap">
+                                    <h3 className="text-[#0A2F52] text-[14.5px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] font-bold font-display leading-tight tracking-tight transition-colors duration-300 group-hover:text-[#135498] whitespace-nowrap">
                                         {card.title}
                                     </h3>
                                 </div>
@@ -478,7 +478,7 @@ function CapabilitiesHoverCard({
     const titleColor = isDark ? "text-white" : "text-[#060d2e]";
     const taglineColor = isDark ? "text-slate-200" : "text-slate-700";
     const descColor = isDark ? "text-slate-300" : "text-slate-600";
-    const ctaColor = isDark ? "text-[#00D4AA]" : "text-blue-600";
+    const ctaColor = isDark ? "text-[#3886CE]" : "text-[#135498]";
 
     const transformStyles = [
         imageScale !== 1 ? `scale(${imageScale})` : "",
@@ -493,8 +493,8 @@ function CapabilitiesHoverCard({
             style={{ background: bgColor }}
             className={`group relative h-[340px] lg:h-[370px] w-full overflow-hidden rounded-[24px] border ${isDark ? "border-white/8" : "border-black/6"
                 } shadow-xl transition-shadow duration-500 cursor-pointer ${isDark
-                    ? "hover:shadow-[0_8px_40px_rgba(59,130,246,0.22)]"
-                    : "hover:shadow-[0_8px_40px_rgba(59,130,246,0.12)]"
+                    ? "hover:shadow-[0_8px_40px_rgba(56,134,206,0.22)]"
+                    : "hover:shadow-[0_8px_40px_rgba(56,134,206,0.12)]"
                 } ${className}`}
         >
             {/* BG IMAGE — fills entire card, fades out on hover */}
@@ -651,7 +651,7 @@ function SalesforceCapabilities() {
         <section className="relative overflow-hidden bg-[#01040e] pt-12 lg:pt-16 pb-12 lg:pb-16">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#01030a] via-[#01061c]/95 to-[#01040e]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(37,99,235,0.15)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(19,84,152,0.15)_0%,transparent_70%)] pointer-events-none" />
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
@@ -666,8 +666,8 @@ function SalesforceCapabilities() {
                         viewport={viewportOnce}
                         className="flex justify-start lg:justify-center mb-6"
                     >
-                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
-                            <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px]">
+                            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                             OUR CAPABILITIES
                         </div>
                     </motion.div>
@@ -784,7 +784,7 @@ function SalesforceOutcomes() {
                     className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/80 via-[#030b1e]/75 to-[#020918]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#020918]/80 via-[#0A2F52]/75 to-[#020918]/90" />
 
                 {/* Metrics */}
                 <div className="relative z-10 h-full flex items-center justify-center">
@@ -804,7 +804,7 @@ function SalesforceOutcomes() {
                                     className="flex flex-col items-center gap-1.5 sm:gap-2 text-center"
                                 >
                                     <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 mb-0.5 sm:mb-1">
-                                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#00D4AA]" />
+                                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#3886CE]" />
                                     </div>
                                     <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
                                         {m.value}
@@ -835,7 +835,7 @@ function SalesforceOutcomes() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#030B3B] font-display leading-tight"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A2F52] font-display leading-tight"
                         >
                             See what Salesforce can look like when Hyniva engineers it.
                         </motion.h2>
@@ -855,13 +855,13 @@ function SalesforceOutcomes() {
                                 <motion.div
                                     key={box.title}
                                     variants={scrollReveal}
-                                    className="group flex flex-col items-center text-center rounded-[20px] border border-blue-200/70 bg-transparent p-5 sm:p-6 shadow-none transition-all duration-300 hover:border-blue-400 hover:bg-blue-50/40 hover:-translate-y-0.5"
+                                    className="group flex flex-col items-center text-center rounded-[20px] border border-blue-200/70 bg-transparent p-5 sm:p-6 shadow-none transition-all duration-300 hover:border-blue-400 hover:bg-[#e8f1fa]/40 hover:-translate-y-0.5"
                                 >
-                                    <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-blue-50/80 border border-blue-100/60 mb-3">
-                                        <Icon className="w-5 h-5 text-[#2563EB] transition-transform duration-300 group-hover:scale-110" />
+                                    <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-[#e8f1fa]/80 border border-blue-100/60 mb-3">
+                                        <Icon className="w-5 h-5 text-[#135498] transition-transform duration-300 group-hover:scale-110" />
                                     </div>
                                     {/* Title: kept to 1 line via font size — no wrapping */}
-                                    <h3 className="font-display text-[14px] sm:text-[15px] font-bold text-[#030B3B] leading-tight tracking-tight group-hover:text-[#2563EB] transition-colors duration-300 mb-2 sm:whitespace-nowrap">
+                                    <h3 className="font-display text-[14px] sm:text-[15px] font-bold text-[#0A2F52] leading-tight tracking-tight group-hover:text-[#135498] transition-colors duration-300 mb-2 sm:whitespace-nowrap">
                                         {box.title}
                                     </h3>
                                     {/* Description: consistent 4-line height via line-clamp */}
@@ -906,11 +906,11 @@ const deliveryTiers = [
         part2Prefix: "and ",
         part2Bold: "business enhancements.",
         theme: {
-            headingColor: "text-[#2563eb]",
+            headingColor: "text-[#135498]",
             cardBorder: "border-blue-100/80",
-            cardShadow: "shadow-[0_4px_16px_rgba(37,99,235,0.06)]",
-            stemBorder: "border-[#2563eb]",
-            stemDot: "bg-[#2563eb] shadow-[0_0_6px_1.5px_rgba(37,99,235,0.75)]",
+            cardShadow: "shadow-[0_4px_16px_rgba(19,84,152,0.06)]",
+            stemBorder: "border-[#135498]",
+            stemDot: "bg-[#135498] shadow-[0_0_6px_1.5px_rgba(19,84,152,0.75)]",
         },
     },
     {
@@ -937,7 +937,7 @@ const deliveryEnablerBoxes = [
         description: "Pre-built Salesforce components, frameworks and connectors reduce repetitive development and speed implementation.",
         icon: Boxes,
         colorClass: "bg-[#f0f5ff] border-[#e2ecff]",
-        textColorClass: "text-[#3b82f6]",
+        textColorClass: "text-[#3886CE]",
         iconBgClass: "bg-[#e2ecff]",
     },
     {
@@ -980,8 +980,8 @@ function SalesforceDeliverySection() {
                         viewport={viewportOnce}
                         className="flex justify-start lg:justify-center mb-5"
                     >
-                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px] font-bold">
-                            <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px] font-bold">
+                            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                             HOW WE DELIVER CHANGE
                         </div>
                     </motion.div>
@@ -992,7 +992,7 @@ function SalesforceDeliverySection() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOnce}
-                        className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#030B3B] font-display text-left lg:text-center mb-4 leading-[1.18] tracking-tight"
+                        className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0A2F52] font-display text-left lg:text-center mb-4 leading-[1.18] tracking-tight"
                     >
                         Reengineering the pace of Salesforce delivery.
                     </motion.h2>
@@ -1168,7 +1168,7 @@ function SalesforceDeliverySection() {
                                         <path d="M 142 340 A 280 280 0 0 1 742 340 L 884 340" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeDasharray="2 6" strokeLinecap="round" opacity="0.9" />
 
                                         {/* Middle Dotted Line joining Center Circle to Middle Dot */}
-                                        <path d="M 557 590 L 884 590" fill="none" stroke="#2563eb" strokeWidth="1.8" strokeDasharray="2 6" strokeLinecap="round" opacity="0.9" />
+                                        <path d="M 557 590 L 884 590" fill="none" stroke="#135498" strokeWidth="1.8" strokeDasharray="2 6" strokeLinecap="round" opacity="0.9" />
 
                                         {/* Bottom Dotted Arc joining Bottom Dot */}
                                         <path d="M 142 840 A 300 300 0 0 0 742 840 L 884 840" fill="none" stroke="#00c8d6" strokeWidth="1.8" strokeDasharray="2 6" strokeLinecap="round" opacity="0.9" />
@@ -1403,19 +1403,19 @@ function SalesforceWhyHyniva() {
                     viewport={viewportOnce}
                     className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[20px] sm:p-[36px] lg:p-[48px]"
                 >
-                    <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
-                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                    <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 mb-8">
+                        <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                         THE DIFFERENCE
                     </div>
                     {/* Top Glow */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(56,134,206,0.35)_0%,transparent_70%)] pointer-events-none" />
 
                     <div className="relative z-10 grid gap-8 lg:gap-16 lg:grid-cols-12 items-start">
                         {/* Left Side: Headline & Stats */}
                         <div className="lg:col-span-6">
                             <h2 className="text-[24px] sm:text-[30px] lg:text-[38px] xl:text-[42px] font-[900] text-white tracking-tight leading-[1.15] mb-4 sm:mb-6 lg:mb-8 font-display">
                                 <span className="block">Why Hyniva for</span>
-                                <span className="text-[#00D4AA] block lg:whitespace-nowrap">Salesforce Partnership?</span>
+                                <span className="text-[#3886CE] block lg:whitespace-nowrap">Salesforce Partnership?</span>
                             </h2>
 
                             <div className="flex flex-col gap-6 sm:gap-10 lg:gap-16">
@@ -1468,7 +1468,7 @@ function SalesforceWhyHyniva() {
                             </p>
                             <Link
                                 href="/about"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3886CE] to-[#135498] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(56,134,206,0.8)] shadow-[0_0_15px_rgba(56,134,206,0.5)] border border-[#3886CE]/30 w-full sm:w-auto"
                             >
                                 {salesforceContent.hero ? "KNOW MORE →" : "KNOW MORE →"}
                             </Link>
@@ -1489,10 +1489,10 @@ function SalesforceWhyHyniva() {
                             const Icon = card.icon;
                             return (
                                 <div key={idx} className="flex flex-col">
-                                    <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3.5 flex-shrink-0 border border-[#3B82F6]/10">
-                                        <Icon className="w-5 h-5 text-[#3B82F6]" />
+                                    <div className="h-10 w-10 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3.5 flex-shrink-0 border border-[#3886CE]/10">
+                                        <Icon className="w-5 h-5 text-[#3886CE]" />
                                     </div>
-                                    <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight tracking-tight font-display">
+                                    <h3 className="text-[15px] lg:text-[16px] font-black text-[#0A2F52] mb-2 leading-tight tracking-tight font-display">
                                         {card.title}
                                     </h3>
                                     <p className="text-[13px] lg:text-[13.5px] text-slate-600 font-medium leading-relaxed">
@@ -1524,9 +1524,9 @@ function SalesforceAgentExchangeSection() {
                         className="lg:col-span-5 flex flex-col justify-center gap-8 sm:gap-10 lg:gap-12"
                     >
                         {/* Heading in exactly 2 lines */}
-                        <h2 className="text-[26px] sm:text-[28px] md:text-[30px] lg:text-[28px] xl:text-[32px] 2xl:text-[36px] font-extrabold text-[#030B3B] leading-[1.22] tracking-tight font-display">
+                        <h2 className="text-[26px] sm:text-[28px] md:text-[30px] lg:text-[28px] xl:text-[32px] 2xl:text-[36px] font-extrabold text-[#0A2F52] leading-[1.22] tracking-tight font-display">
                             <span className="block">Built for Salesforce.</span>
-                            <span className="text-[#2563EB] block">Trusted on AgentExchange.</span>
+                            <span className="text-[#135498] block">Trusted on AgentExchange.</span>
                         </h2>
 
                         {/* Callout content */}
@@ -1542,7 +1542,7 @@ function SalesforceAgentExchangeSection() {
                                 href="https://appexchange.salesforce.com/appxListingDetail?listingId=382a804b-b9cc-45f0-a24a-2f63229c1438"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-[13px] sm:text-[14px] font-semibold px-6 sm:px-7 py-3 rounded-full transition-all duration-300 hover:opacity-95 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] shadow-[0_4px_12px_rgba(37,99,235,0.3)] border border-[#3B82F6]/30 group w-fit"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3886CE] to-[#135498] text-white text-[13px] sm:text-[14px] font-semibold px-6 sm:px-7 py-3 rounded-full transition-all duration-300 hover:opacity-95 hover:shadow-[0_0_20px_rgba(56,134,206,0.6)] shadow-[0_4px_12px_rgba(19,84,152,0.3)] border border-[#3886CE]/30 group w-fit"
                             >
                                 View on AgentExchange
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -1578,19 +1578,19 @@ function SalesforceAgentExchangeSection() {
 
 const salesforceCaseStudies = [
     {
-        title: "<span class='text-[#3B82F6]'>Autonomous Lending Experience</span> with FinXServe & Agentforce",
+        title: "<span class='text-[#3886CE]'>Autonomous Lending Experience</span> with FinXServe & Agentforce",
         image: "/images/Case_Studies/Optimized/cs-1.png",
         description: "Built an AI-driven lending journey that automates document processing, decisioning and approvals.",
         href: "/insights/case-studies/autonomous-lending-experiences",
     },
     {
-        title: "Modernizing Contact Centers with <span class='text-[#3B82F6]'>Intelligent IVR Self-Service</span>",
+        title: "Modernizing Contact Centers with <span class='text-[#3886CE]'>Intelligent IVR Self-Service</span>",
         image: "/images/Case_Studies/Optimized/cs-3.png",
         description: "Transformed legacy IVR into a Smart Customer Engagement Interaction System.",
         href: "/insights/case-studies/intelligent-ivr-self-service",
     },
     {
-        title: "<span class='text-[#3B82F6]'>Frictionless Customer Authentication</span> for Secure Banking",
+        title: "<span class='text-[#3886CE]'>Frictionless Customer Authentication</span> for Secure Banking",
         image: "/images/Case_Studies/Optimized/cs-7.png",
         description: "Modernized contact center authentication with Pindrop voice biometrics.",
         href: "/insights/case-studies/customer-authentication",
@@ -1614,7 +1614,7 @@ function CaseStudiesSection() {
                             variants={scrollReveal}
                             className="mb-14 lg:mb-16"
                         >
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6 font-display">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2F52] mb-6 font-display">
                                 Case Studies
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
@@ -1644,7 +1644,7 @@ function CaseStudiesSection() {
                                     {/* Content */}
                                     <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
                                         <h3
-                                            className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-2.5 sm:mb-3"
+                                            className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#0A2F52] leading-[1.35] tracking-tight mb-2.5 sm:mb-3"
                                             dangerouslySetInnerHTML={{ __html: study.title }}
                                         />
 
@@ -1654,7 +1654,7 @@ function CaseStudiesSection() {
 
                                         <Link
                                             href={study.href}
-                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#2563EB] border border-blue-200/70 rounded-xl text-xs sm:text-sm font-bold shadow-xs transition-all duration-300 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] group-hover:text-white mt-auto"
+                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#135498] border border-blue-200/70 rounded-xl text-xs sm:text-sm font-bold shadow-xs transition-all duration-300 group-hover:bg-[#135498] group-hover:border-[#135498] group-hover:text-white mt-auto"
                                         >
                                             Read Case Study
                                             <svg

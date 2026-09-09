@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { footerContent, ctaContent } from "@/content/site-content";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
@@ -10,8 +10,8 @@ import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function Footer() {
-  const { label, headline, sub, cta } = ctaContent;
-  const { sections, offices, linkedin, email } = footerContent;
+  const { label, headline, highlightedWord, sub, cta } = ctaContent;
+  const { sections, offices, linkedin, email, phone } = footerContent;
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Particle animation logic from previously existing CtaBanner
@@ -31,9 +31,9 @@ export function Footer() {
     }
     resize();
 
-    const TEAL = "rgba(0,212,170,";
-    const CYAN = "rgba(0,168,255,";
-    const TEAL2 = "rgba(0,212,212,";
+    const TEAL = "rgba(56,134,206,";
+    const CYAN = "rgba(19,84,152,";
+    const TEAL2 = "rgba(56,134,206,";
 
     const COLS = 48;
     const particles: any[] = [];
@@ -103,20 +103,25 @@ export function Footer() {
   }, []);
 
   return (
-    <footer id="site-footer" className="relative overflow-hidden w-full bg-[#030B3B] text-white">
+    <footer
+      id="site-footer"
+      className="relative overflow-hidden w-full bg-[#0A2F52] text-white"
+      /* Restore original Inter metrics — Andika reads smaller at the same px sizes */
+      style={{ fontFamily: "var(--font-inter), Inter, system-ui, sans-serif" }}
+    >
       {/* Background glowing ellipses */}
       <div
         className="absolute w-[1000px] h-[1000px] pointer-events-none z-[1] bottom-[-200px] left-[-300px]"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(0,212,170,0.15) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(56,134,206,0.15) 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute w-[800px] h-[800px] pointer-events-none z-[1] top-[10%] right-[-150px]"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(0,168,255,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(56,134,206,0.12) 0%, transparent 70%)",
         }}
       />
 
@@ -135,18 +140,21 @@ export function Footer() {
           className="flex flex-col items-center w-full mb-8 sm:mb-12 lg:mt-auto"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3B82F6] bg-[#0A123A] border border-[#1E3A8A] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_#3B82F6]" />
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#0A2F52] border border-[#135498] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE]" />
             {label}
           </div>
 
-          <h2 className="text-[30px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 text-center">
-            {headline.split("simplify").map((part, i, arr) => (
+          <h2
+            className="text-[30px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 text-center"
+            style={{ fontFamily: "var(--font-inter), Inter, system-ui, sans-serif" }}
+          >
+            {headline.split(highlightedWord || "Incredible?").map((part, i, arr) => (
               <React.Fragment key={i}>
                 <span className="text-white">{part}</span>
                 {i < arr.length - 1 && (
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#3B82F6]">
-                    simplify
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3886CE] to-[#3886CE]">
+                    {highlightedWord || "Incredible?"}
                   </span>
                 )}
               </React.Fragment>
@@ -154,12 +162,12 @@ export function Footer() {
           </h2>
 
           <p className="text-sm sm:text-base md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-6 sm:mb-12 text-center px-4 sm:px-0">
-            Let&apos;s start with a 30-minute discovery call. No commitment, no sales pitch. Just a real conversation about your challenges.
+            {sub}
           </p>
 
           <Link
             href={cta.href}
-            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-[#3B82F6] text-white shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.6)]"
+            className="group relative inline-flex items-center justify-center gap-3 font-bold text-[14px] px-8 py-3.5 transition-all duration-300 hover:-translate-y-1 tracking-[-0.2px] rounded-full bg-[#135498] text-white shadow-[0_10px_30px_rgba(19,84,152,0.4)] hover:shadow-[0_15px_40px_rgba(19,84,152,0.6)]"
           >
             {cta.label}
             <svg
@@ -185,9 +193,10 @@ export function Footer() {
           {/* Brand */}
           <div className="w-full lg:max-w-sm">
             <Link href="/" className="inline-flex items-center">
+              {/* SimpleCube white mark for dark footer (BrandBoard) — original logo scale */}
               <Image
-                src="/images/Hyniva_partial_colour_1.svg"
-                alt="Hyniva"
+                src="/logos/simplecube/logo-white.png"
+                alt="SimpleCube"
                 width={240}
                 height={68}
                 className="h-16 sm:h-20 w-auto"
@@ -198,7 +207,7 @@ export function Footer() {
             <div className="mt-8 space-y-4">
               {offices.map((office) => (
                 <div key={office.country} className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00D4AA]" />
+                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#3886CE]" />
                   <span className="text-sm">
                     <strong className="text-white">{office.country}</strong>
                     <br />
@@ -226,6 +235,15 @@ export function Footer() {
               >
                 <Mail className="h-4 w-4" />
               </a>
+              {phone && (
+                <a
+                  href={`tel:${phone.replace(/[^+0-9]/g, "")}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white"
+                  aria-label={phone}
+                >
+                  <Phone className="h-4 w-4" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -253,8 +271,9 @@ export function Footer() {
               ))}
             </div>
 
+            {/* Proud Member / Certified By temporarily hidden from this build */}
+            {/*
             <div className="flex flex-col md:flex-row flex-wrap lg:flex-nowrap gap-6 sm:gap-8 lg:gap-12 xl:gap-16 border-t border-white/10 pt-6 mt-2 w-full text-left">
-              {/* Proud Member Section */}
               <div className="flex flex-col text-left shrink-0">
                 <h4 className="mb-3 sm:mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Proud Member
@@ -277,7 +296,6 @@ export function Footer() {
                 </div>
               </div>
 
-              {/* Certified By Section */}
               <div className="flex flex-col text-left shrink-0 max-w-full">
                 <h4 className="mb-3 sm:mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/60">
                   Certified By
@@ -314,6 +332,7 @@ export function Footer() {
                 </div>
               </div>
             </div>
+            */}
           </div>
         </div>
       </div>

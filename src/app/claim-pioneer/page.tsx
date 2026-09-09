@@ -198,7 +198,7 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* Capabilities That Drive Growth */}
-      <section id="capabilities" className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
+      <section id="capabilities" className="bg-[#0A2F52] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden">
         <div className={`${CONTAINER_CLASS} flex flex-col lg:flex-row gap-[32px] lg:gap-[60px]`} >
           {/* LEFT FIXED CONTENT */}
           <div className="lg:w-[32%] lg:sticky lg:top-[90px] self-start z-10 text-center md:text-left">
@@ -217,7 +217,7 @@ export default function ClaimPioneerPage() {
                 key={idx}
                 className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
                 style={{
-                  background: 'linear-gradient(#030B3B, #030B3B) padding-box, linear-gradient(320deg, rgba(30, 144, 255, 0.52), rgba(0, 82, 155, 0.53), rgba(3, 11, 59, 0.56)) border-box',
+                  background: 'linear-gradient(#0A2F52, #0A2F52) padding-box, linear-gradient(320deg, rgba(30, 144, 255, 0.52), rgba(0, 82, 155, 0.53), rgba(10, 47, 82, 0.56)) border-box',
                   border: '1px solid transparent'
                 }}
               >
@@ -239,7 +239,7 @@ export default function ClaimPioneerPage() {
                 </div>
 
                 {/* Hover Effect Gradient Overlay */}
-                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#030B3B, #030B3B) padding-box, linear-gradient(320deg, #1e90ff, #00529b, #00d4aa) border-box', border: '1px solid transparent' }}></div>
+                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#0A2F52, #0A2F52) padding-box, linear-gradient(320deg, #3886CE, #00529b, #3886CE) border-box', border: '1px solid transparent' }}></div>
               </div>
             ))}
           </div>
@@ -339,7 +339,7 @@ export default function ClaimPioneerPage() {
       </section>
 
       {/* Business Outcomes */}
-      <section className="bg-[#030B3B] py-[30px] sm:py-[40px] lg:py-[50px]">
+      <section className="bg-[#0A2F52] py-[30px] sm:py-[40px] lg:py-[50px]">
         <div className={CONTAINER_CLASS}>
           {/* Heading */}
           <div className="text-center mb-8">

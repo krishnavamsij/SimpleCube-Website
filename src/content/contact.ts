@@ -1,26 +1,28 @@
 export const contactContent = {
     hero: {
-        title: "Ready to Start Your <br /><span class='text-[#00D4AA]'>Digital Transformation?</span>",
-        description: "Give us a call or drop by anytime — we endeavour to answer all enquiries within 24 hours on business days.",
+        title: "Ready to Build Something <br /><span class='text-[#3886CE]'>Incredible?</span>",
+        description: "Schedule a free technical discovery call with our leadership team. We endeavour to answer all enquiries within 24 hours on business days.",
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
     body: {
-        title: "Let's build something <span class='text-[#3B82F6]'>exceptional together.</span>",
-        description: "At Hyniva, we set ourselves apart by prioritizing enduring relationships — transcending the conventional role of a software company to become your strategic partner.",
+        title: "Stop letting software limitations <span class='text-[#3886CE]'>dictate your growth.</span>",
+        description: "Founded and operated in Texas, SimpleCube is a close-knit collective of software engineers, CRM specialists, and product strategists. When you work with us, our team becomes a seamless extension of yours.",
         contactInfo: {
-            email: "connect@hyniva.com",
-            hr: "hr@hyniva.com",
-            linkedin: "linkedin.com/company/hyniva"
+            email: "kvjadapolu@simplecube.co",
+            hr: "kvjadapolu@simplecube.co",
+            phone: "+1-210-913-3929",
+            linkedin: "linkedin.com/company/simplecube-llc"
         },
         offices: {
             us: {
                 title: "UNITED STATES",
-                address: "13333 Blanco Road, Suite 206, San\u00A0Antonio, Texas – 78216"
+                address: "9901 I-10 W, Suite 800,<br />San Antonio, Texas - 78260"
             },
-            india: {
-                title: "INDIA",
-                address: "The Cube, Karle Town Center, 5th Floor, Nagavara Village, Bengaluru – 560045"
-            }
+            // India office temporarily hidden from this build
+            // india: {
+            //     title: "INDIA",
+            //     address: "The Cube, Karle Town Center, 5th Floor, Nagavara Village, Bengaluru – 560045"
+            // }
         }
     },
     form: {

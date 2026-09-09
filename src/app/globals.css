@@ -26,10 +26,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-inter);
-  --font-body: var(--font-inter);
-  --font-bricolage: var(--font-bricolage);
+  /* BrandBoard typography: Andika for UI, display, and body */
+  --font-sans: var(--font-andika);
+  --font-display: var(--font-andika);
+  --font-body: var(--font-andika);
+  /* Legacy alias — maps former Bricolage usage to Andika.
+     --font-inter remains the real Inter face (loaded in layout) for
+     surfaces that need original metrics (footer link columns, etc.). */
+  --font-bricolage: var(--font-andika);
 }
 
 @layer base {
@@ -113,7 +117,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-inter), system-ui, sans-serif !important;
+    font-family: var(--font-andika), Andika, system-ui, sans-serif !important;
   }
 
   /* Convert hardcoded line breaks to spaces on mobile viewports so words don't merge */
@@ -134,9 +138,9 @@
     }
   }
 
-  /* Standardizing all eyebrows to Display font */
+  /* Standardizing all eyebrows to BrandBoard display font (Andika) */
   .eyebrow {
-    font-family: var(--font-inter), system-ui, sans-serif !important;
+    font-family: var(--font-andika), Andika, system-ui, sans-serif !important;
     @apply text-[10px] font-bold tracking-[0.15em] uppercase px-4 py-1.5 rounded-full inline-flex items-center gap-2;
   }
 
@@ -146,21 +150,57 @@
 }
 
 .font-display {
-  font-family: var(--font-inter), system-ui, sans-serif !important;
+  font-family: var(--font-andika), Andika, system-ui, sans-serif !important;
 }
 
 .font-body {
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-body), Andika, system-ui, sans-serif;
+}
+
+/* Footer keeps original Inter metrics/sizes — Andika appears smaller at the same px */
+#site-footer,
+#site-footer h1,
+#site-footer h2,
+#site-footer h3,
+#site-footer h4,
+#site-footer h5,
+#site-footer h6,
+#site-footer p,
+#site-footer a,
+#site-footer span,
+#site-footer li {
+  font-family: var(--font-inter), Inter, system-ui, sans-serif !important;
 }
 
 /* ============================================================
-   Hyniva Theme — LIGHT MODE
-   Clean white backgrounds, strong blue primary, green accent
+   SimpleCube Brand System (from BrandBoard.pdf)
+   ------------------------------------------------------------
+   Primary:     #135498  — buttons, links, logo mark, focus rings
+   Secondary:   #3886CE  — accents, highlights, hover supports
+   Accent:      #3886CE  — BrandBoard lists accent = primary family;
+                            secondary is used as the interactive accent
+   Background:  #FFFFFF  — page canvas
+   Ink / dark:  #0A2F52  — dark heroes, footer, navy headings
+                            (derived from primary for contrast)
+   Hover:       #0F427A  — darkened primary for pressed/hover states
+   Typeface:    Andika   — site-wide (see layout.tsx --font-andika)
+                Inter    — footer metrics (#site-footer) to match original sizing
+   Logos:       /logos/simplecube/logo-blue.png (light UI)
+                /logos/simplecube/logo-white.png (dark UI)
+                /logos/simplecube/mark.svg + /icon.svg (favicon)
    ============================================================ */
 :root {
   --radius: 0.625rem;
 
-  --background: #ffffff;
+  /* BrandBoard named tokens (documentation + reuse) */
+  --brand-primary: #135498;
+  --brand-secondary: #3886CE;
+  --brand-accent: #3886CE;
+  --brand-background: #ffffff;
+  --brand-ink: #0A2F52;
+  --brand-primary-hover: #0F427A;
+
+  --background: var(--brand-background);
   --foreground: #0f172a;
 
   --card: #ffffff;
@@ -169,7 +209,7 @@
   --popover: #ffffff;
   --popover-foreground: #0f172a;
 
-  --primary: #2563eb;
+  --primary: var(--brand-primary);
   --primary-foreground: #ffffff;
 
   --secondary: #f1f5f9;
@@ -178,47 +218,47 @@
   --muted: #f8fafc;
   --muted-foreground: #64748b;
 
-  --accent: #eff6ff;
-  --accent-foreground: #1e40af;
+  --accent: #e8f1fa;
+  --accent-foreground: var(--brand-primary);
 
   --destructive: #ef4444;
 
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #2563eb;
+  --ring: var(--brand-primary);
 }
 
 /* ============================================================
-   Hyniva Theme — DARK MODE
-   Deep slate backgrounds, brighter blue, vibrant green accent
+   SimpleCube Theme — DARK MODE
+   Ink backgrounds, secondary blue for interactive primary
    ============================================================ */
 .dark {
-  --background: #0f172a;
+  --background: var(--brand-ink);
   --foreground: #f1f5f9;
 
-  --card: #1e293b;
+  --card: #0E3D6B;
   --card-foreground: #f1f5f9;
 
-  --popover: #1e293b;
+  --popover: #0E3D6B;
   --popover-foreground: #f1f5f9;
 
-  --primary: #3b82f6;
+  --primary: var(--brand-secondary);
   --primary-foreground: #ffffff;
 
-  --secondary: #1e293b;
+  --secondary: #0E3D6B;
   --secondary-foreground: #f1f5f9;
 
-  --muted: #1e293b;
+  --muted: #0E3D6B;
   --muted-foreground: #94a3b8;
 
-  --accent: #1e3a5f;
+  --accent: #0E3D6B;
   --accent-foreground: #93c5fd;
 
   --destructive: #f87171;
 
-  --border: #334155;
-  --input: #334155;
-  --ring: #3b82f6;
+  --border: #1E4F7A;
+  --input: #1E4F7A;
+  --ring: #3886CE;
 }
 
 @layer base {
@@ -289,7 +329,7 @@ html {
   align-items: center;
   gap: 14px;
   padding: 20px 24px;
-  background: #0a0f1e;
+  background: #0A2F52;
   position: relative;
   overflow: hidden;
 }
@@ -658,7 +698,7 @@ html {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #3886CE 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -686,7 +726,7 @@ html {
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, #00d4ff 0%, #2d3f8f 50%, transparent 100%);
+  background: linear-gradient(180deg, #3886CE 0%, #2d3f8f 50%, transparent 100%);
   top: 0;
   z-index: 0;
 }
@@ -716,7 +756,7 @@ html {
   position: absolute;
   width: 16px;
   height: 16px;
-  background: #00d4ff;
+  background: #3886CE;
   border: 3px solid #1a1f2e;
   border-radius: 50%;
   top: 8px;
@@ -755,7 +795,7 @@ html {
 }
 
 .timeline-content:hover {
-  border-color: #00d4ff;
+  border-color: #3886CE;
   background: linear-gradient(135deg, rgba(45, 63, 143, 0.8) 0%, rgba(26, 31, 46, 1) 100%);
   box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15), inset 0 1px 0 rgba(0, 212, 255, 0.2);
   transform: translateY(-4px);
@@ -768,7 +808,7 @@ html {
 .timeline-year {
   font-size: 2rem;
   font-weight: 700;
-  color: #00d4ff;
+  color: #3886CE;
   margin-bottom: 8px;
   letter-spacing: -0.5px;
 }
@@ -808,7 +848,7 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #00d4ff;
+  color: #3886CE;
   box-shadow: 0 4px 12px rgba(45, 63, 143, 0.3);
   transition: transform 0.3s ease;
 }
@@ -826,9 +866,9 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  color: #00d4ff;
+  color: #3886CE;
   font-weight: 600;
-  border: 1px solid #00d4ff;
+  border: 1px solid #3886CE;
   transition: transform 0.3s ease;
 }
 
@@ -1191,7 +1231,7 @@ html {
 }
 
 .feature-card:hover {
-  border-color: #1e90ff33;
+  border-color: #3886CE33;
   box-shadow: 0 8px 24px rgba(30, 144, 255, 0.08);
   transform: translateX(4px);
 }
@@ -1200,7 +1240,7 @@ html {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #1e90ff;
+  background: #3886CE;
   /* Hyniva Blue */
   flex-shrink: 0;
   margin-top: 10px;
@@ -1224,7 +1264,7 @@ html {
 /* ─── Mini CTA (LinkedIn) ─── */
 .cta-mini {
   background: #f8fafc;
-  border-left: 4px solid #1e90ff;
+  border-left: 4px solid #3886CE;
   padding: 20px 24px;
   border-radius: 0 12px 12px 0;
   margin-top: 40px;
@@ -1355,8 +1395,8 @@ html {
 
 .orbit-3 {
   border-width: 4px;
-  border-color: #3b82f6;
-  background: linear-gradient(315deg, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  border-color: #3886CE;
+  background: linear-gradient(315deg, rgba(56, 134, 206, 0.2) 0%, transparent 70%);
   transform: rotateZ(90deg) rotateX(75deg);
 }
 
@@ -1414,8 +1454,8 @@ html {
 }
 
 .orbit-3 .atom-electron {
-  color: #3b82f6;
-  background: #3b82f6;
+  color: #3886CE;
+  background: #3886CE;
 }
 
 .orbit-4 .atom-electron {
@@ -1580,4 +1620,4 @@ html {
   -webkit-box-orient: vertical !important;
   box-orient: vertical !important;
   overflow: hidden !important;
-}
+}

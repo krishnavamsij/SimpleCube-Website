@@ -111,10 +111,10 @@ function InsightCard({
  */
 function InsightsHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] py-20 pt-32 sm:py-28 sm:pt-36 md:py-32 md:pt-44 lg:py-36 lg:pt-48">
+        <section className="relative overflow-hidden bg-[#0A2F52] py-20 pt-32 sm:py-28 sm:pt-36 md:py-32 md:pt-44 lg:py-36 lg:pt-48">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/60 via-[#061244]/40 to-[#030b1e]/60" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/60 via-[#061244]/40 to-[#0A2F52]/60" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/40 via-[#020918]/20 to-transparent" />
 
             {/* Content */}
@@ -167,32 +167,32 @@ function InsightsGrid() {
             description: "Real-world examples of how we've helped organizations overcome complex challenges and achieve their digital transformation goals.",
             href: "/insights/case-studies",
             icon: FileText,
-            bgColor: "bg-blue-50",
-            borderColor: "#1e90ff",
+            bgColor: "bg-[#e8f1fa]",
+            borderColor: "#3886CE",
         },
         {
             title: "Podcast",
             description: "Listen and watch Hyniva's leaders and industry experts discuss the future of AI, enterprise platforms, and credit union innovation.",
             href: "/insights/podcast",
             icon: PlayCircle,
-            bgColor: "bg-blue-50",
-            borderColor: "#1e90ff",
+            bgColor: "bg-[#e8f1fa]",
+            borderColor: "#3886CE",
         },
         {
             title: "Blogs",
             description: "Thought leadership, industry trends, and technical insights from our team of experts on Salesforce, AWS, AI, and digital transformation.",
             href: "/insights/blogs",
             icon: BookOpen,
-            bgColor: "bg-blue-50",
-            borderColor: "#1e90ff",
+            bgColor: "bg-[#e8f1fa]",
+            borderColor: "#3886CE",
         },
         {
             title: "News",
             description: "Explore the latest news, strategic announcements, technology updates and milestones from Hyniva.",
             href: "/insights/news",
             icon: FileText,
-            bgColor: "bg-blue-50",
-            borderColor: "#1e90ff",
+            bgColor: "bg-[#e8f1fa]",
+            borderColor: "#3886CE",
         },
     ];
 
@@ -206,7 +206,7 @@ function InsightsGrid() {
                     viewport={viewportOnce}
                     className="mb-12 text-center"
                 >
-                    <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl text-blue-900">
+                    <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl text-[#0A2F52]">
                         Explore Our Content
                     </h2>
                     <p className="mt-4 text-slate-600 max-w-2xl mx-auto">

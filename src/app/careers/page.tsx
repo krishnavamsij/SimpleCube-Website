@@ -1643,15 +1643,15 @@ export default function CareersPage() {
       <Navbar />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#030b1e]">
+        <section className="relative pt-32 pb-32 min-h-[80vh] flex flex-col justify-center overflow-hidden bg-[#0A2F52]">
           {/* Background layers - Matching contact page aesthetics */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-          <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+          <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
           
           {/* Floating Decorative Elements */}
-          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px]" />
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#135498]/10 rounded-full blur-[100px]" />
           <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#e8f1fa]0/5 rounded-full blur-[150px]" />
 
           <div
             className="absolute inset-0 opacity-[0.04]"
@@ -1663,14 +1663,14 @@ export default function CareersPage() {
 
           <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 text-center">
             <div className="flex justify-center mb-6">
-              <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
-                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+              <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md">
+                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                 Careers
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white mb-6 font-display">
-              Join the team where<br className="hidden sm:block" />{" "}<span className="text-[#00D4AA]">Talent meets Purpose</span>
+              Join the team where<br className="hidden sm:block" />{" "}<span className="text-[#3886CE]">Talent meets Purpose</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto mb-14">
@@ -1685,7 +1685,7 @@ export default function CareersPage() {
                 { icon: Users, label: "People-First Culture" }
               ].map((pill, i) => (
                 <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-all duration-300">
-                  <pill.icon className="w-5 h-5 text-[#1e90ff]" />
+                  <pill.icon className="w-5 h-5 text-[#3886CE]" />
                   {pill.label}
                 </div>
               ))}
@@ -1737,7 +1737,7 @@ export default function CareersPage() {
             </div>
 
             {/* Section Heading */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0a0f1e] mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2F52] mb-6">
               Current Openings
             </h2>
 
@@ -1761,7 +1761,7 @@ export default function CareersPage() {
                       className="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-start justify-between gap-4 bg-white hover:bg-gray-50 transition-colors duration-150"
                     >
                       <div className="flex-1 text-left">
-                        <h3 className="text-lg sm:text-xl font-semibold text-[#0a0f1e] mb-3 group-hover:text-[#1e6fff] transition-colors">
+                        <h3 className="text-lg sm:text-xl font-semibold text-[#0A2F52] mb-3 group-hover:text-[#1e6fff] transition-colors">
                           {job.title}
                         </h3>
                         <div className="flex flex-wrap gap-3">
@@ -1795,7 +1795,7 @@ export default function CareersPage() {
                         <div className="space-y-6">
                           {/* About the Role */}
                           <div>
-                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#135498]">
                               About the Role
                             </h4>
                             <p className="text-sm text-slate-700 leading-relaxed">
@@ -1806,13 +1806,13 @@ export default function CareersPage() {
                           {/* Key Responsibilities */}
                           {job.jobDuties.length > 0 && (
                             <div>
-                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#135498]">
                                 Key Responsibilities
                               </h4>
                               <ul className="space-y-3">
                                 {job.jobDuties.map((duty, idx) => (
                                   <li key={idx} className="flex gap-3 text-sm text-slate-700 leading-relaxed">
-                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
+                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#135498] mt-2 flex-none"></span>
                                     <span>{duty}</span>
                                   </li>
                                 ))}
@@ -1822,7 +1822,7 @@ export default function CareersPage() {
 
                           {/* Requirements */}
                           <div>
-                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#135498]">
                               Requirements
                             </h4>
                             <ul className="space-y-4">
@@ -1847,13 +1847,13 @@ export default function CareersPage() {
 
                           {/* Skills Required */}
                           <div>
-                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#135498]">
                               Required Skills
                             </h4>
                             <ul className="space-y-2.5">
                               {job.skillsRequired.map((skill, idx) => (
                                 <li key={idx} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
+                                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#135498] mt-2 flex-none"></span>
                                   <span>{skill}</span>
                                 </li>
                               ))}
@@ -1863,7 +1863,7 @@ export default function CareersPage() {
                           {/* Application Requirements */}
                           {job.howToApply && (
                             <div>
-                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-blue-600">
+                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#135498]">
                                 Application Requirements
                               </h4>
                               <p className="text-sm text-slate-700 leading-relaxed mb-3 font-semibold text-slate-800">
@@ -1872,7 +1872,7 @@ export default function CareersPage() {
                               <ul className="space-y-2">
                                 {job.howToApply.split("\n").map((req, idx) => (
                                   <li key={idx} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
-                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-none"></span>
+                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#135498] mt-2 flex-none"></span>
                                     <span>{req}</span>
                                   </li>
                                 ))}
@@ -1897,7 +1897,7 @@ export default function CareersPage() {
             </div>
 
             {/* Open Application Section */}
-            <div className="mt-16 bg-[#0a0f1e] rounded-2xl p-6 sm:p-12 relative overflow-hidden">
+            <div className="mt-16 bg-[#0A2F52] rounded-2xl p-6 sm:p-12 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10" style={{
                 backgroundImage: `
                   linear-gradient(rgba(30,111,255,0.07) 1px, transparent 1px),
@@ -1913,7 +1913,7 @@ export default function CareersPage() {
                     Don&apos;t see the right role?
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-display">
-                    Send us an <span className="text-[#00D4AA]">Open Application</span>
+                    Send us an <span className="text-[#3886CE]">Open Application</span>
                   </h3>
                   <p className="text-slate-400 max-w-sm text-base font-normal leading-relaxed">
                     We&apos;re always on the lookout for exceptional talent. Share your profile and we&apos;ll be in touch.
@@ -1956,7 +1956,7 @@ export default function CareersPage() {
           `}} />
           <div className="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl border border-gray-100">
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#0a0f1e] to-[#1a1f2e] px-5 sm:px-10 py-8 rounded-t-3xl relative border-b border-gray-100">
+            <div className="bg-gradient-to-r from-[#0A2F52] to-[#1a1f2e] px-5 sm:px-10 py-8 rounded-t-3xl relative border-b border-gray-100">
               <div className="absolute inset-0 opacity-5" style={{
                 backgroundImage: `
                   linear-gradient(rgba(30,111,255,0.1) 1px, transparent 1px),
@@ -1992,7 +1992,7 @@ export default function CareersPage() {
                 <form onSubmit={handleSubmit} className="space-y-6" autoComplete="off">
                   {/* Personal Information */}
                   <div className="space-y-3">
-                    <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
+                    <div className="text-sm font-bold tracking-wider uppercase text-[#135498] mb-4">
                       Personal Information
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
@@ -2160,7 +2160,7 @@ export default function CareersPage() {
 
                   {/* Professional Details */}
                   <div className="space-y-3 pt-2">
-                    <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
+                    <div className="text-sm font-bold tracking-wider uppercase text-[#135498] mb-4">
                       Professional Details
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
@@ -2327,7 +2327,7 @@ export default function CareersPage() {
 
                   {/* Skills & Links */}
                   <div className="space-y-3 pt-2">
-                    <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
+                    <div className="text-sm font-bold tracking-wider uppercase text-[#135498] mb-4">
                       Skills & Links
                     </div>
                     <div className="space-y-3">
@@ -2393,7 +2393,7 @@ export default function CareersPage() {
 
                   {/* Resume Upload */}
                   <div className="space-y-3 pt-2">
-                    <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
+                    <div className="text-sm font-bold tracking-wider uppercase text-[#135498] mb-4">
                       Resume Upload *
                     </div>
                     <div className={`border-2 border-dashed rounded-xl p-6 text-center transition-all bg-white ${errors.resume ? 'border-red-300 bg-red-50/20' : 'border-gray-200 hover:border-[#1e6fff] hover:bg-gray-50/50'
@@ -2428,7 +2428,7 @@ export default function CareersPage() {
 
                   {/* Cover Note */}
                   <div className="space-y-3 pt-2">
-                    <div className="text-sm font-bold tracking-wider uppercase text-blue-600 mb-4">
+                    <div className="text-sm font-bold tracking-wider uppercase text-[#135498] mb-4">
                       Cover Note
                     </div>
                     <div className="relative">

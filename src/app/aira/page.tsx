@@ -449,7 +449,7 @@ function AiraCapabilities() {
                             </div>
 
                             {/* Hover Effect Gradient Overlay */}
-                            <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #1e90ff, #4f46e5, #9333ea) border-box', border: '1px solid transparent' }}></div>
+                            <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #3886CE, #4f46e5, #9333ea) border-box', border: '1px solid transparent' }}></div>
                         </div>
                     ))}
                 </div>

@@ -24,10 +24,10 @@ const animations: any = {
 /* ------------------- Hero Section ------------------- */
 function DigitalTransformationHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] flex items-center">
+        <section className="relative overflow-hidden bg-[#0A2F52] flex items-center">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(19,84,152,0.15)_0%,transparent_60%)]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#020918] via-[#020918]/60 to-transparent" />
 
             <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -39,8 +39,8 @@ function DigitalTransformationHero() {
                         className="max-w-2xl"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 DIGITAL TRANSFORMATION
                             </div>
                         </motion.div>
@@ -48,8 +48,8 @@ function DigitalTransformationHero() {
                             variants={animations.fadeInUp}
                             className="mt-6 text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] xl:text-[50px] font-[900] leading-[1.1] tracking-tight text-white lg:mt-8 font-display"
                         >
-                            <span className="inline-block whitespace-nowrap">Modernize <span className="text-[#00D4AA]">operations.</span></span><br className="hidden sm:block" />{" "}
-                            <span className="inline-block whitespace-nowrap">Elevate <span className="text-[#00D4AA]">experiences.</span></span>
+                            <span className="inline-block whitespace-nowrap">Modernize <span className="text-[#3886CE]">operations.</span></span><br className="hidden sm:block" />{" "}
+                            <span className="inline-block whitespace-nowrap">Elevate <span className="text-[#3886CE]">experiences.</span></span>
                         </motion.h1>
                         <motion.p
                             variants={animations.fadeInUp}
@@ -60,7 +60,7 @@ function DigitalTransformationHero() {
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
                                 href="/contact"
-                                className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white hover:opacity-90 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-[#3B82F6]/30 rounded-full font-bold px-8 h-14 inline-flex items-center justify-center transition-all duration-300"
+                                className="bg-gradient-to-r from-[#3886CE] to-[#135498] text-white hover:opacity-90 shadow-[0_0_15px_rgba(56,134,206,0.5)] hover:shadow-[0_0_25px_rgba(56,134,206,0.8)] border border-[#3886CE]/30 rounded-full font-bold px-8 h-14 inline-flex items-center justify-center transition-all duration-300"
                             >
                                 Talk to Our Experts
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -81,7 +81,7 @@ function DigitalTransformationHero() {
                             <div className="absolute left-[30%] top-[30%] w-[180px] h-[300px] bg-[#8b5cf6]/30 blur-[80px] rounded-full" />
                             
                             {/* Soft radial illumination inside center */}
-                            <div className="absolute inset-[20%] bg-gradient-to-tr from-indigo-500/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
+                            <div className="absolute inset-[20%] bg-gradient-to-tr from-[#3886CE]/10 to-cyan-400/10 blur-[50px] rounded-full mix-blend-screen" />
                         </div>
 
                         {/* Abstract CSS Neon Ribbon Illustration - Premium Glass/Linear Style */}
@@ -172,12 +172,12 @@ function WhyHyniva() {
                         className="flex flex-col items-start justify-center self-center order-first lg:order-last"
                     >
                         <motion.div variants={animations.fadeInUp} className="flex mb-6">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 OUR PHILOSOPHY
                             </div>
                         </motion.div>
-                        <motion.h2 variants={animations.fadeInUp} className="text-[20px] sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#030B3B] leading-[1.15] font-display mb-6 whitespace-nowrap sm:whitespace-normal">
+                        <motion.h2 variants={animations.fadeInUp} className="text-[20px] sm:text-3xl md:text-[34px] lg:text-[36px] xl:text-[40px] font-[900] text-[#0A2F52] leading-[1.15] font-display mb-6 whitespace-nowrap sm:whitespace-normal">
                             Transformation with Purpose
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
@@ -238,12 +238,12 @@ function WhatWeTransform() {
                     className="text-left lg:text-center max-w-[1240px] lg:mx-auto mb-10 sm:mb-12"
                 >
                     <motion.div variants={animations.fadeInUp} className="flex justify-start lg:justify-center mb-6">
-                        <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
-                            <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                        <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px]">
+                            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                             ENTERPRISE REALITY
                         </div>
                     </motion.div>
-                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#030B3B] font-display text-left lg:text-center mb-6">
+                    <motion.h2 variants={animations.fadeInUp} className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#0A2F52] font-display text-left lg:text-center mb-6">
                         Why Businesses Must Transform
                     </motion.h2>
                     <motion.p variants={animations.fadeInUp} className="text-slate-600 text-base sm:text-lg leading-relaxed text-left lg:text-center max-w-3xl lg:mx-auto">
@@ -261,10 +261,10 @@ function WhatWeTransform() {
                             transition={{ delay: idx * 0.08, duration: 0.5 }}
                             className="bg-white rounded-[20px] p-5.5 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-4.5 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group"
                         >
-                            <div className="flex-shrink-0 h-11 w-11 rounded-xl flex items-center justify-center bg-[#EFF6FF] text-[#3B82F6] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-105">
+                            <div className="flex-shrink-0 h-11 w-11 rounded-xl flex items-center justify-center bg-[#EFF6FF] text-[#3886CE] transition-all duration-300 group-hover:bg-[#135498] group-hover:text-white group-hover:scale-105">
                                 <card.icon className="h-5 w-5 transition-colors duration-300" />
                             </div>
-                            <p className="text-[13.5px] sm:text-[14px] font-medium text-[#030B3B]/80 leading-relaxed">
+                            <p className="text-[13.5px] sm:text-[14px] font-medium text-[#0A2F52]/80 leading-relaxed">
                                 {card.description}
                             </p>
                         </motion.div>
@@ -281,9 +281,9 @@ function EnableCapabilities() {
         {
             title: "Applied AI",
             icon: Bot,
-            iconBoxStyle: "bg-[#EFF6FF] text-[#2563EB]",
-            hoverStyle: "group-hover:bg-[#2563EB] group-hover:text-white",
-            titleHoverStyle: "group-hover:text-[#2563EB]",
+            iconBoxStyle: "bg-[#EFF6FF] text-[#135498]",
+            hoverStyle: "group-hover:bg-[#135498] group-hover:text-white",
+            titleHoverStyle: "group-hover:text-[#135498]",
             description: "Embed intelligence across business operations with AI-powered automation, intelligent workflows, document processing and enterprise agents that improve productivity and decision-making.",
             href: "/services/digital-transformation/applied-ai"
         },
@@ -310,7 +310,7 @@ function EnableCapabilities() {
     return (
         <section className="bg-white py-20 lg:py-24 relative overflow-hidden border-t border-slate-100">
             {/* Subtle background accents */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.04)_0%,transparent_60%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,134,206,0.04)_0%,transparent_60%)] pointer-events-none" />
 
             <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 
@@ -324,12 +324,12 @@ function EnableCapabilities() {
                         className="lg:w-[28%] flex flex-col pt-2"
                     >
                         <div className="flex mb-5">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px]">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 THE ENABLERS
                             </div>
                         </div>
-                        <h2 className="text-2xl lg:text-[30px] font-bold text-[#030B3B] font-display mb-4 leading-[1.2]">
+                        <h2 className="text-2xl lg:text-[30px] font-bold text-[#0A2F52] font-display mb-4 leading-[1.2]">
                             Capabilities <br className="hidden lg:block" />That Enable <br className="hidden lg:block" />Transformation
                         </h2>
                         <p className="text-[13px] text-slate-500 leading-relaxed max-w-[280px]">
@@ -351,11 +351,11 @@ function EnableCapabilities() {
                                 <div className={`h-16 w-16 rounded-2xl ${item.iconBoxStyle} flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 ${item.hoverStyle}`}>
                                     <item.icon strokeWidth={1.5} className="h-7 w-7 transition-colors duration-300" />
                                 </div>
-                                <h3 className={`text-[17px] font-bold text-[#030B3B] mb-2.5 ${item.titleHoverStyle} transition-colors duration-300`}>{item.title}</h3>
+                                <h3 className={`text-[17px] font-bold text-[#0A2F52] mb-2.5 ${item.titleHoverStyle} transition-colors duration-300`}>{item.title}</h3>
                                 <p className="text-[12.5px] text-slate-500 leading-relaxed mb-6 flex-grow">
                                     {item.description}
                                 </p>
-                                <Link href={item.href} className="inline-flex items-center gap-1.5 text-[#00D4AA] font-semibold text-[13px] hover:gap-2 transition-all mt-auto">
+                                <Link href={item.href} className="inline-flex items-center gap-1.5 text-[#3886CE] font-semibold text-[13px] hover:gap-2 transition-all mt-auto">
                                     Learn More <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </motion.div>
@@ -372,19 +372,19 @@ function EnableCapabilities() {
 function TransformationInAction() {
     const caseStudies = [
         {
-            title: "<span class='text-[#3B82F6]'>Elevating Member Engagement</span> in Modern Banking Operations",
+            title: "<span class='text-[#3886CE]'>Elevating Member Engagement</span> in Modern Banking Operations",
             image: "/images/Case_Studies/Optimized/cs-14.png",
             description: "Delivered real-time lending and engagement through a unified digital experience platform.",
             href: "/insights/case-studies/member-experience-transformation-at-a-leading-credit-union"
         },
         {
-            title: "<span class='text-[#3B82F6]'>LWR Modernization</span> for High-Performance Experiences",
+            title: "<span class='text-[#3886CE]'>LWR Modernization</span> for High-Performance Experiences",
             image: "/images/Case_Studies/Optimized/cs-5.png",
             description: "Improved digital experience performance. 2× faster page loads with Lightning Web\u00A0Runtime.",
             href: "/insights/case-studies/lwr-modernization"
         },
         {
-            title: "Modernizing Contact Centers with <span class='text-[#3B82F6]'>Intelligent IVR Self-Service</span>",
+            title: "Modernizing Contact Centers with <span class='text-[#3886CE]'>Intelligent IVR Self-Service</span>",
             image: "/images/Case_Studies/Optimized/cs-3.png",
             description: "Transformed legacy IVR into a Smart Customer Engagement Interaction\u00A0System.",
             href: "/insights/case-studies/intelligent-ivr-self-service"
@@ -407,7 +407,7 @@ function TransformationInAction() {
                             variants={animations.fadeInUp}
                             className="mb-14 lg:mb-16"
                         >
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2F52] mb-6">
                                 Case Studies
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
@@ -437,7 +437,7 @@ function TransformationInAction() {
                                     {/* Content */}
                                     <div className="px-2 pb-1 flex flex-col flex-1 relative z-10">
                                         <h3
-                                            className="font-display text-[17px] sm:text-[18px] font-extrabold text-[#030B3B] leading-[1.3] tracking-tight mb-2.5"
+                                            className="font-display text-[17px] sm:text-[18px] font-extrabold text-[#0A2F52] leading-[1.3] tracking-tight mb-2.5"
                                             dangerouslySetInnerHTML={{ __html: study.title }}
                                         />
 
@@ -447,7 +447,7 @@ function TransformationInAction() {
 
                                         <Link
                                             href={study.href}
-                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#2563EB] border border-blue-200/70 rounded-xl text-[13px] font-bold shadow-xs transition-all duration-300 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] group-hover:text-white mt-auto"
+                                            className="flex items-center justify-between w-full py-3.5 px-5 bg-white text-[#135498] border border-blue-200/70 rounded-xl text-[13px] font-bold shadow-xs transition-all duration-300 group-hover:bg-[#135498] group-hover:border-[#135498] group-hover:text-white mt-auto"
                                         >
                                             Read Case Study
                                             <svg
@@ -513,20 +513,20 @@ function WhyHynivaDT() {
                     className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[32px] lg:p-[42px]"
                 >
                     {/* Glow */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(56,134,206,0.35)_0%,transparent_70%)] pointer-events-none" />
 
                     <div className="relative z-10 grid gap-8 md:gap-12 md:grid-cols-[1fr_auto] items-start">
 
                         {/* ── LEFT: Badge + Heading ── */}
                         <div className="flex flex-col items-start">
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-6 px-3.5 py-1 text-[10px]">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 mb-6 px-3.5 py-1 text-[10px]">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 THE DIFFERENCE
                             </div>
                             <h2 className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[29px] xl:text-[30px] font-[900] text-white tracking-tight leading-[1.18] font-display">
                                 <span className="block">Why Organizations</span>
                                 <span className="block">Choose Hyniva for</span>
-                                <span className="text-[#00D4AA] block">Digital Transformation?</span>
+                                <span className="text-[#3886CE] block">Digital Transformation?</span>
                             </h2>
                         </div>
 
@@ -566,7 +566,7 @@ function WhyHynivaDT() {
                             <div className="pt-2 sm:pt-3 w-full flex justify-start">
                                 <Link
                                     href="/about"
-                                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold tracking-wider text-[11px] sm:text-[12px] uppercase px-4.5 sm:px-5.5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] shadow-[0_0_12px_rgba(59,130,246,0.4)] border border-[#3B82F6]/30 w-full sm:w-auto"
+                                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3886CE] to-[#135498] text-white font-bold tracking-wider text-[11px] sm:text-[12px] uppercase px-4.5 sm:px-5.5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(56,134,206,0.7)] shadow-[0_0_12px_rgba(56,134,206,0.4)] border border-[#3886CE]/30 w-full sm:w-auto"
                                 >
                                     <span>KNOW MORE</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -589,12 +589,12 @@ function WhyHynivaDT() {
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
                                 <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-full mb-4 flex-shrink-0">
-                                    <card.icon className="w-4.5 h-4.5 text-[#3B82F6]" />
+                                    <card.icon className="w-4.5 h-4.5 text-[#3886CE]" />
                                 </div>
-                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display">
+                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#0A2F52] mb-2 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-[12px] lg:text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">
+                                <p className="text-[12px] lg:text-[13px] text-[#0A2F52]/80 font-medium leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>

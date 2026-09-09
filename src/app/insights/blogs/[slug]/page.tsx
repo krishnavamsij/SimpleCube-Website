@@ -63,11 +63,11 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
   }
 
   return (
-    <section className="bg-[#F8FAFC] border-t border-[#030B3B]/10 py-16 sm:py-20">
+    <section className="bg-[#F8FAFC] border-t border-[#0A2F52]/10 py-16 sm:py-20">
       <div className="mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#030B3B] leading-snug">Related Articles</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A2F52] leading-snug">Related Articles</h3>
             <p className="text-slate-500 mt-2 font-medium text-sm sm:text-base">Continue exploring insights from the {/* spell-checker:disable */}Hyniva{/* spell-checker:enable */} team</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
           {related.map((post, idx) => (
             <div
               key={idx}
-              className="group flex-shrink-0 bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#1e90ff]/20 transition-all duration-300 flex flex-col justify-between"
+              className="group flex-shrink-0 bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#3886CE]/20 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
                 <img
@@ -86,7 +86,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
                   loading="lazy"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 text-xs font-bold rounded-full bg-white/90 text-[#030B3B] backdrop-blur-sm">
+                  <span className="px-3 py-1 text-xs font-bold rounded-full bg-white/90 text-[#0A2F52] backdrop-blur-sm">
                     {post.tag}
                   </span>
                 </div>
@@ -98,13 +98,13 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
                     {post.date}
                   </div>
                   <h5
-                    className="text-base sm:text-lg font-bold text-[#030B3B] leading-snug line-clamp-2 min-h-[2.8em] mb-4 group-hover:text-[#1e90ff] transition-colors flex items-start"
+                    className="text-base sm:text-lg font-bold text-[#0A2F52] leading-snug line-clamp-2 min-h-[2.8em] mb-4 group-hover:text-[#3886CE] transition-colors flex items-start"
                     dangerouslySetInnerHTML={{ __html: post.title }}
                   />
                 </div>
                 <Link
                   href={post.href}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e90ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md w-fit mt-auto"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#3886CE] text-white text-sm font-semibold rounded-lg hover:bg-[#0077e6] transition-colors shadow-sm hover:shadow-md w-fit mt-auto"
                 >
                   Read More
                   <ChevronRight className="w-4 h-4" />
@@ -247,14 +247,14 @@ export default function BlogsDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#030B3B] overflow-x-hidden">
+    <div className="min-h-screen bg-white text-[#0A2F52] overflow-x-hidden">
       <Navbar forceDarkText={false} />
 
       {/* ── Hero Section ── */}
-      <header className="relative min-h-[380px] md:min-h-[460px] pt-28 pb-20 sm:pb-24 overflow-hidden bg-[#030b1e] flex flex-col items-center justify-center">
+      <header className="relative min-h-[380px] md:min-h-[460px] pt-28 pb-20 sm:pb-24 overflow-hidden bg-[#0A2F52] flex flex-col items-center justify-center">
         {/* Background layers - Standardized with Contact Us */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-        <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.15)_0%,transparent_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+        <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.15)_0%,transparent_65%)]" />
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 text-center">
@@ -270,11 +270,11 @@ export default function BlogsDetailPage() {
 
               <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 text-white mb-8 text-sm font-semibold ">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#1e90ff]" />
+                  <Clock className="w-4 h-4 text-[#3886CE]" />
                   {post.date}
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e90ff]/10 text-[#1e90ff] border border-[#1e90ff]/20">
-                  <Tag className="w-3 h-3 text-[#1e90ff]" />
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#3886CE]/10 text-[#3886CE] border border-[#3886CE]/20">
+                  <Tag className="w-3 h-3 text-[#3886CE]" />
                   {post.tag}
                 </div>
               </motion.div>

@@ -31,12 +31,12 @@ export function Faq({ items = faqContent, badgeText = "FAQ", title, className = 
 
                 {/* Header — centered */}
                 <div className="flex flex-col items-center text-center mb-10 lg:mb-12">
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 rounded-full px-5 py-1.5 mb-5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                         {badgeText}
                     </div>
-                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#030B3B] leading-[1.1] lg:whitespace-nowrap">
-                        {title || <>Frequently Asked <span className="text-[#00D4AA]">Questions</span></>}
+                    <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#0A2F52] leading-[1.1] lg:whitespace-nowrap">
+                        {title || <>Frequently Asked <span className="text-[#3886CE]">Questions</span></>}
                     </h2>
                 </div>
 
@@ -57,7 +57,7 @@ export function Faq({ items = faqContent, badgeText = "FAQ", title, className = 
                                         {faq.question}
                                     </span>
                                     {/* Plain blue + / − icon */}
-                                    <span className="flex-shrink-0 text-[#1e90ff]">
+                                    <span className="flex-shrink-0 text-[#3886CE]">
                                         {isOpen
                                             ? <Minus className="w-5 h-5" />
                                             : <Plus className="w-5 h-5" />

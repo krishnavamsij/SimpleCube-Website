@@ -1,9 +1,10 @@
 // =============================================================================
-// Hyniva — Centralized Content Configuration
+// SimpleCube — Centralized Content Configuration
+// Source: SimpleCube Website Content Blueprint (homepage + chrome)
 // =============================================================================
 
 export const navContent = {
-    brand: { name: "Hyniva" },
+    brand: { name: "SimpleCube" },
     products: [
         { title: "FinXServe", href: "/products/finxserve" },
         { title: "Claim Pioneer", href: "/products/claim-pioneer" },
@@ -17,6 +18,7 @@ export const navContent = {
         { title: "Transportation & Logistics", href: "/industries/transportation-logistics" },
         { title: "Education", href: "/industries/education" },
     ],
+    // Top-menu service titles aligned to Content Blueprint §2 (routes unchanged)
     services: [
         {
             category: "Digital Transformation",
@@ -29,9 +31,9 @@ export const navContent = {
             ]
         },
         {
-            category: "Enterprise Platforms",
+            category: "Salesforce Integrations & Development",
             isBold: true,
-            href: "/services/enterprise-platforms",
+            href: "/services/enterprise-platforms/salesforce",
             items: [
                 { title: "Salesforce", href: "/services/enterprise-platforms/salesforce" },
                 { title: "Microsoft Services", href: "/services/enterprise-platforms/microsoft-services" },
@@ -39,13 +41,13 @@ export const navContent = {
             ]
         },
         {
-            category: "Product Engineering",
+            category: "Product Development",
             isBold: true,
             href: "/services/product-engineering",
             items: []
         },
         {
-            category: "Strategy Consulting",
+            category: "Custom Software Development",
             isBold: true,
             href: "/services/strategy-consulting",
             items: []
@@ -58,62 +60,59 @@ export const navContent = {
         { title: "News", href: "/insights/news" },
     ],
     about: [
-        // UPDATED: Now pointing to local /about page instead of external products.hyniva.com
         { title: "About Us", href: "/about" },
-        // About Us page has a #leadership anchor for "Our Leaders" section
         { title: "Our Leadership", href: "/about#leadership" },
-        // UPDATED: Careers is now a separate page at /careers
         { title: "Careers", href: "/careers" },
     ],
-    // ADDED: Contact Us as standalone navigation item
     contact: [
         { title: "Contact Us", href: "/contact" },
     ],
 };
 
-// ── Hero Carousel Slides ─────────────────────────────────────────────────────
+// ── Hero Carousel Slides (Blueprint §1 + adapted variants) ───────────────────
+// Slide 0 = primary blueprint copy. Slides 1–2 = SimpleCube variants.
 export const heroSlides = [
     {
-        badge: "AI-Powered Software Delivery",
-        headline: "Deliver More With the Same Cost",
-        highlightedWords: ["More", "Same Cost"],
+        badge: "Boutique Software Delivery",
+        headline: "Complex problems, solved simply.",
+        highlightedWords: ["solved simply"],
         subheadline:
-            "At Hyniva, we engineer AI-powered delivery models that accelerate timelines while delivering higher quality and measurable impact.",
+            "SimpleCube delivers custom software, Salesforce integrations, and digital transformation solutions. We combine elite technical expertise with a lean, Agile approach to bring your vision to market faster and at a lower cost.",
         stats: [
-            { value: "50%", label: "Less Planning Time" },
-            { value: "40%", label: "Quicker Delivery" },
-            { value: "30%", label: "Faster POC" },
+            { value: "50%", label: "Less Planning\nTime" },
+            { value: "40%", label: "Quicker\nDelivery" },
+            { value: "30%", label: "Faster\nPOC" },
         ],
     },
     {
-        badge: "Technology Services & Products",
-        headline: "Build in Weeks, Not Months",
-        highlightedWords: ["Weeks", "Months"],
+        badge: "Custom Software & Salesforce",
+        headline: "Custom Software, Salesforce, and Digital Transformation.",
+        highlightedWords: ["Digital Transformation"],
         subheadline:
-            "From legacy modernization to AI-powered products, Hyniva helps organizations build faster, operate smarter and scale with confidence.",
+            "SimpleCube turns complex operational bottlenecks into streamlined digital workflows — from bespoke applications to CRM integrations and legacy modernization.",
         stats: [
-            { value: "70%", label: "Faster Product Launch" },
-            { value: "50%", label: "Lower Cost of Ownership" },
-            { value: "45+", label: "Happy Clients" },
+            { value: "70%", label: "Faster Product\nLaunch" },
+            { value: "50%", label: "Lower Cost of\nOwnership" },
+            { value: "45+", label: "Happy\nClients" },
         ],
     },
     {
-        badge: "Outcome-Driven Engineering",
-        headline: "Your AI-Powered Delivery Partner",
-        highlightedWords: ["AI-Powered"],
+        badge: "Agile Delivery Partners",
+        headline: "Lean Teams. Faster Delivery. Lower Cost.",
+        highlightedWords: ["Faster Delivery"],
         subheadline:
-            "Our AI-first engineering drives higher productivity and quality while shifting delivery from effort-based to outcome-driven models.",
+            "Our focused Texas team pairs senior engineering with Agile sprint cycles so you get enterprise-grade execution without bloated agency overhead.",
         stats: [
-            { value: "20–30%", label: "Productivity Increase" },
-            { value: "45%", label: "Reduction in Manual Effort" },
-            { value: "50+", label: "Cloud & AI Experts" },
+            { value: "20–30%", label: "Productivity\nIncrease" },
+            { value: "45%", label: "Reduction in\nManual Effort" },
+            { value: "50+", label: "Cloud & AI\nExperts" },
         ],
     },
 ];
 
 export const heroCtas = {
     primary: { label: "Discuss Your Project", href: "/contact" },
-    secondary: { label: "See Case Studies", href: "/insights/case-studies" },
+    secondary: { label: "Explore Our Services", href: "/services" },
 };
 
 // ── Trusted By ───────────────────────────────────────────────────────────────
@@ -170,37 +169,37 @@ export const challengesContent = {
     challenges: [
         {
             icon: "Construction",
-            title: "Slow Kickoffs",
-            description: "Lengthy initial setup and integration dependencies delay project starts. Our pre-configured accelerators help teams start building in days.",
+            title: "Off-the-Shelf Gaps",
+            description: "Packaged software rarely fits nuanced business rules. We architect bespoke solutions that align to how your teams actually operate.",
         },
         {
             icon: "Clock",
-            title: "Missed Milestones",
-            description: "Competing priorities and complex systems derail delivery timelines. Our AI-powered workflows accelerate execution and keep releases on track.",
+            title: "Bloated Agency Timelines",
+            description: "Large agencies add layers of account managers and slow handoffs. Our lean Agile sprints keep senior engineers close to the work.",
         },
         {
             icon: "DollarSign",
-            title: "Rising Engineering Costs",
-            description: "Growing technology stacks increase development overhead. Our efficient delivery models improve productivity while reducing costs.",
+            title: "Inflated Delivery Costs",
+            description: "High overhead drives up quotes without improving outcomes. SimpleCube’s boutique model reduces cost while accelerating time-to-market.",
         },
         {
             icon: "Scale",
-            title: "Growing Technical Debt",
-            description: "Legacy systems and fragmented codebases slow innovation. Our standardized frameworks reduce complexity and maintenance effort.",
+            title: "Legacy System Drag",
+            description: "Outdated infrastructure and manual processes stall growth. We modernize systems and digitize workflows without disrupting operations.",
         },
         {
             icon: "Brain",
-            title: "Untapped AI Potential",
-            description: "Fragmented data and disconnected systems limit AI adoption. Our enterprise-ready AI turns insights into business outcomes.",
+            title: "Disconnected Tools & Data",
+            description: "CRM, APIs, and internal systems often stay siloed. We integrate Salesforce and third-party platforms for unified visibility and automation.",
         },
     ],
 };
 
-// ── Approach / Metrics ───────────────────────────────────────────────────────
+// ── Approach / Metrics (Blueprint §4 — Technical Expertise & Agile) ──────────
 export const approachContent = {
-    label: "The Hyniva Approach",
-    headline: "Digital Factory Model",
-    sub: "The developer owns the full lifecycle enabling Zero Handoff Friction, reducing overhead and increasing accountability at every stage.",
+    label: "Technical Expertise & Agile Methodology",
+    headline: "Agile Delivery Model",
+    sub: "We don't just write code; we engineer scalable solutions. Our stack and Agile SDLC culture ensure high performance, security, and enterprise scalability with continuous client touchpoints.",
     metrics: [
         { value: 50, suffix: "%", label: "Reduction in Development Time" },
         { value: 30, suffix: "%", label: "Faster POC & Prototype Stages" },
@@ -209,11 +208,11 @@ export const approachContent = {
     cta: { label: "See Our Approach", href: "/about" },
 };
 
-// ── Services ─────────────────────────────────────────────────────────────────
+// ── Services (Blueprint §2) ──────────────────────────────────────────────────
 export const servicesContent = {
     label: "Our Services",
-    headline: "End-to-end technology partnership.",
-    callOutContent: "From the first conversation to live production — one team, full ownership, no handoffs.",
+    headline: "We turn complexity into digital workflows.",
+    callOutContent: "Custom software, Salesforce, product development, and digital transformation — delivered with boutique precision.",
     metrics: [
         { value: "15+", label: "Years of platform \npartnerships" },
         { value: "220+", label: "Enterprise applications \ndelivered" },
@@ -222,39 +221,39 @@ export const servicesContent = {
     services: [
         {
             num: "01",
-            title: "Digital Transformation",
+            title: "Custom Software Development",
             description:
-                "We rebuild how enterprises operate by modernizing legacy systems, reimagining customer experiences and turning complex change into working software.",
-            tags: ["Applied AI", "Data Intelligence", "Cloud Migration", "Legacy Modernization", "Custom App Dev", "Process Optimization"],
-            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
-            href: "/services/digital-transformation",
+                "Off-the-shelf software rarely fits. We architect bespoke solutions — digital applications, internal portals, and data-routing systems — aligned to your business rules and operational goals.",
+            tags: ["Bespoke Applications", "Internal Portals", "Data Routing", "Business Rules", "Full-Stack Dev", "Integrations"],
+            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
+            href: "/services/strategy-consulting",
         },
         {
             num: "02",
-            title: "Enterprise Platforms",
+            title: "Salesforce Integrations & Development",
             description:
-                "We implement and optimize the platforms your business runs on and with our 8×8×8 delivery formula, we get you live in weeks, not months.",
-            tags: ["Salesforce", "Microsoft Dynamics", "Power Platform", "Cloud Infrastructure", "ERP & CRM Integration", "Advanced Analytics"],
+                "Maximize your CRM investment. Complex Salesforce ecosystems, custom lead routing, state lookups, and API connections that automate sales workflows and unify data visibility.",
+            tags: ["Salesforce", "Lead Routing", "API Integrations", "Automation", "CRM Optimization", "Unified Data"],
             image: "/images/Our_Services/2_Enterprise_Platforms.png",
-            href: "/services/salesforce",
+            href: "/services/enterprise-platforms/salesforce",
         },
         {
             num: "03",
-            title: "Product Engineering",
+            title: "Product Development",
             description:
-                "From mobile apps to AI agents, we design, build, test and ship technology products that work in production, not just in demos.",
-            tags: ["Full-Stack Dev", "Mobile Engineering", "AI Agents & Automation", "Contact Center Tech", "QA & Test Automation", "DevOps"],
+                "From ideation to launch, we partner across the full SDLC. Iterative delivery gets your MVP to market quickly, then supports real-world feedback and data-driven enhancements.",
+            tags: ["SDLC", "MVP", "Full-Stack", "QA & Automation", "DevOps", "Iteration"],
             image: "/images/Our_Services/Product_Engineering_no_BG.png",
             href: "/services/product-engineering",
         },
         {
             num: "04",
-            title: "Strategy Consulting",
+            title: "Digital Transformation",
             description:
-                "Before we write a line of code, we align on where you're going. So your technology investment has a direction, not just a deadline.",
-            tags: ["Technology Roadmap", "Enterprise Architecture", "TCO Analysis", "Agile Transformation", "Platform Selection", "IT Operating Model"],
-            image: "/images/Our_Services/Strategy_Consulting_no_BG.svg",
-            href: "/services/strategy-consulting",
+                "Legacy systems slowing you down? We digitize manual processes, modernize infrastructure, and migrate data to secure environments to future-proof your business.",
+            tags: ["Legacy Modernization", "Process Digitization", "Cloud Migration", "Data Security", "Infrastructure", "Future-Proofing"],
+            image: "/images/Our_Services/Digital_Transformation_no_BG.svg",
+            href: "/services/digital-transformation",
         },
     ],
 };
@@ -369,40 +368,40 @@ export const caseStudiesContent = {
     ],
 };
 
-// ── Why Hyniva ─────────────────────────────────────────────────────────────
+// ── Why SimpleCube (Blueprint §3) ────────────────────────────────────────────
 export const whyHynivaContent = {
     topBox: {
-        headline: "Why Hyniva?",
-        highlightedWord: "Hyniva?",
+        headline: "Why SimpleCube?",
+        highlightedWord: "SimpleCube?",
         stats: [
             { value: "220+", label: "Applications\nDelivered" },
             { value: "45+", label: "Enterprise\nClients" },
             { value: "250+", label: "Certified\nExperts" }
         ],
-        description: "When you work with Hyniva, you get a team that understands your industry and stays accountable from strategy to delivery.",
-        boldWords: ["understands your industry", "stays accountable"],
+        description: "Bigger agencies often mean bloated budgets, account shuffling, and communication silos. SimpleCube was built to be fundamentally different — boutique attention with enterprise-grade execution.",
+        boldWords: ["fundamentally different", "boutique attention"],
         cta: { label: "Know More →", href: "/about" }
     },
     bottomBox: [
         {
             icon: "UsersRound",
-            title: "Zero Handoff",
-            description: "One team owns your\nengagement from strategy to\nproduction with zero handoffs\nand context loss."
-        },
-        {
-            icon: "Globe2",
-            title: "Industry Depth",
-            description: "15+ years inside regulated\nindustries means less time\nlearning and more time building\nwhat matters."
+            title: "Boutique Attention",
+            description: "Our focused team size means you work\ndirectly with senior developers and\nleadership — personalized focus on\nyour project."
         },
         {
             icon: "Zap",
-            title: "Delivery at Speed",
-            description: "Our 8\u00D78\u00D78 formula and Digital\nFactory model deliver outcomes\n40% faster than traditional\npaths."
+            title: "Cost-Effective Agility",
+            description: "Lean structure reduces overhead.\nCoupled with Agile SDLC, we deliver\nrapid iterations and faster\ntime-to-market."
         },
         {
             icon: "Activity",
-            title: "Built for Outcomes",
-            description: "Combining industry expertise,\nproduct thinking, and execution\ndiscipline for measurable\nresults."
+            title: "Full-Stack Mastery",
+            description: "Deep expertise across Angular, React,\nNode.js, and Java — the right tool for\nyour specific technical challenge."
+        },
+        {
+            icon: "Globe2",
+            title: "Texas Roots",
+            description: "Founded and operated in Texas, we\nbecome a seamless extension of your\nteam — enterprise execution with\nsmall-team partnership."
         }
     ]
 };
@@ -410,12 +409,12 @@ export const whyHynivaContent = {
 // ── Expertise Section (for Services/About pages) ─────────────────────────────
 export const expertiseContent = {
     topBox: {
-        headline: "Expertise Behind\nEvery Engagement",
-        highlightedWord: "Every Engagement",
+        headline: "Technical Expertise\n& Agile Delivery",
+        highlightedWord: "Agile Delivery",
         stats: [
             { value: "250+", label: "Certified\nProfessionals" }
         ],
-        description: "Our experts continuously expand their capabilities across AI, cloud, data and enterprise platforms to solve today's challenges and prepare our clients for tomorrow's opportunities.",
+        description: "We don't just write code; we engineer scalable solutions. Our stack is curated for high performance, security, and enterprise scalability — delivered with continuous client touchpoints.",
         boldWords: [],
         cta: { label: "About Us", href: "/about" },
         imagePlaceholder: "/images/expertise/professionals.png"
@@ -423,26 +422,26 @@ export const expertiseContent = {
     bottomBox: [
         {
             icon: "Brain",
-            title: "AI-Ready Talent",
-            description: "Applied expertise in GenAI, intelligent automation and AI agents to solve complex challenges and accelerate business innovation.",
+            title: "Frontend Technologies",
+            description: "Highly responsive, intuitive interfaces using Angular and React — a flawless experience across devices and browsers.",
             imagePlaceholder: "/images/expertise/ai-talent.png"
         },
         {
             icon: "Layers",
-            title: "Platform Specialists",
-            description: "Certified across Salesforce, AWS, Microsoft and leading enterprise ecosystems to accelerate implementation, innovation, and adoption.",
+            title: "Backend & Architecture",
+            description: "Robust server-side logic and APIs with Java, Node.js, and enterprise frameworks designed for heavy data loads and concurrency.",
             imagePlaceholder: "/images/expertise/platform-specialists.png"
         },
         {
             icon: "Briefcase",
-            title: "Industry Experience",
-            description: "Hands-on experience delivering enterprise solutions that address operational, regulatory, and customer experience challenges across highly regulated industries.",
+            title: "Salesforce & CRM",
+            description: "Complex Salesforce ecosystems, custom routing, and third-party integrations that automate workflows and unify data visibility.",
             imagePlaceholder: "/images/expertise/industry-experience.png"
         },
         {
             icon: "GraduationCap",
-            title: "Learning Ecosystem",
-            description: "Innovation thrives when learning never stops. We invest in emerging technologies, certifications and experimentation to keep our teams ahead of what's next.",
+            title: "Agile SDLC Culture",
+            description: "Continuous integration, rapid sprint cycles, and regular client touchpoints — transparency that prevents scope creep.",
             imagePlaceholder: "/images/expertise/learning-culture.png"
         }
     ]
@@ -530,7 +529,7 @@ export const techPartnersContent = {
         {
             title: "AWS",
             items: ["Microsoft Azure", "Amazon AWS", "Google Cloud"],
-            color: "bg-[#00A8FF]",
+            color: "bg-[#3886CE]",
             logo: "/images/Partners_Logo/Amazon_Web_Services_Logo.svg.png"
         },
         {
@@ -574,7 +573,7 @@ export const vocContent = {
             company: "USAA",
             image: "/images/voc/rickey_burks.jpg",
             logo: "/images/voc/USAA_logo.png",
-            result: "Shared strategic insights on technology partnerships and ecosystem integration on <span class='text-[#1e90ff] font-semibold'>CU NEXT Podcast.</span>",
+            result: "Shared strategic insights on technology partnerships and ecosystem integration on <span class='text-[#3886CE] font-semibold'>CU NEXT Podcast.</span>",
             videoUrl: "https://hyniva-web.s3.us-east-1.amazonaws.com/site-videos/rickey_burks_testimonial.mp4",
             hoverVideoUrl: "https://hyniva-web.s3.us-east-1.amazonaws.com/site-videos/rickey-testimonial.mp4",
             videoQuote: "Big is not always better. What matters is finding the right strategic partner, one that integrates seamlessly with your existing ecosystem and grows with you.",
@@ -587,7 +586,7 @@ export const vocContent = {
             company: "PeopleFund",
             image: "/images/voc/gustavo_transparent.png",
             logo: "/logos/Additional/People_fund.png",
-            result: "Built an intelligent lending platform that reduced loan prequalification from <span class='text-[#1e90ff] font-semibold'>days to minutes.</span>",
+            result: "Built an intelligent lending platform that reduced loan prequalification from <span class='text-[#3886CE] font-semibold'>days to minutes.</span>",
             caseStudyHref: "/insights/case-studies/scaling-a-secure-pre-qualification-loan-routing-platform-with-intelligent-automation",
         },
         {
@@ -598,7 +597,7 @@ export const vocContent = {
             company: "Always Track",
             image: "/images/voc/jose_zamora.png",
             logo: "/logos/Additional/Always_Track.png",
-            result: "Reduced manual freight paperwork through Intelligent Document Processing with <span class='text-[#1e90ff] font-semibold'>99.69% accuracy.</span>",
+            result: "Reduced manual freight paperwork through Intelligent Document Processing with <span class='text-[#3886CE] font-semibold'>99.69% accuracy.</span>",
             caseStudyHref: "/insights/case-studies/autonomous-freight-operations",
         },
         {
@@ -609,7 +608,7 @@ export const vocContent = {
             company: "CA Infosec",
             image: "/images/voc/Rob_kraft_transparent.png",
             logo: "/logos/Additional/CA_infosec.png",
-            result: "Transformed fragmented academic operations into a <span class='text-[#1e90ff] font-semibold'>single unified education platform</span> that connected every stakeholder.",
+            result: "Transformed fragmented academic operations into a <span class='text-[#3886CE] font-semibold'>single unified education platform</span> that connected every stakeholder.",
             caseStudyHref: "https://www.hyniva.com/insights/case-studies/education-platform-engineering",
         },
     ]
@@ -642,94 +641,101 @@ export const statsContent = {
     ],
 };
 
-// ── CTA ──────────────────────────────────────────────────────────────────────
+// ── CTA (Blueprint §6) ───────────────────────────────────────────────────────
 export const ctaContent = {
     label: "Let's Talk",
-    headline: "Ready to simplify your enterprise?",
-    sub: "Let's start with a 30-minute discovery call. No commitment, no sales pitch. Just a real conversation about your challenges.",
+    headline: "Ready to Build Something Incredible?",
+    highlightedWord: "Incredible?",
+    sub: "Schedule a free technical discovery call with our leadership team today. Let's discuss your unique challenges and map out a custom digital strategy.",
     cta: { label: "Schedule a free consultation", href: "/contact" },
 };
 
 // ── Footer ───────────────────────────────────────────────────────────────────
 export const footerContent = {
-    description: "We partner with enterprises to simplify complexity, accelerate outcomes and deliver scalable technology solutions built for real-world impact.",
+    description: "Founded and operated in Texas, SimpleCube is a boutique software delivery partner — custom software, Salesforce integrations, and digital transformation with lean, Agile execution.",
     sections: [
         {
             title: "Services",
             links: [
                 { title: "Digital Transformation", href: "/services/digital-transformation" },
-                { title: "Enterprise Platforms", href: "/services/enterprise-platforms" },
-                { title: "Product Engineering", href: "/services/product-engineering" },
-                { title: "Strategy Consulting", href: "/services/strategy-consulting" },
+                { title: "Salesforce Integrations & Development", href: "/services/enterprise-platforms/salesforce" },
+                { title: "Product Development", href: "/services/product-engineering" },
+                { title: "Custom Software Development", href: "/services/strategy-consulting" },
             ],
         },
-        {
-            title: "Products",
-            links: [
-                { title: "FinXServe", href: "/products/finxserve" },
-                { title: "Claim Pioneer", href: "/products/claim-pioneer" },
-                { title: "AIRA", href: "/products/aira" },
-                { title: "Hyper", href: "/products/hyper" },
-            ],
-        },
+        // Products footer column temporarily hidden from this build
+        // {
+        //     title: "Products",
+        //     links: [
+        //         { title: "FinXServe", href: "/products/finxserve" },
+        //         { title: "Claim Pioneer", href: "/products/claim-pioneer" },
+        //         { title: "AIRA", href: "/products/aira" },
+        //         { title: "Hyper", href: "/products/hyper" },
+        //     ],
+        // },
         {
             title: "Company",
             links: [
-                { title: "About Hyniva", href: "/about" },
-                { title: "Case Studies", href: "/insights/case-studies" },
+                { title: "About SimpleCube", href: "/about" },
+                // { title: "Case Studies", href: "/insights/case-studies" },
                 { title: "Careers", href: "/careers" },
-                { title: "Privacy Policy", href: "/privacy-policy" },
+                // { title: "Privacy Policy", href: "/privacy-policy" },
             ],
         },
     ],
     offices: [
-        { country: "United States", address: "13333 Blanco Road, Suite 206,\nSan\u00A0Antonio, Texas - 78216" },
-        { country: "India", address: "The Cube Karle Town Center, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
+        {
+            country: "United States",
+            address: "9901 I-10 W, Suite 800,\nSan Antonio, Texas - 78260",
+        },
+        // India office temporarily hidden from this build
+        // { country: "India", address: "The Cube Karle Town Center, 5th Floor,\nNagavara Village, Bengaluru, KA - 560045" },
     ],
-    linkedin: "https://www.linkedin.com/company/hyniva/",
-    email: "connect@hyniva.com",
+    linkedin: "https://www.linkedin.com/company/simplecube-llc",
+    email: "kvjadapolu@simplecube.co",
+    phone: "+1-210-913-3929",
 };
 
-// ── FAQ ──────────────────────────────────────────────────────────────────────
+// ── FAQ (commented out on homepage; copy updated for SimpleCube) ─────────────
 export const faqContent = [
     {
-        question: "What is Hyniva?",
-        answer: "Hyniva is a technology consulting and product engineering company that helps organizations transform through artificial intelligence, enterprise platforms, cloud technologies and modern software engineering. Founded in 2007, Hyniva combines over two decades of industry expertise with a proven product engineering heritage, helping organizations accelerate innovation, modernize operations and achieve measurable business outcomes."
+        question: "What is SimpleCube?",
+        answer: "SimpleCube is a Texas-based boutique software development agency that delivers custom software, Salesforce integrations, product development, and digital transformation. We combine elite technical expertise with a lean, Agile approach so businesses get enterprise-level execution with personalized partnership."
     },
     {
-        question: "Why do organizations choose Hyniva as a technology partner?",
-        answer: "Organizations choose Hyniva because it combines the agility of a product company with the expertise of a technology consulting partner. Backed by more than 20 years of industry experience, Hyniva has delivered transformation programs across banking, credit unions, insurance, wealth management, logistics and education while helping clients accelerate delivery, reduce complexity and unlock greater value from their technology investments."
+        question: "Why do organizations choose SimpleCube as a technology partner?",
+        answer: "Organizations choose SimpleCube to avoid bloated agency budgets, account shuffling, and communication silos. Our focused team works directly with senior developers and leadership, delivering faster iterations at a lower cost while staying accountable from discovery through launch."
     },
     {
         question: "How can enterprises accelerate digital transformation initiatives?",
-        answer: "Successful digital transformation requires modernizing legacy systems, improving data accessibility, automating business processes and creating connected customer experiences. Hyniva helps organizations accelerate transformation through AI-powered solutions, cloud modernization, enterprise platforms and product engineering services that move initiatives from strategy to execution faster and with lower risk."
+        answer: "Successful digital transformation requires digitizing manual processes, modernizing outdated infrastructure, and migrating data to secure environments. SimpleCube guides organizations through that journey with practical engineering, integrations, and Agile delivery that moves initiatives from strategy to working software faster."
     },
     {
-        question: "How can organizations move from AI experimentation to business value?",
-        answer: "Many organizations successfully pilot AI initiatives but struggle to scale them across the enterprise. Creating business value from AI requires strong data foundations, system integration, governance and clearly defined outcomes. Hyniva helps organizations operationalize AI through AIRA, its Agentic AI platform, along with intelligent automation, document intelligence, workflow orchestration and enterprise integrations that embed AI directly into business operations."
+        question: "What custom software does SimpleCube build?",
+        answer: "We architect bespoke solutions from the ground up — multi-stage digital applications, internal portals, and complex data-routing systems — so the final product aligns with your business rules and operational goals rather than forcing you into off-the-shelf constraints."
     },
     {
-        question: "How can businesses modernize legacy systems without disrupting operations?",
-        answer: "Legacy modernization is most effective when approached as a phased transformation rather than a complete replacement. Organizations can reduce risk through cloud migration, application modernization, API-led integration and process automation strategies. Hyniva helps businesses modernize technology environments while maintaining operational continuity through proven delivery frameworks, modernization accelerators and enterprise integration expertise."
+        question: "How does SimpleCube work with Salesforce?",
+        answer: "We specialize in complex Salesforce ecosystems, custom lead routing, advanced state-lookup parameters, and mapping table designs. By connecting Salesforce with internal tools and third-party APIs, we automate sales workflows and provide unified data visibility across the organization."
     },
     {
         question: "How can enterprises accelerate software delivery?",
-        answer: "Accelerating software delivery requires more than adding developers. Hyniva's Digital Factory model combines AI-assisted development, reusable accelerators, automation and cross-functional teams that own the entire software lifecycle. This approach reduces handoffs, improves accountability and helps organizations deliver solutions significantly faster while maintaining quality, governance and scalability."
+        answer: "Accelerating delivery requires more than adding developers. SimpleCube’s Agile framework uses continuous integration, rapid sprint cycles, and regular client touchpoints to prevent scope creep and keep the product aligned with evolving business needs — without large-agency overhead."
     },
     {
-        question: "How can AI improve operational efficiency and customer experiences?",
-        answer: "Artificial intelligence helps organizations automate repetitive tasks, improve decision-making, streamline workflows and deliver more personalized customer experiences. Hyniva helps enterprises apply AI through intelligent agents, document intelligence, conversational AI, predictive analytics and workflow automation solutions that improve productivity while enhancing customer engagement."
+        question: "What technologies does SimpleCube use?",
+        answer: "Our stack is curated for performance, security, and scalability. Frontend work centers on Angular and React; backend and architecture use Java, Node.js, and other enterprise-grade frameworks designed for heavy data loads and concurrency."
     },
     {
         question: "What makes a digital transformation initiative successful?",
-        answer: "Successful digital transformation initiatives align technology investments with business objectives, customer needs and operational priorities. Organizations that combine modern platforms, process automation, data-driven decision-making and change management are better positioned to achieve sustainable outcomes. Hyniva leverages over 20 years of industry expertise and proven delivery methodologies to help clients execute transformation programs that deliver measurable business value."
+        answer: "Successful initiatives align technology with business objectives, customer needs, and operational priorities. Combining modern platforms, process automation, and change-ready delivery helps create sustainable outcomes — the approach SimpleCube brings to every engagement."
     },
     {
         question: "How can organizations build and launch digital products faster?",
-        answer: "Organizations can accelerate product delivery by combining domain expertise, modern engineering practices, reusable accelerators and cross-functional product teams. Hyniva brings a product engineering mindset shaped by building seven enterprise software products, including CreditSnap and iLendX, which were successfully acquired by SavvyMoney and Fiserv. This experience enables Hyniva to help organizations move from concept to market faster, reduce delivery risk and build scalable digital products that deliver long-term business value."
+        answer: "From ideation to launch, we partner across the full Software Development Life Cycle. Our iterative process helps your MVP reach the market quickly, then supports real-world feedback and rapid, data-driven feature enhancements."
     },
     {
-        question: "How can enterprises adopt AI responsibly and at scale?",
-        answer: "Responsible AI adoption requires governance, transparency, security, compliance and continuous monitoring. Organizations must ensure AI solutions align with business objectives while protecting customer data and maintaining trust. Hyniva helps enterprises implement scalable AI frameworks, governance models, and enterprise-grade AI solutions that balance innovation with compliance, enabling organizations to deploy AI confidently across the business."
+        question: "Where is SimpleCube based?",
+        answer: "SimpleCube is founded and operated in Texas. We are a close-knit collective of software engineers, CRM specialists, and product strategists — built to deliver enterprise-level technical execution with the dedicated partnership of a small team."
     }
 ];

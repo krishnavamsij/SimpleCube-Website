@@ -44,14 +44,16 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         items?: { title: string; href: string; desc?: string; isBold?: boolean }[];
         categories?: { category: string; isBold?: boolean; href?: string; items: { title: string; href: string; isBold?: boolean }[] }[];
     }[] = [
-        { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
+        // Products menu temporarily hidden from this build
+        // { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
         { 
             label: "Services", 
             href: "/services", 
             categories: navContent.services as any
         },
         { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
-        { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
+        // Insights menu temporarily hidden from this build
+        // { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
         {
             label: "About",
             items: [
@@ -89,7 +91,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     maxWidth: mobileOpen ? "100%" : (scrolled ? "660px" : maxContainerWidth),
                     top: mobileOpen ? 0 : (scrolled ? 14 : 0),
                     borderRadius: mobileOpen ? "0 0 2rem 2rem" : (scrolled ? "9999px" : "0px"),
-                    backgroundColor: mobileOpen ? "#ffffff" : (scrolled ? "rgba(255, 255, 255, 0.75)" : forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(3, 11, 59, 0)"),
+                    backgroundColor: mobileOpen ? "#ffffff" : (scrolled ? "rgba(255, 255, 255, 0.75)" : forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(10, 47, 82, 0)"),
                     borderWidth: mobileOpen || scrolled || forceDarkText ? "1px" : "0px",
                     borderColor: mobileOpen ? "rgba(226, 232, 240, 0.8)" : (scrolled ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.12)"),
                     boxShadow: mobileOpen ? "0 20px 30px -10px rgba(0, 0, 0, 0.12)" : (scrolled ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)" : "none"),
@@ -106,17 +108,20 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     "flex w-full items-center transition-all duration-300",
                     scrolled && !mobileOpen ? "h-[46px] px-4" : "h-[64px] px-6 md:px-10 lg:px-16"
                 )}>
-                    {/* Logo */}
+                    {/* Logo — SimpleCube blue on light chrome; white on dark hero */}
                     <Link href="/" className="flex items-center shrink-0">
                         <Image
-                            src="/logos/Hyniva_logo_for_light_background.svg"
-                            alt="Hyniva"
-                            width={120}
-                            height={32}
+                            src={
+                                mobileOpen || scrolled || forceDarkText
+                                    ? "/logos/simplecube/logo-blue.png"
+                                    : "/logos/simplecube/logo-white.png"
+                            }
+                            alt="SimpleCube"
+                            width={180}
+                            height={42}
                             className={cn(
                                 "transition-all duration-500",
-                                scrolled && !mobileOpen ? "h-[22px] w-auto" : "h-9 w-auto",
-                                !(mobileOpen || scrolled || forceDarkText) && "brightness-0 invert"
+                                scrolled && !mobileOpen ? "h-[22px] w-auto" : "h-9 w-auto"
                             )}
                             priority
                         />
@@ -209,10 +214,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                                 <Link
                                                                     key={item.title}
                                                                     href={item.href}
-                                                                    className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#2563EB]"
+                                                                    className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#135498]"
                                                                 >
                                                                     <span className={cn(
-                                                                        "text-[14px] text-slate-700 group-hover:text-[#2563EB] transition-colors",
+                                                                        "text-[14px] text-slate-700 group-hover:text-[#135498] transition-colors",
                                                                         item.isBold && "font-bold text-slate-900"
                                                                     )}>{item.title}</span>
                                                                 </Link>
@@ -227,7 +232,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                         href={item.href}
                                                         className="group block rounded-xl px-4 py-3 transition-all hover:bg-slate-50"
                                                     >
-                                                        <span className="text-sm font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">{item.title}</span>
+                                                        <span className="text-sm font-bold text-slate-900 group-hover:text-[#135498] transition-colors">{item.title}</span>
                                                         {item.desc && (
                                                             <p className="mt-1 text-xs leading-relaxed text-slate-500 line-clamp-2">{item.desc}</p>
                                                         )}
@@ -254,16 +259,16 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                     scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]"
                                 )}
                                 style={{
-                                    background: "#2563eb",
-                                    boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
+                                    background: "#135498",
+                                    boxShadow: "0 2px 8px rgba(19,84,152,0.3)",
                                 }}
                                 onMouseEnter={e => {
-                                    (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
-                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(37,99,235,0.5)";
+                                    (e.currentTarget as HTMLButtonElement).style.background = "#0F427A";
+                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(19,84,152,0.5)";
                                 }}
                                 onMouseLeave={e => {
-                                    (e.currentTarget as HTMLButtonElement).style.background = "#2563eb";
-                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(37,99,235,0.3)";
+                                    (e.currentTarget as HTMLButtonElement).style.background = "#135498";
+                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(19,84,152,0.3)";
                                 }}
                             >
                                 CONTACT US
@@ -314,7 +319,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                     <Link
                                                         href={cat.href}
                                                         className={cn(
-                                                            "block px-0 py-0 text-slate-900 hover:text-[#2563EB] transition-colors mb-4",
+                                                            "block px-0 py-0 text-slate-900 hover:text-[#135498] transition-colors mb-4",
                                                             cat.isBold && "text-[15px] font-bold"
                                                         )}
                                                     >
@@ -332,10 +337,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                     <Link
                                                         key={item.title}
                                                         href={item.href}
-                                                        className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#2563EB]"
+                                                        className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#135498]"
                                                     >
                                                         <span className={cn(
-                                                            "text-slate-700 group-hover:text-[#2563EB] transition-colors",
+                                                            "text-slate-700 group-hover:text-[#135498] transition-colors",
                                                             item.isBold ? "text-[15px] font-bold text-slate-900" : "text-[14px]"
                                                         )}>{item.title}</span>
                                                     </Link>
@@ -371,7 +376,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                             href={group.href}
                                             className={cn(
                                                 "text-[10px] font-black uppercase tracking-widest mb-2 block transition-colors",
-                                                isActive ? "text-[#2563eb]" : "text-slate-400 hover:text-[#2563eb]"
+                                                isActive ? "text-[#135498]" : "text-slate-400 hover:text-[#135498]"
                                             )}
                                             onClick={() => setMobileOpen(false)}
                                         >
@@ -380,7 +385,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                     ) : (
                                         <p className={cn(
                                             "text-[10px] font-black uppercase tracking-widest mb-2",
-                                            isActive ? "text-[#2563eb]" : "text-slate-400"
+                                            isActive ? "text-[#135498]" : "text-slate-400"
                                         )}>{group.label}</p>
                                     )}
                                     {group.categories ? (
@@ -391,7 +396,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                         <Link
                                                             href={cat.href}
                                                             className={cn(
-                                                                "block px-2 py-1 text-[10px] uppercase tracking-wide hover:text-[#2563EB]",
+                                                                "block px-2 py-1 text-[10px] uppercase tracking-wide hover:text-[#135498]",
                                                                 cat.isBold ? "text-slate-950 font-black" : "text-slate-600 font-bold"
                                                             )}
                                                             onClick={() => setMobileOpen(false)}
@@ -442,7 +447,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                             ); })}
                             <div className="pt-3 pb-6">
                                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                                    <Button className="w-full rounded-full bg-[#2563eb] text-white font-black hover:bg-[#1d4ed8] uppercase text-[12px] tracking-wide">
+                                    <Button className="w-full rounded-full bg-[#135498] text-white font-black hover:bg-[#0F427A] uppercase text-[12px] tracking-wide">
                                         CONTACT US
                                     </Button>
                                 </Link>

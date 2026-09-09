@@ -42,7 +42,7 @@ export function ProcessTimeline() {
                 >
                     {/* Connecting line (desktop) */}
                     <div 
-                        className="pointer-events-none absolute top-7 hidden h-0.5 bg-gradient-to-r from-blue-600 to-emerald-500 lg:block"
+                        className="pointer-events-none absolute top-7 hidden h-0.5 bg-gradient-to-r from-[#135498] to-emerald-500 lg:block"
                         style={{
                             left: `${(0.5 / Math.max(1, steps.length)) * 100}%`,
                             right: `${(0.5 / Math.max(1, steps.length)) * 100}%`
@@ -56,7 +56,7 @@ export function ProcessTimeline() {
                             className="relative px-4 py-6 text-center lg:py-0"
                         >
                             {/* Step number circle */}
-                            <div className="relative z-10 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-background bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg shadow-blue-600/20">
+                            <div className="relative z-10 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-background bg-gradient-to-br from-[#135498] to-blue-700 shadow-lg shadow-blue-600/20">
                                 <span className="text-lg font-extrabold text-white">
                                     {step.num}
                                 </span>

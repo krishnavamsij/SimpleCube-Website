@@ -58,7 +58,7 @@ function ServiceCard({
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-50">
                 <IconComponent className="h-8 w-8 text-red-600" />
             </div>
-            <h3 className="text-lg font-bold leading-snug mb-3 text-blue-900">
+            <h3 className="text-lg font-bold leading-snug mb-3 text-[#0A2F52]">
                 {service.title}
             </h3>
             <p className="text-sm leading-relaxed text-slate-600 flex-1">
@@ -78,7 +78,7 @@ function ProductDevelopmentHero() {
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${productDevelopmentContent.hero.backgroundImage}')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#030b1e]/70" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#0A2F52]/70" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(52,81,149,0.2)_0%,transparent_65%)]" />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/50 via-[#020918]/30 to-transparent" />
 
@@ -108,7 +108,7 @@ function ProductDevelopmentHero() {
                     >
                         <Link
                             href={productDevelopmentContent.hero.contactButton.href}
-                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 to-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
+                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0A2F52] to-[#135498] px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
                         >
                             {productDevelopmentContent.hero.contactButton.text}
                             <ArrowUpRightIcon className="h-4 w-4" />
@@ -133,7 +133,7 @@ function ProductDevelopmentIntro() {
                     viewport={viewportOnce}
                     className="max-w-4xl"
                 >
-                    <h3 className="text-xl font-bold leading-snug sm:text-2xl md:text-3xl mb-4 text-blue-900">
+                    <h3 className="text-xl font-bold leading-snug sm:text-2xl md:text-3xl mb-4 text-[#0A2F52]">
                         {productDevelopmentContent.intro.title}
                     </h3>
                     <div className="text-base leading-relaxed text-slate-600 sm:text-lg whitespace-pre-line">
@@ -160,7 +160,7 @@ function ServicesGrid() {
                     viewport={viewportOnce}
                     className="mb-12"
                 >
-                    <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-blue-900">
+                    <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-[#0A2F52]">
                         Our Capabilities
                     </h2>
                 </motion.div>
@@ -195,7 +195,7 @@ function DeliveryEnablers() {
                     viewport={viewportOnce}
                     className="mb-12"
                 >
-                    <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-blue-900">
+                    <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl text-[#0A2F52]">
                         {deliveryEnablers.title}
                     </h2>
                 </motion.div>

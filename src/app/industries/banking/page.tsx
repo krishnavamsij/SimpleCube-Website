@@ -51,8 +51,8 @@ function BankingHero() {
                     className="flex flex-col items-center justify-center space-y-6 sm:space-y-10 md:space-y-12"
                 >
                     <motion.div variants={fadeInUp} className="flex justify-center">
-                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        <span className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                             {bankingContent.hero.badge}
                         </span>
                     </motion.div>
@@ -99,7 +99,7 @@ function AlternatingSections() {
                         </div>
 
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#030B3B] mb-6 sm:mb-8 leading-[1.25]">
+                            <h2 className="text-[21px] sm:text-3xl md:text-[32px] font-extrabold text-[#0A2F52] mb-6 sm:mb-8 leading-[1.25]">
                                 {section.title}
                             </h2>
                             <div className="space-y-6">
@@ -128,7 +128,7 @@ function BankingOfferings() {
                     viewport={viewportOnce}
                     className="max-w-5xl mx-auto mb-10"
                 >
-                    <h2 className="text-[29px] sm:text-[45px] lg:text-[45px] 2xl:text-[53px] font-extrabold text-[#030B3B] mb-6 tracking-tight leading-[1.1] sm:whitespace-nowrap">
+                    <h2 className="text-[29px] sm:text-[45px] lg:text-[45px] 2xl:text-[53px] font-extrabold text-[#0A2F52] mb-6 tracking-tight leading-[1.1] sm:whitespace-nowrap">
                         {bankingContent.offerings.title}
                     </h2>
                     <p className="text-base sm:text-lg lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6]">
@@ -149,13 +149,13 @@ function BankingOfferings() {
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#030B3B]/06 shadow-[0_10px_35px_rgba(3,11,59,0.03)] hover:border-[#1e90ff]/20 hover:shadow-[0_20px_50px_rgba(3,11,59,0.06)] transition-all duration-300 group flex flex-col h-full"
+                                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#0A2F52]/06 shadow-[0_10px_35px_rgba(10,47,82,0.03)] hover:border-[#3886CE]/20 hover:shadow-[0_20px_50px_rgba(10,47,82,0.06)] transition-all duration-300 group flex flex-col h-full"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#1e90ff] mb-6 border border-[#1e90ff]/20 group-hover:bg-[#1e90ff] group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                                <div className="w-12 h-12 rounded-xl bg-[#ECF6FF] flex items-center justify-center text-[#3886CE] mb-6 border border-[#3886CE]/20 group-hover:bg-[#3886CE] group-hover:text-white transition-colors duration-300 flex-shrink-0">
                                     <IconComponent className="w-6 h-6" />
                                 </div>
                                 <h3 
-                                    className="text-[16px] sm:text-[17px] lg:text-[15px] xl:text-[18px] 2xl:text-[19px] font-bold text-[#030B3B] mb-4 w-full"
+                                    className="text-[16px] sm:text-[17px] lg:text-[15px] xl:text-[18px] 2xl:text-[19px] font-bold text-[#0A2F52] mb-4 w-full"
                                     title={item.title}
                                 >
                                     {item.title}
@@ -176,7 +176,7 @@ function ProvenImpact() {
     return (
         <section className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#0A102E] relative overflow-hidden">
             {/* Top Glow matching Why Hyniva */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(56,134,206,0.35)_0%,transparent_70%)] pointer-events-none" />
 
             <div className={`${CONTAINER_CLASS} text-left md:text-center relative z-10`}>
                 <motion.div
@@ -234,7 +234,7 @@ function CaseStudies() {
                     viewport={viewportOnce}
                     className="mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2F52] mb-6">
                         {bankingContent.caseStudies.title}
                     </h2>
                     <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl">
@@ -254,7 +254,7 @@ function CaseStudies() {
                             <motion.div
                                 key={index}
                                 variants={scrollReveal}
-                                className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full"
+                                className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#0A2F52]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full"
                             >
                                 {/* Card Image */}
                                 <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px] bg-white">
@@ -272,17 +272,17 @@ function CaseStudies() {
                                 {/* Content */}
                                 <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                     <h3
-                                        className="font-display text-[17px] sm:text-[18px] font-bold text-[#030B3B] leading-[1.35] tracking-tight mb-3 line-clamp-none"
+                                        className="font-display text-[17px] sm:text-[18px] font-bold text-[#0A2F52] leading-[1.35] tracking-tight mb-3 line-clamp-none"
                                         dangerouslySetInnerHTML={{ __html: study.title.replace(/<br\s*\/?>/gi, " ") }}
                                     />
 
-                                    <p className="text-[15px] font-normal text-[#030B3B]/70 leading-relaxed mb-8 flex-1">
+                                    <p className="text-[15px] font-normal text-[#0A2F52]/70 leading-relaxed mb-8 flex-1">
                                         {study.description}
                                     </p>
 
                                     <Link
                                         href={study.href}
-                                        className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
+                                        className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#3886CE]/20 rounded-2xl text-sm font-bold text-[#3886CE] transition-all duration-300 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                                     >
                                         Read Case Study
                                         <svg
@@ -311,7 +311,7 @@ function CaseStudies() {
 
 export default function BankingPage() {
     return (
-        <div className="min-h-screen font-sans text-[#030B3B]">
+        <div className="min-h-screen font-sans text-[#0A2F52]">
             <Navbar />
             <main>
                 <BankingHero />

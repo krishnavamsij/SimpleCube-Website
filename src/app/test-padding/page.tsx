@@ -18,7 +18,7 @@ export default function TestPaddingPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
+      <div className="bg-gradient-to-r from-[#135498] to-blue-700 text-white py-20">
         <div className={CONTAINER_CLASS}>
           <h1 className="text-4xl font-bold mb-4">Container Padding Test</h1>
           <p className="text-lg opacity-90">
@@ -32,11 +32,11 @@ export default function TestPaddingPage() {
       <section className="py-16 bg-white">
         <div className={CONTAINER_CLASS}>
           <div className="bg-blue-100 border-2 border-blue-500 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">Standard Container (1400px)</h2>
+            <h2 className="text-2xl font-bold text-[#0A2F52] mb-4">Standard Container (1400px)</h2>
             <p className="text-blue-800">
               This uses <code className="bg-blue-200 px-2 py-1 rounded">CONTAINER_CLASS</code>
             </p>
-            <p className="text-sm text-blue-700 mt-2">
+            <p className="text-sm text-[#135498] mt-2">
               Padding: 24px mobile → 32px tablet → 48px desktop
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function TestPaddingPage() {
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div
                 key={num}
-                className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg p-6 shadow-lg"
+                className="bg-gradient-to-br from-blue-500 to-[#135498] text-white rounded-lg p-6 shadow-lg"
               >
                 <h3 className="text-lg font-bold mb-2">Card {num}</h3>
                 <p className="text-sm opacity-90">
@@ -186,8 +186,8 @@ export default function TestPaddingPage() {
               </div>
             </div>
 
-            <div className="mt-8 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
-              <p className="text-sm font-medium text-blue-900">
+            <div className="mt-8 p-4 bg-[#e8f1fa] border-l-4 border-blue-500 rounded">
+              <p className="text-sm font-medium text-[#0A2F52]">
                 <strong>Pro Tip:</strong> Open browser DevTools, inspect the colored boxes, 
                 and verify the computed padding values match: 24px, 32px, or 48px depending 
                 on screen size.

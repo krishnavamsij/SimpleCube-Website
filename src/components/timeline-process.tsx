@@ -89,9 +89,9 @@ export function TimelineProcess({
   const sizeMap = [310, 215, 175, 150];
 
   return (
-    <section ref={containerRef} className="bg-[#030b1e] pt-20 sm:pt-24 lg:pt-14 pb-4 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
+    <section ref={containerRef} className="bg-[#0A2F52] pt-20 sm:pt-24 lg:pt-14 pb-4 lg:pb-4 relative overflow-hidden text-white font-sans select-none">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#0A2F52] to-[#020918]" />
       
       <div className="relative z-10 mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
         
@@ -103,8 +103,8 @@ export function TimelineProcess({
           className="text-left lg:text-center"
         >
           <div className="flex justify-start lg:justify-center mb-6">
-            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20">
-              <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20">
+              <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
               {eyebrow}
             </div>
           </div>
@@ -189,7 +189,7 @@ export function TimelineProcess({
                               height: '110%',
                               rotate: step.angle,
                               // Darkened Teal inner core, Dark Blue middle space, Blue outer glow
-                              background: `radial-gradient(circle at 60% 60%, rgba(0,160,130,0.7) 0%, rgba(3,11,30,1) 45%, rgba(37,99,235,0.7) 80%, transparent 100%)`,
+                              background: `radial-gradient(circle at 60% 60%, rgba(0,160,130,0.7) 0%, rgba(3,11,30,1) 45%, rgba(19,84,152,0.7) 80%, transparent 100%)`,
                               filter: 'blur(15px)',
                             }}
                           />
@@ -259,7 +259,7 @@ export function TimelineProcess({
                  }}
                >
                   {/* Node Dot */}
-                  <div className={`absolute -left-[37px] top-2 w-3 h-3 rounded-full transition-all duration-700 ${isActive ? 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] scale-125' : 'bg-white/20 group-hover:bg-white/40'}`} />
+                  <div className={`absolute -left-[37px] top-2 w-3 h-3 rounded-full transition-all duration-700 ${isActive ? 'bg-[#e8f1fa]0 shadow-[0_0_15px_rgba(56,134,206,0.8)] scale-125' : 'bg-white/20 group-hover:bg-white/40'}`} />
                   
                   <div className={`text-[10px] font-mono mb-1 transition-colors duration-500 ${isActive ? 'text-blue-400' : 'text-white/50'}`}>{step.num}</div>
                   <h3 className={`text-xl font-bold mb-3 transition-colors duration-500 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>

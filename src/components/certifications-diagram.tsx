@@ -51,12 +51,12 @@ export function CertificationsDiagram() {
                         <feDropShadow dx="0" dy="12" stdDeviation="25" floodColor="#0B205D" floodOpacity="0.08" />
                     </filter>
                     <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#00D4AA" />
+                        <stop offset="0%" stopColor="#3886CE" />
                         <stop offset="100%" stopColor="#0B205D" />
                     </linearGradient>
                     <linearGradient id="sideGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#0B205D" />
-                        <stop offset="100%" stopColor="#00D4AA" />
+                        <stop offset="100%" stopColor="#3886CE" />
                     </linearGradient>
                     <linearGradient id="hexFill" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#ffffff" />
@@ -77,9 +77,9 @@ export function CertificationsDiagram() {
                 <circle cx="539" cy="160" r="4.5" fill="white" stroke="#0B205D" strokeWidth="2.5" />
 
                 {/* Bottom Right Line (Cyan) */}
-                <path d="M 521 300 L 630 300 L 630 335" fill="none" stroke="#00D4AA" strokeWidth="2.5" strokeDasharray="3 8" strokeLinecap="round" />
-                <circle cx="521" cy="300" r="4.5" fill="#00D4AA" />
-                <circle cx="630" cy="335" r="4.5" fill="white" stroke="#00D4AA" strokeWidth="2.5" />
+                <path d="M 521 300 L 630 300 L 630 335" fill="none" stroke="#3886CE" strokeWidth="2.5" strokeDasharray="3 8" strokeLinecap="round" />
+                <circle cx="521" cy="300" r="4.5" fill="#3886CE" />
+                <circle cx="630" cy="335" r="4.5" fill="white" stroke="#3886CE" strokeWidth="2.5" />
 
                 {/* ─── CENTER HEXAGON ─── */}
                 <Hex cx={400} cy={300} r={140} cornerRadius={16} fill="white" stroke="url(#centerGrad)" strokeWidth="3" filter="url(#hexShadow)" />
@@ -95,7 +95,7 @@ export function CertificationsDiagram() {
                 {/* Center Content */}
                 <foreignObject x={280} y={230} width={240} height={140}>
                     <div className="w-full h-full flex items-center justify-center px-4">
-                        <img src="/images/Certifications_Image/hyniva_logo_uploaded.png" alt="Hyniva" className="w-full max-w-[180px] object-contain" onError={(e) => { e.currentTarget.style.display='none' }} />
+                        <img src="/logos/simplecube/logo-blue.png" alt="SimpleCube" className="w-full max-w-[180px] object-contain" onError={(e) => { e.currentTarget.style.display='none' }} />
                     </div>
                 </foreignObject>
 
@@ -105,7 +105,7 @@ export function CertificationsDiagram() {
                         <div className="mb-2 h-[80px] flex items-center justify-center relative group">
                             <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="#0B205D" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" className="transition-transform duration-300 group-hover:-translate-y-1">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                <path d="M9 12l2 2 4-4" stroke="#00D4AA" strokeWidth="2.5" />
+                                <path d="M9 12l2 2 4-4" stroke="#3886CE" strokeWidth="2.5" />
                             </svg>
                         </div>
                         <h4 className="text-[#0B205D] font-extrabold text-[14px] leading-none mb-1.5">Secure by<br/>Design</h4>

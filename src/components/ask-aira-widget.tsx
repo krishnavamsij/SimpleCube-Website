@@ -1533,7 +1533,7 @@ For example:
                 }}
             >
                 {isHovered && (
-                    <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 300, height: 300, background: "radial-gradient(circle,rgba(59,130,246,0.15) 0%,rgba(59,130,246,0.08) 40%,transparent 70%)", borderRadius: "50%", filter: "blur(40px)", zIndex: 0, pointerEvents: "none", animation: "airaGlowPulse 2s ease-in-out infinite" }} />
+                    <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 300, height: 300, background: "radial-gradient(circle,rgba(56,134,206,0.15) 0%,rgba(56,134,206,0.08) 40%,transparent 70%)", borderRadius: "50%", filter: "blur(40px)", zIndex: 0, pointerEvents: "none", animation: "airaGlowPulse 2s ease-in-out infinite" }} />
                 )}
                 <motion.div initial={false} animate={{ opacity: 1 }} transition={{ type: "spring", stiffness: 260, damping: 28 }} className="relative flex flex-col items-center" style={{ pointerEvents: "auto" }}>
                     <motion.div
@@ -1544,13 +1544,13 @@ For example:
                         style={{ position: "absolute", left: "50%", bottom: (isMiddle && !isHovered) ? "-10px" : "27px", width: (isMiddle && !isHovered) ? 0 : 85, height: (isMiddle && !isHovered) ? 0 : 85, visibility: (isMiddle && !isHovered) ? "hidden" : "visible", display: "flex", alignItems: "flex-end", justifyContent: "center", pointerEvents: "none", zIndex: 3, overflow: "visible" }}
                     >
                         <img src="/images/AIRA_MASCOT/AIRA_New.png" alt="AIRA" width={120} height={120} className="aira-mascot-grip"
-                            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom center", filter: isHovered ? "drop-shadow(0 0 3px rgba(59,130,246,1)) drop-shadow(0 0 8px rgba(59,130,246,0.8)) drop-shadow(0 0 15px rgba(59,130,246,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.1))" : "drop-shadow(0 2px 4px rgba(0,0,0,0.1))", transition: "filter 0.3s ease-out" }} />
+                            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom center", filter: isHovered ? "drop-shadow(0 0 3px rgba(56,134,206,1)) drop-shadow(0 0 8px rgba(56,134,206,0.8)) drop-shadow(0 0 15px rgba(56,134,206,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.1))" : "drop-shadow(0 2px 4px rgba(0,0,0,0.1))", transition: "filter 0.3s ease-out" }} />
                     </motion.div>
                     <button onClick={() => setIsOpen(true)}
                         className={`relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer uppercase tracking-wide aira-button ${(isMiddle && !isHovered) ? "aira-button-minimized" : "aira-button-expanded"}`}
-                        style={{ position: "relative", zIndex: 2, background: "#2563eb", boxShadow: isHovered ? "0 0 2px 1px rgba(59,130,246,1),0 0 8px 2px rgba(59,130,246,0.8),0 0 20px 4px rgba(59,130,246,0.5),0 4px 12px rgba(37,99,235,0.5)" : "0 2px 8px rgba(37,99,235,0.3)", minWidth: (isMiddle && !isHovered) ? 42 : "auto", paddingLeft: (isMiddle && !isHovered) ? 11 : 16, paddingRight: (isMiddle && !isHovered) ? 11 : 16, height: 32, fontSize: 11, borderRadius: (isMiddle && !isHovered) ? "21px 0 0 21px" : 21, transition: "all 0.3s cubic-bezier(0.34,1.56,0.64,1)" }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8"; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#2563eb"; }}>
+                        style={{ position: "relative", zIndex: 2, background: "#135498", boxShadow: isHovered ? "0 0 2px 1px rgba(56,134,206,1),0 0 8px 2px rgba(56,134,206,0.8),0 0 20px 4px rgba(56,134,206,0.5),0 4px 12px rgba(19,84,152,0.5)" : "0 2px 8px rgba(19,84,152,0.3)", minWidth: (isMiddle && !isHovered) ? 42 : "auto", paddingLeft: (isMiddle && !isHovered) ? 11 : 16, paddingRight: (isMiddle && !isHovered) ? 11 : 16, height: 32, fontSize: 11, borderRadius: (isMiddle && !isHovered) ? "21px 0 0 21px" : 21, transition: "all 0.3s cubic-bezier(0.34,1.56,0.64,1)" }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#0F427A"; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#135498"; }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style={{ filter: "drop-shadow(0 0 4px rgba(255,255,255,0.9))" }}>
                                 <path d="M10 2L11.5 7.5L17 9L11.5 10.5L10 16L8.5 10.5L3 9L8.5 7.5L10 2Z" />
@@ -1574,7 +1574,7 @@ For example:
                         onClick={(e) => { if (e.target === e.currentTarget) closeChat(); }}
                         style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 999999, padding: "5vh 5vw", boxSizing: "border-box", animation: isClosing ? "airaFadeOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards" : "airaFadeIn 0.3s cubic-bezier(0.32,0.72,0,1)" }}>
                         <div className="aira-chat-panel"
-                            style={{ position: "relative", width: "100%", height: "100%", maxWidth: "75vw", maxHeight: "75vh", background: "#fff", border: `4px solid ${GREEN}`, borderRadius: 18, display: "flex", flexDirection: "column", overflow: "hidden", boxShadow: `0 24px 80px rgba(3,11,59,0.35)`, animation: isClosing ? "airaPanelSlideOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards" : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)" }}>
+                            style={{ position: "relative", width: "100%", height: "100%", maxWidth: "75vw", maxHeight: "75vh", background: "#fff", border: `4px solid ${GREEN}`, borderRadius: 18, display: "flex", flexDirection: "column", overflow: "hidden", boxShadow: `0 24px 80px rgba(10,47,82,0.35)`, animation: isClosing ? "airaPanelSlideOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards" : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)" }}>
 
                             {showClearConfirm && <ClearConfirmDialog onConfirm={() => void executeClear()} onCancel={() => setShowClearConfirm(false)} />}
 

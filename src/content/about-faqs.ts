@@ -2,43 +2,43 @@ import { FaqItem } from "./service-faqs";
 
 export const aboutUsFaqs: FaqItem[] = [
     {
-        question: "What makes Hyniva different from traditional IT consulting companies?",
-        answer: "Unlike traditional consulting firms that primarily focus on strategy and implementation, Hyniva combines consulting expertise with a product-builder mindset. Having built multiple successful platforms, including FinXServe, Claim Pioneer, Hyper, AIRA, and previously launched products that were later acquired by industry leaders, Hyniva brings practical product innovation and execution experience to every engagement."
+        question: "What makes SimpleCube different from traditional IT consulting companies?",
+        answer: "Bigger agencies often mean bloated budgets, account shuffling, and communication silos. SimpleCube is a Texas boutique software delivery partner — you work directly with senior developers and leadership, with lean Agile delivery and full-stack mastery across Angular, React, Node.js, and Java."
     },
     {
-        question: "What are Hyniva's core values?",
-        answer: "Hyniva's culture is built around three core values: Agility, Innovation, and People. The company refers to these pillars as its \"API,\" representing the principles that drive delivery excellence, product innovation, collaboration, and long-term client success."
+        question: "What are SimpleCube's core advantages?",
+        answer: "Boutique Attention, Cost-Effective Agility, and Full-Stack Mastery. Our focused team size, lean overhead, and curated technology stack help clients get enterprise-level execution with personalized partnership."
     },
     {
-        question: "What does Hyniva do?",
-        answer: "Hyniva is a technology consulting, digital transformation, and product engineering company that helps organizations modernize operations, build enterprise applications, implement AI solutions, and accelerate software delivery. Hyniva combines deep industry expertise with modern technologies such as Salesforce, Microsoft, cloud platforms, artificial intelligence, and automation to deliver measurable business outcomes."
+        question: "What does SimpleCube do?",
+        answer: "SimpleCube delivers custom software development, Salesforce integrations and development, product development across the full SDLC, and digital transformation — helping businesses turn operational bottlenecks into streamlined digital workflows."
     },
     {
         question: "How can organizations accelerate digital transformation initiatives?",
-        answer: "Organizations can accelerate digital transformation by modernizing legacy systems, automating workflows, adopting cloud technologies, and improving customer experiences. Hyniva helps enterprises execute transformation programs through its Digital Factory model, AI-powered software delivery approach, and expertise in enterprise platforms and product engineering."
+        answer: "By digitizing manual processes, modernizing outdated infrastructure, and migrating data to secure environments. SimpleCube guides enterprises through that journey with practical engineering and Agile delivery."
     },
     {
-        question: "What is a Digital Factory model in software development?",
-        answer: "A Digital Factory model enables teams to own the full software lifecycle from planning and development to deployment and support. Hyniva's Digital Factory approach reduces handoff delays, improves accountability, accelerates delivery timelines, and helps organizations bring solutions to market faster."
+        question: "What is SimpleCube's Agile delivery approach?",
+        answer: "Our Agile framework uses continuous integration, rapid sprint cycles, and regular client touchpoints. That transparency and adaptability prevent scope creep and keep the final product aligned with evolving business needs."
     },
     {
-        question: "How can businesses successfully implement AI in their operations?",
-        answer: "Successful AI adoption requires identifying business use cases, integrating AI into existing workflows, automating repetitive tasks, and ensuring governance and security. Hyniva helps organizations implement AI solutions including intelligent agents, conversational AI, document processing, workflow automation, and predictive analytics to improve efficiency and decision-making."
+        question: "How does SimpleCube work with Salesforce?",
+        answer: "We specialize in complex Salesforce ecosystems, custom lead routing, advanced state-lookup parameters, and mapping table designs — connecting Salesforce with internal tools and third-party APIs for unified data visibility and automated sales workflows."
     },
     {
-        question: "How can companies modernize legacy systems without disrupting business operations?",
-        answer: "Modernization can be achieved through cloud migration, API-led integration, phased transformation strategies, workflow automation, and application modernization. Hyniva helps organizations modernize legacy systems while minimizing disruption and preserving critical business operations."
-    },
-    {
-        question: "What technologies does Hyniva specialize in?",
-        answer: "Hyniva specializes in Salesforce, Microsoft Dynamics 365, Power Platform, AWS, Microsoft Azure, Google Cloud, AI and machine learning, enterprise integrations, cloud modernization, CRM platforms, product engineering, and custom application development."
+        question: "What technologies does SimpleCube specialize in?",
+        answer: "Frontend: Angular and React. Backend and architecture: Java, Node.js, and other enterprise-grade frameworks. We also deliver Salesforce integrations and full digital transformation programs."
     },
     {
         question: "How can businesses reduce software development timelines?",
-        answer: "Businesses can accelerate software delivery by leveraging automation, modern engineering practices, DevOps, reusable frameworks, and cross-functional teams. Hyniva's Digital Factory model and AI-powered delivery approach help organizations reduce planning cycles and deliver solutions faster than traditional development models."
+        answer: "Lean structure plus Agile SDLC culture — rapid iterations, senior engineers close to the work, and fewer account-management layers than traditional large agencies — accelerates time-to-market at a lower cost."
     },
     {
-        question: "What industries does Hyniva serve?",
-        answer: "Hyniva serves organizations across banking, credit unions, wealth and asset management, insurance, transportation and logistics, education, and other highly regulated industries. The company's industry-focused approach helps clients address sector-specific challenges and accelerate transformation initiatives."
+        question: "Where is SimpleCube based?",
+        answer: "SimpleCube is founded and operated in Texas, headquartered at 9901 I-10 W, Suite 800, San Antonio. We are a close-knit collective of software engineers, CRM specialists, and product strategists."
+    },
+    {
+        question: "How do I start a project with SimpleCube?",
+        answer: "Schedule a free technical discovery call with our leadership team. Contact us at kvjadapolu@simplecube.co or +1-210-913-3929 to discuss your challenges and map a custom digital strategy."
     }
 ];

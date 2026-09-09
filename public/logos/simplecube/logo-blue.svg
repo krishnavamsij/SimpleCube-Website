@@ -1,0 +1,22 @@
+<!--
+  SimpleCube primary logo for LIGHT backgrounds
+  Icon circle + wordmark in BrandBoard primary #135498
+  Wordmark set in Andika-like proportions (sans-serif)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-label="SimpleCube">
+  <circle cx="32" cy="32" r="32" fill="#135498"/>
+  <g fill="#FFFFFF" stroke="#135498" stroke-width="1.25" stroke-linejoin="round">
+    <polygon points="32,16 46,24 32,32 18,24"/>
+    <polygon points="18,24 32,32 32,46 18,38"/>
+    <polygon points="32,32 46,24 46,38 32,46"/>
+  </g>
+  <text
+    x="78"
+    y="42"
+    fill="#135498"
+    font-family="Andika, Inter, Arial, sans-serif"
+    font-size="32"
+    font-weight="700"
+    letter-spacing="-0.02em"
+  >SimpleCube</text>
+</svg>

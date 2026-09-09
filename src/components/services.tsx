@@ -32,14 +32,14 @@ export function Services() {
                             <br className="hidden md:block" />{" "}
                             technology
                             <br className="hidden md:block" />{" "}
-                            <span className="text-[#00D4AA]">
+                            <span className="text-[#3886CE]">
                                 partnership.
                             </span>
                         </h2>
                     </div>
 
                     {/* Right Side */}
-                    <div className="flex flex-col justify-center md:col-span-7 border-l-[3px] border-[#00D4AA] pl-6 md:pl-8 lg:pl-12 py-2">
+                    <div className="flex flex-col justify-center md:col-span-7 border-l-[3px] border-[#3886CE] pl-6 md:pl-8 lg:pl-12 py-2">
                         <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-8 md:mb-10 max-w-2xl">
                             {callOutContent.split("—").map(
                                 (
@@ -111,7 +111,7 @@ export function Services() {
                                 <div className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white shadow-[0_10px_40px_rgba(15,23,42,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
 
                                     {/* subtle grid bg */}
-                                    <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:28px_28px]" />
+                                    <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#135498_1px,transparent_1px)] [background-size:28px_28px]" />
 
                                     <div className="relative flex flex-col md:flex-row min-h-[460px] md:min-h-[480px] lg:min-h-[520px]">
 
@@ -150,7 +150,7 @@ export function Services() {
                                             <div className="relative z-10 mt-8 md:mt-10">
                                                 <Link
                                                     href={svc.href}
-                                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_35px_rgba(37,99,235,0.35)]"
+                                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#135498] to-[#3886CE] px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-[0_10px_30px_rgba(19,84,152,0.25)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_35px_rgba(19,84,152,0.35)]"
                                                 >
                                                     Explore service
                                                     <ArrowRightIcon className="h-4 w-4" />
@@ -162,7 +162,7 @@ export function Services() {
                                         <div className="hidden md:block relative flex-1 min-h-[260px] md:min-h-full overflow-hidden bg-gradient-to-br from-slate-50 to-white">
 
                                             {/* soft glow */}
-                                            <div className="absolute right-[-20%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#3b82f6]/10 blur-3xl" />
+                                            <div className="absolute right-[-20%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#3886CE]/10 blur-3xl" />
 
                                             {/* left fade */}
                                             <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent md:block z-10" />

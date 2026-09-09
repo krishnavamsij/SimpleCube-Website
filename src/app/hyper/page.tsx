@@ -228,7 +228,7 @@ export default function HyperPage() {
                                 key={idx}
                                 className="group relative rounded-[18px] flex flex-col pt-[30px] px-[30px] pb-[20px] transition-all duration-300"
                                 style={{
-                                    background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, rgba(168, 85, 247, 0.52), rgba(59, 130, 246, 0.53), rgba(12, 16, 43, 0.56)) border-box',
+                                    background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, rgba(168, 85, 247, 0.52), rgba(56, 134, 206, 0.53), rgba(12, 16, 43, 0.56)) border-box',
                                     border: '1px solid transparent'
                                 }}
                             >
@@ -250,7 +250,7 @@ export default function HyperPage() {
                                 </div>
 
                                 {/* Hover Effect Gradient Overlay */}
-                                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #a855f7, #3b82f6, #00d4aa) border-box', border: '1px solid transparent' }}></div>
+                                <div className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(#040c31, #040c31) padding-box, linear-gradient(320deg, #a855f7, #3886CE, #3886CE) border-box', border: '1px solid transparent' }}></div>
                             </div>
                         ))}
                     </div>

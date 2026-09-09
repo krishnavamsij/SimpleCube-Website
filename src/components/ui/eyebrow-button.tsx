@@ -12,11 +12,11 @@ interface EyebrowButtonProps {
 export function EyebrowButton({ href, onClick, className = "", children = "CONTACT US", html }: EyebrowButtonProps) {
     const baseClassName = `
         eyebrow
-        text-[#1e90ff] 
-        bg-[#1e90ff]/10 
-        border border-[#1e90ff]/20
-        hover:bg-[#1e90ff]/20
-        hover:border-[#1e90ff]/40
+        text-[#3886CE] 
+        bg-[#3886CE]/10 
+        border border-[#3886CE]/20
+        hover:bg-[#3886CE]/20
+        hover:border-[#3886CE]/40
         transition-all
         duration-300
         ${className}
@@ -25,7 +25,7 @@ export function EyebrowButton({ href, onClick, className = "", children = "CONTA
     if (href) {
         return (
             <Link href={href} onClick={onClick} className={baseClassName}>
-                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                 <span>{children}</span>
             </Link>
         );
@@ -33,7 +33,7 @@ export function EyebrowButton({ href, onClick, className = "", children = "CONTA
 
     return (
         <button type="button" onClick={onClick} className={baseClassName}>
-            <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
             <span>{children}</span>
         </button>
     );

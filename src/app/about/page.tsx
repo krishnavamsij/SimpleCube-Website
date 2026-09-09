@@ -46,10 +46,10 @@ const viewportOnce = { once: true, margin: "-100px" };
 
 function AboutHero() {
     return (
-        <section className="relative overflow-hidden bg-[#030b1e] min-h-dvh w-full flex items-start lg:items-center pt-20 sm:pt-24 md:pt-24 lg:pt-0 pb-12 lg:pb-0">
+        <section className="relative overflow-hidden bg-[#0A2F52] min-h-dvh w-full flex items-start lg:items-center pt-20 sm:pt-24 md:pt-24 lg:pt-0 pb-12 lg:pb-0">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_50%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_50%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -60,7 +60,7 @@ function AboutHero() {
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918] via-[#020918]/85 to-transparent" />
 
             {/* Tablet background radial glow (md to lg) */}
-            <div className="hidden md:block lg:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[520px] md:w-[680px] h-[280px] md:h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.22)_0%,transparent_70%)] pointer-events-none" />
+            <div className="hidden md:block lg:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[520px] md:w-[680px] h-[280px] md:h-[360px] bg-[radial-gradient(ellipse_at_center,rgba(19,84,152,0.22)_0%,transparent_70%)] pointer-events-none" />
 
             {/* 3D Digital Globe — Positioned on Right for Desktop / Laptop (>= lg) */}
             <div className="hidden lg:block absolute top-[55%] -translate-y-[42%] right-[-10%] w-[58%] xl:w-[60%] max-w-[900px] aspect-square pointer-events-none z-0">
@@ -82,17 +82,17 @@ function AboutHero() {
                         className="w-full lg:w-[54%] xl:w-[50%] max-w-[750px]"
                     >
                         <motion.div variants={fadeInUp} className="mb-8 sm:mb-10 lg:mb-10 xl:mb-12">
-                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
-                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
-                                WHO WE ARE
+                            <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
+                                TEXAS · BOUTIQUE DELIVERY
                             </span>
                         </motion.div>
                         <motion.h1
                             variants={fadeInUp}
                             className="text-4xl sm:text-5xl lg:text-[44px] xl:text-[54px] 2xl:text-[62px] font-black leading-[1.08] tracking-tight text-white mb-8 sm:mb-10 lg:mb-10 xl:mb-14 font-display"
                         >
-                            <span className="block whitespace-nowrap">Product Thinking.</span>
-                            <span className="block whitespace-nowrap">Enterprise Impact.</span>
+                            <span className="block whitespace-nowrap">Texas Roots.</span>
+                            <span className="block whitespace-nowrap">Boutique Precision.</span>
                         </motion.h1>
                         <motion.p
                             variants={fadeInUp}
@@ -142,17 +142,17 @@ function ApiSection() {
                 {/* Left Hand Side - Content */}
                 <div className="w-full lg:w-[40%] flex flex-col justify-center bg-white/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-3xl z-30 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
                     <div className="mb-6 lg:mb-14">
-                        <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
-                            <span className="dot bg-[#2563eb]" />
+                        <span className="eyebrow text-[#135498] bg-[#135498]/[0.08] border border-[#135498]/25 backdrop-blur-md">
+                            <span className="dot bg-[#135498]" />
                             OUR FOUNDATION
                         </span>
                     </div>
                     <h2 className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-14 font-medium">
-                        At the core of Hyniva are three defining strengths:<br /> <span className="font-semibold text-slate-800">Agility, People and Innovation.</span>
+                        At the core of SimpleCube are three defining strengths:<br /> <span className="font-semibold text-slate-800">Boutique Attention, Cost-Effective Agility, and Full-Stack Mastery.</span>
                     </h2>
                     <p className="text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#0f172a] leading-[1.12] tracking-tight font-display">
                         We call it the <br className="hidden lg:block"/>
-                        <span className="text-[#1e90ff]">Hyniva API.</span>
+                        <span className="text-[#3886CE]">SimpleCube Advantage.</span>
                     </p>
                 </div>
 
@@ -180,13 +180,13 @@ function ApiSection() {
                                     <linearGradient id="grad-hyniva-front" x1="0" y1="1" x2="0" y2="0">
                                         <stop offset="0%" stopColor="#8b5cf6"/>
                                         <stop offset="50%" stopColor="#10b981"/>
-                                        <stop offset="100%" stopColor="#3b82f6"/>
+                                        <stop offset="100%" stopColor="#3886CE"/>
                                     </linearGradient>
 
                                     <linearGradient id="grad-hyniva-back" x1="0" y1="1" x2="0" y2="0">
                                         <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.8"/>
                                         <stop offset="50%" stopColor="#059669" stopOpacity="0.8"/>
-                                        <stop offset="100%" stopColor="#2563eb" stopOpacity="0.8"/>
+                                        <stop offset="100%" stopColor="#135498" stopOpacity="0.8"/>
                                     </linearGradient>
 
                                     <filter id="sphere-shade" x="-20%" y="-20%" width="140%" height="140%">
@@ -221,9 +221,9 @@ function ApiSection() {
 
                                         { y: 275, w: 35, color: "#93c5fd" },
                                         { y: 250, w: 65, color: "#60a5fa" },
-                                        { y: 225, w: 100, color: "#3b82f6" },
-                                        { y: 200, w: 120, color: "#2563eb" },
-                                        { y: 175, w: 100, color: "#3b82f6" },
+                                        { y: 225, w: 100, color: "#3886CE" },
+                                        { y: 200, w: 120, color: "#135498" },
+                                        { y: 175, w: 100, color: "#3886CE" },
                                         { y: 150, w: 65, color: "#60a5fa" },
                                         { y: 125, w: 35, color: "#93c5fd" }
                                     ].map((rung, i) => (
@@ -289,11 +289,11 @@ function ApiSection() {
                                         hidden: { opacity: 0, scale: 0.8 },
                                         visible: { opacity: 1, scale: 1, transition: { duration: 1 } }
                                     }}
-                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[300px] h-[110px] sm:h-[150px] bg-blue-500/10 blur-[40px] sm:blur-[50px] rounded-full pointer-events-none"
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[300px] h-[110px] sm:h-[150px] bg-[#e8f1fa]0/10 blur-[40px] sm:blur-[50px] rounded-full pointer-events-none"
                                 />
                                 <div className="relative z-30 mb-1 sm:mb-2 translate-y-1 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 xl:translate-y-3">
-                                    <h3 className="text-[32px] xs:text-[36px] sm:text-[44px] lg:text-[44px] xl:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#1e3a8a] drop-shadow-[0_4px_8px_rgba(37,99,235,0.2)] font-display uppercase">
-                                        API
+                                    <h3 className="text-[32px] xs:text-[36px] sm:text-[44px] lg:text-[44px] xl:text-[52px] leading-none font-[900] tracking-wider text-center bg-clip-text text-transparent bg-gradient-to-b from-[#0a192f] to-[#135498] drop-shadow-[0_4px_8px_rgba(19,84,152,0.2)] font-display uppercase">
+                                        ADV
                                     </h3>
                                 </div>
                                 <div className="relative w-[160px] xs:w-[190px] sm:w-[240px] md:w-[280px] h-[34px] xs:h-[42px] sm:h-[50px] md:h-[60px] z-20">
@@ -303,7 +303,7 @@ function ApiSection() {
                                         <motion.div 
                                             animate={{ opacity: [0.4, 0.8, 0.4] }}
                                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                            className="w-[55px] xs:w-[65px] sm:w-[80px] md:w-[100px] h-[8px] xs:h-[10px] sm:h-[12px] md:h-[16px] bg-blue-500/20 blur-md rounded-[100%]"
+                                            className="w-[55px] xs:w-[65px] sm:w-[80px] md:w-[100px] h-[8px] xs:h-[10px] sm:h-[12px] md:h-[16px] bg-[#e8f1fa]0/20 blur-md rounded-[100%]"
                                         />
                                     </div>
                                 </div>
@@ -326,9 +326,9 @@ function ApiSection() {
                                     <div className="absolute inset-0 rounded-full border-2 border-purple-200/60 m-[1.5px] sm:m-[2px]"></div>
                                     <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-[#7c3aed]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#7c3aed] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Innovation</h4>
+                                <h4 className="text-[#7c3aed] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Full-Stack</h4>
                                 <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[12.5px] xl:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-3.5 xl:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-purple-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    Innovation reflects technical depth to turn <span className="text-[#7c3aed] font-bold">ideas into impact.</span>
+                                    Full-stack mastery across Angular, React, Node.js &amp; Java — the <span className="text-[#7c3aed] font-bold">right tool for each challenge.</span>
                                 </p>
                             </motion.div>
 
@@ -344,9 +344,9 @@ function ApiSection() {
                                     <div className="absolute inset-0 rounded-full border-2 border-green-200/60 m-[1.5px] sm:m-[2px]"></div>
                                     <Users className="w-3 h-3 sm:w-4 sm:h-4 text-[#16a34a]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#16a34a] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">People</h4>
+                                <h4 className="text-[#16a34a] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Boutique</h4>
                                 <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[12.5px] xl:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-3.5 xl:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-green-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    People drive outcomes with deep commitment to <span className="text-[#16a34a] font-bold">customer success.</span>
+                                    Boutique attention — you work directly with <span className="text-[#16a34a] font-bold">senior developers &amp; leadership.</span>
                                 </p>
                             </motion.div>
 
@@ -358,13 +358,13 @@ function ApiSection() {
                                 }}
                                 className="absolute top-[8%] sm:top-[14%] lg:top-[14%] left-[-1%] sm:left-[1%] lg:left-[0%] xl:left-[2%] 2xl:left-[6%] w-[130px] xs:w-[145px] sm:w-[210px] lg:w-[210px] xl:w-[250px] flex flex-col items-center text-center group"
                             >
-                                <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(37,99,235,0.2)] sm:shadow-[0_8px_25px_rgba(37,99,235,0.25)] border border-blue-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
+                                <div className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-[0_4px_15px_rgba(19,84,152,0.2)] sm:shadow-[0_8px_25px_rgba(19,84,152,0.25)] border border-blue-100 flex items-center justify-center mb-1 sm:mb-2 relative transition-transform hover:-translate-y-1">
                                     <div className="absolute inset-0 rounded-full border-2 border-blue-200/60 m-[1.5px] sm:m-[2px]"></div>
-                                    <Gauge className="w-3 h-3 sm:w-4 sm:h-4 text-[#2563eb]" strokeWidth={2} />
+                                    <Gauge className="w-3 h-3 sm:w-4 sm:h-4 text-[#135498]" strokeWidth={2} />
                                 </div>
-                                <h4 className="text-[#2563eb] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Agility</h4>
+                                <h4 className="text-[#135498] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[9px] sm:text-xs lg:text-sm mb-1 sm:mb-2 uppercase">Agility</h4>
                                 <p className="text-[9.5px] xs:text-[10.5px] sm:text-[11.5px] lg:text-[13px] text-slate-600 leading-[1.35] sm:leading-[1.5] font-medium bg-white/95 sm:bg-white/90 p-2 xs:p-2.5 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg border border-blue-50/50 backdrop-blur-xl relative z-20 text-center">
-                                    Agility powers speed &amp; precision through our <span className="text-[#2563eb] font-bold">Digital Factory</span> model.
+                                    Cost-effective agility — lean structure and <span className="text-[#135498] font-bold">Agile SDLC</span> for faster delivery.
                                 </p>
                             </motion.div>
 
@@ -380,7 +380,7 @@ function ApiSection() {
 
 function LeadershipSection() {
     return (
-        <section id="leadership" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#030b1e] pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-white scroll-mt-24">
+        <section id="leadership" className="relative bg-gradient-to-br from-[#020918] via-[#061244] to-[#0A2F52] pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-white scroll-mt-24">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 relative z-10">
                 
                 {/* Header Area */}
@@ -394,8 +394,8 @@ function LeadershipSection() {
                         className="w-full md:w-[55%] xl:w-1/2"
                     >
                         <div className="mb-6 lg:mb-8">
-                            <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md inline-flex items-center">
-                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                            <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md inline-flex items-center">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 OUR LEADERSHIP TEAM
                             </span>
                         </div>
@@ -413,7 +413,7 @@ function LeadershipSection() {
                         className="w-full md:w-[38%] xl:w-[40%] md:ml-auto md:border-l md:border-slate-800 md:pl-8 xl:pl-12 md:mt-16 mt-4"
                     >
                         <p className="text-slate-300 text-base md:text-[17px] leading-relaxed font-medium max-w-[420px]">
-                            More than technology executives, our leaders are builders. From launching products to delivering large-scale transformations, they combine strategic vision with execution discipline to help clients move faster and innovate with confidence.
+                            {aboutContent.leadership.sectionDescription}
                         </p>
                     </motion.div>
                 </div>
@@ -465,7 +465,7 @@ function LeadershipSection() {
                                 <div className="flex justify-between items-start">
                                     <div>
                                         <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
-                                        <p className="text-[13px] font-semibold text-[#1e90ff] mb-5">{leader.title}</p>
+                                        <p className="text-[13px] font-semibold text-[#3886CE] mb-5">{leader.title}</p>
                                     </div>
                                     {/* @ts-ignore */}
                                     {leader.linkedin && (
@@ -508,8 +508,8 @@ function ValuesSection() {
                         className="lg:col-span-5 xl:col-span-4"
                     >
                         <div className="mb-10 lg:mb-14">
-                            <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
-                                <span className="dot bg-[#2563eb]" />
+                            <span className="eyebrow text-[#135498] bg-[#135498]/[0.08] border border-[#135498]/25 backdrop-blur-md">
+                                <span className="dot bg-[#135498]" />
                                 OUR VALUES
                             </span>
                         </div>
@@ -568,8 +568,8 @@ function OperationsSection() {
                     <div className="px-6 sm:px-8 lg:px-12 py-[30px] sm:py-[40px] lg:py-[50px]">
                         <div className="text-center mb-10 max-w-5xl mx-auto">
                             <div className="mb-6 flex justify-center">
-                                <span className="eyebrow text-[#2563eb] bg-[#2563eb]/[0.08] border border-[#2563eb]/25 backdrop-blur-md">
-                                    <span className="dot bg-[#2563eb]" />
+                                <span className="eyebrow text-[#135498] bg-[#135498]/[0.08] border border-[#135498]/25 backdrop-blur-md">
+                                    <span className="dot bg-[#135498]" />
                                     HOW WE WORK
                                 </span>
                             </div>
@@ -583,15 +583,15 @@ function OperationsSection() {
 
                         <div className="relative pt-8 pb-4">
                             {/* Connecting Line */}
-                            <div className="absolute top-[44px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
+                            <div className="absolute top-[44px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#135498] via-[#06b6d4] to-[#10b981] hidden md:block"></div>
 
                             <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12">
                                 {aboutContent.operations.howWeOperate.steps.map((item, idx) => (
                                     <div key={idx} className="flex flex-col items-center text-center relative z-10">
-                                        <div className="w-[48px] h-[48px] rounded-full bg-[#2563eb] text-white flex items-center justify-center font-black text-xl shadow-[0_0_15px_rgba(37,99,235,0.5)] mb-6 ring-8 ring-[#ECF6FF] font-display">
+                                        <div className="w-[48px] h-[48px] rounded-full bg-[#135498] text-white flex items-center justify-center font-black text-xl shadow-[0_0_15px_rgba(19,84,152,0.5)] mb-6 ring-8 ring-[#ECF6FF] font-display">
                                             {idx + 1}
                                         </div>
-                                        <h4 className="font-black text-[16px] text-[#030B3B] mb-3 font-display tracking-tight">
+                                        <h4 className="font-black text-[16px] text-[#0A2F52] mb-3 font-display tracking-tight">
                                             {item.title}
                                         </h4>
                                         <div className="text-[13px] sm:text-[13.5px] text-slate-500 font-medium leading-[1.5] w-full max-w-[280px] px-1.5">
@@ -615,63 +615,63 @@ function OperationsSection() {
 const digitalFactorySteps = [
     {
         number: "01",
-        title: "Discovery & Planning",
-        description: "Developer captures scope directly.",
-        color: "text-[#00D4AA]",
-        bgColor: "bg-[#00D4AA]/10",
-        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+        title: "Discovery & Sprint Planning",
+        description: "Scope captured with senior engineers directly.",
+        color: "text-[#3886CE]",
+        bgColor: "bg-[#3886CE]/10",
+        borderColor: "border-[#3886CE]/30 shadow-[0_0_10px_rgba(56,134,206,0.15)]",
     },
     {
         number: "02",
-        title: "Dev Project Planning",
-        description: "Developer writes the user stories.",
-        color: "text-[#1e90ff]",
-        bgColor: "bg-[#1e90ff]/10",
-        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+        title: "Frontend Engineering",
+        description: "Responsive UIs in Angular and React.",
+        color: "text-[#3886CE]",
+        bgColor: "bg-[#3886CE]/10",
+        borderColor: "border-[#3886CE]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
     },
     {
         number: "03",
-        title: "Engineering Dev & Quality Automation",
-        description: "One engineer owns scope, code & quality.",
-        color: "text-[#00A8FF]",
-        bgColor: "bg-[#00A8FF]/10",
-        borderColor: "border-[#00A8FF]/30 shadow-[0_0_10px_rgba(0,168,255,0.15)]",
+        title: "Backend & Architecture",
+        description: "Robust APIs with Java, Node.js & more.",
+        color: "text-[#3886CE]",
+        bgColor: "bg-[#3886CE]/10",
+        borderColor: "border-[#3886CE]/30 shadow-[0_0_10px_rgba(56,134,206,0.15)]",
         isHero: true,
     },
     {
         number: "04",
-        title: "Launch & Iterations",
-        description: "Same developer drives every release.",
-        color: "text-[#00D4AA]",
-        bgColor: "bg-[#00D4AA]/10",
-        borderColor: "border-[#00D4AA]/30 shadow-[0_0_10px_rgba(0,212,170,0.15)]",
+        title: "Agile Delivery Sprints",
+        description: "Rapid cycles with continuous client touchpoints.",
+        color: "text-[#3886CE]",
+        bgColor: "bg-[#3886CE]/10",
+        borderColor: "border-[#3886CE]/30 shadow-[0_0_10px_rgba(56,134,206,0.15)]",
     },
     {
         number: "05",
-        title: "Support & Product Evolution",
-        description: "Product knowledge stays with the team.",
-        color: "text-[#1e90ff]",
-        bgColor: "bg-[#1e90ff]/10",
-        borderColor: "border-[#1e90ff]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
+        title: "Launch & Iteration",
+        description: "MVP to market, then data-driven enhancements.",
+        color: "text-[#3886CE]",
+        bgColor: "bg-[#3886CE]/10",
+        borderColor: "border-[#3886CE]/30 shadow-[0_0_10px_rgba(30,144,255,0.15)]",
     },
 ];
 
 const lineGradients = [
-    "from-[#00D4AA]/40 to-[#1e90ff]/40",
-    "from-[#1e90ff]/40 to-[#00A8FF]/40",
-    "from-[#00A8FF]/40 to-[#00D4AA]/40",
-    "from-[#00D4AA]/40 to-[#1e90ff]/40",
+    "from-[#3886CE]/40 to-[#3886CE]/40",
+    "from-[#3886CE]/40 to-[#3886CE]/40",
+    "from-[#3886CE]/40 to-[#3886CE]/40",
+    "from-[#3886CE]/40 to-[#3886CE]/40",
 ];
 
 function DigitalFactorySection() {
-    const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
+    const roles = ["Account Manager Layers", "Junior Bench Handoffs", "Status-Meeting Overhead", "Rigid Change Queues"];
 
     return (
         <section className="bg-white pt-6 pb-[10px] sm:pb-[15px] lg:pb-[20px]">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 flex flex-col gap-4">
-                <div className="relative overflow-hidden bg-[#030B3B] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pb-[10px] sm:pb-[15px] lg:pb-[20px] text-white">
+                <div className="relative overflow-hidden bg-[#0A2F52] rounded-b-[32px] rounded-t-none shadow-2xl px-[30px] sm:px-[40px] lg:px-[50px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pb-[10px] sm:pb-[15px] lg:pb-[20px] text-white">
                     {/* Background glow effects */}
-                    <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#00D4AA]/10 blur-[120px]" />
+                    <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#3886CE]/10 blur-[120px]" />
                     <div className="pointer-events-none absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-[#1F35A4]/20 blur-[100px]" />
 
                     <div className="relative z-10">
@@ -683,7 +683,7 @@ function DigitalFactorySection() {
                             {/* Left: Headline & Callout */}
                             <div className="flex-1 w-full lg:max-w-2xl">
                                 <h2 className="text-[24px] xs:text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.2] sm:leading-[1.1] tracking-tight text-white mb-4 sm:mb-6 font-display">
-                                    Digital Factory <span className="text-[#00D4AA]">Model.</span>
+                                    Agile Delivery <span className="text-[#3886CE]">Model.</span>
                                 </h2>
                                 <p className="text-[14px] sm:text-[15px] font-medium leading-[1.65] text-white/70">
                                     The developer owns the full lifecycle enabling <strong className="font-bold text-white">Zero Handoff Friction,</strong> reducing overhead and increasing accountability at every stage.
@@ -707,7 +707,7 @@ function DigitalFactorySection() {
                             className="mt-8 lg:mt-10 mb-8 lg:mb-10 flex flex-col items-center justify-center gap-6 pt-1"
                         >
                             <span className="font-display text-[10px] sm:text-[11px] font-bold tracking-[2px] uppercase text-white/70 text-center">
-                                Roles you no longer need to staff
+                                What large agencies typically add
                             </span>
                             <div className="flex flex-wrap justify-center gap-2.5">
                                 {roles.map((role) => (
@@ -732,7 +732,7 @@ function DigitalFactorySection() {
                                     <div key={step.number} className="relative flex gap-4 sm:gap-6 items-start group">
                                         <div className="flex flex-col items-center flex-shrink-0 self-stretch relative">
                                             <div className={`relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 ${step.borderColor} ${step.color} font-bold text-sm sm:text-base font-display flex-shrink-0 z-10 transition-transform duration-300 group-hover:scale-110`}>
-                                                <div className="absolute inset-0 bg-[#030B3B] rounded-full -z-10" />
+                                                <div className="absolute inset-0 bg-[#0A2F52] rounded-full -z-10" />
                                                 <div className={`absolute inset-0 ${step.bgColor} rounded-full -z-10`} />
                                                 {step.number}
                                             </div>
@@ -742,7 +742,7 @@ function DigitalFactorySection() {
                                             )}
                                         </div>
                                         <div className="flex-1 pt-1 sm:pt-2">
-                                            <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#00A8FF]' : 'text-white'} transition-colors duration-300 group-hover:text-[#00D4AA]`}>
+                                            <h3 className={`text-[15px] sm:text-[17px] font-bold font-display leading-tight mb-1.5 ${step.isHero ? 'text-[#3886CE]' : 'text-white'} transition-colors duration-300 group-hover:text-[#3886CE]`}>
                                                 {step.title}
                                             </h3>
                                             <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/70 font-medium">
@@ -766,8 +766,8 @@ function DigitalFactorySection() {
                                     @keyframes hFloat3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
                                     @keyframes hFloat4 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
                                     .hpg { cursor:pointer; }
-                                    .hpg:hover .hs { filter: brightness(1.25) drop-shadow(0 0 14px rgba(0,212,170,0.6)); }
-                                    .hpg:hover .hlabel { fill:#00D4AA; }
+                                    .hpg:hover .hs { filter: brightness(1.25) drop-shadow(0 0 14px rgba(56,134,206,0.6)); }
+                                    .hpg:hover .hlabel { fill:#3886CE; }
                                     .hfloat-0 { animation: hFloat0 5s ease-in-out infinite 0s; }
                                     .hfloat-1 { animation: hFloat1 6s ease-in-out infinite 0.8s; }
                                     .hfloat-2 { animation: hFloat2 4.5s ease-in-out infinite 1.6s; }
@@ -781,14 +781,14 @@ function DigitalFactorySection() {
                                     <radialGradient id="hs1" cx="33%" cy="28%" r="64%">
                                         <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
                                         <stop offset="25%" stopColor="#a8f0e8" stopOpacity="0.95" />
-                                        <stop offset="60%" stopColor="#00D4AA" stopOpacity="0.88" />
+                                        <stop offset="60%" stopColor="#3886CE" stopOpacity="0.88" />
                                         <stop offset="100%" stopColor="#041630" stopOpacity="0.85" />
                                     </radialGradient>
                                     {/* Cyan sphere (hero center) */}
                                     <radialGradient id="hs3" cx="33%" cy="28%" r="64%">
                                         <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
                                         <stop offset="22%" stopColor="#b8e8ff" stopOpacity="0.96" />
-                                        <stop offset="58%" stopColor="#00A8FF" stopOpacity="0.9" />
+                                        <stop offset="58%" stopColor="#3886CE" stopOpacity="0.9" />
                                         <stop offset="100%" stopColor="#041630" stopOpacity="0.85" />
                                     </radialGradient>
                                     {/* Navy sphere */}
@@ -800,16 +800,16 @@ function DigitalFactorySection() {
                                     </radialGradient>
                                     {/* Glow halos */}
                                     <radialGradient id="gh1" cx="50%" cy="50%" r="50%">
-                                        <stop offset="0%" stopColor="#00D4AA" stopOpacity="0.28" />
-                                        <stop offset="100%" stopColor="#00D4AA" stopOpacity="0" />
+                                        <stop offset="0%" stopColor="#3886CE" stopOpacity="0.28" />
+                                        <stop offset="100%" stopColor="#3886CE" stopOpacity="0" />
                                     </radialGradient>
                                     <radialGradient id="gh2" cx="50%" cy="50%" r="50%">
                                         <stop offset="0%" stopColor="#1F35A4" stopOpacity="0.32" />
                                         <stop offset="100%" stopColor="#1F35A4" stopOpacity="0" />
                                     </radialGradient>
                                     <radialGradient id="gh3" cx="50%" cy="50%" r="50%">
-                                        <stop offset="0%" stopColor="#00A8FF" stopOpacity="0.35" />
-                                        <stop offset="100%" stopColor="#00A8FF" stopOpacity="0" />
+                                        <stop offset="0%" stopColor="#3886CE" stopOpacity="0.35" />
+                                        <stop offset="100%" stopColor="#3886CE" stopOpacity="0" />
                                     </radialGradient>
                                     {/* Clip paths */}
                                     <clipPath id="hc1"><circle cx="88" cy="82" r="30" /></clipPath>
@@ -826,7 +826,7 @@ function DigitalFactorySection() {
                                     viewport={{ once: false }}
                                     transition={{ duration: 1.5, ease: "easeInOut" }}
                                     d="M 88 82 C 140 90, 200 203, 272 195 C 344 187, 390 78, 500 68 C 598 60, 660 225, 728 218 C 798 210, 868 140, 922 134"
-                                    fill="none" stroke="rgba(0,168,255,0.10)" strokeWidth="5"
+                                    fill="none" stroke="rgba(56,134,206,0.10)" strokeWidth="5"
                                 />
                                 {/* Wave main */}
                                 <motion.path
@@ -848,10 +848,10 @@ function DigitalFactorySection() {
                                 />
 
                                 {/* Sparkles */}
-                                <circle cx="178" cy="158" r="2.2" fill="rgba(0,212,170,0.45)" />
-                                <circle cx="388" cy="138" r="1.8" fill="rgba(0,168,255,0.40)" />
-                                <circle cx="614" cy="132" r="2.2" fill="rgba(0,212,170,0.42)" />
-                                <circle cx="826" cy="164" r="1.8" fill="rgba(0,168,255,0.36)" />
+                                <circle cx="178" cy="158" r="2.2" fill="rgba(56,134,206,0.45)" />
+                                <circle cx="388" cy="138" r="1.8" fill="rgba(56,134,206,0.40)" />
+                                <circle cx="614" cy="132" r="2.2" fill="rgba(56,134,206,0.42)" />
+                                <circle cx="826" cy="164" r="1.8" fill="rgba(56,134,206,0.36)" />
 
                                 {/* Halos */}
                                 <circle cx="88" cy="94" r="44" fill="url(#gh1)" opacity="0.7" />
@@ -860,49 +860,49 @@ function DigitalFactorySection() {
                                 <circle cx="728" cy="232" r="56" fill="url(#gh1)" opacity="0.55" />
                                 <circle cx="922" cy="146" r="46" fill="url(#gh2)" opacity="0.65" />
 
-                                {/* ── Planet 1: Discovery & Planning (teal, small, high) ── */}
+                                {/* ── Planet 1: Discovery & Sprint Planning ── */}
                                 <g className="hpg hfloat-0" style={{ transformOrigin: "88px 82px" }}>
-                                    <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Discovery &amp; Planning</text>
+                                    <text x="88" y="36" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#3886CE" className="hlabel">Discovery &amp; Sprint Planning</text>
                                     <circle cx="88" cy="82" r="30" fill="url(#hs1)" className="hs" />
                                     <ellipse cx="88" cy="90" rx="28" ry="5.5" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc1)" />
-                                    <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer captures</text>
-                                    <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">scope directly.</text>
+                                    <text x="88" y="132" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Senior engineers</text>
+                                    <text x="88" y="145" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">capture scope.</text>
                                 </g>
 
-                                {/* ── Planet 2: Dev Project Planning (navy, medium, low) ── */}
+                                {/* ── Planet 2: Frontend Engineering ── */}
                                 <g className="hpg hfloat-1" style={{ transformOrigin: "272px 195px" }}>
-                                    <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Dev Project Planning</text>
+                                    <text x="272" y="129" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#3886CE" className="hlabel">Frontend Engineering</text>
                                     <circle cx="272" cy="195" r="50" fill="url(#hs2)" className="hs" />
                                     <ellipse cx="272" cy="206" rx="47" ry="9" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc2)" />
-                                    <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Developer writes</text>
-                                    <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">the user stories.</text>
+                                    <text x="272" y="265" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Angular &amp; React</text>
+                                    <text x="272" y="278" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">responsive UIs.</text>
                                 </g>
 
-                                {/* ── Planet 3: Engineering Dev & Quality Automation (cyan, large, peak center) ── */}
+                                {/* ── Planet 3: Backend & Architecture ── */}
                                 <g className="hpg hfloat-2" style={{ transformOrigin: "500px 68px" }}>
-                                    <text x="500" y="-20" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="12" fontWeight="700" fill="#00A8FF" className="hlabel">Engineering Dev &amp; Quality Automation</text>
+                                    <text x="500" y="-20" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="12" fontWeight="700" fill="#3886CE" className="hlabel">Backend &amp; Architecture</text>
                                     <circle cx="500" cy="68" r="78" fill="url(#hs3)" className="hs" />
                                     <ellipse cx="500" cy="82" rx="74" ry="14" fill="none" stroke="rgba(100,160,255,0.25)" strokeWidth="1.5" clipPath="url(#hc3)" />
-                                    <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">One engineer owns scope,</text>
-                                    <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">code &amp; quality.</text>
+                                    <text x="500" y="166" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Java, Node.js &amp; APIs</text>
+                                    <text x="500" y="179" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">built for scale.</text>
                                 </g>
 
-                                {/* ── Planet 4: Launch & Iterations (teal, medium, low) ── */}
+                                {/* ── Planet 4: Agile Delivery Sprints ── */}
                                 <g className="hpg hfloat-3" style={{ transformOrigin: "728px 218px" }}>
-                                    <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Launch &amp; Iterations</text>
+                                    <text x="728" y="162" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#3886CE" className="hlabel">Agile Delivery Sprints</text>
                                     <circle cx="728" cy="218" r="42" fill="url(#hs1)" className="hs" />
                                     <ellipse cx="728" cy="228" rx="39" ry="7.5" fill="none" stroke="rgba(100,160,255,0.30)" strokeWidth="1" clipPath="url(#hc4)" />
-                                    <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Same developer</text>
-                                    <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">drives every release.</text>
+                                    <text x="728" y="280" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Rapid cycles with</text>
+                                    <text x="728" y="293" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">client touchpoints.</text>
                                 </g>
 
-                                {/* ── Planet 5: Support & Product Evolution (navy, small, high) ── */}
+                                {/* ── Planet 5: Launch & Iteration ── */}
                                 <g className="hpg hfloat-4" style={{ transformOrigin: "922px 134px" }}>
-                                    <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#00A8FF" className="hlabel">Support &amp; Product Evolution</text>
+                                    <text x="922" y="86" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="11" fontWeight="700" fill="#3886CE" className="hlabel">Launch &amp; Iteration</text>
                                     <circle cx="922" cy="134" r="32" fill="url(#hs2)" className="hs" />
                                     <ellipse cx="922" cy="143" rx="30" ry="5.8" fill="none" stroke="rgba(100,160,255,0.35)" strokeWidth="1" clipPath="url(#hc5)" />
-                                    <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">Product knowledge</text>
-                                    <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">stays with the team.</text>
+                                    <text x="922" y="186" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">MVP to market,</text>
+                                    <text x="922" y="199" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fontWeight="400" fill="rgba(255,255,255,0.7)">then iterate fast.</text>
                                 </g>
                             </svg>
                         </motion.div>
@@ -1001,7 +1001,7 @@ function TimelineSection() {
                             onClick={() => scrollToYear(year)}
                             className={`py-2 sm:py-3 md:py-4 px-3 sm:px-5 min-w-[60px] sm:min-w-[85px] border transition-colors focus-visible:outline-none focus-visible:ring-2 rounded-sm font-semibold text-[12px] sm:text-[15px] leading-5 tracking-wider
                                 ${activeYear === year
-                                    ? 'bg-[#2563eb] text-white border-[#2563eb]'
+                                    ? 'bg-[#135498] text-white border-[#135498]'
                                     : 'bg-white text-slate-900 border-slate-200 hover:border-slate-400'
                                 }`}
                         >
@@ -1059,7 +1059,7 @@ function TimelineSection() {
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe] flex flex-col items-center justify-center p-8 text-center group-hover:scale-105 transition-transform duration-700">
                                                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
-                                                        <span className="text-[#2563eb] font-bold text-xl">{year}</span>
+                                                        <span className="text-[#135498] font-bold text-xl">{year}</span>
                                                     </div>
                                                     {/* @ts-ignore */}
                                                     <h4 className="font-bold text-slate-800 text-lg leading-snug">{item.title}</h4>

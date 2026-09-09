@@ -222,7 +222,7 @@ function KeyMetrics() {
                     variants={fadeInUp}
                     className="flex flex-col items-center sm:items-start text-center sm:text-left"
                 >
-                    <div className="text-4xl sm:text-5xl font-bold text-blue-600 font-display">
+                    <div className="text-4xl sm:text-5xl font-bold text-[#135498] font-display">
                         {metric.value}
                     </div>
                     <p className="mt-3 text-sm sm:text-base text-slate-600 font-medium whitespace-pre-line">
@@ -282,7 +282,7 @@ function LeadershipSection() {
                                 <h3 className="text-lg font-bold text-slate-900 font-display">
                                     {leader.name}
                                 </h3>
-                                <p className="mt-1 text-sm font-semibold text-blue-600">
+                                <p className="mt-1 text-sm font-semibold text-[#135498]">
                                     {leader.title}
                                 </p>
                                 <p className="mt-3 text-sm text-slate-600">
@@ -329,7 +329,7 @@ function HowWeOperateSection() {
                         >
                             <div className="flex-shrink-0">
                                 <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                                    <span className="text-lg font-bold text-blue-600 font-display">{idx + 1}</span>
+                                    <span className="text-lg font-bold text-[#135498] font-display">{idx + 1}</span>
                                 </div>
                             </div>
                             <div className="flex-1">
@@ -389,7 +389,7 @@ function HowWeWorkSection() {
                             <div className="flex gap-6 sm:gap-8">
                                 {/* Number circle */}
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg group-hover:shadow-xl transition-shadow">
+                                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-[#135498] to-blue-700 shadow-lg group-hover:shadow-xl transition-shadow">
                                         <span className="text-2xl font-bold text-white font-display">{step.number}</span>
                                     </div>
                                 </div>
@@ -457,7 +457,7 @@ function DigitalFactorySection() {
                             <ul className="mt-8 space-y-4">
                                 {box.points.map((point, pIdx) => (
                                     <li key={pIdx} className="flex items-start gap-3">
-                                        <span className="flex-shrink-0 mt-1.5 h-2 w-2 rounded-full bg-blue-600" />
+                                        <span className="flex-shrink-0 mt-1.5 h-2 w-2 rounded-full bg-[#135498]" />
                                         <span className="text-slate-600">{point}</span>
                                     </li>
                                 ))}
@@ -502,7 +502,7 @@ function WhatSetsUsApartSection() {
                         >
                             <div className="absolute -top-8 -right-8 h-32 w-32 bg-blue-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <h3 className="relative text-lg font-bold text-slate-900 font-display flex items-start gap-3">
-                                <span className="flex-shrink-0 mt-1 h-2 w-2 rounded-full bg-blue-600" />
+                                <span className="flex-shrink-0 mt-1 h-2 w-2 rounded-full bg-[#135498]" />
                                 {item.title}
                             </h3>
                             <p className="relative mt-4 text-slate-600 leading-relaxed">
@@ -541,7 +541,7 @@ function TimelineSection() {
                     className="relative space-y-8"
                 >
                     {/* Timeline line */}
-                    <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-blue-400 to-blue-100 sm:-translate-x-1/2" />
+                    <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#135498] via-blue-400 to-blue-100 sm:-translate-x-1/2" />
 
                     {timeline.map((item, idx) => (
                         <motion.div
@@ -551,15 +551,15 @@ function TimelineSection() {
                         >
                             {/* Timeline dot */}
                             <div className="flex-shrink-0">
-                                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-white border-4 border-blue-600 shadow-lg">
-                                    <div className="h-8 w-8 rounded-full bg-blue-600" />
+                                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-white border-4 border-[#135498] shadow-lg">
+                                    <div className="h-8 w-8 rounded-full bg-[#135498]" />
                                 </div>
                             </div>
 
                             {/* Content */}
                             <div className={`flex-1 sm:w-1/2 ${idx % 2 === 0 ? 'sm:pr-12 sm:text-right' : 'sm:pl-12 sm:text-left'}`}>
                                 <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                                    <span className="text-2xl font-bold text-blue-600 font-display">{item.year}</span>
+                                    <span className="text-2xl font-bold text-[#135498] font-display">{item.year}</span>
                                     <h3 className="mt-2 text-lg font-bold text-slate-900 font-display">
                                         {item.title}
                                     </h3>
@@ -579,7 +579,7 @@ function TimelineSection() {
 /* ─────────────── What We Believe Section ─────────────── */
 function WhatWeBelieveSection() {
     return (
-        <section className="py-20 sm:py-28 md:py-32 bg-gradient-to-br from-blue-600 to-blue-700">
+        <section className="py-20 sm:py-28 md:py-32 bg-gradient-to-br from-[#135498] to-blue-700">
             <div className="mx-auto max-w-4xl px-6 sm:px-8">
                 <motion.div
                     variants={fadeInUp}
@@ -609,7 +609,7 @@ const orbitingCards = [
     { icon: "💡", title: "Ideas", color: "from-pink-500 to-rose-700" },
     { icon: "🌐", title: "Global", color: "from-cyan-500 to-teal-700" },
     { icon: "⚙️", title: "Efficiency", color: "from-slate-500 to-slate-700" },
-    { icon: "🎨", title: "Design", color: "from-indigo-500 to-indigo-700" },
+    { icon: "🎨", title: "Design", color: "from-[#3886CE] to-indigo-700" },
     { icon: "📊", title: "Analytics", color: "from-emerald-500 to-emerald-700" },
     { icon: "🤝", title: "Partnership", color: "from-amber-500 to-amber-700" },
     { icon: "🔄", title: "Agility", color: "from-violet-500 to-violet-700" },
@@ -622,7 +622,7 @@ function HeroSection() {
         <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 pt-20">
             {/* Background effects */}
             <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
+                <div className="absolute top-20 left-10 w-72 h-72 bg-[#e8f1fa]0 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
                 <div className="absolute -bottom-8 right-10 w-72 h-72 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000" />
             </div>
 
@@ -637,7 +637,7 @@ function HeroSection() {
                     >
                         {/* Eyebrow */}
                         <motion.div variants={fadeInUp}>
-                            <span className="eyebrow text-blue-300 bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
+                            <span className="eyebrow text-blue-300 bg-[#e8f1fa]0/10 border border-blue-400/30 backdrop-blur-md">
                                 <span className="dot bg-blue-400 shadow-blue-400" />
                                 Who We Are
                             </span>
@@ -654,7 +654,7 @@ function HeroSection() {
                         {/* Callout */}
                         <motion.div
                             variants={fadeInUp}
-                            className="mt-8 bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm"
+                            className="mt-8 bg-gradient-to-r from-blue-500/10 to-[#135498]/10 border border-blue-400/30 rounded-xl p-6 backdrop-blur-sm"
                         >
                             <p className="text-base sm:text-lg text-blue-50 leading-relaxed font-medium">
                                 Our mission is to simplify enterprise complexity through products and technology services that deliver measurable outcomes and enable organizations to scale with confidence.

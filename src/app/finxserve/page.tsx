@@ -193,7 +193,7 @@ export default function FinxservePage() {
                                                             aria-label={`Go to slide ${dotIdx + 1}`}
                                                             className={`transition-all duration-300 rounded-full cursor-pointer ${
                                                                 currentSlide === dotIdx 
-                                                                    ? "w-7 h-2.5 bg-[#3B82F6] shadow-[0_0_10px_rgba(59,130,246,0.8)]" 
+                                                                    ? "w-7 h-2.5 bg-[#3886CE] shadow-[0_0_10px_rgba(56,134,206,0.8)]" 
                                                                     : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
                                                             }`}
                                                         />
@@ -374,7 +374,7 @@ export default function FinxservePage() {
                 </div>
             </section>
 
-            <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#030B3B]">
+            <section id="enterprise" className="py-[30px] sm:py-[40px] lg:py-[50px] bg-[#0A2F52]">
                 <div className={CONTAINER_CLASS}>
                     <motion.div
                         variants={scrollReveal}
@@ -487,7 +487,7 @@ export default function FinxservePage() {
                         viewport={viewportOnce}
                     >
                         <header className="mb-14 lg:mb-16">
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#030B3B] mb-6">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2F52] mb-6">
                                 Case Studies
                             </h2>
                             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
@@ -501,7 +501,7 @@ export default function FinxservePage() {
                                 return (
                                     <div
                                         key={cardKey}
-                                        className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full justify-between"
+                                        className="group flex flex-col rounded-[32px] bg-white border border-[#0A2F52]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative h-full justify-between"
                                     >
                                         {/* Card Image */}
                                         <div className="aspect-[1.8/1] overflow-hidden relative m-2.5 sm:m-3 rounded-[20px] sm:rounded-[24px]">
@@ -518,7 +518,7 @@ export default function FinxservePage() {
                                             {/* Title Wrapper */}
                                             <div className="mb-2.5 sm:mb-3 flex items-start">
                                                 <h3
-                                                    className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.35] tracking-tight"
+                                                    className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#0A2F52] leading-[1.35] tracking-tight"
                                                     dangerouslySetInnerHTML={{ __html: study.title }}
                                                 />
                                             </div>
@@ -531,7 +531,7 @@ export default function FinxservePage() {
                                             {/* CTA Button */}
                                             <Link
                                                 href={study.href}
-                                                className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#1e90ff]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] mt-auto"
+                                                className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#3886CE]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#3886CE] transition-all duration-300 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)] mt-auto"
                                             >
                                                 Read Case Study
                                                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />

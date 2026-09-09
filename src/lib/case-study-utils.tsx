@@ -96,7 +96,7 @@ export function parseCaseStudyTitle(slugOrHref: string): ParsedTitle {
         
         // Extract color from the class
         const classString = match[1];
-        let color = '#3B82F6'; // Default blue color
+        let color = '#3886CE'; // Default blue color
         
         // Look for Tailwind text color classes
         const colorMatch = classString.match(/text-\[([^\]]+)\]/);

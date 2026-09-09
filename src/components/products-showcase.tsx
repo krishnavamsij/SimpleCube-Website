@@ -9,12 +9,12 @@ import Link from "next/link";
 import { ArrowRightIcon, ArrowUpRightIcon, Landmark, Shield, TrendingUp, GraduationCap, Truck } from "lucide-react";
 
 const getTagIcon = (tag: string) => {
-    if (tag.includes("Financial")) return <Landmark className="w-3.5 h-3.5 text-[#1e90ff]" />;
-    if (tag.includes("Insurance")) return <Shield className="w-3.5 h-3.5 text-[#1e90ff]" />;
-    if (tag.includes("Wealth")) return <TrendingUp className="w-3.5 h-3.5 text-[#1e90ff]" />;
-    if (tag.includes("Education")) return <GraduationCap className="w-3.5 h-3.5 text-[#1e90ff]" />;
-    if (tag.includes("Logistics") || tag.includes("Transportation")) return <Truck className="w-3.5 h-3.5 text-[#1e90ff]" />;
-    return <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff]"></div>;
+    if (tag.includes("Financial")) return <Landmark className="w-3.5 h-3.5 text-[#3886CE]" />;
+    if (tag.includes("Insurance")) return <Shield className="w-3.5 h-3.5 text-[#3886CE]" />;
+    if (tag.includes("Wealth")) return <TrendingUp className="w-3.5 h-3.5 text-[#3886CE]" />;
+    if (tag.includes("Education")) return <GraduationCap className="w-3.5 h-3.5 text-[#3886CE]" />;
+    if (tag.includes("Logistics") || tag.includes("Transportation")) return <Truck className="w-3.5 h-3.5 text-[#3886CE]" />;
+    return <div className="w-1.5 h-1.5 rounded-full bg-[#3886CE]"></div>;
 };
 
 const ProductImageContainer = ({ p }: { p: any }) => {
@@ -71,7 +71,7 @@ export function ProductsShowcase() {
     const { label, headline, subheadline, rightCallout, logos, products } = productsContent;
 
     return (
-        <section className="relative bg-[#030B3B] text-white pt-[30px] pb-[20px] sm:pt-[40px] sm:pb-[30px] lg:pt-[50px] lg:pb-[30px]">
+        <section className="relative bg-[#0A2F52] text-white pt-[30px] pb-[20px] sm:pt-[40px] sm:pb-[30px] lg:pt-[50px] lg:pb-[30px]">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
                 {/* ── Section header ── */}
                 <motion.div
@@ -81,8 +81,8 @@ export function ProductsShowcase() {
                     viewport={viewportOnce}
                     className="mb-8 lg:mb-12"
                 >
-                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                    <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 rounded-full px-5 py-1.5 mb-8">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                         {label}
                     </div>
 
@@ -91,7 +91,7 @@ export function ProductsShowcase() {
                         <div className="md:col-span-7">
                             <h2 className="text-[32px] sm:text-[40px] md:text-[42px] lg:text-[44px] 2xl:text-[50px] font-extrabold tracking-tight leading-[1.08] text-white mb-5">
                                 Product innovation<br />
-                                is in our <span className="text-[#00D4AA]">DNA.</span>
+                                is in our <span className="text-[#3886CE]">DNA.</span>
                             </h2>
                             <p className="text-sm sm:text-base md:text-[13.5px] lg:text-[13.5px] xl:text-[14px] text-slate-400 font-normal leading-[1.5] max-w-[460px] xl:max-w-[480px]">
                                 {subheadline}
@@ -101,7 +101,7 @@ export function ProductsShowcase() {
                         {/* Right Side: Callout text — spans 5 cols, aligned to right grid line */}
                         <div className="md:col-span-5 md:col-start-8 flex justify-start md:justify-end w-full">
                             <div className="relative pl-6 w-fit">
-                                <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#00D4AA] rounded-full" />
+                                <span className="absolute left-0 top-[3px] bottom-[3px] w-[2px] bg-[#3886CE] rounded-full" />
                                 <p className="text-base sm:text-lg md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] text-slate-300 font-medium leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75]">
                                     Two of our flagship products were acquired by industry leaders —{" "}
                                     <span className="font-bold text-white">Fiserv</span> and{" "}
@@ -133,12 +133,12 @@ export function ProductsShowcase() {
                                                     href={logo.acquiredByUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
+                                                    className="inline-flex items-center gap-0.5 rounded-full border border-[#3886CE]/30 bg-[#3886CE]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3886CE] whitespace-nowrap hover:bg-[#3886CE]/20 transition-colors duration-200 cursor-pointer z-10"
                                                 >
                                                     <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
                                                 </a>
                                             ) : (
-                                                <div className="inline-flex items-center gap-0.5 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                                <div className="inline-flex items-center gap-0.5 rounded-full border border-[#3886CE]/30 bg-[#3886CE]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider font-bold text-[#3886CE] whitespace-nowrap">
                                                     <ArrowUpRightIcon className="w-2 h-2" /> {logo.acquiredBy}
                                                 </div>
                                             )
@@ -165,12 +165,12 @@ export function ProductsShowcase() {
                                                 href={logo.acquiredByUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap hover:bg-[#3b82f6]/20 transition-colors duration-200 cursor-pointer z-10"
+                                                className="inline-flex items-center gap-1 rounded-full border border-[#3886CE]/30 bg-[#3886CE]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3886CE] whitespace-nowrap hover:bg-[#3886CE]/20 transition-colors duration-200 cursor-pointer z-10"
                                             >
                                                 <ArrowUpRightIcon className="w-2.5 h-2.5" /> {logo.acquiredBy}
                                             </a>
                                         ) : (
-                                            <div className="inline-flex items-center gap-1 rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3b82f6] whitespace-nowrap">
+                                            <div className="inline-flex items-center gap-1 rounded-full border border-[#3886CE]/30 bg-[#3886CE]/10 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-[#3886CE] whitespace-nowrap">
                                                 <ArrowUpRightIcon className="w-2.5 h-2.5" /> {logo.acquiredBy}
                                             </div>
                                         )
@@ -224,7 +224,7 @@ export function ProductsShowcase() {
 
                                     <Link
                                         href={p.href}
-                                        className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs sm:text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3b82f6]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all w-max"
+                                        className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#3886CE] to-[#135498] text-white text-xs sm:text-sm font-bold shadow-[0_0_15px_rgba(56,134,206,0.5)] border border-[#3886CE]/30 hover:opacity-90 hover:shadow-[0_0_20px_rgba(56,134,206,0.7)] transition-all w-max"
                                     >
                                         Explore Product <ArrowRightIcon className="h-4 w-4" />
                                     </Link>

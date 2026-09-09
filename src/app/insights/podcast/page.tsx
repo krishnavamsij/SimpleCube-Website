@@ -93,7 +93,7 @@ export default function PodcastPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
+        <div className="min-h-screen bg-white font-sans text-[#0A2F52] overflow-x-hidden">
             <Navbar forceDarkText={true} />
 
             <main className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-4 sm:px-8 lg:px-12">
@@ -107,9 +107,9 @@ export default function PodcastPage() {
                     {/* Eyebrow - Left Aligned */}
                     <motion.div
                         variants={fadeInUp}
-                        className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full px-4 py-1 text-xs font-semibold tracking-wider flex items-center gap-2 w-fit relative z-10 mb-3 sm:mb-4"
+                        className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 rounded-full px-4 py-1 text-xs font-semibold tracking-wider flex items-center gap-2 w-fit relative z-10 mb-3 sm:mb-4"
                     >
-                        <span className="w-2 h-2 rounded-full bg-[#1e90ff] animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-[#3886CE] animate-pulse" />
                         PODCAST
                     </motion.div>
 
@@ -162,7 +162,7 @@ export default function PodcastPage() {
                                     href="https://www.youtube.com/@hynivapodcast1"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#1e90ff]/30 px-6 py-2.5 text-sm font-semibold text-[#1e90ff] shadow-sm transition-all duration-300 hover:bg-[#1e90ff] hover:text-white hover:border-[#1e90ff] hover:shadow-[0_4px_20px_rgba(30,144,255,0.25)]"
+                                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#3886CE]/30 px-6 py-2.5 text-sm font-semibold text-[#3886CE] shadow-sm transition-all duration-300 hover:bg-[#3886CE] hover:text-white hover:border-[#3886CE] hover:shadow-[0_4px_20px_rgba(30,144,255,0.25)]"
                                 >
                                     <span>Visit Podcast Channel</span>
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +241,7 @@ export default function PodcastPage() {
 
                 {/* Section Header: Latest Episodes (Flex row layout to prevent overlap on mobile) */}
                 <div className="relative flex flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 w-full max-w-[1240px] mx-auto">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#030B3B] tracking-tight">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0A2F52] tracking-tight">
                         Latest Episodes
                     </h2>
 
@@ -249,7 +249,7 @@ export default function PodcastPage() {
                         href="https://www.youtube.com/@hynivapodcast1"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1e90ff] hover:text-[#0066cc] transition-colors shrink-0"
+                        className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#3886CE] hover:text-[#0066cc] transition-colors shrink-0"
                     >
                         <span>View all Episodes</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +268,7 @@ export default function PodcastPage() {
                             whileInView="visible"
                             viewport={viewportOnce}
                             onClick={() => setSelectedEpisode(episode)}
-                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#030B3B]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative cursor-pointer"
+                            className="group flex flex-col rounded-[32px] bg-[#ECF6FF] border border-[#0A2F52]/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative cursor-pointer"
                         >
                             {/* Thumbnail */}
                             <div className="aspect-[1.8/1] overflow-hidden relative m-1 rounded-[24px] bg-white">
@@ -284,7 +284,7 @@ export default function PodcastPage() {
 
                                 {/* Play Button */}
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-500 scale-90 group-hover:scale-100 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:shadow-[0_0_30px_rgba(30,144,255,0.6)]">
+                                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md text-white transition-all duration-500 scale-90 group-hover:scale-100 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:shadow-[0_0_30px_rgba(30,144,255,0.6)]">
                                         <Play className="w-5 h-5 fill-white stroke-none ml-1 transition-transform duration-300 group-hover:scale-110" />
                                     </div>
                                 </div>
@@ -294,7 +294,7 @@ export default function PodcastPage() {
                             <div className="p-8 pt-4 flex flex-col flex-1 relative z-10">
                                 {/* Meta */}
                                 <div className="flex items-center gap-3 mb-4 text-[11px] font-medium text-slate-500 uppercase tracking-wider">
-                                    <span className="text-[#1e90ff] font-bold">
+                                    <span className="text-[#3886CE] font-bold">
                                         {episode.category}
                                     </span>
                                     <span className="text-slate-300">•</span>
@@ -302,7 +302,7 @@ export default function PodcastPage() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="font-display text-[18px] sm:text-xl font-bold text-[#030B3B] leading-[1.3] tracking-tight mb-8 flex-1">
+                                <h3 className="font-display text-[18px] sm:text-xl font-bold text-[#0A2F52] leading-[1.3] tracking-tight mb-8 flex-1">
                                     {episode.title}
                                 </h3>
 
@@ -313,7 +313,7 @@ export default function PodcastPage() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={(e) => e.stopPropagation()}
-                                        className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                                        className="flex items-center justify-between w-full py-4 px-6 bg-white border border-[#3886CE]/20 rounded-2xl text-sm font-bold text-[#3886CE] transition-all duration-300 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(56,134,206,0.3)]"
                                     >
                                         Watch Episode
                                         <svg
@@ -431,13 +431,13 @@ export default function PodcastPage() {
 
                             <div className="p-6 bg-slate-950 text-white">
                                 <div className="flex items-center gap-3 text-xs text-slate-400 font-semibold mb-3">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#1e90ff] bg-[#1e90ff]/10 px-2.5 py-1 rounded-md border border-[#1e90ff]/20">
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#3886CE] bg-[#3886CE]/10 px-2.5 py-1 rounded-md border border-[#3886CE]/20">
                                         {selectedEpisode.category}
                                     </span>
                                     <span>•</span>
                                     <span>{selectedEpisode.date}</span>
                                     <span>•</span>
-                                    <span className="flex items-center gap-1 text-[#00D4AA]">
+                                    <span className="flex items-center gap-1 text-[#3886CE]">
                                         <Clock className="w-3 h-3" />
                                         {selectedEpisode.duration}
                                     </span>
@@ -454,7 +454,7 @@ export default function PodcastPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm">
                                     <div className="flex flex-col gap-1 text-slate-300">
                                         <div className="flex items-center gap-2">
-                                            <User className="w-4 h-4 text-[#00D4AA] shrink-0" />
+                                            <User className="w-4 h-4 text-[#3886CE] shrink-0" />
                                             <span>
                                                 <strong className="text-white">Host:</strong> {selectedEpisode.host}
                                             </span>
@@ -468,7 +468,7 @@ export default function PodcastPage() {
 
                                     <div className="flex flex-col gap-1 text-slate-300">
                                         <div className="flex items-center gap-2">
-                                            <Users className="w-4 h-4 text-[#1e90ff] shrink-0" />
+                                            <Users className="w-4 h-4 text-[#3886CE] shrink-0" />
                                             <span>
                                                 <strong className="text-white">Guest:</strong> {selectedEpisode.guest}
                                             </span>

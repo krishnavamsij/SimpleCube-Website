@@ -1,13 +1,12 @@
 /**
- * ABOUT US CONTENT CONFIGURATION
- * 
- * This file contains all the content data for the About Us page based on the new design.
+ * ABOUT US CONTENT — SimpleCube
+ * Source: SimpleCube Website Content Blueprint (§3, §4, §5)
  */
 
 export const aboutContent = {
     hero: {
-        title: "Product Thinking.\nEnterprise Impact.",
-        description: "Our mission is to simplify enterprise complexity through\nproduct engineering services that enable organizations to\nmodernize faster, innovate continuously and deliver lasting value.",
+        title: "Texas Roots.\nBoutique Precision.",
+        description: "Founded and operated in Texas, SimpleCube is a close-knit collective of software engineers, CRM specialists, and product strategists. We deliver enterprise-level technical execution with the personalized partnership of a small team.",
         metrics: [
             { value: "220+", label: "Applications\nDelivered" },
             { value: "45+", label: "Enterprise\nClients" },
@@ -16,32 +15,32 @@ export const aboutContent = {
         ]
     },
     api: {
-        title: "API",
-        subtitle: "Agility, People, Innovation",
+        title: "Advantage",
+        subtitle: "Boutique Attention, Agility, Full-Stack Mastery",
         items: [
             {
-                title: "AGILITY",
-                description: "Agility fuels the relentless efficiency of our Digital Factory, propelling us forward at an unmatched pace.",
-                icon: "Zap",
-                color: "#0ea5e9" // blue
-            },
-            {
-                title: "PEOPLE",
-                description: "Above all, our success is eternally indebted to the vibrant tapestry of talent that is our people—uniting, driving, and embodying the spirit of our collective triumph.",
+                title: "BOUTIQUE ATTENTION",
+                description: "Our focused team size guarantees you deal directly with senior developers and leadership, ensuring personalized focus on your project.",
                 icon: "Users",
-                color: "#10b981" // emerald
+                color: "#10b981"
             },
             {
-                title: "INNOVATION",
-                description: "Innovation, the very essence of our roots, is vividly manifested in our profound product expertise.",
+                title: "COST-EFFECTIVE AGILITY",
+                description: "Our lean structure reduces overhead. Coupled with our Agile SDLC culture, we deliver rapid iterations and faster time-to-market.",
+                icon: "Zap",
+                color: "#0ea5e9"
+            },
+            {
+                title: "FULL-STACK MASTERY",
+                description: "Deep expertise across modern frameworks (Angular, React, Node.js, Java) ensures the absolute best tool is used for your specific challenge.",
                 icon: "Lightbulb",
-                color: "#8b5cf6" // purple
+                color: "#8b5cf6"
             }
         ]
     },
     leadership: {
-        sectionTitle: "Built by people\nwho build impact.",
-        sectionDescription: "Our leadership team brings together deep expertise across technology, product engineering, and enterprise delivery.\n\nThey are actively involved in shaping strategy, guiding execution, and ensuring every engagement delivers meaningful impact.",
+        sectionTitle: "Built by Practitioners.\nGuided by Visionaries.",
+        sectionDescription: "When you work with us, our team becomes a seamless extension of yours — senior engineers and leaders who stay close to the work from discovery through launch.",
         team: [
             {
                 name: "Sreeram Jadapolu",
@@ -137,143 +136,142 @@ export const aboutContent = {
         ],
     },
     values: {
-        title: "Built on trust.\nDriven by impact.",
-        description: "These values guide every decision we make and every solution we build. They shape the way we work with our clients and deliver results that last.",
+        title: "Why Choose\nSimpleCube?",
+        description: "Bigger agencies often mean bloated budgets, account shuffling, and communication silos. SimpleCube was built to be fundamentally different.",
         items: [
             {
-                title: "Direct Access to Expertise",
-                description: "Our model enables direct engagement with senior leaders and domain experts, ensuring faster decisions, clear ownership, and end-to-end accountability.",
+                title: "Boutique Attention",
+                description: "Our focused, small team size guarantees you deal directly with senior developers and leadership — personalized focus on your project, not account shuffling.",
                 icon: "Users",
                 colorClass: "bg-[#f0f5ff] border-[#e2ecff]",
-                textColorClass: "text-[#3b82f6]",
+                textColorClass: "text-[#3886CE]",
                 iconBgClass: "bg-[#e2ecff]"
             },
             {
-                title: "Client-Centricity",
-                description: "We align closely with our clients’ strategic priorities, tailoring every engagement to deliver measurable and sustainable outcomes.",
+                title: "Cost-Effective Agility",
+                description: "Our lean structure reduces overhead. Coupled with our Agile SDLC culture, we deliver rapid iterations and faster time-to-market — without bloated timelines or inflated quotes.",
+                icon: "Rocket",
+                colorClass: "bg-[#fff7ed] border-[#ffedd5]",
+                textColorClass: "text-[#f97316]",
+                iconBgClass: "bg-[#ffedd5]"
+            },
+            {
+                title: "Full-Stack Mastery",
+                description: "Deep expertise across Angular, React, Node.js, and Java ensures the absolute best tool is used for your specific challenge — not a one-stack-fits-all mandate.",
                 icon: "Target",
                 colorClass: "bg-[#f0fdf4] border-[#dcfce7]",
                 textColorClass: "text-[#10b981]",
                 iconBgClass: "bg-[#dcfce7]"
             },
             {
-                title: "Transparency & Trust",
-                description: "We operate with clarity and candor. From opportunities to risks, we communicate proactively to enable better decisions and stronger partnerships.",
+                title: "Seamless Partnership",
+                description: "We built SimpleCube to fill the gap between enterprise-level execution and small-team dedication. When you work with us, our team becomes a seamless extension of yours.",
                 icon: "Shield",
                 colorClass: "bg-[#faf5ff] border-[#f3e8ff]",
                 textColorClass: "text-[#a855f7]",
                 iconBgClass: "bg-[#f3e8ff]"
-            },
-            {
-                title: "Agility with Impact",
-                description: "Our lean structure creates a distinct competitive edge, enabling focused execution and delivering outsized impact.",
-                icon: "Rocket",
-                colorClass: "bg-[#fff7ed] border-[#ffedd5]",
-                textColorClass: "text-[#f97316]",
-                iconBgClass: "bg-[#ffedd5]"
             }
         ]
     },
     operations: {
         howWeOperate: {
-            title: "From discovery to delivery — no surprises.",
-            description: "We say what we do and do what we say. Our structured delivery model eliminates bureaucracy and keeps you directly connected to our experts.",
+            title: "Transparent. Adaptable. Aligned.",
+            description: "We don't just write code; we engineer scalable solutions. Our Agile framework involves continuous integration, rapid sprint cycles, and regular client touchpoints.",
             steps: [
                 {
                     title: "Discovery",
-                    description: "We understand your goals, existing systems & constraints before proposing anything."
+                    description: "We understand your goals, systems, and constraints — then map a custom digital strategy with leadership involvement."
                 },
                 {
-                    title: "Strategy & Scope",
-                    description: "A clear roadmap with transparent cost and timeline — no padded estimates or surprises."
+                    title: "Frontend & UX",
+                    description: "Highly responsive interfaces with Angular and React for a flawless experience across devices and browsers."
                 },
                 {
-                    title: "Agile Delivery",
-                    description: "Direct access to our developers. Weekly progress demos. Decisions made fast."
+                    title: "Backend & Architecture",
+                    description: "Robust server-side logic and APIs with Java, Node.js, and enterprise frameworks built for scale and concurrency."
                 },
                 {
-                    title: "Launch & Scale",
-                    description: "We don't hand off and disappear — we support, optimize and grow alongside you."
+                    title: "Agile Delivery & Launch",
+                    description: "Rapid sprints, continuous integration, and client touchpoints prevent scope creep and keep the product aligned with your needs."
                 }
             ]
         },
         digitalFactory: {
-            title: "Digital Factory Model.",
-            description: "The core structure of how we operate is the Digital Factory Model, an operating model for scaling and executing with efficiency.",
+            title: "Agile Delivery Model.",
+            description: "Our technology stack is curated for high performance, absolute security, and enterprise scalability — delivered through a lean Agile SDLC culture.",
             stat: "40%",
-            statLabel: "Faster time to market with the Digital Factory Model"
+            statLabel: "Faster delivery vs. traditional large-agency models"
         }
     },
     journey: {
         sectionTitle: "Our Journey.",
         timeline: [
             {
-                date: "2007",
-                title: "Foundation & Growth",
-                description: "Founded in Chennai, India, as a technology consulting and software development company, later expanding operations to Bengaluru and San Antonio, Texas.",
+                date: "Texas",
+                title: "Founded in San Antonio",
+                description: "SimpleCube was founded and operated in Texas to close a gap in the market: businesses needed enterprise-level technical execution without losing the personalized partnership of a small team.",
                 image: "/images/About_Us/2007.png"
             },
             {
-                date: "2009",
-                title: "First SaaS Product Launch",
-                description: "Launched MediaFusion, a digital media platform that marked Hyniva's entry into SaaS product development.",
+                date: "Focus",
+                title: "Boutique Software Delivery",
+                description: "We built a close-knit collective of software engineers, CRM specialists, and product strategists — lean enough to move fast, skilled enough to ship at enterprise quality.",
                 image: "/images/About_Us/2009-logo.png"
             },
             {
-                date: "2012",
-                title: "EazySchool Launch",
-                description: "Entered the education sector with EazySchool, helping schools streamline administration and digitize operations.",
-                image: "/images/About_Us/2012.png"
-            },
-            {
-                date: "2014",
-                title: "Digital Lending & Enterprise Transformation",
-                description: "Expanded into digital lending, workflow automation and enterprise integration solutions to accelerate business transformation.",
-                image: "/images/About_Us/2014.png"
-            },
-            {
-                date: "2017",
-                title: "CreditSnap Launch",
-                description: "Launched CreditSnap, an omni-channel lending platform that modernized borrower prequalification and loan origination.",
-                image: "/images/About_Us/2017.png"
-            },
-            {
-                date: "2018",
-                title: "Salesforce, Cloud & Global Delivery Growth",
-                description: "Expanded Salesforce, cloud transformation and global delivery capabilities to support enterprise-scale digital initiatives.",
+                date: "CRM",
+                title: "Salesforce Depth",
+                description: "Expanded deep Salesforce practice — complex ecosystems, custom routing logic, and integrations that unify sales workflows and data visibility.",
                 image: "/images/About_Us/2018.png"
             },
             {
-                date: "2022",
-                title: "Hyper Portfolio Recommendation Engine",
-                description: "Partnered with a leading investment management firm to launch Hyper, an intelligent portfolio recommendation platform.",
+                date: "Build",
+                title: "Custom Software & Products",
+                description: "Grew end-to-end custom software and product development capabilities across the full SDLC — from ideation and MVP to iterative, data-driven enhancements.",
+                image: "/images/About_Us/2014.png"
+            },
+            {
+                date: "Modernize",
+                title: "Digital Transformation",
+                description: "Guided clients through digitizing manual processes, modernizing infrastructure, and migrating to secure environments to future-proof operations.",
                 image: "/images/About_Us/2022-logo.png"
             },
             {
-                date: "2023",
-                title: "Strategic Enterprise Breakthrough",
-                description: "Won a major Victory Capital RFP against TCS and Cognizant, demonstrating Hyniva's growing enterprise delivery strength.",
+                date: "Stack",
+                title: "Full-Stack Mastery",
+                description: "Curated a modern stack — Angular, React, Java, Node.js — so every engagement uses the right tools for performance, security, and scalability.",
                 image: "/images/About_Us/2023-logo.png"
             },
             {
-                date: "2024",
-                title: "FinXServe Launch & CreditSnap Acquisition",
-                description: "Launched FinXServe, a Salesforce-native digital banking experience platform, while CreditSnap was acquired by SavvyMoney.",
+                date: "Agile",
+                title: "Agile SDLC Culture",
+                description: "Embedded continuous integration, rapid sprint cycles, and regular client touchpoints to prevent scope creep and keep delivery aligned with evolving needs.",
                 image: "/images/About_Us/2024.png"
             },
             {
-                date: "2025",
-                title: "AIRA Debuts at Cypher AI Summit",
-                description: "Unveiled AIRA at the Cypher AI Summit, marking Hyniva's expansion into enterprise AI solutions.",
+                date: "Today",
+                title: "Seamless Extension of Your Team",
+                description: "SimpleCube continues as a San Antonio-based boutique partner — enterprise execution with dedicated, small-team focus on every engagement.",
                 image: "/images/About_Us/2025.png"
             },
             {
-                date: "2026",
-                title: "Claim Pioneer Launch & SOC 2 Achievement",
-                description: "Launched Claim Pioneer and achieved SOC 2 Type II compliance, strengthening Hyniva's position as a trusted AI and technology partner.",
+                date: "Next",
+                title: "Ready to Build Together",
+                description: "Stop letting software limitations dictate your growth. Schedule a discovery call and map a custom digital strategy with our leadership team.",
                 image: "/images/About_Us/2026-logo.png"
+            },
+            {
+                date: "HQ",
+                title: "9901 I-10 W, Suite 800",
+                description: "Our Texas headquarters in San Antonio anchors delivery for clients who want boutique attention without sacrificing technical depth.",
+                image: "/images/About_Us/2012.png"
+            },
+            {
+                date: "Reach",
+                title: "Texas Roots, Broad Impact",
+                description: "From San Antonio, we partner with organizations that need custom software, Salesforce integrations, product development, and digital transformation — delivered lean and fast.",
+                image: "/images/About_Us/2017.png"
             }
         ]
     }
 };
-

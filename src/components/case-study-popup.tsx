@@ -166,7 +166,7 @@ export function CaseStudyPopup() {
                     >
                     {/* Top Section */}
                     <div className="relative bg-gradient-to-br from-[#020c1c] via-[#071a32] to-[#050f20] px-5 pt-5 pb-4">
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,#1e90ff33_1px,transparent_1px)] bg-[length:24px_24px]" />
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,#3886CE33_1px,transparent_1px)] bg-[length:24px_24px]" />
                         
                         {/* Remove the X button - users must submit form to continue */}
 
@@ -207,7 +207,7 @@ export function CaseStudyPopup() {
                                             className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
                                                 formErrors.name 
                                                     ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
-                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                                    : 'border-slate-200 focus:border-[#3886CE] focus:ring-1 focus:ring-[#3886CE]'
                                             }`} 
                                         />
                                         {formErrors.name && (
@@ -226,7 +226,7 @@ export function CaseStudyPopup() {
                                             className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
                                                 formErrors.email 
                                                     ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
-                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                                    : 'border-slate-200 focus:border-[#3886CE] focus:ring-1 focus:ring-[#3886CE]'
                                             }`} 
                                         />
                                         {formErrors.email && (
@@ -245,7 +245,7 @@ export function CaseStudyPopup() {
                                             className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
                                                 formErrors.organization 
                                                     ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
-                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                                    : 'border-slate-200 focus:border-[#3886CE] focus:ring-1 focus:ring-[#3886CE]'
                                             }`} 
                                         />
                                         {formErrors.organization && (
@@ -264,7 +264,7 @@ export function CaseStudyPopup() {
                                             className={`w-full px-3 py-2 rounded-[6px] border bg-slate-50 text-[12px] outline-none transition-all ${
                                                 formErrors.role 
                                                     ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500' 
-                                                    : 'border-slate-200 focus:border-[#1e90ff] focus:ring-1 focus:ring-[#1e90ff]'
+                                                    : 'border-slate-200 focus:border-[#3886CE] focus:ring-1 focus:ring-[#3886CE]'
                                             }`} 
                                         />
                                         {formErrors.role && (
@@ -275,7 +275,7 @@ export function CaseStudyPopup() {
 
                                 <button 
                                     type="submit" 
-                                    className="w-full py-2 rounded-[6px] bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[13px] font-medium transition-colors"
+                                    className="w-full py-2 rounded-[6px] bg-[#3886CE] hover:bg-[#135498] text-white text-[13px] font-medium transition-colors"
                                 >
                                     Get in Touch →
                                 </button>

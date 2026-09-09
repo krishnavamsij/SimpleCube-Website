@@ -8,35 +8,35 @@ import { searchCaseStudies, hasNoResults } from "../case-study-search";
 // Mock case studies data
 const mockCaseStudies = [
   {
-    title: "<span class='text-[#3B82F6]'>Autonomous Lending Experience</span> with FinXServe",
+    title: "<span class='text-[#3886CE]'>Autonomous Lending Experience</span> with FinXServe",
     image: "/images/cs-1.png",
     description: "Built an AI-driven lending journey that automates document processing.",
     href: "/insights/case-studies/autonomous-lending-experiences",
     tags: ["Salesforce", "Applied AI", "Banking"],
   },
   {
-    title: "<span class='text-[#3B82F6]'>Faster Loan Processing</span> with Agentforce",
+    title: "<span class='text-[#3886CE]'>Faster Loan Processing</span> with Agentforce",
     image: "/images/cs-2.png",
     description: "AI-powered lending concierge for instant loan processing.",
     href: "/insights/case-studies/instant-loan-processing",
     tags: ["Salesforce", "Applied AI", "Banking"],
   },
   {
-    title: "Modernizing Contact Centers with <span class='text-[#3B82F6]'>Intelligent IVR</span>",
+    title: "Modernizing Contact Centers with <span class='text-[#3886CE]'>Intelligent IVR</span>",
     image: "/images/cs-3.png",
     description: "Transformed legacy IVR into Smart Customer Engagement.",
     href: "/insights/case-studies/intelligent-ivr-self-service",
     tags: ["Salesforce", "Applied AI", "Banking"],
   },
   {
-    title: "<span class='text-[#3B82F6]'>Autonomous Freight Operations</span> with GenAI",
+    title: "<span class='text-[#3886CE]'>Autonomous Freight Operations</span> with GenAI",
     image: "/images/cs-4.png",
     description: "Reduced load creation time by 98% using GenAI automation.",
     href: "/insights/case-studies/autonomous-freight-operations",
     tags: ["Product Engineering", "Applied AI", "Transportation & Logistics"],
   },
   {
-    title: "<span class='text-[#3B82F6]'>AWS-Powered Document</span> Platform",
+    title: "<span class='text-[#3886CE]'>AWS-Powered Document</span> Platform",
     image: "/images/cs-10.png",
     description: "Saved $500K annually with serverless AWS modernization.",
     href: "/insights/case-studies/hyniva-leverages-aws-half-a-million-dollars-savings-annually",

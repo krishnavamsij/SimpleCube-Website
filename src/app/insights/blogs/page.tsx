@@ -32,7 +32,7 @@ export default function BlogsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#030B3B] overflow-x-hidden">
+        <div className="min-h-screen bg-white font-sans text-[#0A2F52] overflow-x-hidden">
             <Navbar forceDarkText={true} />
             
             <main className="pt-24 lg:pt-28 pb-16 sm:pb-24 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -43,8 +43,8 @@ export default function BlogsPage() {
                     variants={staggerContainer}
                     className="mb-12 lg:mb-16"
                 >
-                    <motion.div variants={fadeInUp} className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-6 sm:mb-8 w-fit">
-                        <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                    <motion.div variants={fadeInUp} className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 mb-6 sm:mb-8 w-fit">
+                        <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                         BLOGS
                     </motion.div>
                     
@@ -52,7 +52,7 @@ export default function BlogsPage() {
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8">
                         {/* Title Side */}
                         <div className="lg:w-2/3">
-                            <motion.h1 variants={fadeInUp} className="text-[28px] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#030B3B] mb-6 font-display whitespace-nowrap" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
+                            <motion.h1 variants={fadeInUp} className="text-[28px] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-[#0A2F52] mb-6 font-display whitespace-nowrap" dangerouslySetInnerHTML={{ __html: blogContent.hero.title }} />
                             <motion.p 
                                 variants={fadeInUp} 
                                 className="w-full text-base sm:text-lg lg:text-[19px] 2xl:text-[21px] leading-relaxed text-slate-600 font-medium max-w-[820px]"
@@ -70,7 +70,7 @@ export default function BlogsPage() {
                                     placeholder="Search"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
+                                    className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#0A2F52] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#3886CE]/50 focus:border-[#3886CE]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
                                 />
                                 {/* Search Icon */}
                                 <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
@@ -96,7 +96,7 @@ export default function BlogsPage() {
                                         aria-label="Clear search"
                                     >
                                         <svg
-                                            className="w-4 h-4 text-[#9CA3AF] hover:text-[#030B3B]"
+                                            className="w-4 h-4 text-[#9CA3AF] hover:text-[#0A2F52]"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ export default function BlogsPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={viewportOnce}
-                            className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+                            className="group flex flex-col rounded-[32px] bg-white border border-[#0A2F52]/10 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
                         >
                             {/* Card Image */}
                             <div className="aspect-[1.8/1] overflow-hidden relative m-3 rounded-[24px]">
@@ -148,7 +148,7 @@ export default function BlogsPage() {
                                 <div className="flex items-center gap-3 mb-4 min-h-[24px]">
                                     <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">{post.date}</span>
                                     <span className="w-1 h-1 rounded-full bg-slate-300" />
-                                    <span className="text-[10px] font-bold text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 px-2 py-0.5 rounded-full uppercase tracking-widest leading-none flex items-center">
+                                    <span className="text-[10px] font-bold text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-2 py-0.5 rounded-full uppercase tracking-widest leading-none flex items-center">
                                         {post.tag}
                                     </span>
                                 </div>
@@ -156,7 +156,7 @@ export default function BlogsPage() {
                                 {/* Title Wrapper */}
                                 <div className="mb-6">
                                     <h3 
-                                        className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.3] tracking-tight"
+                                        className="font-display text-[17.5px] sm:text-[18.5px] font-bold text-[#0A2F52] leading-[1.3] tracking-tight"
                                         dangerouslySetInnerHTML={{ __html: post.title }}
                                     />
                                 </div>
@@ -164,7 +164,7 @@ export default function BlogsPage() {
                                 {/* CTA Button */}
                                 <Link
                                     href={post.href}
-                                    className="mt-auto flex items-center justify-between w-full py-4 px-6 bg-white border border-[#1e90ff]/20 rounded-2xl text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                                    className="mt-auto flex items-center justify-between w-full py-4 px-6 bg-white border border-[#3886CE]/20 rounded-2xl text-sm font-bold text-[#3886CE] transition-all duration-300 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(56,134,206,0.3)]"
                                 >
                                     Read Article
                                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

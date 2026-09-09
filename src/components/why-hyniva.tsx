@@ -10,11 +10,11 @@ import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 const getIcon = (name: string) => {
     switch (name) {
-        case "UsersRound": return <UsersRound className="w-5 h-5 text-[#3B82F6]" />;
-        case "Globe2": return <Globe2 className="w-5 h-5 text-[#3B82F6]" />;
-        case "Zap": return <Zap className="w-5 h-5 text-[#3B82F6]" />;
-        case "Activity": return <Activity className="w-5 h-5 text-[#3B82F6]" />;
-        default: return <Activity className="w-5 h-5 text-[#3B82F6]" />;
+        case "UsersRound": return <UsersRound className="w-5 h-5 text-[#3886CE]" />;
+        case "Globe2": return <Globe2 className="w-5 h-5 text-[#3886CE]" />;
+        case "Zap": return <Zap className="w-5 h-5 text-[#3886CE]" />;
+        case "Activity": return <Activity className="w-5 h-5 text-[#3886CE]" />;
+        default: return <Activity className="w-5 h-5 text-[#3886CE]" />;
     }
 };
 
@@ -33,12 +33,14 @@ export function WhyHyniva() {
                     viewport={viewportOnce}
                     className="relative overflow-hidden rounded-t-[32px] rounded-b-none bg-[#0A102E] shadow-2xl p-[24px] sm:p-[36px] lg:p-[48px]"
                 >
-                    <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 mb-8">
-                        <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
-                        WHY HYNIVA
+                    {/* Badge removed
+                    <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 mb-8">
+                        <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
+                        WHY SIMPLECUBE
                     </div>
+                    */}
                     {/* Top Glow */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.35)_0%,transparent_70%)] pointer-events-none" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(56,134,206,0.35)_0%,transparent_70%)] pointer-events-none" />
 
                     <div className="relative z-10 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-12 items-start">
                         {/* Left Side: Headline & Stats */}
@@ -47,7 +49,7 @@ export function WhyHyniva() {
                                 {topBox.headline.split(topBox.highlightedWord).map((part, i, arr) => (
                                     <React.Fragment key={i}>
                                         {part}
-                                        {i < arr.length - 1 && <span className="text-[#00D4AA]">{topBox.highlightedWord}</span>}
+                                        {i < arr.length - 1 && <span className="text-[#3886CE]">{topBox.highlightedWord}</span>}
                                     </React.Fragment>
                                 ))}
                             </h2>
@@ -80,7 +82,7 @@ export function WhyHyniva() {
                             </p>
                             <Link 
                                 href={topBox.cta.href}
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-[#3B82F6]/30 w-full sm:w-auto"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3886CE] to-[#135498] text-white eyebrow px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_25px_rgba(56,134,206,0.8)] shadow-[0_0_15px_rgba(56,134,206,0.5)] border border-[#3886CE]/30 w-full sm:w-auto"
                             >
                                 {topBox.cta.label}
                             </Link>
@@ -99,13 +101,13 @@ export function WhyHyniva() {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 lg:gap-12 xl:gap-16">
                         {bottomBox.map((card, idx) => (
                             <div key={idx} className="flex flex-col">
-                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3 flex-shrink-0 border border-[#3B82F6]/10">
+                                <div className="h-9 w-9 bg-white shadow-sm flex items-center justify-center rounded-xl mb-3 flex-shrink-0 border border-[#3886CE]/10">
                                     {getIcon(card.icon)}
                                 </div>
-                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#030B3B] mb-2 leading-tight font-display">
+                                <h3 className="text-[15px] lg:text-[16px] font-black text-[#0A2F52] mb-2 leading-tight font-display">
                                     {card.title}
                                 </h3>
-                                <p className="text-[12px] lg:text-[13px] text-[#030B3B]/80 font-medium leading-relaxed">
+                                <p className="text-[12px] lg:text-[13px] text-[#0A2F52]/80 font-medium leading-relaxed">
                                     {card.description.replace(/\n/g, ' ')}
                                 </p>
                             </div>

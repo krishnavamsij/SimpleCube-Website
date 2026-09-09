@@ -17,8 +17,8 @@ export function TabNavigation({ tabs, activeTabIndex, onTabClick }: TabNavigatio
           onClick={() => onTabClick(index)}
           className={`px-4 py-1.5 rounded-full text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${
             activeTabIndex === index
-              ? "bg-[#1e90ff] text-white border-[#1e90ff]"
-              : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#1e90ff] hover:border-[#1e90ff] hover:text-white"
+              ? "bg-[#3886CE] text-white border-[#3886CE]"
+              : "bg-white border-[#e5e7eb] text-[#6b7280] hover:bg-[#3886CE] hover:border-[#3886CE] hover:text-white"
           }`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Bricolage_Grotesque, Geist_Mono } from "next/font/google";
+import { Andika, Inter, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { GlobalAnalyticsTracker } from '@/components/global-analytics-tracker';
-import { AskAiraWidget } from '@/components/ask-aira-widget';
+// AIRA chatbot temporarily hidden from this build
+// import { AskAiraWidget } from '@/components/ask-aira-widget';
 import { Suspense } from 'react';
 
 import "./globals.css";
 
+/**
+ * SimpleCube brand typography (BrandBoard)
+ * Primary typeface: Andika — applied as --font-andika / --font-sans / --font-display
+ * Inter kept for UI surfaces that need the original site metrics (e.g. footer)
+ * Mono retained for rare code/timeline UI only.
+ */
+const andika = Andika({
+  variable: "--font-andika",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
 });
 
 const geistMono = Geist_Mono({
@@ -26,10 +33,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Hyniva",
-    default: "Hyniva — Your Strategic Tech Partner | AI, Cloud, Digital Transformation",
+    template: "%s | SimpleCube",
+    default: "SimpleCube — Boutique Software Delivery | Custom Software, Salesforce, Digital Transformation",
   },
-  description: "Experience the Hyniva Difference: direct access to expertise, personalized attention and transparent value for your technology needs.",
+  description: "Based in Texas, SimpleCube delivers custom software, Salesforce integrations, and digital transformation with lean, Agile execution.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -41,22 +48,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://hyniva.com",
-    siteName: "Hyniva",
-    title: "Hyniva — Your Strategic Tech Partner",
-    description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
+    siteName: "SimpleCube",
+    title: "SimpleCube — Boutique Software Delivery",
+    description: "Custom software, Salesforce integrations, and digital transformation — Texas roots, boutique precision.",
     images: [
       {
         url: "https://hyniva.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Hyniva — Your Strategic Tech Partner",
+        alt: "SimpleCube — Boutique Software Delivery",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hyniva — Your Strategic Tech Partner",
-    description: "Direct access to expertise, personalized attention and transparent value for your technology needs.",
+    title: "SimpleCube — Boutique Software Delivery",
+    description: "Custom software, Salesforce integrations, and digital transformation — Texas roots, boutique precision.",
     images: ["https://hyniva.com/og-image.png"],
   },
 };
@@ -92,7 +99,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${inter.variable} ${bricolage.variable} ${geistMono.variable} antialiased`}
+        className={`${andika.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         <noscript>
           <iframe
@@ -106,7 +113,8 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GlobalAnalyticsTracker />
         </Suspense>
-        <AskAiraWidget />
+        {/* AIRA chatbot temporarily hidden from this build */}
+        {/* <AskAiraWidget /> */}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
     </html>

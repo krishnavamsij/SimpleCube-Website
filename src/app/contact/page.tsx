@@ -111,15 +111,15 @@ export default function ContactPage() {
 
             <main>
                 {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-[500px] md:min-h-[600px] flex flex-col justify-center items-center overflow-hidden bg-[#030b1e]">
+                <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-[500px] md:min-h-[600px] flex flex-col justify-center items-center overflow-hidden bg-[#0A2F52]">
                     {/* Background layers */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-                    <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+                    <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
 
                     {/* Floating Decorative Elements */}
-                    <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] hero-float-1" />
+                    <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#135498]/10 rounded-full blur-[100px] hero-float-1" />
                     <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] hero-float-2" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px] hero-float-3" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#e8f1fa]0/5 rounded-full blur-[150px] hero-float-3" />
 
                     <div
                         className="absolute inset-0 opacity-[0.04]"
@@ -137,8 +137,8 @@ export default function ContactPage() {
                             className="max-w-4xl mx-auto flex flex-col items-center space-y-6 sm:space-y-10 md:space-y-12"
                         >
                             <motion.div variants={fadeInUp} className="flex justify-center">
-                                <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md">
-                                    <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                                <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md">
+                                    <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                     CONTACT US
                                 </span>
                             </motion.div>
@@ -203,36 +203,36 @@ export default function ContactPage() {
                                     {/* Contact Methods */}
                                     <motion.div variants={fadeInUp} className="space-y-6 mb-16">
                                         <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
-                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3886CE]/10 flex items-center justify-center text-[#3886CE] group-hover:bg-[#3886CE] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Mail className="w-5 h-5" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMAIL</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
+                                                <a href={`mailto:${contactContent.body.contactInfo.email}`} className="text-[17px] font-medium text-foreground hover:text-[#3886CE] transition-colors block">
                                                     {contactContent.body.contactInfo.email}
                                                 </a>
                                             </div>
                                         </div>
 
                                         <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
-                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3886CE]/10 flex items-center justify-center text-[#3886CE] group-hover:bg-[#3886CE] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Phone className="w-5 h-5" />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">HR &amp; CAREERS</p>
-                                                <a href={`mailto:${contactContent.body.contactInfo.hr}`} className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
-                                                    {contactContent.body.contactInfo.hr}
+                                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">PHONE</p>
+                                                <a href={`tel:${(contactContent.body.contactInfo.phone || "").replace(/[^+0-9]/g, "")}`} className="text-[17px] font-medium text-foreground hover:text-[#3886CE] transition-colors block">
+                                                    {contactContent.body.contactInfo.phone}
                                                 </a>
                                             </div>
                                         </div>
 
                                         <div className="flex items-center gap-5 group cursor-pointer rounded-2xl hover:bg-slate-50 transition-all py-3">
-                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
+                                            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-accent border border-[#3886CE]/10 flex items-center justify-center text-[#3886CE] group-hover:bg-[#3886CE] group-hover:text-white transition-all shadow-sm group-hover:shadow-md group-hover:scale-110">
                                                 <Linkedin className="w-5 h-5" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">LINKEDIN</p>
-                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-medium text-foreground hover:text-[#3B82F6] transition-colors block">
+                                                <a href={`https://${contactContent.body.contactInfo.linkedin}`} target="_blank" className="text-[17px] font-medium text-foreground hover:text-[#3886CE] transition-colors block">
                                                     {contactContent.body.contactInfo.linkedin}
                                                 </a>
                                             </div>
@@ -240,11 +240,11 @@ export default function ContactPage() {
                                     </motion.div>
 
                                     {/* Address Cards */}
-                                    <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                    <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4 sm:gap-6 max-w-md">
+                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-[#e8f1fa] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2.5 mb-4 h-[18px]">
                                                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="United States flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
-                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
+                                                <h4 className="text-[11px] font-bold text-[#3886CE] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
                                             </div>
                                             <p
                                                 className="text-[14px] font-medium text-foreground leading-[1.5]"
@@ -252,16 +252,18 @@ export default function ContactPage() {
                                             />
                                         </div>
 
-                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-blue-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
+                                        {/* India address temporarily hidden from this build
+                                        <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-[#e8f1fa] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2.5 mb-4 h-[18px]">
                                                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/in.svg" alt="India flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
-                                                <h4 className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.india.title}</h4>
+                                                <h4 className="text-[11px] font-bold text-[#3886CE] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.india.title}</h4>
                                             </div>
                                             <p
                                                 className="text-[14px] font-medium text-foreground leading-[1.5]"
                                                 dangerouslySetInnerHTML={{ __html: contactContent.body.offices.india.address }}
                                             />
                                         </div>
+                                        */}
                                     </motion.div>
                                 </motion.div>
                             </div>
@@ -302,7 +304,7 @@ export default function ContactPage() {
                                             <p className="text-slate-500 mb-10 text-lg max-w-sm">Thank you for reaching out. Our team usually responds within 24 hours.</p>
                                             <button
                                                 onClick={() => setIsSubmitted(false)}
-                                                className="px-8 py-3 rounded-xl border-2 border-[#2563EB] text-[#2563EB] font-bold hover:bg-[#2563EB] hover:text-white transition-all"
+                                                className="px-8 py-3 rounded-xl border-2 border-[#135498] text-[#135498] font-bold hover:bg-[#135498] hover:text-white transition-all"
                                             >
                                                 Send another message
                                             </button>
@@ -359,7 +361,7 @@ export default function ContactPage() {
                                             <button
                                                 disabled={isSubmitting}
                                                 type="submit"
-                                                className="w-full py-5 rounded-[22px] bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-[0_15px_40px_rgba(37,99,235,0.3)] disabled:opacity-50 disabled:cursor-not-allowed mt-auto"
+                                                className="w-full py-5 rounded-[22px] bg-gradient-to-r from-[#135498] to-[#0F427A] text-white font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-[0_15px_40px_rgba(19,84,152,0.3)] disabled:opacity-50 disabled:cursor-not-allowed mt-auto"
                                             >
                                                 {isSubmitting ? "Sending..." : contactContent.form.submitButton}
                                                 {!isSubmitting && <Send className="w-5 h-5" />}

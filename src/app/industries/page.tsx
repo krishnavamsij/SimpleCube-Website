@@ -64,7 +64,7 @@ function IndustryCard({
             className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
             <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-xl font-bold leading-snug text-blue-900">
+                <h3 className="text-xl font-bold leading-snug text-[#0A2F52]">
                     {industry.title}
                 </h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">
@@ -73,7 +73,7 @@ function IndustryCard({
                 <div className="mt-5">
                     <Link
                         href={industry.href}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-900 to-blue-600 px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:shadow-md hover:brightness-110"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#0A2F52] to-[#135498] px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:shadow-md hover:brightness-110"
                     >
                         Explore
                         <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -108,7 +108,7 @@ function IndustriesHero() {
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${industriesListingContent.hero.backgroundImage}')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#030b1e]/70" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918]/70 via-[#061244]/50 to-[#0A2F52]/70" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(52,81,149,0.2)_0%,transparent_65%)]" />
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-[#020918]/50 via-[#020918]/30 to-transparent" />
 
@@ -163,7 +163,7 @@ function IndustriesIntro() {
                     viewport={viewportOnce}
                     className="text-center"
                 >
-                    <h3 className="text-xl font-bold leading-snug sm:text-2xl md:text-3xl text-blue-900">
+                    <h3 className="text-xl font-bold leading-snug sm:text-2xl md:text-3xl text-[#0A2F52]">
                         {industriesListingContent.intro.title}
                     </h3>
                     <p className="mt-4 max-w-4xl mx-auto text-base leading-relaxed text-slate-600 sm:text-lg">

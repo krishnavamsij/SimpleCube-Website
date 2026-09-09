@@ -86,7 +86,7 @@ export default function CaseStudiesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-[#030B3B]">
+    <div className="min-h-screen bg-white font-sans text-[#0A2F52]">
       <Navbar forceDarkText={true} />
 
       <main className="pt-28 lg:pt-32 pb-24 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -98,9 +98,9 @@ export default function CaseStudiesPage() {
         >
           <motion.div
             variants={fadeInUp}
-            className="eyebrow text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 mb-6 sm:mb-8 w-fit"
+            className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 mb-6 sm:mb-8 w-fit"
           >
-            <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+            <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
             CASE STUDIES
           </motion.div>
 
@@ -110,11 +110,11 @@ export default function CaseStudiesPage() {
             <div className="lg:w-2/3">
               <motion.h1
                 variants={fadeInUp}
-                className="text-3xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.1] sm:leading-[1.08] tracking-tight text-[#030B3B] mb-4 sm:mb-6 font-display"
+                className="text-3xl sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.1] sm:leading-[1.08] tracking-tight text-[#0A2F52] mb-4 sm:mb-6 font-display"
               >
-                Real <span className="text-[#00D4AA]">Results.</span>
+                Real <span className="text-[#3886CE]">Results.</span>
                 <br />
-                Proven <span className="text-[#00D4AA]">Impact.</span>
+                Proven <span className="text-[#3886CE]">Impact.</span>
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
@@ -133,7 +133,7 @@ export default function CaseStudiesPage() {
                   placeholder="Search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#030B3B] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
+                  className="w-full px-4 py-3 pl-11 pr-10 text-sm font-medium text-[#0A2F52] bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#3886CE]/50 focus:border-[#3886CE]/50 focus:bg-white placeholder:text-[#9CA3AF] transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50"
                 />
                 {/* Search Icon */}
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
@@ -159,7 +159,7 @@ export default function CaseStudiesPage() {
                     aria-label="Clear search"
                   >
                     <svg
-                      className="w-4 h-4 text-[#9CA3AF] hover:text-[#030B3B]"
+                      className="w-4 h-4 text-[#9CA3AF] hover:text-[#0A2F52]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -179,7 +179,7 @@ export default function CaseStudiesPage() {
               <div className="relative flex-1" ref={dropdownRef}>
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-full appearance-none bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl px-4 py-3 text-sm font-medium text-[#030B3B] focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/50 focus:border-[#1e90ff]/50 focus:bg-white cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50 text-left"
+                  className="w-full appearance-none bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl px-4 py-3 text-sm font-medium text-[#0A2F52] focus:outline-none focus:ring-2 focus:ring-[#3886CE]/50 focus:border-[#3886CE]/50 focus:bg-white cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-300/50 text-left"
                 >
                   {selectedTag}
                 </button>
@@ -194,8 +194,8 @@ export default function CaseStudiesPage() {
                           setSelectedTag(tag);
                           setIsDropdownOpen(false);
                         }}
-                        className={`w-full px-4 py-2.5 text-left text-sm font-medium transition-all duration-300 hover:bg-[#1e90ff]/10 hover:translate-x-1 ${
-                          selectedTag === tag ? 'bg-[#1e90ff]/10 text-[#1e90ff] translate-x-1' : 'text-[#030B3B]'
+                        className={`w-full px-4 py-2.5 text-left text-sm font-medium transition-all duration-300 hover:bg-[#3886CE]/10 hover:translate-x-1 ${
+                          selectedTag === tag ? 'bg-[#3886CE]/10 text-[#3886CE] translate-x-1' : 'text-[#0A2F52]'
                         }`}
                       >
                         {tag}
@@ -226,7 +226,7 @@ export default function CaseStudiesPage() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="group flex flex-col rounded-[32px] bg-white border border-[#030B3B]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
+              className="group flex flex-col rounded-[32px] bg-white border border-[#0A2F52]/10 overflow-visible transition-all duration-500 hover:-translate-y-2 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative"
             >
               {/* Card Image */}
               <div className="aspect-[1.8/1] overflow-hidden relative m-2.5 sm:m-3 rounded-[20px] sm:rounded-[24px]">
@@ -246,7 +246,7 @@ export default function CaseStudiesPage() {
                       {study.tags.slice(0, 2).map((tag, tagIdx) => (
                         <span
                           key={tagIdx}
-                          className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full"
+                          className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 rounded-full"
                         >
                           {tag}
                         </span>
@@ -263,7 +263,7 @@ export default function CaseStudiesPage() {
                             aria-label={`Show ${study.tags.length - 2} more tags`}
                             aria-expanded={expandedCardTags === cardKey}
                             onClick={() => setExpandedCardTags(expandedCardTags === cardKey ? null : cardKey)}
-                            className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#1e90ff]/15 hover:border-[#1e90ff]/30 focus:outline-none focus:ring-2 focus:ring-[#1e90ff]/25"
+                            className="px-2.5 sm:px-3 py-1 text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 rounded-full cursor-pointer transition-all duration-200 hover:bg-[#3886CE]/15 hover:border-[#3886CE]/30 focus:outline-none focus:ring-2 focus:ring-[#3886CE]/25"
                           >
                             +{study.tags.length - 2}
                           </button>
@@ -282,7 +282,7 @@ export default function CaseStudiesPage() {
                                   {study.tags.slice(2).map((tag, tagIdx) => (
                                     <span
                                       key={tagIdx}
-                                      className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1e90ff] bg-white border border-[#1e90ff]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
+                                      className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#3886CE] bg-white border border-[#3886CE]/20 rounded-full shadow-[0_8px_20px_rgba(15,23,42,0.10)]"
                                     >
                                       {tag}
                                     </span>
@@ -300,7 +300,7 @@ export default function CaseStudiesPage() {
                 {/* Title Wrapper */}
                 <div className="mb-2.5 sm:mb-3 flex items-start">
                   <h3
-                    className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#030B3B] leading-[1.35] tracking-tight"
+                    className="font-display text-[16px] sm:text-[18.5px] font-bold text-[#0A2F52] leading-[1.35] tracking-tight"
                     dangerouslySetInnerHTML={{ __html: study.title }}
                   />
                 </div>
@@ -313,7 +313,7 @@ export default function CaseStudiesPage() {
                 {/* CTA Button */}
                 <Link
                   href={study.href}
-                  className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#1e90ff]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#1e90ff] transition-all duration-300 group-hover:bg-[#1e90ff] group-hover:border-[#1e90ff] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
+                  className="flex items-center justify-between w-full py-3.5 sm:py-4 px-5 sm:px-6 bg-white border border-[#3886CE]/20 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold text-[#3886CE] transition-all duration-300 group-hover:bg-[#3886CE] group-hover:border-[#3886CE] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(30,144,255,0.3)]"
                 >
                   Read Case Study
                   <svg

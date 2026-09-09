@@ -32,14 +32,14 @@ const mainHexagons = [
 const decorHexagons = [
     { x: -DX * 0.8, y: DY * 4.2, w: DECOR_W * 0.85, h: DECOR_H * 0.85, color: "bg-slate-200/50" },
     { x: 0, y: DY * 5, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-blue-100/40" },
-    { x: -DX * 0.2, y: DY * 2.5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#00D4AA]/10" },
+    { x: -DX * 0.2, y: DY * 2.5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#3886CE]/10" },
     { x: DX * 0.15, y: DY, w: DECOR_W * 0.8, h: DECOR_H * 0.8, color: "bg-slate-100" },
     { x: DX * 1.15, y: 0, w: DECOR_W, h: DECOR_H, color: "bg-sky-100/40" },
     { x: DX * 3.15, y: 0, w: DECOR_W * 0.6, h: DECOR_H * 0.6, color: "bg-slate-200/60" },
     { x: DX * 4.15, y: DY, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-slate-200/40" },
     { x: DX * 4.15, y: DY * 3, w: DECOR_W * 0.9, h: DECOR_H * 0.9, color: "bg-[#1F35A4]/15" },
     { x: DX * 3.15, y: DY * 4, w: DECOR_W * 0.75, h: DECOR_H * 0.75, color: "bg-slate-300/30" },
-    { x: DX * 2.15, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#1e90ff]/10" },
+    { x: DX * 2.15, y: DY * 5, w: DECOR_W * 0.7, h: DECOR_H * 0.7, color: "bg-[#3886CE]/10" },
 
     // Tiny Floating Decor
     { x: -DX * 1.2, y: DY * 5.5, w: DECOR_W * 0.35, h: DECOR_H * 0.35, color: "bg-slate-200/60" },
@@ -71,8 +71,8 @@ export function TechPartners() {
                         >
 
                             {/* Eyebrow */}
-                            <div className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 mb-6">
-                                <span className="dot bg-[#1e90ff] shadow-[#1e90ff]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 mb-6">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 {techPartnersContent.label}
                             </div>
 
@@ -84,7 +84,7 @@ export function TechPartners() {
                                 <br />
                                 <span className="inline-block md:whitespace-nowrap">
                                     you already{" "}
-                                    <span className="text-[#00D4AA]">
+                                    <span className="text-[#3886CE]">
                                         trust.
                                     </span>
                                 </span>

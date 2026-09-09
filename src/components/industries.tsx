@@ -52,7 +52,7 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
     return (
         <Link 
             href={industry.href}
-            className={`group relative w-full border border-[#030B3B]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col cursor-pointer ${isOffset ? "lg:mt-12" : ""}`}
+            className={`group relative w-full border border-[#0A2F52]/10 rounded-[32px] overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col cursor-pointer ${isOffset ? "lg:mt-12" : ""}`}
             style={{ backgroundColor: industry.bgColor }}
             onTouchStart={() => setIsActive(!isActive)}
             onMouseEnter={() => setIsActive(true)}
@@ -60,7 +60,7 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
         >
             {/* Industry Title: STATIC (Always Visible) */}
             <div className="px-4 sm:px-5 lg:px-6 xl:px-7 pt-4 sm:pt-5 lg:pt-5 xl:pt-7 pb-2 z-30" style={{ backgroundColor: industry.bgColor }}>
-                <h3 className="text-[15px] sm:text-base lg:text-[18px] font-extrabold text-[#030B3B] leading-[1.2]">
+                <h3 className="text-[15px] sm:text-base lg:text-[18px] font-extrabold text-[#0A2F52] leading-[1.2]">
                     {industry.title}
                 </h3>
             </div>
@@ -95,12 +95,12 @@ function IndustryCard({ industry, index }: { industry: typeof INDUSTRIES_DATA[0]
 
                 {/* Content: Hidden by default, Appears on Hover/Active */}
                 <div className={`absolute inset-0 flex flex-col px-4 sm:px-5 lg:px-6 xl:px-7 pt-2 pb-4 sm:pb-5 lg:pb-6 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-0"}`}>
-                    <p className="text-[#030B3B]/90 text-[12px] sm:text-[13px] lg:text-[14px] font-medium leading-[1.6]">
+                    <p className="text-[#0A2F52]/90 text-[12px] sm:text-[13px] lg:text-[14px] font-medium leading-[1.6]">
                         {industry.description}
                     </p>
                     
                     <div className="mt-auto flex justify-end">
-                        <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#1e90ff] group-hover:text-[#00D4AA] transition-colors">
+                        <span className="flex items-center gap-1 text-[13px] font-extrabold text-[#3886CE] group-hover:text-[#3886CE] transition-colors">
                             Expand
                             <span className="text-lg leading-none mb-0.5">›</span>
                         </span>
@@ -125,13 +125,13 @@ export function Industries() {
                         viewport={viewportOnce}
                         className="md:col-span-7"
                     >
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/10 border border-[#1e90ff]/25 rounded-full px-5 py-1.5 mb-8">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/25 rounded-full px-5 py-1.5 mb-8">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                             INDUSTRIES WE SERVE
                         </div>
-                        <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-black tracking-tight text-[#030B3B] leading-[1.1] font-display text-balance">
+                        <h2 className="text-[32px] sm:text-[44px] lg:text-[44px] 2xl:text-[52px] font-black tracking-tight text-[#0A2F52] leading-[1.1] font-display text-balance">
                             Deep domain expertise,<br className="hidden md:block" />
-                            built over <span className="text-[#00D4AA]">decades.</span>
+                            built over <span className="text-[#3886CE]">decades.</span>
                         </h2>
                     </motion.div>
 
@@ -143,7 +143,7 @@ export function Industries() {
                         viewport={viewportOnce}
                         className="md:col-span-5 md:col-start-8 pt-4 md:pt-[60px]"
                     >
-                        <div className="flex gap-6 border-l-[3px] border-[#00D4AA] pl-6 md:pl-8">
+                        <div className="flex gap-6 border-l-[3px] border-[#3886CE] pl-6 md:pl-8">
                             <p className="text-base md:text-[16px] lg:text-[18px] 2xl:text-[20px] font-medium leading-relaxed text-slate-600/90 max-w-[460px]">
                                 We know your compliance requirements, your legacy constraints and your competitive pressures — not from research, but from years inside these industries.
                             </p>

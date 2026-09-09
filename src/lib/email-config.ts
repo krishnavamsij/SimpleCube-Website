@@ -44,11 +44,11 @@ export function getSesCredentials():
   return undefined;
 }
 
-// Contact Form → connect@hyniva.com
-export const SES_RECIPIENT_CONTACT = process.env.SES_RECIPIENT_CONTACT || "connect@hyniva.com";
+// Contact Form → kvjadapolu@simplecube.co
+export const SES_RECIPIENT_CONTACT = process.env.SES_RECIPIENT_CONTACT || "kvjadapolu@simplecube.co";
 
-// Case Study Inquiry → connect@hyniva.com
-export const SES_RECIPIENT_CASESTUDY = process.env.SES_RECIPIENT_CASESTUDY || "connect@hyniva.com";
+// Case Study Inquiry → kvjadapolu@simplecube.co
+export const SES_RECIPIENT_CASESTUDY = process.env.SES_RECIPIENT_CASESTUDY || "kvjadapolu@simplecube.co";
 
 // Careers: Onsite Applications (US, Canada, etc.) → careers@hyniva.com
 export const SES_RECIPIENT_CAREERS_US = process.env.SES_RECIPIENT_CAREERS_US || "careers@hyniva.com";
@@ -63,8 +63,8 @@ export const SES_RECIPIENT_CAREERS_NONUS = process.env.SES_RECIPIENT_CAREERS_NON
  * ✅ ravi@hyniva.com (from SES_SOURCE_EMAIL)
  * 
  * RECIPIENTS:
- * - Contact inquiries → connect@hyniva.com
- * - Case study requests → connect@hyniva.com
+ * - Contact inquiries → kvjadapolu@simplecube.co
+ * - Case study requests → kvjadapolu@simplecube.co
  * - Onsite job applications (US, Canada, etc.) → careers@hyniva.com
  * - India job applications → hr@hyniva.com
  */

@@ -1,16 +1,22 @@
 import { Navbar } from "@/components/navbar";
 import { HeroCarousel } from "@/components/hero-carousel";
-import { TrustBar } from "@/components/trust-bar";
+// Scrolling client logos temporarily hidden from this build
+// import { TrustBar } from "@/components/trust-bar";
 import { Challenges } from "@/components/challenges";
 import { Approach } from "@/components/approach";
 import { Services } from "@/components/services";
-import { ProductsShowcase } from "@/components/products-showcase";
-import { CaseStudies } from "@/components/case-studies";
+// Products section temporarily hidden from this build
+// import { ProductsShowcase } from "@/components/products-showcase";
+// Case Studies temporarily hidden from this build
+// import { CaseStudies } from "@/components/case-studies";
 import { WhyHyniva } from "@/components/why-hyniva";
-import { Industries } from "@/components/industries";
+// Industries temporarily hidden from this build
+// import { Industries } from "@/components/industries";
 import { TechPartners } from "@/components/tech-partners";
-import { VoiceOfCustomer } from "@/components/voice-of-customer";
-import { Faq } from "@/components/faq";
+// Customer Stories temporarily hidden from this build
+// import { VoiceOfCustomer } from "@/components/voice-of-customer";
+// FAQ temporarily hidden from this build
+// import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -19,16 +25,22 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroCarousel />
-        <TrustBar />
-        <VoiceOfCustomer />
+        {/* Scrolling client logos temporarily hidden from this build */}
+        {/* <TrustBar /> */}
+        {/* Customer Stories temporarily hidden from this build */}
+        {/* <VoiceOfCustomer /> */}
         <WhyHyniva />
         <Challenges />
         <Approach />
-        <CaseStudies />
-        <Industries />
-        <ProductsShowcase />
+        {/* Case Studies temporarily hidden from this build */}
+        {/* <CaseStudies /> */}
+        {/* Industries temporarily hidden from this build */}
+        {/* <Industries /> */}
+        {/* Products section temporarily hidden from this build */}
+        {/* <ProductsShowcase /> */}
       </main>
-      <Faq />
+      {/* FAQ temporarily hidden from this build */}
+      {/* <Faq /> */}
       <Footer />
     </>
   );

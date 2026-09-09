@@ -58,7 +58,7 @@ function SalesforceChip() {
             />
             <span style={{
                 position: "absolute",
-                color: "#030b1e",
+                color: "#0A2F52",
                 fontSize: "5.8px",
                 fontWeight: 900,
                 textAlign: "center",
@@ -223,10 +223,10 @@ function ServicesHero() {
     };
 
     return (
-        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen bg-[#030b1e]">
+        <section className="relative overflow-hidden py-20 pt-28 sm:py-40 sm:pt-52 md:py-48 md:pt-60 lg:py-56 lg:pt-72 flex items-center min-h-screen bg-[#0A2F52]">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#030b1e]" />
-            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(37,99,235,0.18)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
+            <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
                 style={{
@@ -325,8 +325,8 @@ function ServicesHero() {
                 >
                     {/* Eyebrow Badge */}
                     <motion.div variants={fadeInUp} className="flex justify-center">
-                        <span className="eyebrow text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
+                        <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-[0.25em] flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
                             SERVICES
                         </span>
                     </motion.div>
@@ -335,21 +335,21 @@ function ServicesHero() {
                     <motion.h1
                         variants={fadeInUp}
                         className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.15] tracking-tight font-display w-full lg:whitespace-nowrap mx-auto text-center [&_br]:hidden sm:[&_br]:inline"
-                        dangerouslySetInnerHTML={{ __html: "Building resilient, intelligent <br />enterprises for what's next" }}
+                        dangerouslySetInnerHTML={{ __html: "Engineering scalable software <br />with boutique precision" }}
                     />
 
                     {/* Subtitle */}
                     <motion.p
                         variants={fadeInUp}
                         className="text-base sm:text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-6xl mx-auto text-center"
-                        dangerouslySetInnerHTML={{ __html: "Technology decisions today shape how organizations compete tomorrow. We help organizations modernize operations, accelerate innovation, and create experiences that drive sustainable growth." }}
+                        dangerouslySetInnerHTML={{ __html: "We turn complex operational bottlenecks into streamlined digital workflows — custom software, Salesforce integrations, product development, and digital transformation." }}
                     />
 
                     {/* CTA Button */}
                     <motion.div variants={fadeInUp}>
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB] px-8 py-4 text-sm font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 hover:scale-[1.03]"
+                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#3886CE] to-[#135498] px-8 py-4 text-sm font-bold text-white shadow-[0_0_15px_rgba(56,134,206,0.5)] hover:shadow-[0_0_25px_rgba(56,134,206,0.8)] transition-all duration-300 hover:scale-[1.03]"
                         >
                             Discuss your project
                             <ArrowUpRightIcon className="h-4 w-4" />
@@ -497,25 +497,25 @@ function DataSecuritySection() {
                         className="w-full md:w-[50%] lg:w-[52%]"
                     >
                         {/* Eyebrow */}
-                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 rounded-full px-4 py-1.5 mb-6">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] animate-pulse" />
+                        <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 rounded-full px-4 py-1.5 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] animate-pulse" />
                             Security & Compliance
                         </div>
 
                         <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5">
                             Your data is safe.<br />
-                            <span className="text-[#00D4AA]">We engineer it that way.</span>
+                            <span className="text-[#3886CE]">We engineer it that way.</span>
                         </h2>
                         <p className="text-base sm:text-lg md:text-[17px] lg:text-[18px] 2xl:text-[20px] text-slate-700 font-medium leading-[1.6] mb-10 max-w-xl">
-                            Security is not an afterthought at Hyniva — it is built into every layer of our
-                            delivery model. From SOC 2 compliance to zero-trust architecture, we uphold the
+                            Security is not an afterthought at SimpleCube — it is built into every layer of our
+                            delivery model. From secure architectures to disciplined Agile delivery, we uphold the
                             highest standards so your data, your clients, and your reputation stay protected.
                         </p>
 
-                        <h3 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 mb-3">Trusted by 45+ Enterprise Clients</h3>
+                        <h3 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 mb-3">Trusted Boutique Delivery Partner</h3>
                         <p className="text-[14px] sm:text-[16px] md:text-[15px] lg:text-[16px] 2xl:text-[18px] text-slate-700 font-medium leading-[1.6] max-w-xl">
-                            From financial institutions to Fortune 500s, organizations trust Hyniva to handle
-                            their most sensitive workloads securely and compliantly.
+                            Organizations trust SimpleCube to handle sensitive workloads with enterprise-grade
+                            engineering and the personalized partnership of a lean Texas team.
                         </p>
                     </motion.div>
 
@@ -561,13 +561,13 @@ function WorkThatSpeaks() {
                 <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10 lg:gap-16 mb-12">
                     <div className="w-full md:w-[50%] lg:w-[52%]">
                         <h2 className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold text-[#0f172a] tracking-tight font-display leading-[1.12]">
-                            Enterprise <span className="text-[#00D4AA]">Impact</span>
+                            Enterprise <span className="text-[#3886CE]">Impact</span>
                             <br />
-                            Delivered By Our <span className="text-[#00D4AA]">Experts.</span>
+                            Delivered By Our <span className="text-[#3886CE]">Experts.</span>
                         </h2>
                     </div>
                     <div className="w-full md:w-[50%] lg:w-[48%] flex items-stretch">
-                        <div className="w-[3px] sm:w-1 bg-[#00D4AA] shrink-0 mr-6 rounded-full"></div>
+                        <div className="w-[3px] sm:w-1 bg-[#3886CE] shrink-0 mr-6 rounded-full"></div>
                         <div className="flex items-center">
                             <h3 className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold text-[#0f172a] tracking-tight leading-tight font-display">
                                 Over 220 Projects
@@ -618,18 +618,18 @@ function WorkThatSpeaks() {
                                             </div>
                                             <div className="mt-8 lg:mt-auto pt-4">
                                                 <p className="text-lg font-bold text-slate-900 mb-3">Result:</p>
-                                                <div className="bg-[#1e90ff]/5 border border-[#1e90ff]/20 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                                                <div className="bg-[#3886CE]/5 border border-[#3886CE]/20 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                                                     <p className="text-sm text-slate-600 leading-relaxed max-w-2xl"
                                                         dangerouslySetInnerHTML={{
                                                             __html: study.result.replace(
                                                                 /(\d[\d,+%\-x\.]*\s*(?:Lighthouse|faster|month|integrations|version|score|per\s+month)?[\w\s]*)/gi,
-                                                                '<span class="text-[#1e90ff] font-bold">$1</span>'
+                                                                '<span class="text-[#3886CE] font-bold">$1</span>'
                                                             )
                                                         }}
                                                     />
                                                     <Link
                                                         href={study.href}
-                                                        className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2563EB] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#1e40af] hover:scale-105 transition-all shadow-md"
+                                                        className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#135498] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#135498] hover:scale-105 transition-all shadow-md"
                                                     >
                                                         Read More <ArrowRightIcon className="w-3.5 h-3.5" />
                                                     </Link>
@@ -662,15 +662,15 @@ function WorkThatSpeaks() {
                         </div>
                         <div className="flex flex-col items-center justify-center gap-4 mt-8 lg:mt-auto pt-4">
                             <div className="flex items-center justify-center gap-3">
-                                <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                <button onClick={scrollPrev} aria-label="Previous case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#135498] hover:text-[#135498] transition-colors bg-slate-50/50">
                                     <ChevronLeft className="w-5 h-5" />
                                 </button>
-                                <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#2563EB] hover:text-[#2563EB] transition-colors bg-slate-50/50">
+                                <button onClick={scrollNext} aria-label="Next case study" className="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-[#135498] hover:text-[#135498] transition-colors bg-slate-50/50">
                                     <ChevronRight className="w-5 h-5" />
                                 </button>
                             </div>
                             <div className="text-[11px] font-light tracking-[2px] text-slate-400">
-                                <span className="text-[#00D4AA] font-medium">{(current + 1).toString().padStart(2, '0')}</span> / {servicesProjectsData.length.toString().padStart(2, '0')}
+                                <span className="text-[#3886CE] font-medium">{(current + 1).toString().padStart(2, '0')}</span> / {servicesProjectsData.length.toString().padStart(2, '0')}
                             </div>
                         </div>
                     </div>
@@ -722,7 +722,7 @@ function TechPartnersSection() {
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-6 mb-8">
                     <div className="shrink-0 md:w-auto">
                         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
-                            Our <span className="text-[#00D4AA]">Tech Stack</span>
+                            Our <span className="text-[#3886CE]">Tech Stack</span>
                         </h2>
                     </div>
                     <div className="ml-auto md:w-[62%]">
@@ -740,8 +740,8 @@ function TechPartnersSection() {
                             onClick={() => setActiveCategory(category.category)}
                             className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-[10px] sm:text-xs font-semibold whitespace-nowrap transition-all duration-300 border sm:shrink-0 ${
                                 activeCategory === category.category
-                                    ? "bg-[#00D4AA] text-white border-[#00D4AA] shadow-md"
-                                    : "bg-white text-slate-800 border-slate-200 hover:border-[#00D4AA] hover:text-[#00D4AA]"
+                                    ? "bg-[#3886CE] text-white border-[#3886CE] shadow-md"
+                                    : "bg-white text-slate-800 border-slate-200 hover:border-[#3886CE] hover:text-[#3886CE]"
                             }`}
                         >
                             {category.category}
@@ -787,7 +787,7 @@ function TechPartnersSection() {
                                     />
                                 </div>
                                 <span className={`mt-2 text-[11px] font-medium text-center transition-transform duration-300 group-hover:scale-105 ${
-                                    isHighlighted ? "text-[#2563EB] font-bold" : "text-slate-500"
+                                    isHighlighted ? "text-[#135498] font-bold" : "text-slate-500"
                                 }`}>
                                     {tech.name}
                                 </span>

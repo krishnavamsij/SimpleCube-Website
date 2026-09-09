@@ -28,7 +28,7 @@ export const whyWorkWithUsFeatures: WhyWorkWithUsFeature[] = [
         accentColor: "blue",
         pastelBg: "bg-[#E8ECFB]",
         pastelBadgeBg: "bg-[#D5E0FA]",
-        iconColor: "text-[#2563EB]",
+        iconColor: "text-[#135498]",
         whiteBadgeBg: "bg-slate-50",
     },
     {
@@ -132,7 +132,7 @@ export function FeatureCard({
             </div>
 
             {/* Bold Dark Navy Heading */}
-            <h3 className="text-xl font-bold text-[#030B3B] font-display mb-3 tracking-tight leading-snug">
+            <h3 className="text-xl font-bold text-[#0A2F52] font-display mb-3 tracking-tight leading-snug">
                 {feature.title}
             </h3>
 
@@ -208,8 +208,8 @@ export function WhyWorkWithUs({
                             transition={{ duration: 0.5 }}
                             className="flex justify-start lg:justify-center mb-4"
                         >
-                            <div className="eyebrow text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3.5 py-1 text-[11px]">
-                                <span className="dot bg-[#3B82F6] shadow-[#3B82F6]" />
+                            <div className="eyebrow text-[#3886CE] bg-[#3886CE]/10 border border-[#3886CE]/20 px-3.5 py-1 text-[11px]">
+                                <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
                                 {eyebrowText}
                             </div>
                         </motion.div>
@@ -220,7 +220,7 @@ export function WhyWorkWithUs({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportConfig}
                         transition={{ duration: 0.55, delay: 0.05 }}
-                        className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#030B3B] font-display mb-4 leading-[1.15] tracking-tight"
+                        className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0A2F52] font-display mb-4 leading-[1.15] tracking-tight"
                     >
                         {heading}
                     </motion.h2>
@@ -245,7 +245,7 @@ export function WhyWorkWithUs({
                         {showColumnLabels && (
                             <div className="flex items-center justify-between mb-4 px-1">
                                 <div className="flex items-center gap-2">
-                                    <span className="w-2.5 h-2.5 rounded-full bg-[#3B82F6]" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#3886CE]" />
                                     <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                                         {leftColumnLabel}
                                     </span>

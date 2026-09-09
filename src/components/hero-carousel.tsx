@@ -11,13 +11,14 @@ import { CONTAINER_CLASS } from "@/lib/container-utils";
 
 export function HeroCarousel() {
     const slides = heroSlides;
-    // Set to the 'Build in Weeks, Not Months' slide index
-    const currentSlide = 1;
+    // Primary blueprint slide (index 0); variants retained in heroSlides for future rotation
+    const currentSlide = 0;
+    const slide = slides[currentSlide];
 
     return (
-        <section id="hero-section" className="relative min-h-dvh flex items-center overflow-hidden bg-[#030b1e]">
+        <section id="hero-section" className="relative min-h-dvh flex items-center overflow-hidden bg-[#0A2F52]">
             {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#030b1e] to-[#020918]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#0A2F52] to-[#020918]" />
             <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(30,144,255,0.08)_0%,transparent_65%)]" />
             <div
                 className="absolute inset-0 opacity-[0.025]"
@@ -39,21 +40,24 @@ export function HeroCarousel() {
                             initial="hidden"
                             animate="visible"
                         >
-                             {/* Badge / Eyebrow */}
+                             {/* Badge temporarily hidden from this build */}
+                             {/*
                             <motion.div variants={fadeInUp}>
-                                <span className="inline-flex items-center gap-2 text-[9px] xl:text-[10px] font-bold tracking-[2px] uppercase text-[#1e90ff] bg-[#1e90ff]/[0.08] border border-[#1e90ff]/25 backdrop-blur-md rounded-full px-5 py-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shadow-[0_0_8px_#1e90ff] animate-pulse" />
-                                    AI-POWERED SOFTWARE DELIVERY
+                                <span className="inline-flex items-center gap-2 text-[9px] xl:text-[10px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md rounded-full px-5 py-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE] animate-pulse" />
+                                    {slide.badge.toUpperCase()}
                                 </span>
                             </motion.div>
+                             */}
  
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
                                 className="mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-display text-balance"
                             >
-                                Build in <span className="text-[#00D4AA]">weeks,</span><br />
-                                not <span className="text-[#00D4AA]">months.</span>
+                                Complex problems,
+                                <br />
+                                <span className="text-[#3886CE]">solved simply.</span>
                             </motion.h1>
  
                             {/* Subheadline / Callout Content */}
@@ -61,7 +65,7 @@ export function HeroCarousel() {
                                 variants={fadeInUp}
                                 className="mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 w-full text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-2xl"
                             >
-                                Powered by 20+ years of experience across multiple industries, we focus on delivering business outcomes without adding complexity or overhead.
+                                {slide.subheadline}
                             </motion.p>
 
                             {/* Hero Metrics Row */}
@@ -69,17 +73,18 @@ export function HeroCarousel() {
                                 variants={fadeInUp} 
                                 className="mt-10 lg:mt-14 xl:mt-18 2xl:mt-22 flex flex-row flex-nowrap items-start justify-start gap-12 sm:gap-16 md:gap-20 lg:gap-24 xl:gap-28 2xl:gap-32 w-full sm:w-auto"
                             >
-                                {[
-                                    { value: "50%", label: "Less Planning\nTime" },
-                                    { value: "40%", label: "Quicker\nDelivery" },
-                                    { value: "30%", label: "Faster\nPOC" }
-                                ].map((stat, idx) => (
+                                {slide.stats.map((stat, idx) => (
                                     <div key={idx} className="flex flex-col items-start text-left shrink-0">
                                         <div className="flex items-baseline justify-start gap-1 mb-1.5 sm:mb-2.5 xl:mb-3">
                                             <span className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[40px] 2xl:text-[46px] font-black text-white leading-none font-display">
-                                                {stat.value.replace('%', '')}
+                                                {stat.value.replace('%', '').replace('+', '')}
                                             </span>
+                                            {stat.value.includes('%') && (
                                             <span className="text-base sm:text-lg lg:text-[18px] xl:text-[22px] 2xl:text-[26px] font-black text-white leading-none">%</span>
+                                            )}
+                                            {stat.value.includes('+') && (
+                                            <span className="text-base sm:text-lg lg:text-[18px] xl:text-[22px] 2xl:text-[26px] font-black text-white leading-none">+</span>
+                                            )}
                                         </div>
                                         <span className="text-[10px] sm:text-[11px] lg:text-[12px] font-bold text-slate-400 whitespace-pre-line leading-[1.4]">
                                             {stat.label}
@@ -90,7 +95,7 @@ export function HeroCarousel() {
  
                             {/* CTAs / Two Capsules */}
                             <motion.div variants={fadeInUp} className="mt-10 lg:mt-12 xl:mt-16 2xl:mt-20 flex flex-wrap gap-3 xl:gap-4">
-                                <Button size="lg" asChild className="bg-[#1e90ff] text-white hover:bg-[#1e90ff]/90 border border-transparent rounded-full font-bold px-6 xl:px-8 h-12 xl:h-14 text-sm xl:text-base shadow-[0_4px_14px_rgba(30,144,255,0.4)]">
+                                <Button size="lg" asChild className="bg-[#3886CE] text-white hover:bg-[#3886CE]/90 border border-transparent rounded-full font-bold px-6 xl:px-8 h-12 xl:h-14 text-sm xl:text-base shadow-[0_4px_14px_rgba(30,144,255,0.4)]">
                                     <Link href={heroCtas.primary.href}>
                                         {heroCtas.primary.label} <ArrowUpRightIcon className="ml-1 h-4 w-4" />
                                     </Link>

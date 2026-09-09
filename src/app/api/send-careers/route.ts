@@ -221,7 +221,7 @@ export async function POST(request: Request) {
 
     const htmlContent = `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; color: #333;">
-        <div style="background: linear-gradient(135deg, #1e90ff 0%, #0d47a1 100%); padding: 30px; border-radius: 10px 10px 0 0; color: white;">
+        <div style="background: linear-gradient(135deg, #3886CE 0%, #0d47a1 100%); padding: 30px; border-radius: 10px 10px 0 0; color: white;">
           <h2 style="margin: 0; font-size: 24px;">New Job Application</h2>
           <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Status: Ready for review</p>
         </div>
@@ -229,17 +229,17 @@ export async function POST(request: Request) {
         <div style="background-color: #f8f9fa; padding: 2px;"></div>
 
         <div style="background-color: #fff; padding: 30px; border-bottom: 1px solid #e0e0e0;">
-          <h3 style="color: #1e90ff; margin-top: 0; margin-bottom: 20px; font-size: 16px;">Applicant Information</h3>
+          <h3 style="color: #3886CE; margin-top: 0; margin-bottom: 20px; font-size: 16px;">Applicant Information</h3>
           
           <table style="width: 100%; border-collapse: collapse;">
             <tbody>
               <tr style="border-bottom: 1px solid #e0e0e0;">
                 <td style="padding: 12px 0; width: 150px;"><strong>Full Name</strong></td>
-                <td style="padding: 12px 0; color: #1e90ff;">${name}</td>
+                <td style="padding: 12px 0; color: #3886CE;">${name}</td>
               </tr>
               <tr style="border-bottom: 1px solid #e0e0e0;">
                 <td style="padding: 12px 0;"><strong>Email</strong></td>
-                <td style="padding: 12px 0;"><a href="mailto:${email}" style="color: #1e90ff; text-decoration: none;">${email}</a></td>
+                <td style="padding: 12px 0;"><a href="mailto:${email}" style="color: #3886CE; text-decoration: none;">${email}</a></td>
               </tr>
               <tr style="border-bottom: 1px solid #e0e0e0;">
                 <td style="padding: 12px 0;"><strong>Position Applied</strong></td>

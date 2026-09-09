@@ -159,7 +159,7 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
     return (
         <div className={`flex items-center justify-center ${className}`}>
             {Icon ? (
-                <Icon className="w-9 h-9 text-[#1e90ff] fill-[#1e90ff]/15" strokeWidth={2.5} />
+                <Icon className="w-9 h-9 text-[#3886CE] fill-[#3886CE]/15" strokeWidth={2.5} />
             ) : (
                 <span className="text-3xl">{icon}</span>
             )}
@@ -177,11 +177,11 @@ const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst
         <div className="relative">
             <div className="flex items-center gap-3 sm:gap-5 mb-5 sm:mb-8">
                 {num && (
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1e90ff] flex items-center justify-center text-white font-normal font-sans text-[11px] sm:text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#3886CE] flex items-center justify-center text-white font-normal font-sans text-[11px] sm:text-[12px] shrink-0 shadow-[0_6px_16px_rgba(30,144,255,0.4)] z-10 relative">
                         {num}
                     </div>
                 )}
-                {tag && <span className="text-[#1e90ff] font-semibold text-[11px] sm:text-[13px] uppercase tracking-[0.2em] sm:tracking-[0.3em] font-sans">{tag}</span>}
+                {tag && <span className="text-[#3886CE] font-semibold text-[11px] sm:text-[13px] uppercase tracking-[0.2em] sm:tracking-[0.3em] font-sans">{tag}</span>}
             </div>
         </div>
     );
@@ -220,7 +220,7 @@ export default function CaseStudyDetailPage() {
                         <div className="flex flex-col gap-5">
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-5 bg-white border border-[#e5e7eb] rounded-[10px] p-[22px_24px] transition-all duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)]">
-                                    <div className="text-[32px] font-normal text-[#1e90ff]/18 leading-none shrink-0 w-9 font-sans">
+                                    <div className="text-[32px] font-normal text-[#3886CE]/18 leading-none shrink-0 w-9 font-sans">
                                         {item.num || '✦'}
                                     </div>
                                     <div className="pt-1 flex-1">
@@ -229,7 +229,7 @@ export default function CaseStudyDetailPage() {
                                             <div className="flex flex-col gap-2">
                                                 {item.bullets.map((bullet: string, bulletIdx: number) => (
                                                     <div key={bulletIdx} className="flex gap-2.5 items-start">
-                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] shrink-0 mt-1.5 opacity-60" />
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shrink-0 mt-1.5 opacity-60" />
                                                         <p className="cs-content text-[13.5px] font-light text-[#6b7280] leading-[1.65] leading-relaxed flex-1">{bullet}</p>
                                                     </div>
                                                 ))}
@@ -268,13 +268,13 @@ export default function CaseStudyDetailPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] mt-7">
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="bg-white border border-[#e5e7eb] rounded-[12px] p-[22px_24px] flex gap-[18px] items-start transition-all duration-200 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden">
-                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#1e90ff] to-[#63c2ff] rounded-l-[3px_0_0_3px]" />
+                                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#3886CE] to-[#63c2ff] rounded-l-[3px_0_0_3px]" />
                                     {iconMap[item.value] ? (
                                         <div className="flex flex-col items-center justify-center shrink-0 min-w-[64px]">
                                             <StandardIcon icon={item.value} />
                                         </div>
                                     ) : (
-                                        <div className="text-[clamp(20px,2.2vw,28px)] font-bold text-[#1e90ff] leading-none shrink-0 min-w-[64px] font-sans">
+                                        <div className="text-[clamp(20px,2.2vw,28px)] font-bold text-[#3886CE] leading-none shrink-0 min-w-[64px] font-sans">
                                             {item.value}
                                         </div>
                                     )}
@@ -295,7 +295,7 @@ export default function CaseStudyDetailPage() {
                         <div className="space-y-3">
                             {content.items.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-4 items-start">
-                                    <div className="w-2 h-2 rounded-full bg-[#1e90ff] shrink-0 mt-2 opacity-70" />
+                                    <div className="w-2 h-2 rounded-full bg-[#3886CE] shrink-0 mt-2 opacity-70" />
                                     <span className="text-[16px] font-light text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
                                 </div>
                             ))}
@@ -309,8 +309,8 @@ export default function CaseStudyDetailPage() {
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="flex flex-wrap gap-3">
                             {content.items.map((item: any, idx: number) => (
-                                <div key={idx} className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-[14px] font-medium text-slate-600 hover:border-[#1e90ff] hover:text-[#1e90ff] hover:bg-[#1e90ff0a] transition-all cursor-default">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[#1e90ff] opacity-50" />
+                                <div key={idx} className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-[14px] font-medium text-slate-600 hover:border-[#3886CE] hover:text-[#3886CE] hover:bg-[#3886CE0a] transition-all cursor-default">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#3886CE] opacity-50" />
                                     {item}
                                 </div>
                             ))}
@@ -380,8 +380,8 @@ export default function CaseStudyDetailPage() {
                                         }
                                     }}
                                     className={`px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-[12px] font-bold font-sans transition-all duration-200 whitespace-nowrap border ${activeTabIndex === sectionIds.indexOf(section.id)
-                                        ? "bg-[#1e90ff] text-white border-[#1e90ff]"
-                                        : "bg-transparent border-transparent text-[#6b7280] hover:text-[#1e90ff]"
+                                        ? "bg-[#3886CE] text-white border-[#3886CE]"
+                                        : "bg-transparent border-transparent text-[#6b7280] hover:text-[#3886CE]"
                                         }`}
                                 >
                                     {section.title || section.id}
@@ -443,7 +443,7 @@ export default function CaseStudyDetailPage() {
                 }
                 .no-scrollbar::-webkit-scrollbar { display: none; }
                 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-                h1 em, .banner h1 em { font-style: normal; color: #00D4AA; font-family: var(--font-display), serif; font-weight: 700; text-shadow: 0 0 48px rgba(0,212,170,0.3); }
+                h1 em, .banner h1 em { font-style: normal; color: #3886CE; font-family: var(--font-display), serif; font-weight: 700; text-shadow: 0 0 48px rgba(56,134,206,0.3); }
                 .font-display { font-family: var(--font-display), serif; }
                 p { margin-bottom: 1.25rem; }
 
@@ -496,7 +496,7 @@ export default function CaseStudyDetailPage() {
                     font-weight: 600;
                     letter-spacing: 2.5px;
                     text-transform: uppercase;
-                    color: #1e90ff;
+                    color: #3886CE;
                     margin-bottom: 14px;
                 }
                 .solution-group__bullets {
@@ -518,7 +518,7 @@ export default function CaseStudyDetailPage() {
                     width: 6px;
                     height: 6px;
                     border-radius: 50%;
-                    background: #1e90ff;
+                    background: #3886CE;
                     flex-shrink: 0;
                     margin-top: 7px;
                     opacity: 0.6;
@@ -539,11 +539,11 @@ export default function CaseStudyDetailPage() {
                 }
                 .solution-card:hover {
                     box-shadow: 0 8px 24px rgba(30,144,255,0.08);
-                    border-color: #1e90ff33;
+                    border-color: #3886CE33;
                     transform: translateX(4px);
                 }
                 .solution-card__sparkle {
-                    color: #1e90ff;
+                    color: #3886CE;
                     font-size: 22px;
                     flex-shrink: 0;
                     display: flex;
@@ -551,7 +551,7 @@ export default function CaseStudyDetailPage() {
                     justify-content: center;
                     width: 32px;
                     height: 32px;
-                    background: #1e90ff0a;
+                    background: #3886CE0a;
                     border-radius: 50%;
                     text-shadow: 0 0 10px rgba(30,144,255,0.3);
                 }
@@ -574,7 +574,7 @@ export default function CaseStudyDetailPage() {
                 }
                 .cs-content.core-banking-sub::before {
                     content: '•';
-                    color: #1e90ff !important;
+                    color: #3886CE !important;
                     font-weight: bold;
                     position: absolute;
                     left: 0;
@@ -593,7 +593,7 @@ export default function CaseStudyDetailPage() {
                 }
                 .cs-content.salesforce-sub::before {
                     content: '•';
-                    color: #1e90ff !important;
+                    color: #3886CE !important;
                     font-weight: bold;
                     position: absolute;
                     left: 0;
@@ -633,7 +633,7 @@ export default function CaseStudyDetailPage() {
                     justify-content: center;
                     font-size: 18px;
                     font-weight: 600;
-                    color: #1e90ff;
+                    color: #3886CE;
                     flex-shrink: 0;
                 }
                 .approach-item__content {
@@ -659,7 +659,7 @@ export default function CaseStudyDetailPage() {
                 }
                 .approach-item__bullet::before {
                     content: '•';
-                    color: #1e90ff;
+                    color: #3886CE;
                     font-weight: bold;
                     position: absolute;
                     left: -16px;
@@ -675,7 +675,7 @@ export default function CaseStudyDetailPage() {
                 .tech-tag {
                     font-size: 11.5px;
                     font-weight: 500;
-                    color: #1e90ff;
+                    color: #3886CE;
                     background: rgba(30,144,255,0.07);
                     border: 1px solid rgba(30,144,255,0.18);
                     border-radius: 100px;
@@ -701,7 +701,7 @@ export default function CaseStudyDetailPage() {
                 .tech-bullet__dot {
                     width: 8px;
                     height: 8px;
-                    background: #1e90ff;
+                    background: #3886CE;
                     border-radius: 50%;
                     flex-shrink: 0;
                     margin-top: 6px;
@@ -751,7 +751,7 @@ export default function CaseStudyDetailPage() {
                     top: 0;
                     bottom: 0;
                     width: 3px;
-                    background: linear-gradient(to bottom, #1e90ff, #63c2ff);
+                    background: linear-gradient(to bottom, #3886CE, #63c2ff);
                     border-radius: 3px 0 0 3px;
                 }
                 .impact-card:hover {
@@ -761,7 +761,7 @@ export default function CaseStudyDetailPage() {
                 .impact-card__stat {
                     font-size: 32px;
                     font-weight: 700;
-                    color: #1e90ff;
+                    color: #3886CE;
                     line-height: 1;
                     min-width: 60px;
                     display: flex;
@@ -798,7 +798,7 @@ export default function CaseStudyDetailPage() {
                 .outcome-item__dot {
                     width: 8px;
                     height: 8px;
-                    background: #1e90ff;
+                    background: #3886CE;
                     border-radius: 50%;
                     flex-shrink: 0;
                     margin-top: 6px;

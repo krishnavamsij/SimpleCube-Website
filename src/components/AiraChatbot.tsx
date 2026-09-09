@@ -347,7 +347,7 @@ export function AiraChatbot({
               height: "100%", 
               objectFit: "contain",
               objectPosition: "bottom center",
-              filter: "drop-shadow(0 8px 20px rgba(37,99,235,0.6))"
+              filter: "drop-shadow(0 8px 20px rgba(19,84,152,0.6))"
             }}
           />
         </div>
@@ -363,8 +363,8 @@ export function AiraChatbot({
             alignItems: "center",
             justifyContent: "center",
             gap: mobile ? 12 : scrolled ? 14 : 16,
-            background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
-            border: "2px solid rgba(59,130,246,0.6)",
+            background: "linear-gradient(135deg, #135498 0%, #3886CE 100%)",
+            border: "2px solid rgba(56,134,206,0.6)",
             borderRadius: 9999,
             height: mobile ? 52 : scrolled ? 56 : 60,
             paddingLeft: mobile ? 24 : scrolled ? 28 : 32,
@@ -372,7 +372,7 @@ export function AiraChatbot({
             minWidth: mobile ? 200 : scrolled ? 220 : 240,
             cursor: "pointer",
             flexShrink: 0,
-            boxShadow: "0 0 30px rgba(37,99,235,0.5), 0 8px 20px rgba(37,99,235,0.4), inset 0 2px 0 rgba(255,255,255,0.2)",
+            boxShadow: "0 0 30px rgba(19,84,152,0.5), 0 8px 20px rgba(19,84,152,0.4), inset 0 2px 0 rgba(255,255,255,0.2)",
             transition: "all 0.3s ease",
             overflow: "visible",
             fontSize: mobile ? 18 : scrolled ? 20 : 22,
@@ -381,14 +381,14 @@ export function AiraChatbot({
           }}
           onMouseEnter={(e) => {
             const btn = e.currentTarget as HTMLButtonElement;
-            btn.style.background = "linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)";
-            btn.style.boxShadow = "0 0 40px rgba(37,99,235,0.7), 0 10px 24px rgba(37,99,235,0.5), inset 0 2px 0 rgba(255,255,255,0.3)";
+            btn.style.background = "linear-gradient(135deg, #0F427A 0%, #135498 100%)";
+            btn.style.boxShadow = "0 0 40px rgba(19,84,152,0.7), 0 10px 24px rgba(19,84,152,0.5), inset 0 2px 0 rgba(255,255,255,0.3)";
             btn.style.transform = "translateY(-2px)";
           }}
           onMouseLeave={(e) => {
             const btn = e.currentTarget as HTMLButtonElement;
-            btn.style.background = "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)";
-            btn.style.boxShadow = "0 0 30px rgba(37,99,235,0.5), 0 8px 20px rgba(37,99,235,0.4), inset 0 2px 0 rgba(255,255,255,0.2)";
+            btn.style.background = "linear-gradient(135deg, #135498 0%, #3886CE 100%)";
+            btn.style.boxShadow = "0 0 30px rgba(19,84,152,0.5), 0 8px 20px rgba(19,84,152,0.4), inset 0 2px 0 rgba(255,255,255,0.2)";
             btn.style.transform = "translateY(0)";
           }}
         >
@@ -488,7 +488,7 @@ export function AiraChatbot({
                 display: "flex",
                 flexDirection: "column",
                 overflow: "hidden",
-                boxShadow: `0 24px 80px rgba(3,11,59,0.35), 0 0 0 1px rgba(0,201,177,0.2)`,
+                boxShadow: `0 24px 80px rgba(10,47,82,0.35), 0 0 0 1px rgba(0,201,177,0.2)`,
                 animation: isClosing
                   ? "airaPanelSlideOut 0.42s cubic-bezier(0.32,0.72,0,1) forwards"
                   : "airaPanelSlide 0.42s cubic-bezier(0.32,0.72,0,1)",

@@ -49,15 +49,15 @@ export async function POST(request: Request) {
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px;">
-        <h2 style="color: #1e90ff;">New Corporate Inquiry</h2>
+        <h2 style="color: #3886CE;">New Corporate Inquiry</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
         <p><strong>Organization:</strong> ${organization}</p>
         <p><strong>Industry:</strong> ${industry}</p>
         <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-        <h3 style="color: #030B3B; margin-top: 20px;">Message:</h3>
-        <p style="white-space: pre-wrap; color: #030B3B; line-height: 1.6;">
+        <h3 style="color: #0A2F52; margin-top: 20px;">Message:</h3>
+        <p style="white-space: pre-wrap; color: #0A2F52; line-height: 1.6;">
           ${message}
         </p>
         <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">

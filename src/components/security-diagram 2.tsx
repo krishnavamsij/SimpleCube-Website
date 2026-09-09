@@ -49,7 +49,7 @@ export function SecurityDiagram() {
                         key={s}
                         onClick={() => setShape(s)}
                         className={`px-4 py-1.5 text-xs font-bold rounded-full capitalize transition-colors ${
-                            shape === s ? "bg-[#2563EB] text-white" : "text-slate-600 hover:bg-slate-100"
+                            shape === s ? "bg-[#135498] text-white" : "text-slate-600 hover:bg-slate-100"
                         }`}
                     >
                         {s}
@@ -65,7 +65,7 @@ export function SecurityDiagram() {
                     <defs>
                         <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stopColor="#0ea5e9" />
-                            <stop offset="100%" stopColor="#2563eb" />
+                            <stop offset="100%" stopColor="#135498" />
                         </linearGradient>
                     </defs>
                     
@@ -87,11 +87,11 @@ export function SecurityDiagram() {
                 {/* Center Node: Hyniva */}
                 <ShapeNode 
                     className="w-[200px] h-[220px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-                    borderClass="bg-gradient-to-br from-cyan-400 to-[#2563eb]"
+                    borderClass="bg-gradient-to-br from-cyan-400 to-[#135498]"
                     bgClass="bg-[#0a1930]"
                 >
                     <Image 
-                        src="/images/2024/06/HynivaLogo_blue.png" 
+                        src="/logos/simplecube/logo-blue.png" 
                         alt="Hyniva" 
                         width={120} 
                         height={40} 
@@ -103,7 +103,7 @@ export function SecurityDiagram() {
                 {/* Top Right: ISO 27001 */}
                 <ShapeNode 
                     className="w-[140px] h-[160px] right-[5%] top-[10%]"
-                    borderClass="bg-gradient-to-br from-cyan-400 to-[#2563eb]"
+                    borderClass="bg-gradient-to-br from-cyan-400 to-[#135498]"
                     bgClass="bg-white"
                 >
                     <Image 
@@ -120,7 +120,7 @@ export function SecurityDiagram() {
                 {/* Bottom Right: SOC 2 */}
                 <ShapeNode 
                     className="w-[140px] h-[160px] right-[5%] bottom-[10%]"
-                    borderClass="bg-gradient-to-br from-cyan-400 to-[#2563eb]"
+                    borderClass="bg-gradient-to-br from-cyan-400 to-[#135498]"
                     bgClass="bg-white"
                 >
                     <Image 
@@ -137,11 +137,11 @@ export function SecurityDiagram() {
                 {/* Bottom Left: Secure by Design */}
                 <ShapeNode 
                     className="w-[140px] h-[160px] left-[5%] bottom-[10%]"
-                    borderClass="bg-gradient-to-br from-[#0f172a] to-[#2563eb]"
+                    borderClass="bg-gradient-to-br from-[#0f172a] to-[#135498]"
                     bgClass="bg-white"
                 >
-                    <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-                        <ShieldCheck className="w-6 h-6 text-[#2563EB]" />
+                    <div className="w-12 h-12 rounded-full bg-[#e8f1fa] flex items-center justify-center mb-2">
+                        <ShieldCheck className="w-6 h-6 text-[#135498]" />
                     </div>
                     <h4 className="text-xs font-extrabold text-slate-900 mb-0.5 text-center leading-tight">Secure by<br/>Design</h4>
                     <p className="text-[8px] text-center text-slate-500 leading-tight mt-1">Built with security<br/>in every layer</p>

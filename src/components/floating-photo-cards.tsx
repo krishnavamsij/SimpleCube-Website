@@ -84,7 +84,7 @@ export function FloatingPhotoCards() {
           border-radius: 26px;
           box-shadow:
             0 25px 50px -10px rgba(0, 0, 0, 0.8),
-            0 0 30px rgba(59, 130, 246, 0.3);
+            0 0 30px rgba(56, 134, 206, 0.3);
           border: none;
           overflow: hidden;
           opacity: 0;

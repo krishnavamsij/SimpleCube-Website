@@ -27,7 +27,7 @@ export function Testimonials() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="bg-[#0a0f1e] py-[30px] sm:py-[40px] lg:py-[50px] text-center relative overflow-hidden"
+            className="bg-[#0A2F52] py-[30px] sm:py-[40px] lg:py-[50px] text-center relative overflow-hidden"
         >
             {/* Grid pattern background */}
             <div className="absolute inset-0 opacity-10">

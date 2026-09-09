@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { REGION, getSesCredentials, getSesSourceEmail } from "@/lib/email-config";
 
-const LEADS_RECIPIENT = process.env.SES_RECIPIENT_LEADS || "connect@hyniva.com";
+const LEADS_RECIPIENT = process.env.SES_RECIPIENT_LEADS || "kvjadapolu@simplecube.co";
 
 const sesCredentials = getSesCredentials();
 const ses = new SESClient({
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const html = `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1e293b;">
             <!-- Header -->
-            <div style="background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);padding:32px 32px 24px;border-radius:12px 12px 0 0;">
+            <div style="background:linear-gradient(135deg,#0f172a 0%,#135498 100%);padding:32px 32px 24px;border-radius:12px 12px 0 0;">
                 <h1 style="color:#ffffff;margin:0 0 6px;font-size:22px;font-weight:700;">📅 Consultation Call Requested</h1>
                 <p style="color:#93c5fd;margin:0;font-size:14px;">A prospect has requested a discussion with the Hyniva team.</p>
             </div>
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
                     </tr>
                     <tr style="border-bottom:1px solid #f1f5f9;">
                         <td style="padding:12px 0;font-weight:600;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">Email</td>
-                        <td style="padding:12px 0;"><a href="mailto:${email}" style="color:#2563eb;font-weight:500;">${email}</a></td>
+                        <td style="padding:12px 0;"><a href="mailto:${email}" style="color:#135498;font-weight:500;">${email}</a></td>
                     </tr>
                     ${organisation ? `
                     <tr style="border-bottom:1px solid #f1f5f9;">
@@ -69,8 +69,8 @@ export async function POST(request: Request) {
                     </tr>` : ""}
                 </table>
                 <!-- Next Step -->
-                <div style="margin-top:24px;padding:18px 20px;background:#eff6ff;border-radius:8px;border-left:4px solid #2563eb;">
-                    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:0.05em;">Recommended Next Step</p>
+                <div style="margin-top:24px;padding:18px 20px;background:#eff6ff;border-radius:8px;border-left:4px solid #135498;">
+                    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#135498;text-transform:uppercase;letter-spacing:0.05em;">Recommended Next Step</p>
                     <p style="margin:0;font-size:14px;color:#1e293b;line-height:1.6;">Confirm the meeting with the prospect and assign the appropriate consultant or SME.</p>
                 </div>
             </div>
