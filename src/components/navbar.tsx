@@ -9,14 +9,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
-import { CONTAINER_CLASS } from "@/lib/container-utils";
 
-export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
+export function Navbar({ forceDarkText: _forceDarkText = false }: { forceDarkText?: boolean }) {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Top-of-page: solid primary blue bar. After scroll / mobile sheet: light chrome.
+    // forceDarkText kept for call-site compat; sitewide blue top bar is the default now.
+    const isLightChrome = scrolled || mobileOpen;
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -51,7 +54,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             href: "/services", 
             categories: navContent.services as any
         },
-        { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
+        // Industries menu temporarily hidden from this build
+        // { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
         // Insights menu temporarily hidden from this build
         // { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
         {
@@ -62,11 +66,8 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         },
     ];
 
-    // Get the max-width from CONTAINER_CLASS for navbar width calculation
-    const maxContainerWidth = CONTAINER_CLASS.includes("max-w-[96rem]") ? "96rem" 
-        : CONTAINER_CLASS.includes("max-w-6xl") ? "72rem" 
-        : CONTAINER_CLASS.includes("max-w-5xl") ? "64rem"
-        : CONTAINER_CLASS.match(/max-w-\[([^\]]+)\]/)?.[1] || "96rem";
+    // Scrolled floating pill uses a fixed max (660px). Top bar is full-bleed.
+    // For revert of inset top bar, see docs/navbar-changelog.md.
 
     return (
         <>
@@ -88,19 +89,34 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 initial={false}
                 animate={{
                     width: mobileOpen ? "100%" : (scrolled ? "85%" : "100%"),
-                    maxWidth: mobileOpen ? "100%" : (scrolled ? "660px" : maxContainerWidth),
+                    // Full-bleed at top; container clamp only for scrolled pill
+                    maxWidth: mobileOpen ? "100%" : (scrolled ? "660px" : "100%"),
+                    left: scrolled && !mobileOpen ? "50%" : "0%",
+                    x: scrolled && !mobileOpen ? "-50%" : "0%",
                     top: mobileOpen ? 0 : (scrolled ? 14 : 0),
                     borderRadius: mobileOpen ? "0 0 2rem 2rem" : (scrolled ? "9999px" : "0px"),
-                    backgroundColor: mobileOpen ? "#ffffff" : (scrolled ? "rgba(255, 255, 255, 0.75)" : forceDarkText ? "rgba(255, 255, 255, 0.92)" : "rgba(10, 47, 82, 0)"),
-                    borderWidth: mobileOpen || scrolled || forceDarkText ? "1px" : "0px",
-                    borderColor: mobileOpen ? "rgba(226, 232, 240, 0.8)" : (scrolled ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.12)"),
-                    boxShadow: mobileOpen ? "0 20px 30px -10px rgba(0, 0, 0, 0.12)" : (scrolled ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)" : "none"),
+                    backgroundColor: mobileOpen
+                        ? "#ffffff"
+                        : scrolled
+                          ? "rgba(255, 255, 255, 0.75)"
+                          : "#135498",
+                    borderWidth: mobileOpen || scrolled ? "1px" : "0px",
+                    borderColor: mobileOpen
+                        ? "rgba(226, 232, 240, 0.8)"
+                        : scrolled
+                          ? "rgba(255, 255, 255, 0.4)"
+                          : "transparent",
+                    boxShadow: mobileOpen
+                        ? "0 20px 30px -10px rgba(0, 0, 0, 0.12)"
+                        : scrolled
+                          ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)"
+                          : "0 4px 16px rgba(10, 47, 82, 0.18)",
                 }}
                 transition={{
                     duration: 0.3,
                     ease: [0.32, 0.72, 0, 1],
                 }}
-                className="fixed z-50 left-1/2 -translate-x-1/2 backdrop-blur-xl"
+                className="fixed z-50 backdrop-blur-xl"
                 style={{ position: "fixed" }}
             >
                 <div className="relative w-full">
@@ -108,11 +124,11 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     "flex w-full items-center transition-all duration-300",
                     scrolled && !mobileOpen ? "h-[46px] px-4" : "h-[64px] px-6 md:px-10 lg:px-16"
                 )}>
-                    {/* Logo — SimpleCube blue on light chrome; white on dark hero */}
+                    {/* Logo — white on primary bar; blue on light scrolled / mobile chrome */}
                     <Link href="/" className="flex items-center shrink-0">
                         <Image
                             src={
-                                mobileOpen || scrolled || forceDarkText
+                                isLightChrome
                                     ? "/logos/simplecube/logo-blue.png"
                                     : "/logos/simplecube/logo-white.png"
                             }
@@ -150,10 +166,10 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                 "flex items-center gap-1 rounded-full transition-all uppercase tracking-tight",
                                                 scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
                                                 (isActive || openDropdown === group.label)
-                                                    ? (scrolled || forceDarkText
+                                                    ? (isLightChrome
                                                         ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
                                                         : "text-white underline underline-offset-4 decoration-2 decoration-white")
-                                                    : (scrolled || forceDarkText ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
+                                                    : (isLightChrome ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
                                             )}
                                         >
                                             {group.label}
@@ -161,7 +177,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                                 scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
                                                 "transition-transform",
                                                 (isActive || openDropdown === group.label)
-                                                    ? (scrolled || forceDarkText ? "opacity-70 text-slate-600" : "opacity-100 text-white")
+                                                    ? (isLightChrome ? "opacity-70 text-slate-600" : "opacity-100 text-white")
                                                     : "opacity-50",
                                                 openDropdown === group.label && "rotate-180"
                                             )} />
@@ -171,17 +187,17 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                                             "flex items-center gap-1 rounded-full transition-colors uppercase tracking-tight",
                                             scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
                                             (isActive || openDropdown === group.label)
-                                                ? (scrolled || forceDarkText
+                                                ? (isLightChrome
                                                     ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
                                                     : "text-white underline underline-offset-4 decoration-2 decoration-white")
-                                                : (scrolled || forceDarkText ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
+                                                : (isLightChrome ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
                                         )}>
                                             {group.label}
                                             <ChevronDown className={cn(
                                                 scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
                                                 "transition-transform",
                                                 (isActive || openDropdown === group.label)
-                                                    ? (scrolled || forceDarkText ? "opacity-70 text-slate-600" : "opacity-100 text-white")
+                                                    ? (isLightChrome ? "opacity-70 text-slate-600" : "opacity-100 text-white")
                                                     : "opacity-50",
                                                 openDropdown === group.label && "rotate-180"
                                             )} />
@@ -255,20 +271,35 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                         <Link href="/contact">
                             <button
                                 className={cn(
-                                    "relative flex items-center justify-center rounded-full font-black text-white border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
-                                    scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]"
+                                    "relative flex items-center justify-center rounded-full font-black border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
+                                    scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]",
+                                    isLightChrome ? "text-white" : "text-[#135498]"
                                 )}
                                 style={{
-                                    background: "#135498",
-                                    boxShadow: "0 2px 8px rgba(19,84,152,0.3)",
+                                    background: isLightChrome ? "#135498" : "#ffffff",
+                                    boxShadow: isLightChrome
+                                        ? "0 2px 8px rgba(19,84,152,0.3)"
+                                        : "0 2px 8px rgba(10,47,82,0.15)",
                                 }}
                                 onMouseEnter={e => {
-                                    (e.currentTarget as HTMLButtonElement).style.background = "#0F427A";
-                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 12px rgba(19,84,152,0.5)";
+                                    const btn = e.currentTarget as HTMLButtonElement;
+                                    if (isLightChrome) {
+                                        btn.style.background = "#0F427A";
+                                        btn.style.boxShadow = "0 4px 12px rgba(19,84,152,0.5)";
+                                    } else {
+                                        btn.style.background = "#F5F9FC";
+                                        btn.style.boxShadow = "0 4px 12px rgba(10,47,82,0.2)";
+                                    }
                                 }}
                                 onMouseLeave={e => {
-                                    (e.currentTarget as HTMLButtonElement).style.background = "#135498";
-                                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 8px rgba(19,84,152,0.3)";
+                                    const btn = e.currentTarget as HTMLButtonElement;
+                                    if (isLightChrome) {
+                                        btn.style.background = "#135498";
+                                        btn.style.boxShadow = "0 2px 8px rgba(19,84,152,0.3)";
+                                    } else {
+                                        btn.style.background = "#ffffff";
+                                        btn.style.boxShadow = "0 2px 8px rgba(10,47,82,0.15)";
+                                    }
                                 }}
                             >
                                 CONTACT US
@@ -280,7 +311,7 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                     <div className="flex items-center gap-2 lg:hidden">
                         <button className={cn(
                             "p-2",
-                            (mobileOpen || scrolled || forceDarkText) ? "text-slate-900" : "text-white"
+                            isLightChrome ? "text-slate-900" : "text-white"
                         )} onClick={() => setMobileOpen(!mobileOpen)}>
                             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </button>

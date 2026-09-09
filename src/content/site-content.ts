@@ -111,7 +111,7 @@ export const heroSlides = [
 ];
 
 export const heroCtas = {
-    primary: { label: "Discuss Your Project", href: "/contact" },
+    primary: { label: "Let's Simplify", href: "/contact" },
     secondary: { label: "Explore Our Services", href: "/services" },
 };
 

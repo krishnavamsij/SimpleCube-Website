@@ -3,7 +3,8 @@ import { HeroCarousel } from "@/components/hero-carousel";
 // Scrolling client logos temporarily hidden from this build
 // import { TrustBar } from "@/components/trust-bar";
 import { Challenges } from "@/components/challenges";
-import { Approach } from "@/components/approach";
+// Agile Delivery Model temporarily hidden from this build
+// import { Approach } from "@/components/approach";
 import { Services } from "@/components/services";
 // Products section temporarily hidden from this build
 // import { ProductsShowcase } from "@/components/products-showcase";
@@ -22,7 +23,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar forceDarkText />
       <main>
         <HeroCarousel />
         {/* Scrolling client logos temporarily hidden from this build */}
@@ -31,7 +32,8 @@ export default function Home() {
         {/* <VoiceOfCustomer /> */}
         <WhyHyniva />
         <Challenges />
-        <Approach />
+        {/* Agile Delivery Model temporarily hidden from this build */}
+        {/* <Approach /> */}
         {/* Case Studies temporarily hidden from this build */}
         {/* <CaseStudies /> */}
         {/* Industries temporarily hidden from this build */}
