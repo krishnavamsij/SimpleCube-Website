@@ -1,12 +1,12 @@
 export const contactContent = {
     hero: {
-        title: "Ready to Build Something <br /><span class='text-[#3886CE]'>Incredible?</span>",
-        description: "Schedule a free technical discovery call with our leadership team. We endeavour to answer all enquiries within 24 hours on business days.",
+        title: "Ready to Build Something",
+        highlightedWord: "Incredible?",
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
     body: {
         title: "Stop letting software limitations <span class='text-[#3886CE]'>dictate your growth.</span>",
-        description: "Founded and operated in Texas, SimpleCube is a close-knit collective of software engineers, CRM specialists, and product strategists. When you work with us, our team becomes a seamless extension of yours.",
+        description: "Schedule a free technical discovery call with our leadership team. We endeavour to answer all enquiries within 24 hours on business days.",
         contactInfo: {
             email: "kvjadapolu@simplecube.co",
             hr: "kvjadapolu@simplecube.co",

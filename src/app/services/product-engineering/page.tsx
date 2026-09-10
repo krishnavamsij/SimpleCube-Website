@@ -191,7 +191,7 @@ function ProductEngineeringHero() {
 }
 
 /* ------------------- Why Hyniva Section ------------------- */
-function WhyHyniva() {
+function WhySimpleCube() {
     return (
         <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -515,7 +515,7 @@ function TransformationInAction() {
 }
 
 /* ------------------- Why Hyniva PE Section ------------------- */
-function WhyHynivaPE() {
+function WhySimpleCubePE() {
     const bottomBox = [
         {
             title: "Product Thinking from Day One",
@@ -674,7 +674,7 @@ export default function ProductEngineeringPage() {
             <Navbar />
             <main>
                 <ProductEngineeringHero />
-                <WhyHyniva />
+                <WhySimpleCube />
                 <WhatWeTransform />
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
@@ -683,7 +683,7 @@ export default function ProductEngineeringPage() {
                     steps={processSteps}
                 />
                 <EnterpriseEnablement />
-                <WhyHynivaPE />
+                <WhySimpleCubePE />
                 <TransformationInAction />
                 <Faq items={productEngineeringFaqs} />
             </main>

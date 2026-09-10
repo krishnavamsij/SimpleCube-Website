@@ -6,7 +6,7 @@ import { fadeInUp } from "@/lib/animations";
 interface BlogNoResultsProps {
   searchQuery: string;
   onClearSearch?: () => void;
-  type?: "blog" | "news";
+  type?: "blog" | "news" | "case-study";
 }
 
 export function BlogNoResults({
@@ -14,7 +14,8 @@ export function BlogNoResults({
   onClearSearch,
   type = "blog",
 }: BlogNoResultsProps) {
-  const contentType = type === "news" ? "news" : "blog posts";
+  const contentType =
+    type === "news" ? "news" : type === "case-study" ? "case studies" : "blog posts";
   
   return (
     <motion.div

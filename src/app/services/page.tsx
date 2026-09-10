@@ -19,7 +19,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
 import { TechPartners } from "@/components/tech-partners";
-import { WhyHynivaServices } from "@/components/why-hyniva-services";
+import { WhySimpleCubeServices } from "@/components/why-simplecube-services";
 import { servicesListingContent } from "@/content/services-listing";
 import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
@@ -1028,7 +1028,7 @@ export default function ServicesPage() {
                 <TechPartners />
                 <TechPartnersSection />
                 <DataSecuritySection />
-                <WhyHynivaServices />
+                <WhySimpleCubeServices />
                 <CertificationsScroll />
                 <WorkThatSpeaks />
             </main>

@@ -1,0 +1,51 @@
+# Heavy video / motion media (site videos resolve to S3 via site-videos.ts)
+public/videos/
+**/*.mp4
+**/*.mov
+**/*.webm
+**/*.avi
+**/*.mkv
+**/*.m4v
+
+# Large GIF assets
+**/*.gif
+
+# Large legacy media directories (not needed for core SimpleCube homepage deploy)
+public/images/Case_Studies/
+public/images/Case_Study/
+public/images/Blogs/
+public/images/Podcast/
+public/images/News/
+public/images/2023/
+public/images/2024/
+public/images/2025/
+public/images/2026/
+public/images/leadership images/
+public/images/Product_Images/
+public/images/About_Us/
+public/Salesforce/
+public/about_us_image/
+public/Final client logos_Eazyschool/
+public/images/Our_Services/
+public/images/Industries_Section/
+public/images/digital-transformation/
+public/images/Certifications_Image/
+public/images/products/
+public/images/Banner_cards/
+public/images/AIRA_MASCOT/
+public/images/Product_Logos/
+public/images/2019/
+public/images/2020/
+public/images/2021/
+public/images/2022/
+
+# Local / tooling (must stay out of archive uploads)
+.pnpm-home
+.pnpm-home/**
+.vercelhome
+.vercelhome/**
+node_modules
+node_modules/**
+.next
+.next/**
+.vercel/output

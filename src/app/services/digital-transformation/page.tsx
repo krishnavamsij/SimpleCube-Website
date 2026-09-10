@@ -142,7 +142,7 @@ function DigitalTransformationHero() {
 }
 
 /* ------------------- Why Hyniva Section ------------------- */
-function WhyHyniva() {
+function WhySimpleCube() {
     return (
         <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -476,7 +476,7 @@ function TransformationInAction() {
 }
 
 /* ------------------- Why Hyniva DT Section ------------------- */
-function WhyHynivaDT() {
+function WhySimpleCubeDT() {
     const bottomBox = [
         {
             title: "Business Before Technology",
@@ -612,11 +612,11 @@ export default function DigitalTransformationPage() {
             <Navbar />
             <main>
                 <DigitalTransformationHero />
-                <WhyHyniva />
+                <WhySimpleCube />
                 <WhatWeTransform />
                 <TimelineProcess title="From Vision to Value" />
                 <EnableCapabilities />
-                <WhyHynivaDT />
+                <WhySimpleCubeDT />
                 <TransformationInAction />
                 <Faq items={digitalTransformationFaqs} />
             </main>

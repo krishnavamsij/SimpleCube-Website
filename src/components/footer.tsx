@@ -8,13 +8,14 @@ import { motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
+import { HighlightedHeadline } from "@/components/ui/highlighted-headline";
 
-export function Footer() {
+export function Footer({ hideCta = false }: { hideCta?: boolean }) {
   const { label, headline, highlightedWord, sub, cta } = ctaContent;
   const { sections, offices, linkedin, email, phone } = footerContent;
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Particle animation logic from previously existing CtaBanner
+  // Rising isometric cubes (brand primary / secondary)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -31,12 +32,24 @@ export function Footer() {
     }
     resize();
 
-    const TEAL = "rgba(56,134,206,";
-    const CYAN = "rgba(19,84,152,";
-    const TEAL2 = "rgba(56,134,206,";
+    // Secondary #3886CE / Primary #135498 — same mix as prior dots
+    const SECONDARY = "rgba(56,134,206,";
+    const PRIMARY = "rgba(19,84,152,";
+
+    type CubeParticle = {
+      x: number;
+      y: number;
+      vy: number;
+      size: number;
+      opacity: number;
+      color: string;
+      fadeY: number;
+      rot: number;
+      rotSpeed: number;
+    };
 
     const COLS = 48;
-    const particles: any[] = [];
+    const particles: CubeParticle[] = [];
 
     function initParticles() {
       particles.length = 0;
@@ -45,20 +58,92 @@ export function Footer() {
         const count = Math.floor(Math.random() * 6) + 2;
         for (let i = 0; i < count; i++) {
           const color =
-            Math.random() > 0.5 ? TEAL : Math.random() > 0.5 ? CYAN : TEAL2;
+            Math.random() > 0.5
+              ? SECONDARY
+              : Math.random() > 0.5
+                ? PRIMARY
+                : SECONDARY;
           particles.push({
             x: colW * c + colW * 0.5 + (Math.random() - 0.5) * colW * 0.6,
             y: canvas!.height + Math.random() * canvas!.height,
             vy: -(0.3 + Math.random() * 0.7),
-            r: Math.random() * 1.8 + 0.5,
-            opacity: Math.random() * 0.5 + 0.1,
+            size: Math.random() * 2.2 + 1.4,
+            opacity: Math.random() * 0.5 + 0.12,
             color,
             fadeY: canvas!.height * (0.15 + Math.random() * 0.45),
+            rot: Math.random() * Math.PI * 2,
+            rotSpeed: (0.004 + Math.random() * 0.01) * (Math.random() > 0.5 ? 1 : -1),
           });
         }
       }
     }
     initParticles();
+
+    const PITCH = 0.55; // isometric-ish tilt
+    const cosP = Math.cos(PITCH);
+    const sinP = Math.sin(PITCH);
+
+    // Vertex order: bit0=x, bit1=y, bit2=z → ±1
+    const FACES: number[][] = [
+      [0, 1, 3, 2], // -Z
+      [4, 5, 7, 6], // +Z
+      [0, 2, 6, 4], // -X
+      [1, 5, 7, 3], // +X
+      [0, 1, 5, 4], // -Y
+      [2, 3, 7, 6], // +Y
+    ];
+    // Face shade multipliers (top brightest)
+    const FACE_SHADE = [0.55, 0.7, 0.45, 0.85, 0.35, 1];
+
+    function drawCube(
+      cx: number,
+      cy: number,
+      size: number,
+      rotY: number,
+      colorPrefix: string,
+      alpha: number,
+    ) {
+      const cosY = Math.cos(rotY);
+      const sinY = Math.sin(rotY);
+      const projected: { x: number; y: number; z: number }[] = [];
+
+      for (let i = 0; i < 8; i++) {
+        const lx = i & 1 ? 1 : -1;
+        const ly = i & 2 ? 1 : -1;
+        const lz = i & 4 ? 1 : -1;
+        // Rotate around Y
+        const x1 = lx * cosY - lz * sinY;
+        const z1 = lx * sinY + lz * cosY;
+        const y1 = ly;
+        // Pitch around X for isometric view
+        const y2 = y1 * cosP - z1 * sinP;
+        const z2 = y1 * sinP + z1 * cosP;
+        projected.push({
+          x: cx + x1 * size,
+          y: cy + y2 * size,
+          z: z2,
+        });
+      }
+
+      const faces = FACES.map((idxs, fi) => {
+        const pts = idxs.map((j) => projected[j]);
+        const depth = (pts[0].z + pts[1].z + pts[2].z + pts[3].z) / 4;
+        return { pts, depth, shade: FACE_SHADE[fi] };
+      });
+
+      faces.sort((a, b) => a.depth - b.depth);
+
+      for (const face of faces) {
+        const a = alpha * face.shade;
+        if (a < 0.004) continue;
+        ctx!.beginPath();
+        ctx!.moveTo(face.pts[0].x, face.pts[0].y);
+        for (let i = 1; i < 4; i++) ctx!.lineTo(face.pts[i].x, face.pts[i].y);
+        ctx!.closePath();
+        ctx!.fillStyle = colorPrefix + a + ")";
+        ctx!.fill();
+      }
+    }
 
     const handleResize = () => {
       resize();
@@ -66,19 +151,16 @@ export function Footer() {
     };
     window.addEventListener("resize", handleResize);
 
-    let last = 0;
-    function loop(ts: number) {
-      const dt = ts - last;
-      last = ts;
-
+    function loop() {
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-      const w = canvas!.width;
       const h = canvas!.height;
 
       for (const p of particles) {
         p.y += p.vy;
-        if (p.y < -10) {
+        p.rot += p.rotSpeed;
+        if (p.y < -16) {
           p.y = h + Math.random() * 60;
+          p.rot = Math.random() * Math.PI * 2;
         }
         const heightFade = Math.max(
           0,
@@ -86,10 +168,7 @@ export function Footer() {
         );
         const alpha = p.opacity * heightFade;
         if (alpha < 0.005) continue;
-        ctx!.beginPath();
-        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx!.fillStyle = p.color + alpha + ")";
-        ctx!.fill();
+        drawCube(p.x, p.y, p.size, p.rot, p.color, alpha);
       }
 
       animationFrameId = requestAnimationFrame(loop);
@@ -130,8 +209,9 @@ export function Footer() {
         className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
       />
 
-      <div className="relative z-10 flex flex-col min-h-0 lg:min-h-screen lg:justify-center py-8 sm:py-10 lg:py-[50px] pb-10 sm:pb-16 lg:pb-[120px] mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
+      <div className={`relative z-10 flex flex-col min-h-0 py-8 sm:py-10 lg:py-[50px] pb-10 sm:pb-16 lg:pb-[120px] ${CONTAINER_CLASS} ${hideCta ? "" : "lg:min-h-screen lg:justify-center"}`}>
         {/* ── LET'S TALK CTA SECTION ── */}
+        {!hideCta && (
         <motion.div
           variants={scrollReveal}
           initial="hidden"
@@ -139,26 +219,23 @@ export function Footer() {
           viewport={viewportOnce}
           className="flex flex-col items-center w-full mb-8 sm:mb-12 lg:mt-auto"
         >
-          {/* Badge */}
+          {/* Badge temporarily hidden from this build
           <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase text-[#3886CE] bg-[#0A2F52] border border-[#135498] rounded-full px-5 py-1.5 mb-8 sm:mb-10">
             <span className="w-1.5 h-1.5 rounded-full bg-[#3886CE] shadow-[0_0_8px_#3886CE]" />
             {label}
           </div>
+          */}
 
           <h2
             className="text-[30px] sm:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-6 sm:mb-8 text-center"
             style={{ fontFamily: "var(--font-inter), Inter, system-ui, sans-serif" }}
           >
-            {headline.split(highlightedWord || "Incredible?").map((part, i, arr) => (
-              <React.Fragment key={i}>
-                <span className="text-white">{part}</span>
-                {i < arr.length - 1 && (
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3886CE] to-[#3886CE]">
-                    {highlightedWord || "Incredible?"}
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
+            <HighlightedHeadline
+              headline={headline}
+              highlightedWord={highlightedWord || "Incredible?"}
+              partClassName="text-white"
+              highlightClassName="text-[#135498]"
+            />
           </h2>
 
           <p className="text-sm sm:text-base md:text-[16px] lg:text-[17.5px] xl:text-[19px] 2xl:text-[20px] font-medium text-white/70 leading-relaxed md:leading-[1.65] lg:leading-[1.7] xl:leading-[1.75] max-w-[680px] mb-6 sm:mb-12 text-center px-4 sm:px-0">
@@ -184,9 +261,12 @@ export function Footer() {
             </svg>
           </Link>
         </motion.div>
+        )}
 
         {/* ── SEPARATOR LINE FROM LOGO TO COMPANY ── */}
+        {!hideCta && (
         <div className="w-full border-t border-white/10 my-4 sm:my-6"></div>
+        )}
 
         {/* ── FOOTER LINKS & BRAND ── */}
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between pb-4 lg:mt-auto">

@@ -164,35 +164,63 @@ export const trustContent = {
 // ── Challenges ───────────────────────────────────────────────────────────────
 export const challengesContent = {
     label: "",
-    headline: "",
-    sub: "",
+    headline: "Challenges we solve.",
+    sub: "We purpose-build software to dismantle the most stubborn roadblocks in Banking, Wealth Management, and Insurance.",
     challenges: [
         {
-            icon: "Construction",
-            title: "Off-the-Shelf Gaps",
-            description: "Packaged software rarely fits nuanced business rules. We architect bespoke solutions that align to how your teams actually operate.",
-        },
-        {
-            icon: "Clock",
-            title: "Bloated Agency Timelines",
-            description: "Large agencies add layers of account managers and slow handoffs. Our lean Agile sprints keep senior engineers close to the work.",
-        },
-        {
             icon: "DollarSign",
-            title: "Inflated Delivery Costs",
-            description: "High overhead drives up quotes without improving outcomes. SimpleCube’s boutique model reduces cost while accelerating time-to-market.",
-        },
-        {
-            icon: "Scale",
-            title: "Legacy System Drag",
-            description: "Outdated infrastructure and manual processes stall growth. We modernize systems and digitize workflows without disrupting operations.",
+            title: "Bloated Operational Costs",
+            description:
+                "We replace heavy, manual compliance and processing pipelines with automated, lean software infrastructure.",
         },
         {
             icon: "Brain",
-            title: "Disconnected Tools & Data",
-            description: "CRM, APIs, and internal systems often stay siloed. We integrate Salesforce and third-party platforms for unified visibility and automation.",
+            title: "Fragmented Customer Data",
+            description:
+                "We unify disconnected systems through strategic Salesforce integrations, providing a single source of truth.",
+        },
+        {
+            icon: "Clock",
+            title: "Sluggish Time-to-Market",
+            description:
+                "Our agile, AI-enhanced development cycles ensure you launch modern financial products faster than the competition.",
+        },
+        {
+            icon: "Construction",
+            title: "Rigid Legacy Technology",
+            description:
+                "We gracefully migrate outdated monolithic platforms into agile, scalable digital ecosystems.",
         },
     ],
+};
+
+// ── Careers (homepage) ───────────────────────────────────────────────────────
+export const careersHomeContent = {
+    headline: "Careers at SimpleCube",
+    highlightedWord: "SimpleCube",
+    description:
+        "Join a culture of high-impact engineering. At SimpleCube, you won't be a cog in a massive machine. We are a lean team of full-stack experts and Salesforce architects who value radical transparency, speed, and technical excellence.",
+    points: [
+        {
+            icon: "Landmark",
+            title: "High-stakes delivery",
+            description:
+                "Work directly on high-stakes projects for top-tier financial and insurance institutions.",
+        },
+        {
+            icon: "Sparkles",
+            title: "AI-amplified engineering",
+            description:
+                "Leverage cutting-edge AI delivery models to amplify your coding capabilities and focus on complex problem-solving.",
+        },
+        {
+            icon: "Zap",
+            title: "Zero bureaucracy",
+            description:
+                "Thrive in an agile, zero-bureaucracy environment built for those who want to see the immediate impact of their work.",
+        },
+    ],
+    cta: { label: "Explore Careers", href: "/careers" },
 };
 
 // ── Approach / Metrics (Blueprint §4 — Technical Expertise & Agile) ──────────
@@ -368,42 +396,51 @@ export const caseStudiesContent = {
     ],
 };
 
-// ── Why SimpleCube (Blueprint §3) ────────────────────────────────────────────
-export const whyHynivaContent = {
-    topBox: {
-        headline: "Why SimpleCube?",
-        highlightedWord: "SimpleCube?",
-        stats: [
-            { value: "220+", label: "Applications\nDelivered" },
-            { value: "45+", label: "Enterprise\nClients" },
-            { value: "250+", label: "Certified\nExperts" }
-        ],
-        description: "Bigger agencies often mean bloated budgets, account shuffling, and communication silos. SimpleCube was built to be fundamentally different — boutique attention with enterprise-grade execution.",
-        boldWords: ["fundamentally different", "boutique attention"],
-        cta: { label: "Know More →", href: "/about" }
+// ── Why SimpleCube (Blueprint §3 — comparison USP) ───────────────────────────
+export const whySimpleCubeContent = {
+    headline: "Why Choose SimpleCube?",
+    highlightedWord: "SimpleCube?",
+    description:
+        "Bigger agencies often mean bloated budgets, account shuffling, and communication silos. SimpleCube was built to be fundamentally different.",
+    columns: {
+        advantage: "The SimpleCube Advantage",
+        traditional: "Traditional Agencies",
     },
-    bottomBox: [
+    rows: [
         {
-            icon: "UsersRound",
-            title: "Boutique Attention",
-            description: "Our focused team size means you work\ndirectly with senior developers and\nleadership — personalized focus on\nyour project."
+            icon: "Users",
+            advantage: {
+                title: "Boutique Attention",
+                body: "Our focused, small team size guarantees you deal directly with senior developers and leadership, ensuring personalized focus on your project.",
+            },
+            traditional: {
+                title: "Account Shuffling",
+                body: "Projects are often passed down to junior developers with multiple layers of account managers acting as bottlenecks.",
+            },
         },
         {
             icon: "Zap",
-            title: "Cost-Effective Agility",
-            description: "Lean structure reduces overhead.\nCoupled with Agile SDLC, we deliver\nrapid iterations and faster\ntime-to-market."
+            advantage: {
+                title: "Cost-Effective Agility",
+                body: "Our lean structure reduces overhead. Coupled with our Agile SDLC culture, we deliver rapid iterations and faster time-to-market.",
+            },
+            traditional: {
+                title: "Bloated Timelines",
+                body: "Rigid corporate structures and high overhead costs translate to longer delivery cycles and heavily inflated project quotes.",
+            },
         },
         {
-            icon: "Activity",
-            title: "Full-Stack Mastery",
-            description: "Deep expertise across Angular, React,\nNode.js, and Java — the right tool for\nyour specific technical challenge."
+            icon: "Layers",
+            advantage: {
+                title: "Full-Stack Mastery",
+                body: "Deep expertise across modern frameworks (Angular, React, Node.js, Java) ensures the absolute best tool is used for your specific challenge.",
+            },
+            traditional: {
+                title: "Siloed Expertise",
+                body: "Often locked into one specific technology stack regardless of the client's actual technical or business needs.",
+            },
         },
-        {
-            icon: "Globe2",
-            title: "Texas Roots",
-            description: "Founded and operated in Texas, we\nbecome a seamless extension of your\nteam — enterprise execution with\nsmall-team partnership."
-        }
-    ]
+    ],
 };
 
 // ── Expertise Section (for Services/About pages) ─────────────────────────────

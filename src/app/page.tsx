@@ -10,7 +10,8 @@ import { Services } from "@/components/services";
 // import { ProductsShowcase } from "@/components/products-showcase";
 // Case Studies temporarily hidden from this build
 // import { CaseStudies } from "@/components/case-studies";
-import { WhyHyniva } from "@/components/why-hyniva";
+import { WhySimpleCube } from "@/components/why-simplecube";
+import { CareersHome } from "@/components/careers-home";
 // Industries temporarily hidden from this build
 // import { Industries } from "@/components/industries";
 import { TechPartners } from "@/components/tech-partners";
@@ -30,8 +31,9 @@ export default function Home() {
         {/* <TrustBar /> */}
         {/* Customer Stories temporarily hidden from this build */}
         {/* <VoiceOfCustomer /> */}
-        <WhyHyniva />
+        <WhySimpleCube />
         <Challenges />
+        <CareersHome />
         {/* Agile Delivery Model temporarily hidden from this build */}
         {/* <Approach /> */}
         {/* Case Studies temporarily hidden from this build */}

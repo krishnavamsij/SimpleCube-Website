@@ -7,61 +7,12 @@ import { motion } from "framer-motion";
 import React from "react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { Mail, Phone, Linkedin, MapPin, Send, Check } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { event } from "@/lib/gtag";
 
 export default function ContactPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const nameInputRef = useRef<HTMLInputElement>(null);
-
-    // Auto-scroll to form on page load with much slower custom animation
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const formSection = document.getElementById('contact-form');
-            if (formSection) {
-                // Calculate offset to account for fixed navbar
-                const navbarHeight = 80; // Approximate navbar height
-                const elementPosition = formSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-
-                // Custom slow smooth scroll using requestAnimationFrame
-                const startPosition = window.pageYOffset;
-                const distance = offsetPosition - startPosition;
-                const duration = 1000; // 1.5 seconds for balanced slow scroll (was ~800ms default)
-                let startTime: number | null = null;
-
-                const animationScroll = (currentTime: number) => {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-
-                    // Easing function for smooth deceleration
-                    const easeInOutCubic = progress < 0.5
-                        ? 4 * progress * progress * progress
-                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-                    const currentPosition = startPosition + (distance * easeInOutCubic);
-                    window.scrollTo(0, currentPosition);
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animationScroll);
-                    } else {
-                        // Auto-focus the name input after slow scroll completes
-                        setTimeout(() => {
-                            if (nameInputRef.current) {
-                                nameInputRef.current.focus();
-                            }
-                        }, 200);
-                    }
-                };
-
-                requestAnimationFrame(animationScroll);
-            }
-        }, 500); // Keep initial delay
-
-        return () => clearTimeout(timer);
-    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -110,68 +61,31 @@ export default function ContactPage() {
             <Navbar />
 
             <main>
-                {/* ── Hero Section (Dark Gradient) ── */}
-                <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-[500px] md:min-h-[600px] flex flex-col justify-center items-center overflow-hidden bg-[#0A2F52]">
-                    {/* Background layers */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#020918] via-[#061244]/90 to-[#0A2F52]" />
-                    <div className="absolute inset-y-0 right-0 w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(19,84,152,0.18)_0%,transparent_65%)]" />
+                {/* ── Hero Section ── */}
+                <section className="relative overflow-hidden bg-[#F5F9FC]">
+                    {/* Soft brand wash — same as homepage hero */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F5F9FC] to-[#E8F1F8]" />
+                    <div className="absolute inset-y-0 right-0 w-[60%] bg-[radial-gradient(ellipse_at_70%_45%,rgba(19,84,152,0.12)_0%,rgba(56,134,206,0.06)_35%,transparent_70%)]" />
+                    <div className="absolute bottom-0 left-0 w-[50%] h-[45%] bg-[radial-gradient(ellipse_at_20%_100%,rgba(19,84,152,0.04)_0%,transparent_60%)]" />
 
-                    {/* Floating Decorative Elements */}
-                    <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#135498]/10 rounded-full blur-[100px] hero-float-1" />
-                    <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] hero-float-2" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#e8f1fa]0/5 rounded-full blur-[150px] hero-float-3" />
-
-                    <div
-                        className="absolute inset-0 opacity-[0.04]"
-                        style={{
-                            backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
-                            backgroundSize: "40px 40px",
-                        }}
-                    />
-
-                    <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16 text-center">
-                        <motion.div
-                            variants={staggerContainer}
-                            initial="hidden"
-                            animate="visible"
-                            className="max-w-4xl mx-auto flex flex-col items-center space-y-6 sm:space-y-10 md:space-y-12"
-                        >
-                            <motion.div variants={fadeInUp} className="flex justify-center">
-                                <span className="eyebrow text-[#3886CE] bg-[#3886CE]/[0.08] border border-[#3886CE]/25 backdrop-blur-md">
-                                    <span className="dot bg-[#3886CE] shadow-[#3886CE]" />
-                                    CONTACT US
-                                </span>
-                            </motion.div>
-
-                            <motion.h1
-                                variants={fadeInUp}
-                                className="text-[32px] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-black leading-[1.08] tracking-tight text-white font-display text-center"
-                                dangerouslySetInnerHTML={{ __html: contactContent.hero.title }}
-                            />
-
-                            <motion.p
-                                variants={fadeInUp}
-                                className="text-base sm:text-lg lg:text-[18px] 2xl:text-xl leading-relaxed text-slate-300 font-medium max-w-3xl mx-auto text-center"
+                    <div className="relative z-10 mx-auto w-full max-w-[96rem] px-6 md:px-10 lg:px-16">
+                        <div className="flex w-full flex-col justify-center pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24 lg:w-1/2 lg:pt-32 lg:pb-28 lg:pr-10">
+                            <motion.div
+                                variants={staggerContainer}
+                                initial="hidden"
+                                animate="visible"
                             >
-                                {contactContent.hero.description}
-                            </motion.p>
-                        </motion.div>
+                                <motion.h1
+                                    variants={fadeInUp}
+                                    className="mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 text-[2rem] font-black leading-[1.12] tracking-tight text-[#0A2F52] sm:text-[2.5rem] lg:text-[44px] xl:text-[52px] 2xl:text-[58px] font-display"
+                                >
+                                    <span className="whitespace-nowrap">{contactContent.hero.title}</span>
+                                    <br />
+                                    <span className="whitespace-nowrap text-[#135498]">{contactContent.hero.highlightedWord}</span>
+                                </motion.h1>
+                            </motion.div>
+                        </div>
                     </div>
-
-                    {/* Scroll Indicator */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 opacity-30">
-                        <span className="text-[10px] font-medium text-white tracking-[0.3em] uppercase">SCROLL</span>
-                        <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent animate-[scrollLine_2s_ease-in-out_infinite]" />
-                    </div>
-
-                    <style dangerouslySetInnerHTML={{ __html: `
-                        @keyframes scrollLine {
-                            0%   { transform:scaleY(0); transform-origin:top;    opacity:1; }
-                            50%  { transform:scaleY(1); transform-origin:top;    opacity:1; }
-                            51%  { transform:scaleY(1); transform-origin:bottom; }
-                            100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
-                        }
-                    `}} />
                 </section>
 
                 {/* ── Content Section ── */}
@@ -189,7 +103,7 @@ export default function ContactPage() {
                                 >
                                     <motion.h2
                                         variants={fadeInUp}
-                                        className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[34px] font-[900] text-foreground tracking-tight leading-[1.2] mb-6 font-display"
+                                        className="text-[12px] sm:text-[15px] lg:text-[16px] xl:text-[17px] font-[900] text-foreground tracking-tight leading-[1.2] mb-6 font-display"
                                         dangerouslySetInnerHTML={{ __html: contactContent.body.title }}
                                     />
 
@@ -315,7 +229,6 @@ export default function ContactPage() {
                                                 <div className="flex flex-col gap-3">
                                                     <label className="text-[13px] font-bold text-slate-500 uppercase tracking-widest px-1">Name *</label>
                                                     <input
-                                                        ref={nameInputRef}
                                                         required
                                                         name="name"
                                                         type="text"
@@ -374,7 +287,7 @@ export default function ContactPage() {
                     </div>
                 </section>
             </main>
-            <Footer />
+            <Footer hideCta />
         </div>
     );
 }

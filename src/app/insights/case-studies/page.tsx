@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { CaseStudyNoResults } from "@/components/case-study-no-results";
+import { BlogNoResults } from "@/components/blog-no-results";
 import { caseStudiesContent } from "@/content/case-studies";
 import { searchCaseStudies, hasNoResults } from "@/lib/case-study-search";
 import { AnimatePresence, motion } from "framer-motion";
@@ -210,9 +210,10 @@ export default function CaseStudiesPage() {
 
         {/* ── Card Grid or No Results ── */}
         {showNoResults ? (
-          <CaseStudyNoResults
+          <BlogNoResults
             searchQuery={searchTerm}
             onClearSearch={handleClearSearch}
+            type="case-study"
           />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

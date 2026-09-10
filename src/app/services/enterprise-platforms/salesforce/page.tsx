@@ -1368,7 +1368,7 @@ function SalesforceDeliverySection() {
 
 /* ------------------- Why Hyniva for Salesforce Section ------------------- */
 
-const whyHynivaSalesforceCards = [
+const whySimpleCubeSalesforceCards = [
     {
         title: "Multi-Cloud Expertise",
         description: "Deep expertise across Salesforce clouds, connecting capabilities across the platform to create cohesive enterprise solutions.",
@@ -1391,7 +1391,7 @@ const whyHynivaSalesforceCards = [
     },
 ];
 
-function SalesforceWhyHyniva() {
+function SalesforceWhySimpleCube() {
     return (
         <section className="bg-white py-[16px] sm:py-[24px] lg:py-[32px]">
             <div className="mx-auto w-full max-w-[96rem] px-4 sm:px-10 lg:px-16 flex flex-col gap-6">
@@ -1485,7 +1485,7 @@ function SalesforceWhyHyniva() {
                     className="rounded-b-[32px] rounded-t-none bg-[#ECF6FF] pt-[28px] pb-[24px] px-[24px] sm:pt-[34px] sm:pb-[28px] sm:px-[36px] lg:pt-[42px] lg:pb-[34px] lg:px-[48px] border border-[#ECF6FF]/80 drop-shadow-sm"
                 >
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-12">
-                        {whyHynivaSalesforceCards.map((card, idx) => {
+                        {whySimpleCubeSalesforceCards.map((card, idx) => {
                             const Icon = card.icon;
                             return (
                                 <div key={idx} className="flex flex-col">
@@ -1694,7 +1694,7 @@ export default function SalesforcePage() {
                 <SalesforceCapabilities />
                 <SalesforceOutcomes />
                 <SalesforceDeliverySection />
-                <SalesforceWhyHyniva />
+                <SalesforceWhySimpleCube />
                 <SalesforceAgentExchangeSection />
                 <CaseStudiesSection />
             </main>

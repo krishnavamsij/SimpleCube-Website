@@ -2,8 +2,12 @@
 
 # dependencies
 /node_modules
+package-lock.json
+yarn.lock
 /.pnp
 .pnp.*
+.pnpm-home/
+.vercelhome/
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -23,6 +27,8 @@
 # misc
 .DS_Store
 *.pem
+*.backup
+Untitled/
 
 # debug
 npm-debug.log*

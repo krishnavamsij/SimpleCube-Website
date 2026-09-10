@@ -126,7 +126,7 @@ function DigitalTransformationHero() {
 }
 
 /* ------------------- Why Hyniva Section ------------------- */
-function WhyHyniva() {
+function WhySimpleCube() {
     return (
         <section className="bg-white py-10 sm:py-12 lg:py-0">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16 py-0">
@@ -451,7 +451,7 @@ function TransformationInAction() {
 }
 
 /* ------------------- Why Hyniva DT Section ------------------- */
-function WhyHynivaDT() {
+function WhySimpleCubeDT() {
     const bottomBox = [
         {
             title: "Strategy Grounded in Delivery",
@@ -613,7 +613,7 @@ export default function StrategyConsultingPage() {
             <Navbar />
             <main>
                 <DigitalTransformationHero />
-                <WhyHyniva />
+                <WhySimpleCube />
                 <WhatWeTransform />
                 <TimelineProcess
                     eyebrow="OUR APPROACH"
@@ -622,7 +622,7 @@ export default function StrategyConsultingPage() {
                     steps={strategySteps}
                 />
                 <EnterpriseEnablement />
-                <WhyHynivaDT />
+                <WhySimpleCubeDT />
                 <TransformationInAction />
                 <Faq items={strategyConsultingFaqs} />
             </main>

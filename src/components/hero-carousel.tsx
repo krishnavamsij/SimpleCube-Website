@@ -45,11 +45,11 @@ export function HeroCarousel() {
                             {/* Headline */}
                             <motion.h1
                                 variants={fadeInUp}
-                                className="mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 text-4xl font-black leading-[1.08] tracking-tight text-[#0A2F52] sm:text-5xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-display text-balance"
+                                className="mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 text-[2rem] font-black leading-[1.12] tracking-tight text-[#0A2F52] sm:text-[2.5rem] lg:text-[44px] xl:text-[52px] 2xl:text-[58px] font-display"
                             >
-                                Complex problems,
+                                <span className="whitespace-nowrap">Complex problems,</span>
                                 <br />
-                                <span className="text-[#135498]">solved simply.</span>
+                                <span className="whitespace-nowrap text-[#135498]">solved simply.</span>
                             </motion.h1>
  
                             {/* Subheadline / Callout Content */}

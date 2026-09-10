@@ -148,7 +148,7 @@ function DigitalTransformationHero() {
 }
 
 /* ------------------- Why Hyniva Section ------------------- */
-function WhyHyniva() {
+function WhySimpleCube() {
     return (
         <section className="bg-white py-10 sm:py-12 lg:py-5">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -479,7 +479,7 @@ function TransformationInAction() {
 }
 
 /* ------------------- Why Hyniva EP Section ------------------- */
-function WhyHynivaEP() {
+function WhySimpleCubeEP() {
     const bottomBox = [
         {
             title: "Platform-Agnostic\nPerspective",
@@ -617,7 +617,7 @@ export default function EnterprisePlatformsPage() {
             <Navbar />
             <main>
                 <DigitalTransformationHero />
-                <WhyHyniva />
+                <WhySimpleCube />
                 <WhatWeTransform />
                 <TimelineProcess 
                     eyebrow="OUR APPROACH"
@@ -651,7 +651,7 @@ export default function EnterprisePlatformsPage() {
                     ]}
                 />
                 <EnterpriseEnablement />
-                <WhyHynivaEP />
+                <WhySimpleCubeEP />
                 <TransformationInAction />
                 <Faq items={enterprisePlatformsFaqs} />
             </main>

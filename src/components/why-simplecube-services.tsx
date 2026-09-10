@@ -19,7 +19,7 @@ const getIcon = (name: string) => {
 
 
 
-export function WhyHynivaServices() {
+export function WhySimpleCubeServices() {
     const { topBox, bottomBox } = expertiseContent;
 
     return (
