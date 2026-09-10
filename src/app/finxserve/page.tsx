@@ -8,7 +8,7 @@ import { Footer } from '@/components/footer'
 import { Faq } from '@/components/faq'
 import { finxserveFaqs } from '@/content/product-faqs'
 import { caseStudiesContent } from '@/content/case-studies'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CONTAINER_CLASS } from '@/lib/container-utils'
 import { ArrowRight } from 'lucide-react'
 
@@ -68,59 +68,12 @@ const heroSlides = [
 
 export default function FinxservePage() {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
-    const [expandedCardTags, setExpandedCardTags] = useState<string | null>(null);
-
-    useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-            const target = event.target;
-            if (!(target instanceof Element) || !target.closest("[data-tag-overflow]")) {
-                setExpandedCardTags(null);
-            }
-        }
-        function handleEscape(event: KeyboardEvent) {
-            if (event.key === "Escape") {
-                setExpandedCardTags(null);
-            }
-        }
-        document.addEventListener("mousedown", handleClickOutside);
-        document.addEventListener("keydown", handleEscape);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-            document.removeEventListener("keydown", handleEscape);
-        };
-    }, []);
 
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
         }, 3000);
         return () => clearInterval(timer);
-    }, []);
-
-    useEffect(() => {
-        const NAVBAR_HEIGHT = 120; // 120px for main navbar only
-
-        const handleScroll = () => {
-            const sections = ['intro', 'capabilities', 'ceo', 'enterprise', 'customer'];
-            const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1;
-
-            // Walk sections in reverse so the last matching one wins
-            // (handles edge case at very bottom of page)
-            let found = '';
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element && scrollPosition >= element.offsetTop) {
-                    found = section;
-                }
-            }
-            setActiveSection(found);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll(); // run once on mount to set initial state
-        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (

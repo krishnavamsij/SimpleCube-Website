@@ -6,7 +6,7 @@ import { contactContent } from "@/content/contact";
 import { motion } from "framer-motion";
 import React from "react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { Mail, Phone, Linkedin, MapPin, Send, Check } from "lucide-react";
+import { Mail, Phone, Linkedin, Send, Check } from "lucide-react";
 import { useState } from "react";
 import { event } from "@/lib/gtag";
 
@@ -157,6 +157,7 @@ export default function ContactPage() {
                                     <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4 sm:gap-6 max-w-md">
                                         <div className="p-6 rounded-[28px] bg-accent border border-border flex flex-col hover:bg-[#e8f1fa] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-default group">
                                             <div className="flex items-center gap-2.5 mb-4 h-[18px]">
+                                                {/* eslint-disable-next-line @next/next/no-img-element -- external CDN flag SVG */}
                                                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="United States flag" className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm" />
                                                 <h4 className="text-[11px] font-bold text-[#3886CE] uppercase tracking-widest leading-[18px]">{contactContent.body.offices.us.title}</h4>
                                             </div>

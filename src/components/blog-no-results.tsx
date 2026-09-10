@@ -10,8 +10,6 @@ interface BlogNoResultsProps {
 }
 
 export function BlogNoResults({
-  searchQuery,
-  onClearSearch,
   type = "blog",
 }: BlogNoResultsProps) {
   const contentType =

@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Bot, LineChart, CloudUpload, History, HeartCrack, Unplug, Hourglass, Coins } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, BrainCircuit, Target, Layers, Globe2, Bot, LineChart, CloudUpload, History, HeartCrack, Unplug, Hourglass, Coins } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
 import { Faq } from "@/components/faq";
 import { digitalTransformationFaqs } from "@/content/service-faqs";
 
-const animations: any = {
+const animations: Record<string, Variants> = {
     fadeInUp: {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }

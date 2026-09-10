@@ -2,12 +2,15 @@
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { caseStudyDetails, CaseStudyMetric, CaseStudySection } from "@/content/case-study-details";
+import {
+    caseStudyDetails,
+    CaseStudySection,
+    type CaseStudySectionContent,
+} from "@/content/case-study-details";
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { CaseStudyPopup } from "@/components/CaseStudyPopup";
-import { EyebrowButton } from "@/components/ui/eyebrow-button";
 import { CaseStudyHero } from "@/components/case-study-hero";
 import { useScrollTabSync } from "@/hooks/useScrollTabSync";
 
@@ -25,7 +28,6 @@ import {
     Construction,
     Scale,
     ShieldAlert,
-    DollarSign,
     Rocket,
     Lock,
     Phone,
@@ -41,7 +43,6 @@ import {
     Check,
     MapPin,
     Smartphone,
-    Link,
     Package,
     Search,
     FileText,
@@ -77,7 +78,26 @@ import {
 // --- Components ---
 
 
-const iconMap: Record<string, any> = {
+type CaseStudyListItem = {
+    num?: string;
+    title: string;
+    bullets?: string[];
+    desc?: string;
+};
+
+type FeatureGridItem = {
+    icon: string;
+    title: string;
+    text: string;
+};
+
+type ImpactStripItem = {
+    value: string;
+    label: string;
+    desc?: string;
+};
+
+const iconMap: Record<string, LucideIcon> = {
     "🚀": Rocket,
     "⚡": Zap,
     "💰": CircleDollarSign,
@@ -167,10 +187,6 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
     );
 };
 
-const MetricIcon = ({ icon }: { icon: string }) => {
-    return <StandardIcon icon={icon} className="mb-5" />;
-};
-
 const SectionHeader = ({ num, tag, hide }: { num?: string, tag?: string, isFirst?: boolean, hide?: boolean }) => {
     if (hide) return null;
     return (
@@ -191,14 +207,8 @@ export default function CaseStudyDetailPage() {
     const params = useParams();
     const slug = params?.slug as string;
     const study = caseStudyDetails[slug as keyof typeof caseStudyDetails];
-
-    if (!study) {
-        return notFound();
-    }
-
-    // Extract section IDs for the new hook
-    const sectionIds = study.sections.map(section => section.id);
-    const { activeTabIndex, scrollToTab } = useScrollTabSync({
+    const sectionIds = study?.sections.map((section) => section.id) ?? [];
+    const { activeTabIndex } = useScrollTabSync({
         sectionIds,
     });
     const [scrolled, setScrolled] = useState(false);
@@ -209,8 +219,18 @@ export default function CaseStudyDetailPage() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    if (!study) {
+        return notFound();
+    }
+
+    const normalizeSectionContent = (
+        content: CaseStudySection["content"],
+    ): CaseStudySectionContent =>
+        typeof content === "string" ? { body: content } : content;
+
     const renderSectionContent = (section: CaseStudySection) => {
-        const { type, content } = section;
+        const { type, content: rawContent } = section;
+        const content = normalizeSectionContent(rawContent);
 
         switch (type) {
             case 'approach-list':
@@ -218,7 +238,7 @@ export default function CaseStudyDetailPage() {
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="flex flex-col gap-5">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as CaseStudyListItem[] | undefined)?.map((item: CaseStudyListItem, idx: number) => (
                                 <div key={idx} className="flex gap-5 bg-white border border-[#e5e7eb] rounded-[10px] p-[22px_24px] transition-all duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)]">
                                     <div className="text-[32px] font-normal text-[#3886CE]/18 leading-none shrink-0 w-9 font-sans">
                                         {item.num || '✦'}
@@ -248,7 +268,7 @@ export default function CaseStudyDetailPage() {
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as FeatureGridItem[] | undefined)?.map((item: FeatureGridItem, idx: number) => (
                                 <div key={idx} className="bg-white border border-[#e5e7eb] rounded-[10px] p-5 transition-all duration-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5">
                                     <div className="flex flex-col items-center justify-center mb-3">
                                         <StandardIcon icon={item.icon} />
@@ -266,7 +286,7 @@ export default function CaseStudyDetailPage() {
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] mt-7">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as ImpactStripItem[] | undefined)?.map((item: ImpactStripItem, idx: number) => (
                                 <div key={idx} className="bg-white border border-[#e5e7eb] rounded-[12px] p-[22px_24px] flex gap-[18px] items-start transition-all duration-200 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 relative overflow-hidden">
                                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#3886CE] to-[#63c2ff] rounded-l-[3px_0_0_3px]" />
                                     {iconMap[item.value] ? (
@@ -293,7 +313,7 @@ export default function CaseStudyDetailPage() {
                     <div className="space-y-6">
                         {content.body && <div className="cs-content mb-4" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="space-y-3">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as string[] | undefined)?.map((item: string, idx: number) => (
                                 <div key={idx} className="flex gap-4 items-start">
                                     <div className="w-2 h-2 rounded-full bg-[#3886CE] shrink-0 mt-2 opacity-70" />
                                     <span className="text-[16px] font-light text-slate-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
@@ -308,7 +328,7 @@ export default function CaseStudyDetailPage() {
                     <div className="space-y-8">
                         {content.body && <div className="cs-content mb-6" dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="flex flex-wrap gap-3">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as string[] | undefined)?.map((item: string, idx: number) => (
                                 <div key={idx} className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-[14px] font-medium text-slate-600 hover:border-[#3886CE] hover:text-[#3886CE] hover:bg-[#3886CE0a] transition-all cursor-default">
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#3886CE] opacity-50" />
                                     {item}
@@ -323,7 +343,7 @@ export default function CaseStudyDetailPage() {
                     <div className="cs-content">
                         {content.body && <div dangerouslySetInnerHTML={{ __html: content.body }} />}
                         <div className="tech-tags">
-                            {content.items.map((item: any, idx: number) => (
+                            {(content.items as string[] | undefined)?.map((item: string, idx: number) => (
                                 <span key={idx} className="tech-tag">{item}</span>
                             ))}
                         </div>
@@ -332,14 +352,14 @@ export default function CaseStudyDetailPage() {
             case 'text':
                 return (
                     <div className="cs-content">
-                        <div dangerouslySetInnerHTML={{ __html: content.body || content }} />
+                        <div dangerouslySetInnerHTML={{ __html: content.body ?? (typeof rawContent === "string" ? rawContent : "") }} />
                     </div>
                 );
             default:
                 return (
                     <div className="cs-content">
                         {content.body && <div dangerouslySetInnerHTML={{ __html: content.body }} />}
-                        {typeof content === "string" && <div dangerouslySetInnerHTML={{ __html: content }} />}
+                        {typeof rawContent === "string" && <div dangerouslySetInnerHTML={{ __html: rawContent }} />}
                     </div>
                 );
         }

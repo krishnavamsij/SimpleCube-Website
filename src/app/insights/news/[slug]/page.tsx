@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
 
@@ -97,6 +97,7 @@ function RelatedNews({ currentSlug, currentTag }: { currentSlug: string; current
                             className="group flex-shrink-0 w-full sm:w-[calc(33.333%-16px)] bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#3886CE]/20 transition-all duration-300 snap-start flex flex-col justify-between"
                         >
                             <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
+                                {/* eslint-disable-next-line @next/next/no-img-element -- dynamic news thumbnail URLs */}
                                 <img
                                     src={post.image}
                                     alt={post.title.replace(/<[^>]*>/g, '')}
@@ -141,30 +142,11 @@ export default function NewsDetailPage() {
     const slug = params?.slug as string;
     const post = blogDetails[slug as keyof typeof blogDetails] as BlogDetail;
 
-    const [activeSection, setActiveSection] = useState("");
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
+        queueMicrotask(() => setMounted(true));
     }, []);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach((section) => observer.observe(section));
-
-        return () => sections.forEach((section) => observer.unobserve(section));
-    }, [post]);
 
     if (!post) {
         return notFound();
@@ -225,7 +207,7 @@ export default function NewsDetailPage() {
                     {/* Content Column */}
                     <div className="w-full lg:w-[85%]">
                         <div className="space-y-8">
-                            {post.sections.map((section, idx) => (
+                            {post.sections.map((section) => (
                                 <section
                                     key={section.id}
                                     id={section.id}

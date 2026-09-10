@@ -31,7 +31,7 @@ export function TrustBar() {
                             key={`${logo.name}-${i}`}
                             className="flex h-20 flex-shrink-0 items-center justify-center"
                             style={{
-                                ...((logo as any).margin ? { margin: (logo as any).margin } : {}),
+                                ...("margin" in logo && logo.margin ? { margin: logo.margin } : {}),
                             }}
                         >
                             <Image

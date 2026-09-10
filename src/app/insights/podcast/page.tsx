@@ -62,7 +62,7 @@ export default function PodcastPage() {
             videoRef.current.playbackRate = 1.0;
             videoRef.current.muted = true; // Always muted by default on hover
             setIsMuted(true);
-            videoRef.current.play().catch((err) => {
+            videoRef.current.play().catch(() => {
                 // Suppress play rejections gracefully
             });
         }
@@ -85,7 +85,7 @@ export default function PodcastPage() {
             setIsMuted(newMuted);
             if (!newMuted) {
                 // Ensure video plays when unmuted via user click
-                videoRef.current.play().catch((err) => {
+                videoRef.current.play().catch(() => {
                     // Suppress play rejections gracefully
                 });
             }

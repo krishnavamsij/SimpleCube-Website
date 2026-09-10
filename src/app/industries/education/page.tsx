@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Monitor, Calculator, Shield, RefreshCw, BarChart, Network, Route, BrainCircuit, Zap, LineChart, BookOpen, GraduationCap } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -99,6 +97,7 @@ function AlternatingSections() {
                         {/* Image Side */}
                         <div className="w-full lg:w-1/2">
                             <div className="aspect-[4/3] rounded-[32px] bg-slate-100 overflow-hidden relative shadow-md">
+                                {/* eslint-disable-next-line @next/next/no-img-element -- dynamic industry section images */}
                                 <img
                                     src={section.image}
                                     alt={section.title}
@@ -243,8 +242,6 @@ const caseStudies = educationCaseStudySlugs
     .filter((study): study is NonNullable<typeof study> => Boolean(study))
 
 function CaseStudies() {
-    const [expandedCardTags, setExpandedCardTags] = useState<string | null>(null);
-
     if (!caseStudies || caseStudies.length === 0) {
         return null;
     }

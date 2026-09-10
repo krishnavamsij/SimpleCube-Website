@@ -4,7 +4,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { Send, X, Search } from "lucide-react";
 import {
   normalizeProductLinksInText,
@@ -34,7 +33,7 @@ function isValidUrl(string: string): boolean {
   try {
     new URL(string);
     return true;
-  } catch (_) {
+  } catch {
     return false;
   }
 }
@@ -91,7 +90,7 @@ function parseMessageForUrls(text: string): TextNode[] {
 }
 
 // ─── Message content renderer ─────────────────────────────────────────────────
-function MessageContent({ text, isUser }: { text: string; isUser: boolean }) {
+function MessageContent({ text }: { text: string; isUser?: boolean }) {
   const nodes = parseMessageForUrls(text);
 
   return (
@@ -135,7 +134,7 @@ function generateFallbackResponse(message: string): string {
 function BodyPortal({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
   }, []);
   if (!mounted) return null;
   return createPortal(children, document.body);
@@ -144,7 +143,6 @@ function BodyPortal({ children }: { children: React.ReactNode }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 export function AiraChatbot({
   scrolled = false,
-  fullWidth = false,
   mobile = false,
 }: {
   scrolled?: boolean;
@@ -169,12 +167,12 @@ export function AiraChatbot({
       const savedMessages = localStorage.getItem("aira_chat_messages");
       if (savedMessages) {
         const parsedMessages = JSON.parse(savedMessages);
-        setMessages(parsedMessages);
+        queueMicrotask(() => setMessages(parsedMessages));
       }
     } catch (error) {
       console.error("Failed to load chat history:", error);
     }
-    setIsMounted(true);
+    queueMicrotask(() => setIsMounted(true));
   }, []);
 
   // Save messages to localStorage whenever they change
@@ -271,7 +269,7 @@ export function AiraChatbot({
 
             if (data.status) reply += `\nStatus: ${data.status}`;
           }
-        } catch (err) {
+        } catch {
           reply = "Sorry, I couldn't reach the server.";
         }
       }
@@ -310,12 +308,6 @@ export function AiraChatbot({
   const GREEN = "#00c9b1";
   const GREEN_LIGHT = "#e6faf8";
   const DARK_TEXT = "#1e293b";
-
-  // Pill sizing - matching Contact Us button exactly
-  const pillHeight = mobile ? 34 : scrolled ? 32 : 36;
-  const pillPaddingLeft = mobile ? 14 : scrolled ? 16 : 18;
-  const pillPaddingRight = mobile ? 50 : scrolled ? 56 : 64;
-  const fontSize = mobile ? 11 : scrolled ? 11 : 12;
 
   return (
     <>

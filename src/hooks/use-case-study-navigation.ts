@@ -2,15 +2,17 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-export function useCaseStudyNavigation(sections: any[]) {
+export function useCaseStudyNavigation(sections: { id: string }[]) {
     const [activeSection, setActiveSection] = useState("");
     const [popupTriggered, setPopupTriggered] = useState(false);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
     // Reset popup state when page changes
     useEffect(() => {
-        setPopupTriggered(false);
-        setActiveSection("");
+        queueMicrotask(() => {
+            setPopupTriggered(false);
+            setActiveSection("");
+        });
     }, [sections]);
 
     useEffect(() => {

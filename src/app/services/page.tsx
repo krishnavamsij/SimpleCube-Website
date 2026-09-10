@@ -12,15 +12,14 @@
 import Link from "next/link";
 import { CertificationsDiagram } from "@/components/certifications-diagram";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRightIcon, ShieldCheck, ChevronLeft, ChevronRight, ArrowRightIcon } from "lucide-react";
+import { ArrowUpRightIcon, ChevronLeft, ChevronRight, ArrowRightIcon } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Services } from "@/components/services";
 import { TechPartners } from "@/components/tech-partners";
 import { WhySimpleCubeServices } from "@/components/why-simplecube-services";
-import { servicesListingContent } from "@/content/services-listing";
 import useEmblaCarousel from "embla-carousel-react";
 import { staggerContainer, fadeInUp, scrollReveal, viewportOnce } from "@/lib/animations";
 
@@ -37,20 +36,11 @@ const SVG_STYLE: React.CSSProperties = {
     display: "block",
 };
 
-// PNG with white bg → brightness(0) invert(1) + mix-blend-mode:screen hides the background
-const PNG_STYLE: React.CSSProperties = {
-    width: 40,
-    height: 40,
-    objectFit: "contain",
-    filter: "brightness(0) invert(1)",
-    mixBlendMode: "screen",
-    display: "block",
-};
-
 // Salesforce: icon + wordmark so the brand is identifiable
 function SalesforceChip() {
     return (
         <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- external Simple Icons SVG */}
             <img
                 src="https://unpkg.com/simple-icons@9/icons/salesforce.svg"
                 alt="Salesforce"
@@ -74,6 +64,7 @@ function SalesforceChip() {
     );
 }
 
+/* eslint-disable @next/next/no-img-element -- external Simple Icons SVGs in hero chip carousel */
 const BRANDS = [
     { name: "AWS",          render: () => <img src="https://unpkg.com/simple-icons@9/icons/amazonaws.svg"     alt="AWS"          style={SVG_STYLE} /> },
     { name: "Salesforce",   render: () => <SalesforceChip /> },
@@ -96,6 +87,7 @@ const BRANDS = [
     { name: "jQuery",       render: () => <img src="https://unpkg.com/simple-icons@9/icons/jquery.svg"        alt="jQuery"       style={SVG_STYLE} /> },
     { name: "WebdriverIO",  render: () => <img src="https://unpkg.com/simple-icons@9/icons/webdriverio.svg"   alt="WebdriverIO"  style={SVG_STYLE} /> },
 ];
+/* eslint-enable @next/next/no-img-element */
 
 /* ── Chip positions only (no brand assignment — brands are shuffled at runtime) ── */
 
@@ -191,12 +183,14 @@ function ServicesHero() {
     const [chipBrands, setChipBrands] = useState<number[]>([]);
 
     useEffect(() => {
-        setIsMounted(true);
-        // Generate initial unique random brands for each position
-        const availableIndices = Array.from({ length: BRANDS.length }, (_, i) => i);
-        const shuffledAvailable = shuffled(availableIndices);
-        const initial = CHIP_POSITIONS.map((_, idx) => shuffledAvailable[idx % BRANDS.length]);
-        setChipBrands(initial);
+        queueMicrotask(() => {
+            setIsMounted(true);
+            // Generate initial unique random brands for each position
+            const availableIndices = Array.from({ length: BRANDS.length }, (_, i) => i);
+            const shuffledAvailable = shuffled(availableIndices);
+            const initial = CHIP_POSITIONS.map((_, idx) => shuffledAvailable[idx % BRANDS.length]);
+            setChipBrands(initial);
+        });
     }, []);
 
     const handleAnimationIteration = (chipIdx: number) => {
@@ -418,70 +412,6 @@ function CertificationsScroll() {
    — LHS: text  |  RHS: hexagonal visual
 ────────────────────────────────────────── */
 
-/* ── SVG geometry helpers ── */
-const VB_W = 620;
-const VB_H = 560;
-
-// Centre hex
-const CX = 295;
-const CY = 255;
-const CR = 105; // vertex radius
-
-// Satellite hex radius
-const SR = 80;
-
-// Satellite centres
-const ISO_X = 455;
-const ISO_Y = 120;
-
-const SEC_X = 100;
-const SEC_Y = 320;
-
-const SOC_X = 455;
-const SOC_Y = 390;
-
-/** Regular hexagon points, flat-top orientation */
-function hexPoints(cx: number, cy: number, r: number): string {
-    return Array.from({ length: 6 }, (_, i) => {
-        const angle = (Math.PI / 180) * (60 * i - 30);
-        return `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`;
-    }).join(" ");
-}
-
-/** Point along the line from (x1,y1) to (x2,y2) at fraction t */
-function along(x1: number, y1: number, x2: number, y2: number, t: number) {
-    return { x: x1 + (x2 - x1) * t, y: y1 + (y2 - y1) * t };
-}
-
-/**
- * AbsHex — absolutely positions a div centred over a hexagon
- * described in SVG viewBox coordinates, so it scales with the SVG.
- */
-interface AbsHexProps {
-    cx: number;
-    cy: number;
-    r: number;
-    vbW: number;
-    vbH: number;
-    children: React.ReactNode;
-}
-
-function AbsHex({ cx, cy, r, vbW, vbH, children }: AbsHexProps) {
-    return (
-        <div
-            className="absolute flex items-center justify-center pointer-events-none"
-            style={{
-                left:   `${((cx - r) / vbW) * 100}%`,
-                top:    `${((cy - r) / vbH) * 100}%`,
-                width:  `${((r * 2)  / vbW) * 100}%`,
-                height: `${((r * 2)  / vbH) * 100}%`,
-            }}
-        >
-            {children}
-        </div>
-    );
-}
-
 function DataSecuritySection() {
     return (
         <section className="bg-white py-6 sm:py-10 lg:py-12 border-t border-slate-100">
@@ -687,23 +617,26 @@ function WorkThatSpeaks() {
 function TechPartnersSection() {
     const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [isMobile, setIsMobile] = useState(false);
-    const [shuffledTechs, setShuffledTechs] = useState<any[]>([]);
+    type ShuffledTech = TechItem & { category: string };
+    const [shuffledTechs, setShuffledTechs] = useState<ShuffledTech[]>([]);
 
     useEffect(() => {
         const mq = window.matchMedia("(max-width: 639px)");
-        setIsMobile(mq.matches);
         const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
         mq.addEventListener("change", handler);
 
-        // Shuffle tech items client-side
-        const techs = techShowcaseData.flatMap((cat) =>
-            cat.technologies.map((tech) => ({ ...tech, category: cat.category }))
-        );
-        for (let i = techs.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [techs[i], techs[j]] = [techs[j], techs[i]];
-        }
-        setShuffledTechs(techs);
+        queueMicrotask(() => {
+            setIsMobile(mq.matches);
+            // Shuffle tech items client-side
+            const techs = techShowcaseData.flatMap((cat) =>
+                cat.technologies.map((tech) => ({ ...tech, category: cat.category }))
+            );
+            for (let i = techs.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [techs[i], techs[j]] = [techs[j], techs[i]];
+            }
+            setShuffledTechs(techs);
+        });
 
         return () => mq.removeEventListener("change", handler);
     }, []);

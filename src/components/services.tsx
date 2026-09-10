@@ -8,9 +8,8 @@ import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
 export function Services() {
-    const label = servicesContent.label;
-    const callOutContent = (servicesContent as any).callOutContent || "";
-    const metrics = (servicesContent as any).metrics || [];
+    const callOutContent = servicesContent.callOutContent ?? "";
+    const metrics = servicesContent.metrics ?? [];
     const services = servicesContent.services;
 
     return (
@@ -62,7 +61,7 @@ export function Services() {
                         </p>
 
                         <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8">
-                            {metrics.map((metric: any, idx: number) => {
+                            {metrics.map((metric, idx: number) => {
                                 const valStr = String(metric.value);
                                 const hasPlus = valStr.includes("+");
                                 const valNum = hasPlus

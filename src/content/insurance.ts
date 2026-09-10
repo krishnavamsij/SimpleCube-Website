@@ -1,5 +1,3 @@
-import { LucideIcon, Monitor, Calculator, Shield, Bot, Users, Cloud, RefreshCw, BarChart, Workflow } from "lucide-react";
-
 export const insuranceContent = {
     hero: {
         badge: "INSURANCE",

@@ -38,8 +38,10 @@ export function useScrollTabSync({
   // Reset state when pathname changes (user navigated to different page)
   useEffect(() => {
     // User navigated to a new page - reset everything
-    setHasTriggeredThirdSection(false);
-    setActiveTabIndex(0);
+    queueMicrotask(() => {
+      setHasTriggeredThirdSection(false);
+      setActiveTabIndex(0);
+    });
     hasUserInteractedRef.current = false;
     // Ignore carried scroll momentum immediately after client-side navigation.
     trackScrollAfterMsRef.current = performance.now() + 700;

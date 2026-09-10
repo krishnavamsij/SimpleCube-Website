@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { scrollReveal, viewportOnce } from "@/lib/animations";
 import Image from "next/image";
 import Link from "next/link";

@@ -7,18 +7,14 @@ import { blogDetails } from "@/content/blog-details";
 import { blogContent } from "@/content/blog";
 import { motion } from "framer-motion";
 import { notFound, useParams } from "next/navigation";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { ArrowLeft, Clock, User, Tag, ChevronLeft, ChevronRight, MessageSquare, Send, Eye, Cloud } from "lucide-react";
+import { Clock, Tag, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { EyebrowButton } from "@/components/ui/eyebrow-button";
 
 /* ─────────────────────────── Related Articles Component ─────────────────────────── */
 function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; currentTag: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
-
   const related = React.useMemo(() => {
     const allPosts = blogContent.posts.filter(p => {
       const postSlug = p.href.split('/').pop();
@@ -28,35 +24,6 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
     const otherTag = allPosts.filter(p => p.tag !== currentTag);
     return [...sameTag, ...otherTag].slice(0, 6);
   }, [currentSlug, currentTag]);
-
-  const checkScroll = () => {
-    if (containerRef.current) {
-      setCanScrollLeft(containerRef.current.scrollLeft > 0);
-      setCanScrollRight(
-        containerRef.current.scrollLeft <
-        containerRef.current.scrollWidth - containerRef.current.clientWidth
-      );
-    }
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (containerRef.current) {
-      const scrollAmount = 400;
-      containerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', checkScroll);
-      checkScroll();
-      return () => container.removeEventListener('scroll', checkScroll);
-    }
-  }, [related]);
 
   if (related.length === 0) {
     return null;
@@ -79,6 +46,7 @@ function RelatedArticles({ currentSlug, currentTag }: { currentSlug: string; cur
               className="group flex-shrink-0 bg-white rounded-2xl border border-[#e2e8f0] shadow-sm hover:shadow-lg hover:border-[#3886CE]/20 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="relative h-[180px] sm:h-[200px] overflow-hidden rounded-t-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element -- dynamic blog thumbnail URLs */}
                 <img
                   src={post.image}
                   alt={post.title.replace(/<[^>]*>/g, '')}
@@ -217,30 +185,11 @@ export default function BlogsDetailPage() {
   const slug = params?.slug as string;
   const post = blogDetails[slug as keyof typeof blogDetails];
 
-  const [activeSection, setActiveSection] = useState("");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
   }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
-
-    return () => sections.forEach((section) => observer.unobserve(section));
-  }, [post]);
 
   if (!post) {
     return notFound();

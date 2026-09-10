@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
@@ -199,7 +198,7 @@ export default function HyperPage() {
                             <p className="text-lg md:text-xl lg:text-2xl xl:text-[24px] font-normal text-gray-700 leading-relaxed m-0 text-center">
                                 Hyper empowers financial institutions and advisors to deliver
                                 investment experiences that are transparent, personalized, and
-                                built for today's digital-first investor. From guided discovery
+                                built for today&apos;s digital-first investor. From guided discovery
                                 to tailored portfolio suggestions, Hyper accelerates growth,
                                 enhances trust, and simplifies decision-making.
                             </p>

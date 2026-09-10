@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, LayoutGrid, Link2Off, EyeOff, Clock, UserMinus, GitFork, Unplug } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, Cloud, Users, TrendingUp, Target, Layers, Globe2, LayoutGrid, Link2Off, EyeOff, Clock, UserMinus, GitFork, Unplug } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
 import { Faq } from "@/components/faq";
 import { enterprisePlatformsFaqs } from "@/content/service-faqs";
 
-const animations: any = {
+const animations: Record<string, Variants> = {
     fadeInUp: {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -185,7 +185,7 @@ function WhySimpleCube() {
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
-                                Enterprise platforms shouldn't operate in isolation. Their true value comes from creating a connected digital backbone that enables information to flow seamlessly across the business.
+                                Enterprise platforms shouldn&apos;t operate in isolation. Their true value comes from creating a connected digital backbone that enables information to flow seamlessly across the business.
                             </p>
                             <p>
                                 At Hyniva, we help organizations bring enterprise platforms together into a single operating model where systems, processes and people work as one. The result is greater consistency, stronger governance and technology that supports the business instead of operating alongside it.

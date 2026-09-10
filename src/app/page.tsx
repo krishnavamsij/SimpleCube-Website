@@ -5,7 +5,6 @@ import { HeroCarousel } from "@/components/hero-carousel";
 import { Challenges } from "@/components/challenges";
 // Agile Delivery Model temporarily hidden from this build
 // import { Approach } from "@/components/approach";
-import { Services } from "@/components/services";
 // Products section temporarily hidden from this build
 // import { ProductsShowcase } from "@/components/products-showcase";
 // Case Studies temporarily hidden from this build
@@ -14,7 +13,6 @@ import { WhySimpleCube } from "@/components/why-simplecube";
 import { CareersHome } from "@/components/careers-home";
 // Industries temporarily hidden from this build
 // import { Industries } from "@/components/industries";
-import { TechPartners } from "@/components/tech-partners";
 // Customer Stories temporarily hidden from this build
 // import { VoiceOfCustomer } from "@/components/voice-of-customer";
 // FAQ temporarily hidden from this build

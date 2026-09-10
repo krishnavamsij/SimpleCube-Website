@@ -2,6 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// THREE.js is loaded at runtime from CDN; use loose typing for the dynamic API surface.
+type ThreeLib = typeof import("three");
+type ThreeObject3D = import("three").Object3D;
+type ThreeCamera = import("three").PerspectiveCamera;
+type ThreeMaterial = import("three").MeshBasicMaterial;
+
+declare global {
+    interface Window {
+        THREE?: ThreeLib;
+    }
+}
+
 // ===================================
 // SIMPLECUBE CONFIGURATION (3x3x3)
 // Logo-matched: flat #135498 faces, fat white edges, isometric rest pose
@@ -42,7 +54,7 @@ const CONFIG = {
     SPIN_RAD_PER_SEC: 0.18,
 };
 
-const updateCameraFov = (camera: any, width: number, height: number) => {
+const updateCameraFov = (camera: ThreeCamera, width: number, height: number) => {
     const aspect = width / height;
     camera.aspect = aspect;
     const targetWidth = 9.0;
@@ -62,7 +74,7 @@ const updateCameraFov = (camera: any, width: number, height: number) => {
 };
 
 /** 12 fat box-ribbons along a cube’s edges (WebGL-safe thick lines) */
-const createFatCubeEdges = (THREE: any, size: number, thickness: number, color: number) => {
+const createFatCubeEdges = (THREE: ThreeLib, size: number, thickness: number, color: number) => {
     const group = new THREE.Group();
     const mat = new THREE.MeshBasicMaterial({
         color,
@@ -121,7 +133,7 @@ const createFatCubeEdges = (THREE: any, size: number, thickness: number, color: 
 };
 
 /** 3×3 subdivision lines on each of the 6 large cube faces (always-on skeleton detail) */
-const createFaceGridLines = (THREE: any, size: number, thickness: number, color: number) => {
+const createFaceGridLines = (THREE: ThreeLib, size: number, thickness: number, color: number) => {
     const group = new THREE.Group();
     const mat = new THREE.MeshBasicMaterial({
         color,
@@ -179,15 +191,14 @@ export function HeroPuzzle() {
         let script = document.getElementById(scriptId) as HTMLScriptElement;
 
         const initAnimation = () => {
-            const THREE = (window as any).THREE;
+            const THREE = window.THREE;
             if (!THREE || !containerRef.current) return;
 
-            let scene: any, camera: any, renderer: any;
-            const pieceGroups: any[] = [];
+            const pieceGroups: ThreeObject3D[] = [];
             const globalStartTime = Date.now();
             let animationFrameId = 0;
 
-            scene = new THREE.Scene();
+            const scene = new THREE.Scene();
             scene.fog = new THREE.Fog(CONFIG.COLORS.BACKGROUND, 32, 60);
 
             // orbit = constant slow spin; content = isometric pose + mouse parallax
@@ -203,12 +214,12 @@ export function HeroPuzzle() {
             let scaleFactor = Math.max(0.85, Math.min(1.0, aspect * 1.15));
 
             // Frontal camera — isometric comes from content rotation (logo match)
-            camera = new THREE.PerspectiveCamera(32, aspect, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera(32, aspect, 0.1, 1000);
             camera.position.set(0, 0, CONFIG.CAMERA_DIST);
             updateCameraFov(camera, width, height);
             camera.lookAt(0, 0, 0);
 
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, precision: "highp" });
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, precision: "highp" });
             renderer.setSize(width, height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.toneMapping = THREE.NoToneMapping;
@@ -245,7 +256,7 @@ export function HeroPuzzle() {
                 return { group: solidMesh, solidMaterial, lineMat };
             };
 
-            const applyFaceOpacity = (mat: any, opacity: number) => {
+            const applyFaceOpacity = (mat: ThreeMaterial, opacity: number) => {
                 mat.color.setHex(CONFIG.COLORS.PRIMARY);
                 mat.opacity = Math.max(0, Math.min(1, opacity));
                 mat.transparent = mat.opacity < 0.999;
@@ -444,16 +455,16 @@ export function HeroPuzzle() {
             script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
             script.async = true;
             script.onload = () => {
-                setIsLoaded(true);
+                queueMicrotask(() => setIsLoaded(true));
                 initAnimation();
             };
             document.head.appendChild(script);
-        } else if ((window as any).THREE) {
-            setIsLoaded(true);
+        } else if (window.THREE) {
+            queueMicrotask(() => setIsLoaded(true));
             initAnimation();
         } else {
             script.addEventListener("load", () => {
-                setIsLoaded(true);
+                queueMicrotask(() => setIsLoaded(true));
                 initAnimation();
             });
         }

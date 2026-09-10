@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
               <strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.
             </p>
             <p className="text-[15px] font-medium text-[#0A2F52]/70 leading-relaxed max-w-6xl text-left">
-              We process your personal information for a variety of reasons, depending on how you interact with our Services, including: We may process your information when necessary to save or protect an individual's vital interest, such as to prevent harm.
+              We process your personal information for a variety of reasons, depending on how you interact with our Services, including: We may process your information when necessary to save or protect an individual&apos;s vital interest, such as to prevent harm.
             </p>
           </motion.div>
 
@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
               <strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data, we may have collected from children under age 18, please contact us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>.
+              We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data, we may have collected from children under age 18, please contact us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>.
             </p>
           </motion.div>
 
@@ -185,7 +185,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section "HOW CAN YOU CONTACT US ABOUT THIS NOTICE?" below.
+              In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section &quot;HOW CAN YOU CONTACT US ABOUT THIS NOTICE?&quot; below.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               We will consider and act upon any request in accordance with applicable data protection laws.
@@ -197,7 +197,7 @@ export default function PrivacyPolicyPage() {
               If you are in <strong>Switzerland</strong>, you may contact the Federal Data Protection and Information Commissioner.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              <strong>Withdrawing your consent:</strong> If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section "HOW CAN YOU CONTACT US ABOUT THIS NOTICE?" below.
+              <strong>Withdrawing your consent:</strong> If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section &quot;HOW CAN YOU CONTACT US ABOUT THIS NOTICE?&quot; below.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.
@@ -211,7 +211,7 @@ export default function PrivacyPolicyPage() {
           <motion.div variants={fadeInUp} className="space-y-4">
             <h2 className="text-2xl font-bold text-[#0A2F52] mb-4">8. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left">
-              Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.
+              Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&quot;DNT&quot;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.
             </p>
           </motion.div>
 
@@ -222,7 +222,7 @@ export default function PrivacyPolicyPage() {
               <strong>In Short: </strong>Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              California Civil Code Section 1798.83, also known as the "Shine the Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third-parties for direct marketing purposes and the names and addresses of all third-parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+              California Civil Code Section 1798.83, also known as the &quot;Shine the Light&quot; law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third-parties for direct marketing purposes and the names and addresses of all third-parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               If you are under 18 years of age, reside in California, and have a registered account with Services, you have the right to request removal of unwanted data that you publicly post on Services. To request removal of such data, please contact us using the contact information provided below and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Services, but please be aware that the data may not be completely or comprehensively removed from all our systems (e.g., backups, etc.).
@@ -231,7 +231,7 @@ export default function PrivacyPolicyPage() {
             <div className="bg-gray-50 p-6 rounded-lg mb-4">
               <h3 className="text-lg font-bold text-[#0A2F52] mb-3">CCPA Privacy Notice</h3>
               <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-                The California Code of Regulations defines a "resident" as:
+                The California Code of Regulations defines a &quot;resident&quot; as:
               </p>
               <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
                 (1) every individual who is in the State of California for other than a temporary or transitory purpose and
@@ -240,12 +240,12 @@ export default function PrivacyPolicyPage() {
                 (2) every individual who is domiciled in the State of California who is outside the State of California for a temporary or transitory purpose
               </p>
               <p className="text-gray-700 leading-relaxed max-w-6xl text-left">
-                All other individuals are defined as "non-residents."
+                All other individuals are defined as &quot;non-residents.&quot;
               </p>
             </div>
 
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              If this definition of "resident" applies to you, we must adhere to certain rights and obligations regarding your personal information.
+              If this definition of &quot;resident&quot; applies to you, we must adhere to certain rights and obligations regarding your personal information.
             </p>
 
             <h3 className="text-lg font-bold text-[#0A2F52] mb-3">What categories of personal information do we collect?</h3>
@@ -368,7 +368,7 @@ export default function PrivacyPolicyPage() {
               We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Each service provider is a for-profit entity that processes information on our behalf, following the same strict privacy protection obligations mandated by the CCPA.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be "selling" of your personal information.
+              We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be &quot;selling&quot; of your personal information.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               Hyniva has not disclosed, sold, or shared any personal information to third-parties for a business or commercial purpose in the preceding twelve (12) months.
@@ -394,13 +394,13 @@ export default function PrivacyPolicyPage() {
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               In accordance with applicable law, we are not obligated to provide or delete consumer information that is de-identified in response to a consumer request or to re-identify individual data to verify a consumer request.
             </p>
-            <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Right to Non-Discrimination for the Exercise of a Consumer's Privacy Rights.</h3>
+            <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Right to Non-Discrimination for the Exercise of a Consumer&apos;s Privacy Rights.</h3>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               We will not discriminate against you if you exercise your privacy rights.
             </p>
             <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Right to Limit Use and Disclosure of Sensitive Personal Information.</h3>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We do not process the consumer's sensitive personal information.
+              We do not process the consumer&apos;s sensitive personal information.
             </p>
             <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Verification process</h3>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
@@ -432,12 +432,12 @@ export default function PrivacyPolicyPage() {
                 Under the Virginia Consumer Data Protection Act (CDPA):
               </p>
               <ul className="space-y-2 ml-6">
-                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>"Consumer"</strong> means a natural person who is a resident of the Commonwealth acting only in an individual or household context. It does not include a natural person acting in a commercial or employment context.</li>
-                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>"Personal data"</strong> means any information that is linked or reasonably linkable to an identified or identifiable natural person. "Personal data" does not include de-identified data or publicly available information.</li>
-                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>"Sale of personal data"</strong> means the exchange of personal data for monetary consideration.</li>
+                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>&quot;Consumer&quot;</strong> means a natural person who is a resident of the Commonwealth acting only in an individual or household context. It does not include a natural person acting in a commercial or employment context.</li>
+                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>&quot;Personal data&quot;</strong> means any information that is linked or reasonably linkable to an identified or identifiable natural person. &quot;Personal data&quot; does not include de-identified data or publicly available information.</li>
+                <li className="text-gray-700 leading-relaxed max-w-6xl text-left"><strong>&quot;Sale of personal data&quot;</strong> means the exchange of personal data for monetary consideration.</li>
               </ul>
               <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-                If this definition "consumer" applies to you, we must adhere to certain rights and obligations regarding your personal data.
+                If this definition &quot;consumer&quot; applies to you, we must adhere to certain rights and obligations regarding your personal data.
               </p>
             </div>
 
@@ -458,7 +458,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Verification process</h3>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We may request that you provide additional information reasonably necessary to verify you and your consumer's request. If you submit a request through an authorized agent, we may need to collect additional information to verify your identity before processing your request.
+              We may request that you provide additional information reasonably necessary to verify you and your consumer&apos;s request. If you submit a request through an authorized agent, we may need to collect additional information to verify your identity before processing your request.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               Upon receiving your request, we will respond without undue delay, but in all cases, within forty-five (45) days of receipt. The response period may be extended once by forty-five (45) additional days when reasonably necessary. We will inform you of any such extension within the initial 45-day response period, together with the reason for the extension.
@@ -476,7 +476,7 @@ export default function PrivacyPolicyPage() {
               <strong>In Short: </strong>Yes, we will update this notice as necessary to stay compliant with relevant laws.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
+              We may update this privacy notice from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
             </p>
           </motion.div>
 

@@ -9,7 +9,7 @@ interface EyebrowButtonProps {
     html?: string;
 }
 
-export function EyebrowButton({ href, onClick, className = "", children = "CONTACT US", html }: EyebrowButtonProps) {
+export function EyebrowButton({ href, onClick, className = "", children = "CONTACT US" }: EyebrowButtonProps) {
     const baseClassName = `
         eyebrow
         text-[#3886CE] 

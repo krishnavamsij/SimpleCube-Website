@@ -377,8 +377,6 @@ function makeTs() {
 function botMsg(text: string): Message { return { text, isUser: false, timestamp: makeTs() }; }
 function userMsg(text: string): Message { return { text, isUser: true,  timestamp: makeTs() }; }
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 // ─── Brand colours ────────────────────────────────────────────────────────────
 const GREEN      = "#00c9b1";
 const GREEN_LIGHT = "#e6faf8";
@@ -870,7 +868,7 @@ function SMEContactForm({ onSubmit }: { onSubmit: (name: string, email: string, 
     return (
         <div style={{ background: "#fff", border: `1.5px solid ${GREEN}`, borderRadius: 12, padding: "16px 18px", marginBottom: 12, animation: "airaMsgIn 0.22s ease" }}>
             <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: DARK_TEXT }}>🧑‍💼 Connect with an Expert</p>
-            <p style={{ margin: "0 0 14px", fontSize: 12, color: "#6b7280" }}>Share your contact details and we'll have the right person reach out.</p>
+            <p style={{ margin: "0 0 14px", fontSize: 12, color: "#6b7280" }}>Share your contact details and we&apos;ll have the right person reach out.</p>
 
             <label style={{ fontSize: 12, color: "#6b7280", fontWeight: 600 }}>Your Name *</label>
             <input
@@ -909,6 +907,153 @@ function SMEContactForm({ onSubmit }: { onSubmit: (name: string, email: string, 
         </div>
     );
 }
+
+const INTENT_PROMPTS: Record<string, string> = {
+    "Digital Transformation": `Excellent choice.
+
+To better understand your digital transformation goals, please briefly describe your business challenge or project requirement.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Modernizing legacy applications and business systems
+• Improving customer and member digital experiences
+• Building custom web, mobile, or self-service portals
+• Automating manual workflows and business processes
+• Replacing outdated systems with scalable cloud solutions
+• Accelerating digital initiatives with AI-powered capabilities
+• Streamlining operations across departments and teams
+• Creating seamless omnichannel customer journeys
+• Driving enterprise-wide transformation with measurable business outcomes`,
+    "Enterprise Platforms": `Excellent choice.
+
+To better understand your platform requirements, please briefly describe your business challenge or project requirement.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Implementing Salesforce Financial Services Cloud or Agentforce
+• Modernizing CRM, ERP, or customer service platforms
+• Deploying Microsoft Dynamics 365 or Power Platform solutions
+• Integrating enterprise applications and data sources
+• Optimizing existing Salesforce or Microsoft environments
+• Automating customer onboarding and servicing processes
+• Enhancing reporting, analytics, and business visibility
+• Migrating from legacy platforms to modern enterprise solutions
+• Building custom applications on Salesforce or Microsoft ecosystems`,
+    "Product Engineering": `Excellent choice.
+
+To better understand your product vision, please briefly describe your business challenge or product requirement.
+
+What are you looking to build, improve, or scale with Hyniva?
+
+For example:
+• Building a new SaaS product or digital platform
+• Developing AI-powered applications and intelligent solutions
+• Creating customer-facing web and mobile applications
+• Accelerating product development and MVP delivery
+• Modernizing an existing software product
+• Enhancing product performance, security, and scalability
+• Building APIs, microservices, and cloud-native architectures
+• Implementing DevOps and automated testing practices
+• Scaling engineering teams to support business growth`,
+    "Data, AI & Automation": `Excellent choice.
+
+To better understand your AI and automation goals, please briefly describe your business challenge or project requirement.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Building AI agents, copilots, or virtual assistants
+• Automating repetitive business processes and workflows
+• Leveraging Generative AI to improve productivity
+• Creating intelligent document processing solutions
+• Implementing predictive analytics and machine learning models
+• Modernizing data platforms and reporting capabilities
+• Improving decision-making through real-time insights
+• Automating customer service and support operations
+• Developing compliance-focused AI solutions for regulated industries`,
+    "Cloud & Infrastructure Services": `Excellent choice.
+
+To better understand your cloud and infrastructure requirements, please briefly describe your business challenge or project requirement.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Migrating applications and workloads to AWS, Azure, or Google Cloud
+• Modernizing legacy infrastructure and applications
+• Designing cloud-native architectures and services
+• Improving scalability, reliability, and system performance
+• Strengthening security, compliance, and disaster recovery
+• Optimizing cloud spending and operational efficiency
+• Implementing DevOps and infrastructure automation
+• Building multi-cloud or hybrid cloud environments
+• Enhancing business continuity and operational resilience`,
+    "Strategy & IT Consulting": `Excellent choice.
+
+To better understand your strategic goals, please briefly describe your business challenge or project requirement.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Defining a digital transformation roadmap
+• Creating an AI adoption and innovation strategy
+• Evaluating technology platforms and architecture options
+• Aligning IT investments with business objectives
+• Assessing cloud modernization opportunities
+• Optimizing enterprise operating models and processes
+• Improving governance, compliance, and risk management
+• Planning large-scale modernization initiatives
+• Developing a long-term technology growth strategy`,
+    "Managed Services & Support": `Excellent choice.
+
+To better understand your support requirements, please briefly describe your business challenge or operational need.
+
+What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
+
+For example:
+• Managing and supporting business-critical applications
+• Establishing 24/7 monitoring and operational support
+• Improving application performance and availability
+• Managing cloud infrastructure and platform operations
+• Reducing support costs and operational overhead
+• Enhancing incident, problem, and change management processes
+• Extending internal IT and engineering teams
+• Maintaining security, compliance, and governance standards
+• Scaling support services as your business grows`,
+    "Hyniva Products & Solutions": `Excellent choice.
+
+To better understand your requirements, please briefly describe your business challenge or project requirement.
+
+Which Hyniva solution would you like to explore, or what business outcome are you looking to achieve?
+
+For example:
+• Exploring FinXServe for lending and customer acquisition journeys
+• Evaluating AIRA for enterprise AI and intelligent automation
+• Learning about Claim Pioneer for claims management automation
+• Discovering Hyper for wealth and portfolio recommendation experiences
+• Requesting a product demonstration or consultation
+• Understanding implementation timelines and requirements
+• Integrating Hyniva products with existing systems
+• Enhancing customer experiences with ready-to-deploy solutions
+• Accelerating business transformation using proven platforms`,
+    "Partnership Opportunities": `Excellent choice.
+
+To better understand your partnership interests, please briefly describe your goals and collaboration requirements.
+
+How would you like to partner with Hyniva?
+
+For example:
+• Technology alliance and ecosystem partnerships
+• Salesforce, Microsoft, AWS, or AI-focused collaborations
+• Joint go-to-market initiatives and solution offerings
+• Product integration and co-innovation opportunities
+• Delivery and implementation partnerships
+• Referral and channel partner programs
+• Industry-specific solution development initiatives
+• Strategic business and consulting partnerships
+• Global delivery and engineering collaboration opportunities`,
+};
 
 // ─── Main Widget ──────────────────────────────────────────────────────────────
 export function AskAiraWidget() {
@@ -956,7 +1101,7 @@ export function AskAiraWidget() {
     const listeningBaseInputRef = useRef("");
     const isStoppingVoiceInputRef = useRef(false);
 
-    useEffect(() => { setHasSpeechRecognition(Boolean(getSpeechRecognitionConstructor())); }, []);
+    useEffect(() => { queueMicrotask(() => setHasSpeechRecognition(Boolean(getSpeechRecognitionConstructor()))); }, []);
 
     // ── Scroll / footer observer ──────────────────────────────────────────────
     useEffect(() => {
@@ -1023,9 +1168,11 @@ export function AskAiraWidget() {
     // Inject welcome message when chat opens
     useEffect(() => {
         if (isOpen && messages.length === 0) {
-            setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nHere's how I can help:\n• Share your goals, challenges, or ideas\n• Identify the right expertise and solutions tailored to your needs\n• Map out actionable next steps for your business")]);
+            queueMicrotask(() => {
+                setMessages([botMsg("Great solutions start with the right conversation. 💡\n\nI'm AIRA, Hyniva's intelligent business advisor.\n\nHere's how I can help:\n• Share your goals, challenges, or ideas\n• Identify the right expertise and solutions tailored to your needs\n• Map out actionable next steps for your business")]);
+            });
         }
-    }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [isOpen, messages.length]);
 
     const stopVoiceInput = useCallback(() => {
         isStoppingVoiceInputRef.current = true;
@@ -1257,153 +1404,6 @@ export function AskAiraWidget() {
     }, [isLoading, onboardStep, leadData, leadCaptured, stopReading, stopVoiceInput]);
 
     // ── Intent button handler ─────────────────────────────────────────────────
-    const intentPrompts: Record<string, string> = {
-        "Digital Transformation": `Excellent choice.
-
-To better understand your digital transformation goals, please briefly describe your business challenge or project requirement.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Modernizing legacy applications and business systems
-• Improving customer and member digital experiences
-• Building custom web, mobile, or self-service portals
-• Automating manual workflows and business processes
-• Replacing outdated systems with scalable cloud solutions
-• Accelerating digital initiatives with AI-powered capabilities
-• Streamlining operations across departments and teams
-• Creating seamless omnichannel customer journeys
-• Driving enterprise-wide transformation with measurable business outcomes`,
-        "Enterprise Platforms": `Excellent choice.
-
-To better understand your platform requirements, please briefly describe your business challenge or project requirement.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Implementing Salesforce Financial Services Cloud or Agentforce
-• Modernizing CRM, ERP, or customer service platforms
-• Deploying Microsoft Dynamics 365 or Power Platform solutions
-• Integrating enterprise applications and data sources
-• Optimizing existing Salesforce or Microsoft environments
-• Automating customer onboarding and servicing processes
-• Enhancing reporting, analytics, and business visibility
-• Migrating from legacy platforms to modern enterprise solutions
-• Building custom applications on Salesforce or Microsoft ecosystems`,
-        "Product Engineering": `Excellent choice.
-
-To better understand your product vision, please briefly describe your business challenge or product requirement.
-
-What are you looking to build, improve, or scale with Hyniva?
-
-For example:
-• Building a new SaaS product or digital platform
-• Developing AI-powered applications and intelligent solutions
-• Creating customer-facing web and mobile applications
-• Accelerating product development and MVP delivery
-• Modernizing an existing software product
-• Enhancing product performance, security, and scalability
-• Building APIs, microservices, and cloud-native architectures
-• Implementing DevOps and automated testing practices
-• Scaling engineering teams to support business growth`,
-        "Data, AI & Automation": `Excellent choice.
-
-To better understand your AI and automation goals, please briefly describe your business challenge or project requirement.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Building AI agents, copilots, or virtual assistants
-• Automating repetitive business processes and workflows
-• Leveraging Generative AI to improve productivity
-• Creating intelligent document processing solutions
-• Implementing predictive analytics and machine learning models
-• Modernizing data platforms and reporting capabilities
-• Improving decision-making through real-time insights
-• Automating customer service and support operations
-• Developing compliance-focused AI solutions for regulated industries`,
-        "Cloud & Infrastructure Services": `Excellent choice.
-
-To better understand your cloud and infrastructure requirements, please briefly describe your business challenge or project requirement.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Migrating applications and workloads to AWS, Azure, or Google Cloud
-• Modernizing legacy infrastructure and applications
-• Designing cloud-native architectures and services
-• Improving scalability, reliability, and system performance
-• Strengthening security, compliance, and disaster recovery
-• Optimizing cloud spending and operational efficiency
-• Implementing DevOps and infrastructure automation
-• Building multi-cloud or hybrid cloud environments
-• Enhancing business continuity and operational resilience`,
-        "Strategy & IT Consulting": `Excellent choice.
-
-To better understand your strategic goals, please briefly describe your business challenge or project requirement.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Defining a digital transformation roadmap
-• Creating an AI adoption and innovation strategy
-• Evaluating technology platforms and architecture options
-• Aligning IT investments with business objectives
-• Assessing cloud modernization opportunities
-• Optimizing enterprise operating models and processes
-• Improving governance, compliance, and risk management
-• Planning large-scale modernization initiatives
-• Developing a long-term technology growth strategy`,
-        "Managed Services & Support": `Excellent choice.
-
-To better understand your support requirements, please briefly describe your business challenge or operational need.
-
-What are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?
-
-For example:
-• Managing and supporting business-critical applications
-• Establishing 24/7 monitoring and operational support
-• Improving application performance and availability
-• Managing cloud infrastructure and platform operations
-• Reducing support costs and operational overhead
-• Enhancing incident, problem, and change management processes
-• Extending internal IT and engineering teams
-• Maintaining security, compliance, and governance standards
-• Scaling support services as your business grows`,
-        "Hyniva Products & Solutions": `Excellent choice.
-
-To better understand your requirements, please briefly describe your business challenge or project requirement.
-
-Which Hyniva solution would you like to explore, or what business outcome are you looking to achieve?
-
-For example:
-• Exploring FinXServe for lending and customer acquisition journeys
-• Evaluating AIRA for enterprise AI and intelligent automation
-• Learning about Claim Pioneer for claims management automation
-• Discovering Hyper for wealth and portfolio recommendation experiences
-• Requesting a product demonstration or consultation
-• Understanding implementation timelines and requirements
-• Integrating Hyniva products with existing systems
-• Enhancing customer experiences with ready-to-deploy solutions
-• Accelerating business transformation using proven platforms`,
-        "Partnership Opportunities": `Excellent choice.
-
-To better understand your partnership interests, please briefly describe your goals and collaboration requirements.
-
-How would you like to partner with Hyniva?
-
-For example:
-• Technology alliance and ecosystem partnerships
-• Salesforce, Microsoft, AWS, or AI-focused collaborations
-• Joint go-to-market initiatives and solution offerings
-• Product integration and co-innovation opportunities
-• Delivery and implementation partnerships
-• Referral and channel partner programs
-• Industry-specific solution development initiatives
-• Strategic business and consulting partnerships
-• Global delivery and engineering collaboration opportunities`,
-    };
-
     const handleIntentSelect = useCallback((intent: string) => {
         if (intent === "Other") {
             setMessages(prev => [...prev, userMsg("Something else"),
@@ -1413,9 +1413,9 @@ For example:
         setLeadData(prev => ({ ...prev, intent }));
         setChatTurnCount(0);
         setMessages(prev => [...prev, userMsg(intent),
-            botMsg(intentPrompts[intent] || `Excellent choice.\n\nPlease briefly describe your business challenge or project requirement.\n\nWhat are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?`)]);
+            botMsg(INTENT_PROMPTS[intent] || `Excellent choice.\n\nPlease briefly describe your business challenge or project requirement.\n\nWhat are you looking to achieve, what problem are you trying to solve, or what support do you need from Hyniva?`)]);
         setOnboardStep("ask_challenge");
-    }, [leadData.name]);
+    }, []);
 
     // ── Voice input ───────────────────────────────────────────────────────────
     const toggleVoiceInput = useCallback(() => {
@@ -1466,7 +1466,7 @@ For example:
             catch { isRetrying = false; setSpeechError("Voice input could not start. Please try again."); recognitionRef.current = null; setIsListening(false); }
         };
         startRecognition();
-    }, [inputValue, isListening, isVoiceInputUnavailable, stopVoiceInput]);
+    }, [inputValue, isListening, stopVoiceInput]);
 
     // ── TTS ───────────────────────────────────────────────────────────────────
     const readMessage = useCallback(async (text: string, index: number) => {
@@ -1543,6 +1543,7 @@ For example:
                         transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
                         style={{ position: "absolute", left: "50%", bottom: (isMiddle && !isHovered) ? "-10px" : "27px", width: (isMiddle && !isHovered) ? 0 : 85, height: (isMiddle && !isHovered) ? 0 : 85, visibility: (isMiddle && !isHovered) ? "hidden" : "visible", display: "flex", alignItems: "flex-end", justifyContent: "center", pointerEvents: "none", zIndex: 3, overflow: "visible" }}
                     >
+                        {/* eslint-disable-next-line @next/next/no-img-element -- mascot uses CSS filter glow effects */}
                         <img src="/images/AIRA_MASCOT/AIRA_New.png" alt="AIRA" width={120} height={120} className="aira-mascot-grip"
                             style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom center", filter: isHovered ? "drop-shadow(0 0 3px rgba(56,134,206,1)) drop-shadow(0 0 8px rgba(56,134,206,0.8)) drop-shadow(0 0 15px rgba(56,134,206,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.1))" : "drop-shadow(0 2px 4px rgba(0,0,0,0.1))", transition: "filter 0.3s ease-out" }} />
                     </motion.div>
@@ -1560,6 +1561,7 @@ For example:
                         </div>
                         <span className={`aira-button-text ${(isMiddle && !isHovered) ? "aira-text-minimized" : "aira-text-expanded"}`}
                             style={{ opacity: (isMiddle && !isHovered) ? 0 : 1, transition: "opacity 0.3s ease-out", width: (isMiddle && !isHovered) ? 0 : "auto", overflow: "hidden", display: "flex", alignItems: "center", gap: 4, marginLeft: (isMiddle && !isHovered) ? 0 : 8 }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element -- inverted text logo in pill button */}
                             <img src="/aira-text.png" alt="AIRA" style={{ height: 11, objectFit: "contain", filter: "brightness(0) invert(1)" }} />
                             <ChevronRight size={14} strokeWidth={3} />
                         </span>

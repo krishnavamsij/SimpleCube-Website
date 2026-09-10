@@ -1,6 +1,17 @@
 import React from 'react';
 
-const Hex = ({ cx, cy, r, cornerRadius, fill, stroke, strokeWidth, filter }: any) => {
+interface HexProps {
+    cx: number;
+    cy: number;
+    r: number;
+    cornerRadius: number;
+    fill: string;
+    stroke: string;
+    strokeWidth?: number;
+    filter?: string;
+}
+
+const Hex = ({ cx, cy, r, cornerRadius, fill, stroke, strokeWidth, filter }: HexProps) => {
     // Math for perfect rounded hexagon
     const points = [];
     for (let i = 0; i < 6; i++) {
@@ -82,19 +93,20 @@ export function CertificationsDiagram() {
                 <circle cx="630" cy="335" r="4.5" fill="white" stroke="#3886CE" strokeWidth="2.5" />
 
                 {/* ─── CENTER HEXAGON ─── */}
-                <Hex cx={400} cy={300} r={140} cornerRadius={16} fill="white" stroke="url(#centerGrad)" strokeWidth="3" filter="url(#hexShadow)" />
-                <Hex cx={400} cy={300} r={130} cornerRadius={14} fill="#0B205D" stroke="none" />
+                <Hex cx={400} cy={300} r={140} cornerRadius={16} fill="white" stroke="url(#centerGrad)" strokeWidth={3} filter="url(#hexShadow)" />
+                <Hex cx={400} cy={300} r={130} cornerRadius={14} fill="#0B205D" stroke="none" strokeWidth={0} />
 
                 {/* ─── SATELLITE HEXAGONS (r=105) ─── */}
-                <Hex cx={170} cy={440} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth="2.5" filter="url(#hexShadow)" />
-                <Hex cx={630} cy={160} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth="2.5" filter="url(#hexShadow)" />
-                <Hex cx={630} cy={440} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth="2.5" filter="url(#hexShadow)" />
+                <Hex cx={170} cy={440} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth={2.5} filter="url(#hexShadow)" />
+                <Hex cx={630} cy={160} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth={2.5} filter="url(#hexShadow)" />
+                <Hex cx={630} cy={440} r={105} cornerRadius={12} fill="url(#hexFill)" stroke="url(#sideGrad)" strokeWidth={2.5} filter="url(#hexShadow)" />
 
                 {/* ─── HTML CONTENT INSIDE HEXAGONS ─── */}
                 
                 {/* Center Content */}
                 <foreignObject x={280} y={230} width={240} height={140}>
                     <div className="w-full h-full flex items-center justify-center px-4">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- SVG foreignObject requires native img for logo fallback */}
                         <img src="/logos/simplecube/logo-blue.png" alt="SimpleCube" className="w-full max-w-[180px] object-contain" onError={(e) => { e.currentTarget.style.display='none' }} />
                     </div>
                 </foreignObject>
@@ -117,6 +129,7 @@ export function CertificationsDiagram() {
                 <foreignObject x={540} y={70} width={180} height={180}>
                     <div className="w-full h-full flex flex-col items-center justify-center text-center">
                         <div className="mb-2 h-[80px] flex items-end justify-center">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- SVG foreignObject layout */}
                             <img src="/images/Certifications_Image/iso_logo_uploaded_2.png" alt="ISO 27001" className="w-[80px] h-[80px] object-contain transition-transform duration-300 hover:-translate-y-1" />
                         </div>
                         <h4 className="text-[#0B205D] font-extrabold text-[14px] leading-none mb-1.5">ISO 27001</h4>
@@ -128,6 +141,7 @@ export function CertificationsDiagram() {
                 <foreignObject x={540} y={350} width={180} height={180}>
                     <div className="w-full h-full flex flex-col items-center justify-center text-center">
                         <div className="mb-2 h-[80px] flex items-end justify-center">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- SVG foreignObject layout */}
                             <img src="/images/Certifications_Image/soc_logo_uploaded.png" alt="AICPA SOC" className="w-[80px] h-[80px] object-contain transition-transform duration-300 hover:-translate-y-1" />
                         </div>
                         <h4 className="text-[#0B205D] font-extrabold text-[14px] leading-none mb-1.5">SOC 2</h4>

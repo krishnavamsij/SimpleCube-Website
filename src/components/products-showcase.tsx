@@ -17,7 +17,7 @@ const getTagIcon = (tag: string) => {
     return <div className="w-1.5 h-1.5 rounded-full bg-[#3886CE]"></div>;
 };
 
-const ProductImageContainer = ({ p }: { p: any }) => {
+const ProductImageContainer = ({ p }: { p: (typeof productsContent.products)[number] }) => {
     const ref = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const isInView = useInView(ref, { once: false, amount: 0.4 });
@@ -26,7 +26,7 @@ const ProductImageContainer = ({ p }: { p: any }) => {
     useEffect(() => {
         if (isInView) {
             if (p.image.includes('.gif')) {
-                setGifSrc(p.image);
+                queueMicrotask(() => setGifSrc(p.image));
             } else if (p.image.includes('.mp4') && videoRef.current) {
                 videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => { });
@@ -50,6 +50,7 @@ const ProductImageContainer = ({ p }: { p: any }) => {
         />
     ) : p.image.includes('.gif') ? (
         gifSrc ? (
+            // eslint-disable-next-line @next/next/no-img-element -- GIF reload on viewport enter requires native img
             <img src={gifSrc} alt={p.title} className="max-w-full max-h-full object-contain" />
         ) : (
             <div className="w-full h-full" />
@@ -68,7 +69,7 @@ const ProductImageContainer = ({ p }: { p: any }) => {
 };
 
 export function ProductsShowcase() {
-    const { label, headline, subheadline, rightCallout, logos, products } = productsContent;
+    const { label, subheadline, logos, products } = productsContent;
 
     return (
         <section className="relative bg-[#0A2F52] text-white pt-[30px] pb-[20px] sm:pt-[40px] sm:pb-[30px] lg:pt-[50px] lg:pb-[30px]">

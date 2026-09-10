@@ -13,54 +13,78 @@ export interface CaseStudy {
   tags?: string[];
 }
 
+type SearchSection = {
+  title?: string;
+  type?: string;
+  content?: Record<string, unknown> | string;
+};
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" ? (value as Record<string, unknown>) : {};
+}
+
+function asString(value: unknown): string {
+  return typeof value === "string" ? value : "";
+}
+
+function stripHtml(value: string): string {
+  return value.replace(/<[^>]*>/g, " ");
+}
+
 /**
  * Extract text content from case study sections
  */
-function extractSectionText(section: any): string {
+function extractSectionText(section: SearchSection | null | undefined): string {
   if (!section) return "";
 
   let text = section.title || "";
+  const content = asRecord(section.content);
 
-  if (section.type === "text" && section.content) {
-    // Remove HTML tags and extract plain text
-    text += " " + section.content.replace(/<[^>]*>/g, " ");
-  } else if (section.type === "approach-list" && section.content) {
-    text += " " + (section.content.body || "").replace(/<[^>]*>/g, " ");
-    text += " " + (section.content.footer || "").replace(/<[^>]*>/g, " ");
-    if (section.content.items) {
-      section.content.items.forEach((item: any) => {
-        text += " " + (item.title || "") + " " + (item.desc || "");
+  if (section.type === "text" && content) {
+    text += " " + stripHtml(asString(content));
+  } else if (section.type === "approach-list" && content) {
+    text += " " + stripHtml(asString(content.body));
+    text += " " + stripHtml(asString(content.footer));
+    const items = content.items;
+    if (Array.isArray(items)) {
+      items.forEach((item) => {
+        const record = asRecord(item);
+        text += " " + asString(record.title) + " " + asString(record.desc);
       });
     }
-  } else if (section.type === "outcome-list" && section.content) {
-    text += " " + (section.content.body || "").replace(/<[^>]*>/g, " ");
-    text += " " + (section.content.footer || "").replace(/<[^>]*>/g, " ");
-    if (Array.isArray(section.content.items)) {
-      section.content.items.forEach((item: string) => {
-        text += " " + item;
+  } else if (section.type === "outcome-list" && content) {
+    text += " " + stripHtml(asString(content.body));
+    text += " " + stripHtml(asString(content.footer));
+    if (Array.isArray(content.items)) {
+      content.items.forEach((item) => {
+        text += " " + asString(item);
       });
     }
-  } else if (section.type === "feature-grid" && section.content) {
-    text += " " + (section.content.body || "").replace(/<[^>]*>/g, " ");
-    text += " " + (section.content.footer || "").replace(/<[^>]*>/g, " ");
-    if (section.content.items) {
-      section.content.items.forEach((item: any) => {
-        text += " " + (item.title || "") + " " + (item.text || "");
+  } else if (section.type === "feature-grid" && content) {
+    text += " " + stripHtml(asString(content.body));
+    text += " " + stripHtml(asString(content.footer));
+    const items = content.items;
+    if (Array.isArray(items)) {
+      items.forEach((item) => {
+        const record = asRecord(item);
+        text += " " + asString(record.title) + " " + asString(record.text);
       });
     }
-  } else if (section.type === "impact-strip" && section.content) {
-    text += " " + (section.content.body || "").replace(/<[^>]*>/g, " ");
-    if (section.content.items) {
-      section.content.items.forEach((item: any) => {
-        text += " " + (item.label || "") + " " + (item.desc || "") + " " + (item.value || "");
+  } else if (section.type === "impact-strip" && content) {
+    text += " " + stripHtml(asString(content.body));
+    const items = content.items;
+    if (Array.isArray(items)) {
+      items.forEach((item) => {
+        const record = asRecord(item);
+        text += " " + asString(record.label) + " " + asString(record.desc) + " " + asString(record.value);
       });
     }
-  } else if (section.type === "future-tags" && section.content) {
-    text += " " + (section.content.body || "").replace(/<[^>]*>/g, " ");
-    text += " " + (section.content.footer || "").replace(/<[^>]*>/g, " ");
-    if (Array.isArray(section.content.items)) {
-      section.content.items.forEach((item: string) => {
-        text += " " + item;
+  } else if (section.type === "future-tags" && content) {
+    text += " " + stripHtml(asString(content.body));
+    text += " " + stripHtml(asString(content.footer));
+    if (Array.isArray(content.items)) {
+      content.items.forEach((item) => {
+        text += " " + asString(item);
       });
     }
   }

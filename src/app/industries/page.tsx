@@ -53,10 +53,8 @@ import {
  */
 function IndustryCard({
     industry,
-    index,
 }: {
     industry: (typeof industriesListingContent.industries)[number];
-    index: number;
 }) {
     return (
         <motion.div
@@ -206,8 +204,8 @@ function IndustriesGrid() {
                     viewport={viewportOnce}
                     className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 >
-                    {industries.map((industry, index) => (
-                        <IndustryCard key={industry.title} industry={industry} index={index} />
+                    {industries.map((industry) => (
+                        <IndustryCard key={industry.title} industry={industry} />
                     ))}
                 </motion.div>
             </div>

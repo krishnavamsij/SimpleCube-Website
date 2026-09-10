@@ -11,7 +11,7 @@ import { CONTAINER_CLASS } from "@/lib/container-utils";
 import { HighlightedHeadline } from "@/components/ui/highlighted-headline";
 
 export function Footer({ hideCta = false }: { hideCta?: boolean }) {
-  const { label, headline, highlightedWord, sub, cta } = ctaContent;
+  const { headline, highlightedWord, sub, cta } = ctaContent;
   const { sections, offices, linkedin, email, phone } = footerContent;
   const canvasRef = useRef<HTMLCanvasElement>(null);
 

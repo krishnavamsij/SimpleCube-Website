@@ -10,7 +10,8 @@ import { cn } from "@/lib/utils";
 import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
 
-export function Navbar({ forceDarkText: _forceDarkText = false }: { forceDarkText?: boolean }) {
+export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
+    void forceDarkText;
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -52,7 +53,7 @@ export function Navbar({ forceDarkText: _forceDarkText = false }: { forceDarkTex
         { 
             label: "Services", 
             href: "/services", 
-            categories: navContent.services as any
+            categories: navContent.services
         },
         // Industries menu temporarily hidden from this build
         // { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },

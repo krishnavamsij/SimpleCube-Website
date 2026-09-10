@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     Users,
     Settings,
     Smartphone,
     BarChart3,
     Cloud,
-    Shield,
     ArrowRight,
     Sliders,
     Network,
@@ -31,18 +30,6 @@ import {
     staggerContainer,
     fadeInUp,
 } from "@/lib/animations";
-
-/* ------------------- Icon Map ------------------- */
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    Users: Users,
-    Settings: Settings,
-    Smartphone: Smartphone,
-    BarChart3: BarChart3,
-    Cloud: Cloud,
-    Shield: Shield,
-};
-
 
 /* ------------------- 3D Salesforce Cloud Illustration ------------------- */
 
@@ -231,93 +218,6 @@ function SalesforceHero() {
 
 /* ------------------- Intro Section ------------------- */
 
-/* ------------------- 3D Illustrations for Reality Cards ------------------- */
-
-function CloudsIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <path d="M25 65a12 12 0 0 1 2-23.8A16 16 0 0 1 57 33a12 12 0 0 1 18 10 12 12 0 0 1-5 22H25z" fill="#3886CE" fillOpacity="0.15" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M40 75a10 10 0 0 1 1-19.8A13 13 0 0 1 66 48a10 10 0 0 1 15 8 10 10 0 0 1-4 19H40z" fill="#3886CE" fillOpacity="0.2" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M35 50h30" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 3" />
-            <circle cx="35" cy="50" r="3" fill="#3886CE" />
-            <circle cx="65" cy="50" r="3" fill="#3886CE" />
-        </svg>
-    );
-}
-
-function CogIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <circle cx="50" cy="50" r="14" fill="none" stroke="#3886CE" strokeWidth="3" />
-            <path d="M50 20v10M50 70v10M20 50h10M70 50h10M29 29l7 7M64 64l7 7M71 29l-7 7M36 64l-7 7" stroke="#3886CE" strokeWidth="3.5" strokeLinecap="round" />
-            <path d="M50 36v-16M36 50H20M50 64v16" stroke="#3886CE" strokeWidth="2" strokeDasharray="2 2" />
-            <circle cx="50" cy="15" r="4" fill="#3886CE" />
-            <circle cx="15" cy="50" r="4" fill="#3886CE" />
-            <circle cx="50" cy="85" r="4" fill="#3886CE" />
-            <path d="M60 40l18-10v15" fill="none" stroke="#135498" strokeWidth="2" strokeLinecap="round" />
-            <circle cx="78" cy="30" r="3.5" fill="#135498" />
-        </svg>
-    );
-}
-
-function SprawlIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <rect x="15" y="25" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <rect x="15" y="44" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <rect x="15" y="63" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <rect x="65" y="44" width="20" height="12" rx="2" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <path d="M35 31h15v16h15" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 2" />
-            <path d="M35 50h30" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <path d="M35 69h15V53h15" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="3 2" />
-            <circle cx="50" cy="47" r="3" fill="#135498" />
-            <circle cx="50" cy="53" r="3" fill="#3886CE" />
-        </svg>
-    );
-}
-
-function DataIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <ellipse cx="50" cy="25" rx="18" ry="6" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <path d="M32 25v15c0 3.3 8 6 18 6s18-2.7 18-6V25" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <path d="M32 40v15c0 3.3 8 6 18 6s18-2.7 18-6V40" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <ellipse cx="50" cy="72" rx="28" ry="8" fill="none" stroke="#3886CE" strokeWidth="1.5" strokeDasharray="4 2" />
-            <circle cx="22" cy="72" r="4.5" fill="#3886CE" />
-            <circle cx="78" cy="72" r="4.5" fill="#3886CE" />
-            <circle cx="50" cy="80" r="3" fill="#135498" />
-            <path d="M50 56v10M22 72l20-8M78 72l-20-8" stroke="#E2E8F0" strokeWidth="1.5" />
-        </svg>
-    );
-}
-
-function PressureIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <path d="M20 70A35 35 0 0 1 80 70" fill="none" stroke="#E2E8F0" strokeWidth="4" strokeLinecap="round" />
-            <path d="M50 15A35 35 0 0 1 80 70" fill="none" stroke="#3886CE" strokeWidth="4" strokeLinecap="round" />
-            <circle cx="50" cy="70" r="6" fill="#3886CE" />
-            <path d="M50 70l20-40" stroke="#3886CE" strokeWidth="3" strokeLinecap="round" />
-            <path d="M82 25l5 8h-9z" fill="#3886CE" />
-            <path d="M68 18l7 6-5 4z" fill="#3886CE" />
-        </svg>
-    );
-}
-
-function ShieldIllustration() {
-    return (
-        <svg viewBox="0 0 100 100" className="w-28 h-28">
-            <path d="M30 20h40v15c0 18-20 35-20 35S30 53 30 35V20z" fill="none" stroke="#3886CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M50 20v50M30 35h40M34 50h32" stroke="#3886CE" strokeWidth="1.5" strokeOpacity="0.3" />
-            <rect x="42" y="38" width="16" height="12" rx="1.5" fill="#3886CE" />
-            <path d="M46 38v-4c0-2.2 1.8-4 4-4s4 1.8 4 4v4" fill="none" stroke="#3886CE" strokeWidth="2" />
-            <circle cx="50" cy="14" r="3.5" fill="#3886CE" />
-            <circle cx="22" cy="35" r="3" fill="#3886CE" />
-            <circle cx="78" cy="35" r="3" fill="#3886CE" />
-        </svg>
-    );
-}
-
 /* ------------------- Enterprise Reality Section ------------------- */
 
 const realityCards = [
@@ -450,7 +350,6 @@ function SalesforceIntro() {
 
 function CapabilitiesHoverCard({
     title,
-    tagline,
     description,
     imageSrc,
     imagePosition = "center center",
@@ -476,7 +375,6 @@ function CapabilitiesHoverCard({
     const [isHovered, setIsHovered] = useState(false);
 
     const titleColor = isDark ? "text-white" : "text-[#060d2e]";
-    const taglineColor = isDark ? "text-slate-200" : "text-slate-700";
     const descColor = isDark ? "text-slate-300" : "text-slate-600";
     const ctaColor = isDark ? "text-[#3886CE]" : "text-[#135498]";
 
@@ -778,6 +676,7 @@ function SalesforceOutcomes() {
             {/* ── Image + Metrics upper strip ── */}
             <div className="relative h-[430px] sm:h-[380px] lg:h-[420px] overflow-hidden">
                 {/* Background image */}
+                {/* eslint-disable-next-line @next/next/no-img-element -- external Unsplash hero background */}
                 <img
                     src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80"
                     alt="Salesforce team collaboration"

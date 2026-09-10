@@ -18,7 +18,6 @@ import {
     Construction,
     Scale,
     ShieldAlert,
-    DollarSign,
     Rocket,
     Lock,
     Phone,
@@ -34,7 +33,6 @@ import {
     Check,
     MapPin,
     Smartphone,
-    Link,
     Package,
     Search,
     FileText,
@@ -64,7 +62,6 @@ import {
     Banknote,
     Handshake,
     Link2,
-    type LucideIcon
 } from "lucide-react";
 
 interface CaseStudyHeroProps {
@@ -75,7 +72,7 @@ interface CaseStudyHeroProps {
     theme?: "insurance" | "default";
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
     "🚀": Rocket,
     "⚡": Zap,
     "💰": CircleDollarSign,
@@ -165,7 +162,7 @@ const StandardIcon = ({ icon, className = "" }: { icon: string, className?: stri
     );
 };
 
-export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth, theme = "default" }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, summary, metrics, summaryMaxWidth }: CaseStudyHeroProps) {
     return (
         <section className="relative z-40 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
             {/* Reference-accurate Background - Standardized with Contact Us */}

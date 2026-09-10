@@ -8,8 +8,6 @@ import {
   SES_RECIPIENT_CAREERS_NONUS,
 } from "@/lib/email-config";
 
-const SENDER_NAME = "Hyniva Careers";
-
 const ALLOWED_TYPES = new Set([
   "application/pdf",
   "application/msword",
@@ -333,15 +331,21 @@ export async function POST(request: Request) {
         messageId: response.MessageId 
       });
 
-    } catch (sesError: any) {
+    } catch (sesError: unknown) {
+      const err = sesError as {
+        Code?: string;
+        message?: string;
+        Type?: string;
+        $metadata?: { httpStatusCode?: number };
+      };
       console.error("❌ SES Error Details:", {
-        code: sesError.Code,
-        message: sesError.message,
-        type: sesError.Type,
-        statusCode: sesError.$metadata?.httpStatusCode,
+        code: err.Code,
+        message: err.message,
+        type: err.Type,
+        statusCode: err.$metadata?.httpStatusCode,
       });
 
-      if (sesError.Code === "AccessDenied") {
+      if (err.Code === "AccessDenied") {
         console.error("⚠️ IAM PERMISSION ERROR:", {
           user: "gvnikitha@hyniva.com (or current AWS user)",
           requiredAction: "ses:SendEmail or ses:SendRawEmail",
@@ -358,7 +362,7 @@ export async function POST(request: Request) {
         );
       }
 
-      if (sesError.Code === "MessageRejected") {
+      if (err.Code === "MessageRejected") {
         return NextResponse.json(
           { 
             error: "Email was rejected. Please verify all details are correct.",
@@ -371,11 +375,15 @@ export async function POST(request: Request) {
       throw sesError;
     }
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("=== CAREERS EMAIL REQUEST FAILED ===");
-    console.error("Error Type:", error.constructor.name);
-    console.error("Error Message:", error.message);
-    console.error("Error Stack:", error.stack);
+    if (error instanceof Error) {
+      console.error("Error Type:", error.constructor.name);
+      console.error("Error Message:", error.message);
+      console.error("Error Stack:", error.stack);
+    } else {
+      console.error("Error:", error);
+    }
 
     return NextResponse.json(
       { 

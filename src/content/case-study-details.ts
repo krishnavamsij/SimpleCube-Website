@@ -5,11 +5,17 @@ export interface CaseStudyMetric {
     sub?: string;
 }
 
+export type CaseStudySectionContent = Record<string, unknown> & {
+    body?: string;
+    footer?: string;
+    items?: unknown[];
+};
+
 export interface CaseStudySection {
     id: string;
     title: string;
     type: 'text' | 'approach-list' | 'feature-grid' | 'impact-strip' | 'outcome-list' | 'future-tags' | 'tech-tags';
-    content: any;
+    content: string | CaseStudySectionContent;
 }
 
 export interface CaseStudyDetail {

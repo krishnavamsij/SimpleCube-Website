@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRightIcon, Target, Lightbulb, Building, Search, Play, Monitor, ArrowRight } from "lucide-react";
+import { ArrowUpRightIcon, Target, Lightbulb, Building, Search, Play, Monitor } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { itStrategyContent } from "@/content/it-strategy";
@@ -30,25 +30,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 function ServiceCard({
     service,
-    index,
 }: {
     service: (typeof itStrategyContent.services)[number];
-    index: number;
 }) {
-    // Direct icon mapping to ensure it works
-    const getIcon = (iconName: string) => {
-        switch(iconName) {
-            case 'Target': return Target;
-            case 'Lightbulb': return Lightbulb;
-            case 'Building': return Building;
-            case 'Search': return Search;
-            case 'Play': return Play;
-            case 'Monitor': return Monitor;
-            default: return Target;
-        }
-    };
-    
-    const IconComponent = getIcon(service.icon);
+    const IconComponent = iconMap[service.icon] ?? Target;
 
     return (
         <motion.div
@@ -171,8 +156,8 @@ function ServicesGrid() {
                     viewport={viewportOnce}
                     className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 >
-                    {services.map((service, index) => (
-                        <ServiceCard key={service.title} service={service} index={index} />
+                    {services.map((service) => (
+                        <ServiceCard key={service.title} service={service} />
                     ))}
                 </motion.div>
             </div>
@@ -206,7 +191,7 @@ function DeliveryEnablers() {
                     viewport={viewportOnce}
                     className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 items-center"
                 >
-                    {deliveryEnablers.logos.map((logo, index) => (
+                    {deliveryEnablers.logos.map((logo) => (
                         <motion.div
                             key={logo.name}
                             variants={scrollReveal}

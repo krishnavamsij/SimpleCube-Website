@@ -1531,44 +1531,6 @@ export default function CareersPage() {
     }
   };
 
-  const uploadResumeWithProgress = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const formDataToUpload = new FormData();
-      formDataToUpload.append("resume", file);
-
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "/api/upload-resume");
-
-      xhr.upload.onprogress = (event) => {
-        if (event.lengthComputable) {
-          const progress = Math.round((event.loaded / event.total) * 100);
-          setUploadProgress(progress);
-        }
-      };
-
-      xhr.onload = () => {
-        try {
-          const response = JSON.parse(xhr.responseText) as {
-            url?: string;
-            error?: string;
-          };
-
-          if (xhr.status >= 200 && xhr.status < 300 && response.url) {
-            setUploadProgress(100);
-            resolve(response.url);
-            return;
-          }
-
-          reject(new Error(response.error || "Resume upload failed."));
-        } catch {
-          reject(new Error("Resume upload failed."));
-        }
-      };
-
-      xhr.onerror = () => reject(new Error("Network error while uploading resume."));
-      xhr.send(formDataToUpload);
-    });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 

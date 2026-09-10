@@ -45,6 +45,23 @@ interface ChatItem {
 const HYNIVA_ONLY_MESSAGE =
   "I can't help with that. I can help only with information related to Hyniva.";
 
+function createChatId(): string {
+  return Math.random().toString(36).slice(2);
+}
+
+function createChatItem(
+  role: ChatRole,
+  text: string,
+  overrides?: Partial<Pick<ChatItem, "id" | "ts">>
+): ChatItem {
+  return {
+    id: overrides?.id ?? createChatId(),
+    role,
+    text,
+    ts: overrides?.ts ?? Date.now(),
+  };
+}
+
 /* ─────────────────────────────────────────────
    RESPONSIVE HOOK
 ───────────────────────────────────────────── */
@@ -77,12 +94,8 @@ function handleResponse(
   add: (i: ChatItem) => void,
   router: ReturnType<typeof useRouter>
 ) {
-  const makeItem = (text: string): ChatItem => ({
-    id: Math.random().toString(36).slice(2),
-    role: "bot",
-    text,
-    ts: Date.now(),
-  });
+  const makeItem = (text: string): ChatItem =>
+    createChatItem("bot", text);
   try {
     const p = JSON.parse(raw);
     if (p?.message && typeof p.message === "string") {
@@ -188,21 +201,22 @@ export default function HynivaChatbot() {
     if (!isOpen) return;
     setTimeout(() => inputRef.current?.focus(), 150);
     if (chat.length === 0) {
-      addItem({
-        id: "welcome",
-        role: "bot",
-        text: "Hi! 👋 I'm here to help. Ask me anything about Hyniva.",
-        ts: Date.now(),
+      queueMicrotask(() => {
+        addItem(
+          createChatItem("bot", "Hi! 👋 I'm here to help. Ask me anything about Hyniva.", {
+            id: "welcome",
+          })
+        );
+        setShowQuick(true);
       });
-      setShowQuick(true);
     }
-  }, [isOpen]);
+  }, [isOpen, chat.length, addItem]);
 
   async function handleSend(msg?: string) {
     const text = (msg ?? input).trim();
     if (!text) return;
 
-    addItem({ id: Math.random().toString(36).slice(2), role: "user", text, ts: Date.now() });
+    addItem(createChatItem("user", text));
     setInput("");
     setShowQuick(false);
     setIsSending(true);
@@ -215,34 +229,19 @@ export default function HynivaChatbot() {
         body: JSON.stringify({ message: text }),
       });
       if (res.status === 403) {
-        addItem({
-          id: Math.random().toString(36).slice(2),
-          role: "bot",
-          text: HYNIVA_ONLY_MESSAGE,
-          ts: Date.now(),
-        });
+        addItem(createChatItem("bot", HYNIVA_ONLY_MESSAGE));
       } else {
         handleResponse(await res.text(), addItem, router);
       }
     } catch {
-      addItem({
-        id: Math.random().toString(36).slice(2),
-        role: "bot",
-        text: "Sorry, something went wrong. Please try again.",
-        ts: Date.now(),
-      });
+      addItem(createChatItem("bot", "Sorry, something went wrong. Please try again."));
     }
     setIsSending(false);
   }
 
   function handleClear() {
     setChat([
-      {
-        id: "cleared",
-        role: "bot",
-        text: "Chat cleared. How can I help?",
-        ts: Date.now(),
-      },
+      createChatItem("bot", "Chat cleared. How can I help?", { id: "cleared" }),
     ]);
     setShowQuick(true);
   }

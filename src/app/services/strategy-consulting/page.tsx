@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, BarChart3, Cloud, Server, Users, Settings, TrendingUp, Database, Target, Layers, Globe2, Compass, Link2Off, Map, ShieldAlert, Shield } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, BrainCircuit, Cloud, Server, Users, Settings, Target, Globe2, Compass, Link2Off, Map, ShieldAlert, Shield } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
 import { Faq } from "@/components/faq";
 import { strategyConsultingFaqs } from "@/content/service-faqs";
 
-const animations: any = {
+const animations: Record<string, Variants> = {
     fadeInUp: {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -163,7 +163,7 @@ function WhySimpleCube() {
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
-                                The most successful organizations don't move faster because they do more. They move faster because they focus on the right priorities at the right time.
+                                The most successful organizations don&apos;t move faster because they do more. They move faster because they focus on the right priorities at the right time.
                             </p>
                             <p>
                                 At Hyniva, we help leaders evaluate opportunities, balance technology investments and create actionable roadmaps that translate strategic direction into meaningful progress.

@@ -17,7 +17,7 @@ export interface BlogPost {
 /**
  * Extract text content from blog sections
  */
-function extractBlogSectionText(section: any): string {
+function extractBlogSectionText(section: { title?: string; content?: string } | null | undefined): string {
   if (!section) return "";
 
   let text = section.title || "";

@@ -322,7 +322,7 @@ export function DigitalGlobe() {
         initialized: false,
     });
 
-    const render = useCallback(() => {
+    const render = useCallback(function drawFrame() {
         const canvas = canvasRef.current;
         const container = containerRef.current;
         if (!canvas || !container) return;
@@ -336,7 +336,7 @@ export function DigitalGlobe() {
         const h = rect.height;
 
         if (w <= 10 || h <= 10) {
-            animRef.current = requestAnimationFrame(render);
+            animRef.current = requestAnimationFrame(drawFrame);
             return;
         }
 
@@ -372,7 +372,7 @@ export function DigitalGlobe() {
         drawNetwork(ctx, state.nodes, cx, cy, globeRadius, rotation, perspective, state.frame);
 
         state.frame++;
-        animRef.current = requestAnimationFrame(render);
+        animRef.current = requestAnimationFrame(drawFrame);
     }, []);
 
     useEffect(() => {

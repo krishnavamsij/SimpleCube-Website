@@ -49,34 +49,36 @@ export function CaseStudyPopup({
 
   // Reset state when navigating to a different page
   useEffect(() => {
-    setIsVisible(false);
-    setHasBeenDismissed(false);
-    setIsSubmitted(false);
-    setIsSending(false);
-    setSubmitError("");
-    setFormData({
-      name: '',
-      email: '',
-      organization: '',
-      role: ''
+    queueMicrotask(() => {
+      setIsVisible(false);
+      setHasBeenDismissed(false);
+      setIsSubmitted(false);
+      setIsSending(false);
+      setSubmitError("");
+      setFormData({
+        name: '',
+        email: '',
+        organization: '',
+        role: ''
+      });
+      setFormErrors({});
     });
-    setFormErrors({});
   }, [pathname]);
 
   useEffect(() => {
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
   }, []);
 
   // Listen for third section trigger
   useEffect(() => {
     if (!mounted || hasBeenDismissed || isSubmitted) return;
 
-    const handleThirdSectionReached = (event: CustomEvent) => {
+    const handleThirdSectionReached = () => {
       setIsVisible(true);
       onThirdSectionReached?.();
     };
 
-    const handleThirdTabClicked = (event: CustomEvent) => {
+    const handleThirdTabClicked = () => {
       if (!hasBeenDismissed && !isSubmitted) {
         setIsVisible(true);
       }
@@ -223,7 +225,7 @@ export function CaseStudyPopup({
                   </div>
                   <div>
                     <h4 className="text-[14px] font-bold text-slate-900 mb-1">Thank you!</h4>
-                    <p className="text-[12px] text-slate-500">We'll be in touch shortly.</p>
+                    <p className="text-[12px] text-slate-500">We&apos;ll be in touch shortly.</p>
                   </div>
                 </motion.div>
               ) : (

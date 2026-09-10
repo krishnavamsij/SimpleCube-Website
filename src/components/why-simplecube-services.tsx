@@ -6,6 +6,7 @@ import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { Brain, Layers, Briefcase, GraduationCap, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const getIcon = (name: string) => {
     switch (name) {
@@ -76,19 +77,19 @@ export function WhySimpleCubeServices() {
                                             <div className="flex -space-x-2.5 sm:-space-x-3 lg:-space-x-3 xl:-space-x-4 ml-4 sm:ml-6 lg:ml-5 xl:ml-8">
                                                 {/* 1 - Hidu (Zoomed 20%, top aligned) */}
                                                 <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-10 relative shadow-lg">
-                                                    <img src="/images/Our_Services/Experts/Hidu.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                    <Image src="/images/Our_Services/Experts/Hidu.png" alt="Expert" fill className="object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                                 {/* 2 - Madhavi (Zoomed 20%, top aligned) */}
                                                 <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-20 relative shadow-lg">
-                                                    <img src="/images/Our_Services/Experts/Madhavi.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                    <Image src="/images/Our_Services/Experts/Madhavi.png" alt="Expert" fill className="object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                                 {/* 3 - Madhumalathi (Original) */}
                                                 <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-30 relative shadow-lg">
-                                                    <img src="/images/Our_Services/Experts/Madhumalathi.png" alt="Expert" className="w-full h-full object-cover grayscale transition-all duration-300" />
+                                                    <Image src="/images/Our_Services/Experts/Madhumalathi.png" alt="Expert" fill className="object-cover grayscale transition-all duration-300" />
                                                 </div>
                                                 {/* 4 - suraj (Zoomed 20%, top aligned) */}
                                                 <div className="w-11 h-11 sm:w-13 sm:h-13 lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-full border-3 sm:border-4 border-[#0A102E] overflow-hidden z-40 relative shadow-lg">
-                                                    <img src="/images/Our_Services/Experts/suraj.png" alt="Expert" className="w-full h-full object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
+                                                    <Image src="/images/Our_Services/Experts/suraj.png" alt="Expert" fill className="object-cover grayscale scale-[1.2] origin-top transition-all duration-300" />
                                                 </div>
                                             </div>
                                         </div>

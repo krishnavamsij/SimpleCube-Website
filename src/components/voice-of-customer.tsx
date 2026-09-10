@@ -45,7 +45,7 @@ const getTagIcon = (tag: string) => {
 };
 
 export function VoiceOfCustomer() {
-    const { label, headline, highlightedWords, testimonials } = vocContent;
+    const { headline, highlightedWords, testimonials } = vocContent;
     const [current, setCurrent] = useState(0);
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
@@ -56,8 +56,10 @@ export function VoiceOfCustomer() {
 
     // Reset hover and muted state on slide change
     useEffect(() => {
-        setIsHovered(false);
-        setIsMuted(true);
+        queueMicrotask(() => {
+            setIsHovered(false);
+            setIsMuted(true);
+        });
     }, [current]);
 
     // Auto-rotate every 10 seconds unless video modal is open or image is hovered
@@ -67,7 +69,7 @@ export function VoiceOfCustomer() {
         return () => clearInterval(timer);
     }, [next, isVideoModalOpen, isHovered]);
 
-    const active = testimonials[current] as any;
+    const active = testimonials[current];
     const modalVideoUrl = resolveSiteVideoUrl(active.videoUrl) ?? active.videoUrl;
     const hoverVideoSrc = resolveSiteVideoUrl(active.hoverVideoUrl || active.videoUrl);
 
@@ -81,7 +83,7 @@ export function VoiceOfCustomer() {
                 hoverVideoRef.current.playbackRate = 1.0;
                 hoverVideoRef.current.muted = true; // Always muted by default on hover
                 setIsMuted(true);
-                hoverVideoRef.current.play().catch((err) => {
+                hoverVideoRef.current.play().catch(() => {
                     // Suppress play rejections gracefully
                 });
             }
@@ -107,7 +109,7 @@ export function VoiceOfCustomer() {
             setIsMuted(newMuted);
             if (!newMuted) {
                 // Ensure video plays when unmuted via user click
-                hoverVideoRef.current.play().catch((err) => {
+                hoverVideoRef.current.play().catch(() => {
                     // Suppress play rejections gracefully
                 });
             }
@@ -316,9 +318,11 @@ export function VoiceOfCustomer() {
                                         {/* Company logo */}
                                         {active.logo ? (
                                             <div className="mt-3 flex items-center justify-center h-12">
-                                                <img
+                                                <Image
                                                     src={active.logo}
                                                     alt={active.company || active.author}
+                                                    width={150}
+                                                    height={48}
                                                     className="h-10 sm:h-12 w-auto max-w-[150px] object-contain opacity-90"
                                                 />
                                             </div>
@@ -376,7 +380,7 @@ export function VoiceOfCustomer() {
                                 {(modalVideoUrl || "").toLowerCase().includes(".mp4") || (active.videoUrl || "").toLowerCase().includes(".mp4") ? (
                                     <video
                                         key={modalVideoUrl}
-                                        src={encodeURI(modalVideoUrl)}
+                                        src={encodeURI(modalVideoUrl || active.videoUrl || "")}
                                         controls
                                         autoPlay
                                         playsInline

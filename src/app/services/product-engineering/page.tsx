@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Code, Layers, Activity, LayoutDashboard, BrainCircuit, Workflow, Rocket, Server, Users, Database, Target, Globe2, Clock, Wrench, UserMinus, Bug, Shuffle } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, Layers, BrainCircuit, Workflow, Rocket, Target, Globe2, Clock, Wrench, UserMinus, Bug, Shuffle } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { TimelineProcess } from "@/components/timeline-process";
 import { Faq } from "@/components/faq";
 import { productEngineeringFaqs } from "@/content/service-faqs";
 
-const animations: any = {
+const animations: Record<string, Variants> = {
     fadeInUp: {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -55,7 +55,7 @@ function ProductEngineeringHero() {
                             variants={animations.fadeInUp}
                             className="mt-8 w-full text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 max-w-2xl lg:mt-10"
                         >
-                            Businesses build digital products to solve today's challenges while creating the flexibility to meet tomorrow's opportunities.
+                            Businesses build digital products to solve today&apos;s challenges while creating the flexibility to meet tomorrow&apos;s opportunities.
                         </motion.p>
                         <motion.div variants={animations.fadeInUp} className="mt-10 lg:mt-12">
                             <Link
@@ -228,10 +228,10 @@ function WhySimpleCube() {
                         </motion.h2>
                         <motion.div variants={animations.fadeInUp} className="space-y-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                             <p>
-                                Successful products aren't measured by their launch but by their ability to adapt, improve and continue delivering value over time.
+                                Successful products aren&apos;t measured by their launch but by their ability to adapt, improve and continue delivering value over time.
                             </p>
                             <p>
-                                Whether you're creating a new digital product, modernizing an existing platform or expanding product capabilities, long-term success comes from balancing customer needs, engineering excellence and continuous innovation.
+                                Whether you&apos;re creating a new digital product, modernizing an existing platform or expanding product capabilities, long-term success comes from balancing customer needs, engineering excellence and continuous innovation.
                             </p>
                             <p>
                                 At Hyniva, we engineer products with a long-term perspective, combining product thinking with modern engineering practices to help organizations build solutions that scale, evolve and remain relevant.

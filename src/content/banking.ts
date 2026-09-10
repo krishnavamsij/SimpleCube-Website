@@ -1,5 +1,3 @@
-import { LucideIcon, Bot, Users, CreditCard, Cloud, Smartphone, TrendingUp, Coins } from "lucide-react";
-
 export const bankingContent = {
     hero: {
         badge: "BANKING & FINANCIAL SERVICES",

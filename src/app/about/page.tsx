@@ -3,9 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import Image from "next/image";
-import { motion, type Variants, useScroll, useTransform } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { DigitalGlobe } from "@/components/digital-globe";
-import { FloatingPhotoCards } from "@/components/floating-photo-cards";
 
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
@@ -13,7 +12,6 @@ import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
 import { aboutUsFaqs } from "@/content/about-faqs";
 import { aboutContent } from "@/content/about";
-import { approachContent } from "@/content/site-content";
 
 /* ─────────────── Icon Map ─────────────── */
 
@@ -467,18 +465,15 @@ function LeadershipSection() {
                                         <h3 className="font-bold text-lg md:text-xl text-white mb-1.5">{leader.name}</h3>
                                         <p className="text-[13px] font-semibold text-[#3886CE] mb-5">{leader.title}</p>
                                     </div>
-                                    {/* @ts-ignore */}
                                     {leader.linkedin && (
-                                        /* @ts-ignore */
                                         <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80 mt-1">
-                                            <img src="/images/About_Us/linkedin-icon.png" alt="LinkedIn" className="w-6 h-6 object-contain" />
+                                            <Image src="/images/About_Us/linkedin-icon.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 object-contain" />
                                         </a>
                                     )}
                                 </div>
                                 
                                 <div className="w-full h-px bg-slate-800/80 mb-5"></div>
                                 
-                                {/* @ts-ignore */}
                                 <p className="text-[13px] text-slate-400 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: leader.description }} />
                             </div>
                         </motion.div>
@@ -552,8 +547,6 @@ function ValuesSection() {
 /* ─────────────── Operations Section ─────────────── */
 
 function OperationsSection() {
-    const roles = ["IT Business Analyst", "Manual QA", "Release Manager", "Support Engineer"];
-
     return (
         <section className="bg-white pt-[30px] sm:pt-[40px] lg:pt-[50px] pb-0">
             <div className="mx-auto max-w-[96rem] px-6 md:px-10 lg:px-16">
@@ -1041,10 +1034,8 @@ function TimelineSection() {
                                         className="min-w-[85vw] max-w-[85vw] sm:min-w-[calc(50%-16px)] sm:max-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.33px)] lg:max-w-[calc(33.333%-21.33px)] shrink-0 snap-start flex flex-col gap-6 group"
                                     >
                                         <div className={`aspect-square bg-slate-50 rounded-xl overflow-hidden relative shadow-sm border border-slate-100 ${isImageTop ? 'order-1' : 'order-2'}`}>
-                                            {/* @ts-ignore */}
                                             {item.image ? (
                                                 <Image
-                                                    // @ts-ignore
                                                     src={item.image}
                                                     alt={item.date}
                                                     fill
@@ -1061,7 +1052,6 @@ function TimelineSection() {
                                                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
                                                         <span className="text-[#135498] font-bold text-xl">{year}</span>
                                                     </div>
-                                                    {/* @ts-ignore */}
                                                     <h4 className="font-bold text-slate-800 text-lg leading-snug">{item.title}</h4>
                                                 </div>
                                             )}
@@ -1070,7 +1060,6 @@ function TimelineSection() {
                                             <div className="flex items-center gap-3 mb-2">
                                                 <h3 className="text-2xl font-black text-slate-200">{item.date}</h3>
                                             </div>
-                                            {/* @ts-ignore */}
                                             {item.title && <h4 className="text-[15px] font-bold text-slate-900 mb-2 leading-snug">{item.title}</h4>}
                                             {item.description && (
                                                 <p className="text-slate-500 leading-relaxed text-[12.5px] font-medium">

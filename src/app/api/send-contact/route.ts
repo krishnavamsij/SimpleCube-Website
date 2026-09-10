@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { REGION, getSesCredentials, getSesSourceEmail, SES_RECIPIENT_CONTACT } from "@/lib/email-config";
 
-const SENDER_NAME = "Hyniva Contact Form";
 const RECIPIENT_EMAIL = SES_RECIPIENT_CONTACT;
 
 const sesCredentials = getSesCredentials();

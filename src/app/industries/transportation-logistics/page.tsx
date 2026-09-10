@@ -99,6 +99,7 @@ function AlternatingSections() {
                         {/* Image Side */}
                         <div className="w-full lg:w-1/2">
                             <div className="aspect-[4/3] rounded-[32px] bg-slate-100 overflow-hidden relative shadow-md">
+                                {/* eslint-disable-next-line @next/next/no-img-element -- dynamic industry section images */}
                                 <img
                                     src={section.image}
                                     alt={section.title}

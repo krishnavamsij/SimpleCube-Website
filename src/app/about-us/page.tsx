@@ -1,16 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Faq } from "@/components/faq";
 import { aboutUsFaqs } from "@/content/about-faqs";
 import { Testimonials } from "@/components/testimonials";
-import { scrollReveal, fadeInUp, staggerContainer, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
-import { ArrowUpRightIcon, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { fadeInUp, staggerContainer, viewportOnce, EASE_OUT_QUART } from "@/lib/animations";
 
 /* ─────────────── Leadership Team Data ─────────────── */
 const leadershipTeam = [
@@ -599,22 +596,6 @@ function WhatWeBelieveSection() {
         </section>
     );
 }
-
-/* ─────────────── Orbiting Cards Data ─────────────── */
-const orbitingCards = [
-    { icon: "🚀", title: "Innovation", color: "from-purple-500 to-purple-700" },
-    { icon: "⚡", title: "Speed", color: "from-yellow-500 to-orange-600" },
-    { icon: "🎯", title: "Precision", color: "from-blue-500 to-blue-700" },
-    { icon: "🔒", title: "Security", color: "from-green-500 to-green-700" },
-    { icon: "💡", title: "Ideas", color: "from-pink-500 to-rose-700" },
-    { icon: "🌐", title: "Global", color: "from-cyan-500 to-teal-700" },
-    { icon: "⚙️", title: "Efficiency", color: "from-slate-500 to-slate-700" },
-    { icon: "🎨", title: "Design", color: "from-[#3886CE] to-indigo-700" },
-    { icon: "📊", title: "Analytics", color: "from-emerald-500 to-emerald-700" },
-    { icon: "🤝", title: "Partnership", color: "from-amber-500 to-amber-700" },
-    { icon: "🔄", title: "Agility", color: "from-violet-500 to-violet-700" },
-    { icon: "✨", title: "Excellence", color: "from-fuchsia-500 to-fuchsia-700" },
-];
 
 /* ─────────────── Hero Section ─────────────── */
 function HeroSection() {

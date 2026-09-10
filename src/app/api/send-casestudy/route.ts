@@ -7,7 +7,6 @@ import {
   SES_RECIPIENT_CASESTUDY,
 } from "@/lib/email-config";
 
-const SENDER_NAME = "Hyniva";
 const RECIPIENT_EMAIL = SES_RECIPIENT_CASESTUDY;
 const sesCredentials = getSesCredentials();
 const ses = new SESClient({

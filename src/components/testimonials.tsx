@@ -37,7 +37,7 @@ export function Testimonials() {
             <div className="relative z-10 mx-auto max-w-[800px] px-6">
                 {/* Large quote mark */}
                 <span className="mb-6 block text-6xl leading-none font-bold text-white opacity-20 sm:text-7xl">
-                    "
+                    &ldquo;
                 </span>
 
                 <AnimatePresence mode="wait">

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Navbar } from "@/components/navbar";
@@ -187,7 +186,7 @@ export default function ClaimPioneerPage() {
                 driven. Traditional manual assignment and follow-ups create
                 delays, biased routing, and customer frustration. Claim Pioneer
                 brings automation and real-time visibility to every step of the
-                claim's lifecycle, from intake to closure. With built-in AI
+                claim&apos;s lifecycle, from intake to closure. With built-in AI
                 assignment, live tracking, and end-to-end workflow automation,
                 agencies can scale operations, reduce overhead, and consistently
                 deliver high-quality claim outcomes.
@@ -410,7 +409,7 @@ export default function ClaimPioneerPage() {
               >
                 Claim Pioneer simplifies the complex world of claims by
                 combining automation, mobility, intelligence, and transparency
-                into one powerful platform. Whether you're managing everyday
+                into one powerful platform. Whether you&apos;re managing everyday
                 claims or responding to catastrophic events, the platform
                 ensures faster outcomes, lower operational costs, and a
                 dramatically better experience for everyone involved.

@@ -12,6 +12,7 @@
  * To use: Navigate to http://localhost:3000/test-padding
  */
 
+import Link from "next/link";
 import { CONTAINER_CLASS, CONTAINER_NARROW_CLASS, CONTAINER_WIDE_CLASS, CONTAINER_FULL_CLASS } from "@/lib/container-utils";
 
 export default function TestPaddingPage() {
@@ -201,7 +202,7 @@ export default function TestPaddingPage() {
       <footer className="py-8 bg-slate-900 text-white text-center">
         <div className={CONTAINER_CLASS}>
           <p className="text-sm opacity-75">
-            Test Page • <a href="/" className="underline hover:opacity-100">Back to Home</a>
+            Test Page • <Link href="/" className="underline hover:opacity-100">Back to Home</Link>
           </p>
         </div>
       </footer>

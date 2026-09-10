@@ -4,8 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { scrollReveal, viewportRepeat } from "@/lib/animations";
 import { approachContent } from "@/content/site-content";
-import { CONTAINER_CLASS } from "@/lib/container-utils";
-
 const roles = ["Account Manager Layers", "Junior Bench Handoffs", "Status-Meeting Overhead", "Rigid Change Queues"];
 
 const steps = [

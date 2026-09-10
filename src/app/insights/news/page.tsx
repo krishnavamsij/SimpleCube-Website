@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BlogNoResults } from "@/components/blog-no-results";
 import { blogContent } from "@/content/blog";
-import { searchBlogs, hasNoResults } from "@/lib/blog-search";
+import { searchBlogs } from "@/lib/blog-search";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
