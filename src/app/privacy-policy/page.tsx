@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
             variants={fadeInUp}
             className="text-sm leading-relaxed text-slate-600 sm:text-base font-medium max-w-6xl text-left"
           >
-            Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>.
+            Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>.
           </motion.p>
         </motion.div>
 
@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
               <strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data, we may have collected from children under age 18, please contact us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>.
+              We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data, we may have collected from children under age 18, please contact us at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>.
             </p>
           </motion.div>
 
@@ -203,7 +203,7 @@ export default function PrivacyPolicyPage() {
               However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left">
-              If you have questions or comments about your privacy rights, you may email us at <a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a>.
+              If you have questions or comments about your privacy rights, you may email us at <a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a>.
             </p>
           </motion.div>
 
@@ -358,7 +358,7 @@ export default function PrivacyPolicyPage() {
               More information about our data collection and sharing practices can be found in this privacy notice.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              You may contact us by email at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>, or by referring to the contact details at the bottom of this document.
+              You may contact us by email at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>, or by referring to the contact details at the bottom of this document.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               If you are using an authorized agent to exercise your right to opt out, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.
@@ -415,7 +415,7 @@ export default function PrivacyPolicyPage() {
               <li className="text-gray-700 leading-relaxed max-w-6xl text-left">You may request correction of your personal data if it is incorrect or no longer relevant or ask to restrict the processing of the information.</li>
               <li className="text-gray-700 leading-relaxed max-w-6xl text-left">You can designate an authorized agent to make a request under the CCPA on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with the CCPA.</li>
               <li className="text-gray-700 leading-relaxed max-w-6xl text-left">You may request to opt out from future selling or sharing of your personal information to third-parties. Upon receiving an opt-out request, we will act upon the request as soon as feasibly possible, but no later than fifteen (15) days from the date of the request submission.</li>
-              <li className="text-gray-700 leading-relaxed max-w-6xl text-left">To exercise these rights, you can contact us by email at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</li>
+              <li className="text-gray-700 leading-relaxed max-w-6xl text-left">To exercise these rights, you can contact us by email at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</li>
             </ul>
           </motion.div>
 
@@ -451,7 +451,7 @@ export default function PrivacyPolicyPage() {
               Exercise your rights provided under Virginia CDPA. More information about our data collection and sharing practices can be found in this privacy notice.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              You may contact us by email at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>, by submitting a data subject access request, or by referring to contact details at the bottom of this document.
+              You may contact us by email at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>, by submitting a data subject access request, or by referring to contact details at the bottom of this document.
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
               If you are using an authorized agent to exercise your rights, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.
@@ -465,7 +465,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <h3 className="text-lg font-bold text-[#0A2F52] mb-3">Right to appeal</h3>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              If we decline to act regarding your request, we will inform you of our decision and the reasoning behind it. If you wish to appeal our decision, please email us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>. Within sixty (60) days of receipt of an appeal, we will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may contact the Attorney General to submit a complaint.
+              If we decline to act regarding your request, we will inform you of our decision and the reasoning behind it. If you wish to appeal our decision, please email us at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>. Within sixty (60) days of receipt of an appeal, we will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may contact the Attorney General to submit a complaint.
             </p>
           </motion.div>
 
@@ -484,10 +484,10 @@ export default function PrivacyPolicyPage() {
           <motion.div variants={fadeInUp} className="space-y-4">
             <h2 className="text-2xl font-bold text-[#0A2F52] mb-4">12. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</h2>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please send an email to <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong>
+              Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please send an email to <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong>
             </p>
             <p className="text-gray-700 leading-relaxed max-w-6xl text-left mb-4">
-              If you have questions or comments about this notice, you may email us at <strong><a href="mailto:hr@hyniva.com" className="text-[#3886CE] hover:underline">hr@hyniva.com</a></strong> or by post to:
+              If you have questions or comments about this notice, you may email us at <strong><a href="mailto:kvjadapolu@simplecube.co" className="text-[#3886CE] hover:underline">kvjadapolu@simplecube.co</a></strong> or by post to:
             </p>
             
             <div className="bg-gray-50 p-6 rounded-lg">

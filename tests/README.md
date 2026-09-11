@@ -21,8 +21,8 @@ node tests/email-routing.test.js
 - Edge cases
 
 **Expected Results:**
-- Jobs posted in other countries (US, Canada, etc.) → `careers@hyniva.com`
-- Jobs posted in India → `hr@hyniva.com`
+- Jobs posted in other countries (US, Canada, etc.) → `kvjadapolu@simplecube.co`
+- Jobs posted in India → `kvjadapolu@simplecube.co`
 
 ---
 
@@ -50,8 +50,8 @@ node tests/send-test-applications.js
 - Non-US locations (Canada, India)
 
 **After running live tests:**
-1. Check `careers@hyniva.com` inbox for US applications
-2. Check `hr@hyniva.com` inbox for Non-US applications
+1. Check `kvjadapolu@simplecube.co` inbox for US applications
+2. Check `kvjadapolu@simplecube.co` inbox for Non-US applications
 3. Verify subject lines include job IDs
 4. Confirm email content is formatted correctly
 
@@ -63,21 +63,21 @@ node tests/send-test-applications.js
 
 **Routing is based on JOB POSTING LOCATION (where the job is located), NOT applicant location!**
 
-**India Job Postings → hr@hyniva.com:**
+**India Job Postings → kvjadapolu@simplecube.co:**
 - Any job posted in India (Bangalore, India / Hyderabad, India / Mumbai, India, etc.)
 - Jobs with region="india"
 
-**Onsite Job Postings → careers@hyniva.com:**
+**Onsite Job Postings → kvjadapolu@simplecube.co:**
 - All jobs posted in other countries (US, Canada, UK, etc.)
 - Examples: Tysons, VA / Toronto, ON / London, UK / Remote (USA)
 
 ### Email Recipients:
 
-- **Onsite Jobs (US, Canada, etc.):** `careers@hyniva.com`
-- **India Jobs:** `hr@hyniva.com`
+- **Onsite Jobs (US, Canada, etc.):** `kvjadapolu@simplecube.co`
+- **India Jobs:** `kvjadapolu@simplecube.co`
 
 ### Important Note:
-An applicant from India can apply for a US job, and it will go to `careers@hyniva.com` (US hiring team) because the **job** is posted in the US.
+An applicant from India can apply for a US job, and it will go to `kvjadapolu@simplecube.co` (US hiring team) because the **job** is posted in the US.
 
 ---
 
@@ -106,27 +106,22 @@ An applicant from India can apply for a US job, and it will go to `careers@hyniv
 ### If unit tests fail:
 1. Check the `isIndiaLocation` function in `/src/app/api/send-careers/route.ts`
 2. Verify India keyword detection is working correctly
-3. Ensure all non-India locations default to careers@hyniva.com
+3. Ensure all non-India locations default to kvjadapolu@simplecube.co
 
 ### If integration tests fail:
 1. Ensure the Next.js dev server is running (`npm run dev`)
-2. Verify AWS SES credentials are configured in `.env.local`
-3. Check that sender email is verified in AWS SES
-4. Check recipient emails are verified (if in SES sandbox mode)
+2. Verify `RESEND_API_KEY` is configured in `.env.local` or Vercel
+3. Check that `RESEND_FROM_EMAIL` uses a verified Resend domain
 5. Review API logs for detailed error messages
 
 ### Common Issues:
 
 **"Email service is not configured"**
-- Missing `SES_SOURCE_EMAIL` in `.env.local`
+- Missing `RESEND_API_KEY` in `.env.local` or Vercel environment variables
 
-**"AccessDenied" error**
-- AWS IAM user lacks `ses:SendEmail` permission
-- Check AWS console → IAM → User permissions
-
-**"MessageRejected" error**
-- Email address not verified in SES (sandbox mode)
-- Invalid email format
+**Resend API errors**
+- Verify your sending domain in the Resend dashboard
+- Confirm `RESEND_FROM_EMAIL` matches a verified sender address
 
 **Wrong recipient receives email**
 - Location format doesn't contain "India" keyword

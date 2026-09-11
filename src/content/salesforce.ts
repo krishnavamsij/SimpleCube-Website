@@ -164,7 +164,7 @@ export const salesforceContent = {
     cta: {
         title: "Ready to get started? Contact us!",
         buttonText: "Let's Go!",
-        buttonHref: "mailto:connect@hyniva.com",
+        buttonHref: "mailto:kvjadapolu@simplecube.co",
         backgroundImage: "/images/2019/04/contact-classic.jpg",
     },
 };

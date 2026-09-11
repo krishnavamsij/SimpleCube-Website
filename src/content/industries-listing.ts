@@ -73,7 +73,7 @@ export const industriesListingContent = {
     cta: {
         title: "Ready to Start Your Digital Transformation? Send Us An Email Today!",
         buttonText: "Let's Go!",
-        buttonHref: "mailto:connect@hyniva.com",
+        buttonHref: "mailto:kvjadapolu@simplecube.co",
         backgroundImage: "/images/2023/11/section-bg.jpg",
     },
 };

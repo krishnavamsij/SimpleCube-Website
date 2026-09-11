@@ -17,7 +17,7 @@ const testApplications = [
     jobId: "HYU2026005",
     ctc: "$150,000",
     skills: "Salesforce, MuleSoft, Financial Services Cloud, Data Cloud, Service Cloud",
-    expectedRecipient: "careers@hyniva.com (Onsite)"
+    expectedRecipient: "kvjadapolu@simplecube.co (Onsite)"
   },
   {
     name: "Test Applicant US-TX",
@@ -27,7 +27,7 @@ const testApplications = [
     jobId: "HYU2026002",
     ctc: "$120,000",
     skills: "Genesys Cloud CX, Salesforce, Contact Center Solutions",
-    expectedRecipient: "careers@hyniva.com (Onsite)"
+    expectedRecipient: "kvjadapolu@simplecube.co (Onsite)"
   },
   {
     name: "Test Applicant US-CA",
@@ -37,7 +37,7 @@ const testApplications = [
     jobId: "TEST001",
     ctc: "$140,000",
     skills: "React, Node.js, AWS, TypeScript",
-    expectedRecipient: "careers@hyniva.com (Onsite)"
+    expectedRecipient: "kvjadapolu@simplecube.co (Onsite)"
   },
   {
     name: "Test Applicant Canada",
@@ -47,7 +47,7 @@ const testApplications = [
     jobId: "HYC2026001",
     ctc: "CAD 120,000",
     skills: "PEGA, Insurance Domain, Agile",
-    expectedRecipient: "careers@hyniva.com (Onsite)"
+    expectedRecipient: "kvjadapolu@simplecube.co (Onsite)"
   },
   {
     name: "Test Applicant India",
@@ -57,7 +57,7 @@ const testApplications = [
     jobId: "HYI2026002",
     ctc: "₹2,500,000",
     skills: "Apex, Lightning Web Components, SOQL, Salesforce APIs",
-    expectedRecipient: "hr@hyniva.com (India)"
+    expectedRecipient: "kvjadapolu@simplecube.co (India)"
   },
 ];
 
@@ -151,8 +151,8 @@ async function runTestSuite() {
 
   console.log("\n" + "=".repeat(80));
   console.log("\n📧 NEXT STEPS:");
-  console.log("1. Check careers@hyniva.com for onsite applications (US, Canada, etc.)");
-  console.log("2. Check hr@hyniva.com for India applications");
+  console.log("1. Check kvjadapolu@simplecube.co for onsite applications (US, Canada, etc.)");
+  console.log("2. Check kvjadapolu@simplecube.co for India applications");
   console.log("3. Verify each email has correct subject and content");
   console.log("4. Confirm job IDs are included in subject lines");
   console.log("=".repeat(80) + "\n");

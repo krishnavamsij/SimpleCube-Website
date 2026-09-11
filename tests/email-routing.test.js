@@ -3,8 +3,8 @@
  * Tests the isIndiaLocation function for proper email routing
  * 
  * Routing Logic:
- * - Jobs posted in India → hr@hyniva.com
- * - Jobs posted in other countries (US, Canada, etc.) → careers@hyniva.com
+ * - Jobs posted in India → kvjadapolu@simplecube.co
+ * - Jobs posted in other countries (US, Canada, etc.) → kvjadapolu@simplecube.co
  * 
  * NOTE: Routing is based on JOB LOCATION, not applicant location!
  */
@@ -20,8 +20,8 @@ function isIndiaLocation(jobLocation, jobRegion) {
   return location.includes('india');
 }
 
-const CAREERS_EMAIL = "careers@hyniva.com";
-const INDIA_HR_EMAIL = "hr@hyniva.com";
+const CAREERS_EMAIL = "kvjadapolu@simplecube.co";
+const INDIA_HR_EMAIL = "kvjadapolu@simplecube.co";
 
 // Test suite - Based on JOB locations
 const testSuite = {
@@ -131,8 +131,8 @@ function runTests() {
   
   if (totalFailed === 0) {
     console.log("✅ ALL TESTS PASSED! Email routing is working correctly.");
-    console.log("  - India job postings → hr@hyniva.com");
-    console.log("  - All other job postings → careers@hyniva.com");
+    console.log("  - India job postings → kvjadapolu@simplecube.co");
+    console.log("  - All other job postings → kvjadapolu@simplecube.co");
     console.log("=".repeat(80) + "\n");
     return true;
   } else {

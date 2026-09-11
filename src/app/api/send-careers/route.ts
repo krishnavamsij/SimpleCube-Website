@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
-import { SESClient, SendEmailCommand, SendRawEmailCommand } from "@aws-sdk/client-ses";
 import {
-  REGION,
-  getSesCredentials,
-  getSesSourceEmail,
-  SES_RECIPIENT_CAREERS_US,
-  SES_RECIPIENT_CAREERS_NONUS,
+  getResendClient,
+  getResendFromEmail,
+  RECIPIENT_CAREERS,
 } from "@/lib/email-config";
 
 const ALLOWED_TYPES = new Set([
@@ -17,112 +14,22 @@ const ALLOWED_EXTENSIONS = new Set(["pdf", "doc", "docx"]);
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 function isIndiaLocation(jobLocation: string, jobRegion: string) {
-  // First check if region is explicitly set to "india"
-  if (jobRegion && jobRegion.toLowerCase() === 'india') {
+  if (jobRegion && jobRegion.toLowerCase() === "india") {
     return true;
   }
-  
-  // Otherwise check if job location contains "India"
-  const location = jobLocation.toLowerCase();
-  return location.includes('india');
+
+  return jobLocation.toLowerCase().includes("india");
 }
 
 function sanitizeFileName(fileName: string) {
   return fileName.replace(/[^a-zA-Z0-9.\-_]/g, "_");
 }
 
-function buildRawEmail({
-  source,
-  toAddress,
-  replyTo,
-  subject,
-  textBody,
-  htmlBody,
-  attachment,
-}: {
-  source: string;
-  toAddress: string;
-  replyTo: string;
-  subject: string;
-  textBody: string;
-  htmlBody: string;
-  attachment?: { name: string; content: string; mimeType: string };
-}) {
-  const mixedBoundary = `MixedBoundary_${Date.now()}`;
-  const altBoundary = `AltBoundary_${Date.now()}`;
-  const headers = [
-    `From: ${source}`,
-    `To: ${toAddress}`,
-    `Subject: ${subject}`,
-    `Reply-To: ${replyTo}`,
-    "MIME-Version: 1.0",
-  ];
-
-  if (attachment) {
-    headers.push(`Content-Type: multipart/mixed; boundary="${mixedBoundary}"`);
-    const body = [
-      `--${mixedBoundary}`,
-      `Content-Type: multipart/alternative; boundary="${altBoundary}"`,
-      "",
-      `--${altBoundary}`,
-      "Content-Type: text/plain; charset=UTF-8",
-      "Content-Transfer-Encoding: 7bit",
-      "",
-      textBody,
-      "",
-      `--${altBoundary}`,
-      "Content-Type: text/html; charset=UTF-8",
-      "Content-Transfer-Encoding: 7bit",
-      "",
-      htmlBody,
-      "",
-      `--${altBoundary}--`,
-      "",
-      `--${mixedBoundary}`,
-      `Content-Type: ${attachment.mimeType}; name="${attachment.name}"`,
-      "Content-Transfer-Encoding: base64",
-      `Content-Disposition: attachment; filename="${attachment.name}"`,
-      "",
-      attachment.content,
-      "",
-      `--${mixedBoundary}--`,
-    ].join("\r\n");
-
-    return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + body);
-  }
-
-  headers.push(`Content-Type: multipart/alternative; boundary="${altBoundary}"`);
-  const body = [
-    `--${altBoundary}`,
-    "Content-Type: text/plain; charset=UTF-8",
-    "Content-Transfer-Encoding: 7bit",
-    "",
-    textBody,
-    "",
-    `--${altBoundary}`,
-    "Content-Type: text/html; charset=UTF-8",
-    "Content-Transfer-Encoding: 7bit",
-    "",
-    htmlBody,
-    "",
-    `--${altBoundary}--`,
-  ].join("\r\n");
-
-  return Buffer.from(headers.join("\r\n") + "\r\n\r\n" + body);
-}
-
-const sesCredentials = getSesCredentials();
-const ses = new SESClient({ 
-  region: REGION,
-  maxAttempts: 3,
-  ...(sesCredentials ? { credentials: sesCredentials } : {}),
-});
-
 export async function POST(request: Request) {
   try {
-    const sourceEmail = getSesSourceEmail();
-    if (!sourceEmail) {
-      console.error("❌ SES_SOURCE_EMAIL is not configured");
+    const resend = getResendClient();
+    if (!resend) {
+      console.error("RESEND_API_KEY is not configured");
       return NextResponse.json(
         { error: "Email service is not configured. Please contact support." },
         { status: 500 },
@@ -136,13 +43,12 @@ export async function POST(request: Request) {
     const jobId = formData.get("jobId") as string;
     const ctc = formData.get("ctc") as string;
     const skills = formData.get("skills") as string;
-    const location = formData.get("location") as string; // Applicant's location
-    const jobLocation = formData.get("jobLocation") as string; // Job posting location
-    const jobRegion = formData.get("jobRegion") as string; // Job region (us/india)
+    const location = formData.get("location") as string;
+    const jobLocation = formData.get("jobLocation") as string;
+    const jobRegion = formData.get("jobRegion") as string;
     const resumeFile = formData.get("resume") as File | null;
 
     if (!name || !email || !role || !ctc || !skills || !location) {
-      console.warn("❌ Validation failed: Missing required fields");
       return NextResponse.json(
         { error: "Please fill all required application details." },
         { status: 400 },
@@ -151,18 +57,18 @@ export async function POST(request: Request) {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      console.warn("❌ Invalid email format:", email);
       return NextResponse.json(
         { error: "Please provide a valid email address." },
         { status: 400 },
       );
     }
 
-    let attachmentData: { name: string; content: string; mimeType: string } | undefined;
-    
+    let attachment:
+      | { filename: string; content: Buffer; contentType?: string }
+      | undefined;
+
     if (resumeFile) {
       if (!(resumeFile instanceof File)) {
-        console.warn("❌ Resume is not a valid File object");
         return NextResponse.json(
           { error: "Please attach a valid resume file." },
           { status: 400 },
@@ -171,7 +77,6 @@ export async function POST(request: Request) {
 
       const fileExtension = resumeFile.name.split(".").pop()?.toLowerCase();
       if (!fileExtension || !ALLOWED_EXTENSIONS.has(fileExtension)) {
-        console.warn("❌ Invalid file extension:", fileExtension);
         return NextResponse.json(
           { error: "Only PDF, DOC, and DOCX files are allowed." },
           { status: 400 },
@@ -179,7 +84,6 @@ export async function POST(request: Request) {
       }
 
       if (resumeFile.type && !ALLOWED_TYPES.has(resumeFile.type)) {
-        console.warn("❌ Invalid MIME type:", resumeFile.type);
         return NextResponse.json(
           { error: "Only PDF, DOC, and DOCX files are allowed." },
           { status: 400 },
@@ -187,35 +91,34 @@ export async function POST(request: Request) {
       }
 
       if (resumeFile.size > MAX_FILE_SIZE) {
-        console.warn("❌ File size exceeds limit:", resumeFile.size);
         return NextResponse.json(
           { error: "Resume file must be 5MB or smaller." },
           { status: 400 },
         );
       }
 
-      const buffer = await resumeFile.arrayBuffer();
-      const base64 = Buffer.from(buffer).toString("base64");
-      
-      let mimeType = resumeFile.type || "application/octet-stream";
-      if (!mimeType && resumeFile.name.endsWith(".pdf")) {
-        mimeType = "application/pdf";
-      } else if (!mimeType && (resumeFile.name.endsWith(".doc") || resumeFile.name.endsWith(".docx"))) {
-        mimeType = "application/msword";
+      const buffer = Buffer.from(await resumeFile.arrayBuffer());
+      let contentType = resumeFile.type || "application/octet-stream";
+      if (!resumeFile.type && resumeFile.name.endsWith(".pdf")) {
+        contentType = "application/pdf";
+      } else if (
+        !resumeFile.type &&
+        (resumeFile.name.endsWith(".doc") || resumeFile.name.endsWith(".docx"))
+      ) {
+        contentType = "application/msword";
       }
 
-      attachmentData = {
-        name: sanitizeFileName(resumeFile.name),
-        content: base64,
-        mimeType,
+      attachment = {
+        filename: sanitizeFileName(resumeFile.name),
+        content: buffer,
+        contentType,
       };
     }
 
     const isIndia = isIndiaLocation(jobLocation || "", jobRegion || "");
-    const targetEmail = isIndia ? SES_RECIPIENT_CAREERS_NONUS : SES_RECIPIENT_CAREERS_US;
     const subject = isIndia
-      ? `[Job Application - India] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`
-      : `[Job Application - Onsite] ${jobId ? `${jobId} - ` : ''}${name} - ${role}`;
+      ? `[Job Application - India] ${jobId ? `${jobId} - ` : ""}${name} - ${role}`
+      : `[Job Application - Onsite] ${jobId ? `${jobId} - ` : ""}${name} - ${role}`;
 
     const htmlContent = `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; color: #333;">
@@ -261,16 +164,16 @@ export async function POST(request: Request) {
 
         <div style="background-color: #fff; padding: 20px 30px;">
           <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #666;">
-            <span>${attachmentData ? "Resume attached" : "No resume attached"}</span>
+            <span>${attachment ? "Resume attached" : "No resume attached"}</span>
             <span>•</span>
-            <span>Submitted via Hyniva Careers Portal</span>
+            <span>Submitted via SimpleCube Careers Portal</span>
             <span>•</span>
             <span>${new Date().toLocaleString()}</span>
           </div>
         </div>
 
         <div style="background-color: #f0f4f8; padding: 20px 30px; border-radius: 0 0 10px 10px; text-align: center; font-size: 12px; color: #999;">
-          <p style="margin: 0;">This is an automated email from Hyniva's careers system. Please reply to ${email} to contact the applicant.</p>
+          <p style="margin: 0;">This is an automated email from SimpleCube's careers system. Please reply to ${email} to contact the applicant.</p>
         </div>
       </div>
     `;
@@ -283,110 +186,38 @@ export async function POST(request: Request) {
       `Location: ${location}`,
       `Current CTC: ${ctc}`,
       `Skills: ${skills}`,
-      `${attachmentData ? "Resume: Attached" : "Resume: Not attached"}`,
+      `${attachment ? "Resume: Attached" : "Resume: Not attached"}`,
       "",
-      `Submitted via Hyniva Careers Portal on ${new Date().toLocaleString()}`,
+      `Submitted via SimpleCube Careers Portal on ${new Date().toLocaleString()}`,
       `Reply to the applicant at ${email}`,
     ].join("\n");
 
-    let response;
-    try {
-      if (attachmentData) {
-        response = await ses.send(
-          new SendRawEmailCommand({
-            RawMessage: {
-              Data: buildRawEmail({
-                source: sourceEmail,
-                toAddress: targetEmail,
-                replyTo: email,
-                subject,
-                textBody: textContent,
-                htmlBody: htmlContent,
-                attachment: attachmentData,
-              }),
-            },
-          }),
-        );
-      } else {
-        response = await ses.send(
-          new SendEmailCommand({
-            Source: sourceEmail,
-            Destination: {
-              ToAddresses: [targetEmail],
-            },
-            Message: {
-              Subject: { Data: subject, Charset: "UTF-8" },
-              Body: {
-                Text: { Data: textContent, Charset: "UTF-8" },
-                Html: { Data: htmlContent, Charset: "UTF-8" },
-              },
-            },
-            ReplyToAddresses: [email],
-          }),
-        );
-      }
+    const { data, error } = await resend.emails.send({
+      from: getResendFromEmail(),
+      to: [RECIPIENT_CAREERS],
+      replyTo: email,
+      subject,
+      html: htmlContent,
+      text: textContent,
+      attachments: attachment ? [attachment] : undefined,
+    });
 
-      return NextResponse.json({ 
-        success: true,
-        messageId: response.MessageId 
-      });
-
-    } catch (sesError: unknown) {
-      const err = sesError as {
-        Code?: string;
-        message?: string;
-        Type?: string;
-        $metadata?: { httpStatusCode?: number };
-      };
-      console.error("❌ SES Error Details:", {
-        code: err.Code,
-        message: err.message,
-        type: err.Type,
-        statusCode: err.$metadata?.httpStatusCode,
-      });
-
-      if (err.Code === "AccessDenied") {
-        console.error("⚠️ IAM PERMISSION ERROR:", {
-          user: "gvnikitha@hyniva.com (or current AWS user)",
-          requiredAction: "ses:SendEmail or ses:SendRawEmail",
-          source: sourceEmail,
-          solution: "Add SES permissions to IAM user in AWS console",
-        });
-        
-        return NextResponse.json(
-          { 
-            error: "Email service authentication failed. Please contact support.",
-            code: "SES_AUTH_ERROR"
-          },
-          { status: 403 },
-        );
-      }
-
-      if (err.Code === "MessageRejected") {
-        return NextResponse.json(
-          { 
-            error: "Email was rejected. Please verify all details are correct.",
-            code: "SES_REJECTED"
-          },
-          { status: 400 },
-        );
-      }
-
-      throw sesError;
+    if (error) {
+      console.error("Error sending careers email:", error);
+      return NextResponse.json(
+        { error: "We could not submit your application right now. Please try again later." },
+        { status: 500 },
+      );
     }
 
+    return NextResponse.json({
+      success: true,
+      messageId: data?.id,
+    });
   } catch (error: unknown) {
-    console.error("=== CAREERS EMAIL REQUEST FAILED ===");
-    if (error instanceof Error) {
-      console.error("Error Type:", error.constructor.name);
-      console.error("Error Message:", error.message);
-      console.error("Error Stack:", error.stack);
-    } else {
-      console.error("Error:", error);
-    }
-
+    console.error("Careers email request failed:", error);
     return NextResponse.json(
-      { 
+      {
         error: "We could not submit your application right now. Please try again later.",
         timestamp: new Date().toISOString(),
       },

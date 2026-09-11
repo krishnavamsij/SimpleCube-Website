@@ -1,20 +1,15 @@
 import { NextResponse } from "next/server";
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { REGION, getSesCredentials, getSesSourceEmail, SES_RECIPIENT_CONTACT } from "@/lib/email-config";
-
-const RECIPIENT_EMAIL = SES_RECIPIENT_CONTACT;
-
-const sesCredentials = getSesCredentials();
-const ses = new SESClient({
-  region: REGION,
-  ...(sesCredentials ? { credentials: sesCredentials } : {}),
-});
+import {
+  getResendClient,
+  getResendFromEmail,
+  RECIPIENT_CONTACT,
+} from "@/lib/email-config";
 
 export async function POST(request: Request) {
   try {
-    const sourceEmail = getSesSourceEmail();
-    if (!sourceEmail) {
-      console.error("SES_SOURCE_EMAIL is not configured");
+    const resend = getResendClient();
+    if (!resend) {
+      console.error("RESEND_API_KEY is not configured");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 },
@@ -61,7 +56,7 @@ export async function POST(request: Request) {
         </p>
         <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
         <p style="color: #666; font-size: 12px;">
-          <strong>Sent via:</strong> Hyniva Website Contact Form
+          <strong>Sent via:</strong> SimpleCube Website Contact Form
         </p>
       </div>
     `;
@@ -77,26 +72,27 @@ export async function POST(request: Request) {
       "Message:",
       message,
       "",
-      "Sent via: Hyniva Website Contact Form",
+      "Sent via: SimpleCube Website Contact Form",
     ].join("\n");
 
-    const command = new SendEmailCommand({
-      Source: sourceEmail,
-      Destination: {
-        ToAddresses: [RECIPIENT_EMAIL],
-      },
-      Message: {
-        Subject: { Data: `[Corporate Inquiry] ${name} - ${organization}`, Charset: "UTF-8" },
-        Body: {
-          Text: { Data: textContent, Charset: "UTF-8" },
-          Html: { Data: htmlContent, Charset: "UTF-8" },
-        },
-      },
-      ReplyToAddresses: [email],
+    const { data, error } = await resend.emails.send({
+      from: getResendFromEmail(),
+      to: [RECIPIENT_CONTACT],
+      replyTo: email,
+      subject: `[Corporate Inquiry] ${name} - ${organization}`,
+      html: htmlContent,
+      text: textContent,
     });
 
-    await ses.send(command);
-    return NextResponse.json({ success: true });
+    if (error) {
+      console.error("Error sending contact email:", error);
+      return NextResponse.json(
+        { error: "We could not send your message right now. Please try again." },
+        { status: 500 },
+      );
+    }
+
+    return NextResponse.json({ success: true, messageId: data?.id });
   } catch (error) {
     console.error("Error sending contact email:", error);
     return NextResponse.json(

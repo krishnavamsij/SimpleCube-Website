@@ -124,7 +124,7 @@ export const careersContent = {
                 "Familiarity with DevOps practices and digital transformation initiatives is preferred",
                 "MBA or equivalent management qualification is an added advantage"
             ],
-            applicationEmail: "hr@hyniva.com",
+            applicationEmail: "kvjadapolu@simplecube.co",
             referenceText: "Must reference 'Engagement Manager' when applying"
         },
         {
@@ -155,7 +155,7 @@ export const careersContent = {
                 "Proficient to handle cloud based operations for server, DB (Rackspace, AWS)",
                 "Able to work effectively on a team as well as individually"
             ],
-            applicationEmail: "hr@hyniva.com",
+            applicationEmail: "kvjadapolu@simplecube.co",
             referenceText: "Must reference 'Senior PHP Developer' when applying"
         },
         {
@@ -185,7 +185,7 @@ export const careersContent = {
                 "Able to work in a team as well as individually",
                 "Good Analytical skills"
             ],
-            applicationEmail: "hr@hyniva.com",
+            applicationEmail: "kvjadapolu@simplecube.co",
             referenceText: "Must reference 'Senior NodeJS Developer' when applying"
         }
     ],
@@ -243,7 +243,7 @@ export const careersContent = {
                     "Familiarity with DevOps practices and digital transformation initiatives is preferred",
                     "MBA or equivalent management qualification is an added advantage"
                 ],
-                email: "hr@hyniva.com",
+                email: "kvjadapolu@simplecube.co",
                 reference: "Engagement Manager"
             }
         ]
@@ -277,7 +277,7 @@ export const careersContent = {
                     "Proficient to handle cloud based operations for server, DB (Rackspace, AWS).",
                     "Able to work effectively on a team as well as individually"
                 ],
-                email: "hr@hyniva.com",
+                email: "kvjadapolu@simplecube.co",
                 reference: "Senior PHP Developer"
             },
             {
@@ -305,7 +305,7 @@ export const careersContent = {
                     "Able to work in a team as well as individually",
                     "Good Analytical skills."
                 ],
-                email: "hr@hyniva.com",
+                email: "kvjadapolu@simplecube.co",
                 reference: "Senior NodeJS Developer"
             }
         ]
