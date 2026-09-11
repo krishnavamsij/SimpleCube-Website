@@ -77,7 +77,7 @@ export const heroSlides = [
         headline: "Complex problems, solved simply.",
         highlightedWords: ["solved simply"],
         subheadline:
-            "SimpleCube delivers custom software, Salesforce integrations, and digital transformation solutions. We combine elite technical expertise with a lean, Agile approach to bring your vision to market faster and at a lower cost.",
+            "Backed by deep industry expertise, SimpleCube pairs elite technical talent with an AI-accelerated delivery model. We engineer mission-critical applications for high-stakes industries—delivering enterprise precision, speed, and transparency at a fraction of traditional agency costs.",
         stats: [
             { value: "50%", label: "Less Planning\nTime" },
             { value: "40%", label: "Quicker\nDelivery" },
@@ -161,7 +161,72 @@ export const trustContent = {
     ],
 };
 
-// ── Challenges ───────────────────────────────────────────────────────────────
+// ── Challenges (3D Deconstructed Cube flip cards) ────────────────────────────
+export const challengesSolveContent = {
+    headline: "Challenges we solve.",
+    highlightedWord: "solve.",
+    sub: "We purpose-build software to dismantle the most stubborn roadblocks in Banking, Wealth Management, and Insurance.",
+    tracks: [
+        {
+            id: "crm-data",
+            track: "CRM & Data",
+            friction: {
+                tag: "FRICTION 01",
+                headline: "Siloed Systems & CRM Breakdowns",
+                body: "Core platforms across banking, wealth management, and insurance operate in silos, stranding critical data and crippling customer-facing workflows.",
+            },
+            fix: {
+                tag: "THE SIMPLECUBE FIX",
+                headline: "Unified CRM Engine",
+                body: "Enterprise-grade Salesforce development and custom integrations that unify fragmented data into an automated, reliable operational pipeline.",
+            },
+        },
+        {
+            id: "velocity",
+            track: "Velocity",
+            friction: {
+                tag: "FRICTION 02",
+                headline: "Sluggish Time-to-Market",
+                body: "Rigid enterprise cycles, legacy technical debt, and large agency bureaucracy turn straightforward feature releases into multi-quarter bottlenecks.",
+            },
+            fix: {
+                tag: "THE SIMPLECUBE FIX",
+                headline: "AI-Accelerated Velocity",
+                body: "An AI-powered SDLC coupled with agile execution to rapidly prototype, build, and deploy mission-critical software in a fraction of standard timelines.",
+            },
+        },
+        {
+            id: "team-structure",
+            track: "Team Structure",
+            friction: {
+                tag: "FRICTION 03",
+                headline: "Bloated Budgets & Vanishing Accountability",
+                body: "Large IT consultancies bill exorbitant retainers, front-load account managers, and quietly offload delivery to inexperienced junior teams.",
+            },
+            fix: {
+                tag: "THE SIMPLECUBE FIX",
+                headline: "Lean Transparency & Direct Access",
+                body: "A lean, transparent team model that provides direct access to principal engineers, cutting agency overhead while ensuring accurate, high-stakes delivery.",
+            },
+        },
+        {
+            id: "infrastructure",
+            track: "Infrastructure",
+            friction: {
+                tag: "FRICTION 04",
+                headline: "Cloud Complexity & Scale Constraints",
+                body: "Modernizing mission-critical legacy software into modern cloud ecosystems often leads to fragile architectures and spiraling infrastructure bills.",
+            },
+            fix: {
+                tag: "THE SIMPLECUBE FIX",
+                headline: "Resilient Cloud Architecture",
+                body: "Full-stack and cloud mastery across AWS, Microsoft, and modern frameworks, engineering secure, scalable infrastructures tailored to complex regulatory demands.",
+            },
+        },
+    ],
+};
+
+// Legacy challenges content (kept for reference / other surfaces)
 export const challengesContent = {
     label: "",
     headline: "Challenges we solve.",
@@ -206,6 +271,8 @@ export const careersHomeContent = {
             title: "High-stakes delivery",
             description:
                 "Work directly on high-stakes projects for top-tier financial and insurance institutions.",
+            featured: true,
+            image: "/images/2025/12/industrial-technology-with-industrial-network-connection-scaled.jpg",
         },
         {
             icon: "Sparkles",
@@ -408,21 +475,10 @@ export const whySimpleCubeContent = {
     },
     rows: [
         {
-            icon: "Users",
+            icon: "Sparkles",
             advantage: {
-                title: "Boutique Attention",
-                body: "Our focused, small team size guarantees you deal directly with senior developers and leadership, ensuring personalized focus on your project.",
-            },
-            traditional: {
-                title: "Account Shuffling",
-                body: "Projects are often passed down to junior developers with multiple layers of account managers acting as bottlenecks.",
-            },
-        },
-        {
-            icon: "Zap",
-            advantage: {
-                title: "Cost-Effective Agility",
-                body: "Our lean structure reduces overhead. Coupled with our Agile SDLC culture, we deliver rapid iterations and faster time-to-market.",
+                title: "AI-Powered SDLC",
+                body: "We infuse an AI-powered software delivery lifecycle directly into our agile sprints, pairing automated workflows with seasoned engineering judgment.",
             },
             traditional: {
                 title: "Bloated Timelines",
@@ -430,15 +486,176 @@ export const whySimpleCubeContent = {
             },
         },
         {
-            icon: "Layers",
+            icon: "Users",
             advantage: {
-                title: "Full-Stack Mastery",
-                body: "Deep expertise across modern frameworks (Angular, React, Node.js, Java) ensures the absolute best tool is used for your specific challenge.",
+                title: "Lean Precision",
+                body: "Our boutique team model cuts out middlemen, account managers, and administrative bloat. You collaborate directly with principal engineers and leadership.",
+            },
+            traditional: {
+                title: "Account Shuffling",
+                body: "Projects are often passed down to junior developers with multiple layers of account managers acting as bottlenecks.",
+            },
+        },
+        {
+            icon: "Cloud",
+            advantage: {
+                title: "Enterprise Cloud",
+                body: "Deep architectural specialization across Salesforce, AWS Cloud, and Microsoft ecosystems. We don't just write code—we integrate and modernize mission-critical systems.",
             },
             traditional: {
                 title: "Siloed Expertise",
                 body: "Often locked into one specific technology stack regardless of the client's actual technical or business needs.",
             },
+        },
+    ],
+};
+
+// ── Core Expertise (homepage Precision Blueprint Matrix) ─────────────────────
+export const coreExpertiseContent = {
+    overline: "Capabilities & Infrastructure",
+    headline: "Engineered for Enterprise Scale. Accelerated by AI.",
+    highlightedWord: "Accelerated by AI.",
+    sub: "We don't just pick frameworks off the shelf. We orchestrate robust, modern cloud architectures, intelligent delivery pipelines, and resilient full-stack systems tailored to mission-critical operations.",
+    domains: [
+        {
+            id: "cloud-devops",
+            pill: "Cloud & DevOps",
+            title: "Enterprise Cloud & DevOps",
+            focus: "Mission-critical infrastructure designed for zero downtime, regulatory compliance, and scalable performance.",
+            cards: [
+                {
+                    title: "Cloud Architecture & Migration",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "AWS Ecosystem (Lambda, API Gateway, S3, RDS, ECS)",
+                        "Microsoft Azure Services",
+                        "Multi-Region Redundancy",
+                    ],
+                },
+                {
+                    title: "DevOps & Continuous Delivery",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "CI/CD Automation Pipelines",
+                        "Containerization (Docker, Kubernetes)",
+                        "Automated Provisioning (Terraform, IaC)",
+                    ],
+                },
+                {
+                    title: "Security & Compliance Standards",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Zero-Trust Networking",
+                        "Data Encryption at Rest & in Transit",
+                        "RBAC · SOC-2 & OWASP Readiness",
+                    ],
+                },
+            ],
+        },
+        {
+            id: "ai-sdlc",
+            pill: "AI & SDLC",
+            title: "AI Agents & AI-Powered SDLC",
+            focus: "Amplifying engineering velocity, code quality, and runtime efficiency through practical AI integration.",
+            cards: [
+                {
+                    title: "Autonomous AI Agents",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Context-aware task automation",
+                        "Dynamic CRM data routing agents",
+                        "Intelligent data extraction & validation",
+                    ],
+                },
+                {
+                    title: "AI-Accelerated Engineering",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Automated test generation",
+                        "Real-time code audit & vulnerability scans",
+                        "Synthetic test data generation",
+                    ],
+                },
+                {
+                    title: "Predictive Model Integration",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Custom LLM API integrations",
+                        "Vector search retrieval (RAG)",
+                        "Secure private enterprise AI sandboxes",
+                    ],
+                },
+            ],
+        },
+        {
+            id: "full-stack",
+            pill: "Full-Stack & UX",
+            title: "Full-Stack Engineering & Experience",
+            focus: "High-performance backend systems, resilient APIs, and intuitive interfaces engineered for complex enterprise logic and accessible interaction design.",
+            cards: [
+                {
+                    title: "Backend, Data & APIs",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Node.js · Java (Spring Boot) · Event-Driven Systems",
+                        "PostgreSQL · DynamoDB · MongoDB · Redis",
+                        "GraphQL & REST · Secure Gateway Integrations",
+                    ],
+                },
+                {
+                    title: "Modern Frontend Frameworks",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "React · Next.js · Angular · TypeScript",
+                        "Responsive Component Libraries",
+                        "State Management · Sub-second Core Web Vitals",
+                    ],
+                },
+                {
+                    title: "Design Systems & UX",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Figma-to-Code Pipelines · Interactive Prototyping",
+                        "Accessibility Compliance (WCAG 2.1 AA)",
+                        "Kinetic Micro-interactions · Dynamic Asset Delivery",
+                    ],
+                },
+            ],
+        },
+        {
+            id: "crm-automation",
+            pill: "CRM & Automation",
+            title: "CRM & Enterprise Automation",
+            focus: "Transforming core business workflows into automated, high-velocity growth engines.",
+            cards: [
+                {
+                    title: "Salesforce Architecture",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Service Cloud · Sales Cloud",
+                        "Custom Apex Development",
+                        "Lightning Web Components (LWC)",
+                    ],
+                },
+                {
+                    title: "Enterprise Middleware & Integrations",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Bidirectional CRM-to-ERP Sync",
+                        "State Lookup & Lead Routing Automation",
+                        "Web-to-Lead Engines",
+                    ],
+                },
+                {
+                    title: "Workflow Modernization",
+                    status: "ENTERPRISE READY",
+                    items: [
+                        "Legacy Process Digitization",
+                        "Automated Document Generation",
+                        "Real-Time Transaction Notifications",
+                    ],
+                },
+            ],
         },
     ],
 };

@@ -60,7 +60,9 @@ export function Challenges() {
                             <motion.div
                                 key={challenge.title}
                                 variants={scrollReveal}
-                                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-4 lg:p-4 xl:p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200 h-full"
+                                whileHover={{ y: -4 }}
+                                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-4 lg:p-4 xl:p-5 shadow-sm transition-[box-shadow,border-color] duration-300 hover:shadow-md hover:border-blue-200 h-full will-change-transform"
                             >
                                 {/* Top accent bar on hover */}
                                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#135498] to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

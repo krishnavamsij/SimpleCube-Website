@@ -2,7 +2,8 @@ import { Navbar } from "@/components/navbar";
 import { HeroCarousel } from "@/components/hero-carousel";
 // Scrolling client logos temporarily hidden from this build
 // import { TrustBar } from "@/components/trust-bar";
-import { Challenges } from "@/components/challenges";
+import { ChallengesSolve } from "@/components/ChallengesSolve";
+import { CoreExpertise } from "@/components/core-expertise";
 // Agile Delivery Model temporarily hidden from this build
 // import { Approach } from "@/components/approach";
 // Products section temporarily hidden from this build
@@ -30,7 +31,8 @@ export default function Home() {
         {/* Customer Stories temporarily hidden from this build */}
         {/* <VoiceOfCustomer /> */}
         <WhySimpleCube />
-        <Challenges />
+        <ChallengesSolve />
+        <CoreExpertise />
         <CareersHome />
         {/* Agile Delivery Model temporarily hidden from this build */}
         {/* <Approach /> */}

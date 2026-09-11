@@ -34,7 +34,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     template: "%s | SimpleCube",
-    default: "SimpleCube — Boutique Software Delivery | Custom Software, Salesforce, Digital Transformation",
+    default: "SimpleCube — Code that scales. Teams that listen. | Custom Software, Salesforce, Digital Transformation",
   },
   description: "Based in Texas, SimpleCube delivers custom software, Salesforce integrations, and digital transformation with lean, Agile execution.",
   icons: {
@@ -49,20 +49,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://hyniva.com",
     siteName: "SimpleCube",
-    title: "SimpleCube — Boutique Software Delivery",
+    title: "SimpleCube — Code that scales. Teams that listen.",
     description: "Custom software, Salesforce integrations, and digital transformation — Texas roots, boutique precision.",
     images: [
       {
         url: "https://hyniva.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SimpleCube — Boutique Software Delivery",
+        alt: "SimpleCube — Code that scales. Teams that listen.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpleCube — Boutique Software Delivery",
+    title: "SimpleCube — Code that scales. Teams that listen.",
     description: "Custom software, Salesforce integrations, and digital transformation — Texas roots, boutique precision.",
     images: ["https://hyniva.com/og-image.png"],
   },
