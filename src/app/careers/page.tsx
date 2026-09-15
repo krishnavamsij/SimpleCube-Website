@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { ChevronDown, X, Upload, MapPin } from "lucide-react";
 import { Navbar } from "@/components/navbar";
@@ -357,7 +357,7 @@ const cities = [
   'Sharjah, UAE',
 ];
 
-export default function CareersPage() {
+function CareersPageContent() {
   const searchParams = useSearchParams();
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -1384,5 +1384,21 @@ export default function CareersPage() {
 
       <Footer />
     </>
+  );
+}
+
+export default function CareersPage() {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <Navbar />
+          <main className="min-h-screen bg-white" />
+          <Footer />
+        </>
+      }
+    >
+      <CareersPageContent />
+    </Suspense>
   );
 }
