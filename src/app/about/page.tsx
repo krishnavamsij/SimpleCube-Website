@@ -9,8 +9,6 @@ import { DigitalGlobe } from "@/components/digital-globe";
 import { Zap, Lightbulb, Users, Target, Shield, Rocket, Gauge } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { Faq } from "@/components/faq";
-import { aboutUsFaqs } from "@/content/about-faqs";
 import { aboutContent } from "@/content/about";
 
 /* ─────────────── Icon Map ─────────────── */
@@ -1098,12 +1096,16 @@ export default function AboutPage() {
             <main>
                 <AboutHero />
                 <ApiSection />
-                <LeadershipSection />
+                {/* Leadership section temporarily hidden from this build */}
+                {/* <LeadershipSection /> */}
                 <ValuesSection />
                 <OperationsSection />
-                <DigitalFactorySection />
-                <TimelineSection />
-                <Faq items={aboutUsFaqs} />
+                {/* Agile delivery section temporarily hidden from this build */}
+                {/* <DigitalFactorySection /> */}
+                {/* Our Journey section temporarily hidden from this build */}
+                {/* <TimelineSection /> */}
+                {/* FAQ section temporarily hidden from this build */}
+                {/* <Faq items={aboutUsFaqs} /> */}
             </main>
             <Footer />
         </>

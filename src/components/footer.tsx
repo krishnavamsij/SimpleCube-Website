@@ -10,9 +10,15 @@ import { scrollReveal, viewportOnce } from "@/lib/animations";
 import { CONTAINER_CLASS } from "@/lib/container-utils";
 import { HighlightedHeadline } from "@/components/ui/highlighted-headline";
 
+type FooterLinkSection = {
+  title: string;
+  links: { title: string; href: string }[];
+};
+
 export function Footer({ hideCta = false }: { hideCta?: boolean }) {
   const { headline, highlightedWord, sub, cta } = ctaContent;
   const { sections, offices, linkedin, email, phone } = footerContent;
+  const linkSections: FooterLinkSection[] = sections;
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Rising isometric cubes (brand primary / secondary)
@@ -328,9 +334,10 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           </div>
 
           {/* Link columns area */}
+          {linkSections.length > 0 && (
           <div className="flex flex-col gap-8 lg:pr-16 xl:pr-20">
             <div className="grid grid-cols-2 gap-8 sm:flex sm:flex-wrap sm:gap-16 lg:gap-16 xl:gap-24 w-full">
-              {sections.map((section) => (
+              {linkSections.map((section) => (
                 <div key={section.title} className="min-w-0 sm:min-w-[120px] text-left">
                   <h5 className="mb-4 text-xs font-bold uppercase tracking-wider text-white text-left">
                     {section.title}
@@ -414,6 +421,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
             </div>
             */}
           </div>
+          )}
         </div>
       </div>
     </footer>

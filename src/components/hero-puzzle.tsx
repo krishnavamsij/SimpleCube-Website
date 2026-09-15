@@ -32,12 +32,8 @@ const CONFIG = {
         BACKGROUND: 0xf5f9fc,
     },
     CAMERA_DIST: 18.0,
-    /** Cell wireframes while flying / pre-shatter */
+    /** Per-cell white edge wireframes at full visibility */
     LINE_OPACITY: 0.75,
-    /** Thin white cell seams — during late assemble & before shatter */
-    CELL_SEAM_OPACITY: 0.55,
-    CELL_SEAM_MS: 2000,
-    CELL_SEAM_FADE_MS: 200,
     /** White outer silhouette while assembled */
     OUTER_EDGE_OPACITY: 1,
     /** Fat edge ribbon thickness (world units) — logo-like weight */
@@ -45,9 +41,10 @@ const CONFIG = {
     /** Thin white 3×3 grid lines on each large face (always on) */
     FACE_LINE_THICKNESS: 0.022,
     FACE_LINE_OPACITY: 0.9,
-    LINE_FADE_OUT_MS: 800,
-    LINE_PRE_SHATTER_MS: 1000,
-    LINE_FADE_IN_MS: 280,
+    /** Delay before outlines begin fading in during assemble (0–1 of assemble phase) */
+    OUTLINE_ASSEMBLE_DELAY: 0.12,
+    /** Delay before outlines begin fading out during shatter (0–1 of shatter phase) */
+    OUTLINE_SHATTER_DELAY: 0.08,
     /** Classic isometric pitch: arctan(1/√2) — logo-matched, held fixed while spinning */
     ISO_PITCH: Math.atan(1 / Math.sqrt(2)),
     /** Continuous slow spin about vertical axis only (rad/sec) */
@@ -323,38 +320,35 @@ export function HeroPuzzle() {
             content.add(faceGrid);
 
             const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
-            const cellLineOpacityForElapsed = (elapsed: number, ASSEMBLE: number, HOLD: number) => {
-                const { CELL_SEAM_OPACITY, CELL_SEAM_MS, CELL_SEAM_FADE_MS } = CONFIG;
-                const fade = CELL_SEAM_FADE_MS;
-
-                const seamOpacityInWindow = (sinceStart: number, windowMs: number) => {
-                    if (sinceStart < 0 || sinceStart > windowMs) return 0;
-                    if (sinceStart < fade) return CELL_SEAM_OPACITY * (sinceStart / fade);
-                    if (sinceStart > windowMs - fade) {
-                        return CELL_SEAM_OPACITY * ((windowMs - sinceStart) / fade);
-                    }
-                    return CELL_SEAM_OPACITY;
-                };
-
-                // 2s window that starts during assembly (last 2s of assemble)
-                if (elapsed < ASSEMBLE) {
-                    const windowStart = Math.max(0, ASSEMBLE - CELL_SEAM_MS);
-                    return seamOpacityInWindow(elapsed - windowStart, CELL_SEAM_MS);
-                }
-
-                // 2s before shatter
-                if (elapsed < ASSEMBLE + HOLD) {
-                    const holdElapsed = elapsed - ASSEMBLE;
-                    const preShatterAt = HOLD - CELL_SEAM_MS;
-                    return seamOpacityInWindow(holdElapsed - preShatterAt, CELL_SEAM_MS);
-                }
-
-                return 0;
+            const smoothstep = (t: number) => {
+                const clamped = Math.max(0, Math.min(1, t));
+                return clamped * clamped * (3 - 2 * clamped);
             };
 
-            /** White outer silhouette — always visible as the SimpleCube “magnet” frame */
-            const outerLineOpacityForElapsed = () => CONFIG.OUTER_EDGE_OPACITY;
+            /** Shared 0–1 fade envelope: in during assemble, hold, out during shatter */
+            const whiteOutlineFadeForElapsed = (
+                elapsed: number,
+                ASSEMBLE: number,
+                HOLD: number,
+                SHATTER: number,
+            ) => {
+                const { OUTLINE_ASSEMBLE_DELAY, OUTLINE_SHATTER_DELAY } = CONFIG;
+
+                if (elapsed < ASSEMBLE) {
+                    const t = elapsed / ASSEMBLE;
+                    const fadeT = Math.max(0, (t - OUTLINE_ASSEMBLE_DELAY) / (1 - OUTLINE_ASSEMBLE_DELAY));
+                    return smoothstep(fadeT);
+                }
+
+                if (elapsed < ASSEMBLE + HOLD) {
+                    return 1;
+                }
+
+                const shatterElapsed = elapsed - ASSEMBLE - HOLD;
+                const t = shatterElapsed / SHATTER;
+                const fadeT = Math.max(0, (t - OUTLINE_SHATTER_DELAY) / (1 - OUTLINE_SHATTER_DELAY));
+                return 1 - smoothstep(fadeT);
+            };
 
             const animate = () => {
                 animationFrameId = requestAnimationFrame(animate);
@@ -369,13 +363,15 @@ export function HeroPuzzle() {
                 content.rotation.z = 0;
                 orbit.rotation.y = ((now - globalStartTime) / 1000) * SPIN_RAD_PER_SEC;
 
-                const cellLineOpacity = cellLineOpacityForElapsed(elapsed, ASSEMBLE, HOLD);
-                outerEdgeMat.opacity = outerLineOpacityForElapsed();
-                outerOutline.visible = true;
+                const outlineFade = whiteOutlineFadeForElapsed(elapsed, ASSEMBLE, HOLD, SHATTER);
+                outerEdgeMat.opacity = CONFIG.OUTER_EDGE_OPACITY * outlineFade;
+                faceGridMat.opacity = CONFIG.FACE_LINE_OPACITY * outlineFade;
+                outerOutline.visible = outlineFade > 0.01;
+                faceGrid.visible = outlineFade > 0.01;
 
                 pieceGroups.forEach((p) => {
                     const data = p.userData;
-                    data.lineMat.opacity = cellLineOpacity;
+                    data.lineMat.opacity = CONFIG.LINE_OPACITY * outlineFade;
 
                     if (elapsed < ASSEMBLE) {
                         const localTime = Math.max(0, elapsed - data.staggerDelay);

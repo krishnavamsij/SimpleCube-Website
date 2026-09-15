@@ -42,7 +42,7 @@ export function CoreExpertise() {
     return (
         <section
             id="core-expertise"
-            className="relative border-t border-[#135498]/10 bg-[#F8FAFC] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden"
+            className="relative border-t border-[#135498]/10 bg-[#F8FAFC] py-[30px] sm:py-[40px] lg:py-[50px] overflow-hidden scroll-mt-20"
         >
             {/* Blueprint grid */}
             <div
@@ -155,11 +155,11 @@ export function CoreExpertise() {
                                     {active.focus}
                                 </p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:items-stretch">
                                     {active.cards.map((card) => (
                                         <article
                                             key={card.title}
-                                            className="group relative flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3886CE] hover:shadow-[0_12px_24px_-6px_rgba(19,84,152,0.08)]"
+                                            className="group relative flex h-full flex-col rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3886CE] hover:shadow-[0_12px_24px_-6px_rgba(19,84,152,0.08)]"
                                         >
                                             <div className="mb-4">
                                                 <h3 className="text-[14px] lg:text-[15px] font-black text-[#0A2F52] leading-tight tracking-tight font-display">
@@ -167,10 +167,10 @@ export function CoreExpertise() {
                                                 </h3>
                                             </div>
 
-                                            <ul className="flex flex-col gap-2 mt-auto">
+                                            <ul className="flex flex-col gap-2 sm:gap-2.5">
                                                 {card.items.map((item) => (
                                                     <li key={item}>
-                                                        <span className="inline-flex max-w-full rounded-lg bg-[rgba(56,134,206,0.08)] px-2.5 py-1.5 text-[12px] lg:text-[13px] font-medium leading-snug text-[#135498]">
+                                                        <span className="block w-full rounded-lg bg-[rgba(56,134,206,0.08)] px-2.5 py-2 text-[12px] lg:text-[13px] font-medium leading-snug text-[#135498]">
                                                             {item}
                                                         </span>
                                                     </li>

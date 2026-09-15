@@ -274,18 +274,6 @@ export const careersHomeContent = {
             featured: true,
             image: "/images/2025/12/industrial-technology-with-industrial-network-connection-scaled.jpg",
         },
-        {
-            icon: "Sparkles",
-            title: "AI-amplified engineering",
-            description:
-                "Leverage cutting-edge AI delivery models to amplify your coding capabilities and focus on complex problem-solving.",
-        },
-        {
-            icon: "Zap",
-            title: "Zero bureaucracy",
-            description:
-                "Thrive in an agile, zero-bureaucracy environment built for those who want to see the immediate impact of their work.",
-        },
     ],
     cta: { label: "Explore Careers", href: "/careers" },
 };
@@ -530,6 +518,7 @@ export const coreExpertiseContent = {
                         "AWS Ecosystem (Lambda, API Gateway, S3, RDS, ECS)",
                         "Microsoft Azure Services",
                         "Multi-Region Redundancy",
+                        "Hybrid Cloud & Lift-and-Shift Modernization",
                     ],
                 },
                 {
@@ -539,6 +528,7 @@ export const coreExpertiseContent = {
                         "CI/CD Automation Pipelines",
                         "Containerization (Docker, Kubernetes)",
                         "Automated Provisioning (Terraform, IaC)",
+                        "Observability, Alerting & Incident Runbooks",
                     ],
                 },
                 {
@@ -548,6 +538,7 @@ export const coreExpertiseContent = {
                         "Zero-Trust Networking",
                         "Data Encryption at Rest & in Transit",
                         "RBAC · SOC-2 & OWASP Readiness",
+                        "Secrets Management & Continuous Audit Logging",
                     ],
                 },
             ],
@@ -565,6 +556,7 @@ export const coreExpertiseContent = {
                         "Context-aware task automation",
                         "Dynamic CRM data routing agents",
                         "Intelligent data extraction & validation",
+                        "Multi-step agent orchestration across ops workflows",
                     ],
                 },
                 {
@@ -574,6 +566,7 @@ export const coreExpertiseContent = {
                         "Automated test generation",
                         "Real-time code audit & vulnerability scans",
                         "Synthetic test data generation",
+                        "AI-assisted refactoring, docs & PR review support",
                     ],
                 },
                 {
@@ -583,6 +576,7 @@ export const coreExpertiseContent = {
                         "Custom LLM API integrations",
                         "Vector search retrieval (RAG)",
                         "Secure private enterprise AI sandboxes",
+                        "Model monitoring, guardrails & governance policies",
                     ],
                 },
             ],
@@ -600,6 +594,7 @@ export const coreExpertiseContent = {
                         "Node.js · Java (Spring Boot) · Event-Driven Systems",
                         "PostgreSQL · DynamoDB · MongoDB · Redis",
                         "GraphQL & REST · Secure Gateway Integrations",
+                        "Microservices, caching layers & API rate limiting",
                     ],
                 },
                 {
@@ -609,6 +604,7 @@ export const coreExpertiseContent = {
                         "React · Next.js · Angular · TypeScript",
                         "Responsive Component Libraries",
                         "State Management · Sub-second Core Web Vitals",
+                        "SSR/SSG patterns for fast, SEO-ready experiences",
                     ],
                 },
                 {
@@ -618,6 +614,7 @@ export const coreExpertiseContent = {
                         "Figma-to-Code Pipelines · Interactive Prototyping",
                         "Accessibility Compliance (WCAG 2.1 AA)",
                         "Kinetic Micro-interactions · Dynamic Asset Delivery",
+                        "Shared design tokens & cross-platform UI systems",
                     ],
                 },
             ],
@@ -635,6 +632,7 @@ export const coreExpertiseContent = {
                         "Service Cloud · Sales Cloud",
                         "Custom Apex Development",
                         "Lightning Web Components (LWC)",
+                        "Experience Cloud & Field Service implementations",
                     ],
                 },
                 {
@@ -644,6 +642,7 @@ export const coreExpertiseContent = {
                         "Bidirectional CRM-to-ERP Sync",
                         "State Lookup & Lead Routing Automation",
                         "Web-to-Lead Engines",
+                        "MuleSoft & iPaaS integration patterns",
                     ],
                 },
                 {
@@ -653,6 +652,7 @@ export const coreExpertiseContent = {
                         "Legacy Process Digitization",
                         "Automated Document Generation",
                         "Real-Time Transaction Notifications",
+                        "Approval workflows & SLA-driven automation",
                     ],
                 },
             ],
@@ -907,36 +907,26 @@ export const ctaContent = {
 // ── Footer ───────────────────────────────────────────────────────────────────
 export const footerContent = {
     description: "Founded and operated in Texas, SimpleCube is a boutique software delivery partner — custom software, Salesforce integrations, and digital transformation with lean, Agile execution.",
-    sections: [
-        {
-            title: "Services",
-            links: [
-                { title: "Digital Transformation", href: "/services/digital-transformation" },
-                { title: "Salesforce Integrations & Development", href: "/services/enterprise-platforms/salesforce" },
-                { title: "Product Development", href: "/services/product-engineering" },
-                { title: "Custom Software Development", href: "/services/strategy-consulting" },
-            ],
-        },
-        // Products footer column temporarily hidden from this build
-        // {
-        //     title: "Products",
-        //     links: [
-        //         { title: "FinXServe", href: "/products/finxserve" },
-        //         { title: "Claim Pioneer", href: "/products/claim-pioneer" },
-        //         { title: "AIRA", href: "/products/aira" },
-        //         { title: "Hyper", href: "/products/hyper" },
-        //     ],
-        // },
-        {
-            title: "Company",
-            links: [
-                { title: "About SimpleCube", href: "/about" },
-                // { title: "Case Studies", href: "/insights/case-studies" },
-                { title: "Careers", href: "/careers" },
-                // { title: "Privacy Policy", href: "/privacy-policy" },
-            ],
-        },
-    ],
+    // Services, Products, and Company footer columns temporarily hidden from this build
+    sections: [] as { title: string; links: { title: string; href: string }[] }[],
+    // sections: [
+    //     {
+    //         title: "Products",
+    //         links: [
+    //             { title: "FinXServe", href: "/products/finxserve" },
+    //             { title: "Claim Pioneer", href: "/products/claim-pioneer" },
+    //             { title: "AIRA", href: "/products/aira" },
+    //             { title: "Hyper", href: "/products/hyper" },
+    //         ],
+    //     },
+    //     {
+    //         title: "Company",
+    //         links: [
+    //             { title: "About SimpleCube", href: "/about" },
+    //             { title: "Careers", href: "/careers" },
+    //         ],
+    //     },
+    // ],
     offices: [
         {
             country: "United States",

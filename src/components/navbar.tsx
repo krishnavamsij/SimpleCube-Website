@@ -1,25 +1,24 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { navContent } from "@/content/site-content";
 import { Button } from "@/components/ui/button";
+
+const navLinks = [
+    { label: "Overview", href: "/#why-simplecube" },
+    { label: "Services", href: "/#core-expertise" },
+    { label: "Careers", href: "/#careers-section" },
+] as const;
 
 export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
     void forceDarkText;
-    const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Top-of-page: solid primary blue bar. After scroll / mobile sheet: light chrome.
-    // forceDarkText kept for call-site compat; sitewide blue top bar is the default now.
     const isLightChrome = scrolled || mobileOpen;
 
     useEffect(() => {
@@ -28,51 +27,15 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleMouseEnter = (label: string) => {
-        if (closeTimeoutRef.current) {
-            clearTimeout(closeTimeoutRef.current);
-            closeTimeoutRef.current = null;
-        }
-        setOpenDropdown(label);
-    };
-
-    const handleMouseLeave = () => {
-        closeTimeoutRef.current = setTimeout(() => {
-            setOpenDropdown(null);
-        }, 150);
-    };
-
-    const dropdownItems: { 
-        label: string; 
-        href?: string; 
-        items?: { title: string; href: string; desc?: string; isBold?: boolean }[];
-        categories?: { category: string; isBold?: boolean; href?: string; items: { title: string; href: string; isBold?: boolean }[] }[];
-    }[] = [
-        // Products menu temporarily hidden from this build
-        // { label: "Products", items: navContent.products.map(p => ({ title: p.title, href: p.href })) },
-        { 
-            label: "Services", 
-            href: "/services", 
-            categories: navContent.services
-        },
-        // Industries menu temporarily hidden from this build
-        // { label: "Industries", items: navContent.industries.map(i => ({ title: i.title, href: i.href })) },
-        // Insights menu temporarily hidden from this build
-        // { label: "Insights", items: navContent.insights.map(i => ({ title: i.title, href: i.href })) },
-        {
-            label: "About",
-            items: [
-                ...navContent.about.map(a => ({ title: a.title, href: a.href })),
-            ],
-        },
-    ];
-
-    // Scrolled floating pill uses a fixed max (660px). Top bar is full-bleed.
-    // For revert of inset top bar, see docs/navbar-changelog.md.
+    const linkClassName = () =>
+        cn(
+            "rounded-full transition-all uppercase tracking-tight",
+            scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
+            isLightChrome ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white",
+        );
 
     return (
         <>
-            {/* Dark Backdrop Overlay */}
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
@@ -89,13 +52,12 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
             <motion.header
                 initial={false}
                 animate={{
-                    width: mobileOpen ? "100%" : (scrolled ? "85%" : "100%"),
-                    // Full-bleed at top; container clamp only for scrolled pill
-                    maxWidth: mobileOpen ? "100%" : (scrolled ? "660px" : "100%"),
+                    width: mobileOpen ? "100%" : scrolled ? "85%" : "100%",
+                    maxWidth: mobileOpen ? "100%" : scrolled ? "660px" : "100%",
                     left: scrolled && !mobileOpen ? "50%" : "0%",
                     x: scrolled && !mobileOpen ? "-50%" : "0%",
-                    top: mobileOpen ? 0 : (scrolled ? 14 : 0),
-                    borderRadius: mobileOpen ? "0 0 2rem 2rem" : (scrolled ? "9999px" : "0px"),
+                    top: mobileOpen ? 0 : scrolled ? 14 : 0,
+                    borderRadius: mobileOpen ? "0 0 2rem 2rem" : scrolled ? "9999px" : "0px",
                     backgroundColor: mobileOpen
                         ? "#ffffff"
                         : scrolled
@@ -121,374 +83,125 @@ export function Navbar({ forceDarkText = false }: { forceDarkText?: boolean }) {
                 style={{ position: "fixed" }}
             >
                 <div className="relative w-full">
-                <nav className={cn(
-                    "flex w-full items-center transition-all duration-300",
-                    scrolled && !mobileOpen ? "h-[46px] px-4" : "h-[64px] px-6 md:px-10 lg:px-16"
-                )}>
-                    {/* Logo — white on primary bar; blue on light scrolled / mobile chrome */}
-                    <Link href="/" className="flex items-center shrink-0">
-                        <Image
-                            src={
-                                isLightChrome
-                                    ? "/logos/simplecube/logo-blue.png"
-                                    : "/logos/simplecube/logo-white.png"
-                            }
-                            alt="SimpleCube"
-                            width={180}
-                            height={42}
-                            className={cn(
-                                "transition-all duration-500",
-                                scrolled && !mobileOpen ? "h-[22px] w-auto" : "h-9 w-auto"
-                            )}
-                            priority
-                        />
-                    </Link>
-
-                    {/* Spacer 1 */}
-                    <div className="flex-1" />
-
-                    {/* Desktop nav */}
-                    <div className="hidden items-center lg:flex gap-0 relative">
-                        {dropdownItems.map((group) => {
-                            const isServices = group.label === "Services";
-                            const isActive = isServices || (group.href && (pathname === group.href || (group.href !== "/" && pathname?.startsWith(group.href))));
-
-                            return (
-                                <div
-                                    key={group.label}
-                                    className={group.label === "Services" ? "static" : "relative"}
-                                    onMouseEnter={() => handleMouseEnter(group.label)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    {group.href ? (
-                                        <Link
-                                            href={group.href}
-                                            className={cn(
-                                                "flex items-center gap-1 rounded-full transition-all uppercase tracking-tight",
-                                                scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
-                                                (isActive || openDropdown === group.label)
-                                                    ? (isLightChrome
-                                                        ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
-                                                        : "text-white underline underline-offset-4 decoration-2 decoration-white")
-                                                    : (isLightChrome ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
-                                            )}
-                                        >
-                                            {group.label}
-                                            <ChevronDown className={cn(
-                                                scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
-                                                "transition-transform",
-                                                (isActive || openDropdown === group.label)
-                                                    ? (isLightChrome ? "opacity-70 text-slate-600" : "opacity-100 text-white")
-                                                    : "opacity-50",
-                                                openDropdown === group.label && "rotate-180"
-                                            )} />
-                                        </Link>
-                                    ) : (
-                                        <button className={cn(
-                                            "flex items-center gap-1 rounded-full transition-colors uppercase tracking-tight",
-                                            scrolled ? "px-2 py-1 text-[11px] font-bold" : "px-2.5 py-1.5 text-sm font-bold",
-                                            (isActive || openDropdown === group.label)
-                                                ? (isLightChrome
-                                                    ? "text-slate-600 underline underline-offset-4 decoration-2 decoration-slate-600"
-                                                    : "text-white underline underline-offset-4 decoration-2 decoration-white")
-                                                : (isLightChrome ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white")
-                                        )}>
-                                            {group.label}
-                                            <ChevronDown className={cn(
-                                                scrolled ? "h-2.5 w-2.5" : "h-3 w-3",
-                                                "transition-transform",
-                                                (isActive || openDropdown === group.label)
-                                                    ? (isLightChrome ? "opacity-70 text-slate-600" : "opacity-100 text-white")
-                                                    : "opacity-50",
-                                                openDropdown === group.label && "rotate-180"
-                                            )} />
-                                        </button>
-                                    )}
-                                <AnimatePresence>
-                                    {openDropdown === group.label && group.label !== "Services" && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                                            transition={{ duration: 0.2, ease: "easeOut" }}
-                                            className={cn(
-                                                "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.12)] p-2.5 max-w-[90vw]",
-                                                group.label === "About" ? "left-auto right-0 translate-x-0 w-[260px]" : "left-1/2 -translate-x-1/2 w-[260px]",
-                                                group.label === "Products" && "w-[340px]"
-                                            )}
-                                        >
-                                            {group.categories ? (
-                                                <div className="grid grid-cols-3 gap-8">
-                                                    {group.categories.map((cat) => (
-                                                        <div key={cat.category} className="space-y-3">
-                                                            <div className={cn(
-                                                                "px-0 py-0 text-slate-900",
-                                                                cat.isBold && "text-[15px] font-bold"
-                                                            )}>
-                                                                {cat.category}
-                                                            </div>
-                                                            {cat.items.map((item) => (
-                                                                <Link
-                                                                    key={item.title}
-                                                                    href={item.href}
-                                                                    className="group block rounded-lg px-0 py-1.5 transition-all hover:text-[#135498]"
-                                                                >
-                                                                    <span className={cn(
-                                                                        "text-[14px] text-slate-700 group-hover:text-[#135498] transition-colors",
-                                                                        item.isBold && "font-bold text-slate-900"
-                                                                    )}>{item.title}</span>
-                                                                </Link>
-                                                            ))}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            ) : group.items ? (
-                                                group.items.map((item) => (
-                                                    <Link
-                                                        key={item.title}
-                                                        href={item.href}
-                                                        className="group block rounded-xl px-4 py-3 transition-all hover:bg-slate-50"
-                                                    >
-                                                        <span className="text-sm font-bold text-slate-900 group-hover:text-[#135498] transition-colors">{item.title}</span>
-                                                        {item.desc && (
-                                                            <p className="mt-1 text-xs leading-relaxed text-slate-500 line-clamp-2">{item.desc}</p>
-                                                        )}
-                                                    </Link>
-                                                ))
-                                            ) : null}
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        );
-                    })}
-                    </div>
-
-                    {/* Spacer 2 */}
-                    <div className="flex-1" />
-
-                    {/* Desktop CTA — Contact Us */}
-                    <div className="hidden lg:flex items-center shrink-0">
-                        <Link href="/contact">
-                            <button
-                                className={cn(
-                                    "relative flex items-center justify-center rounded-full font-black border-none cursor-pointer transition-all duration-300 uppercase tracking-wide",
-                                    scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]",
-                                    isLightChrome ? "text-white" : "text-[#135498]"
-                                )}
-                                style={{
-                                    background: isLightChrome ? "#135498" : "#ffffff",
-                                    boxShadow: isLightChrome
-                                        ? "0 2px 8px rgba(19,84,152,0.3)"
-                                        : "0 2px 8px rgba(10,47,82,0.15)",
-                                }}
-                                onMouseEnter={e => {
-                                    const btn = e.currentTarget as HTMLButtonElement;
-                                    if (isLightChrome) {
-                                        btn.style.background = "#0F427A";
-                                        btn.style.boxShadow = "0 4px 12px rgba(19,84,152,0.5)";
-                                    } else {
-                                        btn.style.background = "#F5F9FC";
-                                        btn.style.boxShadow = "0 4px 12px rgba(10,47,82,0.2)";
-                                    }
-                                }}
-                                onMouseLeave={e => {
-                                    const btn = e.currentTarget as HTMLButtonElement;
-                                    if (isLightChrome) {
-                                        btn.style.background = "#135498";
-                                        btn.style.boxShadow = "0 2px 8px rgba(19,84,152,0.3)";
-                                    } else {
-                                        btn.style.background = "#ffffff";
-                                        btn.style.boxShadow = "0 2px 8px rgba(10,47,82,0.15)";
-                                    }
-                                }}
-                            >
-                                CONTACT US
-                            </button>
-                        </Link>
-                    </div>
-
-                    {/* Mobile toggle */}
-                    <div className="flex items-center gap-2 lg:hidden">
-                        <button className={cn(
-                            "p-2",
-                            isLightChrome ? "text-slate-900" : "text-white"
-                        )} onClick={() => setMobileOpen(!mobileOpen)}>
-                            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                        </button>
-                    </div>
-                </nav>
-
-            {/* Services Dropdown - positioned relative to header */}
-            <AnimatePresence>
-                {openDropdown === "Services" && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    <nav
                         className={cn(
-                            "absolute top-[calc(100%+8px)] rounded-2xl border border-slate-100 bg-white px-8 py-6 shadow-[0_20px_40px_rgba(0,0,0,0.12)]",
-                            scrolled ? "left-0 w-full" : "left-1/2 -translate-x-1/2 w-[90%] max-w-[900px]"
+                            "flex w-full items-center transition-all duration-300",
+                            scrolled && !mobileOpen ? "h-[46px] px-4" : "h-[64px] px-6 md:px-10 lg:px-16",
                         )}
-                        onMouseEnter={() => handleMouseEnter("Services")}
-                        onMouseLeave={handleMouseLeave}
-                        style={{ pointerEvents: "auto" }}
                     >
-                        <div className="grid grid-cols-3 gap-8">
-                            {(() => {
-                                const categories = dropdownItems.find(d => d.label === "Services")?.categories || [];
-                                const columns = [
-                                    categories[0] ? [categories[0]] : [],
-                                    categories[1] ? [categories[1]] : [],
-                                    [categories[2], categories[3]].filter(Boolean),
-                                ];
-                                return columns.map((col, colIdx) => (
-                                    <div key={colIdx} className="space-y-6">
-                                        {col.map((cat) => (
-                                            <div key={cat.category} className="space-y-1.5">
-                                                {cat.href ? (
-                                                    <Link
-                                                        href={cat.href}
-                                                        className={cn(
-                                                            "block px-0 py-0 text-slate-900 hover:text-[#135498] transition-colors mb-4",
-                                                            cat.isBold && "text-[15px] font-bold"
-                                                        )}
-                                                    >
-                                                        {cat.category}
-                                                    </Link>
-                                                ) : (
-                                                    <div className={cn(
-                                                        "px-0 py-0 text-slate-900 mb-4",
-                                                        cat.isBold && "text-[15px] font-bold"
-                                                    )}>
-                                                        {cat.category}
-                                                    </div>
-                                                )}
-                                                {cat.items.map((item) => (
-                                                    <Link
-                                                        key={item.title}
-                                                        href={item.href}
-                                                        className="group block rounded-lg px-0 py-0.5 transition-all hover:text-[#135498]"
-                                                    >
-                                                        <span className={cn(
-                                                            "text-slate-700 group-hover:text-[#135498] transition-colors",
-                                                            item.isBold ? "text-[15px] font-bold text-slate-900" : "text-[14px]"
-                                                        )}>{item.title}</span>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        ))}
-                                    </div>
-                                ));
-                            })()}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            </div>
+                        <Link href="/" className="flex shrink-0 items-center">
+                            <Image
+                                src={
+                                    isLightChrome
+                                        ? "/logos/simplecube/logo-blue.png"
+                                        : "/logos/simplecube/logo-white.png"
+                                }
+                                alt="SimpleCube"
+                                width={180}
+                                height={42}
+                                className={cn(
+                                    "transition-all duration-500",
+                                    scrolled && !mobileOpen ? "h-[22px] w-auto" : "h-9 w-auto",
+                                )}
+                                priority
+                            />
+                        </Link>
 
-            {/* Mobile menu */}
-            <AnimatePresence>
-                {mobileOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="border-t border-slate-100 bg-white lg:hidden overflow-hidden rounded-b-[2rem]"
-                    >
-                        <div className="max-h-[70vh] overflow-y-auto divide-y divide-slate-100 px-6 py-3">
-                            {dropdownItems.map((group) => {
-                                const isServices = group.label === "Services";
-                                const isActive = isServices || (group.href && (pathname === group.href || (group.href !== "/" && pathname?.startsWith(group.href))));
-                                return (
-                                <div key={group.label} className="py-3">
-                                    {group.href ? (
+                        <div className="flex-1" />
+
+                        <div className="relative hidden items-center gap-0 lg:flex">
+                            {navLinks.map((link) => (
+                                <Link key={link.label} href={link.href} className={linkClassName()}>
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+
+                        <div className="flex-1" />
+
+                        <div className="hidden shrink-0 items-center lg:flex">
+                            <Link href="/contact">
+                                <button
+                                    className={cn(
+                                        "relative flex cursor-pointer items-center justify-center rounded-full border-none font-black uppercase tracking-wide transition-all duration-300",
+                                        scrolled ? "h-7 px-3.5 text-[10px]" : "h-9 px-5 text-[12px]",
+                                        isLightChrome ? "text-white" : "text-[#135498]",
+                                    )}
+                                    style={{
+                                        background: isLightChrome ? "#135498" : "#ffffff",
+                                        boxShadow: isLightChrome
+                                            ? "0 2px 8px rgba(19,84,152,0.3)"
+                                            : "0 2px 8px rgba(10,47,82,0.15)",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        const btn = e.currentTarget as HTMLButtonElement;
+                                        if (isLightChrome) {
+                                            btn.style.background = "#0F427A";
+                                            btn.style.boxShadow = "0 4px 12px rgba(19,84,152,0.5)";
+                                        } else {
+                                            btn.style.background = "#F5F9FC";
+                                            btn.style.boxShadow = "0 4px 12px rgba(10,47,82,0.2)";
+                                        }
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        const btn = e.currentTarget as HTMLButtonElement;
+                                        if (isLightChrome) {
+                                            btn.style.background = "#135498";
+                                            btn.style.boxShadow = "0 2px 8px rgba(19,84,152,0.3)";
+                                        } else {
+                                            btn.style.background = "#ffffff";
+                                            btn.style.boxShadow = "0 2px 8px rgba(10,47,82,0.15)";
+                                        }
+                                    }}
+                                >
+                                    CONTACT US
+                                </button>
+                            </Link>
+                        </div>
+
+                        <div className="flex items-center gap-2 lg:hidden">
+                            <button
+                                className={cn("p-2", isLightChrome ? "text-slate-900" : "text-white")}
+                                onClick={() => setMobileOpen(!mobileOpen)}
+                            >
+                                {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+
+                <AnimatePresence>
+                    {mobileOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="overflow-hidden rounded-b-[2rem] border-t border-slate-100 bg-white lg:hidden"
+                        >
+                            <div className="max-h-[70vh] divide-y divide-slate-100 overflow-y-auto px-6 py-3">
+                                {navLinks.map((link) => (
+                                    <div key={link.label} className="py-3">
                                         <Link
-                                            href={group.href}
-                                            className={cn(
-                                                "text-[10px] font-black uppercase tracking-widest mb-2 block transition-colors",
-                                                isActive ? "text-[#135498]" : "text-slate-400 hover:text-[#135498]"
-                                            )}
+                                            href={link.href}
+                                            className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400 transition-colors hover:text-[#135498]"
                                             onClick={() => setMobileOpen(false)}
                                         >
-                                            {group.label}
+                                            {link.label}
                                         </Link>
-                                    ) : (
-                                        <p className={cn(
-                                            "text-[10px] font-black uppercase tracking-widest mb-2",
-                                            isActive ? "text-[#135498]" : "text-slate-400"
-                                        )}>{group.label}</p>
-                                    )}
-                                    {group.categories ? (
-                                        <div className="space-y-3">
-                                            {group.categories.map((cat) => (
-                                                <div key={cat.category} className="space-y-1">
-                                                    {cat.href ? (
-                                                        <Link
-                                                            href={cat.href}
-                                                            className={cn(
-                                                                "block px-2 py-1 text-[10px] uppercase tracking-wide hover:text-[#135498]",
-                                                                cat.isBold ? "text-slate-950 font-black" : "text-slate-600 font-bold"
-                                                            )}
-                                                            onClick={() => setMobileOpen(false)}
-                                                        >
-                                                            {cat.category}
-                                                        </Link>
-                                                    ) : (
-                                                        <div className={cn(
-                                                            "px-2 py-1 text-[10px] uppercase tracking-wide",
-                                                            cat.isBold ? "text-slate-950 font-black" : "text-slate-600 font-bold"
-                                                        )}>
-                                                            {cat.category}
-                                                        </div>
-                                                    )}
-                                                    {cat.items.map((item) => (
-                                                        <Link
-                                                            key={item.title}
-                                                            href={item.href}
-                                                            className={cn(
-                                                                "block rounded-md hover:bg-slate-50",
-                                                                item.isBold 
-                                                                    ? "px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-600" 
-                                                                    : "px-3 py-2 text-sm text-slate-700"
-                                                            )}
-                                                            onClick={() => setMobileOpen(false)}
-                                                        >
-                                                            {item.title}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : group.items ? (
-                                        <div className="space-y-1">
-                                            {group.items.map((item) => (
-                                                <Link
-                                                    key={item.title}
-                                                    href={item.href}
-                                                    className="block rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                                                    onClick={() => setMobileOpen(false)}
-                                                >
-                                                    {item.title}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    ) : null}
+                                    </div>
+                                ))}
+                                <div className="pb-6 pt-3">
+                                    <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                                        <Button className="w-full rounded-full bg-[#135498] text-[12px] font-black uppercase tracking-wide text-white hover:bg-[#0F427A]">
+                                            CONTACT US
+                                        </Button>
+                                    </Link>
                                 </div>
-                            ); })}
-                            <div className="pt-3 pb-6">
-                                <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                                    <Button className="w-full rounded-full bg-[#135498] text-white font-black hover:bg-[#0F427A] uppercase text-[12px] tracking-wide">
-                                        CONTACT US
-                                    </Button>
-                                </Link>
                             </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.header>
-    </>
-);
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.header>
+        </>
+    );
 }

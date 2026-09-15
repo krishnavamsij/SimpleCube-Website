@@ -93,7 +93,7 @@ export function WhySimpleCube() {
     return (
         <section
             id="why-simplecube"
-            className="relative overflow-hidden border-t border-[#135498]/10 bg-[#F5F9FC] py-[30px] sm:py-[40px] lg:py-[50px]"
+            className="relative overflow-hidden border-t border-[#135498]/10 bg-[#F5F9FC] py-[30px] sm:py-[40px] lg:py-[50px] scroll-mt-20"
             onMouseLeave={scheduleReset}
         >
             <div className={`relative ${CONTAINER_CLASS}`}>
