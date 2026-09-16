@@ -4,6 +4,7 @@ import {
   getResendFromEmail,
   RECIPIENT_CAREERS,
 } from "@/lib/email-config";
+import { getClientIp, verifyTurnstileToken } from "@/lib/turnstile";
 
 const ALLOWED_TYPES = new Set([
   "application/pdf",
@@ -37,6 +38,21 @@ export async function POST(request: Request) {
     }
 
     const formData = await request.formData();
+    const turnstileToken =
+      (formData.get("turnstileToken") as string | null) ??
+      (formData.get("cf-turnstile-response") as string | null);
+
+    const isHuman = await verifyTurnstileToken(
+      turnstileToken,
+      getClientIp(request),
+    );
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "Spam verification failed. Please try again." },
+        { status: 403 },
+      );
+    }
+
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const role = formData.get("role") as string;

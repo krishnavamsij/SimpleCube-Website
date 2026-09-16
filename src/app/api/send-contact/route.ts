@@ -4,6 +4,7 @@ import {
   getResendFromEmail,
   RECIPIENT_CONTACT,
 } from "@/lib/email-config";
+import { getClientIp, verifyTurnstileToken } from "@/lib/turnstile";
 
 export async function POST(request: Request) {
   try {
@@ -17,6 +18,23 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
+    const turnstileToken =
+      typeof body.turnstileToken === "string"
+        ? body.turnstileToken
+        : typeof body["cf-turnstile-response"] === "string"
+          ? body["cf-turnstile-response"]
+          : "";
+
+    const isHuman = await verifyTurnstileToken(
+      turnstileToken,
+      getClientIp(request),
+    );
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "Spam verification failed. Please try again." },
+        { status: 403 },
+      );
+    }
     const name = typeof body.name === "string" ? body.name.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim() : "";
     const phone = typeof body.phone === "string" ? body.phone.trim() : "";
